@@ -11,12 +11,8 @@ familyName: Google Sans Flex
 # to build OTFs. Also, Google Sans doesn't build OTFs, so it makes sense to do
 # the same for Flex
 buildOTF: false
-# FIXME: we are disabling building instances for now because the sources being
-# quadratic makes gftools/fontmake/ufo2ft fail while trying to remove overlaps.
-# We have no way to pass removeOverlaps = False through gftools or the config
-# file. To build instances, we would have to open a PR on gftools to allow this
-# to be passed through.
-# Furthermore, we may even want to build instances by slicing from the VF,
-# instead of interpolating UFOs, as Google Sans does.
-# This whole thing requires some thinking! 🤔
-buildTTF: false
+buildTTF: true
+
+# Outlines are quadratic, don't touch.
+reverseOutlineDirection: false
+removeOutlineOverlaps: false
