@@ -4,19 +4,19 @@ on: [push, release]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [linux, googlefonts-64cores-256GB]
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v4
       with:
-        python-version: 3.8
+        python-version: "3.x"
     - name: Install sys tools/deps
       run: |
         sudo apt-get update
         sudo apt-get install ttfautohint
         sudo snap install yq
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: ./venv/
         key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
@@ -64,7 +64,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
     - name: Archive artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ env.ZIP_NAME }}
         path: |
@@ -82,9 +82,9 @@ jobs:
     env:
       ZIP_NAME: ${{ needs.build.outputs.zip_name }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Download artefact files
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ env.ZIP_NAME }}
           path: ${{ env.ZIP_NAME }}
