@@ -14,7 +14,6 @@ jobs:
     - name: Install sys tools/deps
       run: |
         sudo apt-get update
-        sudo apt-get install ttfautohint
         sudo snap install yq
     - uses: actions/cache@v3
       with:
