@@ -4,13 +4,13 @@ on: [push, release]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [linux, googlefonts-64cores-256GB]
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v4
       with:
-        python-version: 3.8
+        python-version: "3.x"
     - name: Install sys tools/deps
       run: |
         sudo apt-get update
