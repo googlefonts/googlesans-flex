@@ -1,0 +1,123 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+languagesystem latn ROM;
+languagesystem latn MOL;
+languagesystem latn NLD;
+
+@FIGURES = [zero one two three four five six seven eight nine];
+
+@FIGURES_NUM = [zero.numerator one.numerator two.numerator three.numerator four.numerator five.numerator six.numerator seven.numerator eight.numerator nine.numerator];
+@FIGURES_DEN = [zero.denominator one.denominator two.denominator three.denominator four.denominator five.denominator six.denominator seven.denominator eight.denominator nine.denominator];
+
+feature locl {
+  script latn;
+  
+	  language NLD exclude_dflt;
+	    lookup IJ {
+	      sub I' J' by IJ;
+	      sub i' j' by ij;
+	    } IJ;
+	
+
+	  language ROM exclude_dflt;
+        lookup SUB_1423 {
+	      sub Scedilla by Scommaaccent;
+	      sub Tcedilla by Tcommaaccent;
+	      sub scedilla by scommaaccent;
+	      sub tcedilla by tcommaaccent;
+	   } SUB_1423;
+	   
+	   language MOL exclude_dflt;
+        lookup SUB_1424 {
+	      sub Scedilla by Scommaaccent;
+	      sub Tcedilla by Tcommaaccent;
+	      sub scedilla by scommaaccent;
+	      sub tcedilla by tcommaaccent;
+	   } SUB_1424;
+
+} locl;
+
+feature frac {
+
+lookup FractionBar {
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES slash';
+	ignore sub slash' @FIGURES slash;
+	ignore sub slash slash';
+	ignore sub slash' slash;
+	sub @FIGURES slash' @FIGURES by fraction;
+} FractionBar;
+
+lookup NUMERATOR_1 {
+	sub @FIGURES' fraction by @FIGURES_NUM;
+} NUMERATOR_1;
+
+lookup NUMERATOR_2 {
+	sub @FIGURES' @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_2;
+
+lookup NUMERATOR_3 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_3;
+
+lookup NUMERATOR_4 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_4;
+
+lookup NUMERATOR_5 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_5;
+
+lookup NUMERATOR_6 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_6;
+
+lookup NUMERATOR_7 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_7;
+
+lookup NUMERATOR_8 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_8;
+
+lookup NUMERATOR_9 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_9;
+
+lookup NUMERATOR_10 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_10;
+
+lookup Denominator {
+	sub [fraction @FIGURES_DEN] @FIGURES' by @FIGURES_DEN;
+} Denominator;
+
+#sub @FIGURES space' @FIGURES_NUM by thinspace;
+
+
+} frac;
+
+feature dnom {
+	sub @FIGURES by @FIGURES_DEN;
+} dnom;
+
+feature numr {
+	sub @FIGURES by @FIGURES_NUM;
+} numr;
