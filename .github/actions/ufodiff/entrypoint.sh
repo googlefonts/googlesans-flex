@@ -10,8 +10,8 @@ git config --global --add safe.directory /github/workspace
 # Change to repo location as otherwise ufodiff dies
 cd /github/workspace
 
-git fetch origin main
-git branch main origin/main
+git fetch origin main &> /dev/null
+git branch main origin/main &> /dev/null
 
 # Call ufodiff with the supplied args
 ufodiff $*
