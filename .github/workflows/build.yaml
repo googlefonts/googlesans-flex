@@ -81,3 +81,12 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           body: "Production ready fonts"
+  diff:
+    if: startsWith(github.ref_name, 'import-')
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run ufodiff
+        uses: ./.github/actions/ufodiff
