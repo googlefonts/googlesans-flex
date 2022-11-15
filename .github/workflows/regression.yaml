@@ -1,0 +1,26 @@
+name: Regression checks
+# We want to run regression checks on pushes that aren't to main, and that
+# build successfully. There isn't a great way to do this as
+# on.workflow_run.types doesn't actually distinguish whether the workflow
+# failed or not. However, now that we've checked that it's been run we can use
+# conditionals to check it was successful before starting regressions, it just
+# means in each job there must be the following conditional:
+# `github.event.workflow_run.conclusion == 'success'`
+# https://github.com/orgs/community/discussions/26238#discussioncomment-3250901
+on:
+  workflow_run:
+    workflows:
+      - Build font and specimen
+    branches-ignore:
+      - main
+    types:
+      - completed
+
+jobs:
+  diff:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run ufodiff
+        uses: ./.github/actions/ufodiff
