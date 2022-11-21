@@ -1,0 +1,29 @@
+name: Import sources to main
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "The name of the branch to import from"
+        required: true
+
+jobs:
+  import-script:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout main using the GitHub action for it
+      - uses: actions/checkout@v3
+        with:
+          path: main
+      - env:
+          SOURCE_BRANCH: ${{ github.event.inputs.branch }}
+        run: |
+          echo "Importing from $SOURCE_BRANCH"
+          cd /github/workspace/main
+          git fetch origin "$SOURCE_BRANCH"
+          git branch "$SOURCE_BRANCH" "origin/$SOURCE_BRANCH"
+          git worktree add ../staging "$SOURCE_BRANCH"
+      # At this point we have main in /github/workspace/main, and the target
+      # branch in /github/workspace/staging
+      # TODO: GitHub action for running the scripts in a Docker container
+      # TODO: can I use conditionals to check if the branch already exists and update it if it does?
