@@ -47,4 +47,5 @@ update-project-template:
 	npx update-template https://github.com/googlefonts/googlefonts-project-template/
 
 update:
-	pip install --upgrade $(dependency); pip freeze > requirements.txt
+	pip install -U pip-tools
+	pip-compile -U requirements.in
