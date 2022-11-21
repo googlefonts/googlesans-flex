@@ -33,11 +33,17 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Compile and Minify for Production
+
+Note: (Jany) There are typing issues (the Vue.js 2 types are not great),
+so I recommend using `build-only` instead of `build` to sidestep the typing.
 
 ```sh
-npm run build
+npm run build-only
 ```
+
+Then grab the file `dist/index.html`. You should be able to use this file by
+double-clicking on it, and distribute it to others so they can do the same.
 
 ### Lint with [ESLint](https://eslint.org/)
 
