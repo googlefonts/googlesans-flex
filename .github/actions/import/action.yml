@@ -1,0 +1,5 @@
+name: Import scripts
+description: Runs the gs-merge-designspace & gs-normalize-designspace scripts on two branches to merge them
+runs:
+  using: docker
+  image: Dockerfile
