@@ -25,55 +25,64 @@
       </div>
 
       <div class="axis-sliders">
-        <AxisSlider
-          v-model="wght"
-          name="Weight"
-          :min="1"
-          :max="1000"
-          :defaultValue="400"
-        />
-        <AxisSlider
-          v-model="wdth"
-          name="Width"
-          :min="25"
-          :max="151"
-          :defaultValue="100"
-        />
-        <AxisSlider
-          v-model="opsz"
-          name="Optical Size"
-          :min="6"
-          :max="144"
-          :defaultValue="18"
-        />
-        <AxisSlider
-          v-model="GRAD"
-          name="Grade"
-          :min="-50"
-          :max="50"
-          :defaultValue="0"
-        />
-        <AxisSlider
-          v-model="ROND"
-          name="Round"
-          :min="0"
-          :max="100"
-          :defaultValue="0"
-        />
+        <div style="flex-grow: 1">
+          <AxisSlider
+            v-model="userLocation.wght"
+            name="Weight"
+            :min="1"
+            :max="1000"
+            :defaultValue="400"
+          />
+          <AxisSlider
+            v-model="userLocation.wdth"
+            name="Width"
+            :min="25"
+            :max="151"
+            :defaultValue="100"
+          />
+          <AxisSlider
+            v-model="userLocation.opsz"
+            name="Optical Size"
+            :min="6"
+            :max="144"
+            :defaultValue="18"
+          />
+          <AxisSlider
+            v-model="userLocation.GRAD"
+            name="Grade"
+            :min="-50"
+            :max="50"
+            :defaultValue="0"
+          />
+          <AxisSlider
+            v-model="userLocation.ROND"
+            name="Round"
+            :min="0"
+            :max="100"
+            :defaultValue="0"
+          />
+        </div>
+        <div>
+          <InstanceDropdown v-model="userLocation" />
+        </div>
       </div>
 
       <div class="overlay-options">
-        <OtherSlider v-model="size" name="Font Size" :min="6" :max="400" />
-        <OtherSlider
-          v-model="offset"
-          name="Overlay Offset"
-          :min="-100"
-          :max="100"
-        />
-        <label>
-          <input type="checkbox" v-model="kerning" />
-          Kerning
-        </label>
+        <div style="flex-grow: 1">
+          <OtherSlider v-model="size" name="Font Size" :min="6" :max="400" />
+          <OtherSlider
+            v-model="offset"
+            name="Overlay Offset"
+            :min="-100"
+            :max="100"
+          />
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" v-model="kerning" />
+            Kerning
+          </label>
+        </div>
       </div>
     </header>
 
@@ -84,20 +93,23 @@
 <script lang="ts">
 import Vue from "vue";
 import AxisSlider from "./components/AxisSlider.vue";
+import InstanceDropdown from "./components/InstanceDropdown.vue";
 import OtherSlider from "./components/OtherSlider.vue";
 
 export default Vue.extend({
-  components: { AxisSlider, OtherSlider },
+  components: { AxisSlider, OtherSlider, InstanceDropdown },
   data() {
     return {
       font1: "",
       font2: "",
       blendMode: "redOnTop",
-      wght: 400,
-      wdth: 100,
-      opsz: 18,
-      GRAD: 0,
-      ROND: 0,
+      userLocation: {
+        wght: 400,
+        wdth: 100,
+        opsz: 18,
+        GRAD: 0,
+        ROND: 0,
+      },
       size: 20,
       offset: 0,
       kerning: true,
@@ -128,11 +140,11 @@ export default Vue.extend({
           .overlay-font1, .overlay-font2 {
             font-size: ${this.size}px;
             font-variation-settings:
-              "wght" ${this.wght},
-              "wdth" ${this.wdth},
-              "opsz" ${this.opsz},
-              "GRAD" ${this.GRAD},
-              "ROND" ${this.ROND};
+              "wght" ${this.userLocation.wght},
+              "wdth" ${this.userLocation.wdth},
+              "opsz" ${this.userLocation.opsz},
+              "GRAD" ${this.userLocation.GRAD},
+              "ROND" ${this.userLocation.ROND};
           }
           .overlay-font2 {
             position: relative;
@@ -205,9 +217,13 @@ header {
 
 .axis-sliders {
   margin-top: 1em;
+  display: flex;
+  gap: 1em;
 }
 
 .overlay-options {
   margin-top: 1em;
+  display: flex;
+  gap: 1em;
 }
 </style>
