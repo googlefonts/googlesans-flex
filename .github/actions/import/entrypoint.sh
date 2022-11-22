@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # Check branches are mounted
 if [ ! -d /github/workspace/main ]; then
@@ -10,6 +11,13 @@ if [ ! -d /github/workspace/staging ]; then
     exit 1
 fi
 
-echo "Hello world!"
+echo "Merging designspaces..."
+python3 /scripts/gs-merge-designspace.py \
+    --import-glyphs-file /glyph-list.txt \
+    --source /github/workspace/staging/sources/GoogleSansFlex.designspace \
+    --target /github/workspace/main/sources/GoogleSansFlex.designspace
+echo
 
-# TODO: run the actual Python scripts
+echo "Normalising designspaces..."
+python3 /scripts/gs-normalize-designspace.py \
+    --source-dir /github/workspace/main/sources

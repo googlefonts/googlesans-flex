@@ -4,6 +4,16 @@ Runs the `gs-merge-designspace` & `gs-noramlize-designspace` scripts on two bran
 
 The scripts are accessed via the `main` branch
 
+## Running locally
+
+Currently only known to work in WSL/Linux. The `local.sh` script will manage everything, including building the Docker image if you haven't already.
+
+Note: once the docker image has been made, it won't automatically be updated if anything changes, you will need to rebuild it with the following command:
+
+```bash
+docker build -t import .github/actions/import
+```
+
 ## Maintenance
 
 `requirements.txt` is currently maintained by hand.
