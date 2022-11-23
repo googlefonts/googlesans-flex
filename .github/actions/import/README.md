@@ -14,6 +14,9 @@ Note: once the docker image has been made, it won't automatically be updated if 
 docker build -t import .github/actions/import
 ```
 
+This script requires SSH authentication to be set up, and for you to have permission to access the Google Sans Flex repository.
+There's a guide to get this setup [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
 ## Maintenance
 
 `requirements.txt` is currently maintained by hand.
