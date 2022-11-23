@@ -1,0 +1,24 @@
+{
+  "input": {
+    "comparison_mode": "glyphstream",
+    "text": [
+      "0123456789",
+      "12/34",
+      "12.34",
+      "01/23/34 01-23-34 01.23.34"
+    ],
+    "features": {
+      "dnom": true
+    }
+  },
+  "output": {
+    "GoogleSansFlex[ROND,opsz,wdth,wght].ttf": {
+      "opsz=18.0,wdth=100.0,wght=100.0,ROND=0.0": [
+        "zero|one|two|three|four|five|six|seven|eight|nine",
+        "one|two|slash|three|four",
+        "one|two|period|three|four",
+        "zero|one|slash|two|three|slash|three|four|space|zero|one|hyphen|two|three|hyphen|three|four|space|zero|one|period|two|three|period|three|four"
+      ]
+    }
+  }
+}

@@ -32,6 +32,7 @@ test: venv build.stamp
 	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html --ghmarkdown out/fontbakery/fontbakery-googlesans-report.md qa/check-googlesans.py $(shell find fonts/variable -type f)
 	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html --ghmarkdown out/fontbakery/fontbakery-fea-report.md qa/check-fea.py $(shell find fonts/variable -type f)
 	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html --ghmarkdown out/fontbakery/fontbakery-charset-report.md qa/check-charset.py $(shell find fonts/variable -type f)
+	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html --ghmarkdown out/fontbakery/fontbakery-shaping-report.md qa/check-shaping.py $(shell find fonts/variable -type f)
 
 proof: venv build.stamp
 	. venv/bin/activate; mkdir -p out/ out/proof; gftools gen-html proof $(shell find fonts/variable -type f) -o out/proof
