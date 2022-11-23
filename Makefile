@@ -50,6 +50,12 @@ clean:
 update-project-template:
 	npx update-template https://github.com/googlefonts/googlefonts-project-template/
 
+update-glyphset-expectations:
+	. venv/bin/activate && python scripts/gs-update-glyphset-qa-files.py
+
+update-shaping-expectations:
+	. venv/bin/activate && bash -c "cd qa && bash update_all_shaping.sh"
+
 update:
 	pip install -U pip-tools
 	pip-compile -U requirements.in
