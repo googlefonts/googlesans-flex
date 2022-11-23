@@ -13,7 +13,6 @@ fi
 
 echo "Merging designspaces..."
 python3 /scripts/gs-merge-designspace.py \
-    --import-glyphs-file /glyph-list.txt \
     --source /github/workspace/staging/sources/GoogleSansFlex.designspace \
     --target /github/workspace/main/sources/GoogleSansFlex.designspace
 echo
