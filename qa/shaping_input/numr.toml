@@ -1,0 +1,11 @@
+[input]
+comparison_mode = "glyphstream"
+text = [
+    "0123456789",
+    "12/34",
+    "12.34",
+    "01/23/34 01-23-34 01.23.34",
+]
+
+[input.features]
+numr = true
