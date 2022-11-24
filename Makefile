@@ -57,6 +57,18 @@ update-glyphset-expectations:
 update-shaping-expectations:
 	. venv/bin/activate && bash -c "cd qa && bash update_all_shaping.sh"
 
+extract-glyph-metadata:
+	. venv/bin/activate && ufo-glyphdata-manager extract -o sources/glyph_metadata.csv sources/GoogleSansFlex-opsz18-wdth100-wght400-ROND0.ufo
+
+update-glyph-metadata:
+	. venv/bin/activate && python scripts/update-glyph-metadata.py sources/glyph_metadata.csv
+
+apply-glyph-metadata:
+	. venv/bin/activate && ufo-glyphdata-manager apply sources/glyph_metadata.csv sources/*.ufo
+
+normalize-sources:
+	. venv/bin/activate && python scripts/gs-normalize-designspace.py
+
 update:
 	pip install -U pip-tools
 	pip-compile -U requirements.in
