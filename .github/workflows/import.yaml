@@ -8,22 +8,42 @@ on:
         required: true
 
 jobs:
-  import-script:
+  import-branch:
     runs-on: ubuntu-latest
     steps:
       # Checkout main using the GitHub action for it
       - uses: actions/checkout@v3
         with:
           path: main
-      - env:
-          SOURCE_BRANCH: ${{ github.event.inputs.branch }}
+      - name: Prepare environment
+        env:
+          STAGING_BRANCH: ${{ github.event.inputs.branch }}
+          IMPORT_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
         run: |
-          echo "Importing from $SOURCE_BRANCH"
-          cd /github/workspace/main
-          git fetch origin "$SOURCE_BRANCH"
-          git branch "$SOURCE_BRANCH" "origin/$SOURCE_BRANCH"
-          git worktree add ../staging "$SOURCE_BRANCH"
-      # At this point we have main in /github/workspace/main, and the target
-      # branch in /github/workspace/staging
-      # TODO: GitHub action for running the scripts in a Docker container
-      # TODO: can I use conditionals to check if the branch already exists and update it if it does?
+          cd "$GITHUB_WORKSPACE/main"
+          git fetch origin "$STAGING_BRANCH"
+          git branch "$STAGING_BRANCH" "origin/$STAGING_BRANCH"
+          git worktree add ../staging "$STAGING_BRANCH"
+      - name: Run import scripts
+        uses: ./main/.github/actions/import
+      - name: Commit & push changes
+        env:
+          STAGING_BRANCH: ${{ github.event.inputs.branch }}
+          IMPORT_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
+        run: |
+          cd "$GITHUB_WORKSPACE/main"
+          git checkout -b "$IMPORT_BRANCH"
+          git config user.name "Import Script"
+          git config user.email "sd@daltonmaag.com"
+          git add sources
+          git commit --quiet -m "Import from $STAGING_BRANCH
+            
+          This commit was creating automatically using the GitHub workflow"
+          git push -u origin "$IMPORT_BRANCH"
+      - name: Open PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IMPORT_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
+        run: |
+          cd "$GITHUB_WORKSPACE/main"
+          gh pr create --head "$IMPORT_BRANCH" --fill
