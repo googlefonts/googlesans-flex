@@ -23,7 +23,7 @@ jobs:
           cd "$GITHUB_WORKSPACE/main"
           git fetch origin "$STAGING_BRANCH"
           git branch "$STAGING_BRANCH" "origin/$STAGING_BRANCH"
-          git worktree add ../staging "$STAGING_BRANCH"
+          git worktree add --quiet ../staging "$STAGING_BRANCH"
       - name: Run import scripts
         uses: ./main/.github/actions/import
       - name: Commit & push changes
