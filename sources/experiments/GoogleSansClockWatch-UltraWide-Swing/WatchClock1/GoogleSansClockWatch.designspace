@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<designspace format="4.1">
+  <axes>
+    <axis tag="swng" name="SWNG" minimum="-100" maximum="100" default="0">
+      <labelname xml:lang="en">Swing</labelname>
+    </axis>
+  </axes>
+  <sources>
+    <source filename="GoogleSansClockWatch-UltraWide-Swing--100.ufo" familyname="GoogleSans" stylename="UltraWide">
+      <location>
+        <dimension name="SWNG" xvalue="-100"/>
+      </location>
+    </source>
+    <source filename="GoogleSansClockWatch-UltraWide-Swing-100.ufo" familyname="GoogleSans" stylename="UltraWide">
+      <location>
+        <dimension name="SWNG" xvalue="100"/>
+      </location>
+    </source>
+    <source filename="GoogleSansClockWatch-UltraWide.ufo" familyname="GoogleSans" stylename="UltraWide">
+      <lib copy="1"/>
+      <groups copy="1"/>
+      <features copy="1"/>
+      <info copy="1"/>
+      <location>
+        <dimension name="SWNG" xvalue="0"/>
+      </location>
+    </source>
+  </sources>
+  <lib>
+    <dict>
+      <key>com.letterror.mathModelPref</key>
+      <string>previewVarLib</string>
+    </dict>
+  </lib>
+</designspace>

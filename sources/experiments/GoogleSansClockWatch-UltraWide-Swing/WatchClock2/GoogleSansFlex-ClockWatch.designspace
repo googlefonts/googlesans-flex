@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<designspace format="4.1">
+  <axes>
+    <axis tag="ROND" name="ROND" minimum="0" maximum="100" default="0">
+      <labelname xml:lang="en">Round Ends</labelname>
+    </axis>
+    <axis tag="SWNG" name="SWNG" minimum="-100" maximum="100" default="0">
+      <labelname xml:lang="en">Shift Glyphs</labelname>
+    </axis>
+  </axes>
+  <sources>
+    <source filename="GoogleSansFlex-opsz144-wdth120-wght1000-ROND0-SWNG-100.ufo" familyname="GoogleSansFlex-" stylename="opsz144-wdth120-wght1000-ROND0-SWNG-100">
+      <location>
+        <dimension name="ROND" xvalue="0"/>
+        <dimension name="SWNG" xvalue="-100"/>
+      </location>
+    </source>
+    <source filename="GoogleSansFlex-opsz144-wdth120-wght1000-ROND0-SWNG100.ufo" familyname="GoogleSansFlex-" stylename="opsz144-wdth120-wght1000-ROND0-SWNG100">
+      <location>
+        <dimension name="ROND" xvalue="0"/>
+        <dimension name="SWNG" xvalue="100"/>
+      </location>
+    </source>
+    <source filename="GoogleSansFlex-opsz144-wdth120-wght1000-ROND0-SWNG0.ufo" familyname="GoogleSansFlex-" stylename="opsz144-wdth120-wght1000-ROND0-SWNG0">
+      <lib copy="1"/>
+      <groups copy="1"/>
+      <features copy="1"/>
+      <info copy="1"/>
+      <location>
+        <dimension name="ROND" xvalue="0"/>
+        <dimension name="SWNG" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="GoogleSansFlex-opsz144-wdth120-wght1000-ROND100-SNG0.ufo" familyname="GoogleSansFlex-" stylename="opsz144-wdth120-wght1000-ROND100-SNG0">
+      <location>
+        <dimension name="ROND" xvalue="100"/>
+        <dimension name="SWNG" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="GoogleSansFlex-opsz144-wdth120-wght1000-ROND50-SWNG0.ufo" familyname="GoogleSansFlex-" stylename="opsz144-wdth120-wght1000-ROND0-SWNG0">
+      <location>
+        <dimension name="ROND" xvalue="50"/>
+        <dimension name="SWNG" xvalue="0"/>
+      </location>
+    </source>
+  </sources>
+  <lib>
+    <dict>
+      <key>com.letterror.mathModelPref</key>
+      <string>previewVarLib</string>
+    </dict>
+  </lib>
+</designspace>
