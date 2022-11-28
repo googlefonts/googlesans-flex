@@ -29,12 +29,15 @@ supported.
 from __future__ import annotations
 
 import argparse
+import copy
 import logging
+import shutil
 import sys
 from pathlib import Path
 from typing import Dict, List
 
 from fontTools.designspaceLib import DesignSpaceDocument, SourceDescriptor
+from internal.reachable_glyphs import referenced_as_components
 from ufoLib2 import Font
 
 MASTER_ID_KEY = "com.schriftgestaltung.fontMasterID"
@@ -64,24 +67,66 @@ def main():
             "Path to text file with glyph names to import (one per line). "
             "Also imports any kerning pair that mentions them."
         ),
+        required=True,
+    )
+    parser.add_argument(
+        "--replace-target-designspace",
+        action="store_true",
+        help=(
+            "Import the source Designspace verbatim, for when it is in flux and "
+            "matching sources makes little sense."
+        ),
+    )
+    parser.add_argument(
+        "--follow-glyphs",
+        action="store_true",
+        help=(
+            "Also import glyphs that are referenced but not explicitly listed in "
+            "the import list."
+        ),
     )
     parsed_args = parser.parse_args()
 
     # Read in stuff to import.
-    if parsed_args.import_glyphs_file is not None:
-        import_glyphs = {
-            name.strip()
-            for name in parsed_args.import_glyphs_file.read_text().split("\n")
-            if name
-        }
-    else:
-        import_glyphs = set()
+    import_glyphs_verbatim = [
+        name.strip()
+        for name in parsed_args.import_glyphs_file.read_text().split("\n")
+        if name
+    ]
+    import_glyphs = set(import_glyphs_verbatim)
+
+    replace_target_designspace: bool = parsed_args.replace_target_designspace
+    follow_glyphs: bool = parsed_args.follow_glyphs
 
     # Load all sources.
     designspace_import = DesignSpaceDocument.fromfile(parsed_args.source)
     designspace_import.loadSourceFonts(Font.open)
-    designspace_target = DesignSpaceDocument.fromfile(parsed_args.target)
-    designspace_target.loadSourceFonts(Font.open)
+    sources_to_delete = set()
+    if replace_target_designspace:
+        designspace_target = DesignSpaceDocument.fromfile(parsed_args.source)
+        for source, target in zip(
+            designspace_import.sources, designspace_target.sources
+        ):
+            if source.layerName is not None:
+                logging.error("Sparse layers not yet supported")
+                sys.exit(1)
+            target.path = None
+            assert source.font is not None
+            target.font = Font(
+                info=copy.deepcopy(source.font.info),
+                lib={"public.glyphOrder": import_glyphs_verbatim},
+            )
+
+        # Delete sources that don't exist anymore later.
+        designspace_target_old = DesignSpaceDocument.fromfile(parsed_args.target)
+        old_filenames = {
+            Path(source.filename) for source in designspace_target_old.sources
+        }
+        new_filenames = {Path(source.filename) for source in designspace_target.sources}
+        sources_to_delete = old_filenames - new_filenames
+    else:
+        designspace_target = DesignSpaceDocument.fromfile(parsed_args.target)
+        designspace_target.loadSourceFonts(Font.open)
 
     if not import_glyphs:
         logging.error("You should provide at least one file with stuff to import.")
@@ -137,6 +182,9 @@ def main():
                     "Added bracket glyph '%s', manually add to the Designspace rules.",
                     name,
                 )
+
+        if follow_glyphs:
+            import_glyphs.update(referenced_as_components(import_font, import_glyphs))
 
         for glyph_name in import_glyphs:
             try:
@@ -245,9 +293,20 @@ def main():
         # Write global public.skipExportGlyphs list to all UFOs.
         target_font.lib[SKIP_EXPORT_GLYPHS_KEY] = skip_export_glyphs
 
-        target_font.save()
+        if replace_target_designspace:
+            assert import_source.filename is not None
+            filename = parsed_args.target.parent / import_source.filename
+            filename.parent.mkdir(exist_ok=True, parents=True)
+            target_font.save(filename, overwrite=True)
+        else:
+            target_font.save()
 
     designspace_target.write(parsed_args.target)
+
+    for source in sorted(sources_to_delete):
+        path = parsed_args.target.parent / source
+        print(f"Removing leftover {path}")
+        shutil.rmtree(path)
 
 
 def canonical_location(
