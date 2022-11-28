@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import sys
 from pathlib import Path
 from typing import Dict, List
 
@@ -83,8 +84,8 @@ def main():
     designspace_target.loadSourceFonts(Font.open)
 
     if not import_glyphs:
-        logging.warning("no glyph list provided, pulling everything from source")
-        import_glyphs = designspace_import.findDefault().font.keys()
+        logging.error("You should provide at least one file with stuff to import.")
+        sys.exit(1)
 
     # Update skip export glyphs list.
     skip_export_glyphs_import = set(
@@ -100,14 +101,28 @@ def main():
     if skip_export_glyphs_target:
         designspace_target.lib[SKIP_EXPORT_GLYPHS_KEY] = skip_export_glyphs
 
+    default_import_source = designspace_import.findDefault()
+    assert default_import_source is not None
+    assert default_import_source.font is not None
+    actual_import_glyphs = default_import_source.font.keys()
+    if not import_glyphs.issubset(actual_import_glyphs):
+        missing_glyphs = import_glyphs.difference(actual_import_glyphs)
+        logging.warning(
+            "Sources to import are missing some glyphs, skipping: %s",
+            ", ".join(sorted(missing_glyphs)),
+        )
+        import_glyphs.intersection_update(actual_import_glyphs)
+
     # Actually import now.
     for import_source in designspace_import.sources:
-        import_font: Font = import_source.font
+        assert import_source.font is not None
+        import_font = import_source.font
         target_source = find_matching_source(
             import_source, designspace_import, designspace_target
         )
         if target_source is None:
             continue
+        assert target_source.font is not None
         target_font = target_source.font
 
         # Snatch up any bracket glyphs for glyphs without them being explicitly
