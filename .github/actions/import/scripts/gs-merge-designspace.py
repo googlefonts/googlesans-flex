@@ -223,7 +223,7 @@ def main():
                 if key in import_glyphs:
                     target_ps_names[key] = value
         except KeyError:
-            logging.warning(
+            logging.info(
                 "public.postscriptNames does not exist in both the source & target UFO, skipping",
             )
 
