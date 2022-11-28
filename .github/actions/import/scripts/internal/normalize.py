@@ -26,7 +26,7 @@ from fontTools.designspaceLib import (
     SourceDescriptor,
 )
 from fontTools.misc.transform import Transform
-from glyphsLib.builder.builders import _expand_kerning_to_brackets
+from glyphsLib.builder.bracket_layers import _expand_kerning_to_brackets
 
 from . import gdef
 
