@@ -2,23 +2,31 @@
 
 Runs the `gs-merge-designspace` & `gs-noramlize-designspace` scripts on two branches of a repository (both available using `git worktree`), expected at `/github/workspace/main` and `/github/workspace/staging`
 
-The scripts are accessed via the `main` branch
+The scripts are accessed via the 'base' branch of the PR
 
 ## Running locally
 
-Currently only known to work in WSL/Linux. The `local.sh` script will manage everything, including building the Docker image if you haven't already.
+Requirements:
+* MacOS/Linux/WSL bash shell
+* Docker
+* GitHub SSH authentication ([guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh))
 
-Note: once the docker image has been made, it won't automatically be updated if anything changes, you will need to rebuild it with the following command:
+Usage:
+
+Make sure you're in a terminal in the repository root, then run
 
 ```bash
-docker build -t import .github/actions/import
+./.github/actions/import/local.sh <branch name>
 ```
 
-This script requires SSH authentication to be set up, and for you to have permission to access the Google Sans Flex repository.
-There's a guide to get this setup [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+The script will detect whether you are updating an existing import or starting a new one.
+The only difference to the GitHub workflow is that it will not create a pull request for you if one does not already exist
 
 ## Maintenance
 
 `requirements.txt` is currently maintained by hand.
 Versions are pinned to ensure reproducible builds.
 It's probably recommended to keep the versions inline with those that are used to build `<repo root>/requirements.txt`
+
+`glyph-list.txt` also needs to be maintained.
+It is not currently in use, but is expected to be in due course
