@@ -26,18 +26,15 @@ Designspace rules are also left untouched. Glyphs.app brace layers are not
 supported.
 """
 
+from __future__ import annotations
+
 import argparse
-import collections
-import copy
 import logging
-import sys
 from pathlib import Path
 from typing import Dict, List
 
-import ufoLib2
-from fontTools.designspaceLib import DesignSpaceDocument
-
-from internal.normalize import location_to_key
+from fontTools.designspaceLib import DesignSpaceDocument, SourceDescriptor
+from ufoLib2 import Font
 
 MASTER_ID_KEY = "com.schriftgestaltung.fontMasterID"
 SKIP_EXPORT_GLYPHS_KEY = "public.skipExportGlyphs"
@@ -98,9 +95,9 @@ def main():
 
     # Load all sources.
     designspace_import = DesignSpaceDocument.fromfile(parsed_args.source)
-    designspace_import.loadSourceFonts(ufoLib2.Font.open)
+    designspace_import.loadSourceFonts(Font.open)
     designspace_target = DesignSpaceDocument.fromfile(parsed_args.target)
-    designspace_target.loadSourceFonts(ufoLib2.Font.open)
+    designspace_target.loadSourceFonts(Font.open)
 
     if not import_glyphs:
         logging.warning("no glyph list provided, pulling everything from source")
@@ -120,76 +117,15 @@ def main():
     if skip_export_glyphs_target:
         designspace_target.lib[SKIP_EXPORT_GLYPHS_KEY] = skip_export_glyphs
 
-    # Whether any of the sources to be imported is ungraded.
-    import_is_ungraded = False
-
-    def canonical_location(
-        location: Dict[str, float], designspace: DesignSpaceDocument
-    ) -> Dict[str, float]:
-        """Returns a canonical location from a raw Designspace location.
-
-        Vendor sources are inconsistent, so using user values and tags to match
-        source axes is hopefully more reliable.
-        """
-        name_to_axis = {a.name: a for a in designspace.axes}
-        name_to_tag = {a.name: a.tag for a in designspace.axes}
-        return {
-            name_to_tag[k]: name_to_axis[k].map_backward(v) for k, v in location.items()
-        }
-
     # Actually import now.
     for import_source in designspace_import.sources:
-        if import_source.layerName is not None:
-            logging.error(
-                "Brace layers not supported currently: %s", import_source.asdict()
-            )
-            continue
-
-        if "GRAD" not in import_source.location:
-            import_is_ungraded = True
-
-        # Fill in the defaults if the import DS does not have e.g. a GRAD axis.
-        # Match axes by tags because those are more consistent across vendor sources.
-        import_source_location = canonical_location(
-            import_source.location, designspace_import
+        import_font: Font = import_source.font
+        target_source = find_matching_source(
+            import_source, designspace_import, designspace_target
         )
-        full_import_source_location = {
-            **canonical_location(
-                designspace_target.default.location, designspace_target
-            ),
-            **import_source_location,
-        }
-
-        # Match import to target UFO.
-        try:
-            target_source = next(
-                s
-                for s in designspace_target.sources
-                if (
-                    canonical_location(s.location, designspace_target)
-                    == full_import_source_location
-                )
-            )
-        except StopIteration:
-            try:
-                target_source = next(
-                    s
-                    for s in designspace_target.sources
-                    if s.font.lib[MASTER_ID_KEY]
-                    == import_source.font.lib[MASTER_ID_KEY]
-                )
-            except (StopIteration, KeyError):
-                # FIXME: Have a proper way to add new sources
-                logging.warning(
-                    "Cannot find target for source %s because there's no target location %s "
-                    "and no target with a matching master ID.",
-                    import_source.name,
-                    full_import_source_location,
-                )
-                continue
-
-        import_font: ufoLib2.Font = import_source.font
-        target_font: ufoLib2.Font = target_source.font
+        if target_source is None:
+            continue
+        target_font = target_source.font
 
         # Snatch up any bracket glyphs for glyphs without them being explicitly
         # listed in the import file. ".BRACKET." is a glyphsLib convention.
@@ -319,6 +255,72 @@ def main():
         target_font.save()
 
     designspace_target.write(parsed_args.target)
+
+
+def canonical_location(
+    location: Dict[str, float], designspace: DesignSpaceDocument
+) -> Dict[str, float]:
+    """Returns a canonical location from a raw Designspace location.
+
+    Vendor sources are inconsistent, so using user values and tags to match
+    source axes is hopefully more reliable.
+    """
+    name_to_axis = {a.name: a for a in designspace.axes}
+    name_to_tag = {a.name: a.tag for a in designspace.axes}
+    return {
+        name_to_tag[k]: name_to_axis[k].map_backward(v) for k, v in location.items()
+    }
+
+
+def find_matching_source(
+    import_source: SourceDescriptor,
+    designspace_import: DesignSpaceDocument,
+    designspace_target: DesignSpaceDocument,
+) -> Font | None:
+    if import_source.layerName is not None:
+        logging.error(
+            "Brace layers not supported currently: %s", import_source.asdict()
+        )
+        return None
+
+    # Fill in the defaults if the import DS does not have e.g. a GRAD axis.
+    # Match axes by tags because those are more consistent across vendor sources.
+    import_source_location = canonical_location(
+        import_source.location, designspace_import
+    )
+    full_import_source_location = {
+        **canonical_location(designspace_target.default.location, designspace_target),
+        **import_source_location,
+    }
+
+    # Match import to target UFO.
+    try:
+        target_source = next(
+            s
+            for s in designspace_target.sources
+            if (
+                canonical_location(s.location, designspace_target)
+                == full_import_source_location
+            )
+        )
+    except StopIteration:
+        try:
+            target_source = next(
+                s
+                for s in designspace_target.sources
+                if s.font.lib[MASTER_ID_KEY] == import_source.font.lib[MASTER_ID_KEY]
+            )
+        except (StopIteration, KeyError):
+            # FIXME: Have a proper way to add new sources
+            logging.warning(
+                "Cannot find target for source %s because there's no target location %s "
+                "and no target with a matching master ID.",
+                import_source.name,
+                full_import_source_location,
+            )
+            return None
+
+    return target_source
 
 
 if __name__ == "__main__":
