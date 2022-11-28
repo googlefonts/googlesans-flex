@@ -64,14 +64,6 @@ def main():
             "Also imports any kerning pair that mentions them."
         ),
     )
-    parser.add_argument(
-        "--import-groups-file",
-        type=Path,
-        help=(
-            "Path to text file with group names to import (one per line). "
-            "Also imports any kerning pair that mentions them."
-        ),
-    )
     parsed_args = parser.parse_args()
 
     # Read in stuff to import.
@@ -83,15 +75,6 @@ def main():
         }
     else:
         import_glyphs = set()
-
-    if parsed_args.import_groups_file is not None:
-        import_groups = {
-            name.strip()
-            for name in parsed_args.import_groups_file.read_text().split("\n")
-            if name
-        }
-    else:
-        import_groups = set()
 
     # Load all sources.
     designspace_import = DesignSpaceDocument.fromfile(parsed_args.source)
@@ -151,18 +134,13 @@ def main():
                     str(import_source.filename),
                 )
 
-        # If no group import list has been specified, gather all groups that mention
-        # any of the imported glyphs. They can already exist in the target font
-        # (adding new glyphs to existing groups) or not (new script-specific
-        # groups).
+        # Gather all groups that mention any of the imported glyphs. They can
+        # already exist in the target font (adding new glyphs to existing
+        # groups) or not (new script-specific groups).
         import_font_groups = set()
-        if not import_groups:
-            for group, glyphs in import_font.groups.items():
-                if any(n in import_glyphs for n in glyphs):
-                    import_font_groups.add(group)
-
-        # Use global groups list or, if non passed in, font specific one for checks below.
-        import_groups_to_check = import_groups or import_font_groups
+        for group, glyphs in import_font.groups.items():
+            if any(n in import_glyphs for n in glyphs):
+                import_font_groups.add(group)
 
         # Clean glyphs to be imported from the target UFO kerning groups, so
         # importing the source kerning then does not lead to duplicate group
@@ -186,7 +164,7 @@ def main():
         # Importing a group that already exists should extend the existing group with
         # imported glyphs instead of overwriting the group.
         target_groups_extended = set()
-        for group_name in import_groups_to_check:
+        for group_name in import_font_groups:
             try:
                 group_glyphs = import_font.groups[group_name]
             except KeyError as e:
@@ -215,7 +193,7 @@ def main():
         #       the script in question. This is the more relevant the more out-of-sync
         #       a source font is relative to the target font. One solution is to
         #       remove extended groups from the set of groups to check for inclusion.
-        import_groups_to_check = import_groups_to_check - target_groups_extended
+        import_groups_to_check = import_font_groups - target_groups_extended
         for key, value in import_font.kerning.items():
             first, second = key
             if (first not in import_font and first not in import_font.groups) or (
