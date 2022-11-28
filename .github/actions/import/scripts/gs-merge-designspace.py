@@ -254,7 +254,7 @@ def find_matching_source(
     import_source: SourceDescriptor,
     designspace_import: DesignSpaceDocument,
     designspace_target: DesignSpaceDocument,
-) -> Font | None:
+) -> SourceDescriptor | None:
     if import_source.layerName is not None:
         logging.error(
             "Brace layers not supported currently: %s", import_source.asdict()
