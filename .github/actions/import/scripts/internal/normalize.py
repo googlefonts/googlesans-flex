@@ -79,7 +79,7 @@ def scrub_instance(instance: InstanceDescriptor, project_root: Path) -> None:
     instance.filename = None
     # TODO: Adapt to Flex
     instance.path = str(
-        project_root / "build" / "GoogleSans" / "instance_ufo" / filename.name
+        project_root / "fonts" / "instance_ufo" / filename.name
     )
 
 
