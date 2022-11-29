@@ -14,7 +14,9 @@ fi
 echo "Merging designspaces..."
 python3 /scripts/gs-merge-designspace.py \
     --source /github/workspace/staging/sources/GoogleSansFlex.designspace \
-    --target /github/workspace/main/sources/GoogleSansFlex.designspace
+    --target /github/workspace/main/sources/GoogleSansFlex.designspace \
+    --import-glyphs-file glyph-list.txt \
+    --replace-target-designspace --follow-glyphs # While sources are in flux
 echo
 
 echo "Normalising designspaces..."
