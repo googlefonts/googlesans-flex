@@ -117,13 +117,14 @@ def main():
                 lib={"public.glyphOrder": import_glyphs_verbatim},
             )
 
-        # Delete sources that don't exist anymore later.
-        designspace_target_old = DesignSpaceDocument.fromfile(parsed_args.target)
-        old_filenames = {
-            Path(source.filename) for source in designspace_target_old.sources
-        }
-        new_filenames = {Path(source.filename) for source in designspace_target.sources}
-        sources_to_delete = old_filenames - new_filenames
+        # Delete sources that don't exist anymore later, if they exist at all.
+        if parsed_args.target.exists():
+            designspace_target_old = DesignSpaceDocument.fromfile(parsed_args.target)
+            old_filenames = {
+                Path(source.filename) for source in designspace_target_old.sources
+            }
+            new_filenames = {Path(source.filename) for source in designspace_target.sources}
+            sources_to_delete = old_filenames - new_filenames
     else:
         designspace_target = DesignSpaceDocument.fromfile(parsed_args.target)
         designspace_target.loadSourceFonts(Font.open)
