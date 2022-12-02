@@ -11,7 +11,7 @@ if [ ! -d /github/workspace/staging ]; then
     exit 1
 fi
 
-echo "Merging designspaces..."
+echo "Merging upright designspace..."
 python3 /scripts/gs-merge-designspace.py \
     --source /github/workspace/staging/sources/roman/GoogleSansFlex.designspace \
     --target /github/workspace/main/sources/regular/GoogleSansFlex.designspace \
@@ -19,6 +19,18 @@ python3 /scripts/gs-merge-designspace.py \
     --replace-target-designspace --follow-glyphs # While sources are in flux
 echo
 
-echo "Normalising designspaces..."
+echo "Normalising upright designspaces..."
 python3 /scripts/gs-normalize-designspace.py \
     --source-dir /github/workspace/main/sources/regular/
+
+echo "Merging italic designspace..."
+python3 /scripts/gs-merge-designspace.py \
+    --source /github/workspace/staging/sources/italic/Italic-opsz18.designspace \
+    --target /github/workspace/main/sources/italic/GoogleSansFlex-Italic.designspace \
+    --import-glyphs-file glyph-list.txt \
+    --replace-target-designspace --follow-glyphs # While sources are in flux
+echo
+
+echo "Normalising italic designspaces..."
+python3 /scripts/gs-normalize-designspace.py \
+    --source-dir /github/workspace/main/sources/italic/
