@@ -69,7 +69,7 @@ update-shaping-expectations:
 
 update:
 	pip install -U pip-tools
-	pip-compile -U requirements.in
+	pip-compile --resolver=backtracking -U requirements.in
 
 file-size: build
 	. venv/bin/activate && find fonts -name '*.ttf' -type f | xargs python .github/actions/file-size/report-filesize.py
@@ -82,3 +82,15 @@ bump-to-tag: venv
 
 glyph-hunt: venv
 	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
+
+extract-glyph-metadata:
+	venv/bin/ufo-glyphdata-manager extract -o sources/glyph_metadata.csv sources/regular/GoogleSansFlex-opsz18-wdth100-wght400-ROND0.ufo
+
+regenerate-glyph-metadata:
+	venv/bin/python scripts/update-glyph-metadata.py sources/glyph_metadata.csv
+
+apply-glyph-metadata:
+	venv/bin/ufo-glyphdata-manager apply sources/glyph_metadata.csv sources/**/*.ufo
+
+normalize-sources:
+	venv/bin/python scripts/gs-normalize-designspace.py
