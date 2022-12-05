@@ -1,6 +1,6 @@
-FROM python:3.8.15-alpine
+FROM python:3.8.15-slim
 
-RUN apk add git
+RUN apt update && apt install git -y --no-install-recommends
 
 RUN pip install ufodiff
 

@@ -8,17 +8,14 @@ name: Regression checks
 # `github.event.workflow_run.conclusion == 'success'`
 # https://github.com/orgs/community/discussions/26238#discussioncomment-3250901
 on:
-  workflow_run:
-    workflows:
-      - Build font and specimen
+  push:
     branches-ignore:
       - main
-    types:
-      - completed
+    paths:
+      - sources/**
 
 jobs:
-  diff:
-    if: github.event.workflow_run.conclusion == 'success'
+  ufodiff:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
