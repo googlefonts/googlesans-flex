@@ -11,7 +11,7 @@ fi
 REPO_DIR=$(pwd)
 STAGING_BRANCH=$1
 IMPORT_BRANCH_NAME="import-$STAGING_BRANCH"
-git ls-remote --exit-code --heads git@github.com:daltonmaag/googlesans-flex-playground.git "$IMPORT_BRANCH_NAME" &> /dev/null
+git ls-remote --exit-code --heads git@github.com:googlefonts/googlesans-flex.git "$IMPORT_BRANCH_NAME" &> /dev/null
 BRANCH_EXISTS_STATUS=$?
 case $BRANCH_EXISTS_STATUS in
     2)
@@ -77,7 +77,7 @@ if [[ $DOCKER_EXIT_STATUS -eq 0 && ! $(git diff-index --quiet HEAD --) ]] ; then
         
 This commit was creating automatically using the local import script"
         echo "Pushing import branch to GitHub repository"
-        git push -u playground "$IMPORT_BRANCH_NAME"
+        git push -u origin "$IMPORT_BRANCH_NAME"
         echo
         echo "SUCCESS: pushed to branch $IMPORT_BRANCH_NAME, ready for you to open a PR!"
     else
