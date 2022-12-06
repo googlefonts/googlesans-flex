@@ -2,8 +2,8 @@
 <glyph name="S" format="2">
   <advance width="1050"/>
   <unicode hex="0053"/>
-  <anchor x="537.9733333333334" y="0.0" name="bottom"/>
-  <anchor x="523.9733333333334" y="1432.0" name="top"/>
+  <anchor x="537.9733333333334" y="0" name="bottom"/>
+  <anchor x="523.9733333333334" y="1432" name="top"/>
   <outline>
     <contour>
       <point x="558" y="-31" type="qcurve"/>
@@ -36,7 +36,7 @@
       <point x="109" y="1100" type="line"/>
       <point x="109" y="1250"/>
       <point x="350" y="1462"/>
-      <point x="541" y="1462.0" type="qcurve" smooth="yes"/>
+      <point x="541" y="1462" type="qcurve" smooth="yes"/>
       <point x="699" y="1462"/>
       <point x="918" y="1334"/>
       <point x="945" y="1184" type="qcurve"/>
@@ -47,12 +47,12 @@
       <point x="867" y="1104" type="line"/>
       <point x="789" y="1088"/>
       <point x="790" y="1088"/>
-      <point x="772.0" y="1162" type="qcurve"/>
-      <point x="772.0" y="1162" type="line"/>
+      <point x="772" y="1162" type="qcurve"/>
+      <point x="772" y="1162" type="line"/>
       <point x="757" y="1232"/>
       <point x="633" y="1301"/>
       <point x="534" y="1301" type="qcurve" smooth="yes"/>
-      <point x="427.0" y="1301.0"/>
+      <point x="427" y="1301"/>
       <point x="280" y="1192"/>
       <point x="280" y="1105" type="qcurve"/>
       <point x="280" y="1092" type="line"/>
@@ -70,8 +70,6 @@
   </outline>
   <lib>
     <dict>
-      <key>public.markColor</key>
-      <string>1,0,0,1</string>
       <key>public.truetype.instructions</key>
       <dict>
         <key>assembly</key>
