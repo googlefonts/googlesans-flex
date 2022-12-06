@@ -25,14 +25,17 @@ def main(argv):
     total_encoded_glyphs = 0
     total_glyphs = 0
 
-    print(f"\n\nFILE SIZE REPORT{'='*62}\n")
+    print(f"\n\n{'='*30} FILE SIZE REPORT {'='*30}\n")
     for filepath in sorted(argv):
         tt = TTFont(filepath)
         this_file_size = os.path.getsize(filepath)
         total_filesize += this_file_size
         total_encoded_glyphs += len(tt.getBestCmap())
         total_glyphs += len(tt["glyf"].glyphs)
-        print(f"{this_file_size} bytes: {filepath}")
+        clean_name = filepath.replace("/github/workspace/", "", 1).replace(
+            "fonts/", "", 1
+        )
+        print(f"{this_file_size} bytes: {clean_name}")
 
     console = Console()
     table = Table(show_header=True, header_style="bold magenta")
@@ -46,6 +49,7 @@ def main(argv):
     table.add_row("Avg per encoded glyph", f"{total_filesize/total_encoded_glyphs:.2f}")
     table.add_row("Avg per total glyph", f"{total_filesize/total_glyphs:.2f}")
     console.print(table)
+    print(f"\n{'='*78}")
 
 
 if __name__ == "__main__":
