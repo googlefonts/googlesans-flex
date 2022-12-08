@@ -26,7 +26,7 @@ python3 /scripts/gs-normalize-designspace.py \
 
 echo "Merging italic designspace..."
 python3 /scripts/gs-merge-designspace.py \
-    --source /github/workspace/staging/sources/italic/Italic-opsz18.designspace \
+    --source /github/workspace/staging/sources/italic/GoogleSansFlex-Italic.designspace \
     --target /github/workspace/main/sources/italic/GoogleSansFlex-Italic.designspace \
     --import-glyphs-file /glyph-list.txt \
     --replace-target-designspace \
