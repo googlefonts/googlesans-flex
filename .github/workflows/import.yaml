@@ -6,6 +6,9 @@ on:
       branch:
         description: "The name of the branch to import from"
         required: true
+      email:
+        description: Your GitHub email address (CLA approved)
+        required: true
 
 jobs:
   import-branch:
@@ -41,12 +44,12 @@ jobs:
         env:
           SOURCE_BRANCH: ${{ github.event.inputs.branch }}
           TARGET_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
+          GIT_EMAIL: ${{ github.event.inputs.email }}
         run: |
           # Create the import commit in the "target" worktree
           cd "$GITHUB_WORKSPACE/target"
-          # Update existing branch or create a new one if it doesn't exist
           git config user.name "Import Script"
-          git config user.email "jany.belluz@daltonmaag.com"
+          git config user.email "$GIT_EMAIL"
           git add sources
           git commit --quiet -m "Import from $SOURCE_BRANCH
             
