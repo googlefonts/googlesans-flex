@@ -51,13 +51,11 @@ excluded_check_ids = (
     "com.google.fonts/check/varfont/bold_wght_coord",  # Buggy in 0.8.9
 )
 
-ATTRIBUTES = {
-    "expected_fvar_axes": ["opsz", "wdth", "wght", "ROND"],
-    "opsz_axis_default": 18.0,
-    "os2_fsselection_bit7": 1,
-    "rond_axis_default": 0.0,
-    "wdth_axis_default": 100.0,
-    "wght_axis_default": 400.0,
+AXIS_DEFAULTS = {
+    "opsz": 18,
+    "wdth": 100,
+    "wght": 400,
+    "ROND": 0,
 }
 
 # Global Google Sans attributes, in 1000 upM font units.
@@ -192,29 +190,17 @@ def com_google_fonts_check_googlesansflex_unicode_range_bits(ttFont, unicoderang
 )
 def com_google_fonts_check_googlesansflex_variable_fvar_axes(ttFont):
     """Confirms that the variable font builds include expected axes."""
-    tt = ttFont
-    observed_axis_list = []
-    for axis in tt["fvar"].axes:
-        observed_axis_list.append(axis.axisTag)
+    expected_fvar_axes = AXIS_DEFAULTS.keys()
+    observed_axis_list = {axis.axisTag for axis in ttFont["fvar"].axes}
 
-    if len(observed_axis_list) != len(ATTRIBUTES["expected_fvar_axes"]):
-        yield (
-            FAIL,
-            f"{tt.reader.file.name} does not include the correct axis tags. \n"
+    if observed_axis_list != expected_fvar_axes:
+        yield FAIL, (
+            f"Font does not include the correct axis tags. \n"
             f"Observed: {observed_axis_list}\n"
-            f"Expected: {ATTRIBUTES['expected_fvar_axes']}",
+            f"Expected: {expected_fvar_axes}"
         )
-
-    has_all_tags = True
-    for axis_tag in ATTRIBUTES["expected_fvar_axes"]:
-        if axis_tag in observed_axis_list:
-            pass
-        else:
-            has_all_tags = False
-            yield (FAIL, f"{tt.reader.file.name} does not include axis tag {axis_tag}")
-
-    if has_all_tags:
-        yield (PASS, f"{tt.reader.file.name} includes all expected axis tags")
+    else:
+        yield PASS, f"Font includes all expected axis tags"
 
 
 @check(
@@ -227,29 +213,17 @@ def com_google_fonts_check_googlesansflex_variable_fvar_axes(ttFont):
 )
 def com_google_fonts_check_googlesansflex_variable_fvar_default(ttFont):
     """Confirms that the variable font builds include correct fvar default."""
-    tt = ttFont
-    expectations = {
-        "opsz": ATTRIBUTES["opsz_axis_default"],
-        "wdth": ATTRIBUTES["wdth_axis_default"],
-        "wght": ATTRIBUTES["wght_axis_default"],
-        "ROND": ATTRIBUTES["rond_axis_default"],
-    }
-
-    for axis in tt["fvar"].axes:
+    for axis in ttFont["fvar"].axes:
         tag = axis.axisTag
-        if tag in expectations:
-            if axis.defaultValue != expectations[tag]:
-                yield (
-                    FAIL,
-                    f"{tt.reader.file.name} does not include the correct "
-                    f"fvar {tag} axis default.\n"
-                    f"Found: `{axis.defaultValue}` and expected `{expectations[tag]}`",
-                )
-            else:
-                yield (
-                    PASS,
-                    f"{tt.reader.file.name} contains the expected fvar {tag} default.",
-                )
+        expected = AXIS_DEFAULTS[tag]
+        if axis.defaultValue != expected:
+            yield FAIL, (
+                f"Font does not include the correct "
+                f"fvar {tag} axis default.\n"
+                f"Found: `{axis.defaultValue}` and expected `{expected}`"
+            )
+        else:
+            yield PASS, f"Font contains the expected fvar {tag} default."
 
 
 # ================================================
