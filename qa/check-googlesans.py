@@ -18,22 +18,19 @@ from fontbakery.checkrunner import FAIL, PASS, WARN, Section
 from fontbakery.constants import UNICODERANGE_DATA
 from fontbakery.fonts_profile import profile_factory
 from fontbakery.message import Message
-from fontbakery.profiles.universal import UNIVERSAL_PROFILE_CHECKS
 from fontbakery.profiles.googlefonts import GOOGLEFONTS_PROFILE_CHECKS
+from fontbakery.profiles.outline import OUTLINE_PROFILE_CHECKS
+from fontbakery.profiles.shared_conditions import is_italic
 from fontbakery.utils import (
     chars_in_range,
     compute_unicoderange_bits,
     unicoderange_bit_name,
 )
-from fontbakery.profiles.shared_conditions import is_italic
 
 profile_imports = ("fontbakery.profiles.googlefonts",)
 profile = profile_factory(default_section=Section("Google Sans Flex Custom Checks"))
 
 GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
-    "com.google.fonts/check/googlesansflex/opentype/os2/fsselectionbit7",
-    "com.google.fonts/check/googlesansflex/opentype/os2/winascent",
-    "com.google.fonts/check/googlesansflex/opentype/os2/windescent",
     "com.google.fonts/check/googlesansflex/opentype/os2/unicode_range_bits",
     "com.google.fonts/check/googlesansflex/vf/fvaraxes",
     "com.google.fonts/check/googlesansflex/vf/fvardefault",
@@ -43,12 +40,11 @@ GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
 # define check ID's in the upstream `universal` profile
 # that should be excluded here
 excluded_check_ids = (
+    *OUTLINE_PROFILE_CHECKS,  # Separate.
     "com.google.fonts/check/ftxvalidator_is_available",
     "com.google.fonts/check/dsig",
-    "com.google.fonts/check/family/win_ascent_and_descent",  # replaced by custom checks
+    "com.google.fonts/check/family/win_ascent_and_descent",  # replaced by value checks
     "com.google.fonts/check/unwanted_tables",
-    "com.google.fonts/check/outline_jaggy_segments",  # too many unactionable warnings
-    "com.google.fonts/check/outline_semi_vertical",  # design rather than QA problem
     "com.google.fonts/check/contour_count",  # design rather than QA problem
     "com.adobe.fonts/check/varfont/valid_default_instance_nameids",  # Bogus
     "com.google.fonts/check/varfont/regular_wght_coord",  # Buggy in 0.8.9
@@ -64,6 +60,7 @@ ATTRIBUTES = {
     "wght_axis_default": 400.0,
 }
 
+# Global Google Sans attributes, in 1000 upM font units.
 GS_FONTUNIT_ATTRIBUTES_UPRIGHT = {
     "head.yMax": 1263,
     "head.yMin": -989,
@@ -107,88 +104,6 @@ GS_FONTUNIT_ATTRIBUTES_ITALIC = {
 # OpenType table attribute checks
 # ================================================
 
-# ::::::::::::::::::::::::::::::::::::::::::::::::
-# Vertical metrics
-# ::::::::::::::::::::::::::::::::::::::::::::::::
-
-# OS/2.fsSelection bit 7 (USE_TYPO_METRICS) is set in all fonts
-@check(
-    id="com.google.fonts/check/googlesansflex/opentype/os2/fsselectionbit7",
-    rationale="""
-    Confirms that fonts have OS/2.fsSelection bit 7 (USE_TYPO_METRICS) set \
-    for typo vertical metrics (instead of win vertical metrics)
-    """,
-)
-def com_google_fonts_check_googlesansflex_opentype_os2_fsselectionbit7(ttFonts):
-    """OS/2.fsSelection bit 7 (USE_TYPO_METRICS) is set in all fonts"""
-    os2_fsselection_bit7_isset = ATTRIBUTES["os2_fsselection_bit7"] == 1
-
-    found_fail = False
-    fail_list = []
-    for tt in ttFonts:
-        fsselection_int = tt["OS/2"].fsSelection
-        fsselection_bit_is_set_test = (fsselection_int & (1 << 7)) != 0
-        if fsselection_bit_is_set_test is os2_fsselection_bit7_isset:
-            pass
-        else:
-            found_fail = True
-            fail_list.append(tt.reader.file.name)
-
-    if found_fail:
-        yield (
-            FAIL,
-            f"The OS/2.fsSelection bit 7 (USE_TYPO_METRICS) was NOT set "
-            f"in the following fonts: {fail_list}.",
-        )
-    else:
-        yield PASS, "The OS/2.fsSelection bit 7 (USE_TYPO_METRICS) was set in all fonts."
-
-
-# Note: winAscent and winDescent bounds are defined above yMin and below yMax values
-# OS/2.winAscent check
-@check(
-    id="com.google.fonts/check/googlesansflex/opentype/os2/winascent",
-    rationale="""
-    Confirms that the OS/2.winAscent value is defined above the yMax
-    value across the full glyph repertoire.
-    """,
-)
-def com_google_fonts_check_googlesansflex_opentype_os2_winascent(ttFont):
-    """OS/2.winAscent is defined above yMax value across the glyph repertoire"""
-    if ttFont["head"].yMax >= ttFont["OS/2"].usWinAscent:
-        yield (
-            FAIL,
-            f"The OS/2.usWinAscent value must be larger "
-            f"than the head.yMax value.  Received: OS/2.usWinAscent = "
-            f"{ttFont['OS/2'].usWinAscent} head.yMax = {ttFont['head'].yMax}",
-        )
-    else:
-        yield PASS, "The OS/2.winAscent definition is appropriate."
-
-
-# OS/2.winDescent check
-@check(
-    id="com.google.fonts/check/googlesansflex/opentype/os2/windescent",
-    rationale="""
-    Confirms that the OS/2.winDescent value is defined below the yMin
-    value across the full glyph repertoire.
-    """,
-)
-def com_google_fonts_check_googlesansflex_opentype_os2_windescent(ttFont):
-    """OS/2.winDescent is defined below yMin value across the glyph repertoire"""
-    # note: WinDescent is expressed as a positive value even though the metric
-    # extends below the baseline.  We must use unary neg operation for the
-    # comparison here
-    if ttFont["head"].yMin <= -ttFont["OS/2"].usWinDescent:
-        yield (
-            FAIL,
-            f"The OS/2.usWinDescent value must be less "
-            f"than the head.yMin value.  Received: OS/2.usWinDescent = "
-            f"{ttFont['OS/2'].usWinDescent} head.yMin = {ttFont['head'].yMin}",
-        )
-    else:
-        yield PASS, "The OS/2.winDescent value is appropriate."
-
 
 @check(id="com.google.fonts/check/googlesansflex/opentype/global_fu_attributes")
 def com_google_fonts_check_googlesansflex_opentype_global_fu_attributes(ttFont):
@@ -216,11 +131,6 @@ def com_google_fonts_check_googlesansflex_opentype_global_fu_attributes(ttFont):
 
     if matches:
         yield PASS, "All global attributes match."
-
-
-# ::::::::::::::::::::::::::::::::::::::::::::::::
-# Other metrics
-# ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 @check(
