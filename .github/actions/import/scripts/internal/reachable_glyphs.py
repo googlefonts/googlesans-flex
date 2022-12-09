@@ -15,6 +15,7 @@
 from __future__ import annotations
 
 from typing import Set
+import logging
 
 import ufo2ft.featureCompiler
 import ufo2ft.util
@@ -41,12 +42,16 @@ def referenced_as_components(ufo: Font, reachable_glyphs: Set[str]) -> Set[str]:
 
     def _recurse(glyph: Glyph, seen: Set[str]) -> None:
         for component in glyph.components:
-            seen.add(component.baseGlyph)
-            _recurse(ufo[component.baseGlyph], seen)
+            if component.baseGlyph not in seen:
+                seen.add(component.baseGlyph)
+                _recurse(ufo[component.baseGlyph], seen)
 
-    referenced_components = set()
+    referenced_components: Set[str] = set()
     for name in reachable_glyphs:
-        glyph = ufo[name]
-        _recurse(glyph, referenced_components)
+        try:
+            glyph = ufo[name]
+            _recurse(glyph, referenced_components)
+        except KeyError:
+            logging.warning(f"Cannot find glyph '{name}' in UFO '{str(ufo.path)}'")
 
     return referenced_components
