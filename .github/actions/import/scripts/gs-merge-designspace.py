@@ -46,7 +46,7 @@ SKIP_EXPORT_GLYPHS_KEY = "public.skipExportGlyphs"
 logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--source",
@@ -123,7 +123,9 @@ def main():
             old_filenames = {
                 Path(source.filename) for source in designspace_target_old.sources
             }
-            new_filenames = {Path(source.filename) for source in designspace_target.sources}
+            new_filenames = {
+                Path(source.filename) for source in designspace_target.sources
+            }
             sources_to_delete = old_filenames - new_filenames
     else:
         designspace_target = DesignSpaceDocument.fromfile(parsed_args.target)
