@@ -1,12 +1,6 @@
 name: Build font and specimen
 
-on:
-  push:
-    paths-ignore:
-      - .github
-      - documentation
-      - '**/README.md'
-  release:
+on: [push, release]
 
 jobs:
   build:
