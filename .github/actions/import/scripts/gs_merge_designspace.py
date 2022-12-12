@@ -47,8 +47,8 @@ logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
 
 
 def main(
-    source: Path,
-    target: Path,
+    source_path: Path,
+    target_path: Path,
     import_glyphs_file: Path,
     replace_target_designspace: bool = False,
     follow_glyphs: bool = False,
@@ -63,11 +63,11 @@ def main(
     follow_glyphs: bool = follow_glyphs
 
     # Load all sources.
-    designspace_import = DesignSpaceDocument.fromfile(source)
+    designspace_import = DesignSpaceDocument.fromfile(source_path)
     designspace_import.loadSourceFonts(Font.open)
     sources_to_delete = set()
     if replace_target_designspace:
-        designspace_target = DesignSpaceDocument.fromfile(source)
+        designspace_target = DesignSpaceDocument.fromfile(source_path)
         for source, target in zip(
             designspace_import.sources, designspace_target.sources
         ):
@@ -82,8 +82,8 @@ def main(
             )
 
         # Delete sources that don't exist anymore later, if they exist at all.
-        if target.exists():
-            designspace_target_old = DesignSpaceDocument.fromfile(target)
+        if target_path.exists():
+            designspace_target_old = DesignSpaceDocument.fromfile(target_path)
             old_filenames = {
                 Path(source.filename) for source in designspace_target_old.sources
             }
@@ -92,7 +92,7 @@ def main(
             }
             sources_to_delete = old_filenames - new_filenames
     else:
-        designspace_target = DesignSpaceDocument.fromfile(target)
+        designspace_target = DesignSpaceDocument.fromfile(target_path)
         designspace_target.loadSourceFonts(Font.open)
 
     if not import_glyphs:
@@ -262,16 +262,16 @@ def main(
 
         if replace_target_designspace:
             assert import_source.filename is not None
-            filename = target.parent / import_source.filename
+            filename = target_path.parent / import_source.filename
             filename.parent.mkdir(exist_ok=True, parents=True)
             target_font.save(filename, overwrite=True)
         else:
             target_font.save()
 
-    designspace_target.write(target)
+    designspace_target.write(target_path)
 
     for source in sorted(sources_to_delete):
-        path = target.parent / source
+        path = target_path.parent / source
         print(f"Removing leftover {path}")
         shutil.rmtree(path)
 
