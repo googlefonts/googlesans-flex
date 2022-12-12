@@ -2,81 +2,12 @@
 <glyph name="currency.tf" format="2">
   <advance width="1230"/>
   <outline>
-    <contour>
-      <point x="616.5999999999999" y="132.4" type="qcurve"/>
-      <point x="436.0" y="132.4"/>
-      <point x="202.0" y="391.4"/>
-      <point x="202.0" y="557.8" type="qcurve"/>
-      <point x="202.0" y="723.8"/>
-      <point x="436.0" y="982.8000000000001"/>
-      <point x="616.5999999999999" y="982.8000000000001" type="qcurve"/>
-      <point x="796.1999999999999" y="982.8000000000001"/>
-      <point x="1028.2" y="723.8"/>
-      <point x="1028.2" y="557.8" type="qcurve"/>
-      <point x="1028.2" y="391.4"/>
-      <point x="796.2" y="132.39999999999998"/>
-    </contour>
-    <contour>
-      <point x="614.8000000000001" y="443.0" type="qcurve"/>
-      <point x="666.1999999999999" y="443.0"/>
-      <point x="718.0" y="512.0"/>
-      <point x="718.0" y="557.0" type="qcurve"/>
-      <point x="718.0" y="602.0"/>
-      <point x="666.1999999999999" y="671.0"/>
-      <point x="614.8000000000001" y="671.0" type="qcurve"/>
-      <point x="559.1999999999999" y="671.0"/>
-      <point x="506.0" y="603.0"/>
-      <point x="506.0" y="557.0" type="qcurve"/>
-      <point x="506.0" y="511.0"/>
-      <point x="558.4" y="443.0"/>
-    </contour>
-    <contour>
-      <point x="363.0" y="591.6" type="line"/>
-      <point x="214.4" y="740.1999999999999" type="line"/>
-      <point x="116.39999999999999" y="838.8000000000001"/>
-      <point x="116.39999999999999" y="838.8000000000001"/>
-      <point x="220.0" y="939.6" type="qcurve"/>
-      <point x="220.0" y="939.6" type="line"/>
-      <point x="322.40000000000003" y="1041.2"/>
-      <point x="322.40000000000003" y="1041.2" name="inserted"/>
-      <point x="420.8" y="943.1999999999999" type="qcurve"/>
-      <point x="564.8000000000001" y="799.6" type="line"/>
-    </contour>
-    <contour>
-      <point x="872.6" y="596.0" type="line"/>
-      <point x="668.6" y="802.0" type="line"/>
-      <point x="812.4" y="944.0" type="line"/>
-      <point x="913.8000000000001" y="1041.0" name="inserted"/>
-      <point x="914.0" y="1041.0"/>
-      <point x="1013.8000000000001" y="940.2" type="qcurve"/>
-      <point x="1013.8000000000001" y="940.2" type="line"/>
-      <point x="1112.8" y="837.2"/>
-      <point x="1112.8" y="837.0"/>
-      <point x="1016.4" y="740.0" type="qcurve"/>
-    </contour>
-    <contour>
-      <point x="564.6" y="314.4" type="line"/>
-      <point x="421.0" y="171.79999999999998" type="line"/>
-      <point x="321.0" y="73.80000000000001" name="inserted"/>
-      <point x="321.0" y="73.80000000000001"/>
-      <point x="220.4" y="174.2" type="qcurve"/>
-      <point x="220.4" y="174.2" type="line"/>
-      <point x="119.2" y="281.0"/>
-      <point x="119.2" y="281.0"/>
-      <point x="216.0" y="376.2" type="qcurve"/>
-      <point x="361.2" y="521.0" type="line"/>
-    </contour>
-    <contour>
-      <point x="665.6" y="315.2" type="line"/>
-      <point x="869.6" y="521.0" type="line"/>
-      <point x="1015.4" y="375.0" type="line"/>
-      <point x="1114.2" y="278.79999999999995"/>
-      <point x="1114.2" y="278.79999999999995"/>
-      <point x="1012.0" y="174.6" type="qcurve"/>
-      <point x="1012.0" y="174.6" type="line"/>
-      <point x="915.1999999999999" y="75.60000000000001"/>
-      <point x="915.2" y="75.6" name="inserted"/>
-      <point x="810.8" y="170.4" type="qcurve"/>
-    </contour>
+    <component base="currency"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.884,0.8791,0.0317,1</string>
+    </dict>
+  </lib>
 </glyph>

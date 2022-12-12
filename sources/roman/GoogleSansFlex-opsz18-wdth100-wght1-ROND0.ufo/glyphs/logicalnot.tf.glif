@@ -2,28 +2,12 @@
 <glyph name="logicalnot.tf" format="2">
   <advance width="1066"/>
   <outline>
-    <contour>
-      <point x="894" y="616" type="qcurve"/>
-      <point x="894" y="182" type="line"/>
-      <point x="894" y="165" name="inserted"/>
-      <point x="894" y="165"/>
-      <point x="877" y="165" type="qcurve"/>
-      <point x="877" y="165" type="line"/>
-      <point x="860" y="165"/>
-      <point x="860" y="165"/>
-      <point x="860" y="182" type="qcurve"/>
-      <point x="860" y="618" type="line"/>
-      <point x="139" y="618" type="line"/>
-      <point x="123" y="618"/>
-      <point x="123" y="618"/>
-      <point x="123" y="634" type="qcurve"/>
-      <point x="123" y="634" type="line"/>
-      <point x="123" y="650"/>
-      <point x="123" y="650" name="inserted"/>
-      <point x="139" y="650" type="qcurve"/>
-      <point x="860" y="650.0" type="line"/>
-      <point x="894" y="650.0"/>
-      <point x="894" y="650"/>
-    </contour>
+    <component base="logicalnot"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.884,0.8791,0.0317,1</string>
+    </dict>
+  </lib>
 </glyph>
