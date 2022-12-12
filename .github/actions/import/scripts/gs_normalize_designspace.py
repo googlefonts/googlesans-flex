@@ -21,22 +21,13 @@ from pathlib import Path
 
 from fontTools.designspaceLib import DesignSpaceDocument
 
-from internal import normalize
+from .internal import normalize
 
 ROOT_DIR = Path(__file__).parent.parent
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--source-dir",
-        type=Path,
-        default=ROOT_DIR / "sources",
-        help="Path to source directory.",
-    )
-    parsed_args = parser.parse_args()
-
-    for designspace_path in parsed_args.source_dir.glob("*.designspace"):
+def main(source_dir: Path) -> None:
+    for designspace_path in source_dir.glob("*.designspace"):
         designspace = DesignSpaceDocument.fromfile(designspace_path)
 
         normalize.scrub_designspace(designspace, ROOT_DIR)
@@ -47,4 +38,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--source-dir",
+        type=Path,
+        default=ROOT_DIR / "sources",
+        help="Path to source directory.",
+    )
+    parsed_args = parser.parse_args()
+    main(parsed_args.source_dir)

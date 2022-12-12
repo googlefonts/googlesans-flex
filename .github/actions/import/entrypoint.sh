@@ -15,7 +15,7 @@ fi
 # for designspace in $(python -e "import yaml parse config.py") do
 
 echo "Merging upright designspace..."
-python3 /scripts/gs-merge-designspace.py \
+python3 /scripts/gs_merge_designspace.py \
     --source /github/workspace/source/sources/roman/GoogleSansFlex.designspace \
     --target /github/workspace/target/sources/regular/GoogleSansFlex.designspace \
     --import-glyphs-file /glyph-list.txt \
@@ -24,7 +24,7 @@ python3 /scripts/gs-merge-designspace.py \
 echo
 
 echo "Normalising upright designspaces..."
-python3 /scripts/gs-normalize-designspace.py \
+python3 /scripts/gs_normalize_designspace.py \
     --source-dir /github/workspace/target/sources/regular/
 
 echo "Fixing upright metadata..."
@@ -32,7 +32,7 @@ python3 /scripts/fix-metadata-in-sources.py \
     /github/workspace/target/sources/regular/GoogleSansFlex.designspace
 
 echo "Merging italic designspace..."
-python3 /scripts/gs-merge-designspace.py \
+python3 /scripts/gs_merge_designspace.py \
     --source /github/workspace/source/sources/italic/GoogleSansFlex-Italic.designspace \
     --target /github/workspace/target/sources/italic/GoogleSansFlex-Italic.designspace \
     --import-glyphs-file /glyph-list.txt \
@@ -41,5 +41,5 @@ python3 /scripts/gs-merge-designspace.py \
 echo
 
 echo "Normalising italic designspaces..."
-python3 /scripts/gs-normalize-designspace.py \
+python3 /scripts/gs_normalize_designspace.py \
     --source-dir /github/workspace/target/sources/italic/
