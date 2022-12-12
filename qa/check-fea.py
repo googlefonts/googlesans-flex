@@ -103,11 +103,11 @@ def com_google_fonts_check_googlesans_features_variable_uprights(ttFont):
         fea_tags.add(gsub_record.FeatureTag)
 
     if sorted(fea_tags) == VAR_UPRIGHT_FEA:
-        yield PASS, f"{tt.reader.file.name} contains the expected feature tags"
+        yield PASS, f"Font contains the expected feature tags"
     else:
         yield (
             FAIL,
-            f"{tt.reader.file.name} does not contain the expected feature tags.\n"
+            f"Font does not contain the expected feature tags.\n"
             f"Found:{sorted(fea_tags)}\nExpected:{VAR_UPRIGHT_FEA}",
         )
 

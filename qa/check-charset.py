@@ -56,7 +56,7 @@ excluded_check_ids = (
     fonts have the expected glyph order.
     """,
 )
-def com_google_fonts_check_googlesans_glyphs_glyphset_contents(ttFont):
+def com_google_fonts_check_googlesans_glyphs_glyphset_contents(font, ttFont):
     """Confirm that fonts have all expected Unicode encoded and non-Unicoded
     encoded glyph definitions.This test also confirms that the glyph order
     is defined as expected."""
@@ -65,7 +65,7 @@ def com_google_fonts_check_googlesans_glyphs_glyphset_contents(ttFont):
 
     tests_passed = True
     glyph_list_raw = ""
-    base_file_path = os.path.basename(ttFont.reader.file.name) + ".glyphsetdef"
+    base_file_path = os.path.basename(font) + ".glyphsetdef"
     expected_glyph_definition_path = os.path.join(
         glyph_definition_basedir, base_file_path
     )
@@ -79,9 +79,8 @@ def com_google_fonts_check_googlesans_glyphs_glyphset_contents(ttFont):
     if not (ttFont.getGlyphOrder() == glyph_list):
         tests_passed = False
         yield FAIL, (
-            "{} failed expected glyph set check. Diffs:\n\n```diff\n{}\n```"
+            "Font failed expected glyph set check. Diffs:\n\n```diff\n{}\n```"
         ).format(
-            ttFont.reader.file.name,
             "\n".join(
                 unified_diff(
                     list(ttFont.getGlyphOrder()),

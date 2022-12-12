@@ -46,10 +46,9 @@ def hb_font(font):
 
 
 @check(id="com.google.fonts/check/googlesans/features/regression")
-def com_google_fonts_check_googlesans_features_regression(ttFont, hb_font):
+def com_google_fonts_check_googlesans_features_regression(font, ttFont, hb_font):
     """But does it shape?"""
-    tt = ttFont
-    filename = Path(tt.reader.file.name)
+    filename = Path(font)
 
     shaping_file_found = False
     shaping_basedir = Path("qa", "shaping")
@@ -86,7 +85,7 @@ def com_google_fonts_check_googlesans_features_regression(ttFont, hb_font):
             return
 
         shaped_texts = shape_texts(
-            tt,
+            ttFont,
             hb_font,
             shaping_texts,
             shaping_script,
@@ -99,7 +98,7 @@ def com_google_fonts_check_googlesans_features_regression(ttFont, hb_font):
         if shaped_texts == shaped_texts_expected:
             yield PASS, f"{shaping_file}: No regression detected"
         else:
-            if "fvar" in tt:
+            if "fvar" in ttFont:
                 assert isinstance(shaped_texts, dict)
                 assert isinstance(shaped_texts_expected, dict)
 
