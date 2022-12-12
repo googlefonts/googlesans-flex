@@ -2,59 +2,12 @@
 <glyph name="plusminus.tf" format="2">
   <advance width="1088"/>
   <outline>
-    <contour>
-      <point x="760" y="658" type="line"/>
-      <point x="760.0" y="552.0" name="inserted"/>
-      <point x="650" y="443.0"/>
-      <point x="554" y="443" type="qcurve"/>
-      <point x="554" y="443" type="line"/>
-      <point x="439" y="443.0"/>
-      <point x="328.0" y="552.0"/>
-      <point x="328" y="658" type="qcurve"/>
-      <point x="328" y="1148" type="line"/>
-      <point x="328" y="1257"/>
-      <point x="433" y="1365"/>
-      <point x="542" y="1365" type="qcurve"/>
-      <point x="542" y="1365" type="line"/>
-      <point x="644" y="1365"/>
-      <point x="760" y="1257" name="inserted"/>
-      <point x="760" y="1148" type="qcurve"/>
-    </contour>
-    <contour>
-      <point x="254" y="653" type="line"/>
-      <point x="145.0" y="653.0"/>
-      <point x="36.0" y="758.0"/>
-      <point x="36" y="867" type="qcurve"/>
-      <point x="36" y="867" type="line"/>
-      <point x="36.0" y="969.0"/>
-      <point x="145.0" y="1085.0" name="inserted"/>
-      <point x="254" y="1085" type="qcurve"/>
-      <point x="834" y="1085" type="line"/>
-      <point x="940.0" y="1085.0" name="inserted"/>
-      <point x="1049.0" y="969.0"/>
-      <point x="1049" y="867" type="qcurve"/>
-      <point x="1049" y="867" type="line"/>
-      <point x="1049.0" y="758.0"/>
-      <point x="940.0" y="653.0"/>
-      <point x="834" y="653" type="qcurve"/>
-    </contour>
-    <contour>
-      <point x="254" y="-1" type="line"/>
-      <point x="145.0" y="-1.0"/>
-      <point x="36.0" y="101"/>
-      <point x="36" y="207" type="qcurve"/>
-      <point x="36" y="207" type="line"/>
-      <point x="36.0" y="308.06422018348627"/>
-      <point x="145.0" y="423.0" name="inserted"/>
-      <point x="254" y="423" type="qcurve"/>
-      <point x="834" y="423" type="line"/>
-      <point x="940.0" y="423.0" name="inserted"/>
-      <point x="1049.0" y="308.06422018348627"/>
-      <point x="1049" y="207" type="qcurve"/>
-      <point x="1049" y="207" type="line"/>
-      <point x="1049.0" y="101"/>
-      <point x="940.0" y="-1.0"/>
-      <point x="834" y="-1" type="qcurve"/>
-    </contour>
+    <component base="plusminus"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.884,0.8791,0.0317,1</string>
+    </dict>
+  </lib>
 </glyph>

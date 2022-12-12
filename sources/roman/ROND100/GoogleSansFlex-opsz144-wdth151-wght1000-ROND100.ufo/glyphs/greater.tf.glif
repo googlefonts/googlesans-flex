@@ -2,33 +2,12 @@
 <glyph name="greater.tf" format="2">
   <advance width="1500"/>
   <outline>
-    <contour>
-      <point x="444" y="-4" type="line" smooth="yes"/>
-      <point x="327" y="-51"/>
-      <point x="119" y="-27"/>
-      <point x="60" y="113" type="qcurve"/>
-      <point x="60" y="113" type="line"/>
-      <point x="-18" y="271"/>
-      <point x="127" y="518" name="inserted"/>
-      <point x="338" y="576" type="qcurve" smooth="yes"/>
-      <point x="562" y="638" type="line"/>
-      <point x="562" y="639" type="line"/>
-      <point x="333" y="711" type="line" smooth="yes"/>
-      <point x="117" y="779" name="inserted"/>
-      <point x="-1" y="998"/>
-      <point x="63" y="1136" type="qcurve"/>
-      <point x="63" y="1136" type="line"/>
-      <point x="136" y="1287"/>
-      <point x="359" y="1334"/>
-      <point x="443" y="1300" type="qcurve" smooth="yes"/>
-      <point x="1194" y="997" type="line" smooth="yes"/>
-      <point x="1344" y="937" name="inserted"/>
-      <point x="1470" y="775"/>
-      <point x="1470" y="649" type="qcurve"/>
-      <point x="1470" y="649" type="line"/>
-      <point x="1470" y="508"/>
-      <point x="1347" y="363"/>
-      <point x="1169" y="291" type="qcurve" smooth="yes"/>
-    </contour>
+    <component base="greater"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.884,0.8791,0.0317,1</string>
+    </dict>
+  </lib>
 </glyph>

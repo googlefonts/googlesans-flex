@@ -2,19 +2,12 @@
 <glyph name="period.tf" format="2">
   <advance width="968"/>
   <outline>
-    <contour>
-      <point x="889" y="325" type="qcurve" smooth="yes"/>
-      <point x="889" y="171"/>
-      <point x="654" y="-40"/>
-      <point x="482" y="-40" type="qcurve" smooth="yes"/>
-      <point x="313" y="-40"/>
-      <point x="78" y="171"/>
-      <point x="78" y="325" type="qcurve" smooth="yes"/>
-      <point x="78" y="481"/>
-      <point x="313" y="689"/>
-      <point x="482" y="689" type="qcurve" smooth="yes"/>
-      <point x="654" y="689"/>
-      <point x="889" y="481"/>
-    </contour>
+    <component base="period"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.884,0.8791,0.0317,1</string>
+    </dict>
+  </lib>
 </glyph>

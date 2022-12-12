@@ -2,33 +2,12 @@
 <glyph name="colon.tf" format="2">
   <advance width="386"/>
   <outline>
-    <contour>
-      <point x="304" y="928" type="qcurve" smooth="yes"/>
-      <point x="304" y="880"/>
-      <point x="238" y="814"/>
-      <point x="192" y="814" type="qcurve" smooth="yes"/>
-      <point x="144" y="814"/>
-      <point x="80" y="880"/>
-      <point x="80" y="928" type="qcurve" smooth="yes"/>
-      <point x="80" y="974"/>
-      <point x="146" y="1036"/>
-      <point x="194" y="1036" type="qcurve" smooth="yes"/>
-      <point x="240" y="1036"/>
-      <point x="304" y="974"/>
-    </contour>
-    <contour>
-      <point x="306" y="102" type="qcurve" smooth="yes"/>
-      <point x="306" y="54"/>
-      <point x="240" y="-12"/>
-      <point x="194" y="-12" type="qcurve" smooth="yes"/>
-      <point x="146" y="-12"/>
-      <point x="80" y="54"/>
-      <point x="80" y="102" type="qcurve" smooth="yes"/>
-      <point x="80" y="148"/>
-      <point x="146" y="210"/>
-      <point x="194" y="210" type="qcurve" smooth="yes"/>
-      <point x="240" y="210"/>
-      <point x="306" y="146"/>
-    </contour>
+    <component base="colon"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.884,0.8791,0.0317,1</string>
+    </dict>
+  </lib>
 </glyph>
