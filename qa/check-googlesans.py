@@ -60,6 +60,7 @@ AXIS_DEFAULTS = {
     "wdth": 100,
     "wght": 400,
     "ROND": 0,
+    "GRAD": 0,
 }
 
 # Global Google Sans attributes, in 1000 upM font units.
