@@ -15,6 +15,7 @@
 
 import logging
 from pathlib import Path
+import shutil
 import yaml
 
 from scripts.gs_merge_designspace import main as merge
@@ -50,4 +51,9 @@ with open("/github/workspace/source/sources/config.yaml", "r") as file:
         fix_metadata(
             Path(f"/github/workspace/target/sources/{designspace_path}"),
         )
+
+shutil.copy2(
+    "/github/workspace/source/sources/config.yaml",
+    "/github/workspace/target/sources/config.yaml",
+)
 logging.info("Done!")
