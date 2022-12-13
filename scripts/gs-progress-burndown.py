@@ -38,6 +38,8 @@ from typing import (
 )
 
 import matplotlib.pyplot as plt
+import yaml
+from fontTools.designspaceLib import DesignSpaceDocument
 from ufoLib2.objects import Font, Glyph
 
 
@@ -46,31 +48,38 @@ class Config:
     repo_path: Path
     git_rev_since: str
     git_rev_current: str
+    ufo_finder: Callable[[Path], List[Path]]
+    """Given the Git root folder in which the project has been checked out,
+    returns a list of UFOs in which to look for glyph statuses.
+    """
+    statuses: Sequence[Status]
+    """Statuses ordered from most done to least done."""
     milestones: Sequence[Milestone]
 
 
-@dataclass
-class Milestone:
-    name: str
-    ufo_filter_predicate: Callable[[str], bool]
-    start_date: datetime
-    due_date: datetime
-    total_ufos: int
-    total_glyphs: int
-    statuses: Sequence[Status]
-    """Statuses ordered from most done to least done."""
-
-
+GlyphType = Literal["drawn", "composite"]
 SimpleColor = Literal["red", "yellow", "green", "blue", "purple"]
 
 
 @dataclass
 class Status:
+    name: str
     plot_color: str
     progress_percent: int
+    glyph_type: Optional[GlyphType] = None
     mark_color: Optional[Union[SimpleColor, Tuple[float, float, float, float]]] = None
     lib_key_name: Optional[str] = None
     lib_key_value: Optional[Any] = None
+
+
+@dataclass
+class Milestone:
+    name: str
+    plot_color: str
+    start_date: datetime
+    due_date: datetime
+    total_glyphs: int
+    total_ufos: int
 
 
 # Small helper functions to count UFOs; they just return the number of args
@@ -78,7 +87,26 @@ def _count(*args):
     return len(args)
 
 
-opsz = wdth = wght = ROND = ital = _count
+opsz = wdth = wght = ROND = GRAD = ital = _count
+
+
+def find_roman_and_italic_non_sparse_ufos(root: Path) -> List[Path]:
+    ufos = set()
+    try:
+        with open(root / "sources/config.yaml", "r", encoding="utf-8") as file:
+            gftools_config = yaml.safe_load(file)
+        for designspace_path in gftools_config["sources"]:
+            try:
+                doc = DesignSpaceDocument.fromfile(root / "sources" / designspace_path)
+                for source in doc.sources:
+                    path = Path(source.path)
+                    # TODO: (Jany) exclude sparse sources, if any? Look into the wdth85 and wdth91.999
+                    ufos.add(path)
+            except Exception as e:
+                print(f"Reading designspace {designspace_path} failed, skipping: {e}")
+    except Exception as e:
+        print(f"Reading designspaces from the config file failed, skipping: {e}")
+    return sorted(ufos)
 
 
 # Green - design finished and ready for Google's review
@@ -89,68 +117,88 @@ GSFLEX_CONFIG = Config(
     repo_path=Path(__file__).parent.parent,
     git_rev_since="Alpha-v1.0",
     git_rev_current="origin/fb-wip",
+    ufo_finder=find_roman_and_italic_non_sparse_ufos,
+    statuses=[
+        Status(
+            name="Ready for Google review (drawn)",
+            plot_color="#2ecc71",
+            progress_percent=100,
+            glyph_type="drawn",
+            mark_color="green",
+        ),
+        Status(
+            name="Ready for Google review (composite)",
+            glyph_type="composite",
+            plot_color="#a9eec6",
+            progress_percent=100,
+            mark_color="green",
+        ),
+        Status(
+            name="In progress for v1.000 (drawn)",
+            glyph_type="drawn",
+            plot_color="#f1c40f",
+            progress_percent=50,
+            mark_color="yellow",
+        ),
+        Status(
+            name="In progress for v1.000 (composite)",
+            glyph_type="composite",
+            plot_color="#f1e2a9",
+            progress_percent=50,
+            mark_color="yellow",
+        ),
+        Status(
+            name="In progress for v1.100 (drawn)",
+            plot_color="#3498db",
+            progress_percent=50,
+            glyph_type="drawn",
+            mark_color="blue",
+        ),
+        Status(
+            name="In progress for v1.100 (composite)",
+            plot_color="#aac7db",
+            progress_percent=50,
+            glyph_type="composite",
+            mark_color="blue",
+        ),
+        Status(
+            name="Not started",
+            plot_color="#e74c3c",
+            progress_percent=0,
+        ),
+    ],
     milestones=[
         Milestone(
-            name="Roman - version 1.000",
+            name="Roman - version 1.000\n(indicative, number of target UFOs TBC)",
+            plot_color="#1b7b43",
             start_date=datetime(2022, 10, 19),
             due_date=datetime(2023, 1, 16),
-            total_glyphs=340,
+            total_glyphs=404,
             total_ufos=(
-                opsz(6) * wdth(25, 100, 151) * wght(1, 400, 1000) * ROND(0, 100)
-                # These two optical sizes have more widths (85 and 91.999), only in the ROND 0
-                + opsz(18, 144)
-                * wdth(25, 85, 91.9999, 100, 151)
+                # Ignore sparse sources
+                opsz(6, 18, 144)
+                * wdth(25, 100, 151)
                 * wght(1, 400, 1000)
-                * ROND(0)
-                # These two optical sizes have 3 widhts in the ROND 100
-                + opsz(18, 144) * wdth(25, 100, 151) * wght(1, 400, 1000) * ROND(100)
+                * ROND(0, 100)
+                # TODO: (Jany) add grade sources where relevant
+                * GRAD(0)
             ),
-            ufo_filter_predicate=lambda path: (
-                ("sources/regular" in path or "sources/roman" in path)
-                and "GRAD" not in path
-            ),
-            statuses=[
-                Status(
-                    plot_color="green",
-                    progress_percent=100,
-                    mark_color="green",
-                ),
-                Status(
-                    plot_color="yellow",
-                    progress_percent=50,
-                    mark_color="yellow",
-                ),
-                Status(plot_color="red", progress_percent=0),
-            ],
         ),
         Milestone(
-            name="Version 1.100",
-            start_date=datetime(2022, 12, 19),
+            name="Version 1.100\n(indicative, number of target UFOs TBC)",
+            plot_color="#1d5c85",
+            start_date=datetime(2022, 10, 19),
             due_date=datetime(2023, 2, 28),
-            total_glyphs=340,
+            total_glyphs=404,
             total_ufos=(
                 opsz(6, 18, 144)
                 * wdth(25, 100, 151)
                 * wght(1, 400, 1000)
                 * ROND(0, 100)
+                # TODO: (Jany) add grade sources where relevant
+                * GRAD(0)
                 * ital(0, 1)
             ),
-            ufo_filter_predicate=lambda path: (
-                "sources/italic" in path and "GRAD" not in path
-            ),
-            statuses=[
-                Status(
-                    plot_color="green",
-                    progress_percent=100,
-                    mark_color="green",
-                ),
-                Status(
-                    plot_color="blue",
-                    progress_percent=50,
-                    mark_color="blue",
-                ),
-                Status(plot_color="red", progress_percent=0),
-            ],
         ),
     ],
 )
@@ -158,63 +206,37 @@ GSFLEX_CONFIG = Config(
 
 def main() -> None:
     config = GSFLEX_CONFIG
-    counts_by_date_by_milestone: List[Dict[datetime, List[int]]] = [
-        defaultdict(lambda: [0 for _ in milestone.statuses])
-        for milestone in config.milestones
-    ]
+    counts_by_date: Dict[datetime, List[int]] = defaultdict(
+        lambda: [0 for _ in config.statuses]
+    )
+
     # Data just for testing the graph
-    # counts_by_date_by_milestone = [
-    #     {
-    #         datetime(2022, 12, 1): [0, 1000, 40000],
-    #         datetime(2022, 12, 10): [1000, 20000, 20000],
-    #         datetime(2022, 12, 20): [11000, 20000, 10000],
-    #         datetime(2022, 12, 30): [31000, 10000, 0],
-    #     },
-    #     {
-    #         datetime(2022, 12, 1): [0, 1000, 40000],
-    #         datetime(2022, 12, 10): [1000, 20000, 20000],
-    #         datetime(2022, 12, 20): [11000, 20000, 10000],
-    #         datetime(2022, 12, 30): [31000, 10000, 0],
-    #     },
-    # ]
+    # counts_by_date = {
+    #     datetime(2022, 12, 1): [0, 500, 500, 3000, 1000, 30000, 30000],
+    #     datetime(2022, 12, 10): [500, 500, 10000, 10000, 10000, 20000, 20000],
+    #     datetime(2022, 12, 20): [10000, 1000, 10000, 10000, 30000, 5000, 5000],
+    #     datetime(2022, 12, 30): [30000, 11000, 5000, 5000, 10000, 0, 0],
+    # }
+
     print("Preparing git worktree")
     for tmpdir, date in iter_revisions(
         config.repo_path, config.git_rev_since, config.git_rev_current
     ):
-        glyph_instances_in_last_revision_per_milestone = [0 for _ in config.milestones]
         print("Opening UFOs", end="")
-        for ufo_path in tmpdir.glob("**/*.ufo"):
-            milestones_for_ufo = [
-                (i, milestone)
-                for (i, milestone) in enumerate(config.milestones)
-                if milestone.ufo_filter_predicate(posix(ufo_path))
-            ]
-            if not milestones_for_ufo:
-                continue
+        for ufo_path in config.ufo_finder(tmpdir):
             ufo = Font.open(ufo_path)
-            print(".", end="")
+            print(".", end="", flush=True)
             for glyph in ufo:
-                for i, milestone in milestones_for_ufo:
-                    glyph_instances_in_last_revision_per_milestone[i] += 1
-                    counts = counts_by_date_by_milestone[i][date]
-                    for j, status in enumerate(milestone.statuses):
-                        if glyph_matches_status(glyph, status):
-                            counts[j] += 1
-                            break
+                counts = counts_by_date[date]
+                for i, status in enumerate(config.statuses):
+                    if glyph_matches_status(glyph, status):
+                        counts[i] += 1
+                        break
         print(" done")
-    for i, milestone in enumerate(config.milestones):
-        print(
-            f"Milestone #{i} {milestone.name}: "
-            f"expected {milestone.total_glyphs*milestone.total_ufos} instances, "
-            f"found {glyph_instances_in_last_revision_per_milestone[i]} "
-            f"glyph instances in the last revision."
-        )
-        plot_to_images(
-            milestone,
-            counts_by_date_by_milestone[i],
-            glyph_instances_in_last_revision_per_milestone[i],
-            Path("."),
-        )
+
+    output_path = Path(".") / "gs-flex-progress.png"
+    print(f"Writing out {output_path}")
+    plot_to_image(config, counts_by_date, output_path)
 
 
 @dataclass
@@ -235,18 +257,29 @@ def iter_revisions(repo_path, rev_since, rev_current):
     """
     repo = Repo(repo_path)
     out = repo.git("rev-list", "--format=tformat:%H %aI", f"{rev_since}..{rev_current}")
-    shas_and_dates = []
-    for line in out.splitlines():
-        if line.startswith("commit"):
-            continue
+    lines = [line for line in out.splitlines() if not line.startswith("commit")]
+
+    all_dates_and_shas = []
+    for line in lines:
         sha, date_iso = line.split(maxsplit=1)
-        shas_and_dates.append((sha, datetime.fromisoformat(date_iso)))
+        date = datetime.fromisoformat(date_iso)
+        all_dates_and_shas.append((date, sha))
+
+    # Process only the last commit of each day, in case of several commits per day.
+    dates_and_shas = []
+    for (date, sha) in sorted(all_dates_and_shas):
+        if dates_and_shas and date.date() == dates_and_shas[-1][0].date():
+            # Same day, replace with this one which is later in the day
+            dates_and_shas[-1] = (date, sha)
+        else:
+            dates_and_shas.append((date, sha))
+
     try:
         with TemporaryDirectory() as tmpdir:
-            repo.git("worktree", "add", "-d", tmpdir, shas_and_dates[0][0])
+            repo.git("worktree", "add", "-d", tmpdir, dates_and_shas[0][1])
             worktree = Repo(tmpdir)
-            for i, (sha, date) in enumerate(shas_and_dates):
-                print(f"Processing commit {i+1}/{len(shas_and_dates)}")
+            for i, (date, sha) in enumerate(dates_and_shas):
+                print(f"Processing commit {i+1}/{len(dates_and_shas)}: {sha} on {date}")
                 worktree.git("checkout", "-d", sha)
                 yield Path(tmpdir), date
     finally:
@@ -267,17 +300,38 @@ def posix(path: Path) -> str:
 
 
 def glyph_matches_status(glyph: Glyph, status: Status) -> bool:
-    if status.mark_color is not None:
-        if glyph.markColor is None:
-            return False
-        r, g, b, _a = parse_mark_color(glyph.markColor)
-        if isinstance(status.mark_color, str):
-            return describe_color(r, g, b) == status.mark_color
+    return (
+        glyph_matches_type(glyph, status)
+        and glyph_matches_color(glyph, status)
+        and glyph_matches_lib_key(glyph, status)
+    )
+
+
+def glyph_matches_type(glyph: Glyph, status: Status) -> bool:
+    if status.glyph_type is None:
+        return True
+    elif status.glyph_type == "composite":
+        return len(glyph.contours) == 0
+    else:  # drawn
+        return len(glyph.contours) != 0
+
+
+def glyph_matches_color(glyph: Glyph, status: Status) -> bool:
+    if status.mark_color is None:
+        return True
+    if glyph.markColor is None:
+        return False
+    r, g, b, _a = parse_mark_color(glyph.markColor)
+    if isinstance(status.mark_color, str):
+        return describe_color(r, g, b) == status.mark_color
+    else:
         return (r, g, b) == status.mark_color[:3]
-    if status.lib_key_name is not None:
-        return glyph.lib.get(status.lib_key_name, None) == status.lib_key_value
-    # Catch-all state
-    return True
+
+
+def glyph_matches_lib_key(glyph: Glyph, status: Status) -> bool:
+    if status.lib_key_name is None:
+        return True
+    return glyph.lib.get(status.lib_key_name, None) == status.lib_key_value
 
 
 def parse_mark_color(color: str) -> Tuple[float, float, float, float]:
@@ -286,15 +340,14 @@ def parse_mark_color(color: str) -> Tuple[float, float, float, float]:
     return float(r), float(g), float(b), float(a)
 
 
-def plot_to_images(
-    milestone: Milestone,
+def plot_to_image(
+    config: Config,
     counts_by_date: Mapping[datetime, Sequence[int]],
-    total_glyph_instances: int,
-    images_path: Path,
+    image_path: Path,
 ):
     # Example code from https://matplotlib.org/stable/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py
     dates = []
-    counts_by_status: List[List[int]] = [[] for _ in milestone.statuses]
+    counts_by_status: List[List[int]] = [[] for _ in config.statuses]
     for date, counts in sorted(counts_by_date.items()):
         dates.append(date)
         for i, count in enumerate(counts):
@@ -305,46 +358,39 @@ def plot_to_images(
     ax.stackplot(
         dates,
         counts_by_status,
-        colors=[status.plot_color for status in milestone.statuses],
+        colors=[status.plot_color for status in config.statuses],
+        labels=[status.name for status in config.statuses],
     )
-    ax.plot(
-        [milestone.start_date, milestone.due_date],
-        [0, total_glyph_instances],
-    )
-    ax.set_title(f"Progress towards milestone: {milestone.name}")
+    for milestone in config.milestones:
+        ax.plot(
+            [milestone.start_date, milestone.due_date],
+            [0, milestone.total_glyphs * milestone.total_ufos],
+            color=milestone.plot_color,
+        )
+        ax.plot(
+            [milestone.due_date, milestone.due_date],
+            [0, milestone.total_glyphs * milestone.total_ufos],
+            color=milestone.plot_color,
+            linestyle="dashed",
+        )
+        ax.text(
+            milestone.due_date,
+            milestone.total_glyphs * milestone.total_ufos,
+            milestone.name,
+            horizontalalignment="right",
+            verticalalignment="bottom",
+            multialignment="right",
+            color=milestone.plot_color,
+            bbox=dict(facecolor="#ffffffc0", edgecolor="#d6d6d6", boxstyle="round"),
+        )
+    ax.legend(loc="upper left")
+    ax.set_title(f"Google Sans Flex Progress on {config.git_rev_current} since {config.git_rev_since}")
     ax.set_xlabel("Commit date")
     ax.set_ylabel("Number of glyph sources")
     ax.tick_params(axis="x", labelrotation=50)
 
-    fig.tight_layout()
-    fig.savefig(images_path / f"{sanitize(milestone.name)}_counts.png")
-
-    # ====================================
-    dates = []
-    progresses_by_status: List[List[float]] = [[] for _ in milestone.statuses]
-    for date, counts in sorted(counts_by_date.items()):
-        dates.append(date)
-        for i, (count, status) in enumerate(zip(counts, milestone.statuses)):
-            progresses_by_status[i].append(count * status.progress_percent / 100.0)
-
-    fig, ax = plt.subplots()
-    fig.set_size_inches(16, 9)
-    ax.stackplot(
-        dates,
-        progresses_by_status,
-        colors=[status.plot_color for status in milestone.statuses],
-    )
-    ax.plot(
-        [milestone.start_date, milestone.due_date],
-        [0, total_glyph_instances],
-    )
-    ax.set_title(f"Progress towards milestone: {milestone.name}")
-    ax.set_xlabel("Commit date")
-    ax.set_ylabel("Progress on glyph sources")
-    ax.tick_params(axis="x", labelrotation=50)
-
-    fig.tight_layout()
-    fig.savefig(images_path / f"{sanitize(milestone.name)}_progress.png")
+    fig.tight_layout(pad=3)
+    fig.savefig(image_path)
 
 
 def sanitize(string: str) -> str:
