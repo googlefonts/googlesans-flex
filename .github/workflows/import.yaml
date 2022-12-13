@@ -12,7 +12,7 @@ on:
 
 jobs:
   import-branch:
-    runs-on: ubuntu-latest
+    runs-on: [linux, googlefonts-64cores-256GB]
     steps:
       - uses: actions/checkout@v3
         with:
