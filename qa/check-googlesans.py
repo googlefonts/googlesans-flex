@@ -49,6 +49,10 @@ excluded_check_ids = (
     "com.adobe.fonts/check/varfont/valid_default_instance_nameids",  # Bogus
     "com.google.fonts/check/varfont/regular_wght_coord",  # Buggy in 0.8.9
     "com.google.fonts/check/varfont/bold_wght_coord",  # Buggy in 0.8.9
+    "com.google.fonts/check/vertical_metrics",  # GS is our reference.
+    "com.google.fonts/check/varfont/regular_opsz_coord",  # No, opsz=18
+    "com.google.fonts/check/glyph_coverage",  # We have our own target
+    "com.google.fonts/check/file_size",  # We're going bigger
 )
 
 AXIS_DEFAULTS = {
