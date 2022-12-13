@@ -60,8 +60,6 @@ AXIS_DEFAULTS = {
 
 # Global Google Sans attributes, in 1000 upM font units.
 GS_FONTUNIT_ATTRIBUTES_UPRIGHT = {
-    "head.yMax": 1263,
-    "head.yMin": -989,
     "hhea.ascender": 966,
     "hhea.descender": -286,
     "hhea.lineGap": 0,
@@ -86,7 +84,6 @@ GS_FONTUNIT_ATTRIBUTES_UPRIGHT = {
 
 GS_FONTUNIT_ATTRIBUTES_ITALIC = {
     **GS_FONTUNIT_ATTRIBUTES_UPRIGHT,
-    "head.yMin": -955,
     "OS/2.ySubscriptXOffset": -13,
     "OS/2.ySuperscriptXOffset": 62,
 }
