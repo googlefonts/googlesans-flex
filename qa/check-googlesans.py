@@ -37,7 +37,7 @@ GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
     "com.google.fonts/check/googlesansflex/opentype/global_fu_attributes",
 ]
 
-# define check ID's in the upstream `universal` profile
+# define check ID's in the upstream `googlefonts` profile
 # that should be excluded here
 excluded_check_ids = (
     *OUTLINE_PROFILE_CHECKS,  # Separate.
