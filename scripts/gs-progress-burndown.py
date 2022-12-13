@@ -13,20 +13,31 @@
 # limitations under the License.
 
 from __future__ import annotations
-from collections import defaultdict
 
-from dataclasses import dataclass
-from datetime import datetime
+import colorsys
 import os
-from pathlib import Path
 import posixpath
 import re
+from collections import defaultdict
+from dataclasses import dataclass
+from datetime import datetime
+from pathlib import Path
 from subprocess import run
 from tempfile import TemporaryDirectory
-from typing import Any, Callable, Dict, List, Mapping, Optional, Sequence, Tuple
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    List,
+    Literal,
+    Mapping,
+    Optional,
+    Sequence,
+    Tuple,
+    Union,
+)
 
 import matplotlib.pyplot as plt
-
 from ufoLib2.objects import Font, Glyph
 
 
@@ -50,11 +61,14 @@ class Milestone:
     """Statuses ordered from most done to least done."""
 
 
+SimpleColor = Literal["red", "yellow", "green", "blue", "purple"]
+
+
 @dataclass
 class Status:
     plot_color: str
     progress_percent: int
-    mark_color: Optional[Tuple[float, float, float, float]] = None
+    mark_color: Optional[Union[SimpleColor, Tuple[float, float, float, float]]] = None
     lib_key_name: Optional[str] = None
     lib_key_value: Optional[Any] = None
 
@@ -66,14 +80,15 @@ def _count(*args):
 
 opsz = wdth = wght = ROND = ital = _count
 
+
 # Green - design finished and ready for Google's review
 # Yellow - in progress
 # Red - not started
 # Blue - in progress and for v1.1 ()
 GSFLEX_CONFIG = Config(
     repo_path=Path(__file__).parent.parent,
-    git_rev_since="origin/main",
-    git_rev_current="origin/test-progress-colors-do-not-merge",
+    git_rev_since="Alpha-v1.0",
+    git_rev_current="origin/fb-wip",
     milestones=[
         Milestone(
             name="Roman - version 1.000",
@@ -98,12 +113,12 @@ GSFLEX_CONFIG = Config(
                 Status(
                     plot_color="green",
                     progress_percent=100,
-                    mark_color=(0, 1, 0, 1),
+                    mark_color="green",
                 ),
                 Status(
                     plot_color="yellow",
                     progress_percent=50,
-                    mark_color=(1, 1, 0, 1),
+                    mark_color="yellow",
                 ),
                 Status(plot_color="red", progress_percent=0),
             ],
@@ -127,12 +142,12 @@ GSFLEX_CONFIG = Config(
                 Status(
                     plot_color="green",
                     progress_percent=100,
-                    mark_color=(0, 1, 0, 1),
+                    mark_color="green",
                 ),
                 Status(
                     plot_color="blue",
                     progress_percent=50,
-                    mark_color=(0, 0, 1, 1),
+                    mark_color="blue",
                 ),
                 Status(plot_color="red", progress_percent=0),
             ],
@@ -166,6 +181,7 @@ def main() -> None:
     for tmpdir, date in iter_revisions(
         config.repo_path, config.git_rev_since, config.git_rev_current
     ):
+        glyph_instances_in_last_revision_per_milestone = [0 for _ in config.milestones]
         print("Opening UFOs", end="")
         for ufo_path in tmpdir.glob("**/*.ufo"):
             milestones_for_ufo = [
@@ -179,6 +195,7 @@ def main() -> None:
             print(".", end="")
             for glyph in ufo:
                 for i, milestone in milestones_for_ufo:
+                    glyph_instances_in_last_revision_per_milestone[i] += 1
                     counts = counts_by_date_by_milestone[i][date]
                     for j, status in enumerate(milestone.statuses):
                         if glyph_matches_status(glyph, status):
@@ -186,7 +203,18 @@ def main() -> None:
                             break
         print(" done")
     for i, milestone in enumerate(config.milestones):
-        plot_to_images(milestone, counts_by_date_by_milestone[i], Path("."))
+        print(
+            f"Milestone #{i} {milestone.name}: "
+            f"expected {milestone.total_glyphs*milestone.total_ufos} instances, "
+            f"found {glyph_instances_in_last_revision_per_milestone[i]} "
+            f"glyph instances in the last revision."
+        )
+        plot_to_images(
+            milestone,
+            counts_by_date_by_milestone[i],
+            glyph_instances_in_last_revision_per_milestone[i],
+            Path("."),
+        )
 
 
 @dataclass
@@ -242,8 +270,10 @@ def glyph_matches_status(glyph: Glyph, status: Status) -> bool:
     if status.mark_color is not None:
         if glyph.markColor is None:
             return False
-        # FIXME: (Jany) Ignore alpha because I made it 0 in my test branch
-        return parse_mark_color(glyph.markColor)[:3] == status.mark_color[:3]
+        r, g, b, _a = parse_mark_color(glyph.markColor)
+        if isinstance(status.mark_color, str):
+            return describe_color(r, g, b) == status.mark_color
+        return (r, g, b) == status.mark_color[:3]
     if status.lib_key_name is not None:
         return glyph.lib.get(status.lib_key_name, None) == status.lib_key_value
     # Catch-all state
@@ -259,6 +289,7 @@ def parse_mark_color(color: str) -> Tuple[float, float, float, float]:
 def plot_to_images(
     milestone: Milestone,
     counts_by_date: Mapping[datetime, Sequence[int]],
+    total_glyph_instances: int,
     images_path: Path,
 ):
     # Example code from https://matplotlib.org/stable/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py
@@ -278,7 +309,7 @@ def plot_to_images(
     )
     ax.plot(
         [milestone.start_date, milestone.due_date],
-        [0, milestone.total_ufos * milestone.total_glyphs],
+        [0, total_glyph_instances],
     )
     ax.set_title(f"Progress towards milestone: {milestone.name}")
     ax.set_xlabel("Commit date")
@@ -305,7 +336,7 @@ def plot_to_images(
     )
     ax.plot(
         [milestone.start_date, milestone.due_date],
-        [0, milestone.total_ufos * milestone.total_glyphs],
+        [0, total_glyph_instances],
     )
     ax.set_title(f"Progress towards milestone: {milestone.name}")
     ax.set_xlabel("Commit date")
@@ -318,6 +349,50 @@ def plot_to_images(
 
 def sanitize(string: str) -> str:
     return re.sub(r"[^A-Za-z0-9_.\-]+", "_", string)
+
+
+# https://en.wikipedia.org/wiki/Hue#24_hues_of_HSL/HSV
+HUE_TO_COLOR: List[Tuple[int, SimpleColor]] = [
+    (30, "red"),  # Up to 30°, classify as red
+    (75, "yellow"),
+    (165, "green"),
+    (255, "blue"),
+    (315, "purple"),
+    (360, "red"),
+]
+
+
+def describe_color(r: float, g: float, b: float) -> SimpleColor:
+    h, _l, _s = colorsys.rgb_to_hls(r, g, b)
+    for degrees, color_name in HUE_TO_COLOR:
+        if h <= degrees / 360.0:
+            return color_name
+    return HUE_TO_COLOR[-1][1]
+
+
+# Colors found in fb-wip branch:
+# [(10, '0.2288,1,0.4511,1', '#3AFF73FF'),
+assert describe_color(0.2288, 1, 0.4511) == "green"
+#  (18, '0.9908,1,0.037,1', '#FDFF09FF'),
+assert describe_color(0.9908, 1, 0.037) == "yellow"
+#  (49, '0.8687,0.1142,0.999,1', '#DE1DFFFF'),
+assert describe_color(0.8687, 0.1142, 0.999) == "purple"
+#  (200, '1,0,0,1', '#FF0000FF'),
+assert describe_color(1, 0, 0) == "red"
+#  (244, '1,1,0,1', '#FFFF00FF'),
+assert describe_color(1, 1, 0) == "yellow"
+#  (349, '0,0,1,1', '#0000FFFF'),
+assert describe_color(0, 0, 1) == "blue"
+#  (1257, '0.0941,0.7922,0.9961,1', '#18CAFEFF'),
+assert describe_color(0.0941, 0.7922, 0.9961) == "blue"
+#  (1800, '0.884,0.8791,0.0317,1', '#E1E008FF'),
+assert describe_color(0.884, 0.8791, 0.0317) == "yellow"
+#  (2361, '0.1227,0.9628,0.999,1', '#1FF6FFFF'),
+assert describe_color(0.1227, 0.9628, 0.999) == "blue"
+#  (4020, '0.2431,0.9922,0.5255,1', '#3EFD86FF'),
+assert describe_color(0.2431, 0.9922, 0.5255) == "green"
+#  (4304, '0.1313,0.9997,0.0236,1', '#21FF06FF')]
+assert describe_color(0.1313, 0.9997, 0.0236) == "green"
 
 
 if __name__ == "__main__":
