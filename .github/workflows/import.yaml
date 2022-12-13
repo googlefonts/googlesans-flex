@@ -12,7 +12,7 @@ on:
 
 jobs:
   import-branch:
-    runs-on: ubuntu-latest
+    runs-on: [linux, googlefonts-64cores-256GB]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -55,4 +55,41 @@ jobs:
             
           This commit was creating automatically using the GitHub workflow"
           git push -u origin "$TARGET_BRANCH"
-  
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - name: Install yq
+        run: |
+          sudo apt-get update
+          sudo snap install yq
+      - uses: actions/cache@v3
+        with:
+          path: ./venv/
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
+      - name: Generate zip file name
+        id: zip-name
+        shell: bash
+        # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
+        run: echo "ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-fonts" >> $GITHUB_ENV
+      - name: Build font
+        run: cd "$GITHUB_WORKSPACE/target" && make build
+      - name: Check with fontbakery
+        run: cd "$GITHUB_WORKSPACE/target" && make test
+        continue-on-error: true
+      - name: proof
+        run: cd "$GITHUB_WORKSPACE/target" && make proof
+      - name: Analyze file size # FIXME: currently can't find font files
+        uses: ./main/.github/actions/file-size
+        continue-on-error: true
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.ZIP_NAME }}
+          path: |
+            target/fonts
+            target/out
+    outputs:
+      zip_name: ${{ env.ZIP_NAME }}
