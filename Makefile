@@ -18,20 +18,22 @@ build: build.stamp
 
 venv: venv/touchfile
 
-build.stamp: venv .init.stamp sources/config.yaml $(SOURCES)
+build.stamp: venv sources/config.yaml $(SOURCES)
 	. venv/bin/activate; rm -rf fonts/; gftools builder sources/config.yaml && touch build.stamp
 
-.init.stamp: venv
-	. venv/bin/activate; python3 scripts/first-run.py
-
 venv/touchfile: requirements.txt
-	test -d venv || python3.8 -m venv venv
+	test -d venv || python3 -m venv venv
 	. venv/bin/activate; pip install -U setuptools wheel pip
 	. venv/bin/activate; pip install -Ur requirements.txt
 	touch venv/touchfile
 
 test: venv build.stamp
-	. venv/bin/activate; mkdir -p out/ out/fontbakery; fontbakery check-googlefonts -l WARN --succinct --badges out/badges --html out/fontbakery/fontbakery-report.html --ghmarkdown out/fontbakery/fontbakery-report.md $(shell find fonts/variable -type f)
+	mkdir -p out/fontbakery
+	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html --ghmarkdown out/fontbakery/fontbakery-outlines-report.md fontbakery.profiles.outline $(shell find fonts/variable -type f)
+	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html --ghmarkdown out/fontbakery/fontbakery-googlesans-report.md qa/check-googlesans.py $(shell find fonts/variable -type f)
+	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html --ghmarkdown out/fontbakery/fontbakery-fea-report.md qa/check-fea.py $(shell find fonts/variable -type f)
+	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html --ghmarkdown out/fontbakery/fontbakery-charset-report.md qa/check-charset.py $(shell find fonts/variable -type f)
+	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html --ghmarkdown out/fontbakery/fontbakery-shaping-report.md qa/check-shaping.py $(shell find fonts/variable -type f)
 
 proof: venv build.stamp
 	. venv/bin/activate; mkdir -p out/ out/proof; gftools gen-html proof $(shell find fonts/variable -type f) -o out/proof
@@ -49,5 +51,15 @@ clean:
 update-project-template:
 	npx update-template https://github.com/googlefonts/googlefonts-project-template/
 
+update-glyphset-expectations:
+	. venv/bin/activate && python scripts/gs-update-glyphset-qa-files.py
+
+update-shaping-expectations:
+	. venv/bin/activate && bash -c "cd qa && bash update_all_shaping.sh"
+
 update:
-	pip install --upgrade $(dependency); pip freeze > requirements.txt
+	pip install -U pip-tools
+	pip-compile -U requirements.in
+
+file-size: build
+	. venv/bin/activate && find fonts -name '*.ttf' -type f | xargs python .github/actions/file-size/report-filesize.py
