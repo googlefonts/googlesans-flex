@@ -12,6 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+"""Generate a sort of burndown chart to evaluate progress.
+
+How to run:
+* create and activate a venv with matplotlib and pyyaml
+* run `python scripts/gs-progress-burndown.py`
+
+How to tweak: edit the `GSFLEX_CONFIG = Config(...)` object below.
+"""
+
+
 from __future__ import annotations
 
 import colorsys
