@@ -719,11 +719,11 @@ def iter_revisions(repo_path, rev_since, rev_current):
 
     try:
         with TemporaryDirectory() as tmpdir:
-            repo.git("worktree", "add", "-d", tmpdir, dates_and_shas[0][1])
+            repo.git("worktree", "add", "--detach", tmpdir, dates_and_shas[0][1])
             worktree = Repo(tmpdir)
             for i, (date, sha) in enumerate(dates_and_shas):
                 print(f"Processing commit {i+1}/{len(dates_and_shas)}: {sha} on {date}")
-                worktree.git("checkout", "-d", sha)
+                worktree.git("checkout", "--detach", sha)
                 yield Path(tmpdir), date
     finally:
         repo.git("worktree", "remove", tmpdir, check=False)
