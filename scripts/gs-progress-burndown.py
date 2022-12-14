@@ -100,7 +100,11 @@ def find_roman_and_italic_non_sparse_ufos(root: Path) -> List[Path]:
                 doc = DesignSpaceDocument.fromfile(root / "sources" / designspace_path)
                 for source in doc.sources:
                     path = Path(source.path)
-                    # TODO: (Jany) exclude sparse sources, if any? Look into the wdth85 and wdth91.999
+                    if source.layerName:
+                        # Exclude sparse sources
+                        # TODO: (Jany) Look into the wdth85 and wdth91.999?
+                        #   Are these considered "sparse"?
+                        continue
                     ufos.add(path)
             except Exception as e:
                 print(f"Reading designspace {designspace_path} failed, skipping: {e}")
@@ -600,13 +604,14 @@ GSFLEX_CONFIG = Config(
             due_date=datetime(2023, 1, 16),
             total_glyphs=len(GLYPH_TYPES),
             total_ufos=(
-                # Ignore sparse sources
-                opsz(6, 18, 144)
-                * wdth(25, 100, 151)
-                * wght(1, 400, 1000)
-                * ROND(0, 100)
-                # TODO: (Jany) add grade sources where relevant
-                * GRAD(0)
+                # Number from Marianna in this comment:
+                # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
+                120
+                # opsz(6, 18, 144)
+                # * wdth(25, 100, 151)
+                # * wght(1, 400, 1000)
+                # * ROND(0, 100)
+                # * GRAD(-50, 0 , 50)
             ),
         ),
         Milestone(
@@ -616,13 +621,16 @@ GSFLEX_CONFIG = Config(
             due_date=datetime(2023, 2, 28),
             total_glyphs=len(GLYPH_TYPES),
             total_ufos=(
-                opsz(6, 18, 144)
-                * wdth(25, 100, 151)
-                * wght(1, 400, 1000)
-                * ROND(0, 100)
-                # TODO: (Jany) add grade sources where relevant
-                * GRAD(0)
-                * ital(0, 1)
+                # Number from Marianna in this comment, times 2 because ital
+                # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
+                120
+                * 2
+                # opsz(6, 18, 144)
+                # * wdth(25, 100, 151)
+                # * wght(1, 400, 1000)
+                # * ROND(0, 100)
+                # * GRAD(-50, 0, 50)
+                # * ital(0, 1)
             ),
         ),
     ],
