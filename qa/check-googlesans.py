@@ -53,6 +53,7 @@ excluded_check_ids = (
     "com.google.fonts/check/varfont/regular_opsz_coord",  # No, opsz=18
     "com.google.fonts/check/glyph_coverage",  # We have our own target
     "com.google.fonts/check/file_size",  # We're going bigger
+    "com.google.fonts/check/font_names",  # We have our own naming ideas
 )
 
 AXIS_DEFAULTS = {
