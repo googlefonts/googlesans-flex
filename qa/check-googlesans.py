@@ -37,18 +37,22 @@ GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
     "com.google.fonts/check/googlesansflex/opentype/global_fu_attributes",
 ]
 
-# define check ID's in the upstream `universal` profile
+# define check ID's in the upstream `googlefonts` profile
 # that should be excluded here
 excluded_check_ids = (
     *OUTLINE_PROFILE_CHECKS,  # Separate.
     "com.google.fonts/check/ftxvalidator_is_available",
     "com.google.fonts/check/dsig",
-    "com.google.fonts/check/family/win_ascent_and_descent",  # replaced by value checks
     "com.google.fonts/check/unwanted_tables",
     "com.google.fonts/check/contour_count",  # design rather than QA problem
     "com.adobe.fonts/check/varfont/valid_default_instance_nameids",  # Bogus
     "com.google.fonts/check/varfont/regular_wght_coord",  # Buggy in 0.8.9
     "com.google.fonts/check/varfont/bold_wght_coord",  # Buggy in 0.8.9
+    "com.google.fonts/check/vertical_metrics",  # GS is our reference.
+    "com.google.fonts/check/varfont/regular_opsz_coord",  # No, opsz=18
+    "com.google.fonts/check/glyph_coverage",  # We have our own target
+    "com.google.fonts/check/file_size",  # We're going bigger
+    "com.google.fonts/check/font_names",  # We have our own naming ideas
 )
 
 AXIS_DEFAULTS = {
@@ -56,20 +60,17 @@ AXIS_DEFAULTS = {
     "wdth": 100,
     "wght": 400,
     "ROND": 0,
+    "GRAD": 0,
 }
 
 # Global Google Sans attributes, in 1000 upM font units.
 GS_FONTUNIT_ATTRIBUTES_UPRIGHT = {
-    "head.yMax": 1263,
-    "head.yMin": -989,
     "hhea.ascender": 966,
     "hhea.descender": -286,
     "hhea.lineGap": 0,
     "OS/2.sTypoAscender": 966,  # set to match hhea metrics values
     "OS/2.sTypoDescender": -286,
     "OS/2.sTypoLineGap": 0,
-    "OS/2.usWinAscent": 1323,
-    "OS/2.usWinDescent": 1079,
     "OS/2.yStrikeoutPosition": 306,
     "OS/2.yStrikeoutSize": 84,
     "OS/2.ySubscriptXOffset": 0,
@@ -86,7 +87,6 @@ GS_FONTUNIT_ATTRIBUTES_UPRIGHT = {
 
 GS_FONTUNIT_ATTRIBUTES_ITALIC = {
     **GS_FONTUNIT_ATTRIBUTES_UPRIGHT,
-    "head.yMin": -955,
     "OS/2.ySubscriptXOffset": -13,
     "OS/2.ySuperscriptXOffset": 62,
 }
