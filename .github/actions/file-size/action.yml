@@ -1,5 +1,12 @@
 name: file-size
 description: Analyzes TTFs to give a breakdown of their size
+inputs:
+  path:
+    description: the path that maps to the repository root
+    required: true
+    default: /github/workspace
 runs:
   using: docker
   image: Dockerfile
+  args:
+    - ${{ inputs.path }}
