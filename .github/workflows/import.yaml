@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: "The name of the branch to import from"
+        description: The name of the branch to import from
         required: true
       email:
         description: Your GitHub email address (CLA approved)
@@ -34,7 +34,7 @@ jobs:
             echo "The target branch '$TARGET_BRANCH' already exists, updating."
             git worktree add --quiet ../target "$TARGET_BRANCH"
           else
-          echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
+            echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
             git fetch origin main # because shallow
             git worktree add --quiet ../target -b "$TARGET_BRANCH" origin/main
           fi
@@ -81,8 +81,10 @@ jobs:
         continue-on-error: true
       - name: proof
         run: cd "$GITHUB_WORKSPACE/target" && make proof
-      - name: Analyze file size # FIXME: currently can't find font files
+      - name: Analyze file size
         uses: ./main/.github/actions/file-size
+        with:
+          path: /github/workspace/target
         continue-on-error: true
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
