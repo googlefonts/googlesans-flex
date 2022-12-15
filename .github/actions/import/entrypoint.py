@@ -25,35 +25,38 @@ from scripts.fix_metadata_in_sources import main as fix_metadata
 REPLACE_TARGET_DESIGNSPACE = True
 FOLLOW_GLYPHS = True  # while sources are in flux
 
+WORKSPACE_ROOT = Path("/github/workspace")
+SOURCE_DIR = WORKSPACE_ROOT / "source"
+TARGET_DIR = WORKSPACE_ROOT / "target"
+GLYPH_LIST = Path("/glyph-list.txt")
+CONFIG_FILE = Path("sources/config.yaml")
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 # Takes designspaces specified in the sources/config.yaml of the SOURCE branch
-with open("/github/workspace/source/sources/config.yaml", "r") as file:
-    gftools_config = yaml.safe_load(file)
-    for designspace_path in gftools_config["sources"]:
-        logging.info(f"Merging {designspace_path}")
-        src_ds_path = designspace_path.replace("regular", "roman", 1)
-        merge(
-            Path(f"/github/workspace/source/sources/{src_ds_path}"),
-            Path(f"/github/workspace/target/sources/{designspace_path}"),
-            Path("/glyph-list.txt"),
-            REPLACE_TARGET_DESIGNSPACE,
-            FOLLOW_GLYPHS,
-        )
+file_text = (SOURCE_DIR / CONFIG_FILE).read_text()
+gftools_config = yaml.safe_load(file_text)
+for designspace_path in gftools_config["sources"]:
+    logging.info(f"Merging {designspace_path}")
+    src_ds_path = designspace_path.replace("regular", "roman", 1)
+    merge(
+        SOURCE_DIR / "sources" / src_ds_path,
+        TARGET_DIR / "sources" / designspace_path,
+        GLYPH_LIST,
+        REPLACE_TARGET_DESIGNSPACE,
+        FOLLOW_GLYPHS,
+    )
 
-        sources_dir = Path(designspace_path).parent
-        logging.info(f"Normalising {sources_dir}")
-        normalize(
-            Path(f"/github/workspace/target/sources/{sources_dir}"),
-        )
+    ds_sources_dir = Path(designspace_path).parent
+    logging.info(f"Normalising {ds_sources_dir}")
+    normalize(
+        TARGET_DIR / "sources" / ds_sources_dir,
+    )
 
-        logging.info(f"Fixing metadata")
-        fix_metadata(
-            Path(f"/github/workspace/target/sources/{designspace_path}"),
-        )
+    logging.info(f"Fixing metadata")
+    fix_metadata(
+        TARGET_DIR / "sources" / designspace_path,
+    )
 
-shutil.copy2(
-    "/github/workspace/source/sources/config.yaml",
-    "/github/workspace/target/sources/config.yaml",
-)
+shutil.copy2(SOURCE_DIR / CONFIG_FILE, TARGET_DIR / CONFIG_FILE)
 logging.info("Done!")
