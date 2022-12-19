@@ -12,9 +12,13 @@ parser.add_argument("glyph", nargs="+", help="The glyphs to ignore when compilin
 parsed_args = parser.parse_args()
 skip_export_glyphs: list[str] = parsed_args.glyph
 
-designspace = DesignSpaceDocument.fromfile(parsed_args.designspace)
+designspace_path: Path = parsed_args.designspace
+designspace = DesignSpaceDocument.fromfile(designspace_path)
 ufos = designspace.loadSourceFonts(Font.open)
 
 for ufo in ufos:
     ufo.lib["public.skipExportGlyphs"] = skip_export_glyphs
     ufo.save()
+
+designspace.lib["public.skipExportGlyphs"] = skip_export_glyphs
+designspace.write(designspace_path)
