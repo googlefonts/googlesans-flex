@@ -63,3 +63,6 @@ update:
 
 file-size: build
 	. venv/bin/activate && find fonts -name '*.ttf' -type f | xargs python .github/actions/file-size/report-filesize.py
+
+progress-chart: venv
+	. venv/bin/activate && python scripts/gs-progress-burndown.py
