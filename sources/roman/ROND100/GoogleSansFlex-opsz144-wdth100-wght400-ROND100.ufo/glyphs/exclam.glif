@@ -1,9 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="exclam" format="2">
-  <advance width="476"/>
+  <advance width="492"/>
   <unicode hex="0021"/>
   <outline>
-    <component base="exclam-top" xOffset="-8"/>
-    <component base="dot-composite"/>
+    <component base="exclam-top" xOffset="-7.529411764705883" identifier="component0"/>
+    <component base="dot-composite" xOffset="4.117647058823529" identifier="component1"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>component0</key>
+        <dict>
+          <key>public.truetype.roundOffsetToGrid</key>
+          <true/>
+          <key>public.truetype.useMyMetrics</key>
+          <true/>
+        </dict>
+        <key>component1</key>
+        <dict>
+          <key>public.truetype.roundOffsetToGrid</key>
+          <true/>
+          <key>public.truetype.useMyMetrics</key>
+          <false/>
+        </dict>
+      </dict>
+      <key>public.truetype.overlap</key>
+      <false/>
+    </dict>
+  </lib>
 </glyph>
