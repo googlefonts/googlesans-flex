@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all so we get access to all tags, etc.
       - name: Set up Python 3.x
         uses: actions/setup-python@v4
         with:
