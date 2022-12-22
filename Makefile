@@ -69,3 +69,6 @@ progress-chart: venv
 
 bump-to-tag: venv
 	. venv/bin/activate && python3 scripts/bump-to-tag.py
+
+glyph-hunt: venv
+	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
