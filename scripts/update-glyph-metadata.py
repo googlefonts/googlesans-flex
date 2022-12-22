@@ -23,19 +23,23 @@ import glyphsLib.glyphdata
 
 ROOT_DIR = Path(__file__).parent.parent
 
+def main(csv_path: Path):
+    glyphdata = ufo_glyphdata_manager.__main__.read_csv(csv_path)
+    for name, data in glyphdata.items():
+        name_sanitized = name.replace("-", "")
+        glyphsapp_data = glyphsLib.glyphdata.get_glyph(name, unicodes=data.unicodes)
+        if (prod_name := glyphsapp_data.production_name) != name_sanitized:
+            data.postscript_name = prod_name
+        elif name != name_sanitized:
+            print(f"INFO: automatically to specified postscript name for {name} by removing dashes")
+            data.postscript_name = name_sanitized
+        else:
+            data.postscript_name = None
 
-parser = argparse.ArgumentParser()
-parser.add_argument("csv", type=Path, help="Path to the glyph data CSV.")
-parsed_args = parser.parse_args()
-csv_path: Path = parsed_args.csv
+    ufo_glyphdata_manager.__main__.write_csv(csv_path, glyphdata)
 
-glyphdata = ufo_glyphdata_manager.__main__.read_csv(csv_path)
-for name, data in glyphdata.items():
-    name_sanitized = name.replace("-", "")
-    glyphsapp_data = glyphsLib.glyphdata.get_glyph(name, unicodes=data.unicodes)
-    if (prod_name := glyphsapp_data.production_name) != name_sanitized:
-        data.postscript_name = prod_name
-    else:
-        data.postscript_name = None
-
-ufo_glyphdata_manager.__main__.write_csv(csv_path, glyphdata)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("csv", type=Path, help="Path to the glyph data CSV.")
+    parsed_args = parser.parse_args()
+    main(parsed_args.csv)
