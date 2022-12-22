@@ -83,14 +83,14 @@ bump-to-tag: venv
 glyph-hunt: venv
 	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
 
-extract-glyph-metadata:
+extract-glyph-metadata: venv
 	venv/bin/ufo-glyphdata-manager extract -o sources/glyph_metadata.csv sources/regular/GoogleSansFlex-opsz18-wdth100-wght400-ROND0.ufo
 
-regenerate-glyph-metadata:
+regenerate-glyph-metadata: venv
 	venv/bin/python scripts/update-glyph-metadata.py sources/glyph_metadata.csv
 
-apply-glyph-metadata:
+apply-glyph-metadata: venv
 	venv/bin/ufo-glyphdata-manager apply sources/glyph_metadata.csv sources/**/*.ufo
 
-normalize-sources:
+normalize-sources: venv
 	venv/bin/python scripts/gs-normalize-designspace.py
