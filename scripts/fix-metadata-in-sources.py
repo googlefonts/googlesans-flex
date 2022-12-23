@@ -27,15 +27,15 @@ designspace = DesignSpaceDocument.fromfile(designspace_path)
 ufos: list[Font] = designspace.loadSourceFonts(Font.open)
 
 instance_locations = {
-    "Thin": dict(wght=100.0),
-    "ExtraLight": dict(wght=200.0),
-    "Light": dict(wght=300.0),
-    "Regular": dict(wght=400.0),
-    "Medium": dict(wght=500.0),
-    "SemiBold": dict(wght=600.0),
-    "Bold": dict(wght=700.0),
-    "ExtraBold": dict(wght=800.0),
-    "Black": dict(wght=900.0),
+    "Thin": dict(wght=100.0, wdth=100.0),
+    "ExtraLight": dict(wght=200.0, wdth=100.0),
+    "Light": dict(wght=300.0, wdth=100.0),
+    "Regular": dict(wght=400.0, wdth=100.0),
+    "Medium": dict(wght=500.0, wdth=100.0),
+    "SemiBold": dict(wght=600.0, wdth=100.0),
+    "Bold": dict(wght=700.0, wdth=100.0),
+    "ExtraBold": dict(wght=800.0, wdth=100.0),
+    "Black": dict(wght=900.0, wdth=100.0),
 }
 
 designspace.instances.clear()
