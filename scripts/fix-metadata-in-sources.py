@@ -24,7 +24,7 @@ parser.add_argument("designspace", type=Path)
 parsed_args = parser.parse_args()
 designspace_path: Path = parsed_args.designspace
 designspace = DesignSpaceDocument.fromfile(designspace_path)
-ufos: list[Font] = designspace.loadSourceFonts(Font.open)
+designspace.loadSourceFonts(Font.open)
 
 instance_locations = {
     "Thin": dict(wght=100.0, wdth=100.0),
@@ -40,7 +40,7 @@ instance_locations = {
 
 designspace.instances.clear()
 for name, location in instance_locations.items():
-    designspace.addInstanceDescriptor(styleName=name, location=location)
+    designspace.addInstanceDescriptor(styleName=name, designLocation=location)
 
 designspace.write(designspace_path)
 
