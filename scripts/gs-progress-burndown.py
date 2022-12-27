@@ -667,9 +667,22 @@ def main() -> None:
     ):
         print("Opening UFOs", end="")
         for ufo_path in config.ufo_finder(tmpdir):
-            ufo = Font.open(ufo_path)
+            try:
+                ufo = Font.open(ufo_path)
+            except Exception as e:
+                relative_path = ufo_path.relative_to(tmpdir)
+                print(f"\nReading UFO '{relative_path}' failed, skipping: {e}")
+                continue
             print(".", end="", flush=True)
-            for glyph in ufo:
+            for glyph_name in ufo.keys():
+                try:
+                    glyph = ufo[glyph_name]
+                except Exception as e:
+                    relative_path = ufo_path.relative_to(tmpdir)
+                    print(
+                        f"\nReading glyph '{glyph_name}' from UFO '{relative_path}' failed, skipping: {e}"
+                    )
+                    continue
                 counts = counts_by_date[date]
                 for i, status in enumerate(config.statuses):
                     if glyph_matches_status(glyph, status):
