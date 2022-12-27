@@ -26,6 +26,7 @@ designspace_path: Path = parsed_args.designspace
 designspace = DesignSpaceDocument.fromfile(designspace_path)
 designspace.loadSourceFonts(Font.open)
 
+# Defined in USER coordinates.
 instance_locations = {
     "Thin": dict(wght=100.0, wdth=100.0),
     "ExtraLight": dict(wght=200.0, wdth=100.0),
@@ -40,7 +41,9 @@ instance_locations = {
 
 designspace.instances.clear()
 for name, location in instance_locations.items():
-    designspace.addInstanceDescriptor(styleName=name, designLocation=location)
+    # TODO: Add directly as user coordinates when we adopt DS5.
+    as_design_location = designspace.map_forward(location)
+    designspace.addInstanceDescriptor(styleName=name, designLocation=as_design_location)
 
 designspace.write(designspace_path)
 
