@@ -1,5 +1,9 @@
 name: Progress chart
-on: [push]
+on:
+  push:
+    branches:
+      - fb-wip
+      - import-fb-wip
 
 jobs:
   burndown:
