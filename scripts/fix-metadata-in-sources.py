@@ -61,4 +61,7 @@ for source in designspace.sources:
     ufo.info.openTypeNameDesigner = "Google Sans Authors"
     ufo.info.openTypeNameDesignerURL = "https://design.google"
     ufo.info.openTypeNameLicense = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives."
+    # TODO: get version from config.yaml once supported
+    ufo.info.versionMajor = 1
+    ufo.info.versionMinor = 0
     ufo.save()
