@@ -64,4 +64,8 @@ for source in designspace.sources:
     # TODO: get version from config.yaml once supported
     ufo.info.versionMajor = 1
     ufo.info.versionMinor = 0
+
+    # Clear out export bans to avoid confusion.
+    ufo.lib["public.skipExportGlyphs"] = []
+
     ufo.save()
