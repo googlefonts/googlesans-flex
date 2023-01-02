@@ -27,6 +27,10 @@ echo "Normalising upright designspaces..."
 python3 /scripts/gs-normalize-designspace.py \
     --source-dir /github/workspace/target/sources/regular/
 
+echo "Fixing upright metadata..."
+python3 /scripts/fix-metadata-in-sources.py \
+    /github/workspace/target/sources/regular/GoogleSansFlex.designspace
+
 echo "Merging italic designspace..."
 python3 /scripts/gs-merge-designspace.py \
     --source /github/workspace/source/sources/italic/GoogleSansFlex-Italic.designspace \
