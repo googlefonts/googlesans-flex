@@ -7,6 +7,7 @@ axisOrder:
   - ROND
   - GRAD
 familyName: Google Sans Flex
+# TODO: specify version once the option is available
 # The existing UFO sources are quadratics, so it probably does not make sense
 # to build OTFs. Also, Google Sans doesn't build OTFs, so it makes sense to do
 # the same for Flex
@@ -81,12 +82,6 @@ stat:
 - name: Optical size
   tag: opsz
   values:
-  - flags: 0
-    name: 6pt
-    value: 6.0
-  - flags: 0
-    name: 7pt
-    value: 7.0
   - flags: 0
     name: 8pt
     value: 8.0
