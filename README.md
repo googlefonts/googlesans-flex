@@ -33,3 +33,6 @@ and you will have to open a PR for it (we can't do it automatically because of t
 If a PR already exists, it will be updated.
 
 Otherwise, check the CI log for the run (accessible at the link above) to investigate why it failed.
+
+The designspaces imported are determined by the `sources/config.yaml` file.
+To add a new designspace, update the file on the source branch (the one not starting `import-...`) and then run the import workflow again.

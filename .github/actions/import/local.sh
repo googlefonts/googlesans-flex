@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
+# Copyright 2022 Google Sans Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 # TODO: consider yell/die/try
 # https://stackoverflow.com/questions/37919034/capturing-bash-execution-errors
@@ -10,19 +23,19 @@ fi
 
 REPO_DIR=$(pwd)
 SOURCE_BRANCH=$1
-TARGET_BRANCH_NAME="import-$SOURCE_BRANCH"
-git ls-remote --exit-code --heads git@github.com:googlefonts/googlesans-flex.git "$TARGET_BRANCH_NAME" &> /dev/null
+TARGET_BRANCH="import-$SOURCE_BRANCH"
+git ls-remote --exit-code --heads git@github.com:googlefonts/googlesans-flex.git "$TARGET_BRANCH" &> /dev/null
 BRANCH_EXISTS_STATUS=$?
 case $BRANCH_EXISTS_STATUS in
     2)
         # Branch doesn't already exist, new import
         echo "Creating new import branch"
-        BASE_BRANCH=main
+        git branch "$TARGET_BRANCH"
         ;;
     0)
         # Branch already exists, update
-        echo "Updating existing import branch $TARGET_BRANCH_NAME"
-        BASE_BRANCH=$TARGET_BRANCH_NAME
+        echo "Updating existing import branch $TARGET_BRANCH"
+        git fetch origin "$TARGET_BRANCH"
         ;;
     128)
         echo "ERROR: authentication failed, please check the README for the import action for how to set up SSH authentication"
@@ -34,62 +47,63 @@ case $BRANCH_EXISTS_STATUS in
         ;;
 esac
 
-git fetch --quiet origin "$BASE_BRANCH" "$SOURCE_BRANCH"
-BASE_COMMIT=$(git log -n 1 --oneline "origin/$BASE_BRANCH" | cut -d' ' -f 1)
+git fetch --quiet origin "$SOURCE_BRANCH"
+TARGET_COMMIT=$(git log -n 1 --oneline "origin/$TARGET_BRANCH" | cut -d' ' -f 1)
 SOURCE_COMMIT=$(git log -n 1 --oneline "origin/$SOURCE_BRANCH" | cut -d' ' -f 1)
 
-BASE_DIR=$(mktemp -d)
+TARGET_DIR=$(mktemp -d)
 SOURCE_DIR=$(mktemp -d)
 
-echo "$BASE_BRANCH -> $BASE_DIR"
+echo "$TARGET_BRANCH -> $TARGET_DIR"
 echo "$SOURCE_BRANCH -> $SOURCE_DIR"
 
 echo
 
-echo "Using commit $BASE_COMMIT for base"
-git worktree add "$BASE_DIR" "$BASE_COMMIT" || exit 1
-echo
-echo "Using commit $SOURCE_COMMIT for staging"
+echo "Using commit $SOURCE_COMMIT for source"
 git worktree add "$SOURCE_DIR" "$SOURCE_COMMIT" || exit 1
+echo
+echo "Using commit $TARGET_COMMIT for target"
+git worktree add "$TARGET_DIR" "$TARGET_COMMIT" || exit 1
 
 echo
 
 echo "Running import scripts through Docker..."
 docker build -t import "$REPO_DIR/.github/actions/import"
 docker run --rm \
-    --name "import-$BASE_COMMIT-$SOURCE_COMMIT" \
-    -v "$BASE_DIR:/github/workspace/main" \
-    -v "$SOURCE_DIR:/github/workspace/staging:ro" \
+    --name "import-$SOURCE_BRANCH-$TARGET_BRANCH" \
+    -v "$REPO_DIR:/github/workspace/main:ro" \
+    -v "$SOURCE_DIR:/github/workspace/source:ro" \
+    -v "$TARGET_DIR:/github/workspace/target" \
     import
 DOCKER_EXIT_STATUS=$?
 echo
 
 # shellcheck disable=SC2164
-cd "$BASE_DIR"
+cd "$TARGET_DIR"
 # Ensure the import scripts actually changed something & docker succeeded
 # https://stackoverflow.com/a/5143914
 if [[ $DOCKER_EXIT_STATUS -eq 0 && ! $(git diff-index --quiet HEAD --) ]] ; then
     if [[ $BRANCH_EXISTS_STATUS -eq 2 ]] ; then
-        echo "Creating new import branch locally ($TARGET_BRANCH_NAME)"
-        git checkout -b "$TARGET_BRANCH_NAME"
+        echo "Updating new import branch ($TARGET_BRANCH)"
+        git checkout --quiet "$TARGET_BRANCH"
         git add sources
         git commit --quiet -m "Import from $SOURCE_BRANCH
         
 This commit was creating automatically using the local import script"
         echo "Pushing import branch to GitHub repository"
-        git push -u origin "$TARGET_BRANCH_NAME"
+        git push -u origin "$TARGET_BRANCH"
         echo
-        echo "SUCCESS: pushed to branch $TARGET_BRANCH_NAME, ready for you to open a PR!"
+        echo "SUCCESS: pushed to branch $TARGET_BRANCH, ready for you to open a PR!"
     else
-        echo "Updating existing import branch ($TARGET_BRANCH_NAME)"
-        git checkout --quiet "$TARGET_BRANCH_NAME"
+        echo "Updating existing import branch ($TARGET_BRANCH)"
+        git checkout --quiet "$TARGET_BRANCH"
         git add sources
         git commit --quiet -m "Update from $SOURCE_BRANCH
             
 This commit was creating automatically using the local import script"
         git push
         echo
-        echo "SUCCESS: pushed to branch $TARGET_BRANCH_NAME"
+        echo "SUCCESS: pushed to branch $TARGET_BRANCH"
     fi
     echo
 fi
@@ -99,7 +113,7 @@ echo "Cleaning up..."
 cd "$REPO_DIR"
 # --force may be necessary here if the scripts made some changes but we had to
 # abort
-git worktree remove --force "$BASE_DIR"
+git worktree remove --force "$TARGET_DIR"
 git worktree remove "$SOURCE_DIR"
 
 exit $DOCKER_EXIT_STATUS

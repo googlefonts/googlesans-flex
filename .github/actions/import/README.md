@@ -17,8 +17,7 @@ Make sure you're in a terminal in the repository root, then run
 ./.github/actions/import/local.sh <branch name>
 ```
 
-The script will detect whether you are updating an existing import or starting a new one.
-The only difference to the GitHub workflow is that it will not create a pull request for you if one does not already exist
+The script will detect whether you are updating an existing import or starting a new one
 
 ## Maintenance
 

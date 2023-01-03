@@ -37,7 +37,7 @@ from pathlib import Path
 from typing import Dict, List
 
 from fontTools.designspaceLib import DesignSpaceDocument, SourceDescriptor
-from internal.reachable_glyphs import referenced_as_components
+from .internal.reachable_glyphs import referenced_as_components
 from ufoLib2 import Font
 
 MASTER_ID_KEY = "com.schriftgestaltung.fontMasterID"
@@ -46,64 +46,28 @@ SKIP_EXPORT_GLYPHS_KEY = "public.skipExportGlyphs"
 logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--source",
-        type=Path,
-        help="Path to source .designspace file.",
-        required=True,
-    )
-    parser.add_argument(
-        "--target",
-        type=Path,
-        help="Path to target .designspace file.",
-        required=True,
-    )
-    parser.add_argument(
-        "--import-glyphs-file",
-        type=Path,
-        help=(
-            "Path to text file with glyph names to import (one per line). "
-            "Also imports any kerning pair that mentions them."
-        ),
-        required=True,
-    )
-    parser.add_argument(
-        "--replace-target-designspace",
-        action="store_true",
-        help=(
-            "Import the source Designspace verbatim, for when it is in flux and "
-            "matching sources makes little sense."
-        ),
-    )
-    parser.add_argument(
-        "--follow-glyphs",
-        action="store_true",
-        help=(
-            "Also import glyphs that are referenced but not explicitly listed in "
-            "the import list."
-        ),
-    )
-    parsed_args = parser.parse_args()
-
+def main(
+    source_path: Path,
+    target_path: Path,
+    import_glyphs_file: Path,
+    replace_target_designspace: bool = False,
+    follow_glyphs: bool = False,
+):
     # Read in stuff to import.
     import_glyphs_verbatim = [
-        name.strip()
-        for name in parsed_args.import_glyphs_file.read_text().split("\n")
-        if name
+        name.strip() for name in import_glyphs_file.read_text().split("\n") if name
     ]
     import_glyphs = set(import_glyphs_verbatim)
 
-    replace_target_designspace: bool = parsed_args.replace_target_designspace
-    follow_glyphs: bool = parsed_args.follow_glyphs
+    replace_target_designspace: bool = replace_target_designspace
+    follow_glyphs: bool = follow_glyphs
 
     # Load all sources.
-    designspace_import = DesignSpaceDocument.fromfile(parsed_args.source)
+    designspace_import = DesignSpaceDocument.fromfile(source_path)
     designspace_import.loadSourceFonts(Font.open)
     sources_to_delete = set()
     if replace_target_designspace:
-        designspace_target = DesignSpaceDocument.fromfile(parsed_args.source)
+        designspace_target = DesignSpaceDocument.fromfile(source_path)
         for source, target in zip(
             designspace_import.sources, designspace_target.sources
         ):
@@ -118,8 +82,8 @@ def main() -> None:
             )
 
         # Delete sources that don't exist anymore later, if they exist at all.
-        if parsed_args.target.exists():
-            designspace_target_old = DesignSpaceDocument.fromfile(parsed_args.target)
+        if target_path.exists():
+            designspace_target_old = DesignSpaceDocument.fromfile(target_path)
             old_filenames = {
                 Path(source.filename) for source in designspace_target_old.sources
             }
@@ -128,7 +92,7 @@ def main() -> None:
             }
             sources_to_delete = old_filenames - new_filenames
     else:
-        designspace_target = DesignSpaceDocument.fromfile(parsed_args.target)
+        designspace_target = DesignSpaceDocument.fromfile(target_path)
         designspace_target.loadSourceFonts(Font.open)
 
     if not import_glyphs:
@@ -298,16 +262,16 @@ def main() -> None:
 
         if replace_target_designspace:
             assert import_source.filename is not None
-            filename = parsed_args.target.parent / import_source.filename
+            filename = target_path.parent / import_source.filename
             filename.parent.mkdir(exist_ok=True, parents=True)
             target_font.save(filename, overwrite=True)
         else:
             target_font.save()
 
-    designspace_target.write(parsed_args.target)
+    designspace_target.write(target_path)
 
     for source in sorted(sources_to_delete):
-        path = parsed_args.target.parent / source
+        path = target_path.parent / source
         print(f"Removing leftover {path}")
         shutil.rmtree(path)
 
@@ -379,4 +343,49 @@ def find_matching_source(
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--source",
+        type=Path,
+        help="Path to source .designspace file.",
+        required=True,
+    )
+    parser.add_argument(
+        "--target",
+        type=Path,
+        help="Path to target .designspace file.",
+        required=True,
+    )
+    parser.add_argument(
+        "--import-glyphs-file",
+        type=Path,
+        help=(
+            "Path to text file with glyph names to import (one per line). "
+            "Also imports any kerning pair that mentions them."
+        ),
+        required=True,
+    )
+    parser.add_argument(
+        "--replace-target-designspace",
+        action="store_true",
+        help=(
+            "Import the source Designspace verbatim, for when it is in flux and "
+            "matching sources makes little sense."
+        ),
+    )
+    parser.add_argument(
+        "--follow-glyphs",
+        action="store_true",
+        help=(
+            "Also import glyphs that are referenced but not explicitly listed in "
+            "the import list."
+        ),
+    )
+    parsed_args = parser.parse_args()
+    main(
+        parsed_args.source,
+        parsed_args.target,
+        parsed_args.import_glyphs_file,
+        parsed_args.replace_target_designspace,
+        parsed_args.follow_glyphs,
+    )
