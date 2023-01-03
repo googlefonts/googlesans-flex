@@ -77,7 +77,12 @@ jobs:
       - name: Build font
         run: cd "$GITHUB_WORKSPACE/target" && make build
       - name: Check with fontbakery
-        run: cd "$GITHUB_WORKSPACE/target" && make test
+        # Copy current QA files (and Makefile to drive them) from main so we
+        # have up to date tests.
+        run: |
+          cp "$GITHUB_WORKSPACE/main/Makefile" "$GITHUB_WORKSPACE/target"
+          cp -R "$GITHUB_WORKSPACE/main/qa" "$GITHUB_WORKSPACE/target"
+          cd "$GITHUB_WORKSPACE/target" && make test
         continue-on-error: true
       - name: proof
         run: cd "$GITHUB_WORKSPACE/target" && make proof
