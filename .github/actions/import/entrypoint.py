@@ -38,16 +38,16 @@ file_text = (SOURCE_DIR / CONFIG_FILE).read_text()
 gftools_config = yaml.safe_load(file_text)
 for designspace_path in gftools_config["sources"]:
     logging.info(f"Merging {designspace_path}")
-    src_ds_path = designspace_path.replace("roman/", "regular/", 1)
+    designspace_path_target = designspace_path.replace("roman/", "regular/", 1)
     merge(
-        SOURCE_DIR / "sources" / src_ds_path,
-        TARGET_DIR / "sources" / designspace_path,
+        SOURCE_DIR / "sources" / designspace_path,
+        TARGET_DIR / "sources" / designspace_path_target,
         GLYPH_LIST,
         REPLACE_TARGET_DESIGNSPACE,
         FOLLOW_GLYPHS,
     )
 
-    ds_sources_dir = Path(designspace_path).parent
+    ds_sources_dir = Path(designspace_path_target).parent
     logging.info(f"Normalising {ds_sources_dir}")
     normalize(
         TARGET_DIR / "sources" / ds_sources_dir,
@@ -55,7 +55,7 @@ for designspace_path in gftools_config["sources"]:
 
     logging.info(f"Fixing metadata")
     fix_metadata(
-        TARGET_DIR / "sources" / designspace_path,
+        TARGET_DIR / "sources" / designspace_path_target,
     )
 
 logging.info("Done!")
