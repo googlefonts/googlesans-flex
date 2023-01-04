@@ -58,5 +58,4 @@ for designspace_path in gftools_config["sources"]:
         TARGET_DIR / "sources" / designspace_path,
     )
 
-shutil.copy2(SOURCE_DIR / CONFIG_FILE, TARGET_DIR / CONFIG_FILE)
 logging.info("Done!")
