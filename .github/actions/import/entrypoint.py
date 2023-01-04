@@ -38,7 +38,7 @@ file_text = (SOURCE_DIR / CONFIG_FILE).read_text()
 gftools_config = yaml.safe_load(file_text)
 for designspace_path in gftools_config["sources"]:
     logging.info(f"Merging {designspace_path}")
-    src_ds_path = designspace_path.replace("regular", "roman", 1)
+    src_ds_path = designspace_path.replace("roman/", "regular/", 1)
     merge(
         SOURCE_DIR / "sources" / src_ds_path,
         TARGET_DIR / "sources" / designspace_path,
@@ -58,5 +58,4 @@ for designspace_path in gftools_config["sources"]:
         TARGET_DIR / "sources" / designspace_path,
     )
 
-shutil.copy2(SOURCE_DIR / CONFIG_FILE, TARGET_DIR / CONFIG_FILE)
 logging.info("Done!")
