@@ -49,3 +49,5 @@ A script used to find angles (between the incoming and outgoing handles or point
 3. In a separate terminal or tab, go to the root directory of GSF and activate the venv (e.g. run `make venv` and then `source venv/bin/activate`).
 4. Run the script like this: `python scripts/find-problems.py ../googlesans-flex-fb-wip/sources/roman/GoogleSansFlex.designspace`. The Designspace can be anywhere, but the script should be run from your venv.
 5. The script will create a CSV file where it lists glyph points and their locations where the angle of the incoming and outgoing handle or on-curve deviates from other masters. It gives you a link to click, which brings you to the glyph in Fontra and marks the offending point for you. Wiggle the location sliders to see if there is a problem or not.
+
+You can also inspect variable TTFs. Note that the locations might be slightly off then.
