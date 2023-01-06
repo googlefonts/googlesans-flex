@@ -15,12 +15,11 @@
 
 import logging
 from pathlib import Path
-import shutil
 import yaml
 
-from scripts.gs_merge_designspace import main as merge
-from scripts.gs_normalize_designspace import main as normalize
-from scripts.fix_metadata_in_sources import main as fix_metadata
+from scripts.gs_merge_designspace import merge_designspace
+from scripts.gs_normalize_designspace import normalize
+from scripts.fix_metadata_in_sources import fix_metadata
 
 REPLACE_TARGET_DESIGNSPACE = False
 FOLLOW_GLYPHS = True  # while sources are in flux
@@ -39,7 +38,7 @@ gftools_config = yaml.safe_load(file_text)
 for designspace_path in gftools_config["sources"]:
     logging.info(f"Merging {designspace_path}")
     designspace_path_target = designspace_path.replace("roman/", "regular/", 1)
-    merge(
+    merge_designspace(
         SOURCE_DIR / "sources" / designspace_path,
         TARGET_DIR / "sources" / designspace_path_target,
         GLYPH_LIST,

@@ -34,7 +34,7 @@ import shutil
 import sys
 import os.path
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Sequence, Optional
 
 from fontTools.designspaceLib import DesignSpaceDocument, SourceDescriptor
 from .internal.reachable_glyphs import referenced_as_components
@@ -47,7 +47,56 @@ SKIP_EXPORT_GLYPHS_KEY = "public.skipExportGlyphs"
 logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
 
 
-def main(
+def main(args: Optional[Sequence[str]] = None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--source",
+        type=Path,
+        help="Path to source .designspace file.",
+        required=True,
+    )
+    parser.add_argument(
+        "--target",
+        type=Path,
+        help="Path to target .designspace file.",
+        required=True,
+    )
+    parser.add_argument(
+        "--import-glyphs-file",
+        type=Path,
+        help=(
+            "Path to text file with glyph names to import (one per line). "
+            "Also imports any kerning pair that mentions them."
+        ),
+        required=True,
+    )
+    parser.add_argument(
+        "--replace-target-designspace",
+        action="store_true",
+        help=(
+            "Import the source Designspace verbatim, for when it is in flux and "
+            "matching sources makes little sense."
+        ),
+    )
+    parser.add_argument(
+        "--follow-glyphs",
+        action="store_true",
+        help=(
+            "Also import glyphs that are referenced but not explicitly listed in "
+            "the import list."
+        ),
+    )
+    parsed_args = parser.parse_args(args=args)
+    merge_designspace(
+        parsed_args.source,
+        parsed_args.target,
+        parsed_args.import_glyphs_file,
+        parsed_args.replace_target_designspace,
+        parsed_args.follow_glyphs,
+    )
+
+
+def merge_designspace(
     source_path: Path,
     target_path: Path,
     import_glyphs_file: Path,
@@ -59,9 +108,6 @@ def main(
         name.strip() for name in import_glyphs_file.read_text().split("\n") if name
     ]
     import_glyphs = set(import_glyphs_verbatim)
-
-    replace_target_designspace: bool = replace_target_designspace
-    follow_glyphs: bool = follow_glyphs
 
     # The path to the shared feature file that all UFOs should point to:
     family_fea_path = target_path.parent / "family.fea"
@@ -408,49 +454,4 @@ def find_matching_source(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--source",
-        type=Path,
-        help="Path to source .designspace file.",
-        required=True,
-    )
-    parser.add_argument(
-        "--target",
-        type=Path,
-        help="Path to target .designspace file.",
-        required=True,
-    )
-    parser.add_argument(
-        "--import-glyphs-file",
-        type=Path,
-        help=(
-            "Path to text file with glyph names to import (one per line). "
-            "Also imports any kerning pair that mentions them."
-        ),
-        required=True,
-    )
-    parser.add_argument(
-        "--replace-target-designspace",
-        action="store_true",
-        help=(
-            "Import the source Designspace verbatim, for when it is in flux and "
-            "matching sources makes little sense."
-        ),
-    )
-    parser.add_argument(
-        "--follow-glyphs",
-        action="store_true",
-        help=(
-            "Also import glyphs that are referenced but not explicitly listed in "
-            "the import list."
-        ),
-    )
-    parsed_args = parser.parse_args()
-    main(
-        parsed_args.source,
-        parsed_args.target,
-        parsed_args.import_glyphs_file,
-        parsed_args.replace_target_designspace,
-        parsed_args.follow_glyphs,
-    )
+    main()

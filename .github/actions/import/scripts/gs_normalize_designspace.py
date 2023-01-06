@@ -18,6 +18,7 @@ source conventions."""
 
 import argparse
 from pathlib import Path
+from typing import Sequence, Optional
 
 from fontTools.designspaceLib import DesignSpaceDocument
 
@@ -26,7 +27,19 @@ from .internal import normalize
 ROOT_DIR = Path(__file__).parent.parent
 
 
-def main(source_dir: Path) -> None:
+def main(args: Optional[Sequence[str]] = None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--source-dir",
+        type=Path,
+        default=ROOT_DIR / "sources",
+        help="Path to source directory.",
+    )
+    parsed_args = parser.parse_args(args=args)
+    normalize(parsed_args.source_dir)
+
+
+def normalize(source_dir: Path) -> None:
     for designspace_path in source_dir.glob("*.designspace"):
         designspace = DesignSpaceDocument.fromfile(designspace_path)
 
@@ -38,12 +51,4 @@ def main(source_dir: Path) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--source-dir",
-        type=Path,
-        default=ROOT_DIR / "sources",
-        help="Path to source directory.",
-    )
-    parsed_args = parser.parse_args()
-    main(parsed_args.source_dir)
+    main()
