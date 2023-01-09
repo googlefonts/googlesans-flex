@@ -55,6 +55,7 @@ def main(designspace_path: Path):
         ufo.info.familyName = "Google Sans Flex"
         if source is default_location:
             ufo.info.styleName = "Regular"
+            ufo.info.openTypeOS2Panose = [2, 11, 5, 3, 3, 5, 2, 4, 2, 4]
         ufo.info.trademark = "Google Sans is a trademark of Google."
         ufo.info.openTypeNameManufacturer = "Google LLC"
         ufo.info.openTypeNameDesigner = "Google Sans Authors"
@@ -74,4 +75,4 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("designspace", type=Path)
     parsed_args = parser.parse_args()
-    main(parsed_args.designspace_path)
+    main(parsed_args.designspace)
