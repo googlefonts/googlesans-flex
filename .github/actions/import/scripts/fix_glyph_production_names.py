@@ -26,13 +26,17 @@ POSTSCRIPT_NAMES = "public.postscriptNames"
 def fix_production_names(designspace_path: Path):
     designspace = DesignSpaceDocument.fromfile(designspace_path)
     ufos: list[Font] = designspace.loadSourceFonts(Font.open)
+    production_names: Optional[dict[str, str]] = designspace.findDefault().font.get(
+        POSTSCRIPT_NAMES
+    )
     for ufo in ufos:
-        production_names: Optional[dict[str, str]] = ufo.lib.get(POSTSCRIPT_NAMES)
         for glyph in ufo:
             if not glyph.name:
                 continue
 
-            has_production_name = production_names is not None and glyph.name in production_names
+            has_production_name = (
+                production_names is not None and glyph.name in production_names
+            )
             if has_production_name and "-" in production_names[glyph.name]:
                 existing_production_name = production_names[glyph.name]
                 updated_production_name = existing_production_name.replace("-", "")
