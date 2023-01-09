@@ -53,7 +53,7 @@ for designspace_path in gftools_config["sources"]:
         TARGET_DIR / "sources" / ds_sources_dir,
     )
 
-    logging.info(f"Fixing metadata")
+    logging.info("Fixing metadata")
     fix_metadata(
         TARGET_DIR / "sources" / designspace_path_target,
     )
