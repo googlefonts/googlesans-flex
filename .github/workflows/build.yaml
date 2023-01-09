@@ -6,55 +6,59 @@ jobs:
   build:
     runs-on: [linux, googlefonts-64cores-256GB]
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.x"
-    - name: Install sys tools/deps
-      run: |
-        sudo apt-get update
-        sudo snap install yq
-    - uses: actions/cache@v3
-      with:
-        path: ./venv/
-        key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-venv-
-    - name: gen zip file name
-      id: zip-name
-      shell: bash
-      # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
-      run: echo "ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-fonts" >> $GITHUB_ENV
-      # If a new release is cut, use the release tag to auto-bump the source files
-    - name: Bump release
-      if: github.event_name == 'release'
-      run: |
-        . venv/bin/activate
-        SRCS=$(yq e ".sources[]" sources/config.yaml)
-        TAG_NAME=${GITHUB_REF/refs\/tags\//}
-        echo "Bumping $SRCS to $TAG_NAME"
-        for src in $SRCS
-        do
-          bumpfontversion sources/$src --new-version $TAG_NAME;
-        done
-    - name: Build font
-      run: make build
-    - name: Check with fontbakery
-      run: make test
-      continue-on-error: true
-    - name: proof
-      run: make proof
-    - name: Analyze file size
-      uses: ./.github/actions/file-size
-      continue-on-error: true
-    - name: Archive artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ env.ZIP_NAME }}
-        path: |
-          fonts
-          out
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - name: Install sys tools/deps
+        run: |
+          sudo apt-get update
+          sudo snap install yq
+      - uses: actions/cache@v3
+        with:
+          path: ./venv/
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
+      - name: gen zip file name
+        id: zip-name
+        shell: bash
+        # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
+        run: echo "ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-fonts" >> $GITHUB_ENV
+        # If a new release is cut, use the release tag to auto-bump the source files
+      - name: Bump release
+        if: github.event_name == 'release'
+        run: |
+          . venv/bin/activate
+          SRCS=$(yq e ".sources[]" sources/config.yaml)
+          TAG_NAME=${GITHUB_REF/refs\/tags\//}
+          echo "Bumping $SRCS to $TAG_NAME"
+          for src in $SRCS
+          do
+            bumpfontversion sources/$src --new-version $TAG_NAME;
+          done
+      - name: Build font
+        run: make build
+      - name: Check with fontbakery
+        run: make test
+        continue-on-error: true
+      - name: Check with OT Sanitizer
+        uses: f-actions/opentype-sanitizer@v2
+        with:
+          path: "fonts/variable/*.ttf"
+      - name: proof
+        run: make proof
+      - name: Analyze file size
+        uses: ./.github/actions/file-size
+        continue-on-error: true
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.ZIP_NAME }}
+          path: |
+            fonts
+            out
     outputs:
       zip_name: ${{ env.ZIP_NAME }}
   release:
