@@ -21,6 +21,7 @@ import yaml
 from scripts.gs_merge_designspace import main as merge
 from scripts.gs_normalize_designspace import main as normalize
 from scripts.fix_metadata_in_sources import main as fix_metadata
+from scripts.fix_glyph_production_names import fix_production_names
 
 REPLACE_TARGET_DESIGNSPACE = True
 FOLLOW_GLYPHS = True  # while sources are in flux
@@ -53,9 +54,12 @@ for designspace_path in gftools_config["sources"]:
         TARGET_DIR / "sources" / ds_sources_dir,
     )
 
-    logging.info(f"Fixing metadata")
+    logging.info("Fixing metadata")
     fix_metadata(
         TARGET_DIR / "sources" / designspace_path_target,
     )
+
+    logging.info("Adding production names where needed")
+    fix_production_names(TARGET_DIR / "sources" / designspace_path_target)
 
 logging.info("Done!")
