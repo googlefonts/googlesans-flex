@@ -66,3 +66,6 @@ file-size: build
 
 progress-chart: venv
 	. venv/bin/activate && python scripts/gs-progress-burndown.py
+
+bump-to-tag: venv
+	. venv/bin/activate && python3 scripts/bump-to-tag.py
