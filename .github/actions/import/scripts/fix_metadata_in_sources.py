@@ -13,12 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import annotations
+
 import argparse
 from pathlib import Path
 
-from ufoLib2 import Font
 from fontTools.designspaceLib import DesignSpaceDocument
-from typing import Optional
+from fontTools.misc.fixedTools import otRound
+from ufoLib2 import Font
 
 # Defined in USER coordinates.
 INSTANCE_LOCATIONS = {
@@ -35,7 +37,7 @@ INSTANCE_LOCATIONS = {
 POSTSCRIPT_NAMES = "public.postscriptNames"
 
 
-def main(designspace_path: Path):
+def main(designspace_path: Path) -> None:
     designspace = DesignSpaceDocument.fromfile(designspace_path)
     designspace.loadSourceFonts(Font.open)
     designspace.instances.clear()
@@ -49,13 +51,39 @@ def main(designspace_path: Path):
     designspace.write(designspace_path)
 
     default_location = designspace.findDefault()
-    production_names: Optional[dict[str, str]] = default_location.font.get(
-        POSTSCRIPT_NAMES
-    )
+
+    default_ufo: Font | None = default_location.font
+    production_names: dict[str, str]
+    if POSTSCRIPT_NAMES not in default_ufo.lib:
+        production_names = default_ufo.lib[POSTSCRIPT_NAMES] = {}
+    else:
+        production_names = default_ufo.lib[POSTSCRIPT_NAMES]
+
+    # Add production names for glyphs that don't have a usable design name
+    # Fix any production names that contain disallowed characters
+    for glyph in default_ufo:
+        if not glyph.name:
+            continue
+        existing_production_name = production_names.get(glyph.name)
+        if existing_production_name is not None:
+            if "-" in existing_production_name:
+                new_name = existing_production_name.replace("-", "")
+                print(
+                    f"WARN: {glyph.name}: updated bad postscript name '{existing_production_name}' to '{new_name}'"
+                )
+                production_names[glyph.name] = new_name
+        elif "-" in glyph.name:
+            new_name = glyph.name.replace("-", "")
+            print(f"INFO {glyph.name}: adding postscript name '{new_name}'")
+            production_names[glyph.name] = new_name
+
+    unique_ufos = []
     for source in designspace.sources:
         if source.layerName is not None:
             continue
         ufo: Font = source.font
+        unique_ufos.append(ufo)
+
         ufo.info.copyright = "Copyright 2015 Google LLC. All Rights Reserved."
         ufo.info.familyName = "Google Sans Flex"
         if source is default_location:
@@ -73,31 +101,36 @@ def main(designspace_path: Path):
         # Clear out export bans to avoid confusion.
         ufo.lib["public.skipExportGlyphs"] = []
 
-        # Add production names for glyphs that don't have a usable design name
-        # Fix any production names that contain disallowed characters
-        for glyph in ufo:
-            if not glyph.name:
-                continue
+        # Production names are based on the default source.
+        ufo.lib[POSTSCRIPT_NAMES] = production_names
 
-            has_production_name = production_names is not None and (
-                existing_production_name := production_names.get(glyph.name)
-            )
-            if has_production_name and existing_production_name:
-                updated_production_name = existing_production_name.replace("-", "")
-                print(
-                    f"WARN: {glyph.name}: updated bad postscript name '{existing_production_name}' to '{updated_production_name}'"
-                )
-                production_names[glyph.name] = updated_production_name
-            elif not has_production_name and "-" in glyph.name:
-                new_name = glyph.name.replace("-", "")
-                print(f"INFO {glyph.name}: adding postscript name '{new_name}'")
-                if production_names:
-                    production_names[glyph.name] = new_name
-                else:
-                    print(f"INFO: created {POSTSCRIPT_NAMES} lib key in {ufo}")
-                    ufo.lib[POSTSCRIPT_NAMES] = {glyph.name: new_name}
+    recompute_win_metrics(unique_ufos)
 
+    for ufo in unique_ufos:
         ufo.save()
+
+
+def recompute_win_metrics(fonts: list[Font]) -> None:
+    ascent = 0
+    descent = 0
+
+    for font in fonts:
+        skip_glyphs = set(font.lib.get("public.skipExportGlyphs", []))
+        ascent = max(ascent, font.info.openTypeOS2WinAscent or 0)
+        descent = min(descent, -(font.info.openTypeOS2WinDescent or 0))
+        for glyph in font:
+            if glyph.name in skip_glyphs:
+                continue
+            bounds = glyph.getBounds(font)
+            if bounds is None:
+                continue
+            ascent = max(ascent, otRound(bounds.yMax))
+            descent = min(descent, otRound(bounds.yMin))
+
+    assert ascent != 0 and descent != 0
+    for font in fonts:
+        font.info.openTypeOS2WinAscent = ascent
+        font.info.openTypeOS2WinDescent = abs(descent)
 
 
 if __name__ == "__main__":
