@@ -13,11 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import annotations
+
 import argparse
 from pathlib import Path
 
-from ufoLib2 import Font
 from fontTools.designspaceLib import DesignSpaceDocument
+from fontTools.misc.fixedTools import otRound
+from ufoLib2 import Font
 
 # Defined in USER coordinates.
 INSTANCE_LOCATIONS = {
@@ -34,7 +37,7 @@ INSTANCE_LOCATIONS = {
 POSTSCRIPT_NAMES = "public.postscriptNames"
 
 
-def main(designspace_path: Path):
+def main(designspace_path: Path) -> None:
     designspace = DesignSpaceDocument.fromfile(designspace_path)
     designspace.loadSourceFonts(Font.open)
     designspace.instances.clear()
@@ -73,10 +76,14 @@ def main(designspace_path: Path):
             new_name = glyph.name.replace("-", "")
             print(f"INFO {glyph.name}: adding postscript name '{new_name}'")
             production_names[glyph.name] = new_name
+
+    unique_ufos = []
     for source in designspace.sources:
         if source.layerName is not None:
             continue
         ufo: Font = source.font
+        unique_ufos.append(ufo)
+
         ufo.info.copyright = "Copyright 2015 Google LLC. All Rights Reserved."
         ufo.info.familyName = "Google Sans Flex"
         if source is default_location:
@@ -97,8 +104,33 @@ def main(designspace_path: Path):
         # Production names are based on the default source.
         ufo.lib[POSTSCRIPT_NAMES] = production_names
 
+    recompute_win_metrics(unique_ufos)
 
+    for ufo in unique_ufos:
         ufo.save()
+
+
+def recompute_win_metrics(fonts: list[Font]) -> None:
+    ascent = 0
+    descent = 0
+
+    for font in fonts:
+        skip_glyphs = set(font.lib.get("public.skipExportGlyphs", []))
+        ascent = max(ascent, font.info.openTypeOS2WinAscent or 0)
+        descent = min(descent, -(font.info.openTypeOS2WinDescent or 0))
+        for glyph in font:
+            if glyph.name in skip_glyphs:
+                continue
+            bounds = glyph.getBounds(font)
+            if bounds is None:
+                continue
+            ascent = max(ascent, otRound(bounds.yMax))
+            descent = min(descent, otRound(bounds.yMin))
+
+    assert ascent != 0 and descent != 0
+    for font in fonts:
+        font.info.openTypeOS2WinAscent = ascent
+        font.info.openTypeOS2WinDescent = abs(descent)
 
 
 if __name__ == "__main__":
