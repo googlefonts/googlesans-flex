@@ -17,6 +17,7 @@ import os
 import yaml
 from pathlib import Path
 
+
 def main():
     try:
         tag_name = os.environ["GITHUB_REF"].replace("refs/tags/", "")
@@ -32,7 +33,7 @@ def main():
     for source in gftools_config["sources"]:
         print(f"Bumping {source} to {tag_name}")
         cmd = subprocess.run(
-            f". venv/bin/activate && bumpfontversion sources/{source} --new-version {tag_name}",
+            f"bumpfontversion sources/{source} --new-version {tag_name}",
             shell=True,
             capture_output=True,
             text=True,
