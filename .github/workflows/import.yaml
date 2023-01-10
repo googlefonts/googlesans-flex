@@ -84,6 +84,10 @@ jobs:
           cp -R "$GITHUB_WORKSPACE/main/qa" "$GITHUB_WORKSPACE/target"
           cd "$GITHUB_WORKSPACE/target" && make test
         continue-on-error: true
+      - name: Check with OT Sanitizer
+        uses: f-actions/opentype-sanitizer@v2
+        with:
+          path: "fonts/variable/*.ttf"
       - name: proof
         run: cd "$GITHUB_WORKSPACE/target" && make proof
       - name: Analyze file size
