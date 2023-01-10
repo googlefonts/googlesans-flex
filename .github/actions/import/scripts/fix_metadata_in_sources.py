@@ -18,7 +18,6 @@ from pathlib import Path
 
 from ufoLib2 import Font
 from fontTools.designspaceLib import DesignSpaceDocument
-from typing import Optional
 
 # Defined in USER coordinates.
 INSTANCE_LOCATIONS = {
@@ -49,9 +48,31 @@ def main(designspace_path: Path):
     designspace.write(designspace_path)
 
     default_location = designspace.findDefault()
-    production_names: Optional[dict[str, str]] = default_location.font.get(
-        POSTSCRIPT_NAMES
-    )
+
+    default_ufo: Font | None = default_location.font
+    production_names: dict[str, str]
+    if POSTSCRIPT_NAMES not in default_ufo.lib:
+        production_names = default_ufo.lib[POSTSCRIPT_NAMES] = {}
+    else:
+        production_names = default_ufo.lib[POSTSCRIPT_NAMES]
+
+    # Add production names for glyphs that don't have a usable design name
+    # Fix any production names that contain disallowed characters
+    for glyph in default_ufo:
+        if not glyph.name:
+            continue
+        existing_production_name = production_names.get(glyph.name)
+        if existing_production_name is not None:
+            if "-" in existing_production_name:
+                new_name = existing_production_name.replace("-", "")
+                print(
+                    f"WARN: {glyph.name}: updated bad postscript name '{existing_production_name}' to '{new_name}'"
+                )
+                production_names[glyph.name] = new_name
+        elif "-" in glyph.name:
+            new_name = glyph.name.replace("-", "")
+            print(f"INFO {glyph.name}: adding postscript name '{new_name}'")
+            production_names[glyph.name] = new_name
     for source in designspace.sources:
         if source.layerName is not None:
             continue
@@ -73,29 +94,9 @@ def main(designspace_path: Path):
         # Clear out export bans to avoid confusion.
         ufo.lib["public.skipExportGlyphs"] = []
 
-        # Add production names for glyphs that don't have a usable design name
-        # Fix any production names that contain disallowed characters
-        for glyph in ufo:
-            if not glyph.name:
-                continue
+        # Production names are based on the default source.
+        ufo.lib[POSTSCRIPT_NAMES] = production_names
 
-            has_production_name = production_names is not None and (
-                existing_production_name := production_names.get(glyph.name)
-            )
-            if has_production_name and existing_production_name:
-                updated_production_name = existing_production_name.replace("-", "")
-                print(
-                    f"WARN: {glyph.name}: updated bad postscript name '{existing_production_name}' to '{updated_production_name}'"
-                )
-                production_names[glyph.name] = updated_production_name
-            elif not has_production_name and "-" in glyph.name:
-                new_name = glyph.name.replace("-", "")
-                print(f"INFO {glyph.name}: adding postscript name '{new_name}'")
-                if production_names:
-                    production_names[glyph.name] = new_name
-                else:
-                    print(f"INFO: created {POSTSCRIPT_NAMES} lib key in {ufo}")
-                    ufo.lib[POSTSCRIPT_NAMES] = {glyph.name: new_name}
 
         ufo.save()
 
