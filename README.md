@@ -23,7 +23,7 @@ The "Use workflow from" determines which version of the import script will be us
 * As a developer of the import script, you can select a branch on which you're
   implementing fixes to the workflow, e.g. `fix-import-crash`.
 
-"The name of the branch to import from" is where the updated UFOs will be taken
+"The Git reference to import from" is where the updated UFOs will be taken
 from, e.g. `fb-wip`. The name of the target branch will be derived from that by
 prepending `import-`, e.g. `import-fb-wip`. The target branch will be created
 if it does not exist, or updated with a new commit otherwise.
