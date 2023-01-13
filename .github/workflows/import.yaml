@@ -51,14 +51,10 @@ jobs:
             
           This commit was creating automatically using the GitHub workflow"
           git push -u origin "$TARGET_BRANCH"
-      - name: Set up Python 3.x
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-          python-version: "3.x"
-      - name: Install yq
-        run: |
-          sudo apt-get update
-          sudo snap install yq
+          python-version: "3.11"
       - uses: actions/cache@v3
         with:
           path: ./venv/
