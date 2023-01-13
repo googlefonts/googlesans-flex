@@ -80,8 +80,9 @@ jobs:
         uses: f-actions/opentype-sanitizer@v2
         with:
           path: "fonts/variable/*.ttf"
-      - name: proof
-        run: cd "$GITHUB_WORKSPACE/target" && make proof
+      # XXX: Broken with new gftools
+      # - name: proof
+      #   run: cd "$GITHUB_WORKSPACE/target" && make proof
       - name: Analyze file size
         uses: ./main/.github/actions/file-size
         with:
