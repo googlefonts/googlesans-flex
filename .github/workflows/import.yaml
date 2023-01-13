@@ -17,17 +17,14 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: main
+          fetch-depth: 0
       - name: Prepare environment
         env:
-          SOURCE_BRANCH: ${{ github.event.inputs.branch }}
+          SOURCE_REF: ${{ github.event.inputs.branch }}
           TARGET_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
         run: |
           cd "$GITHUB_WORKSPACE/main"
-
-          # The clone is shallow, need to fetch other branches
-          git fetch origin "$SOURCE_BRANCH"
-          git branch "$SOURCE_BRANCH" "origin/$SOURCE_BRANCH"
-          git worktree add --quiet ../source "$SOURCE_BRANCH"
+          git worktree add --quiet ../source "$SOURCE_REF"
 
           # Try to fetch, OK if it doesn't exist (we'll create it)
           if git fetch origin "$TARGET_BRANCH" &>/dev/null ; then
@@ -35,14 +32,13 @@ jobs:
             git worktree add --quiet ../target "$TARGET_BRANCH"
           else
             echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
-            git fetch origin main # because shallow
             git worktree add --quiet ../target -b "$TARGET_BRANCH" origin/main
           fi
       - name: Run import scripts
         uses: ./main/.github/actions/import
       - name: Commit & push changes
         env:
-          SOURCE_BRANCH: ${{ github.event.inputs.branch }}
+          SOURCE_REF: ${{ github.event.inputs.branch }}
           TARGET_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
           GIT_EMAIL: ${{ github.event.inputs.email }}
         run: |
@@ -51,7 +47,7 @@ jobs:
           git config user.name "Import Script"
           git config user.email "$GIT_EMAIL"
           git add sources
-          git commit --quiet -m "Import from $SOURCE_BRANCH
+          git commit --quiet -m "Import from $SOURCE_REF
             
           This commit was creating automatically using the GitHub workflow"
           git push -u origin "$TARGET_BRANCH"
