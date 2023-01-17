@@ -21,8 +21,8 @@ venv: venv/touchfile
 build.stamp: venv sources/config.yaml $(SOURCES)
 	rm -rf fonts/
 	venv/bin/gftools builder sources/config.yaml
-	touch build.stamp
 	venv/bin/font-v write --sha1 $(shell find fonts/variable -type f)
+	touch build.stamp
 
 venv/touchfile: requirements.txt
 	test -d venv || python3 -m venv venv
