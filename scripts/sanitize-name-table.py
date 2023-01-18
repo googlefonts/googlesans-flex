@@ -27,7 +27,7 @@ paths: Path = args.font
 
 
 def ascii_alphanumeric_str(text: str) -> str:
-    allowed = set(string.ascii_letters + string.digits + ".")
+    allowed = set(string.ascii_letters + string.digits + ".,; ")
     return "".join(c if c in allowed else "_" for c in text)
 
 
