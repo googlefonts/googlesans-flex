@@ -35,9 +35,8 @@ jobs:
         uses: f-actions/opentype-sanitizer@v2
         with:
           path: "fonts/variable/*.ttf"
-      # XXX: Broken with new gftools
-      # - name: proof
-      #   run: make proof
+      - name: proof
+        run: make proof
       - name: Analyze file size
         uses: ./.github/actions/file-size
         continue-on-error: true

@@ -36,7 +36,7 @@ test: venv build.stamp
 	. venv/bin/activate && fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html --ghmarkdown out/fontbakery/fontbakery-shaping-report.md qa/check-shaping.py $(shell find fonts/variable -type f)
 
 proof: venv build.stamp
-	. venv/bin/activate; mkdir -p out/ out/proof; gftools gen-html proof $(shell find fonts/variable -type f) -o out/proof
+	. venv/bin/activate; mkdir -p out/proof; diffenator2 proof $(shell find fonts/variable -type f) -o out/proof
 
 images: venv build.stamp $(DRAWBOT_OUTPUT)
 	git add documentation/*.png && git commit -m "Rebuild images" documentation/*.png
