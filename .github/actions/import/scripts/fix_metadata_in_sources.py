@@ -20,6 +20,7 @@ from pathlib import Path
 
 from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.misc.fixedTools import otRound
+from fontTools.pens.boundsPen import BoundsPen
 from ufoLib2 import Font
 
 # Defined in USER coordinates.
@@ -94,6 +95,37 @@ def main(designspace_path: Path) -> None:
         ufo.info.openTypeNameDesigner = "Google Sans Authors"
         ufo.info.openTypeNameDesignerURL = "https://design.google"
         ufo.info.openTypeNameLicense = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives."
+
+        # Use vertical metrics from Google Sans, times two.
+        ufo.info.openTypeHheaAscender = 1932
+        ufo.info.openTypeHheaDescender = -572
+        ufo.info.openTypeHheaLineGap = 0
+        ufo.info.openTypeOS2StrikeoutPosition = 612
+        ufo.info.openTypeOS2StrikeoutSize = 168
+        ufo.info.openTypeOS2SubscriptXOffset = 0
+        ufo.info.openTypeOS2SubscriptXSize = 1300
+        ufo.info.openTypeOS2SubscriptYOffset = 150
+        ufo.info.openTypeOS2SubscriptYSize = 1200
+        ufo.info.openTypeOS2SuperscriptXOffset = 0
+        ufo.info.openTypeOS2SuperscriptXSize = 1300
+        ufo.info.openTypeOS2SuperscriptYOffset = 700
+        ufo.info.openTypeOS2SuperscriptYSize = 1200
+        ufo.info.openTypeOS2TypoAscender = 1932
+        ufo.info.openTypeOS2TypoDescender = -572
+        ufo.info.openTypeOS2TypoLineGap = 0
+        ufo.info.postscriptUnderlinePosition = -320
+        ufo.info.postscriptUnderlineThickness = 168
+
+        # TODO: Adapt once the italic is being imported
+        ufo.info.openTypeHheaCaretSlopeRise = 1
+        ufo.info.openTypeHheaCaretSlopeRun = 0
+
+        # Use the xHeight from the "z" if not a sparse UFO:
+        if (glyph_z := ufo.get("z")) is not None:
+            bp = BoundsPen(ufo)
+            glyph_z.draw(bp)
+            ufo.info.xHeight = otRound(bp.bounds[3])
+
         # TODO: get version from config.yaml once supported
         ufo.info.versionMajor = 1
         ufo.info.versionMinor = 0
