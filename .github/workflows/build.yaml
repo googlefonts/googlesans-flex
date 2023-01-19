@@ -1,6 +1,9 @@
 name: Build font and specimen
 
-on: [push, release]
+on:
+  push:
+  release:
+    types: [published] # A release, pre-release, or draft of a release was published.
 
 jobs:
   build:
