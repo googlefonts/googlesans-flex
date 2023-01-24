@@ -14,15 +14,14 @@
 
 from __future__ import annotations
 
-from typing import Set
 import logging
 
 import ufo2ft.featureCompiler
 import ufo2ft.util
-from ufoLib2.objects import Font, Glyph
+from ufoLib2.objects import Font, Glyph, Layer
 
 
-def reachable_glyphs(ufo: Font) -> Set[str]:
+def reachable_glyphs(ufo: Font) -> set[str]:
     """Return set of glyph names of glyphs reachable via Unicode value and
     feature substitutions."""
 
@@ -36,22 +35,26 @@ def reachable_glyphs(ufo: Font) -> Set[str]:
     return reachable_glyphs
 
 
-def referenced_as_components(ufo: Font, reachable_glyphs: Set[str]) -> Set[str]:
+def referenced_as_components(
+    ufo: Font, layer: Layer, reachable_glyphs: set[str]
+) -> set[str]:
     """Return set of glyph names of glyphs used as components by glyphs in
     reachable_glyphs."""
 
-    def _recurse(glyph: Glyph, seen: Set[str]) -> None:
+    def _recurse(glyph: Glyph, seen: set[str]) -> None:
         for component in glyph.components:
             if component.baseGlyph not in seen:
                 seen.add(component.baseGlyph)
                 _recurse(ufo[component.baseGlyph], seen)
 
-    referenced_components: Set[str] = set()
+    referenced_components: set[str] = set()
     for name in reachable_glyphs:
         try:
             glyph = ufo[name]
             _recurse(glyph, referenced_components)
         except KeyError:
-            logging.warning(f"Cannot find glyph '{name}' in UFO '{str(ufo.path)}'")
+            logging.warning(
+                f"Cannot find glyph '{name}' in UFO '{str(ufo.path)}, layer '{layer.name}''"
+            )
 
     return referenced_components

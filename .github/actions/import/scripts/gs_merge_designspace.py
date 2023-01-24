@@ -39,6 +39,7 @@ from typing import Dict, List
 from fontTools.designspaceLib import DesignSpaceDocument, SourceDescriptor
 from .internal.reachable_glyphs import referenced_as_components
 from ufoLib2 import Font
+from ufoLib2.objects import LayerSet, Layer
 
 MASTER_ID_KEY = "com.schriftgestaltung.fontMasterID"
 SKIP_EXPORT_GLYPHS_KEY = "public.skipExportGlyphs"
@@ -68,18 +69,41 @@ def main(
     sources_to_delete = set()
     if replace_target_designspace:
         designspace_target = DesignSpaceDocument.fromfile(source_path)
+
+        # Gather all layer names to import, so we leave out debris.
+        import_layer_names: set[str] = set()
+        for source in designspace_import.sources:
+            import_layer_names.add(
+                source.layerName or source.font.layers.defaultLayer.name
+            )
+
+        loaded_fonts: dict[str, Font] = {}
         for source, target in zip(
             designspace_import.sources, designspace_target.sources
         ):
-            if source.layerName is not None:
-                logging.error("Sparse layers not yet supported")
-                sys.exit(1)
             target.path = None
             assert source.font is not None
-            target.font = Font(
-                info=copy.deepcopy(source.font.info),
-                lib={"public.glyphOrder": import_glyphs_verbatim},
-            )
+            assert target.filename is not None
+            if target.filename in loaded_fonts:
+                # We might hit the same filename multiple times when different
+                # sources refer to different layers.
+                target.font = loaded_fonts[target.filename]
+            else:
+                # When replacing a target UFO completely, make a hollow copy of
+                # the source UFO, including all layers the Designspace refers
+                # to. This also copies the name of the default layer.
+                target.font = Font(
+                    info=copy.deepcopy(source.font.info),
+                    lib={"public.glyphOrder": import_glyphs_verbatim},
+                    layers=LayerSet.from_iterable(
+                        [
+                            Layer(name=layer.name)
+                            for layer in source.font.layers
+                            if layer.name in import_layer_names
+                        ],
+                        defaultLayerName=source.font.layers.defaultLayer.name,
+                    ),
+                )
 
         # Delete sources that don't exist anymore later, if they exist at all.
         if target_path.exists():
@@ -135,34 +159,55 @@ def main(
         if target_source is None:
             continue
         assert target_source.font is not None
-        target_font = target_source.font
+        target_font: Font = target_source.font
+        if import_source.layerName is not None:
+            import_glyphset = import_font.layers[import_source.layerName]
+            target_glyphset = target_font.layers[import_source.layerName]
+        else:
+            import_glyphset = import_font.layers.defaultLayer
+            target_glyphset = target_font.layers.defaultLayer
 
         # Snatch up any bracket glyphs for glyphs without them being explicitly
         # listed in the import file. ".BRACKET." is a glyphsLib convention.
-        for name in import_font.keys():
+        # TODO: Do this up front on the default source?
+        if import_source.layerName is not None:
+            import_glyphs_layer = import_glyphs & import_glyphset.keys()
+        else:
+            import_glyphs_layer = copy.copy(import_glyphs)
+        for name in import_glyphset.keys():
             if ".BRACKET." not in name:
                 continue
             base = name.split(".BRACKET.")[0]
-            if base in import_glyphs:
-                import_glyphs.add(name)
+            if base in import_glyphs_layer:
+                import_glyphs_layer.add(name)
                 logging.warning(
                     "Added bracket glyph '%s', manually add to the Designspace rules.",
                     name,
                 )
 
         if follow_glyphs:
-            import_glyphs.update(referenced_as_components(import_font, import_glyphs))
-
-        for glyph_name in import_glyphs:
-            try:
-                target_font[glyph_name] = import_font[glyph_name]
-            except KeyError as e:
-                # FIXME: revert this to being a fatal error when we know all glyphs are present
-                logging.warning(
-                    "Glyph %s does not exist in the source UFO %s",
-                    str(e),
-                    str(import_source.filename),
+            import_glyphs_layer.update(
+                referenced_as_components(
+                    import_font, import_glyphset, import_glyphs_layer
                 )
+            )
+
+        for glyph_name in import_glyphs_layer:
+            try:
+                target_glyphset[glyph_name] = import_glyphset[glyph_name]
+            except KeyError as e:
+                if import_source.layerName is None:
+                    # FIXME: revert this to being a fatal error when we know all
+                    # glyphs are present
+                    logging.warning(
+                        "Glyph %s does not exist in the source UFO %s",
+                        str(e),
+                        str(import_source.filename),
+                    )
+
+        # Only font-level import below this point.
+        if import_source.layerName is not None:
+            continue
 
         # Gather all groups that mention any of the imported glyphs. They can
         # already exist in the target font (adding new glyphs to existing
@@ -260,13 +305,13 @@ def main(
         # Write global public.skipExportGlyphs list to all UFOs.
         target_font.lib[SKIP_EXPORT_GLYPHS_KEY] = skip_export_glyphs
 
-        if replace_target_designspace:
-            assert import_source.filename is not None
-            filename = target_path.parent / import_source.filename
-            filename.parent.mkdir(exist_ok=True, parents=True)
-            target_font.save(filename, overwrite=True)
-        else:
-            target_font.save()
+    # Avoid typos:
+    del target_font
+
+    for target_source in designspace_target.sources:
+        filename = target_path.parent / target_source.filename
+        filename.parent.mkdir(exist_ok=True, parents=True)
+        target_source.font.save(filename, overwrite=True)
 
     designspace_target.write(target_path)
 
@@ -296,12 +341,6 @@ def find_matching_source(
     designspace_import: DesignSpaceDocument,
     designspace_target: DesignSpaceDocument,
 ) -> SourceDescriptor | None:
-    if import_source.layerName is not None:
-        logging.error(
-            "Brace layers not supported currently: %s", import_source.asdict()
-        )
-        return None
-
     # Fill in the defaults if the import DS does not have e.g. a GRAD axis.
     # Match axes by tags because those are more consistent across vendor sources.
     import_source_location = canonical_location(
