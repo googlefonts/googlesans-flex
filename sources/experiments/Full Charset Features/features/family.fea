@@ -121,3 +121,50 @@ feature dnom {
 feature numr {
 	sub @FIGURES by @FIGURES_NUM;
 } numr;
+
+feature sups {
+    sub zero by zerosuperscript;
+    sub one by onesuperscript;
+    sub two by twosuperscript;
+    sub three by threesuperscript;
+    sub four by foursuperscript;
+    sub five by fivesuperscript;
+    sub six by sixsuperscript;
+    sub seven by sevensuperscript;
+    sub eight by eightsuperscript;
+    sub nine by ninesuperscript;
+} sups;
+
+feature subs {
+    # automatic
+    sub zero by zerosubscript;
+    sub one by onesubscript;
+    sub two by twosubscript;
+    sub three by threesubscript;
+    sub four by foursubscript;
+    sub five by fivesubscript;
+    sub six by sixsubscript;
+    sub seven by sevensubscript;
+    sub eight by eightsubscript;
+    sub nine by ninesubscript;
+} subs;
+
+feature sinf {
+    # automatic
+    sub zero by zeroscientificinferior;
+    sub one by onescientificinferior;
+    sub two by twoscientificinferior;
+    sub three by threescientificinferior;
+    sub four by fourscientificinferior;
+    sub five by fivescientificinferior;
+    sub six by sixscientificinferior;
+    sub seven by sevenscientificinferior;
+    sub eight by eightscientificinferior;
+    sub nine by ninescientificinferior;
+} sinf;
+
+
+feature zero {
+    sub zero by zeroslash;
+    sub zero.tf by zeroslash.tf;
+} zero;
