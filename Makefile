@@ -21,7 +21,9 @@ venv: venv/touchfile
 build.stamp: venv sources/config.yaml $(SOURCES)
 	rm -rf fonts/
 	venv/bin/gftools builder sources/config.yaml
-	venv/bin/font-v write --sha1 fonts/variable/*.ttf
+	# Font-v cannot deal with worktrees, which we use for imports. See
+	# https://github.com/source-foundry/font-v/issues/169. Just skip it.
+	if [ -z "${SKIP_FONTV}" ]; then venv/bin/font-v write --sha1 fonts/variable/*.ttf; fi
 	venv/bin/python scripts/sanitize-name-table.py fonts/variable/*.ttf
 	touch build.stamp
 
