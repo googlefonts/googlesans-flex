@@ -5,9 +5,14 @@ languagesystem latn MOL;
 languagesystem latn NLD;
 
 @FIGURES = [zero one two three four five six seven eight nine];
+@FIGURES_TAB = [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
 
 @FIGURES_NUM = [zero.numerator one.numerator two.numerator three.numerator four.numerator five.numerator six.numerator seven.numerator eight.numerator nine.numerator];
 @FIGURES_DEN = [zero.denominator one.denominator two.denominator three.denominator four.denominator five.denominator six.denominator seven.denominator eight.denominator nine.denominator];
+
+@SYMBOLS = [period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal];
+@SYMBOLS_TAB = [period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf currency.tf dollar.tf sterling.tf plus.tf multiply.tf divide.tf equal.tf greater.tf less.tf plusminus.tf logicalnot.tf percent.tf section.tf Euro.tf minus.tf notequal.tf greaterequal.tf lessequal.tf approxequal.tf];
+
 
 feature locl {
   script latn;
@@ -168,3 +173,8 @@ feature zero {
     sub zero by zeroslash;
     sub zero.tf by zeroslash.tf;
 } zero;
+
+feature tnum {
+    sub @FIGURES by @FIGURES_TAB;
+    sub @SYMBOLS by @SYMBOLS_TAB;
+} tnum;
