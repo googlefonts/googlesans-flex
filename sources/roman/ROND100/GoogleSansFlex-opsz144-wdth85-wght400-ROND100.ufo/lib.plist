@@ -921,8 +921,12 @@
       <string>ygrave</string>
       <string>enspace</string>
       <string>emspace</string>
+      <string>threeperemspace</string>
+      <string>fourperemspace</string>
+      <string>sixperemspace</string>
       <string>thinspace</string>
       <string>hairspace</string>
+      <string>zerowidthspace</string>
       <string>endash</string>
       <string>emdash</string>
       <string>quoteleft</string>
@@ -934,29 +938,58 @@
       <string>dagger</string>
       <string>daggerdbl</string>
       <string>bullet</string>
+      <string>horizontalelipsis</string>
       <string>guilsinglleft</string>
       <string>guilsinglright</string>
       <string>fraction</string>
+      <string>zerosuperscript</string>
+      <string>onesuperscript</string>
+      <string>twosuperscript</string>
+      <string>threesuperscript</string>
+      <string>foursuperscript</string>
       <string>foursuperior</string>
+      <string>fivesuperscript</string>
+      <string>sixsuperscript</string>
+      <string>sevensuperscript</string>
+      <string>eightsuperscript</string>
+      <string>ninesuperscript</string>
+      <string>zerosubscript</string>
+      <string>onesubscript</string>
+      <string>twosubscript</string>
+      <string>threesubscript</string>
+      <string>foursubscript</string>
+      <string>fivesubscript</string>
+      <string>sixsubscript</string>
+      <string>sevensubscript</string>
+      <string>eightsubscript</string>
+      <string>ninesubscript</string>
       <string>Euro</string>
       <string>trademark</string>
       <string>minus</string>
       <string>approxequal</string>
       <string>notequal</string>
-      <string>f_i</string>
-      <string>f_l</string>
-      <string>.null</string>
-      <string>.notdef</string>
-      <string>zeropercent</string>
-      <string>percentbar</string>
-      <string>exclam-top</string>
-      <string>question-top</string>
-      <string>dot-composite</string>
-      <string>Eth-bar</string>
-      <string>Oslash-bar</string>
-      <string>oslash-bar</string>
+      <string>lessequal</string>
+      <string>greaterequal</string>
       <string>flig2</string>
       <string>flig1</string>
+      <string>tlig</string>
+      <string>f_f</string>
+      <string>f_i</string>
+      <string>f_l</string>
+      <string>f_f_i</string>
+      <string>f_f_l</string>
+      <string>f_b</string>
+      <string>f_f_b</string>
+      <string>f_f_h</string>
+      <string>f_f_j</string>
+      <string>f_f_k</string>
+      <string>f_f_t</string>
+      <string>f_h</string>
+      <string>f_j</string>
+      <string>f_k</string>
+      <string>f_t</string>
+      <string>t_f</string>
+      <string>t_t</string>
       <string>zero.numerator</string>
       <string>one.numerator</string>
       <string>two.numerator</string>
@@ -977,13 +1010,55 @@
       <string>seven.denominator</string>
       <string>eight.denominator</string>
       <string>nine.denominator</string>
+      <string>zeroscientificinferior</string>
+      <string>onescientificinferior</string>
+      <string>twoscientificinferior</string>
+      <string>threescientificinferior</string>
+      <string>fourscientificinferior</string>
+      <string>fivescientificinferior</string>
+      <string>sixscientificinferior</string>
+      <string>sevenscientificinferior</string>
+      <string>eightscientificinferior</string>
+      <string>ninescientificinferior</string>
       <string>a.alt</string>
+      <string>agrave.alt</string>
+      <string>aacute.alt</string>
+      <string>acircumflex.alt</string>
+      <string>atilde.alt</string>
+      <string>adieresis.alt</string>
+      <string>aring.alt</string>
+      <string>aogonek.alt</string>
+      <string>abreve.alt</string>
+      <string>amacron.alt</string>
+      <string>acaron.alt</string>
+      <string>ae.alt</string>
+      <string>aeacute.alt</string>
       <string>g.alt</string>
+      <string>gcommaaccent.alt</string>
+      <string>gbreve.alt</string>
+      <string>gdotaccent.alt</string>
+      <string>gcircumflex.alt</string>
       <string>caroncomb.alt</string>
-      <string>diagonalbarl</string>
-      <string>horizontalbarlc</string>
+      <string>commaaccent</string>
+      <string>commaturnedabove</string>
+      <string>caron.alt</string>
+      <string>.null</string>
+      <string>.notdef</string>
+      <string>zeropercent</string>
+      <string>percentbar</string>
+      <string>exclam-top</string>
+      <string>question-top</string>
       <string>exclam-bottom</string>
       <string>question-bottom</string>
+      <string>dot-composite</string>
+      <string>dot-composite-top</string>
+      <string>Eth-bar</string>
+      <string>Oslash-bar</string>
+      <string>oslash-bar</string>
+      <string>diagonalbarl</string>
+      <string>horizontalbarlc</string>
+      <string>H-bar</string>
+      <string>Engeng</string>
       <string>zero.tf</string>
       <string>one.tf</string>
       <string>two.tf</string>
@@ -1024,65 +1099,20 @@
       <string>notequal-slash</string>
       <string>greaterequal-stroke</string>
       <string>percentbar.tf</string>
-      <string>greaterequal</string>
-      <string>lessequal</string>
-      <string>commaaccent</string>
-      <string>commaturnedabove</string>
-      <string>caron.alt</string>
-      <string>dot-composite-top</string>
-      <string>horizontalelipsis</string>
-      <string>Engeng</string>
-      <string>H-bar</string>
       <string>zeroslash</string>
       <string>zeroslash.tf</string>
       <string>zero-slash</string>
-      <string>zeroscientificinferior</string>
-      <string>onescientificinferior</string>
-      <string>twoscientificinferior</string>
-      <string>threescientificinferior</string>
-      <string>fourscientificinferior</string>
-      <string>fivescientificinferior</string>
-      <string>sixscientificinferior</string>
-      <string>sevenscientificinferior</string>
-      <string>eightscientificinferior</string>
-      <string>ninescientificinferior</string>
-      <string>zerosubscript</string>
-      <string>onesubscript</string>
-      <string>twosubscript</string>
-      <string>threesubscript</string>
-      <string>foursubscript</string>
-      <string>fivesubscript</string>
-      <string>sixsubscript</string>
-      <string>sevensubscript</string>
-      <string>eightsubscript</string>
-      <string>ninesubscript</string>
-      <string>zerosuperscript</string>
-      <string>onesuperscript</string>
-      <string>twosuperscript</string>
-      <string>threesuperscript</string>
-      <string>foursuperscript</string>
-      <string>fivesuperscript</string>
-      <string>sixsuperscript</string>
-      <string>sevensuperscript</string>
-      <string>eightsuperscript</string>
-      <string>ninesuperscript</string>
-      <string>agrave.alt</string>
-      <string>aacute.alt</string>
-      <string>acircumflex.alt</string>
-      <string>atilde.alt</string>
-      <string>adieresis.alt</string>
-      <string>aring.alt</string>
-      <string>aogonek.alt</string>
-      <string>abreve.alt</string>
-      <string>amacron.alt</string>
-      <string>acaron.alt</string>
-      <string>ae.alt</string>
-      <string>gcommaaccent.alt</string>
-      <string>gbreve.alt</string>
-      <string>gdotaccent.alt</string>
-      <string>squiggle</string>
-      <string>squiggle.init</string>
-      <string>squiggle.fin</string>
+      <string>wiggle.init</string>
+      <string>wiggle.medium</string>
+      <string>wiggle.final</string>
+      <string>G.super</string>
+      <string>Gsuper</string>
+      <string>G.logo</string>
+      <string>o.logo</string>
+      <string>g.logo</string>
+      <string>l.logo</string>
+      <string>e.logo</string>
+      <string>Google.logo</string>
     </array>
     <key>public.openTypeCategories</key>
     <dict>
