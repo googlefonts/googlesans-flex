@@ -126,6 +126,10 @@ def main(designspace_path: Path) -> None:
             glyph_z.draw(bp)
             ufo.info.xHeight = otRound(bp.bounds[3])
 
+        # Encode figurespace (U+2007) as the space.tf glyph:
+        if (glyph_spacetf := ufo.get("space.tf")) is not None:
+            glyph_spacetf.unicode = 0x2007
+
         # TODO: get version from config.yaml once supported
         ufo.info.versionMajor = 1
         ufo.info.versionMinor = 0
