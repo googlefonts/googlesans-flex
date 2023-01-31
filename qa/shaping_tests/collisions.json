@@ -1,0 +1,16 @@
+{
+    "configuration": {
+        "collidoscope": {
+            "bases": true
+        },
+        "ingredients": {
+            "Character": "[!\"#$%&\\\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~]"
+        }
+    },
+    "tests": [
+        {
+            "input_type": "pattern",
+            "input": "Character Character"
+        }
+    ]
+}
