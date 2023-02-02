@@ -16,6 +16,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 from pathlib import Path
 
 from fontTools.designspaceLib import DesignSpaceDocument
@@ -125,6 +126,12 @@ def main(designspace_path: Path) -> None:
             bp = BoundsPen(ufo)
             glyph_z.draw(bp)
             ufo.info.xHeight = otRound(bp.bounds[3])
+
+        # Derive figurespace from space.tf:
+        if (glyph_spacetf := ufo.get("space.tf")) is not None:
+            figurespace_glyph = copy.deepcopy(glyph_spacetf)
+            figurespace_glyph.unicode = 0x2007
+            ufo["figurespace"] = figurespace_glyph
 
         # TODO: get version from config.yaml once supported
         ufo.info.versionMajor = 1
