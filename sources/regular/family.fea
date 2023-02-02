@@ -3,6 +3,9 @@ languagesystem latn dflt;
 languagesystem latn ROM;
 languagesystem latn MOL;
 languagesystem latn NLD;
+languagesystem latn LTH;
+
+@CombiningTopAccents = [gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotaccentcomb dieresiscomb ringcomb hungarumlautcomb caroncomb commaturnedabovecomb];
 
 @FIGURES = [zero one two three four five six seven eight nine];
 @FIGURES_TAB = [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
@@ -17,6 +20,9 @@ languagesystem latn NLD;
 feature locl {
   script latn;
   
+	  language LTH;
+	  sub idotless' @CombiningTopAccents by i;
+	  
 	  language NLD exclude_dflt;
 	    lookup IJ {
 	      sub I' J' by IJ;
