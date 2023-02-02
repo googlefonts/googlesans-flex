@@ -1,0 +1,239 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+languagesystem latn ROM;
+languagesystem latn MOL;
+languagesystem latn NLD;
+
+@FIGURES = [zero one two three four five six seven eight nine];
+@FIGURES_TAB = [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
+
+@FIGURES_NUM = [zero.numerator one.numerator two.numerator three.numerator four.numerator five.numerator six.numerator seven.numerator eight.numerator nine.numerator];
+@FIGURES_DEN = [zero.denominator one.denominator two.denominator three.denominator four.denominator five.denominator six.denominator seven.denominator eight.denominator nine.denominator];
+
+# @SYMBOLS = [period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal];
+# @SYMBOLS_TAB = [period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf currency.tf dollar.tf sterling.tf plus.tf multiply.tf divide.tf equal.tf greater.tf less.tf plusminus.tf logicalnot.tf percent.tf section.tf Euro.tf minus.tf notequal.tf greaterequal.tf lessequal.tf approxequal.tf];
+
+
+feature locl {
+  script latn;
+  
+	  language NLD exclude_dflt;
+	    lookup IJ {
+	      sub I' J' by IJ;
+	      sub i' j' by ij;
+	    } IJ;
+	
+
+	  language ROM exclude_dflt;
+        lookup SUB_1423 {
+	      sub Scedilla by Scommaaccent;
+	      sub Tcedilla by Tcommaaccent;
+	      sub scedilla by scommaaccent;
+	      sub tcedilla by tcommaaccent;
+	   } SUB_1423;
+	   
+	   language MOL exclude_dflt;
+        lookup SUB_1424 {
+	      sub Scedilla by Scommaaccent;
+	      sub Tcedilla by Tcommaaccent;
+	      sub scedilla by scommaaccent;
+	      sub tcedilla by tcommaaccent;
+	   } SUB_1424;
+
+} locl;
+
+
+feature frac {
+
+lookup FractionBar {
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES @FIGURES slash';
+	ignore sub slash' @FIGURES @FIGURES slash;
+	ignore sub slash @FIGURES slash';
+	ignore sub slash' @FIGURES slash;
+	ignore sub slash slash';
+	ignore sub slash' slash;
+	sub @FIGURES slash' @FIGURES by fraction;
+} FractionBar;
+
+lookup NUMERATOR_1 {
+	sub @FIGURES' fraction by @FIGURES_NUM;
+} NUMERATOR_1;
+
+lookup NUMERATOR_2 {
+	sub @FIGURES' @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_2;
+
+lookup NUMERATOR_3 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_3;
+
+lookup NUMERATOR_4 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_4;
+
+lookup NUMERATOR_5 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_5;
+
+lookup NUMERATOR_6 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_6;
+
+lookup NUMERATOR_7 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_7;
+
+lookup NUMERATOR_8 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_8;
+
+lookup NUMERATOR_9 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_9;
+
+lookup NUMERATOR_10 {
+	sub @FIGURES' @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM @FIGURES_NUM fraction by @FIGURES_NUM;
+} NUMERATOR_10;
+
+lookup Denominator {
+	sub [fraction @FIGURES_DEN] @FIGURES' by @FIGURES_DEN;
+} Denominator;
+
+#sub @FIGURES space' @FIGURES_NUM by thinspace;
+
+
+} frac;
+
+
+feature dnom {
+	sub @FIGURES by @FIGURES_DEN;
+} dnom;
+
+
+feature numr {
+	sub @FIGURES by @FIGURES_NUM;
+} numr;
+
+
+# feature sups {
+#     sub zero by zerosuperscript;
+#     sub one by onesuperscript;
+#     sub two by twosuperscript;
+#     sub three by threesuperscript;
+#     sub four by foursuperscript;
+#     sub five by fivesuperscript;
+#     sub six by sixsuperscript;
+#     sub seven by sevensuperscript;
+#     sub eight by eightsuperscript;
+#     sub nine by ninesuperscript;
+# } sups;
+
+
+# feature subs {
+#     # automatic
+#     sub zero by zerosubscript;
+#     sub one by onesubscript;
+#     sub two by twosubscript;
+#     sub three by threesubscript;
+#     sub four by foursubscript;
+#     sub five by fivesubscript;
+#     sub six by sixsubscript;
+#     sub seven by sevensubscript;
+#     sub eight by eightsubscript;
+#     sub nine by ninesubscript;
+# } subs;
+
+
+# feature sinf {
+#     # automatic
+#     sub zero by zeroscientificinferior;
+#     sub one by onescientificinferior;
+#     sub two by twoscientificinferior;
+#     sub three by threescientificinferior;
+#     sub four by fourscientificinferior;
+#     sub five by fivescientificinferior;
+#     sub six by sixscientificinferior;
+#     sub seven by sevenscientificinferior;
+#     sub eight by eightscientificinferior;
+#     sub nine by ninescientificinferior;
+# } sinf;
+
+
+# feature zero {
+#     sub zero by zeroslash;
+#     sub zero.tf by zeroslash.tf;
+# } zero;
+
+
+feature tnum {
+    sub @FIGURES by @FIGURES_TAB;
+#     sub @SYMBOLS by @SYMBOLS_TAB;
+} tnum;
+
+
+# feature liga {
+#     sub f f b by f_f_b;
+#     sub f f h by f_f_h;
+#     sub f f i by f_f_i;
+#     sub f f j by f_f_j;
+#     sub f f k by f_f_k;
+#     sub f f l by f_f_l;
+#     sub f f t by f_f_t;
+#     sub f b by f_b;
+#     sub f i by f_i;
+#     sub f f by f_f;
+#     sub f h by f_h;
+#     sub f j by f_j;
+#     sub f k by f_k;
+#     sub f l by f_l;
+#     sub f t by f_t;
+#     sub t f by t_f;
+#     sub t t by t_t;
+#     sub [G g] o o g l e underscore l o g o by Google.logo;
+#     sub [G g] o o g l e l o g o l i g a t u r e by Google.logo;
+#     sub G l o g o l i g a t u r e by G.logo;
+#     sub o l o g o l i g a t u r e by o.logo;
+#     sub g l o g o l i g a t u r e by g.logo;
+#     sub l l o g o l i g a t u r e by l.logo;
+#     sub e l o g o l i g a t u r e by e.logo;
+# } liga;
+
+
+# @a_ALT_OFF = [a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron ];
+# @a_ALT_ON = [a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt ];
+# 
+# @g_ALT_OFF = [ g gcommaaccent gbreve gdotaccent ];
+# @g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
+# 
+# feature ss01 {
+#     sub @a_ALT_OFF by @a_ALT_ON;
+# } ss01;
+# 
+# feature ss02 {
+#     sub @g_ALT_OFF by @g_ALT_ON;
+# } ss02;
+
+feature ss01 {
+    sub a by a.alt;
+} ss01;
+
+
+feature ss02 {
+    sub g by g.alt;
+} ss02;
