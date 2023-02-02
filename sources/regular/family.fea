@@ -10,8 +10,8 @@ languagesystem latn NLD;
 @FIGURES_NUM = [zero.numerator one.numerator two.numerator three.numerator four.numerator five.numerator six.numerator seven.numerator eight.numerator nine.numerator];
 @FIGURES_DEN = [zero.denominator one.denominator two.denominator three.denominator four.denominator five.denominator six.denominator seven.denominator eight.denominator nine.denominator];
 
-# @SYMBOLS = [period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal];
-# @SYMBOLS_TAB = [period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf currency.tf dollar.tf sterling.tf plus.tf multiply.tf divide.tf equal.tf greater.tf less.tf plusminus.tf logicalnot.tf percent.tf section.tf Euro.tf minus.tf notequal.tf greaterequal.tf lessequal.tf approxequal.tf];
+@SYMBOLS = [period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal];
+@SYMBOLS_TAB = [period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf currency.tf dollar.tf sterling.tf plus.tf multiply.tf divide.tf equal.tf greater.tf less.tf plusminus.tf logicalnot.tf percent.tf section.tf Euro.tf minus.tf notequal.tf greaterequal.tf lessequal.tf approxequal.tf];
 
 
 feature locl {
@@ -183,7 +183,7 @@ feature numr {
 
 feature tnum {
     sub @FIGURES by @FIGURES_TAB;
-#     sub @SYMBOLS by @SYMBOLS_TAB;
+    sub @SYMBOLS by @SYMBOLS_TAB;
 } tnum;
 
 
