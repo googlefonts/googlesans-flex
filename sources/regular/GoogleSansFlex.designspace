@@ -8,7 +8,14 @@
       <labelname xml:lang="en">width</labelname>
     </axis>
     <axis tag="opsz" name="opsz" minimum="6" maximum="144" default="18">
-      <labelname xml:lang="en">optical size</labelname>
+      <map input="6" output="0"/>
+      <map input="8" output="0.004"/>
+      <map input="14" output="10"/>
+      <map input="18" output="35.2"/>
+      <map input="24" output="73"/>
+      <map input="92" output="93"/>
+      <map input="144" output="100"/>
+      <labelname xml:lang="en">Optical size</labelname>
     </axis>
     <axis tag="ROND" name="ROND" minimum="0" maximum="100" default="0">
       <labelname xml:lang="en">ROUNDED</labelname>
