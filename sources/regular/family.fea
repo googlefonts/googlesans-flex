@@ -228,10 +228,18 @@ feature liga {
 @g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
 
 feature ss01 {
+	featureNames {
+        name "Alternate a";
+        name 1 "Alternate a";
+    };
 	sub @a_ALT_OFF by @a_ALT_ON;
 } ss01;
 
 
 feature ss02 {
+	featureNames {
+        name "Alternate g";
+        name 1 "Alternate g";
+    };
 	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
