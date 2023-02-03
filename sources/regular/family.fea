@@ -227,7 +227,7 @@ feature liga {
 feature ss01 {
 	featureNames {
         name "Single-story a";
-        name 1 "Alternate a";
+        name 1 "Single-story a";
     };
 	sub @a_ALT_OFF by @a_ALT_ON;
 } ss01;
@@ -236,7 +236,7 @@ feature ss01 {
 feature ss02 {
 	featureNames {
         name "Double-story g";
-        name 1 "Alternate g";
+        name 1 "Double-story g";
     };
 	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
