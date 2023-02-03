@@ -221,25 +221,17 @@ feature liga {
 } liga;
 
 
-# @a_ALT_OFF = [a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron ];
-# @a_ALT_ON = [a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt ];
-# 
-# @g_ALT_OFF = [ g gcommaaccent gbreve gdotaccent ];
-# @g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
-# 
-# feature ss01 {
-#     sub @a_ALT_OFF by @a_ALT_ON;
-# } ss01;
-# 
-# feature ss02 {
-#     sub @g_ALT_OFF by @g_ALT_ON;
-# } ss02;
+@a_ALT_OFF = [a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron ];
+@a_ALT_ON = [a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt ];
+
+@g_ALT_OFF = [ g gcommaaccent gbreve gdotaccent ];
+@g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
 
 feature ss01 {
-    sub a by a.alt;
+	sub @a_ALT_OFF by @a_ALT_ON;
 } ss01;
 
 
 feature ss02 {
-    sub g by g.alt;
+	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
