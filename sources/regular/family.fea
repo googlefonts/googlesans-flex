@@ -7,6 +7,12 @@ languagesystem latn LTH;
 
 @CombiningTopAccents = [gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotaccentcomb dieresiscomb ringcomb hungarumlautcomb caroncomb commaturnedabovecomb];
 
+@a_ALT_OFF = [a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron ];
+@a_ALT_ON = [a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt ];
+
+@g_ALT_OFF = [ g gcommaaccent gbreve gdotaccent ];
+@g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
+
 @FIGURES = [zero one two three four five six seven eight nine];
 @FIGURES_TAB = [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
 
@@ -152,7 +158,6 @@ feature sups {
 
 
 feature subs {
-    # automatic
     sub zero by zerosubscript;
     sub one by onesubscript;
     sub two by twosubscript;
@@ -167,7 +172,6 @@ feature subs {
 
 
 # feature sinf {
-#     # automatic
 #     sub zero by zeroscientificinferior;
 #     sub one by onescientificinferior;
 #     sub two by twoscientificinferior;
@@ -220,26 +224,19 @@ feature liga {
 #     sub e l o g o l i g a t u r e by e.logo;
 } liga;
 
-
-# @a_ALT_OFF = [a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron ];
-# @a_ALT_ON = [a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt ];
-# 
-# @g_ALT_OFF = [ g gcommaaccent gbreve gdotaccent ];
-# @g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
-# 
-# feature ss01 {
-#     sub @a_ALT_OFF by @a_ALT_ON;
-# } ss01;
-# 
-# feature ss02 {
-#     sub @g_ALT_OFF by @g_ALT_ON;
-# } ss02;
-
 feature ss01 {
-    sub a by a.alt;
+	featureNames {
+        name "Single-story a";
+        name 1 "Alternate a";
+    };
+	sub @a_ALT_OFF by @a_ALT_ON;
 } ss01;
 
 
 feature ss02 {
-    sub g by g.alt;
+	featureNames {
+        name "Double-story g";
+        name 1 "Alternate g";
+    };
+	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
