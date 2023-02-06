@@ -1,8 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="zeroslash" format="2">
-  <advance width="1290"/>
+  <advance width="2191"/>
   <outline>
     <component base="zero"/>
-    <component base="zero.slash"/>
+    <component base="zero.slash" xOffset="170" yOffset="-13"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.1313,0.9997,0.0236,1</string>
+    </dict>
+  </lib>
 </glyph>
