@@ -250,3 +250,8 @@ feature ordn {
 	sub [A a a.alt] by ordfeminine;
 	sub [O o] by ordmasculine;
 } ordn;
+
+feature pnum {
+	sub @FIGURES_TAB by @FIGURES;
+    sub @SYMBOLS_TAB by @SYMBOLS;
+} pnum;
