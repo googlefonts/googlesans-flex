@@ -240,3 +240,8 @@ feature ss02 {
     };
 	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
+
+feature calt {
+	sub @FIGURES colon' @FIGURES by colon.time;
+	sub @FIGURES_TAB colon.tf' @FIGURES_TAB by colon.time;
+} calt;
