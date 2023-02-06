@@ -245,3 +245,8 @@ feature calt {
 	sub @FIGURES colon' @FIGURES by colon.time;
 	sub @FIGURES_TAB colon.tf' @FIGURES_TAB by colon.time;
 } calt;
+
+feature ordn {
+	sub [A a a.alt] by ordfeminine;
+	sub [O o] by ordmasculine;
+} ordn;
