@@ -33,6 +33,7 @@ import copy
 import logging
 import shutil
 import sys
+import os.path
 from pathlib import Path
 from typing import Dict, List
 
@@ -62,6 +63,9 @@ def main(
 
     replace_target_designspace: bool = replace_target_designspace
     follow_glyphs: bool = follow_glyphs
+
+    # The path to the shared feature file that all UFOs should point to:
+    family_fea_path = target_path.parent / "family.fea"
 
     # Load all sources.
     designspace_import = DesignSpaceDocument.fromfile(source_path)
@@ -310,6 +314,11 @@ def main(
 
     for target_source in designspace_target.sources:
         filename = target_path.parent / target_source.filename
+
+        # Wire all features to point to a shared "family.fea" file.
+        family_fea_pointer = os.path.relpath(family_fea_path, filename.parent)
+        target_source.font.features.text = f"include({family_fea_pointer});"
+
         filename.parent.mkdir(exist_ok=True, parents=True)
         target_source.font.save(filename, overwrite=True)
 
