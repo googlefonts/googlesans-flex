@@ -198,6 +198,7 @@ feature tnum {
 
 
 feature liga {
+	# f-ligs
     sub f f b by f_f_b;
     sub f f h by f_f_h;
     sub f f i by f_f_i;
@@ -213,6 +214,8 @@ feature liga {
     sub f k by f_k;
     sub f l by f_l;
     sub f t by f_t;
+
+	# t-ligs
     sub t f by t_f;
     sub t t by t_t;
 } liga;
@@ -226,6 +229,10 @@ feature calt {
     sub colon [G g] o o g l e underscore l underscore l o g o by l.logo;
     sub colon [G g] o o g l e underscore e underscore l o g o by e.logo;
     sub colon [G g] o o g l e underscore s u p e r underscore [G g] underscore l o g o by G.super;
+
+	# wiggle lig
+	sub colon asciitilde by wiggle.medium;
+	sub wiggle.medium asciitilde' by wiggle.medium;
 } calt;
 
 feature ss01 {
