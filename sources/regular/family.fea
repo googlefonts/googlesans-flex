@@ -215,14 +215,18 @@ feature liga {
     sub f t by f_t;
     sub t f by t_f;
     sub t t by t_t;
-#     sub [G g] o o g l e underscore l o g o by Google.logo;
-#     sub [G g] o o g l e l o g o l i g a t u r e by Google.logo;
-#     sub G l o g o l i g a t u r e by G.logo;
-#     sub o l o g o l i g a t u r e by o.logo;
-#     sub g l o g o l i g a t u r e by g.logo;
-#     sub l l o g o l i g a t u r e by l.logo;
-#     sub e l o g o l i g a t u r e by e.logo;
 } liga;
+
+feature calt {
+	# Google logo ligatures
+	sub colon [G g] o o g l e underscore l o g o by Google.logo;
+    sub colon [G g] o o g l e underscore G underscore l o g o by G.logo;
+    sub colon [G g] o o g l e underscore o underscore l o g o by o.logo;
+    sub colon [G g] o o g l e underscore g underscore l o g o by g.logo;
+    sub colon [G g] o o g l e underscore l underscore l o g o by l.logo;
+    sub colon [G g] o o g l e underscore e underscore l o g o by e.logo;
+    sub colon [G g] o o g l e underscore s u p e r underscore [G g] underscore l o g o by G.super;
+} calt;
 
 feature ss01 {
 	featureNames {
