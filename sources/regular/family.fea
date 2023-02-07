@@ -218,19 +218,6 @@ feature liga {
 	# t-ligs
     sub t f by t_f;
     sub t t by t_t;
-
-	# wiggle lig
-	sub colon asciitilde by wiggle.medium;
-	sub wiggle.medium asciitilde' by wiggle.medium;
-	
-
-#     sub [G g] o o g l e underscore l o g o by Google.logo;
-#     sub [G g] o o g l e l o g o l i g a t u r e by Google.logo;
-#     sub G l o g o l i g a t u r e by G.logo;
-#     sub o l o g o l i g a t u r e by o.logo;
-#     sub g l o g o l i g a t u r e by g.logo;
-#     sub l l o g o l i g a t u r e by l.logo;
-#     sub e l o g o l i g a t u r e by e.logo;
 } liga;
 
 feature calt {
@@ -242,6 +229,10 @@ feature calt {
     sub colon [G g] o o g l e underscore l underscore l o g o by l.logo;
     sub colon [G g] o o g l e underscore e underscore l o g o by e.logo;
     sub colon [G g] o o g l e underscore s u p e r underscore [G g] underscore l o g o by G.super;
+
+	# wiggle lig
+	sub colon asciitilde by wiggle.medium;
+	sub wiggle.medium asciitilde' by wiggle.medium;
 } calt;
 
 feature ss01 {
