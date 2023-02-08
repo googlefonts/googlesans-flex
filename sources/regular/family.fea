@@ -221,14 +221,15 @@ feature liga {
 } liga;
 
 feature calt {
+
 	# Google logo ligatures
 	sub colon [G g] o o g l e underscore l o g o by Google.logo;
-    sub colon [G g] o o g l e underscore G underscore l o g o by G.logo;
-    sub colon [G g] o o g l e underscore o underscore l o g o by o.logo;
-    sub colon [G g] o o g l e underscore g underscore l o g o by g.logo;
-    sub colon [G g] o o g l e underscore l underscore l o g o by l.logo;
-    sub colon [G g] o o g l e underscore e underscore l o g o by e.logo;
-    sub colon [G g] o o g l e underscore s u p e r underscore [G g] underscore l o g o by G.super;
+	sub colon [G g] o o g l e underscore G underscore l o g o by G.logo;
+	sub colon [G g] o o g l e underscore o underscore l o g o by o.logo;
+	sub colon [G g] o o g l e underscore g underscore l o g o by g.logo;
+	sub colon [G g] o o g l e underscore l underscore l o g o by l.logo;
+	sub colon [G g] o o g l e underscore e underscore l o g o by e.logo;
+	sub colon [G g] o o g l e underscore s u p e r underscore [G g] underscore l o g o by G.super;
 
 	# wiggle lig
 	sub colon asciitilde by wiggle.medium;
