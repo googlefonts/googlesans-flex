@@ -13,10 +13,6 @@ languagesystem latn LTH;
 @g_ALT_OFF = [ g gcommaaccent gbreve gdotaccent ];
 @g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
 
-@TIME = [zeroslash zero one two three four five six seven eight nine];
-@TIME_TAB = [zeroslash.tf zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
-
-
 @FIGURES = [zero one two three four five six seven eight nine];
 @FIGURES_TAB = [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
 
@@ -243,8 +239,8 @@ feature calt {
 	sub @FIGURES_TAB colon.tf' @FIGURES_TAB by colon.time;
 	
 	#zero slash
-	sub @TIME colon' @TIME by colon.time;  
-	sub @TIME_TAB colon.tf' @TIME_TAB by colon.time; 
+	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time
+	sub [@FIGURES_TAB zeroslash.tf] colon.tf' [@FIGURES_TAB zeroslash.tf] by colon.time; 
 } calt;
 
 feature ss01 {
