@@ -258,8 +258,10 @@ feature calt {
 	#zero slash
 	sub @FIGURES colon' zeroslash by colon.time; 
 	sub zeroslash colon' @FIGURES by colon.time; 
+	sub zeroslash colon' zeroslash by colon.time; 
 	sub @FIGURES_TAB colon.tf' zeroslash.tf by colon.time; 
 	sub zeroslash.tf colon' @FIGURES_TAB by colon.time; 
+	sub zeroslash.tf colon' zeroslash.tf by colon.time; 
 } calt;
 
 feature ordn {
