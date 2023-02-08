@@ -255,6 +255,7 @@ feature ss02 {
 feature calt {
 	sub @FIGURES colon' @FIGURES by colon.time;
 	sub @FIGURES_TAB colon.tf' @FIGURES_TAB by colon.time;
+	#zero slash
 	sub @FIGURES colon' zeroslash by colon.time; 
 	sub zeroslash colon' @FIGURES by colon.time; 
 	sub @FIGURES_TAB colon.tf' zeroslash.tf by colon.time; 
