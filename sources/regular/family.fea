@@ -236,12 +236,9 @@ feature calt {
 	sub wiggle.medium asciitilde' by wiggle.medium;
 
 	# colon time
-	sub @FIGURES colon' @FIGURES by colon.time;
-	sub @FIGURES_TAB colon.tf' @FIGURES_TAB by colon.time;
-	
-	#zero slash
-	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time
-	sub [@FIGURES_TAB zeroslash.tf] colon.tf' [@FIGURES_TAB zeroslash.tf] by colon.time; 
+	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time;
+	sub [@FIGURES_TAB zeroslash.tf] colon.tf' [@FIGURES_TAB zeroslash.tf] by colon.time;
+
 } calt;
 
 feature ss01 {
