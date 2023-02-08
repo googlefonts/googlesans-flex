@@ -9,6 +9,10 @@
     </axis>
     <axis tag="opsz" name="opsz" minimum="6" maximum="144" default="18">
       <labelname xml:lang="en">optical size</labelname>
+      <map input="6" output="6"/>
+	  <map input="18" output="18"/>
+	  <map input="92" output="120"/>
+	  <map input="144" output="144"/>
     </axis>
     <axis tag="ROND" name="ROND" minimum="0" maximum="100" default="0">
       <labelname xml:lang="en">ROUNDED</labelname>
