@@ -13,6 +13,10 @@ languagesystem latn LTH;
 @g_ALT_OFF = [ g gcommaaccent gbreve gdotaccent ];
 @g_ALT_ON = [ g.alt gcommaaccent.alt gbreve.alt gdotaccent.alt ];
 
+@TIME = [zeroslash zero one two three four five six seven eight nine];
+@TIME_TAB = [zeroslash.tf zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
+
+
 @FIGURES = [zero one two three four five six seven eight nine];
 @FIGURES_TAB = [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
 
@@ -233,6 +237,14 @@ feature calt {
 	# wiggle lig
 	sub colon asciitilde by wiggle.medium;
 	sub wiggle.medium asciitilde' by wiggle.medium;
+
+	# colon time
+	sub @FIGURES colon' @FIGURES by colon.time;
+	sub @FIGURES_TAB colon.tf' @FIGURES_TAB by colon.time;
+	
+	#zero slash
+	sub @TIME colon' @TIME by colon.time;  
+	sub @TIME_TAB colon.tf' @TIME_TAB by colon.time; 
 } calt;
 
 feature ss01 {
@@ -252,17 +264,7 @@ feature ss02 {
 	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
 
-feature calt {
-	sub @FIGURES colon' @FIGURES by colon.time;
-	sub @FIGURES_TAB colon.tf' @FIGURES_TAB by colon.time;
-	#zero slash
-	sub @FIGURES colon' zeroslash by colon.time; 
-	sub zeroslash colon' @FIGURES by colon.time; 
-	sub zeroslash colon' zeroslash by colon.time; 
-	sub @FIGURES_TAB colon.tf' zeroslash.tf by colon.time; 
-	sub zeroslash.tf colon' @FIGURES_TAB by colon.time; 
-	sub zeroslash.tf colon' zeroslash.tf by colon.time; 
-} calt;
+
 
 feature ordn {
 	sub [A a a.alt] by ordfeminine;
