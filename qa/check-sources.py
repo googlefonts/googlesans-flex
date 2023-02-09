@@ -17,7 +17,7 @@ from __future__ import annotations
 from typing import Iterable, Tuple, Union
 
 from fontbakery.callable import check, condition
-from fontbakery.checkrunner import FAIL, PASS, Section, Status, Message
+from fontbakery.checkrunner import FAIL, PASS, WARN, Section, Status, Message
 from fontbakery.fonts_profile import profile_factory
 
 from ufoLib2 import Font
@@ -32,11 +32,6 @@ profile = profile_factory(default_section=Section("Google Sans Flex Source Check
 @condition
 def ufo_font(ufo: str) -> Font:
     return Font.open(ufo)
-
-
-# ================================================
-# Feature support
-# ================================================
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/same_tabular_width")
@@ -67,6 +62,42 @@ def check_same_tabular_widths(ufo: str, ufo_font: Font) -> CheckStatus:
 
     if widths_ok:
         yield PASS, "Tabular glyphs, if they exist, have the same width"
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/suspicious_kerning_values")
+def check_suspicious_kerning_values(ufo_font: Font) -> CheckStatus:
+    """Check for small and large kerning values outside a range and other
+    things."""
+
+    kerning_ok = True
+
+    # Accept kerning values in the range [20, 200] for 1000 upM fonts.
+    threshold_low = round(20 * ufo_font.info.unitsPerEm / 1000)
+    threshold_high = round(200 * ufo_font.info.unitsPerEm / 1000)
+    threshold = range(threshold_low, threshold_high + 1)
+
+    def describe_pair(first: str, second: str) -> str:
+        glyphs = []
+        if first in ufo_font.groups:
+            glyphs.append(ufo_font.groups[first][0])
+        else:
+            glyphs.append(first)
+        if second in ufo_font.groups:
+            glyphs.append(ufo_font.groups[second][0])
+        else:
+            glyphs.append(second)
+        return "".join(f"/{name}" for name in glyphs)
+
+    for (first, second), value in ufo_font.kerning.items():
+        if value == 0:
+            if first in ufo_font.groups and second in ufo_font.groups:
+                yield WARN, f"Group-to-group pairs like {(first, second)} (e.g. {describe_pair(first, second)}) don't need zero values"
+        elif abs(value) not in threshold:
+            kerning_ok = False
+            yield WARN, f"Pair {(first, second)} (e.g. {describe_pair(first, second)}) has suspicious kerning value {value}"
+
+    if kerning_ok:
+        yield PASS, "No suspicion raised"
 
 
 profile.auto_register(globals())
