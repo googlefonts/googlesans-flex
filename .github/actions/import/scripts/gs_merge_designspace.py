@@ -322,12 +322,41 @@ def main(
         filename.parent.mkdir(exist_ok=True, parents=True)
         target_source.font.save(filename, overwrite=True)
 
+    # Rename axes if necessary:
+    for axis in designspace_target.axes:
+        axis.name = name_for_tag(axis.tag)
+        if "en" in axis.labelNames:
+            del axis.labelNames["en"]
+    for source in designspace_target.sources:
+        source.location = {
+            name_for_tag(name): value for name, value in source.location.items()
+        }
+    for instance in designspace_target.instances:
+        instance.location = {
+            name_for_tag(name): value for name, value in instance.location.items()
+        }
     designspace_target.write(target_path)
 
     for source in sorted(sources_to_delete):
         path = target_path.parent / source
         print(f"Removing leftover {path}")
         shutil.rmtree(path)
+
+
+def name_for_tag(tag: str) -> str:
+    match tag:
+        case "wght":
+            return "Weight"
+        case "wdth":
+            return "Width"
+        case "opsz":
+            return "Optical Size"
+        case "ROND":
+            return "Roundness"
+        case "GRAD":
+            return "Grade"
+        case _:
+            return tag
 
 
 def canonical_location(
