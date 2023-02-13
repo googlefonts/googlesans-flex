@@ -26,11 +26,12 @@ GOOGLESANS_PROFILE_CHECKS = [
     # "com.google.fonts/check/googlesans/features/regression",  # TODO: For later.
 ]
 
+# v1.100 feature set:
 VAR_UPRIGHT_FEA = [
     "calt",
-    "case",
     "dnom",
     "frac",
+    "kern",
     "liga",
     "lnum",
     "locl",
