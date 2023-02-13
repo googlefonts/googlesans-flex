@@ -6,7 +6,7 @@ languagesystem latn MOL;
 languagesystem latn NLD;
 languagesystem latn LTH;
 
-@CombiningTopAccents = [gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotaccentcomb dieresiscomb ringcomb hungarumlautcomb caroncomb commaturnedabovecomb];
+@CombiningTopAccents = [gravecomb acutecomb tildecomb];
 
 @a_ALT_OFF = [a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron ];
 @a_ALT_ON = [a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt ];
@@ -33,8 +33,11 @@ feature locl {
 		  sub L' periodcentered' L by Ldot;
 	    } LDOT;
 
-	  language LTH;
-	  sub idotless' @CombiningTopAccents by i;
+	  language LTH exclude_dflt;
+	  	lookup LTH_1 {
+			sub idotless' @CombiningTopAccents by i;
+		} LTH_1;
+	
 	  
 	  language NLD exclude_dflt;
 	    lookup IJ {
