@@ -281,14 +281,3 @@ feature pnum {
 	sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
 } pnum;
-
-feature ccmp {
-	lookup ccmp1 {
-		sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
-		sub iogonek' @CombiningNonTopAccents @CombiningTopAccents by idotless ogonekcomb;
-	} ccmp1;
-	lookup ccmp2 {
-		sub i' @CombiningTopAccents by idotless;
-		sub i' @CombiningNonTopAccents @CombiningTopAccents by idotless;
-	} ccmp2;
-} ccmp;
