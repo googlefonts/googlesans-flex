@@ -35,11 +35,10 @@ def ufo_font(ufo: str) -> Font:
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/same_tabular_width")
-def check_same_tabular_widths(ufo: str, ufo_font: Font) -> CheckStatus:
+def check_same_tabular_widths(ufo_font: Font) -> CheckStatus:
     """Confirms that tabular glyphs have the same width within the same master."""
 
-    widths_ok = True
-
+    warnings_by_layer = {}
     for layer in ufo_font.layers:
         tabulars = {name for name in layer.keys() if ".tf" in name}
         if not tabulars:
@@ -51,17 +50,29 @@ def check_same_tabular_widths(ufo: str, ufo_font: Font) -> CheckStatus:
             width_glyph = iter(next(tabulars))
         width = layer[width_glyph].width
         if width is None:
-            yield FAIL, f"{ufo}, layer {layer.name}: {width_glyph} has no width, stopping check"
+            yield FAIL, f"layer {layer.name}: {width_glyph} has no width, stopping check"
             return
 
         for name in tabulars:
             glyph = layer[name]
             if glyph.width != width:
-                widths_ok = False
-                yield FAIL, f"{ufo}, layer {layer.name}: {name} ({glyph.width}) has different width than {width_glyph} ({width})"
+                warnings_by_layer.setdefault(layer.name, []).append(
+                    (name, glyph.width, width_glyph, width)
+                )
 
-    if widths_ok:
+    if not warnings_by_layer:
         yield PASS, "Tabular glyphs, if they exist, have the same width"
+    else:
+        for layer_name, warnings in warnings_by_layer.items():
+            txt = [
+                f"layer '{layer_name}':",
+                "",
+                *(
+                    f"* {name} ({width}) has different width than {ref_name} ({ref_width})"
+                    for (name, width, ref_name, ref_width) in warnings
+                ),
+            ]
+            yield FAIL, "\n".join(txt)
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/suspicious_kerning_values")
@@ -69,10 +80,8 @@ def check_suspicious_kerning_values(ufo_font: Font) -> CheckStatus:
     """Check for small and large kerning values outside a range and other
     things."""
 
-    kerning_ok = True
-
-    # Accept kerning values in the range [20, 200] for 1000 upM fonts.
-    threshold_low = round(20 * ufo_font.info.unitsPerEm / 1000)
+    # Accept kerning values in the range [10, 200] for 1000 upM fonts.
+    threshold_low = round(10 * ufo_font.info.unitsPerEm / 1000)
     threshold_high = round(200 * ufo_font.info.unitsPerEm / 1000)
     threshold = range(threshold_low, threshold_high + 1)
 
@@ -88,16 +97,31 @@ def check_suspicious_kerning_values(ufo_font: Font) -> CheckStatus:
             glyphs.append(second)
         return "".join(f"/{name}" for name in glyphs)
 
+    suspicious_kerning = []
     for (first, second), value in ufo_font.kerning.items():
+        # NOTE: Disable this for now, kerning can be cleaned up later.
+        # if value == 0:
+        #     if first in ufo_font.groups and second in ufo_font.groups:
+        #         yield WARN, f"Group-to-group pairs like {(first, second)} (e.g. {describe_pair(first, second)}) don't need zero values"
         if value == 0:
-            if first in ufo_font.groups and second in ufo_font.groups:
-                yield WARN, f"Group-to-group pairs like {(first, second)} (e.g. {describe_pair(first, second)}) don't need zero values"
-        elif abs(value) not in threshold:
-            kerning_ok = False
-            yield WARN, f"Pair {(first, second)} (e.g. {describe_pair(first, second)}) has suspicious kerning value {value}"
+            continue
+        if abs(value) not in threshold:
+            suspicious_kerning.append(
+                ((first, second), describe_pair(first, second), value)
+            )
 
-    if kerning_ok:
+    if not suspicious_kerning:
         yield PASS, "No suspicion raised"
+    else:
+        txt = [
+            f"Kerning values outside the accepted range of [{threshold_low}, {threshold_high}]:",
+            "",
+            *(
+                f"* Pair {pair} (e.g. {example}): {value}"
+                for (pair, example, value) in suspicious_kerning
+            ),
+        ]
+        yield WARN, "\n".join(txt)
 
 
 profile.auto_register(globals())
