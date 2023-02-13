@@ -1,4 +1,4 @@
-FROM python:3.8.15-slim
+FROM python:3.11.2-slim
 
 RUN apt update && apt install git -y --no-install-recommends
 
