@@ -33,6 +33,7 @@ profile = profile_factory(default_section=Section("Google Sans Flex Custom Check
 GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
     "com.google.fonts/check/googlesansflex/opentype/os2/unicode_range_bits",
     "com.google.fonts/check/googlesansflex/vf/fvaraxes",
+    "com.google.fonts/check/googlesansflex/vf/axis_names",
     "com.google.fonts/check/googlesansflex/vf/fvardefault",
     "com.google.fonts/check/googlesansflex/opentype/global_fu_attributes",
     "com.google.fonts/check/googlesansflex/round_reflow",
@@ -62,6 +63,14 @@ AXIS_DEFAULTS = {
     "wght": 400,
     "ROND": 0,
     "GRAD": 0,
+}
+
+AXIS_NAMES = {
+    "GRAD": "Grade",
+    "opsz": "Optical Size",
+    "ROND": "Roundness",
+    "wdth": "Width",
+    "wght": "Weight",
 }
 
 # Global Google Sans attributes, in 1000 upM font units.
@@ -202,6 +211,25 @@ def com_google_fonts_check_googlesansflex_variable_fvar_axes(ttFont):
         )
     else:
         yield PASS, f"Font includes all expected axis tags"
+
+
+@check(
+    id="com.google.fonts/check/googlesansflex/vf/axis_names",
+    conditions=["is_variable_font"],
+)
+def com_google_fonts_check_googlesansflex_axis_names(ttFont):
+    """Confirms that axes have the expected names."""
+
+    names = ttFont["name"]
+    fvar = ttFont["fvar"]
+
+    for axis in fvar.axes:
+        name = names.getDebugName(axis.axisNameID)
+        expected = AXIS_NAMES[axis.axisTag]
+        if name == expected:
+            yield PASS, f"Axis tagged {axis.axisTag} has expected name {expected}"
+        else:
+            yield WARN, f"Axis tagged {axis.axisTag} has name {name} but should be named {expected}"
 
 
 @check(
