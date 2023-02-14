@@ -42,9 +42,13 @@ def main(designspace_path: Path) -> None:
     designspace = DesignSpaceDocument.fromfile(designspace_path)
     designspace.loadSourceFonts(Font.open)
     designspace.instances.clear()
+    tag2name = {a.tag: a.name for a in designspace.axes}
     for name, location in INSTANCE_LOCATIONS.items():
         # TODO: Add directly as user coordinates when we adopt DS5.
-        as_design_location = designspace.map_forward(location)
+        # The instance locations use tags for canonicality, rename to axis names
+        # as designspaceLib expects.
+        renamed_location = {tag2name[k]: v for k, v in location.items()}
+        as_design_location = designspace.map_forward(renamed_location)
         designspace.addInstanceDescriptor(
             styleName=name, designLocation=as_design_location
         )
