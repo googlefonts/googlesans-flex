@@ -22,6 +22,7 @@ from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.misc.fixedTools import otRound
 from fontTools.pens.boundsPen import BoundsPen
 from ufoLib2 import Font
+from ufo2ft.filters.dottedCircleFilter import DottedCircleFilter
 
 # Defined in USER coordinates.
 INSTANCE_LOCATIONS = {
@@ -129,6 +130,20 @@ def main(designspace_path: Path) -> None:
             bp = BoundsPen(ufo)
             glyph_z.draw(bp)
             ufo.info.xHeight = otRound(bp.bounds[3])
+
+        # Generate a dottedCircle/uni25CC glyph (U+25CC).
+        if "dottedCircle" not in ufo and "uni25CC" not in ufo:
+            philter = DottedCircleFilter()
+            philter(ufo, ufo.layers.defaultLayer)
+        assert "dottedCircle" in ufo or "uni25CC" in ufo
+
+        # Remove kerning values smaller than 10 fU per 1000 upM.
+        kerning_threshold = round(10 * ufo.info.unitsPerEm / 1000)
+        ufo.kerning = {
+            k: v
+            for k, v in ufo.kerning.items()
+            if v == 0 or abs(v) >= kerning_threshold
+        }
 
         # TODO: get version from config.yaml once supported
         ufo.info.versionMajor = 1
