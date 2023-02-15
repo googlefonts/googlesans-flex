@@ -20,6 +20,7 @@ from fontbakery.callable import check, condition
 from fontbakery.checkrunner import FAIL, PASS, WARN, Section, Status, Message
 from fontbakery.fonts_profile import profile_factory
 
+from fontTools.designspaceLib import DesignSpaceDocument
 from ufoLib2 import Font
 
 
@@ -32,6 +33,13 @@ profile = profile_factory(default_section=Section("Google Sans Flex Source Check
 @condition
 def ufo_font(ufo: str) -> Font:
     return Font.open(ufo)
+
+
+@condition
+def ds(designspace: str) -> DesignSpaceDocument:
+    d = DesignSpaceDocument.fromfile(designspace)
+    d.loadSourceFonts(Font.open)
+    return d
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/same_tabular_width")
@@ -122,6 +130,21 @@ def check_suspicious_kerning_values(ufo_font: Font) -> CheckStatus:
             ),
         ]
         yield WARN, "\n".join(txt)
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/same_kerning_groups")
+def check_same_kerning_groupss(ds: DesignSpaceDocument) -> CheckStatus:
+    """Confirms that all sources have the same kerning groups per Designspace."""
+
+    default_source = ds.findDefault()
+    reference = default_source.font.groups
+    for source in ds.sources:
+        if source is default_source:
+            continue
+        if source.font.groups == reference:
+            yield PASS, f"{source.filename} has same kerning groups as default source"
+        else:
+            yield WARN, f"{source.filename} does not have the same kerning groups as default source"
 
 
 profile.auto_register(globals())
