@@ -200,6 +200,12 @@ feature zero {
     sub zero.tf by zeroslash.tf;
 } zero;
 
+feature lnum {
+    sub @FIGURES_TAB by @FIGURES;
+    sub @SYMBOLS_TAB by @SYMBOLS;
+	sub zeroslash.tf by zeroslash;
+
+} lnum; 
 
 feature tnum {
     sub @FIGURES by @FIGURES_TAB;
@@ -278,4 +284,6 @@ feature ordn {
 feature pnum {
 	sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
+	sub zeroslash.tf by zeroslash;
 } pnum;
+
