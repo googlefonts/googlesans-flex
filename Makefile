@@ -36,7 +36,7 @@ venv/touchfile: requirements.txt
 
 test: venv build.stamp
 	mkdir -p out/fontbakery
-	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-sources-report.html --ghmarkdown out/fontbakery/fontbakery-sources-report.md qa/check-sources.py $(shell find sources/regular -name "*.ufo") || echo "Continuing..."
+	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-sources-report.html --ghmarkdown out/fontbakery/fontbakery-sources-report.md qa/check-sources.py sources/regular/GoogleSansFlex.designspace $(shell find sources/regular -name "*.ufo") || echo "Continuing..."
 	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html --ghmarkdown out/fontbakery/fontbakery-outlines-report.md fontbakery.profiles.outline $(shell find fonts/variable -type f)  || echo "Continuing..."
 	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html --ghmarkdown out/fontbakery/fontbakery-googlesans-report.md qa/check-googlesans.py $(shell find fonts/variable -type f) || echo "Continuing..."
 	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html --ghmarkdown out/fontbakery/fontbakery-fea-report.md qa/check-fea.py $(shell find fonts/variable -type f) || echo "Continuing..."
