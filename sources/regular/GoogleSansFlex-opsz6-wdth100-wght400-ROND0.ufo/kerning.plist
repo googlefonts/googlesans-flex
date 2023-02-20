@@ -2,8 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>A</key>
+    <dict>
+      <key>question</key>
+      <integer>-80</integer>
+      <key>quoteright</key>
+      <integer>-80</integer>
+    </dict>
     <key>B</key>
     <dict>
+      <key>A</key>
+      <integer>60</integer>
       <key>AE</key>
       <integer>-40</integer>
       <key>V</key>
@@ -19,6 +28,11 @@
       <key>public.kern2.Y_left</key>
       <integer>-50</integer>
       <key>public.kern2.period_left</key>
+      <integer>-20</integer>
+    </dict>
+    <key>E</key>
+    <dict>
+      <key>O</key>
       <integer>-20</integer>
     </dict>
     <key>Euro</key>
@@ -39,15 +53,35 @@
       <key>f</key>
       <integer>-40</integer>
       <key>public.kern2.A_left</key>
-      <integer>-100</integer>
+      <integer>-60</integer>
+      <key>public.kern2.S_left</key>
+      <integer>0</integer>
       <key>public.kern2.a_left</key>
       <integer>-40</integer>
       <key>public.kern2.n_left</key>
       <integer>0</integer>
+      <key>public.kern2.o_left</key>
+      <integer>-30</integer>
       <key>public.kern2.period_left</key>
       <integer>-110</integer>
       <key>public.kern2.t_left</key>
       <integer>-20</integer>
+      <key>quotesinglbase</key>
+      <integer>-80</integer>
+    </dict>
+    <key>G</key>
+    <dict>
+      <key>V</key>
+      <integer>-30</integer>
+      <key>Y</key>
+      <integer>-80</integer>
+    </dict>
+    <key>L</key>
+    <dict>
+      <key>A</key>
+      <integer>20</integer>
+      <key>question</key>
+      <integer>-80</integer>
     </dict>
     <key>P</key>
     <dict>
@@ -538,7 +572,7 @@
       <key>f</key>
       <integer>-23</integer>
       <key>public.kern2.T_left</key>
-      <integer>-60</integer>
+      <integer>-120</integer>
       <key>public.kern2.W_left</key>
       <integer>-40</integer>
       <key>public.kern2.Y_left</key>
@@ -565,7 +599,7 @@
       <key>f</key>
       <integer>-30</integer>
       <key>public.kern2.A_left</key>
-      <integer>20</integer>
+      <integer>40</integer>
       <key>public.kern2.O_left</key>
       <integer>-20</integer>
       <key>public.kern2.W_left</key>
@@ -601,7 +635,7 @@
       <key>public.kern2.T_left</key>
       <integer>30</integer>
       <key>public.kern2.W_left</key>
-      <integer>20</integer>
+      <integer>0</integer>
       <key>public.kern2.Y_left</key>
       <integer>20</integer>
       <key>public.kern2.Z_left</key>
@@ -615,7 +649,7 @@
     <key>public.kern1.K_right</key>
     <dict>
       <key>J</key>
-      <integer>-20</integer>
+      <integer>0</integer>
       <key>f</key>
       <integer>-40</integer>
       <key>public.kern2.O_left</key>
@@ -716,7 +750,7 @@
       <key>guilsinglright</key>
       <integer>-40</integer>
       <key>public.kern2.A_left</key>
-      <integer>-60</integer>
+      <integer>-120</integer>
       <key>public.kern2.O_left</key>
       <integer>-20</integer>
       <key>public.kern2.S_left</key>
@@ -1136,6 +1170,8 @@
     <dict>
       <key>X</key>
       <integer>-70</integer>
+      <key>Y</key>
+      <integer>-230</integer>
       <key>eight</key>
       <integer>-80</integer>
       <key>f</key>
@@ -1190,6 +1226,13 @@
       <integer>-50</integer>
       <key>zero</key>
       <integer>-100</integer>
+    </dict>
+    <key>quoteleft</key>
+    <dict>
+      <key>A</key>
+      <integer>-60</integer>
+      <key>J</key>
+      <integer>-80</integer>
     </dict>
     <key>section</key>
     <dict>
