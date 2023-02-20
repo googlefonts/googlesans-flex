@@ -3,7 +3,30 @@
   <advance width="464"/>
   <unicode hex="0021"/>
   <outline>
-    <component base="exclam-top"/>
-    <component base="dot-composite" xOffset="-6"/>
+    <component base="exclam-top" identifier="component0"/>
+    <component base="dot-composite" xOffset="-6" identifier="component1"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>component0</key>
+        <dict>
+          <key>public.truetype.roundOffsetToGrid</key>
+          <true/>
+          <key>public.truetype.useMyMetrics</key>
+          <true/>
+        </dict>
+        <key>component1</key>
+        <dict>
+          <key>public.truetype.roundOffsetToGrid</key>
+          <true/>
+          <key>public.truetype.useMyMetrics</key>
+          <false/>
+        </dict>
+      </dict>
+      <key>public.truetype.overlap</key>
+      <false/>
+    </dict>
+  </lib>
 </glyph>
