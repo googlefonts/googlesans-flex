@@ -137,6 +137,10 @@ def main(designspace_path: Path) -> None:
             philter(ufo, ufo.layers.defaultLayer)
         assert "dottedCircle" in ufo or "uni25CC" in ufo
 
+        # Rename nbspace to uni00A0
+        if "nbspace" in ufo:
+            ufo.renameGlyph("nbspace", "uni00A0", overwrite=True)
+
         # Remove kerning values smaller than 10 fU per 1000 upM.
         kerning_threshold = round(10 * ufo.info.unitsPerEm / 1000)
         ufo.kerning = {
