@@ -9,10 +9,6 @@
     </axis>
     <axis tag="opsz" name="opsz" minimum="6" maximum="144" default="18">
       <labelname xml:lang="en">optical size</labelname>
-      <map input="6" output="6"/>
-	  <map input="18" output="18"/>
-	  <map input="92" output="120"/>
-	  <map input="144" output="144"/>
     </axis>
     <axis tag="ROND" name="ROND" minimum="0" maximum="100" default="0">
       <labelname xml:lang="en">ROUNDED</labelname>
@@ -21,6 +17,26 @@
       <labelname xml:lang="en">GRAD</labelname>
     </axis>
   </axes>
+  <rules>
+    <rule>
+      <conditionset>
+        <condition name="wght" minimum="579" maximum="1000"/>
+      </conditionset>
+      <sub name="Oslash" with="Oslash.rvrn"/>
+    </rule>
+    <rule>
+      <conditionset>
+        <condition name="wght" minimum="579" maximum="1000"/>
+      </conditionset>
+      <sub name="oslash" with="oslash.rvrn"/>
+    </rule>
+    <rule>
+      <conditionset>
+        <condition name="wght" minimum="699" maximum="1000"/>
+      </conditionset>
+      <sub name="Q" with="Q.rvrn"/>
+    </rule>
+  </rules>
   <sources>
     <source filename="GoogleSansFlex-opsz6-wdth25-wght1-ROND0.ufo" familyname="GoogleSansFlex" stylename="opsz6-wdth25-wght1">
       <location>
@@ -229,7 +245,7 @@
         <dimension name="GRAD" xvalue="0"/>
       </location>
     </source>
-    <source filename="Skateboard Previews/GoogleSansFlex-opsz18-wdth100-wght1-ROND0-GRAD50.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght1-ROND0">
+    <source filename="Skateboard Previews/GoogleSansFlex-opsz18-wdth100-wght1-ROND0-GRAD50.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght1-ROND0-GRAD50">
       <location>
         <dimension name="wght" xvalue="1"/>
         <dimension name="wdth" xvalue="100"/>
