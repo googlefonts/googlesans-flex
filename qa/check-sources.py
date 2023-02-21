@@ -17,7 +17,16 @@ from __future__ import annotations
 from typing import Iterable, Tuple, Union
 
 from fontbakery.callable import check, condition
-from fontbakery.checkrunner import FAIL, PASS, WARN, INFO, Section, Status, Message
+from fontbakery.checkrunner import (
+    FAIL,
+    PASS,
+    WARN,
+    INFO,
+    SKIP,
+    Section,
+    Status,
+    Message,
+)
 from fontbakery.fonts_profile import profile_factory
 
 from fontTools.designspaceLib import DesignSpaceDocument
@@ -148,26 +157,32 @@ def check_same_kerning_groupss(ds: DesignSpaceDocument) -> CheckStatus:
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/kerning_present")
-def check_kerning_present(ufo_font: Font) -> CheckStatus:
+def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
     """Check how much kerning pairs a source has, not counting exceptions."""
 
-    effective_kerning = {}
-    for (first, second), value in ufo_font.kerning.items():
-        # Skip exceptions for now, as we're more interested in the
-        # non-exceptions that make them meaningful.
-        if value == 0:
+    for source in ds.sources:
+        if source.layerName is not None:
+            yield SKIP, f"Skipping {source.filename} because it is a sparse layer"
             continue
-        # Kerning of non-existent things, skip.
-        if (first not in ufo_font.groups and first not in ufo_font) or (
-            second not in ufo_font.groups and second not in ufo_font
-        ):
-            continue
-        effective_kerning[(first, second)] = value
 
-    if effective_kerning:
-        yield INFO, f"Found {len(effective_kerning)} kerning pairs (not counting exceptions)"
-    else:
-        yield WARN, "Found no kerning pairs (not counting exceptions)"
+        ufo_font: Font = source.font
+        effective_kerning = {}
+        for (first, second), value in ufo_font.kerning.items():
+            # Skip exceptions for now, as we're more interested in the
+            # non-exceptions that make them meaningful.
+            if value == 0:
+                continue
+            # Kerning of non-existent things, skip.
+            if (first not in ufo_font.groups and first not in ufo_font) or (
+                second not in ufo_font.groups and second not in ufo_font
+            ):
+                continue
+            effective_kerning[(first, second)] = value
+
+        if effective_kerning:
+            yield INFO, f"{source.filename}: Found {len(effective_kerning)} kerning pairs (not counting exceptions)"
+        else:
+            yield WARN, f"{source.filename}: Found no kerning pairs (not counting exceptions)"
 
 
 profile.auto_register(globals())
