@@ -1,13 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<glyph name="o" format="2">
+<glyph name="oslash.rvrn" format="2">
   <advance width="1318"/>
-  <unicode hex="006F"/>
-  <guideline x="659" y="583" angle="90.0" identifier="x79Oz6HDRB"/>
-  <anchor x="660.0" y="0.0" name="bottom"/>
-  <anchor x="659" y="511" name="center"/>
-  <anchor x="929" y="0.0" name="ogonek"/>
-  <anchor x="662" y="1020.0" name="top"/>
-  <anchor x="929" y="1020.0" name="topright"/>
   <outline>
     <contour>
       <point x="659" y="-43" type="qcurve" smooth="yes"/>
@@ -41,11 +34,29 @@
       <point x="509" y="418" name="inserted"/>
       <point x="583" y="342"/>
     </contour>
+    <contour>
+      <point x="599" y="572" type="line"/>
+      <point x="1058" y="1030" type="line" smooth="yes"/>
+      <point x="1087" y="1059"/>
+      <point x="1158" y="1050"/>
+      <point x="1181" y="1026" type="qcurve"/>
+      <point x="1181" y="1026" type="line"/>
+      <point x="1206" y="998"/>
+      <point x="1203" y="929"/>
+      <point x="1179" y="906" type="qcurve" smooth="yes"/>
+      <point x="722" y="450" type="line"/>
+    </contour>
+    <contour>
+      <point x="145" y="119" type="qcurve" smooth="yes"/>
+      <point x="599" y="572" type="line"/>
+      <point x="722" y="450" type="line"/>
+      <point x="268" y="-4" type="line" smooth="yes"/>
+      <point x="241" y="-31"/>
+      <point x="174" y="-36"/>
+      <point x="141" y="-4" type="qcurve"/>
+      <point x="141" y="-4" type="line"/>
+      <point x="115" y="26"/>
+      <point x="122" y="96"/>
+    </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>public.markColor</key>
-      <string>1,0,0,1</string>
-    </dict>
-  </lib>
 </glyph>
