@@ -89,7 +89,7 @@ extract-glyph-metadata: venv
 
 # Regenerate the metadata in the shared CSV file.
 regenerate-glyph-metadata: venv
-	venv/bin/python scripts/update-glyph-metadata.py sources/glyph_metadata.csv
+	venv/bin/python scripts/regenerate-glyph-metadata.py sources/glyph_metadata.csv
 
 # Apply the metadata in the shared CSV file to all UFOs.
 apply-glyph-metadata: venv
