@@ -83,12 +83,15 @@ bump-to-tag: venv
 glyph-hunt: venv
 	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
 
+# Extract the glyph metadata from a UFO into a shared CSV file.
 extract-glyph-metadata: venv
 	venv/bin/ufo-glyphdata-manager extract -o sources/glyph_metadata.csv sources/regular/GoogleSansFlex-opsz18-wdth100-wght400-ROND0.ufo
 
+# Regenerate the metadata in the shared CSV file.
 regenerate-glyph-metadata: venv
 	venv/bin/python scripts/update-glyph-metadata.py sources/glyph_metadata.csv
 
+# Apply the metadata in the shared CSV file to all UFOs.
 apply-glyph-metadata: venv
 	venv/bin/ufo-glyphdata-manager apply sources/glyph_metadata.csv sources/**/*.ufo
 
