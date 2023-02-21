@@ -161,6 +161,9 @@ def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
     """Check how much kerning pairs a source has, not counting exceptions."""
 
     for source in ds.sources:
+        if "Skateboard" in source.filename:
+            yield SKIP, f"Skipping {source.filename} because it is experimental"
+            continue
         if source.layerName is not None:
             yield SKIP, f"Skipping {source.filename} because it is a sparse layer"
             continue
