@@ -17,7 +17,7 @@ from __future__ import annotations
 from typing import Iterable, Tuple, Union
 
 from fontbakery.callable import check, condition
-from fontbakery.checkrunner import FAIL, PASS, WARN, Section, Status, Message
+from fontbakery.checkrunner import FAIL, PASS, WARN, INFO, Section, Status, Message
 from fontbakery.fonts_profile import profile_factory
 
 from fontTools.designspaceLib import DesignSpaceDocument
@@ -145,6 +145,29 @@ def check_same_kerning_groupss(ds: DesignSpaceDocument) -> CheckStatus:
             yield PASS, f"{source.filename} has same kerning groups as default source"
         else:
             yield WARN, f"{source.filename} does not have the same kerning groups as default source"
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/kerning_present")
+def check_kerning_present(ufo_font: Font) -> CheckStatus:
+    """Check how much kerning pairs a source has, not counting exceptions."""
+
+    effective_kerning = {}
+    for (first, second), value in ufo_font.kerning.items():
+        # Skip exceptions for now, as we're more interested in the
+        # non-exceptions that make them meaningful.
+        if value == 0:
+            continue
+        # Kerning of non-existent things, skip.
+        if (first not in ufo_font.groups and first not in ufo_font) or (
+            second not in ufo_font.groups and second not in ufo_font
+        ):
+            continue
+        effective_kerning[(first, second)] = value
+
+    if effective_kerning:
+        yield INFO, f"Found {len(effective_kerning)} kerning pairs (not counting exceptions)"
+    else:
+        yield WARN, "Found no kerning pairs (not counting exceptions)"
 
 
 profile.auto_register(globals())
