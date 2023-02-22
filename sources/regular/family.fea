@@ -277,8 +277,10 @@ feature ss02 {
 
 
 feature ordn {
-	sub [A a a.alt] by ordfeminine;
-	sub [O o] by ordmasculine;
+	sub [@FIGURES zeroslash] a' by ordfeminine;
+	sub [@FIGURES zeroslash] o' by ordmasculine;
+	sub [@FIGURES zeroslash] period a' by ordfeminine;
+	sub [@FIGURES zeroslash] period o' by ordmasculine;
 } ordn;
 
 feature pnum {
