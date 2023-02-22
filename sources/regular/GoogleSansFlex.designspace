@@ -3,12 +3,7 @@
   <axes>
     <axis tag="wght" name="Weight" minimum="1" maximum="1000" default="400"/>
     <axis tag="wdth" name="Width" minimum="25" maximum="151" default="100"/>
-    <axis tag="opsz" name="Optical Size" minimum="6" maximum="144" default="18">
-      <map input="6" output="6"/>
-      <map input="18" output="18"/>
-      <map input="92" output="120"/>
-      <map input="144" output="144"/>
-    </axis>
+    <axis tag="opsz" name="Optical Size" minimum="6" maximum="144" default="18"/>
     <axis tag="ROND" name="Roundness" minimum="0" maximum="100" default="0"/>
     <axis tag="GRAD" name="Grade" minimum="-50" maximum="50" default="0"/>
   </axes>
@@ -220,7 +215,7 @@
         <dimension name="Grade" xvalue="0"/>
       </location>
     </source>
-    <source filename="Skateboard Previews/GoogleSansFlex-opsz18-wdth100-wght1-ROND0-GRAD50.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght1-ROND0">
+    <source filename="Skateboard Previews/GoogleSansFlex-opsz18-wdth100-wght1-ROND0-GRAD50.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght1-ROND0-GRAD50">
       <location>
         <dimension name="Weight" xvalue="1"/>
         <dimension name="Width" xvalue="100"/>
@@ -258,42 +253,6 @@
         <dimension name="Optical Size" xvalue="18"/>
         <dimension name="Roundness" xvalue="0"/>
         <dimension name="Grade" xvalue="50"/>
-      </location>
-    </source>
-    <source filename="GoogleSansFlex-opsz18-wdth100-wght579-ROND0-SPARSE.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght579-ROND0-SPARSE" layer="foreground">
-      <location>
-        <dimension name="Weight" xvalue="579.999"/>
-        <dimension name="Width" xvalue="100"/>
-        <dimension name="Optical Size" xvalue="18"/>
-        <dimension name="Roundness" xvalue="0"/>
-        <dimension name="Grade" xvalue="0"/>
-      </location>
-    </source>
-    <source filename="GoogleSansFlex-opsz18-wdth100-wght580-ROND0-SPARSE.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght580-ROND0-SPARSE" layer="foreground">
-      <location>
-        <dimension name="Weight" xvalue="580"/>
-        <dimension name="Width" xvalue="100"/>
-        <dimension name="Optical Size" xvalue="18"/>
-        <dimension name="Roundness" xvalue="0"/>
-        <dimension name="Grade" xvalue="0"/>
-      </location>
-    </source>
-    <source filename="GoogleSansFlex-opsz18-wdth100-wght699-ROND0-SPARSE.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght699-ROND0-SPARSE" layer="foreground">
-      <location>
-        <dimension name="Weight" xvalue="699.999"/>
-        <dimension name="Width" xvalue="100"/>
-        <dimension name="Optical Size" xvalue="18"/>
-        <dimension name="Roundness" xvalue="0"/>
-        <dimension name="Grade" xvalue="0"/>
-      </location>
-    </source>
-    <source filename="GoogleSansFlex-opsz18-wdth100-wght700-ROND0-SPARSE.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght700-ROND0-SPARSE" layer="foreground">
-      <location>
-        <dimension name="Weight" xvalue="700"/>
-        <dimension name="Width" xvalue="100"/>
-        <dimension name="Optical Size" xvalue="18"/>
-        <dimension name="Roundness" xvalue="0"/>
-        <dimension name="Grade" xvalue="0"/>
       </location>
     </source>
     <source filename="GoogleSansFlex-opsz18-wdth100-wght1000-ROND0.ufo" familyname="GoogleSansFlex" stylename="opsz18-wdth100-wght1000">
@@ -344,24 +303,6 @@
     <source filename="GoogleSansFlex-opsz144-wdth25-wght400-ROND0.ufo" familyname="GoogleSansFlex" stylename="opsz144-wdth25-wght400">
       <location>
         <dimension name="Weight" xvalue="400"/>
-        <dimension name="Width" xvalue="25"/>
-        <dimension name="Optical Size" xvalue="144"/>
-        <dimension name="Roundness" xvalue="0"/>
-        <dimension name="Grade" xvalue="0"/>
-      </location>
-    </source>
-    <source filename="GoogleSansFlex-opsz144-wdth25-wght579-ROND0-SPARSE.ufo" familyname="GoogleSansFlex" stylename="opsz144-wdth25-wght579-ROND0-SPARSE" layer="foreground">
-      <location>
-        <dimension name="Weight" xvalue="579.999"/>
-        <dimension name="Width" xvalue="25"/>
-        <dimension name="Optical Size" xvalue="144"/>
-        <dimension name="Roundness" xvalue="0"/>
-        <dimension name="Grade" xvalue="0"/>
-      </location>
-    </source>
-    <source filename="GoogleSansFlex-opsz144-wdth25-wght580-ROND0-SPARSE.ufo" familyname="GoogleSansFlex" stylename="opsz144-wdth25-wght580-ROND0-SPARSE" layer="foreground">
-      <location>
-        <dimension name="Weight" xvalue="580"/>
         <dimension name="Width" xvalue="25"/>
         <dimension name="Optical Size" xvalue="144"/>
         <dimension name="Roundness" xvalue="0"/>
