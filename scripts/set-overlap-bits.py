@@ -17,40 +17,18 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-import pathops
-import uharfbuzz as hb
 from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables import _g_l_y_f
 
 
-def overlapping_glyphs(
-    font: hb.Font, coordinates: list[dict[str, float]], num_glyphs: int
-) -> set[int]:
-    """Return the set of glyph IDs that overlap in any of the user
-    coordinates."""
-    overlapping = set()
-    for gid in range(num_glyphs):
-        for coordinate in coordinates:
-            font.set_variations(coordinate)
-            path = pathops.Path()
-            font.draw_glyph_with_pen(gid, path.getPen())
-            # Remove overlaps (and do some other stuff):
-            path2 = pathops.simplify(path, clockwise=path.clockwise)
-            if path != path2:
-                overlapping.add(gid)
-                break  # If the glyph overlaps in one place, the bit must be set for all.
-    return overlapping
-
-
 def set_overlap_bits_if_overlapping(
-    varfont: TTFont, overlapping_glyphs: set[int]
+    varfont: TTFont, overlapping_glyphs: set[str]
 ) -> tuple[int, int]:
-    name_mapping = varfont.getGlyphNameMany(overlapping_glyphs)
     glyf_table: _g_l_y_f.table__g_l_y_f = varfont["glyf"]
 
     overlapping_contours = 0
     overlapping_components = 0
-    for glyph_name in name_mapping:
+    for glyph_name in overlapping_glyphs:
         glyph = glyf_table[glyph_name]
         # Set OVERLAP_COMPOUND bit for compound glyphs
         if glyph.isComposite():
@@ -65,20 +43,26 @@ def set_overlap_bits_if_overlapping(
 
 
 parser = argparse.ArgumentParser()
+parser.add_argument("glyph_list", type=Path)
 parser.add_argument("font", nargs="+", type=Path)
 parsed_args = parser.parse_args()
+glyph_list_path: Path = parsed_args.glyph_list
 fonts: list[Path] = parsed_args.font
+
+glyph_list = {
+    name for line in glyph_list_path.read_text().splitlines() if (name := line.strip())
+}
 
 for font_path in fonts:
     font = TTFont(font_path)
-    num_glyphs = font["maxp"].numGlyphs
+    num_glyphs: int = font["maxp"].numGlyphs
     fvar = font["fvar"]
 
-    instance_coordinates = [instance.coordinates for instance in fvar.instances]
-    hbfont = hb.Font(hb.Face(hb.Blob.from_file_path(font_path)))
-    overlapping_glyphs = overlapping_glyphs(hbfont, instance_coordinates, num_glyphs)
-
-    ocont, ocomp = set_overlap_bits_if_overlapping(font, overlapping_glyphs)
+    glyph_order = set(font.getGlyphOrder())
+    if leftovers := sorted(glyph_list - glyph_order):
+        print(f"Glyphs in overlap list not in font {font_path}: {leftovers}")
+    glyph_list_for_font = glyph_list.intersection(glyph_order)
+    ocont, ocomp = set_overlap_bits_if_overlapping(font, glyph_list_for_font)
     ocont_p = ocont / num_glyphs
     ocomp_p = ocomp / num_glyphs
     print(
