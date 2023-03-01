@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import List, Optional
 
 from fontTools.subset import main as subset_main
+from fontTools.ttLib import TTFont
 
 
 def main(args: Optional[List[str]] = None):
@@ -47,6 +48,7 @@ def main(args: Optional[List[str]] = None):
             "--glyph-names",
             "--no-prune-unicode-ranges",
             "--recalc-bounds",
+            "--recalc-average-width",
             f"--output-file={local_filepath_subset}",
         ]
 
@@ -69,6 +71,12 @@ def main(args: Optional[List[str]] = None):
                 str(e),
             )
             sys.exit(1)
+
+        # As of fontTools 4.38.0, the `--recalc-average-width` flag above is
+        # ignored, so we need to manually trigger the recalculation.
+        font_again = TTFont(local_filepath)
+        font_again["OS/2"].recalcAvgCharWidth(font_again)
+        font_again.save(local_filepath)
 
 
 if __name__ == "__main__":
