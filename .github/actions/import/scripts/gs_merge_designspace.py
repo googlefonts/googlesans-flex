@@ -73,6 +73,11 @@ def main(
     sources_to_delete = set()
     if replace_target_designspace:
         designspace_target = DesignSpaceDocument.fromfile(source_path)
+        designspace_target.sources = [
+            source
+            for source in designspace_target.sources
+            if "Skateboard" not in source.filename
+        ]
 
         # Gather all layer names to import, so we leave out debris.
         import_layer_names: set[str] = set()
@@ -155,6 +160,8 @@ def main(
 
     # Actually import now.
     for import_source in designspace_import.sources:
+        if "Skateboard" in import_source.filename:
+            continue
         assert import_source.font is not None
         import_font = import_source.font
         target_source = find_matching_source(
@@ -411,7 +418,7 @@ def find_matching_source(
             logging.warning(
                 "Cannot find target for source %s because there's no target location %s "
                 "and no target with a matching master ID.",
-                import_source.name,
+                import_source.filename,
                 full_import_source_location,
             )
             return None
