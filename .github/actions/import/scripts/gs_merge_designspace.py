@@ -15,11 +15,10 @@
 
 """Merge an incoming Designspace into an existing Designspace.
 
-This script will import glyphs and groups specified in import text files
-(one name per line) and kerning pairs that mention either of them. It will
-also update each UFO's public.glyphOrder and public.postscriptNames lib keys
-with entries for all imported glyphs, as well as public.skipExportGlyphs in
-Designspace and UFOs.
+This script will import glyphs and groups specified in import text files (one
+name per line) and kerning pairs that mention either of them. It will also
+update each UFO's public.glyphOrder lib keys with entries for all imported
+glyphs, as well as public.skipExportGlyphs in Designspace and UFOs.
 
 It does not import any font info, global or local guidelines or features.
 Designspace rules are also left untouched. Glyphs.app brace layers are not
@@ -294,17 +293,6 @@ def main(
         for name in import_font.lib["public.glyphOrder"]:
             if name not in target_glyph_order_set and name in import_glyphs:
                 target_glyph_order.append(name)
-
-        # Import public.postscriptNames for imported glyphs:
-        try:
-            target_ps_names: Dict[str, str] = target_font.lib["public.postscriptNames"]
-            for key, value in import_font.lib["public.postscriptNames"].items():
-                if key in import_glyphs:
-                    target_ps_names[key] = value
-        except KeyError:
-            logging.info(
-                "public.postscriptNames does not exist in both the source & target UFO, skipping",
-            )
 
         # Write global public.skipExportGlyphs list to all UFOs.
         target_font.lib[SKIP_EXPORT_GLYPHS_KEY] = skip_export_glyphs
