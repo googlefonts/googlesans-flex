@@ -17,6 +17,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from ufoLib2 import Font
+from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables import _g_l_y_f
 
@@ -44,31 +46,37 @@ def set_overlap_bits_if_overlapping(
 
 parser = argparse.ArgumentParser()
 parser.add_argument("glyph_list", type=Path)
-parser.add_argument("font", nargs="+", type=Path)
+parser.add_argument("designspace", type=DesignSpaceDocument.fromfile)
+parser.add_argument("font", type=Path)
 parsed_args = parser.parse_args()
 glyph_list_path: Path = parsed_args.glyph_list
-fonts: list[Path] = parsed_args.font
+designspace: DesignSpaceDocument = parsed_args.designspace
+font_path: Path = parsed_args.font
 
+designspace.loadSourceFonts(Font.open)
+default_source = designspace.default
+name_mapping = default_source.font.lib.get("public.postscriptNames", {})
 glyph_list = {
-    name for line in glyph_list_path.read_text().splitlines() if (name := line.strip())
+    name_mapping.get(name, name)
+    for line in glyph_list_path.read_text().splitlines()
+    if (name := line.strip())
 }
 
-for font_path in fonts:
-    font = TTFont(font_path)
-    num_glyphs: int = font["maxp"].numGlyphs
-    fvar = font["fvar"]
+font = TTFont(font_path)
+num_glyphs: int = font["maxp"].numGlyphs
+fvar = font["fvar"]
 
-    glyph_order = set(font.getGlyphOrder())
-    if leftovers := sorted(glyph_list - glyph_order):
-        print(f"Glyphs in overlap list not in font {font_path}: {leftovers}")
-    glyph_list_for_font = glyph_list.intersection(glyph_order)
-    ocont, ocomp = set_overlap_bits_if_overlapping(font, glyph_list_for_font)
-    ocont_p = ocont / num_glyphs
-    ocomp_p = ocomp / num_glyphs
-    print(
-        font.reader.file.name,
-        f"{num_glyphs} glyphs, "
-        f"{ocont} overlapping contours ({ocont_p:.2%}), "
-        f"{ocomp} overlapping components ({ocomp_p:.2%})",
-    )
-    font.save(font_path)
+glyph_order = set(font.getGlyphOrder())
+if leftovers := sorted(glyph_list - glyph_order):
+    print(f"Glyphs in overlap list not in font {font_path}: {leftovers}")
+glyph_list_for_font = glyph_list.intersection(glyph_order)
+ocont, ocomp = set_overlap_bits_if_overlapping(font, glyph_list_for_font)
+ocont_p = ocont / num_glyphs
+ocomp_p = ocomp / num_glyphs
+print(
+    font.reader.file.name,
+    f"{num_glyphs} glyphs, "
+    f"{ocont} overlapping contours ({ocont_p:.2%}), "
+    f"{ocomp} overlapping components ({ocomp_p:.2%})",
+)
+font.save(font_path)
