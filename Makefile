@@ -93,7 +93,7 @@ regenerate-glyph-metadata: venv
 
 # Apply the metadata in the shared CSV file to all UFOs.
 apply-glyph-metadata: venv
-	venv/bin/ufo-glyphdata-manager apply sources/glyph_metadata.csv sources/**/*.ufo
+	venv/bin/ufo-glyphdata-manager apply sources/glyph_metadata.csv sources/regular/*.ufo sources/regular/ROND100/*.ufo
 
 normalize-sources: venv
 	venv/bin/python scripts/gs-normalize-designspace.py
