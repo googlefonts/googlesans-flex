@@ -62,11 +62,9 @@ AXIS_DEFAULTS = {
     "wdth": 100,
     "wght": 400,
     "ROND": 0,
-    "GRAD": 0,
 }
 
 AXIS_NAMES = {
-    "GRAD": "Grade",
     "opsz": "Optical Size",
     "ROND": "Roundness",
     "wdth": "Width",
