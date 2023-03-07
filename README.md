@@ -1,6 +1,5 @@
 # Google Sans Flex
 
-
 ## Building
 
 Fonts are built automatically by GitHub Actions - take a look in the "Actions" tab for the latest build.
@@ -10,6 +9,21 @@ If you want to build fonts manually on your own computer:
 * `make build` will produce font files.
 * `make test` will run [FontBakery](https://github.com/googlefonts/fontbakery)'s quality assurance tests.
 * `make proof` will generate HTML proof files.
+
+## Releasing
+
+To release, head to GitHub's releases page for the repo ([here](https://github.com/googlefonts/googlesans-flex/releases)).
+Then:
+1. Click "Draft a new release" (top right).
+2. Open the dropdown "Choose a tag".
+3. Either select the existing tag you want to make a release for, or type in the version you're releasing and then click "Create new tag: blah on publish".
+4. Fill in the release title and description.
+5. Adjust checkboxes for pre-release and latest as you see fit.
+6. Click "Publish release".
+
+That's everything you need to do done.
+A GitHub workflow will kick off in the background which will compile the font and attach a .zip file to the GitHub release once complete.
+You can track its progress [here](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml).
 
 ## Importing new sources
 
