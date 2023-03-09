@@ -5,6 +5,7 @@ axisOrder:
   - wdth
   - wght
   - ROND
+  - GRAD
 familyName: Google Sans Flex
 # TODO: specify version once the option is available
 # The existing UFO sources are quadratics, so it probably does not make sense
@@ -146,4 +147,10 @@ stat:
   values:
   - flags: 2
     name: Default
+    value: 0.0
+- name: Grade
+  tag: GRAD
+  values:
+  - flags: 2
+    name: Normal
     value: 0.0
