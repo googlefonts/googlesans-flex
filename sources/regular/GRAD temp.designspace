@@ -2,10 +2,10 @@
 <designspace format="5.0">
   <axes>
     <axis tag="wdth" name="width" minimum="25" maximum="151" default="100"/>
-    <axis tag="nwx2" name="GRAD" minimum="-50" maximum="50" default="0"/>
+    <axis tag="GRAD" name="GRAD" minimum="-50" maximum="50" default="0"/>
     <axis tag="opsz" name="optical" minimum="18" maximum="144" default="18"/>
-    <axis tag="nwx4" name="ROND" minimum="0" maximum="100" default="0"/>
-    <axis tag="wght" name="weight" minimum="0" maximum="1000" default="0"/>
+    <axis tag="ROND" name="ROND" minimum="0" maximum="100" default="0"/>
+    <axis tag="wght" name="weight" minimum="1" maximum="1000" default="400"/>
   </axes>
   <sources>
     <source filename="GoogleSansFlex-opsz18-wdth85-wght400-ROND0.ufo" familyname="Google Sans Flex" stylename="opsz18-wdth85-wght400-ROND0">
@@ -215,6 +215,33 @@
         <dimension name="weight" xvalue="1"/>
       </location>
     </source>
+    <source filename="GoogleSansFlex-opsz18-wdth100-wght1000-ROND0.ufo" familyname="Google Sans Flex" stylename="opsz18-wdth100-wght1000-ROND0">
+      <location>
+        <dimension name="width" xvalue="100"/>
+        <dimension name="GRAD" xvalue="0"/>
+        <dimension name="optical" xvalue="18"/>
+        <dimension name="ROND" xvalue="0"/>
+        <dimension name="weight" xvalue="1000"/>
+      </location>
+    </source>
+    <source filename="GoogleSansFlex-opsz18-wdth25-wght1-ROND0.ufo" familyname="Google Sans Flex" stylename="opsz18-wdth25-wght1-ROND0">
+      <location>
+        <dimension name="width" xvalue="25"/>
+        <dimension name="GRAD" xvalue="0"/>
+        <dimension name="optical" xvalue="18"/>
+        <dimension name="ROND" xvalue="0"/>
+        <dimension name="weight" xvalue="1"/>
+      </location>
+    </source>
+    <source filename="GoogleSansFlex-opsz18-wdth151-wght1-ROND0.ufo" familyname="Google Sans Flex" stylename="opsz18-wdth151-wght1-ROND0">
+      <location>
+        <dimension name="width" xvalue="151"/>
+        <dimension name="GRAD" xvalue="0"/>
+        <dimension name="optical" xvalue="18"/>
+        <dimension name="ROND" xvalue="0"/>
+        <dimension name="weight" xvalue="1"/>
+      </location>
+    </source>
   </sources>
   <lib>
     <dict>
@@ -230,6 +257,7 @@
         <array>
           <string>GRAD</string>
           <string>ROND</string>
+          <string>weight</string>
         </array>
         <key>vertical</key>
         <array>
@@ -241,11 +269,13 @@
         <key>GRAD</key>
         <real>0.0</real>
         <key>ROND</key>
-        <real>100.0</real>
+        <real>0.0</real>
         <key>optical</key>
         <real>18.0</real>
+        <key>weight</key>
+        <real>400.0</real>
         <key>width</key>
-        <real>151.0</real>
+        <real>100.0</real>
       </dict>
       <key>com.letterror.skateboard.previewText</key>
       <string>SKATEBOARD</string>
