@@ -69,7 +69,7 @@ update-shaping-expectations:
 
 update:
 	pip install -U pip-tools
-	pip-compile -U requirements.in
+	pip-compile --resolver=backtracking -U requirements.in
 
 file-size: build
 	. venv/bin/activate && find fonts -name '*.ttf' -type f | xargs python .github/actions/file-size/report-filesize.py
