@@ -32,7 +32,7 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 venv/touchfile: requirements.txt
 	test -d venv || python3 -m venv venv
 	. venv/bin/activate; pip install -U setuptools wheel pip
-	. venv/bin/activate; pip install -r requirements.txt
+	. venv/bin/activate; pip install --no-deps -r requirements.txt
 	touch venv/touchfile
 
 test: venv build.stamp
