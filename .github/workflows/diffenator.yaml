@@ -1,8 +1,10 @@
 name: diffenator2 tests
 
 on:
-  pull_request:
-    branches: ['**']
+  push:
+    branches:
+      - "diff-*"
+
 
 jobs:
   build:
