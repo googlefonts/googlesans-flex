@@ -13,6 +13,7 @@ on:
 jobs:
   import-branch:
     runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v3
         with:
