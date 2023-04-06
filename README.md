@@ -25,6 +25,10 @@ That's everything you need to do done.
 A GitHub workflow will kick off in the background which will compile the font and attach a .zip file to the GitHub release once complete.
 You can track its progress [here](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml).
 
+## Updating dependencies
+
+Please run `make update` to update dependencies. This uses [pip-tools](https://github.com/jazzband/pip-tools) to resolve them and write them into the requirements.txt file. The requirements are then installed by the build scripting without further dependency resolution.
+
 ## Importing new sources
 
 ### From another branch on this repository
