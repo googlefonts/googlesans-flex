@@ -1,0 +1,83 @@
+name: diffenator2 tests
+
+on:
+  push:
+    branches:
+      - "diff-*"
+
+
+jobs:
+  build:
+    runs-on: [googlefonts-64cores-256GB]
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python v3.x environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+      - name: Build fonts
+        run: make build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: variable-fonts
+          path: 'fonts/variable'
+
+  screenshot:
+    needs:
+      - build
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python v3.x environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+      - uses: actions/download-artifact@v3
+        with:
+          name: variable-fonts
+          path: 'fonts/variable'
+      - name: Browser Screenshots
+        uses: f-actions/diffenator2@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: fonts/variable/*.ttf
+          fetch-before: 'github-release'
+          repo: 'googlefonts/googlesans-flex'
+          path-before: googlesans-flex-fonts/fonts/variable/*.ttf
+          run-diffenator: false
+          run-diffbrowsers: true
+          filter-styles: "Thin|Regular|Black"
+
+  diffenator:
+    needs:
+      - build
+    runs-on: [googlefonts-64cores-256GB]
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python v3.x environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+      - uses: actions/download-artifact@v3
+        with:
+          name: variable-fonts
+          path: 'fonts/variable'
+      - name: Diffenator
+        uses: f-actions/diffenator2@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: fonts/variable/*.ttf
+          fetch-before: 'github-release'
+          repo: 'googlefonts/googlesans-flex'
+          path-before: googlesans-flex-fonts/fonts/variable/*.ttf
+          run-diffenator: true
+          run-diffbrowsers: false
