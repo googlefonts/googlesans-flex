@@ -69,3 +69,25 @@ A script used to find angles (between the incoming and outgoing handles or point
 5. The script will create a CSV file where it lists glyph points and their locations where the angle of the incoming and outgoing handle or on-curve deviates from other masters. It gives you a link to click, which brings you to the glyph in Fontra and marks the offending point for you. Wiggle the location sliders to see if there is a problem or not.
 
 You can also inspect variable TTFs. Note that the locations might be slightly off then.
+
+### gs-ufo2glyphs.py, gs-glyphs2ufo.py, gs-merge-designspace.py
+
+These work the same as in Google Sans.
+
+This will produce a GoogleSansFlex.glyphs file next to the Designspace:
+
+```sh
+python3 scripts/gs-ufo2glyphs.py sources/regular/GoogleSansFlex.designspace
+```
+
+Going back should be done in a separate directory, because we have an extra merge step, to avoid polluting the sources with leftovers and accidents.
+
+```sh
+python3 scripts/gs-glyphs2ufo.py sources/regular/staging/GoogleSansFlex.glyphs
+```
+
+Merge the two with the following command. You need to have a import_glyphs.txt file describing which glyphs to import:
+
+```sh
+python3 scripts/gs-merge-designspace.py --source source/GoogleSans/staging/GoogleSansSomeScript.designspace --target sources/regular/GoogleSansFlex.designspace --import-glyphs-file sources/regular/staging/import_glyphs.txt
+```
