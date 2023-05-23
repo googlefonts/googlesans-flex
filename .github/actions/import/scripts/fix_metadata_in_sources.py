@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+from typing import Optional, Sequence
 
 from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.misc.fixedTools import otRound
@@ -39,7 +40,14 @@ INSTANCE_LOCATIONS = {
 POSTSCRIPT_NAMES = "public.postscriptNames"
 
 
-def main(designspace_path: Path) -> None:
+def main(args: Optional[Sequence[str]] = None) -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("designspace", type=Path)
+    parsed_args = parser.parse_args(args=args)
+    fix_metadata(parsed_args.designspace_path)
+
+
+def fix_metadata(designspace_path: Path) -> None:
     designspace = DesignSpaceDocument.fromfile(designspace_path)
     designspace.loadSourceFonts(Font.open)
     designspace.instances.clear()
@@ -189,7 +197,4 @@ def recompute_win_metrics(fonts: list[Font]) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("designspace", type=Path)
-    parsed_args = parser.parse_args()
-    main(parsed_args.designspace)
+    main()
