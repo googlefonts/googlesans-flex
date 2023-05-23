@@ -62,11 +62,9 @@ AXIS_DEFAULTS = {
     "wdth": 100,
     "wght": 400,
     "ROND": 0,
-    "GRAD": 0,
 }
 
 AXIS_NAMES = {
-    "GRAD": "Grade",
     "opsz": "Optical Size",
     "ROND": "Roundness",
     "wdth": "Width",
@@ -352,6 +350,7 @@ def com_google_fonts_check_googlesansflex_round_reflow(ttFont, config):
 # End check definitions
 #
 # ================================================
+
 
 # skip filter function to exclude checks defined in the
 # fontbakery universal profile
