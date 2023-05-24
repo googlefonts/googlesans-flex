@@ -207,7 +207,10 @@ def scrub_ufo(
             glyph.lib = {
                 k: v
                 for k, v in glyph.lib.items()
-                if (k.startswith("public.") and k != "public.markColor")
+                if (
+                    k.startswith("public.")
+                    and k not in {"public.markColor", "public.verticalOrigin"}
+                )
                 or (
                     k.startswith("com.schriftgestaltung.Glyphs.")
                     and k != "com.schriftgestaltung.Glyphs.lastChange"
