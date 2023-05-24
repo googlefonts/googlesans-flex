@@ -312,7 +312,7 @@ for import_source in designspace_import.sources:
 
 # If we import sources that don't have a GRAD axis yet, copy all imported glyphs
 # and other data from above over to our existing GRAD sources.
-if import_is_ungraded:
+if import_is_ungraded and any(a.name == "Grade" for a in designspace_target.axes):
     default_grades = []
     grade_mapping = collections.defaultdict(list)
     for source in designspace_target.sources:
