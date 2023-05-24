@@ -27,7 +27,7 @@ from fontTools.designspaceLib import (
     SourceDescriptor,
 )
 from fontTools.misc.transform import Transform
-from glyphsLib.builder.builders import _expand_kerning_to_brackets
+from glyphsLib.builder.bracket_layers import _expand_kerning_to_brackets
 
 from . import gdef
 
@@ -293,7 +293,7 @@ def scrub_groups(
 
     used = set()
     for source in all_sources:
-        for (first, second) in source.font.kerning:
+        for first, second in source.font.kerning:
             if first.startswith("public.kern1."):
                 used.add(first)
             if second.startswith("public.kern2."):
