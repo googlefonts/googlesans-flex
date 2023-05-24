@@ -168,6 +168,25 @@ def merge_designspace(
         designspace_target = DesignSpaceDocument.fromfile(target_path)
         designspace_target.loadSourceFonts(Font.open)
 
+        # Delete axes that the target DS doesn't have.
+        extra_axes = {a.name for a in designspace_import.axes} - {
+            a.name for a in designspace_target.axes
+        }
+        extra_defaults = {
+            a.name: a.default for a in designspace_import.axes if a.name in extra_axes
+        }
+        designspace_import.axes = [
+            axis for axis in designspace_import.axes if axis.name not in extra_axes
+        ]
+        designspace_import.sources = [
+            source
+            for source in designspace_import.sources
+            if all(source.location[k] == v for k, v in extra_defaults.items())
+        ]
+        for source in designspace_import.sources:
+            for name in extra_axes:
+                del source.location[name]
+
     if not import_glyphs:
         logging.error("You should provide at least one file with stuff to import.")
         sys.exit(1)
