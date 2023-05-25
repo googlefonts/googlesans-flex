@@ -23,7 +23,7 @@ from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.misc.fixedTools import otRound
 from fontTools.pens.boundsPen import BoundsPen
 from ufoLib2 import Font
-from ufo2ft.filters.dottedCircleFilter import DottedCircleFilter
+from ufo2ft.filters.dottedCircle import DottedCircleFilter
 
 # Defined in USER coordinates.
 INSTANCE_LOCATIONS = {
@@ -42,7 +42,7 @@ POSTSCRIPT_NAMES = "public.postscriptNames"
 
 def main(args: Optional[Sequence[str]] = None) -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("designspace", type=Path)
+    parser.add_argument("designspace_path", type=Path)
     parsed_args = parser.parse_args(args=args)
     fix_metadata(parsed_args.designspace_path)
 
