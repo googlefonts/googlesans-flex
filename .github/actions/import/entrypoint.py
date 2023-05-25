@@ -18,7 +18,7 @@ from pathlib import Path
 import yaml
 
 from scripts.gs_merge_designspace import merge_designspace
-from scripts.gs_normalize_designspace import normalize
+from scripts.gs_normalize_designspace import normalize_in_dir
 from scripts.fix_metadata_in_sources import fix_metadata
 
 REPLACE_TARGET_DESIGNSPACE = False
@@ -48,7 +48,7 @@ for designspace_path in gftools_config["sources"]:
 
     ds_sources_dir = Path(designspace_path_target).parent
     logging.info(f"Normalising {ds_sources_dir}")
-    normalize(
+    normalize_in_dir(
         TARGET_DIR / "sources" / ds_sources_dir,
     )
 
