@@ -23,7 +23,7 @@ from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.misc.fixedTools import otRound
 from fontTools.pens.boundsPen import BoundsPen
 from ufoLib2 import Font
-from ufo2ft.filters.dottedCircle import DottedCircleFilter
+from ufo2ft.filters.dottedCircleFilter import DottedCircleFilter
 
 # Defined in USER coordinates.
 INSTANCE_LOCATIONS = {
