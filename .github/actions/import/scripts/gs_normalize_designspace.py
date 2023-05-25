@@ -36,10 +36,10 @@ def main(args: Optional[Sequence[str]] = None):
         help="Path to source directory.",
     )
     parsed_args = parser.parse_args(args=args)
-    normalize(parsed_args.source_dir)
+    normalize_in_dir(parsed_args.source_dir)
 
 
-def normalize(source_dir: Path) -> None:
+def normalize_in_dir(source_dir: Path) -> None:
     for designspace_path in source_dir.glob("*.designspace"):
         designspace = DesignSpaceDocument.fromfile(designspace_path)
 
