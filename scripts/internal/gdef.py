@@ -18,6 +18,8 @@ _everything_, even symbols that happen to contain components of latin
 glyphs with anchors.
 """
 
+# KEEP IN SYNC WITH .github/actions/import/scripts/internal/gdef.py
+
 # pyright: basic
 
 from typing import Dict, Optional

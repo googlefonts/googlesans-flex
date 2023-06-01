@@ -157,6 +157,18 @@ def scrub_ufo(
         }
 
     # Clean glifs.
+    glyph_keys_to_remove = {
+        # Color is a designer tool, not necessary for building.
+        "public.markColor",
+        # No CJK in this project.
+        "public.verticalOrigin",
+        # No TrueType hinting in this project, and composite flags are added
+        # automatically.
+        "public.truetype.instructions",
+        # Useless information.
+        "com.schriftgestaltung.Glyphs.lastChange",
+    }
+
     for layer in ufo.layers:
         for glyph in layer:
             # Turn coordinates like "123.0" into "123".
@@ -192,11 +204,8 @@ def scrub_ufo(
             glyph.lib = {
                 k: v
                 for k, v in glyph.lib.items()
-                if (k.startswith("public.") and k != "public.markColor")
-                or (
-                    k.startswith("com.schriftgestaltung.Glyphs.")
-                    and k != "com.schriftgestaltung.Glyphs.lastChange"
-                )
+                if k.startswith(("public.", "com.schriftgestaltung.Glyphs."))
+                and k not in glyph_keys_to_remove
             }
 
     # Clean out empty/non-existing groups and kerning pairs.
