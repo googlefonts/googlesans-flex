@@ -1,5 +1,5 @@
 # pyright: basic
-# Copyright 2021 Google Sans Authors
+# Copyright 2022 Google Sans Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,7 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import collections
+# KEEP IN SYNC WITH .github/actions/import/scripts/internal/normalize.py
+
 import copy
 from pathlib import Path
 from typing import Dict, List, Set, Tuple, Union
@@ -44,9 +45,6 @@ def scrub_designspace(designspace: DesignSpaceDocument, project_root: Path) -> N
         scrub_source(source, skip_export_glyphs, rules, ot_categories)
 
     scrub_groups(designspace.default, designspace.sources)
-
-    if any(a.tag == "GRAD" for a in designspace.axes):
-        scrub_graded_sources(designspace.sources)
 
     for instance in designspace.instances:
         scrub_instance(instance, project_root)
@@ -81,9 +79,8 @@ def scrub_instance(instance: InstanceDescriptor, project_root: Path) -> None:
     # Trick DesignSpaceDocument.updatePaths() into doing the right thing.
     filename = Path(instance.filename)
     instance.filename = None
-    instance.path = str(
-        project_root / "build" / "GoogleSans" / "instance_ufo" / filename.name
-    )
+    # TODO: Adapt to Flex
+    instance.path = str(project_root / "fonts" / "instance_ufo" / filename.name)
 
 
 def scrub_source(
@@ -125,32 +122,20 @@ def scrub_ufo(
         and k not in keys_to_remove
     }
 
-    ufo.lib["public.skipExportGlyphs"] = sorted(skip_export_glyphs)
-    ufo.lib["public.postscriptNames"] = {
-        k: v for k, v in ufo.lib["public.postscriptNames"].items() if k in ufo
-    }
+    if "public.skipExportGlyphs" in ufo.lib:
+        ufo.lib["public.skipExportGlyphs"] = sorted(skip_export_glyphs)
+    if "public.postscriptNames" in ufo.lib:
+        ufo.lib["public.postscriptNames"] = {
+            k: v for k, v in ufo.lib["public.postscriptNames"].items() if k in ufo
+        }
 
     # Reset the ufo2ft filters.
-    ufo.lib["com.github.googlei18n.ufo2ft.filters"] = [
-        {"name": "decomposeTransformedComponents", "pre": True},
-        {
-            "name": "propagateAnchors",
-            "pre": True,
-            # Compiling Glyphs files to VFs does not propagate anchors in the following
-            # glyphs:
-            "exclude": [
-                "K.alt",
-                "caroncomb.alt",
-                "caroncomb.alt.cap",
-                "comma.alt",
-                "k.alt",
-                "quoteright.alt",
-                "r.alt",
-            ],
-        },
-        # Uncomment after attaining parity between Glyphs file and DS compilation.
-        {"name": "flattenComponents", "pre": True},
-    ]
+    if "com.github.googlei18n.ufo2ft.filters" in ufo.lib:
+        # TODO: use propagateAnchors filter?
+        ufo.lib["com.github.googlei18n.ufo2ft.filters"] = [
+            {"name": "decomposeTransformedComponents", "pre": True},
+            {"name": "flattenComponents", "pre": True},
+        ]
 
     # Delete non-build-relevant layers.
     layers_to_delete = []
@@ -172,6 +157,18 @@ def scrub_ufo(
         }
 
     # Clean glifs.
+    glyph_keys_to_remove = {
+        # Color is a designer tool, not necessary for building.
+        "public.markColor",
+        # No CJK in this project.
+        "public.verticalOrigin",
+        # No TrueType hinting in this project, and composite flags are added
+        # automatically.
+        "public.truetype.instructions",
+        # Useless information.
+        "com.schriftgestaltung.Glyphs.lastChange",
+    }
+
     for layer in ufo.layers:
         for glyph in layer:
             # Turn coordinates like "123.0" into "123".
@@ -207,14 +204,8 @@ def scrub_ufo(
             glyph.lib = {
                 k: v
                 for k, v in glyph.lib.items()
-                if (
-                    k.startswith("public.")
-                    and k not in {"public.markColor", "public.verticalOrigin"}
-                )
-                or (
-                    k.startswith("com.schriftgestaltung.Glyphs.")
-                    and k != "com.schriftgestaltung.Glyphs.lastChange"
-                )
+                if k.startswith(("public.", "com.schriftgestaltung.Glyphs."))
+                and k not in glyph_keys_to_remove
             }
 
     # Clean out empty/non-existing groups and kerning pairs.
@@ -258,35 +249,6 @@ def location_to_key(
     location: Dict[str, float], skip_axis: str = "Grade"
 ) -> Tuple[Tuple[str, float], ...]:
     return tuple((k, v) for k, v in location.items() if k != skip_axis)
-
-
-def scrub_graded_sources(sources: List[SourceDescriptor]) -> None:
-    default_grades = []
-    grade_mapping = collections.defaultdict(list)
-    for source in sources:
-        if source.location["Grade"]:
-            grade_mapping[location_to_key(source.location)].append(source)
-        else:
-            default_grades.append(source)
-
-    for source in default_grades:
-        all_glyphs = set(source.font.keys())
-        for graded_source in grade_mapping[location_to_key(source.location)]:
-            # NOTE: This copies missing glyphs from the base masters to graded ones.
-            # It only works the first time around!
-            graded_glyphs = set(graded_source.font.keys())
-            graded_default_layer = graded_source.font.layers.defaultLayer
-            for glyph_name in all_glyphs - graded_glyphs:
-                graded_default_layer.insertGlyph(
-                    source.font[glyph_name], overwrite=True
-                )
-
-            graded_source.font.groups = source.font.groups
-            graded_source.font.kerning = source.font.kerning
-
-            graded_master_id = graded_source.font.lib.get(MASTER_ID_KEY)
-            graded_source.font.lib = copy.copy(source.font.lib)
-            graded_source.font.lib[MASTER_ID_KEY] = graded_master_id
 
 
 def scrub_groups(
