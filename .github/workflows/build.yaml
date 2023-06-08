@@ -1,7 +1,11 @@
 name: Build font and specimen
 
 on:
-  push:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: The Git reference to import from (branch name or 7 character commit reference)
+        required: true
   release:
     types: [published] # A release, pre-release, or draft of a release was published.
 
@@ -10,7 +14,10 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
+      - name: Get sources
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.branch }}
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
@@ -21,7 +28,7 @@ jobs:
           key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
           restore-keys: |
             ${{ runner.os }}-venv-
-      - name: gen zip file name
+      - name: Generate zip file name
         id: zip-name
         shell: bash
         # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
