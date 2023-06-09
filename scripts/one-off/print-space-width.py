@@ -28,10 +28,10 @@ csvfile = open("eggs.csv", "w", newline="")
 csv_writer = csv.writer(csvfile)
 csv_writer.writerow(("", *(f"{wght=}" for wght in WGHTS)))
 
-for rond in (0.0, 100.0):
-    for grad in (-50.0, 0.0, 50.0):
-        for opsz in (6.0, 17.999, 18.0, 144.0):
-            for wdth in (25.0, 39.999, 40.0, 50.0, 85.0, 100.0, 151.0):
+for opsz in (6.0, 17.999, 18.0, 144.0):
+    for wdth in (25.0, 39.999, 40.0, 50.0, 85.0, 100.0, 151.0):
+        for rond in (0.0, 100.0):
+            for grad in (-50.0, 0.0, 50.0):
                 index_str = f"{rond=}, {grad=}, {opsz=}, {wdth=}"
                 wght_wdths = []
 
