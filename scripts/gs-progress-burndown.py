@@ -594,7 +594,7 @@ GSFLEX_CONFIG = Config(
     ],
     milestones=[
         Milestone(
-            name="Version 1.100\n(indicative, number of target UFOs TBC)",
+            name="Version 1.002\n(indicative, number of target UFOs TBC)",
             plot_color="#1d5c85",
             start_date=datetime(2023, 5, 25),
             due_date=datetime(2023, 7, 7),
