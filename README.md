@@ -2,9 +2,17 @@
 
 ## Building
 
-Fonts are built automatically by GitHub Actions - take a look in the "Actions" tab for the latest build.
+### On GitHub
 
-If you want to build fonts manually on your own computer:
+Fonts are built by triggering the build workflow in the [Actions tab](https://github.com/googlefonts/googlesans-flex/actions) of the repository.
+
+1. Go to the [Actions tab](https://github.com/googlefonts/googlesans-flex/actions)
+2. Click [Build font and specimen](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml)
+3. Click the grey "Run workflow" dropdown button
+4. Enter the name of the branch or commit you want to build in the text box
+5. Press the green "Run workflow" button
+
+## On your computer
 
 * `make build` will produce font files.
 * `make test` will run [FontBakery](https://github.com/googlefonts/fontbakery)'s quality assurance tests.
