@@ -546,8 +546,8 @@ GLYPH_TYPES = {
 # Blue - in progress and for v1.1 ()
 GSFLEX_CONFIG = Config(
     repo_path=Path(__file__).parent.parent,
-    git_rev_since="Alpha-v1.0",
-    git_rev_current="origin/fb-wip",
+    git_rev_since="dd8a2028ad079cb986cf6e605914894687e6eb4d",
+    git_rev_current="origin/it-ad-wip-italic-v1.002",
     ufo_finder=find_roman_and_italic_non_sparse_ufos,
     statuses=[
         Status(
@@ -608,27 +608,10 @@ GSFLEX_CONFIG = Config(
     ],
     milestones=[
         Milestone(
-            name="Roman - version 1.000\n(indicative, number of target UFOs TBC)",
-            plot_color="#1b7b43",
-            start_date=datetime(2022, 10, 19),
-            due_date=datetime(2023, 1, 16),
-            total_glyphs=len(GLYPH_TYPES),
-            total_ufos=(
-                # Number from Marianna in this comment:
-                # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
-                120
-                # opsz(6, 18, 144)
-                # * wdth(25, 100, 151)
-                # * wght(1, 400, 1000)
-                # * ROND(0, 100)
-                # * GRAD(-50, 0 , 50)
-            ),
-        ),
-        Milestone(
             name="Version 1.100\n(indicative, number of target UFOs TBC)",
             plot_color="#1d5c85",
-            start_date=datetime(2022, 10, 19),
-            due_date=datetime(2023, 2, 28),
+            start_date=datetime(2023, 5, 25),
+            due_date=datetime(2023, 7, 7),
             total_glyphs=len(GLYPH_TYPES),
             total_ufos=(
                 # Number from Marianna in this comment, times 2 because ital
