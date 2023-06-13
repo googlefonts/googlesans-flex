@@ -28,12 +28,19 @@ WORKSPACE_ROOT = Path("/github/workspace")
 SOURCE_DIR = WORKSPACE_ROOT / "source"
 TARGET_DIR = WORKSPACE_ROOT / "target"
 GLYPH_LISTS_DIR = Path("/glyph-lists")
+DEFAULT_GLYPH_LIST_PATH = GLYPH_LISTS_DIR / "regular.txt"
 CONFIG_FILE = Path("sources/config.yaml")
 
 
-def get_glyph_list_path(designspace_path: Path) -> Path:
+def get_glyph_list_path(designspace_path: str) -> Path:
     # designspace_path: "regular/GoogleSansFlex.designspace", so parent is "regular"
-    return GLYPH_LISTS_DIR / f"{designspace_path.parent}.txt"
+    style = Path(designspace_path).parent
+    preferred_path = GLYPH_LISTS_DIR / f"{style}.txt"
+    if preferred_path.exists():
+        return preferred_path
+    else:
+        logging.info(f"no specific glyph list for {style}, using default")
+        return DEFAULT_GLYPH_LIST_PATH
 
 
 def main():
