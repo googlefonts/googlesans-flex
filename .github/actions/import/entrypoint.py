@@ -27,34 +27,52 @@ FOLLOW_GLYPHS = True  # while sources are in flux
 WORKSPACE_ROOT = Path("/github/workspace")
 SOURCE_DIR = WORKSPACE_ROOT / "source"
 TARGET_DIR = WORKSPACE_ROOT / "target"
-GLYPH_LIST = Path("/glyph-list.txt")
+GLYPH_LISTS_DIR = Path("/glyph-lists")
+DEFAULT_GLYPH_LIST_PATH = GLYPH_LISTS_DIR / "regular.txt"
 CONFIG_FILE = Path("sources/config.yaml")
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-# Takes designspaces specified in the sources/config.yaml of the SOURCE branch
-file_text = (SOURCE_DIR / CONFIG_FILE).read_text()
-gftools_config = yaml.safe_load(file_text)
-for designspace_path in gftools_config["sources"]:
-    logging.info(f"Merging {designspace_path}")
-    designspace_path_target = designspace_path.replace("roman/", "regular/", 1)
-    merge_designspace(
-        SOURCE_DIR / "sources" / designspace_path,
-        TARGET_DIR / "sources" / designspace_path_target,
-        GLYPH_LIST,
-        REPLACE_TARGET_DESIGNSPACE,
-        FOLLOW_GLYPHS,
-    )
+def get_glyph_list_path(designspace_path: str) -> Path:
+    # designspace_path: "regular/GoogleSansFlex.designspace", so parent is "regular"
+    style = Path(designspace_path).parent
+    preferred_path = GLYPH_LISTS_DIR / f"{style}.txt"
+    if preferred_path.exists():
+        return preferred_path
+    else:
+        logging.info(f"no specific glyph list for {style}, using default")
+        return DEFAULT_GLYPH_LIST_PATH
 
-    ds_sources_dir = Path(designspace_path_target).parent
-    logging.info(f"Normalising {ds_sources_dir}")
-    normalize_in_dir(
-        TARGET_DIR / "sources" / ds_sources_dir,
-    )
 
-    logging.info("Fixing metadata")
-    fix_metadata(
-        TARGET_DIR / "sources" / designspace_path_target,
-    )
+def main():
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-logging.info("Done!")
+    # Takes designspaces specified in the sources/config.yaml of the SOURCE branch
+    file_text = (SOURCE_DIR / CONFIG_FILE).read_text()
+    gftools_config = yaml.safe_load(file_text)
+    for designspace_path in gftools_config["sources"]:
+        logging.info(f"Merging {designspace_path}")
+        designspace_path_target = designspace_path.replace("roman/", "regular/", 1)
+        merge_designspace(
+            SOURCE_DIR / "sources" / designspace_path,
+            TARGET_DIR / "sources" / designspace_path_target,
+            get_glyph_list_path(designspace_path),
+            REPLACE_TARGET_DESIGNSPACE,
+            FOLLOW_GLYPHS,
+        )
+
+        ds_sources_dir = Path(designspace_path_target).parent
+        logging.info(f"Normalising {ds_sources_dir}")
+        normalize_in_dir(
+            TARGET_DIR / "sources" / ds_sources_dir,
+        )
+
+        logging.info("Fixing metadata")
+        fix_metadata(
+            TARGET_DIR / "sources" / designspace_path_target,
+        )
+
+    logging.info("Done!")
+
+
+if __name__ == "__main__":
+    main()
