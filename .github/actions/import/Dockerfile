@@ -4,6 +4,7 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
 COPY scripts /scripts
-COPY entrypoint.py glyph-list.txt /
+COPY glyph-lists /glyph-lists
+COPY entrypoint.py /
 
 ENTRYPOINT [ "python", "/entrypoint.py" ]
