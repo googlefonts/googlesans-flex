@@ -25,5 +25,15 @@ The script will detect whether you are updating an existing import or starting a
 Versions are pinned to ensure reproducible builds.
 It's probably recommended to keep the versions inline with those that are used to build `<repo root>/requirements.txt`
 
-`glyph-list.txt` also needs to be maintained.
-It is not currently in use, but is expected to be in due course
+glyph-lists also needs to be maintained.
+It is expected that the file name is the same as the folder name in `sources`, which is defined in `sources/config.yaml`.
+For example:
+
+```yml
+sources:
+  - regular/GoogleSansFlex.designspace
+  - italic/GoogleSansFlex-Italic.designspace
+...
+```
+
+Will expect a `.github/actions/import/glyph-lists/regular.txt` and a `.github/actions/import/glyph-lists/italic.txt` - though there is fallback to regular (hard-coded) if `italic.txt` doesn't exist
