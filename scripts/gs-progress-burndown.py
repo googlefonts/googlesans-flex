@@ -595,11 +595,30 @@ GSFLEX_CONFIG = Config(
     ],
     milestones=[
         Milestone(
-            name="Prototype\n(indicative, number of target UFOs TBC)",
+            name="Concept\n(indicative, number of target UFOs TBC)",
             plot_color="#1d5c85",
             start_date=datetime(2023, 5, 25),
+            due_date=datetime(2023, 6, 1),
+            total_glyphs=len("HAKOGgnoakv ."),
+            total_ufos=(
+                # Number from Marianna in this comment, times 2 because ital
+                # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
+                120
+                * 2
+                # opsz(6, 18, 144)
+                # * wdth(25, 100, 151)
+                # * wght(1, 400, 1000)
+                # * ROND(0, 100)
+                # * GRAD(-50, 0, 50)
+                # * ital(0, 1)
+            ),
+        ),
+        Milestone(
+            name="Prototype\n(indicative, number of target UFOs TBC)",
+            plot_color="#1d5c85",
+            starts_from_previous=True,
             due_date=datetime(2023, 6, 14),
-            total_glyphs=len("0123457BDENPRSUWbeqstuwzˆˇ˘˙˚˛˜˝"),
+            total_glyphs=len("0123457BDENPRSUWbeqstuwzˆˇ˘˙˚˛˜˝ ."),
             total_ufos=(
                 # Number from Marianna in this comment, times 2 because ital
                 # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
@@ -619,7 +638,7 @@ GSFLEX_CONFIG = Config(
             starts_from_previous=True,
             due_date=datetime(2023, 6, 27),
             total_glyphs=len(
-                """!"#$%&'()*+,-//689:;<=>?@CFIJLMQTVXYZ[\\]^_cdfhijlmprxy{|}~ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿČčĎĚěŇňŘřŠšŤŮůŽžŸŐőŰűĖėĮįŪūŲųĄąĆćĘęŃńŚśŹźŻżĂăŢţŞşĹĺŔŕĀāĒēĪīŴŵẀẁẂẃẄẅŶŷĞğİǎǍċĊġĠōŌŭŬỳỲ"""
+                """!"#$%&'()*+,-//689:;<=>?@CFIJLMQTVXYZ[\\]^_cdfhijlmprxy{|}~ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿČčĎĚěŇňŘřŠšŤŮůŽžŸŐőŰűĖėĮįŪūŲųĄąĆćĘęŃńŚśŹźŻżĂăŢţŞşĹĺŔŕĀāĒēĪīŴŵẀẁẂẃẄẅŶŷĞğİǎǍċĊġĠōŌŭŬỳỲ """
             ),
             total_ufos=(
                 # Number from Marianna in this comment, times 2 because ital
