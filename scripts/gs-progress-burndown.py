@@ -86,10 +86,11 @@ class Status:
 class Milestone:
     name: str
     plot_color: str
-    start_date: datetime
     due_date: datetime
     total_glyphs: int
     total_ufos: int
+    start_date: Optional[datetime] = None
+    starts_from_previous: bool = False
 
 
 # Small helper functions to count UFOs; they just return the number of args
@@ -615,9 +616,11 @@ GSFLEX_CONFIG = Config(
         Milestone(
             name="Alpha\n(indicative, number of target UFOs TBC)",
             plot_color="#1d5c85",
-            start_date=datetime(2023, 5, 25),
+            starts_from_previous=True,
             due_date=datetime(2023, 6, 27),
-            total_glyphs=len("""!"#$%&'()*+,-//689:;<=>?@CFIJLMQTVXYZ[\\]^_cdfhijlmprxy{|}~ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿČčĎĚěŇňŘřŠšŤŮůŽžŸŐőŰűĖėĮįŪūŲųĄąĆćĘęŃńŚśŹźŻżĂăŢţŞşĹĺŔŕĀāĒēĪīŴŵẀẁẂẃẄẅŶŷĞğİǎǍċĊġĠōŌŭŬỳỲ"""),
+            total_glyphs=len(
+                """!"#$%&'()*+,-//689:;<=>?@CFIJLMQTVXYZ[\\]^_cdfhijlmprxy{|}~ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿČčĎĚěŇňŘřŠšŤŮůŽžŸŐőŰűĖėĮįŪūŲųĄąĆćĘęŃńŚśŹźŻżĂăŢţŞşĹĺŔŕĀāĒēĪīŴŵẀẁẂẃẄẅŶŷĞğİǎǍċĊġĠōŌŭŬỳỲ"""
+            ),
             total_ufos=(
                 # Number from Marianna in this comment, times 2 because ital
                 # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
@@ -634,7 +637,7 @@ GSFLEX_CONFIG = Config(
         Milestone(
             name="Beta\n(indicative, number of target UFOs TBC)",
             plot_color="#1d5c85",
-            start_date=datetime(2023, 5, 25),
+            starts_from_previous=True,
             due_date=datetime(2023, 7, 8),
             total_glyphs=len(GLYPH_TYPES),
             total_ufos=(
@@ -730,7 +733,7 @@ def iter_revisions(repo_path, rev_since, rev_current):
 
     # Process only the last commit of each day, in case of several commits per day.
     dates_and_shas = []
-    for (date, sha) in sorted(all_dates_and_shas):
+    for date, sha in sorted(all_dates_and_shas):
         if dates_and_shas and date.date() == dates_and_shas[-1][0].date():
             # Same day, replace with this one which is later in the day
             dates_and_shas[-1] = (date, sha)
@@ -821,12 +824,25 @@ def plot_to_image(
         colors=[status.plot_color for status in config.statuses],
         labels=[status.name for status in config.statuses],
     )
-    for milestone in config.milestones:
-        ax.plot(
-            [milestone.start_date, milestone.due_date],
-            [0, milestone.total_glyphs * milestone.total_ufos],
-            color=milestone.plot_color,
-        )
+    for index, milestone in enumerate(config.milestones):
+        if not milestone.starts_from_previous:
+            ax.plot(
+                [milestone.start_date, milestone.due_date],
+                [0, milestone.total_glyphs * milestone.total_ufos],
+                color=milestone.plot_color,
+            )
+        elif index == 0:
+            raise IndexError("first milestone can't continue from previous")
+        else:
+            previous = config.milestones[index - 1]
+            ax.plot(
+                [previous.due_date, milestone.due_date],
+                [
+                    previous.total_glyphs * previous.total_ufos,
+                    milestone.total_glyphs * milestone.total_ufos,
+                ],
+                color=milestone.plot_color,
+            )
         ax.plot(
             [milestone.due_date, milestone.due_date],
             [0, milestone.total_glyphs * milestone.total_ufos],
@@ -834,7 +850,7 @@ def plot_to_image(
             linestyle="dashed",
         )
         ax.text(
-            milestone.due_date,
+            milestone.due_date, # type: ignore
             milestone.total_glyphs * milestone.total_ufos,
             milestone.name,
             horizontalalignment="right",
@@ -852,7 +868,7 @@ def plot_to_image(
     ax.tick_params(axis="x", labelrotation=50)
 
     fig.tight_layout(pad=3)
-    fig.savefig(image_path)
+    fig.savefig(str(image_path))
 
 
 def sanitize(string: str) -> str:
