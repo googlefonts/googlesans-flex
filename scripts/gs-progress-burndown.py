@@ -86,10 +86,11 @@ class Status:
 class Milestone:
     name: str
     plot_color: str
-    start_date: datetime
     due_date: datetime
     total_glyphs: int
     total_ufos: int
+    start_date: Optional[datetime] = None
+    starts_from_previous: bool = False
 
 
 # Small helper functions to count UFOs; they just return the number of args
@@ -109,6 +110,7 @@ def find_roman_and_italic_non_sparse_ufos(root: Path) -> List[Path]:
             try:
                 doc = DesignSpaceDocument.fromfile(root / "sources" / designspace_path)
                 for source in doc.sources:
+                    assert source.path
                     path = Path(source.path)
                     if source.layerName:
                         # Exclude sparse sources
@@ -123,22 +125,40 @@ def find_roman_and_italic_non_sparse_ufos(root: Path) -> List[Path]:
     return sorted(ufos)
 
 
+def find_italic_non_sparse_ufos(root: Path) -> list[Path]:
+    ufos = set()
+    try:
+        doc = DesignSpaceDocument.fromfile(
+            root / "sources" / "italic" / "GoogleSansFlex-Italic.designspace"
+        )
+        for source in doc.sources:
+            assert source.path
+            path = Path(source.path)
+            if source.layerName:
+                # Exclude sparse sources
+                continue
+            ufos.add(path)
+    except Exception as e:
+        print(f"Reading italics designspace failed, skipping: {e}")
+    return sorted(ufos)
+
+
 # In IPython:
 # from ufoLib2 import Font
 # f = Font.open("sources/roman/GoogleSansFlex-opsz18-wdth100-wght400-ROND0.ufo")
 # print({g.name: "drawn" if g.contours else "composite" for g in f})
 GLYPH_TYPES = {
     ".notdef": "drawn",
-    ".null": "composite",
     "A": "drawn",
     "AE": "drawn",
     "Aacute": "composite",
     "Abreve": "composite",
+    "Acaron": "composite",
     "Acircumflex": "composite",
     "Adieresis": "composite",
     "Agrave": "composite",
     "Amacron": "composite",
-    "Aogonek": "composite",
+    "Aogonek": "drawn",
     "Aring": "composite",
     "Atilde": "composite",
     "B": "drawn",
@@ -146,6 +166,7 @@ GLYPH_TYPES = {
     "Cacute": "composite",
     "Ccaron": "composite",
     "Ccedilla": "composite",
+    "Cdotaccent": "composite",
     "D": "drawn",
     "Dcaron": "composite",
     "Dcroat": "composite",
@@ -157,17 +178,25 @@ GLYPH_TYPES = {
     "Edotaccent": "composite",
     "Egrave": "composite",
     "Emacron": "composite",
-    "Eogonek": "composite",
+    "Engeng": "drawn",
+    "Eogonek": "drawn",
     "Eth": "composite",
     "Eth-bar": "drawn",
     "Euro": "drawn",
     "Euro.tf": "composite",
     "F": "drawn",
     "G": "drawn",
+    "G.logo": "drawn",
+    "G.super": "drawn",
     "Gbreve": "composite",
     "Gcommaaccent": "composite",
+    "Gdotaccent": "composite",
     "Germandbls": "drawn",
+    "Google.logo": "composite",
+    "Gsuper": "composite",
     "H": "drawn",
+    "H-bar": "drawn",
+    "Hbar": "composite",
     "I": "drawn",
     "IJ": "composite",
     "Iacute": "composite",
@@ -176,7 +205,7 @@ GLYPH_TYPES = {
     "Idotaccent": "composite",
     "Igrave": "composite",
     "Imacron": "composite",
-    "Iogonek": "composite",
+    "Iogonek": "drawn",
     "J": "drawn",
     "K": "drawn",
     "Kcommaaccent": "composite",
@@ -184,10 +213,10 @@ GLYPH_TYPES = {
     "Lacute": "composite",
     "Lcaron": "composite",
     "Lcommaaccent": "composite",
+    "Ldot": "composite",
     "Lslash": "composite",
     "M": "drawn",
     "N": "drawn",
-    "NULL": "composite",
     "Nacute": "composite",
     "Ncaron": "composite",
     "Ncommaaccent": "composite",
@@ -199,6 +228,7 @@ GLYPH_TYPES = {
     "Odieresis": "composite",
     "Ograve": "composite",
     "Ohungarumlaut": "composite",
+    "Omacron": "composite",
     "Oslash": "composite",
     "Oslash-bar": "drawn",
     "Otilde": "composite",
@@ -207,6 +237,7 @@ GLYPH_TYPES = {
     "R": "drawn",
     "Racute": "composite",
     "Rcaron": "composite",
+    "Rcommaaccent": "composite",
     "S": "drawn",
     "Sacute": "composite",
     "Scaron": "composite",
@@ -219,12 +250,13 @@ GLYPH_TYPES = {
     "Thorn": "drawn",
     "U": "drawn",
     "Uacute": "composite",
+    "Ubreve": "composite",
     "Ucircumflex": "composite",
     "Udieresis": "composite",
     "Ugrave": "composite",
     "Uhungarumlaut": "composite",
     "Umacron": "composite",
-    "Uogonek": "composite",
+    "Uogonek": "drawn",
     "Uring": "composite",
     "V": "drawn",
     "W": "drawn",
@@ -237,6 +269,7 @@ GLYPH_TYPES = {
     "Yacute": "composite",
     "Ycircumflex": "composite",
     "Ydieresis": "composite",
+    "Ygrave": "composite",
     "Z": "drawn",
     "Zacute": "composite",
     "Zcaron": "composite",
@@ -244,24 +277,36 @@ GLYPH_TYPES = {
     "a": "drawn",
     "a.alt": "drawn",
     "aacute": "composite",
+    "aacute.alt": "composite",
     "abreve": "composite",
+    "abreve.alt": "composite",
+    "acaron": "composite",
+    "acaron.alt": "composite",
     "acircumflex": "composite",
+    "acircumflex.alt": "composite",
     "acute": "composite",
     "acutecomb": "drawn",
     "adieresis": "composite",
+    "adieresis.alt": "composite",
     "ae": "drawn",
+    "ae.alt": "drawn",
     "agrave": "composite",
+    "agrave.alt": "composite",
     "amacron": "composite",
+    "amacron.alt": "composite",
     "ampersand": "drawn",
-    "aogonek": "composite",
+    "aogonek": "drawn",
+    "aogonek.alt": "drawn",
     "approxequal": "composite",
     "approxequal.tf": "composite",
     "aring": "composite",
+    "aring.alt": "composite",
     "asciicircum": "drawn",
     "asciitilde": "drawn",
     "asterisk": "drawn",
     "at": "drawn",
     "atilde": "composite",
+    "atilde.alt": "composite",
     "b": "drawn",
     "backslash": "drawn",
     "bar": "drawn",
@@ -272,6 +317,7 @@ GLYPH_TYPES = {
     "breve": "composite",
     "brevecomb": "drawn",
     "brokenbar": "drawn",
+    "bullet": "drawn",
     "c": "drawn",
     "cacute": "composite",
     "caron": "composite",
@@ -279,6 +325,7 @@ GLYPH_TYPES = {
     "caroncomb.alt": "drawn",
     "ccaron": "composite",
     "ccedilla": "composite",
+    "cdotaccent": "composite",
     "cedilla": "composite",
     "cedillacomb": "drawn",
     "cent": "drawn",
@@ -300,6 +347,7 @@ GLYPH_TYPES = {
     "dcroat": "composite",
     "degree": "drawn",
     "diagonalbarl": "drawn",
+    "diagonalbarl-lc": "drawn",
     "dieresis": "composite",
     "dieresiscomb": "drawn",
     "divide": "drawn",
@@ -307,9 +355,11 @@ GLYPH_TYPES = {
     "dollar": "drawn",
     "dollar.tf": "composite",
     "dot-composite": "drawn",
+    "dot-composite-top": "drawn",
     "dotaccent": "composite",
     "dotaccentcomb": "drawn",
     "e": "drawn",
+    "e.logo": "drawn",
     "eacute": "composite",
     "ecaron": "composite",
     "ecircumflex": "composite",
@@ -317,11 +367,18 @@ GLYPH_TYPES = {
     "edotaccent": "composite",
     "egrave": "composite",
     "eight": "drawn",
-    "eight.denominator": "composite",
+    "eight.denominator": "drawn",
     "eight.numerator": "drawn",
-    "eight.tf": "drawn",
+    "eight.sinf": "composite",
+    "eight.tf": "composite",
+    "eightsubscript": "composite",
+    "eightsuperscript": "composite",
     "emacron": "composite",
-    "eogonek": "composite",
+    "emdash": "drawn",
+    "emspace": "composite",
+    "endash": "drawn",
+    "enspace": "composite",
+    "eogonek": "drawn",
     "equal": "drawn",
     "equal.tf": "composite",
     "eth": "drawn",
@@ -330,39 +387,69 @@ GLYPH_TYPES = {
     "exclam-top": "drawn",
     "exclamdown": "composite",
     "f": "drawn",
+    "f_b": "composite",
+    "f_f": "composite",
+    "f_f_b": "composite",
+    "f_f_h": "composite",
+    "f_f_i": "composite",
+    "f_f_j": "composite",
+    "f_f_k": "composite",
+    "f_f_l": "composite",
+    "f_f_t": "composite",
+    "f_h": "composite",
     "f_i": "composite",
+    "f_j": "composite",
+    "f_k": "composite",
     "f_l": "composite",
+    "f_t": "composite",
     "five": "drawn",
-    "five.denominator": "composite",
+    "five.denominator": "drawn",
     "five.numerator": "drawn",
+    "five.sinf": "composite",
     "five.tf": "drawn",
+    "fivesubscript": "composite",
+    "fivesuperscript": "composite",
     "flig1": "drawn",
     "flig2": "drawn",
     "four": "drawn",
-    "four.denominator": "composite",
+    "four.denominator": "drawn",
     "four.numerator": "drawn",
+    "four.sinf": "composite",
     "four.tf": "drawn",
+    "fourperemspace": "composite",
+    "foursubscript": "composite",
     "foursuperior": "composite",
+    "foursuperscript": "composite",
     "fraction": "drawn",
     "g": "drawn",
     "g.alt": "drawn",
+    "g.logo": "drawn",
     "gbreve": "composite",
+    "gbreve.alt": "composite",
+    "gcircumflex.alt": "composite",
     "gcommaaccent": "composite",
+    "gcommaaccent.alt": "composite",
+    "gdotaccent": "composite",
+    "gdotaccent.alt": "composite",
     "germandbls": "drawn",
     "grave": "composite",
     "gravecomb": "drawn",
     "greater": "drawn",
     "greater.tf": "composite",
+    "greaterequal": "composite",
     "greaterequal-stroke": "drawn",
     "greaterequal.tf": "composite",
-    "guillemetleft": "drawn",
-    "guillemetright": "drawn",
+    "guillemetleft": "composite",
+    "guillemetright": "composite",
     "guilsinglleft": "drawn",
     "guilsinglright": "drawn",
     "h": "drawn",
+    "hairspace": "composite",
+    "hbar": "composite",
     "horizontalbarlc": "drawn",
+    "horizontalelipsis": "composite",
     "hungarumlaut": "composite",
-    "hungarumlautcomb": "composite",
+    "hungarumlautcomb": "drawn",
     "hyphen": "drawn",
     "i": "drawn",
     "iacute": "composite",
@@ -372,17 +459,20 @@ GLYPH_TYPES = {
     "igrave": "composite",
     "ij": "composite",
     "imacron": "composite",
-    "iogonek": "composite",
+    "iogonek": "drawn",
     "j": "drawn",
     "jdotless": "drawn",
     "k": "drawn",
     "kcommaaccent": "composite",
     "l": "drawn",
+    "l.logo": "drawn",
     "lacute": "composite",
     "lcaron": "composite",
     "lcommaaccent": "composite",
+    "ldot": "composite",
     "less": "drawn",
     "less.tf": "composite",
+    "lessequal": "composite",
     "lessequal.tf": "composite",
     "logicalnot": "drawn",
     "logicalnot.tf": "composite",
@@ -398,22 +488,23 @@ GLYPH_TYPES = {
     "multiply.tf": "composite",
     "n": "drawn",
     "nacute": "composite",
-    "nbspace": "composite",
     "ncaron": "composite",
     "ncommaaccent": "composite",
     "nine": "drawn",
-    "nine.alt": "drawn",
-    "nine.denominator": "composite",
+    "nine.denominator": "drawn",
     "nine.numerator": "drawn",
-    "nine.numerator.alt": "drawn",
-    "nine.tf": "drawn",
+    "nine.sinf": "composite",
+    "nine.tf": "composite",
+    "ninesubscript": "composite",
+    "ninesuperscript": "composite",
     "notequal": "composite",
     "notequal-slash": "drawn",
-    "notequal.tf": "composite",
+    "notequal.tf": "drawn",
     "ntilde": "composite",
     "numbersign": "drawn",
     "numbersign.tf": "composite",
     "o": "drawn",
+    "o.logo": "drawn",
     "oacute": "composite",
     "ocircumflex": "composite",
     "odieresis": "composite",
@@ -422,13 +513,17 @@ GLYPH_TYPES = {
     "ogonekcomb": "drawn",
     "ograve": "composite",
     "ohungarumlaut": "composite",
+    "omacron": "composite",
     "one": "drawn",
-    "one.denominator": "composite",
+    "one.denominator": "drawn",
     "one.numerator": "drawn",
+    "one.sinf": "composite",
     "one.tf": "drawn",
     "onehalf": "composite",
     "onequarter": "composite",
+    "onesubscript": "composite",
     "onesuperior": "composite",
+    "onesuperscript": "composite",
     "ordfeminine": "drawn",
     "ordmasculine": "drawn",
     "oslash": "composite",
@@ -444,7 +539,7 @@ GLYPH_TYPES = {
     "percentbar.tf": "drawn",
     "period": "drawn",
     "period.tf": "composite",
-    "periodcentered": "composite",
+    "periodcentered": "drawn",
     "plus": "drawn",
     "plus.tf": "composite",
     "plusminus": "drawn",
@@ -455,10 +550,17 @@ GLYPH_TYPES = {
     "question-top": "drawn",
     "questiondown": "composite",
     "quotedbl": "drawn",
+    "quotedblbase": "composite",
+    "quotedblleft": "composite",
+    "quotedblright": "composite",
+    "quoteleft": "drawn",
+    "quoteright": "drawn",
+    "quotesinglbase": "composite",
     "quotesingle": "drawn",
     "r": "drawn",
     "racute": "composite",
     "rcaron": "composite",
+    "rcommaaccent": "composite",
     "registered": "drawn",
     "ring": "composite",
     "ringcomb": "drawn",
@@ -472,15 +574,20 @@ GLYPH_TYPES = {
     "semicolon": "drawn",
     "semicolon.tf": "composite",
     "seven": "drawn",
-    "seven.denominator": "composite",
+    "seven.denominator": "drawn",
     "seven.numerator": "drawn",
+    "seven.sinf": "composite",
     "seven.tf": "drawn",
+    "sevensubscript": "composite",
+    "sevensuperscript": "composite",
     "six": "drawn",
-    "six.alt": "drawn",
-    "six.denominator": "composite",
+    "six.denominator": "drawn",
     "six.numerator": "drawn",
-    "six.numerator.alt": "drawn",
-    "six.tf": "drawn",
+    "six.sinf": "composite",
+    "six.tf": "composite",
+    "sixperemspace": "composite",
+    "sixsubscript": "composite",
+    "sixsuperscript": "composite",
     "slash": "drawn",
     "softhyphen": "composite",
     "space": "composite",
@@ -488,25 +595,38 @@ GLYPH_TYPES = {
     "sterling": "drawn",
     "sterling.tf": "composite",
     "t": "drawn",
+    "t_f": "composite",
+    "t_t": "composite",
     "tcaron": "composite",
     "tcedilla": "composite",
     "tcommaaccent": "composite",
+    "thinspace": "composite",
     "thorn": "drawn",
     "three": "drawn",
-    "three.denominator": "composite",
+    "three.denominator": "drawn",
     "three.numerator": "drawn",
+    "three.sinf": "composite",
     "three.tf": "drawn",
+    "threeperemspace": "composite",
     "threequarters": "composite",
+    "threesubscript": "composite",
     "threesuperior": "composite",
+    "threesuperscript": "composite",
     "tilde": "composite",
     "tildecomb": "drawn",
+    "tlig": "drawn",
+    "trademark": "drawn",
     "two": "drawn",
-    "two.denominator": "composite",
+    "two.denominator": "drawn",
     "two.numerator": "drawn",
+    "two.sinf": "composite",
     "two.tf": "drawn",
+    "twosubscript": "composite",
     "twosuperior": "composite",
+    "twosuperscript": "composite",
     "u": "drawn",
     "uacute": "composite",
+    "ubreve": "composite",
     "ucircumflex": "composite",
     "udieresis": "composite",
     "ugrave": "composite",
@@ -514,7 +634,9 @@ GLYPH_TYPES = {
     "umacron": "composite",
     "underscore": "drawn",
     "uni000D": "composite",
-    "uogonek": "composite",
+    "uni00A0": "composite",
+    "uni25CC": "drawn",
+    "uogonek": "drawn",
     "uring": "composite",
     "v": "drawn",
     "w": "drawn",
@@ -522,21 +644,30 @@ GLYPH_TYPES = {
     "wcircumflex": "composite",
     "wdieresis": "composite",
     "wgrave": "composite",
+    "wiggle.medium": "drawn",
     "x": "drawn",
     "y": "drawn",
     "yacute": "composite",
     "ycircumflex": "composite",
     "ydieresis": "composite",
     "yen": "drawn",
+    "ygrave": "composite",
     "z": "drawn",
     "zacute": "composite",
     "zcaron": "composite",
     "zdotaccent": "composite",
     "zero": "drawn",
-    "zero.denominator": "composite",
+    "zero.denominator": "drawn",
     "zero.numerator": "drawn",
+    "zero.sinf": "composite",
+    "zero.slash": "drawn",
     "zero.tf": "composite",
     "zeropercent": "drawn",
+    "zeroslash": "composite",
+    "zeroslash.tf": "composite",
+    "zerosubscript": "composite",
+    "zerosuperscript": "composite",
+    "zerowidthspace": "composite",
 }
 
 
@@ -546,9 +677,9 @@ GLYPH_TYPES = {
 # Blue - in progress and for v1.1 ()
 GSFLEX_CONFIG = Config(
     repo_path=Path(__file__).parent.parent,
-    git_rev_since="Alpha-v1.0",
-    git_rev_current="origin/fb-wip",
-    ufo_finder=find_roman_and_italic_non_sparse_ufos,
+    git_rev_since="dd8a2028ad079cb986cf6e605914894687e6eb4d",
+    git_rev_current="origin/it-ad-wip-italic-v1.002",
+    ufo_finder=find_italic_non_sparse_ufos,
     statuses=[
         Status(
             name="Ready for Google review (drawn)",
@@ -565,28 +696,14 @@ GSFLEX_CONFIG = Config(
             mark_color="green",
         ),
         Status(
-            name="In progress for v1.000 (drawn)",
-            glyph_type="drawn",
-            plot_color="#f1c40f",
-            progress_percent=50,
-            mark_color="yellow",
-        ),
-        Status(
-            name="In progress for v1.000 (composite)",
-            glyph_type="composite",
-            plot_color="#f1e2a9",
-            progress_percent=50,
-            mark_color="yellow",
-        ),
-        Status(
-            name="In progress for v1.100 (drawn)",
+            name="In progress for v1.002 (drawn)",
             plot_color="#3498db",
             progress_percent=50,
             glyph_type="drawn",
             mark_color="blue",
         ),
         Status(
-            name="In progress for v1.100 (composite)",
+            name="In progress for v1.002 (composite)",
             plot_color="#aac7db",
             progress_percent=50,
             glyph_type="composite",
@@ -608,40 +725,38 @@ GSFLEX_CONFIG = Config(
     ],
     milestones=[
         Milestone(
-            name="Roman - version 1.000\n(indicative, number of target UFOs TBC)",
-            plot_color="#1b7b43",
-            start_date=datetime(2022, 10, 19),
-            due_date=datetime(2023, 1, 16),
-            total_glyphs=len(GLYPH_TYPES),
-            total_ufos=(
-                # Number from Marianna in this comment:
-                # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
-                120
-                # opsz(6, 18, 144)
-                # * wdth(25, 100, 151)
-                # * wght(1, 400, 1000)
-                # * ROND(0, 100)
-                # * GRAD(-50, 0 , 50)
-            ),
+            name="Concept",
+            plot_color="#1d5c85",
+            start_date=datetime(2023, 5, 25),
+            due_date=datetime(2023, 6, 1),
+            total_glyphs=len("HAKOGgnoakv ."),
+            total_ufos=127,
         ),
         Milestone(
-            name="Version 1.100\n(indicative, number of target UFOs TBC)",
+            name="Prototype",
             plot_color="#1d5c85",
-            start_date=datetime(2022, 10, 19),
-            due_date=datetime(2023, 2, 28),
-            total_glyphs=len(GLYPH_TYPES),
-            total_ufos=(
-                # Number from Marianna in this comment, times 2 because ital
-                # https://github.com/googlefonts/googlesans-flex/pull/76#issuecomment-1351348146
-                120
-                * 2
-                # opsz(6, 18, 144)
-                # * wdth(25, 100, 151)
-                # * wght(1, 400, 1000)
-                # * ROND(0, 100)
-                # * GRAD(-50, 0, 50)
-                # * ital(0, 1)
+            starts_from_previous=True,
+            due_date=datetime(2023, 6, 14),
+            total_glyphs=len("0123457BDENPRSUWbeqstuwzˆˇ˘˙˚˛˜˝HAKOGgnoakv ."),
+            total_ufos=127,
+        ),
+        Milestone(
+            name="Alpha",
+            plot_color="#1d5c85",
+            starts_from_previous=True,
+            due_date=datetime(2023, 6, 27),
+            total_glyphs=len(
+                """!"#$%&'()*+,-//689:;<=>?@CFIJLMQTVXYZ[\\]^_cdfhijlmprxy{|}~ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿČčĎĚěŇňŘřŠšŤŮůŽžŸŐőŰűĖėĮįŪūŲųĄąĆćĘęŃńŚśŹźŻżĂăŢţŞşĹĺŔŕĀāĒēĪīŴŵẀẁẂẃẄẅŶŷĞğİǎǍċĊġĠōŌŭŬỳỲ0123457BDENPRSUWbeqstuwzˆˇ˘˙˚˛˜˝HAKOGgnoakv ."""
             ),
+            total_ufos=127,
+        ),
+        Milestone(
+            name="Beta",
+            plot_color="#1d5c85",
+            starts_from_previous=True,
+            due_date=datetime(2023, 7, 8),
+            total_glyphs=len(GLYPH_TYPES),
+            total_ufos=127,
         ),
     ],
 )
@@ -723,7 +838,7 @@ def iter_revisions(repo_path, rev_since, rev_current):
 
     # Process only the last commit of each day, in case of several commits per day.
     dates_and_shas = []
-    for (date, sha) in sorted(all_dates_and_shas):
+    for date, sha in sorted(all_dates_and_shas):
         if dates_and_shas and date.date() == dates_and_shas[-1][0].date():
             # Same day, replace with this one which is later in the day
             dates_and_shas[-1] = (date, sha)
@@ -814,12 +929,25 @@ def plot_to_image(
         colors=[status.plot_color for status in config.statuses],
         labels=[status.name for status in config.statuses],
     )
-    for milestone in config.milestones:
-        ax.plot(
-            [milestone.start_date, milestone.due_date],
-            [0, milestone.total_glyphs * milestone.total_ufos],
-            color=milestone.plot_color,
-        )
+    for index, milestone in enumerate(config.milestones):
+        if not milestone.starts_from_previous:
+            ax.plot(
+                [milestone.start_date, milestone.due_date],
+                [0, milestone.total_glyphs * milestone.total_ufos],
+                color=milestone.plot_color,
+            )
+        elif index == 0:
+            raise IndexError("first milestone can't continue from previous")
+        else:
+            previous = config.milestones[index - 1]
+            ax.plot(
+                [previous.due_date, milestone.due_date],
+                [
+                    previous.total_glyphs * previous.total_ufos,
+                    milestone.total_glyphs * milestone.total_ufos,
+                ],
+                color=milestone.plot_color,
+            )
         ax.plot(
             [milestone.due_date, milestone.due_date],
             [0, milestone.total_glyphs * milestone.total_ufos],
@@ -827,7 +955,7 @@ def plot_to_image(
             linestyle="dashed",
         )
         ax.text(
-            milestone.due_date,
+            milestone.due_date,  # type: ignore
             milestone.total_glyphs * milestone.total_ufos,
             milestone.name,
             horizontalalignment="right",
@@ -845,7 +973,7 @@ def plot_to_image(
     ax.tick_params(axis="x", labelrotation=50)
 
     fig.tight_layout(pad=3)
-    fig.savefig(image_path)
+    fig.savefig(str(image_path))
 
 
 def sanitize(string: str) -> str:
