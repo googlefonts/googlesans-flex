@@ -99,3 +99,19 @@ Merge the two with the following command. You need to have a import_glyphs.txt f
 ```sh
 python3 scripts/gs-merge-designspace.py --source source/GoogleSans/staging/GoogleSansSomeScript.designspace --target sources/regular/GoogleSansFlex.designspace --import-glyphs-file sources/regular/staging/import_glyphs.txt
 ```
+
+### gs-progress-burndown.py
+
+This script generates a burndown chart to show the font's development progress based on color marks left in the sources by font developers.
+The script is configured entirely within the code (see the `GSFLEX_CONFIG` object in the file `scripts/gs-progress-burndown.py`).
+For more information about the configuration of the script, please refer to the document `scripts/gs-progress-burndown-README.md`.
+
+The script can be run locally by running `make progress-chart`
+
+The GitHub workflow to run the script is called "Progress chart", and can be found [here](https://github.com/googlefonts/googlesans-flex/actions/workflows/burndown.yml).
+The "Use workflow from" field determines *which version of the script to use, **not** the branch to generate the burndown chart for*. Currently, you should select `main` because the `main` branch has the latest version of the workflow.
+
+
+The branch that is analysed to produce the burndown chart is configured within the script itself (see `git_rev_since` and `git_rev_current`).
+To temporarily produce a burndown chart for a different branch on your local machine, simply update these two values to valid Git references (i.e. branch names or 7 character hashes), and run `make progress-chart`.
+Updating the workflow's configuration will require a PR changing the script.
