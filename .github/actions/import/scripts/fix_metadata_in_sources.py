@@ -37,6 +37,17 @@ INSTANCE_LOCATIONS = {
     "ExtraBold": dict(wght=800.0, wdth=100.0),
     "Black": dict(wght=900.0, wdth=100.0),
 }
+INSTANCE_LOCATIONS_ITALICS = {
+    "Thin Italic": dict(wght=100.0, wdth=100.0),
+    "ExtraLight Italic": dict(wght=200.0, wdth=100.0),
+    "Light Italic": dict(wght=300.0, wdth=100.0),
+    "Italic": dict(wght=400.0, wdth=100.0),
+    "Medium Italic": dict(wght=500.0, wdth=100.0),
+    "SemiBold Italic": dict(wght=600.0, wdth=100.0),
+    "Bold Italic": dict(wght=700.0, wdth=100.0),
+    "ExtraBold Italic": dict(wght=800.0, wdth=100.0),
+    "Black Italic": dict(wght=900.0, wdth=100.0),
+}
 POSTSCRIPT_NAMES = "public.postscriptNames"
 
 
@@ -50,9 +61,14 @@ def main(args: Optional[Sequence[str]] = None) -> None:
 def fix_metadata(designspace_path: Path) -> None:
     designspace = DesignSpaceDocument.fromfile(designspace_path)
     designspace.loadSourceFonts(Font.open)
+    is_italic = "Italic" in designspace_path.stem
+
     designspace.instances.clear()
     tag2name = {a.tag: a.name for a in designspace.axes}
-    for name, location in INSTANCE_LOCATIONS.items():
+    new_instance_locations = (
+        INSTANCE_LOCATIONS_ITALICS if is_italic else INSTANCE_LOCATIONS
+    )
+    for name, location in new_instance_locations.items():
         # TODO: Add directly as user coordinates when we adopt DS5.
         # The instance locations use tags for canonicality, rename to axis names
         # as designspaceLib expects.
@@ -101,7 +117,10 @@ def fix_metadata(designspace_path: Path) -> None:
         ufo.info.copyright = "Copyright 2015 Google LLC. All Rights Reserved."
         ufo.info.familyName = "Google Sans Flex"
         if source is default_location:
-            ufo.info.styleName = "Regular"
+            if is_italic:
+                ufo.info.styleName = "Italic"
+            else:
+                ufo.info.styleName = "Regular"
             ufo.info.openTypeOS2Panose = [2, 11, 5, 3, 3, 5, 2, 4, 2, 4]
         ufo.info.trademark = "Google Sans is a trademark of Google."
         ufo.info.openTypeNameManufacturer = "Google LLC"
@@ -115,11 +134,17 @@ def fix_metadata(designspace_path: Path) -> None:
         ufo.info.openTypeHheaLineGap = 0
         ufo.info.openTypeOS2StrikeoutPosition = 612
         ufo.info.openTypeOS2StrikeoutSize = 168
-        ufo.info.openTypeOS2SubscriptXOffset = 0
+        if is_italic:
+            ufo.info.openTypeOS2SubscriptXOffset = -26
+        else:
+            ufo.info.openTypeOS2SubscriptXOffset = 0
         ufo.info.openTypeOS2SubscriptXSize = 1300
         ufo.info.openTypeOS2SubscriptYOffset = 150
         ufo.info.openTypeOS2SubscriptYSize = 1200
-        ufo.info.openTypeOS2SuperscriptXOffset = 0
+        if is_italic:
+            ufo.info.openTypeOS2SuperscriptXOffset = 124
+        else:
+            ufo.info.openTypeOS2SuperscriptXOffset = 0
         ufo.info.openTypeOS2SuperscriptXSize = 1300
         ufo.info.openTypeOS2SuperscriptYOffset = 700
         ufo.info.openTypeOS2SuperscriptYSize = 1200
@@ -128,10 +153,6 @@ def fix_metadata(designspace_path: Path) -> None:
         ufo.info.openTypeOS2TypoLineGap = 0
         ufo.info.postscriptUnderlinePosition = -320
         ufo.info.postscriptUnderlineThickness = 168
-
-        # TODO: Adapt once the italic is being imported
-        ufo.info.openTypeHheaCaretSlopeRise = 1
-        ufo.info.openTypeHheaCaretSlopeRun = 0
 
         # Use the xHeight from the "z" if not a sparse UFO:
         if (glyph_z := ufo.get("z")) is not None:

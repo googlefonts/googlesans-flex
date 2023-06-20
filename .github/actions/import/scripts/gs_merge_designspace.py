@@ -362,6 +362,15 @@ def merge_designspace(
         # Write global public.skipExportGlyphs list to all UFOs.
         target_font.lib[SKIP_EXPORT_GLYPHS_KEY] = skip_export_glyphs
 
+        # Import a limited set of font info.
+        target_font.info.italicAngle = import_font.info.italicAngle or 0
+        target_font.info.openTypeHheaCaretSlopeRise = (
+            import_font.info.openTypeHheaCaretSlopeRise
+        ) or 1
+        target_font.info.openTypeHheaCaretSlopeRun = (
+            import_font.info.openTypeHheaCaretSlopeRun
+        ) or 0
+
     # Avoid typos:
     del target_font
 
