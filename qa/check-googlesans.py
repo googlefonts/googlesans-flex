@@ -223,8 +223,10 @@ def com_google_fonts_check_googlesansflex_axis_names(ttFont):
 
     for axis in fvar.axes:
         name = names.getDebugName(axis.axisNameID)
-        expected = AXIS_NAMES[axis.axisTag]
-        if name == expected:
+        expected = AXIS_NAMES.get(axis.axisTag)
+        if expected is None:
+            yield WARN, f"Font has unexpected axis tagged {axis.axisTag}"
+        elif name == expected:
             yield PASS, f"Axis tagged {axis.axisTag} has expected name {expected}"
         else:
             yield WARN, f"Axis tagged {axis.axisTag} has name {name} but should be named {expected}"
@@ -242,8 +244,10 @@ def com_google_fonts_check_googlesansflex_variable_fvar_default(ttFont):
     """Confirms that the variable font builds include correct fvar default."""
     for axis in ttFont["fvar"].axes:
         tag = axis.axisTag
-        expected = AXIS_DEFAULTS[tag]
-        if axis.defaultValue != expected:
+        expected = AXIS_DEFAULTS.get(tag)
+        if expected is None:
+            yield FAIL, f"Font has unexpected axis tagged {tag}"
+        elif axis.defaultValue != expected:
             yield FAIL, (
                 f"Font does not include the correct "
                 f"fvar {tag} axis default.\n"
