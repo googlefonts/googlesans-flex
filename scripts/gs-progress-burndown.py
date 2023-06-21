@@ -75,7 +75,6 @@ SimpleColor = Literal["red", "yellow", "green", "blue", "purple"]
 class Status:
     name: str
     plot_color: str
-    progress_percent: int
     glyph_type: Optional[GlyphType] = None
     mark_color: Optional[Union[SimpleColor, Tuple[float, float, float, float]]] = None
     lib_key_name: Optional[str] = None
@@ -684,7 +683,6 @@ GSFLEX_CONFIG = Config(
         Status(
             name="Ready for Google review (drawn)",
             plot_color="#2ecc71",
-            progress_percent=100,
             glyph_type="drawn",
             mark_color="green",
         ),
@@ -692,33 +690,28 @@ GSFLEX_CONFIG = Config(
             name="Ready for Google review (composite)",
             glyph_type="composite",
             plot_color="#a9eec6",
-            progress_percent=100,
             mark_color="green",
         ),
         Status(
             name="In progress for v1.002 (drawn)",
             plot_color="#3498db",
-            progress_percent=50,
             glyph_type="drawn",
             mark_color="blue",
         ),
         Status(
             name="In progress for v1.002 (composite)",
             plot_color="#aac7db",
-            progress_percent=50,
             glyph_type="composite",
             mark_color="blue",
         ),
         Status(
             name="None of the above (drawn)",
             plot_color="#e74c3c",
-            progress_percent=0,
             glyph_type="drawn",
         ),
         Status(
             name="None of the above (composite)",
             plot_color="#e7b4af",
-            progress_percent=0,
             # Catch-all
             # glyph_type="composite",
         ),
