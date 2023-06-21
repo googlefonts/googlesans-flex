@@ -25,9 +25,6 @@ How to tweak: edit the `GSFLEX_CONFIG = Config(...)` object below.
 from __future__ import annotations
 
 import colorsys
-import os
-import posixpath
-import re
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
@@ -92,6 +89,17 @@ class Milestone:
     starts_from_previous: bool = False
 
 
+@dataclass
+class Repo:
+    path: Path
+
+    def git(self, *args: str, check=True) -> str:
+        command = ["git", "-C", str(self.path), *args]
+        # print(f"Running {' '.join(command)}")
+        res = run(command, check=check, capture_output=True, encoding="utf-8")
+        return res.stdout
+
+
 # Small helper functions to count UFOs; they just return the number of args
 def _count(*args):
     return len(args)
@@ -100,46 +108,244 @@ def _count(*args):
 opsz = wdth = wght = ROND = GRAD = ital = _count
 
 
-def find_roman_and_italic_non_sparse_ufos(root: Path) -> List[Path]:
-    ufos = set()
+def iter_revisions(repo_path, rev_since, rev_current):
+    """Iterate through the given git revisions, and for each checkout the
+    repository into a temp folder and yield that, along with the date of the
+    revision.
+    """
+    repo = Repo(repo_path)
+    out = repo.git("rev-list", "--format=tformat:%H %aI", f"{rev_since}..{rev_current}")
+    lines = [line for line in out.splitlines() if not line.startswith("commit")]
+
+    all_dates_and_shas = []
+    for line in lines:
+        sha, date_iso = line.split(maxsplit=1)
+        date = datetime.fromisoformat(date_iso)
+        all_dates_and_shas.append((date, sha))
+
+    # Process only the last commit of each day, in case of several commits per day.
+    dates_and_shas = []
+    for date, sha in sorted(all_dates_and_shas):
+        if dates_and_shas and date.date() == dates_and_shas[-1][0].date():
+            # Same day, replace with this one which is later in the day
+            dates_and_shas[-1] = (date, sha)
+        else:
+            dates_and_shas.append((date, sha))
+
     try:
-        with open(root / "sources/config.yaml", "r", encoding="utf-8") as file:
-            gftools_config = yaml.safe_load(file)
-        for designspace_path in gftools_config["sources"]:
-            try:
-                doc = DesignSpaceDocument.fromfile(root / "sources" / designspace_path)
-                for source in doc.sources:
-                    assert source.path
-                    path = Path(source.path)
-                    if source.layerName:
-                        # Exclude sparse sources
-                        # TODO: (Jany) Look into the wdth85 and wdth91.999?
-                        #   Are these considered "sparse"?
-                        continue
-                    ufos.add(path)
-            except Exception as e:
-                print(f"Reading designspace {designspace_path} failed, skipping: {e}")
-    except Exception as e:
-        print(f"Reading designspaces from the config file failed, skipping: {e}")
-    return sorted(ufos)
+        with TemporaryDirectory() as tmpdir:
+            repo.git("worktree", "add", "--detach", tmpdir, dates_and_shas[0][1])
+            worktree = Repo(tmpdir)
+            for i, (date, sha) in enumerate(dates_and_shas):
+                print(f"Processing commit {i+1}/{len(dates_and_shas)}: {sha} on {date}")
+                worktree.git("checkout", "--detach", sha)
+                yield Path(tmpdir), date
+    finally:
+        repo.git("worktree", "remove", tmpdir, check=False)
 
 
-def find_italic_non_sparse_ufos(root: Path) -> list[Path]:
-    ufos = set()
-    try:
-        doc = DesignSpaceDocument.fromfile(
-            root / "sources" / "italic" / "GoogleSansFlex-Italic.designspace"
+# region Glyph processing
+def glyph_matches_status(glyph: Glyph, status: Status) -> bool:
+    return (
+        glyph_matches_type(glyph, status)
+        and glyph_matches_color(glyph, status)
+        and glyph_matches_lib_key(glyph, status)
+    )
+
+
+def glyph_matches_type(glyph: Glyph, status: Status) -> bool:
+    if status.glyph_type is None:
+        return True
+    return status.glyph_type == GLYPH_TYPES.get(glyph.name, None)
+
+
+def glyph_matches_color(glyph: Glyph, status: Status) -> bool:
+    if status.mark_color is None:
+        return True
+    if glyph.markColor is None:
+        return False
+    r, g, b, _a = parse_mark_color(glyph.markColor)
+    if isinstance(status.mark_color, str):
+        return describe_color(r, g, b) == status.mark_color
+    else:
+        return (r, g, b) == status.mark_color[:3]
+
+
+def glyph_matches_lib_key(glyph: Glyph, status: Status) -> bool:
+    if status.lib_key_name is None:
+        return True
+    return glyph.lib.get(status.lib_key_name, None) == status.lib_key_value
+
+
+# endregion
+
+
+def plot_to_image(
+    config: Config,
+    counts_by_date: Mapping[datetime, Sequence[int]],
+    image_path: Path,
+):
+    # Example code from https://matplotlib.org/stable/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py
+    dates = []
+    counts_by_status: List[List[int]] = [[] for _ in config.statuses]
+    for date, counts in sorted(counts_by_date.items()):
+        dates.append(date)
+        for i, count in enumerate(counts):
+            counts_by_status[i].append(count)
+
+    fig, ax = plt.subplots()
+    fig.set_size_inches(16, 9)
+    ax.stackplot(
+        dates,
+        counts_by_status,
+        colors=[status.plot_color for status in config.statuses],
+        labels=[status.name for status in config.statuses],
+    )
+    for index, milestone in enumerate(config.milestones):
+        if not milestone.starts_from_previous:
+            ax.plot(
+                [milestone.start_date, milestone.due_date],
+                [0, milestone.total_glyphs * milestone.total_ufos],
+                color=milestone.plot_color,
+            )
+        elif index == 0:
+            raise IndexError("first milestone can't continue from previous")
+        else:
+            previous = config.milestones[index - 1]
+            ax.plot(
+                [previous.due_date, milestone.due_date],
+                [
+                    previous.total_glyphs * previous.total_ufos,
+                    milestone.total_glyphs * milestone.total_ufos,
+                ],
+                color=milestone.plot_color,
+            )
+        ax.plot(
+            [milestone.due_date, milestone.due_date],
+            [0, milestone.total_glyphs * milestone.total_ufos],
+            color=milestone.plot_color,
+            linestyle="dashed",
         )
-        for source in doc.sources:
-            assert source.path
-            path = Path(source.path)
-            if source.layerName:
-                # Exclude sparse sources
+        ax.text(
+            milestone.due_date,  # type: ignore
+            milestone.total_glyphs * milestone.total_ufos,
+            milestone.name,
+            horizontalalignment="right",
+            verticalalignment="bottom",
+            multialignment="right",
+            color=milestone.plot_color,
+            bbox=dict(facecolor="#ffffffc0", edgecolor="#d6d6d6", boxstyle="round"),
+        )
+    ax.legend(loc="upper left")
+    ax.set_title(
+        f"Google Sans Flex Progress on {config.git_rev_current} since {config.git_rev_since}"
+    )
+    ax.set_xlabel("Commit date")
+    ax.set_ylabel("Number of glyph sources")
+    ax.tick_params(axis="x", labelrotation=50)
+
+    fig.tight_layout(pad=3)
+    fig.savefig(str(image_path))
+
+
+# region Color processing
+# https://en.wikipedia.org/wiki/Hue#24_hues_of_HSL/HSV
+HUE_TO_COLOR: List[Tuple[int, SimpleColor]] = [
+    (30, "red"),  # Up to 30°, classify as red
+    (75, "yellow"),
+    (165, "green"),
+    (255, "blue"),
+    (315, "purple"),
+    (360, "red"),
+]
+
+
+def parse_mark_color(color: str) -> Tuple[float, float, float, float]:
+    # https://unifiedfontobject.org/versions/ufo3/conventions/#colors
+    r, g, b, a = color.split(",")
+    return float(r), float(g), float(b), float(a)
+
+
+def describe_color(r: float, g: float, b: float) -> SimpleColor:
+    h, _l, _s = colorsys.rgb_to_hls(r, g, b)
+    for degrees, color_name in HUE_TO_COLOR:
+        if h <= degrees / 360.0:
+            return color_name
+    return HUE_TO_COLOR[-1][1]
+
+
+# Colors found in fb-wip branch:
+# [(10, '0.2288,1,0.4511,1', '#3AFF73FF'),
+assert describe_color(0.2288, 1, 0.4511) == "green"
+#  (18, '0.9908,1,0.037,1', '#FDFF09FF'),
+assert describe_color(0.9908, 1, 0.037) == "yellow"
+#  (49, '0.8687,0.1142,0.999,1', '#DE1DFFFF'),
+assert describe_color(0.8687, 0.1142, 0.999) == "purple"
+#  (200, '1,0,0,1', '#FF0000FF'),
+assert describe_color(1, 0, 0) == "red"
+#  (244, '1,1,0,1', '#FFFF00FF'),
+assert describe_color(1, 1, 0) == "yellow"
+#  (349, '0,0,1,1', '#0000FFFF'),
+assert describe_color(0, 0, 1) == "blue"
+#  (1257, '0.0941,0.7922,0.9961,1', '#18CAFEFF'),
+assert describe_color(0.0941, 0.7922, 0.9961) == "blue"
+#  (1800, '0.884,0.8791,0.0317,1', '#E1E008FF'),
+assert describe_color(0.884, 0.8791, 0.0317) == "yellow"
+#  (2361, '0.1227,0.9628,0.999,1', '#1FF6FFFF'),
+assert describe_color(0.1227, 0.9628, 0.999) == "blue"
+#  (4020, '0.2431,0.9922,0.5255,1', '#3EFD86FF'),
+assert describe_color(0.2431, 0.9922, 0.5255) == "green"
+#  (4304, '0.1313,0.9997,0.0236,1', '#21FF06FF')]
+assert describe_color(0.1313, 0.9997, 0.0236) == "green"
+# endregion
+
+
+def main() -> None:
+    config = GSFLEX_CONFIG
+    counts_by_date: Dict[datetime, List[int]] = defaultdict(
+        lambda: [0 for _ in config.statuses]
+    )
+
+    # Data just for testing the graph
+    # counts_by_date = {
+    #     datetime(2022, 12, 1): [0, 500, 500, 3000, 1000, 30000, 30000],
+    #     datetime(2022, 12, 10): [500, 500, 10000, 10000, 10000, 20000, 20000],
+    #     datetime(2022, 12, 20): [10000, 1000, 10000, 10000, 30000, 5000, 5000],
+    #     datetime(2022, 12, 30): [30000, 11000, 5000, 5000, 10000, 0, 0],
+    # }
+
+    print("Preparing git worktree")
+    for tmpdir, date in iter_revisions(
+        config.repo_path, config.git_rev_since, config.git_rev_current
+    ):
+        print("Opening UFOs", end="")
+        for ufo_path in config.ufo_finder(tmpdir):
+            try:
+                ufo = Font.open(ufo_path)
+            except Exception as e:
+                relative_path = ufo_path.relative_to(tmpdir)
+                print(f"\nReading UFO '{relative_path}' failed, skipping: {e}")
                 continue
-            ufos.add(path)
-    except Exception as e:
-        print(f"Reading italics designspace failed, skipping: {e}")
-    return sorted(ufos)
+            print(".", end="", flush=True)
+            for glyph_name in ufo.keys():
+                try:
+                    glyph = ufo[glyph_name]
+                except Exception as e:
+                    relative_path = ufo_path.relative_to(tmpdir)
+                    print(
+                        f"\nReading glyph '{glyph_name}' from UFO '{relative_path}' failed, skipping: {e}"
+                    )
+                    continue
+                counts = counts_by_date[date]
+                for i, status in enumerate(config.statuses):
+                    if glyph_matches_status(glyph, status):
+                        counts[i] += 1
+                        break
+        print(" done")
+
+    output_path = Path(".") / "gs-flex-progress.png"
+    print(f"Writing out {output_path}")
+    plot_to_image(config, counts_by_date, output_path)
 
 
 # In IPython:
@@ -670,6 +876,51 @@ GLYPH_TYPES = {
 }
 
 
+# region UFO finders
+def find_roman_and_italic_non_sparse_ufos(root: Path) -> List[Path]:
+    ufos = set()
+    try:
+        with open(root / "sources/config.yaml", "r", encoding="utf-8") as file:
+            gftools_config = yaml.safe_load(file)
+        for designspace_path in gftools_config["sources"]:
+            try:
+                doc = DesignSpaceDocument.fromfile(root / "sources" / designspace_path)
+                for source in doc.sources:
+                    assert source.path
+                    path = Path(source.path)
+                    if source.layerName:
+                        # Exclude sparse sources
+                        # TODO: (Jany) Look into the wdth85 and wdth91.999?
+                        #   Are these considered "sparse"?
+                        continue
+                    ufos.add(path)
+            except Exception as e:
+                print(f"Reading designspace {designspace_path} failed, skipping: {e}")
+    except Exception as e:
+        print(f"Reading designspaces from the config file failed, skipping: {e}")
+    return sorted(ufos)
+
+
+def find_italic_non_sparse_ufos(root: Path) -> list[Path]:
+    ufos = set()
+    try:
+        doc = DesignSpaceDocument.fromfile(
+            root / "sources" / "italic" / "GoogleSansFlex-Italic.designspace"
+        )
+        for source in doc.sources:
+            assert source.path
+            path = Path(source.path)
+            if source.layerName:
+                # Exclude sparse sources
+                continue
+            ufos.add(path)
+    except Exception as e:
+        print(f"Reading italics designspace failed, skipping: {e}")
+    return sorted(ufos)
+
+
+# endregion
+
 # Green - design finished and ready for Google's review
 # Yellow - in progress
 # Red - not started
@@ -753,268 +1004,6 @@ GSFLEX_CONFIG = Config(
         ),
     ],
 )
-
-
-def main() -> None:
-    config = GSFLEX_CONFIG
-    counts_by_date: Dict[datetime, List[int]] = defaultdict(
-        lambda: [0 for _ in config.statuses]
-    )
-
-    # Data just for testing the graph
-    # counts_by_date = {
-    #     datetime(2022, 12, 1): [0, 500, 500, 3000, 1000, 30000, 30000],
-    #     datetime(2022, 12, 10): [500, 500, 10000, 10000, 10000, 20000, 20000],
-    #     datetime(2022, 12, 20): [10000, 1000, 10000, 10000, 30000, 5000, 5000],
-    #     datetime(2022, 12, 30): [30000, 11000, 5000, 5000, 10000, 0, 0],
-    # }
-
-    print("Preparing git worktree")
-    for tmpdir, date in iter_revisions(
-        config.repo_path, config.git_rev_since, config.git_rev_current
-    ):
-        print("Opening UFOs", end="")
-        for ufo_path in config.ufo_finder(tmpdir):
-            try:
-                ufo = Font.open(ufo_path)
-            except Exception as e:
-                relative_path = ufo_path.relative_to(tmpdir)
-                print(f"\nReading UFO '{relative_path}' failed, skipping: {e}")
-                continue
-            print(".", end="", flush=True)
-            for glyph_name in ufo.keys():
-                try:
-                    glyph = ufo[glyph_name]
-                except Exception as e:
-                    relative_path = ufo_path.relative_to(tmpdir)
-                    print(
-                        f"\nReading glyph '{glyph_name}' from UFO '{relative_path}' failed, skipping: {e}"
-                    )
-                    continue
-                counts = counts_by_date[date]
-                for i, status in enumerate(config.statuses):
-                    if glyph_matches_status(glyph, status):
-                        counts[i] += 1
-                        break
-        print(" done")
-
-    output_path = Path(".") / "gs-flex-progress.png"
-    print(f"Writing out {output_path}")
-    plot_to_image(config, counts_by_date, output_path)
-
-
-@dataclass
-class Repo:
-    path: Path
-
-    def git(self, *args: str, check=True) -> str:
-        command = ["git", "-C", str(self.path), *args]
-        # print(f"Running {' '.join(command)}")
-        res = run(command, check=check, capture_output=True, encoding="utf-8")
-        return res.stdout
-
-
-def iter_revisions(repo_path, rev_since, rev_current):
-    """Iterate through the given git revisions, and for each checkout the
-    repository into a temp folder and yield that, along with the date of the
-    revision.
-    """
-    repo = Repo(repo_path)
-    out = repo.git("rev-list", "--format=tformat:%H %aI", f"{rev_since}..{rev_current}")
-    lines = [line for line in out.splitlines() if not line.startswith("commit")]
-
-    all_dates_and_shas = []
-    for line in lines:
-        sha, date_iso = line.split(maxsplit=1)
-        date = datetime.fromisoformat(date_iso)
-        all_dates_and_shas.append((date, sha))
-
-    # Process only the last commit of each day, in case of several commits per day.
-    dates_and_shas = []
-    for date, sha in sorted(all_dates_and_shas):
-        if dates_and_shas and date.date() == dates_and_shas[-1][0].date():
-            # Same day, replace with this one which is later in the day
-            dates_and_shas[-1] = (date, sha)
-        else:
-            dates_and_shas.append((date, sha))
-
-    try:
-        with TemporaryDirectory() as tmpdir:
-            repo.git("worktree", "add", "--detach", tmpdir, dates_and_shas[0][1])
-            worktree = Repo(tmpdir)
-            for i, (date, sha) in enumerate(dates_and_shas):
-                print(f"Processing commit {i+1}/{len(dates_and_shas)}: {sha} on {date}")
-                worktree.git("checkout", "--detach", sha)
-                yield Path(tmpdir), date
-    finally:
-        repo.git("worktree", "remove", tmpdir, check=False)
-
-
-# Adapted from https://github.com/fonttools/fonttools/blob/main/Lib/fontTools/designspaceLib/__init__.py#L47
-def posix(path: Path) -> str:
-    """Normalize paths using forward slash to work also on Windows."""
-    new_path = posixpath.join(*str(path).split(os.path.sep))
-    if str(path).startswith("/"):
-        # The above transformation loses absolute paths
-        new_path = "/" + new_path
-    elif str(path).startswith(r"\\"):
-        # The above transformation loses leading slashes of UNC path mounts
-        new_path = "//" + new_path
-    return new_path
-
-
-def glyph_matches_status(glyph: Glyph, status: Status) -> bool:
-    return (
-        glyph_matches_type(glyph, status)
-        and glyph_matches_color(glyph, status)
-        and glyph_matches_lib_key(glyph, status)
-    )
-
-
-def glyph_matches_type(glyph: Glyph, status: Status) -> bool:
-    if status.glyph_type is None:
-        return True
-    return status.glyph_type == GLYPH_TYPES.get(glyph.name, None)
-
-
-def glyph_matches_color(glyph: Glyph, status: Status) -> bool:
-    if status.mark_color is None:
-        return True
-    if glyph.markColor is None:
-        return False
-    r, g, b, _a = parse_mark_color(glyph.markColor)
-    if isinstance(status.mark_color, str):
-        return describe_color(r, g, b) == status.mark_color
-    else:
-        return (r, g, b) == status.mark_color[:3]
-
-
-def glyph_matches_lib_key(glyph: Glyph, status: Status) -> bool:
-    if status.lib_key_name is None:
-        return True
-    return glyph.lib.get(status.lib_key_name, None) == status.lib_key_value
-
-
-def parse_mark_color(color: str) -> Tuple[float, float, float, float]:
-    # https://unifiedfontobject.org/versions/ufo3/conventions/#colors
-    r, g, b, a = color.split(",")
-    return float(r), float(g), float(b), float(a)
-
-
-def plot_to_image(
-    config: Config,
-    counts_by_date: Mapping[datetime, Sequence[int]],
-    image_path: Path,
-):
-    # Example code from https://matplotlib.org/stable/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py
-    dates = []
-    counts_by_status: List[List[int]] = [[] for _ in config.statuses]
-    for date, counts in sorted(counts_by_date.items()):
-        dates.append(date)
-        for i, count in enumerate(counts):
-            counts_by_status[i].append(count)
-
-    fig, ax = plt.subplots()
-    fig.set_size_inches(16, 9)
-    ax.stackplot(
-        dates,
-        counts_by_status,
-        colors=[status.plot_color for status in config.statuses],
-        labels=[status.name for status in config.statuses],
-    )
-    for index, milestone in enumerate(config.milestones):
-        if not milestone.starts_from_previous:
-            ax.plot(
-                [milestone.start_date, milestone.due_date],
-                [0, milestone.total_glyphs * milestone.total_ufos],
-                color=milestone.plot_color,
-            )
-        elif index == 0:
-            raise IndexError("first milestone can't continue from previous")
-        else:
-            previous = config.milestones[index - 1]
-            ax.plot(
-                [previous.due_date, milestone.due_date],
-                [
-                    previous.total_glyphs * previous.total_ufos,
-                    milestone.total_glyphs * milestone.total_ufos,
-                ],
-                color=milestone.plot_color,
-            )
-        ax.plot(
-            [milestone.due_date, milestone.due_date],
-            [0, milestone.total_glyphs * milestone.total_ufos],
-            color=milestone.plot_color,
-            linestyle="dashed",
-        )
-        ax.text(
-            milestone.due_date,  # type: ignore
-            milestone.total_glyphs * milestone.total_ufos,
-            milestone.name,
-            horizontalalignment="right",
-            verticalalignment="bottom",
-            multialignment="right",
-            color=milestone.plot_color,
-            bbox=dict(facecolor="#ffffffc0", edgecolor="#d6d6d6", boxstyle="round"),
-        )
-    ax.legend(loc="upper left")
-    ax.set_title(
-        f"Google Sans Flex Progress on {config.git_rev_current} since {config.git_rev_since}"
-    )
-    ax.set_xlabel("Commit date")
-    ax.set_ylabel("Number of glyph sources")
-    ax.tick_params(axis="x", labelrotation=50)
-
-    fig.tight_layout(pad=3)
-    fig.savefig(str(image_path))
-
-
-def sanitize(string: str) -> str:
-    return re.sub(r"[^A-Za-z0-9_.\-]+", "_", string)
-
-
-# https://en.wikipedia.org/wiki/Hue#24_hues_of_HSL/HSV
-HUE_TO_COLOR: List[Tuple[int, SimpleColor]] = [
-    (30, "red"),  # Up to 30°, classify as red
-    (75, "yellow"),
-    (165, "green"),
-    (255, "blue"),
-    (315, "purple"),
-    (360, "red"),
-]
-
-
-def describe_color(r: float, g: float, b: float) -> SimpleColor:
-    h, _l, _s = colorsys.rgb_to_hls(r, g, b)
-    for degrees, color_name in HUE_TO_COLOR:
-        if h <= degrees / 360.0:
-            return color_name
-    return HUE_TO_COLOR[-1][1]
-
-
-# Colors found in fb-wip branch:
-# [(10, '0.2288,1,0.4511,1', '#3AFF73FF'),
-assert describe_color(0.2288, 1, 0.4511) == "green"
-#  (18, '0.9908,1,0.037,1', '#FDFF09FF'),
-assert describe_color(0.9908, 1, 0.037) == "yellow"
-#  (49, '0.8687,0.1142,0.999,1', '#DE1DFFFF'),
-assert describe_color(0.8687, 0.1142, 0.999) == "purple"
-#  (200, '1,0,0,1', '#FF0000FF'),
-assert describe_color(1, 0, 0) == "red"
-#  (244, '1,1,0,1', '#FFFF00FF'),
-assert describe_color(1, 1, 0) == "yellow"
-#  (349, '0,0,1,1', '#0000FFFF'),
-assert describe_color(0, 0, 1) == "blue"
-#  (1257, '0.0941,0.7922,0.9961,1', '#18CAFEFF'),
-assert describe_color(0.0941, 0.7922, 0.9961) == "blue"
-#  (1800, '0.884,0.8791,0.0317,1', '#E1E008FF'),
-assert describe_color(0.884, 0.8791, 0.0317) == "yellow"
-#  (2361, '0.1227,0.9628,0.999,1', '#1FF6FFFF'),
-assert describe_color(0.1227, 0.9628, 0.999) == "blue"
-#  (4020, '0.2431,0.9922,0.5255,1', '#3EFD86FF'),
-assert describe_color(0.2431, 0.9922, 0.5255) == "green"
-#  (4304, '0.1313,0.9997,0.0236,1', '#21FF06FF')]
-assert describe_color(0.1313, 0.9997, 0.0236) == "green"
 
 
 if __name__ == "__main__":
