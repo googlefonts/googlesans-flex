@@ -28,6 +28,9 @@ import colorsys
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
+import hashlib
+import json
+import os
 from pathlib import Path
 from subprocess import run
 from tempfile import TemporaryDirectory
@@ -139,7 +142,7 @@ def iter_revisions(repo_path, rev_since, rev_current):
             for i, (date, sha) in enumerate(dates_and_shas):
                 print(f"Processing commit {i+1}/{len(dates_and_shas)}: {sha} on {date}")
                 worktree.git("checkout", "--detach", sha)
-                yield Path(tmpdir), date
+                yield Path(tmpdir), date, sha
     finally:
         repo.git("worktree", "remove", tmpdir, check=False)
 
@@ -300,7 +303,37 @@ assert describe_color(0.1313, 0.9997, 0.0236) == "green"
 # endregion
 
 
+# region Caching
+# https://stackoverflow.com/a/44873382
+def sha256(path: Path | str) -> str:
+    h = hashlib.sha256()
+    b = bytearray(128 * 1024)
+    mv = memoryview(b)
+    with open(path, "rb", buffering=0) as f:
+        while n := f.readinto(mv):
+            h.update(mv[:n])
+    return h.hexdigest()
+
+
+def get_cache() -> Optional[dict[str, list[int]]]:
+    if CACHE_PATH.exists():
+        print("Loading cache")
+        return json.loads(CACHE_PATH.read_text())
+
+
+def save_cache(cache: dict[str, list[int]]):
+    CACHE_PATH.parent.mkdir(exist_ok=True)
+    CACHE_PATH.write_text(json.dumps(cache))
+
+
+SELF_HASH = sha256(__file__)
+CACHE_PATH = Path(__file__).parent / ".progress-burndown-cache" / f"{SELF_HASH}.json"
+# endregion
+
+
 def main() -> None:
+    caching = "PROGRESS_BURNDOWN_CACHING" in os.environ
+    cache = get_cache() or {}
     config = GSFLEX_CONFIG
     counts_by_date: Dict[datetime, List[int]] = defaultdict(
         lambda: [0 for _ in config.statuses]
@@ -315,36 +348,45 @@ def main() -> None:
     # }
 
     print("Preparing git worktree")
-    for tmpdir, date in iter_revisions(
+    for tmpdir, date, sha in iter_revisions(
         config.repo_path, config.git_rev_since, config.git_rev_current
     ):
-        print("Opening UFOs", end="")
-        for ufo_path in config.ufo_finder(tmpdir):
-            try:
-                ufo = Font.open(ufo_path)
-            except Exception as e:
-                relative_path = ufo_path.relative_to(tmpdir)
-                print(f"\nReading UFO '{relative_path}' failed, skipping: {e}")
-                continue
-            print(".", end="", flush=True)
-            for glyph_name in ufo.keys():
+        cache_key = f"{date} {sha}"
+        if cache_key in cache:
+            print("Using cached entry")
+            counts_by_date[date] = cache[cache_key]
+        else:
+            print("Opening UFOs", end="")
+            for ufo_path in config.ufo_finder(tmpdir):
                 try:
-                    glyph = ufo[glyph_name]
+                    ufo = Font.open(ufo_path)
                 except Exception as e:
                     relative_path = ufo_path.relative_to(tmpdir)
-                    print(
-                        f"\nReading glyph '{glyph_name}' from UFO '{relative_path}' failed, skipping: {e}"
-                    )
+                    print(f"\nReading UFO '{relative_path}' failed, skipping: {e}")
                     continue
-                counts = counts_by_date[date]
-                for i, status in enumerate(config.statuses):
-                    if glyph_matches_status(glyph, status):
-                        counts[i] += 1
-                        break
-        print(" done")
+                print(".", end="", flush=True)
+                for glyph_name in ufo.keys():
+                    try:
+                        glyph = ufo[glyph_name]
+                    except Exception as e:
+                        relative_path = ufo_path.relative_to(tmpdir)
+                        print(
+                            f"\nReading glyph '{glyph_name}' from UFO '{relative_path}' failed, skipping: {e}"
+                        )
+                        continue
+                    counts = counts_by_date[date]
+                    for i, status in enumerate(config.statuses):
+                        if glyph_matches_status(glyph, status):
+                            counts[i] += 1
+                            break
+            cache[cache_key] = counts  # type: ignore (always defined)
+            print(" done")
 
     output_path = Path(".") / "gs-flex-progress.png"
     print(f"Writing out {output_path}")
+    if caching:
+        print(f"Writing cache {SELF_HASH}.json")
+        save_cache(cache)
     plot_to_image(config, counts_by_date, output_path)
 
 
