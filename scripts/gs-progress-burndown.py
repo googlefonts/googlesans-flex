@@ -351,10 +351,9 @@ def main() -> None:
     for tmpdir, date, sha in iter_revisions(
         config.repo_path, config.git_rev_since, config.git_rev_current
     ):
-        cache_key = f"{date} {sha}"
-        if cache_key in cache:
+        if sha in cache:
             print("Using cached entry")
-            counts_by_date[date] = cache[cache_key]
+            counts_by_date[date] = cache[sha]
         else:
             print("Opening UFOs", end="")
             for ufo_path in config.ufo_finder(tmpdir):
@@ -379,7 +378,7 @@ def main() -> None:
                         if glyph_matches_status(glyph, status):
                             counts[i] += 1
                             break
-            cache[cache_key] = counts  # type: ignore (always defined)
+            cache[sha] = counts  # type: ignore (always defined)
             print(" done")
 
     output_path = Path(".") / "gs-flex-progress.png"
