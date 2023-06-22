@@ -25,12 +25,13 @@ How to tweak: edit the `GSFLEX_CONFIG = Config(...)` object below.
 from __future__ import annotations
 
 import colorsys
-from collections import defaultdict
-from dataclasses import dataclass
-from datetime import datetime
 import hashlib
 import json
 import os
+from collections import defaultdict
+from contextlib import contextmanager
+from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 from subprocess import run
 from tempfile import TemporaryDirectory
@@ -103,6 +104,26 @@ class Repo:
         return res.stdout
 
 
+class Revision:
+    sha: str
+    date: datetime
+    _repo: Repo
+
+    def __init__(self, sha: str, date: datetime, repo: Repo) -> None:
+        self.sha = sha
+        self.date = date
+        self._repo = repo
+
+    @contextmanager
+    def checkout(self):
+        try:
+            with TemporaryDirectory() as tmpdir:
+                self._repo.git("worktree", "add", "--detach", tmpdir, self.sha)
+                yield Path(tmpdir)
+        finally:
+            self._repo.git("worktree", "remove", tmpdir, check=False)
+
+
 # Small helper functions to count UFOs; they just return the number of args
 def _count(*args):
     return len(args)
@@ -135,16 +156,9 @@ def iter_revisions(repo_path, rev_since, rev_current):
         else:
             dates_and_shas.append((date, sha))
 
-    try:
-        with TemporaryDirectory() as tmpdir:
-            repo.git("worktree", "add", "--detach", tmpdir, dates_and_shas[0][1])
-            worktree = Repo(tmpdir)
-            for i, (date, sha) in enumerate(dates_and_shas):
-                print(f"Processing commit {i+1}/{len(dates_and_shas)}: {sha} on {date}")
-                worktree.git("checkout", "--detach", sha)
-                yield Path(tmpdir), date, sha
-    finally:
-        repo.git("worktree", "remove", tmpdir, check=False)
+    for i, (date, sha) in enumerate(dates_and_shas):
+        print(f"Processing commit {i+1}/{len(dates_and_shas)}: {sha} on {date}")
+        yield Revision(sha, date, repo)
 
 
 # region Glyph processing
@@ -348,37 +362,38 @@ def main() -> None:
     # }
 
     print("Preparing git worktree")
-    for tmpdir, date, sha in iter_revisions(
+    for revision in iter_revisions(
         config.repo_path, config.git_rev_since, config.git_rev_current
     ):
-        if sha in cache:
+        if revision.sha in cache:
             print("Using cached entry")
-            counts_by_date[date] = cache[sha]
+            counts_by_date[revision.date] = cache[revision.sha]
         else:
-            print("Opening UFOs", end="")
-            for ufo_path in config.ufo_finder(tmpdir):
-                try:
-                    ufo = Font.open(ufo_path)
-                except Exception as e:
-                    relative_path = ufo_path.relative_to(tmpdir)
-                    print(f"\nReading UFO '{relative_path}' failed, skipping: {e}")
-                    continue
-                print(".", end="", flush=True)
-                for glyph_name in ufo.keys():
+            with revision.checkout() as tmpdir:
+                print("Opening UFOs", end="")
+                for ufo_path in config.ufo_finder(tmpdir):
                     try:
-                        glyph = ufo[glyph_name]
+                        ufo = Font.open(ufo_path)
                     except Exception as e:
                         relative_path = ufo_path.relative_to(tmpdir)
-                        print(
-                            f"\nReading glyph '{glyph_name}' from UFO '{relative_path}' failed, skipping: {e}"
-                        )
+                        print(f"\nReading UFO '{relative_path}' failed, skipping: {e}")
                         continue
-                    counts = counts_by_date[date]
-                    for i, status in enumerate(config.statuses):
-                        if glyph_matches_status(glyph, status):
-                            counts[i] += 1
-                            break
-            cache[sha] = counts  # type: ignore (always defined)
+                    print(".", end="", flush=True)
+                    for glyph_name in ufo.keys():
+                        try:
+                            glyph = ufo[glyph_name]
+                        except Exception as e:
+                            relative_path = ufo_path.relative_to(tmpdir)
+                            print(
+                                f"\nReading glyph '{glyph_name}' from UFO '{relative_path}' failed, skipping: {e}"
+                            )
+                            continue
+                        counts = counts_by_date[revision.date]
+                        for i, status in enumerate(config.statuses):
+                            if glyph_matches_status(glyph, status):
+                                counts[i] += 1
+                                break
+            cache[revision.sha] = counts  # type: ignore (always defined)
             print(" done")
 
     output_path = Path(".") / "gs-flex-progress.png"
