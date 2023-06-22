@@ -20,6 +20,7 @@ jobs:
         with:
           path: scripts/.progress-burndown-cache
           key: progress-chart-${{ hashFiles('scripts/gs-progress-burndown.py') }}
+          restore-keys: progress-chart-${{ hashFiles('scripts/gs-progress-burndown.py') }}-
       - name: Generate chart
         env:
           PROGRESS_BURNDOWN_CACHING: 1
@@ -33,4 +34,4 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: scripts/.progress-burndown-cache
-          key: progress-chart-${{ hashFiles('scripts/gs-progress-burndown.py') }}
+          key: progress-chart-${{ hashFiles('scripts/gs-progress-burndown.py') }}-${{ hashFiles('scripts/.progress-burndown-cache/**') }}
