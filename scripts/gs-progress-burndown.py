@@ -104,15 +104,11 @@ class Repo:
         return res.stdout
 
 
+@dataclass
 class Revision:
     sha: str
     date: datetime
     _repo: Repo
-
-    def __init__(self, sha: str, date: datetime, repo: Repo) -> None:
-        self.sha = sha
-        self.date = date
-        self._repo = repo
 
     @contextmanager
     def checkout(self):
