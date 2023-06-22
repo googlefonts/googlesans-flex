@@ -14,9 +14,22 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
+      - name: Cache load
+        uses: actions/cache/restore@v3
+        with:
+          path: scripts/.progress-burndown-cache
+          key: progress-chart-${{ hashFiles('scripts/gs-progress-burndown.py') }}
       - name: Generate chart
+        env:
+          PROGRESS_BURNDOWN_CACHING: 1
         run: make progress-chart
       - name: Upload chart
         uses: actions/upload-artifact@v3
         with:
+          name: gs-flex-progress
           path: gs-flex-progress.png
+      - name: Cache save
+        uses: actions/cache/save@v3
+        with:
+          path: scripts/.progress-burndown-cache
+          key: progress-chart-${{ hashFiles('scripts/gs-progress-burndown.py') }}
