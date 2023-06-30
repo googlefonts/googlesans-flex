@@ -1023,9 +1023,9 @@ GSFLEX_CONFIG = Config(
         Milestone(
             name="Concept",
             plot_color="#1d5c85",
-            start_date=datetime(2023, 5, 25),
+            start_date=datetime(2023, 5, 27),
             due_date=datetime(2023, 6, 1),
-            total_glyphs=len("HAKOGgnoakv ."),
+            total_glyphs=len("HAKOGgnoakv "),
             total_ufos=127,
         ),
         Milestone(
@@ -1033,7 +1033,7 @@ GSFLEX_CONFIG = Config(
             plot_color="#1d5c85",
             starts_from_previous=True,
             due_date=datetime(2023, 6, 14),
-            total_glyphs=len("0123457BDENPRSUWbeqstuwzˆˇ˘˙˚˛˜˝HAKOGgnoakv ."),
+            total_glyphs=len("0123457BDENPRSUWbeqstuwzˆˇ˘˛˜˝HAKOGgnoakv "),
             total_ufos=127,
         ),
         Milestone(
@@ -1042,7 +1042,7 @@ GSFLEX_CONFIG = Config(
             starts_from_previous=True,
             due_date=datetime(2023, 6, 27),
             total_glyphs=len(
-                """!"#$%&'()*+,-//689:;<=>?@CFIJLMQTVXYZ[\\]^_cdfhijlmprxy{|}~ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿČčĎĚěŇňŘřŠšŤŮůŽžŸŐőŰűĖėĮįŪūŲųĄąĆćĘęŃńŚśŹźŻżĂăŢţŞşĹĺŔŕĀāĒēĪīŴŵẀẁẂẃẄẅŶŷĞğİǎǍċĊġĠōŌŭŬỳỲ0123457BDENPRSUWbeqstuwzˆˇ˘˙˚˛˜˝HAKOGgnoakv ."""
+                """#$¢&'(),-689CFIJLMQTVXYZ[\\]^_cdfhıijlmprxy\\{\\}ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿČčĎĚěŇňŘřŠšŤŮůŽžŸŐőŰűĖėĮįŪūŲųĄąĆćĘęŃńŚśŹźŻżĂăŢţŞşĹĺŔŕĀāĒēĪīŴẀŵẁẂẃẄẅŶŷĞğİǎǍċĊġĠōŌŭŬỳỲ0123457BDENPRSUWbeqstuwzˆˇ˘˛˜˝HAKOGgnoakv """
             ),
             total_ufos=127,
         ),
