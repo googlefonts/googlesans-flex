@@ -70,6 +70,11 @@ jobs:
     env:
       ZIP_NAME: ${{ needs.build.outputs.zip_name }}
     steps:
+      - name: Generate zip file name
+        shell: bash
+        # Set the archive name to "GoogleSansFlex-<git-ref>.zip", where git-ref
+        # can be the branch or tag name.
+        run: echo "RELEASE_ZIP_NAME=GoogleSansFlex-${GITHUB_REF#refs/*/}.zip" >> "$GITHUB_ENV"
       - uses: actions/checkout@v3
       - name: Download artefact files
         uses: actions/download-artifact@v3
@@ -77,13 +82,13 @@ jobs:
           name: ${{ env.ZIP_NAME }}
           path: ${{ env.ZIP_NAME }}
       - name: Zip files
-        run: zip -r ${{ env.ZIP_NAME }}.zip ${{ env.ZIP_NAME }}
+        run: zip -r ${{ env.RELEASE_ZIP_NAME }} ${{ env.ZIP_NAME }}
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ env.ZIP_NAME }}.zip
-          asset_name: ${{ env.ZIP_NAME }}.zip
+          file: ${{ env.RELEASE_ZIP_NAME }}
+          asset_name: ${{ env.RELEASE_ZIP_NAME }}
           tag: ${{ github.ref }}
           overwrite: true
           body: "Production ready fonts"
