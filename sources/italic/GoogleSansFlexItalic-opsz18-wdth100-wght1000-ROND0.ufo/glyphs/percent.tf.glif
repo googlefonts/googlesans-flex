@@ -2,8 +2,30 @@
 <glyph name="percent.tf" format="2">
   <advance width="1360"/>
   <outline>
-    <component base="zeropercent" xOffset="-27" yOffset="25"/>
-    <component base="zeropercent" xOffset="556" yOffset="-708"/>
-    <component base="percentbar.tf"/>
+    <component base="zeropercent" xOffset="-111" yOffset="25" identifier="DB821C03"/>
+    <component base="zeropercent" xOffset="472" yOffset="-708" identifier="A93A840C"/>
+    <component base="percentbar.tf" xOffset="-31" identifier="ED949012"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>A93A840C</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>DB821C03</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>ED949012</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

@@ -2,7 +2,24 @@
 <glyph name="acaron.alt" format="2">
   <advance width="1103"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="caroncomb" xOffset="540" yOffset="16"/>
+    <component base="a.alt" identifier="04C110FA"/>
+    <component base="caroncomb" xOffset="540" yOffset="16" identifier="E04B678F"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>04C110FA</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>E04B678F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

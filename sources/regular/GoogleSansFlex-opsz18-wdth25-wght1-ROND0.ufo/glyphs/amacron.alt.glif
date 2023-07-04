@@ -2,7 +2,24 @@
 <glyph name="amacron.alt" format="2">
   <advance width="644"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="macroncomb" xOffset="316" yOffset="12"/>
+    <component base="a.alt" identifier="CF961056"/>
+    <component base="macroncomb" xOffset="316" yOffset="12" identifier="246B433A"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>246B433A</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>CF961056</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

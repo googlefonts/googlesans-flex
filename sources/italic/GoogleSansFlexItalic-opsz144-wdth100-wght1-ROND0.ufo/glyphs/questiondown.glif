@@ -2,10 +2,10 @@
 <glyph name="questiondown" format="2">
   <advance width="986"/>
   <unicode hex="00BF"/>
-  <guideline x="540" y="752" angle="270" identifier="xIjntjU8BA"/>
+  <guideline x="539.93" y="752" angle="270" identifier="xIjntjU8BA"/>
   <outline>
-    <component base="question-bottom"/>
-    <component base="dot-composite-top" xOffset="302" yOffset="998"/>
+    <component base="question-bottom" identifier="978A825F"/>
+    <component base="dot-composite-top" xOffset="447" yOffset="998" identifier="2A5516B2"/>
   </outline>
   <lib>
     <dict>
@@ -13,6 +13,19 @@
       <string>=|question</string>
       <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
       <string>=|question</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>2A5516B2</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>978A825F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
     </dict>
   </lib>
 </glyph>

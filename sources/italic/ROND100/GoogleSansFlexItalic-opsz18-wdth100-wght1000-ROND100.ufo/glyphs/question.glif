@@ -3,7 +3,24 @@
   <advance width="1112"/>
   <unicode hex="003F"/>
   <outline>
-    <component base="question-top"/>
-    <component base="dot-composite" xOffset="180"/>
+    <component base="question-top" identifier="EFD1E020"/>
+    <component base="dot-composite" xOffset="200" yOffset="-1" identifier="DFC85892"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>DFC85892</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>EFD1E020</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="percent" format="2">
-  <advance width="1784"/>
+  <advance width="1787"/>
   <unicode hex="0025"/>
   <outline>
-    <component base="zeropercent" xOffset="17" identifier="component0"/>
-    <component base="zeropercent" xOffset="879" yOffset="-783" identifier="component1"/>
-    <component base="percentbar" xOffset="39" yOffset="-2" identifier="component2"/>
+    <component base="zeropercent" xOffset="4" yOffset="2" identifier="component0"/>
+    <component base="zeropercent" xOffset="762" yOffset="-781" identifier="component1"/>
+    <component base="percentbar" xOffset="46" yOffset="-2" identifier="component2"/>
   </outline>
   <lib>
     <dict>
@@ -13,28 +13,34 @@
       <dict>
         <key>component0</key>
         <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
           <key>public.truetype.roundOffsetToGrid</key>
-          <true/>
+          <integer>1</integer>
           <key>public.truetype.useMyMetrics</key>
-          <false/>
+          <integer>0</integer>
         </dict>
         <key>component1</key>
         <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
           <key>public.truetype.roundOffsetToGrid</key>
-          <true/>
+          <integer>1</integer>
           <key>public.truetype.useMyMetrics</key>
-          <false/>
+          <integer>0</integer>
         </dict>
         <key>component2</key>
         <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
           <key>public.truetype.roundOffsetToGrid</key>
-          <true/>
+          <integer>1</integer>
           <key>public.truetype.useMyMetrics</key>
-          <false/>
+          <integer>0</integer>
         </dict>
       </dict>
       <key>public.truetype.overlap</key>
-      <false/>
+      <integer>0</integer>
     </dict>
   </lib>
 </glyph>

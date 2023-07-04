@@ -2,9 +2,26 @@
 <glyph name="question" format="2">
   <advance width="1597"/>
   <unicode hex="003F"/>
-  <guideline x="636" y="245" angle="270" identifier="4OWTEWEmQ3"/>
+  <guideline x="589.2" y="245" angle="280" identifier="4OWTEWEmQ3"/>
   <outline>
-    <component base="question-top" xOffset="19"/>
-    <component base="dot-composite" xOffset="329" yOffset="-10"/>
+    <component base="question-top" xOffset="19" identifier="5C03FE7F"/>
+    <component base="dot-composite" xOffset="340" yOffset="-10" identifier="E7A91A52"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>5C03FE7F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>E7A91A52</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

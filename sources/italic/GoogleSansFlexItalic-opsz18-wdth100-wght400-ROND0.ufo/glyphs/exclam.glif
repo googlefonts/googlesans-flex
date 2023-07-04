@@ -4,7 +4,7 @@
   <unicode hex="0021"/>
   <outline>
     <component base="exclam-top" identifier="component0"/>
-    <component base="dot-composite" identifier="component1"/>
+    <component base="dot-composite" xOffset="10" identifier="component1"/>
   </outline>
   <lib>
     <dict>
@@ -12,6 +12,8 @@
       <dict>
         <key>component0</key>
         <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
           <key>public.truetype.roundOffsetToGrid</key>
           <true/>
           <key>public.truetype.useMyMetrics</key>
@@ -19,6 +21,8 @@
         </dict>
         <key>component1</key>
         <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
           <key>public.truetype.roundOffsetToGrid</key>
           <true/>
           <key>public.truetype.useMyMetrics</key>
