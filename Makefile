@@ -69,6 +69,19 @@ test: build.stamp
 # -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
 #	qa/check-shaping.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
+run-collidoscope: build.stamp
+# Install latest version of fontbakery on every run, isolated from build dependencies
+	test -d venv_bakery || python3 -m venv venv_bakery
+	venv_bakery/bin/pip install -U setuptools wheel pip
+	venv_bakery/bin/pip install -U fontbakery[googlefonts] fonttools[interpolatable]
+
+# Run collidoscope tests
+	mkdir -p out/fontbakery
+	-venv_bakery/bin/fontbakery check-shaping -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-collidoscope-report.html \
+		--configuration qa/fontbakery.config \
+		-c collides \
+		 fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+
 images: venv build.stamp $(DRAWBOT_OUTPUT)
 	git add documentation/*.png && git commit -m "Rebuild images" documentation/*.png
 
