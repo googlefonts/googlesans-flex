@@ -2,7 +2,24 @@
 <glyph name="agrave.alt" format="2">
   <advance width="424"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="gravecomb" xOffset="233" yOffset="8"/>
+    <component base="a.alt" identifier="4FF658A8"/>
+    <component base="gravecomb" xOffset="233" yOffset="8" identifier="346BA7B6"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>346BA7B6</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>4FF658A8</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

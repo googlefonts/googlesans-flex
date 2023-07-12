@@ -3,8 +3,8 @@
   <advance width="320"/>
   <unicode hex="00BF"/>
   <outline>
-    <component base="question-bottom"/>
-    <component base="dot-composite-top" xOffset="-52" yOffset="990"/>
+    <component base="question-bottom" identifier="BD512E36"/>
+    <component base="dot-composite-top" xOffset="-52" yOffset="990" identifier="E95F6021"/>
   </outline>
   <lib>
     <dict>
@@ -12,6 +12,19 @@
       <string>=|question</string>
       <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
       <string>=|question</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>BD512E36</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>E95F6021</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
     </dict>
   </lib>
 </glyph>

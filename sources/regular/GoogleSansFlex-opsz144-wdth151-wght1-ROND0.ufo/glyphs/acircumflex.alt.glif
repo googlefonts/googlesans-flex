@@ -2,7 +2,24 @@
 <glyph name="acircumflex.alt" format="2">
   <advance width="2131"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="circumflexcomb" xOffset="1026" yOffset="42"/>
+    <component base="a.alt" identifier="CA36369E"/>
+    <component base="circumflexcomb" xOffset="1026" yOffset="42" identifier="78EEC080"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>78EEC080</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>CA36369E</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

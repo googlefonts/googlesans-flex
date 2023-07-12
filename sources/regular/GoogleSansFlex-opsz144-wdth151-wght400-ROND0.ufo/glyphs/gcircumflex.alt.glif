@@ -2,7 +2,24 @@
 <glyph name="gcircumflex.alt" format="2">
   <advance width="2121"/>
   <outline>
-    <component base="g.alt"/>
-    <component base="circumflexcomb" xOffset="1043" yOffset="34"/>
+    <component base="g.alt" identifier="C90F199F"/>
+    <component base="circumflexcomb" xOffset="1043" yOffset="34" identifier="ADD9657C"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>ADD9657C</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>C90F199F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

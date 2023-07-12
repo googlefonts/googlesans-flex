@@ -2,7 +2,24 @@
 <glyph name="aacute.alt" format="2">
   <advance width="723"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="acutecomb" xOffset="343" yOffset="6"/>
+    <component base="a.alt" identifier="6A228F36"/>
+    <component base="acutecomb" xOffset="343" yOffset="6" identifier="EF8B78C0"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>6A228F36</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>EF8B78C0</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

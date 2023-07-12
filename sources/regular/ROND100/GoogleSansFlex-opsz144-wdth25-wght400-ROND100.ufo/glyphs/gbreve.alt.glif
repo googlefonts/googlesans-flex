@@ -2,7 +2,24 @@
 <glyph name="gbreve.alt" format="2">
   <advance width="424"/>
   <outline>
-    <component base="g.alt"/>
-    <component base="brevecomb" xOffset="234" yOffset="8"/>
+    <component base="g.alt" identifier="02175C8F"/>
+    <component base="brevecomb" xOffset="234" yOffset="8" identifier="82749D5F"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>02175C8F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>82749D5F</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>
