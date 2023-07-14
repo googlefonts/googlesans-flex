@@ -1,0 +1,38 @@
+sources:
+  - GSF-5style-ROND001-centered.designspace
+axisOrder:
+  - ROND
+  - GRAD
+familyName: GSF Gk
+# TODO: specify version once the option is available
+# The existing UFO sources are quadratics, so it probably does not make sense
+# to build OTFs. Also, Google Sans doesn't build OTFs, so it makes sense to do
+# the same for Flex
+buildOTF: false
+
+# Not released through the repository:
+buildStatic: false
+
+# Outlines are quadratic, don't touch.
+reverseOutlineDirection: false
+removeOutlineOverlaps: false
+
+outputDir: "./variable_ttf"
+
+stat:
+    - name: Roundness
+      tag: ROND
+      values:
+        - name: Default
+          value: 0
+          flags: 2
+        - name: Rounded fully
+          value: 100
+    - name: Grade
+      tag: GRAD
+      values:
+        - name: Default
+          value: 0
+          flags: 2
+        - name: Grade Max
+          value: 50

@@ -12,3 +12,5 @@ fontmake -m GSF-3style-ROND0_00006103515.designspace.xml -o variable --output-pa
 
 fontmake -m GSF-5style-ROND001-centered.designspace.xml -o variable --output-path variable_ttf/GSF-3style-ROND001-centered.designspace-VF-no-optimize-gvar.ttf --no-optimize-gvar;
 
+gftools builder --debug --no-clean-up GSF-5style-ROND001-centered.config.yaml
+
