@@ -1,9 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="Ecircumflex" format="2">
-  <advance width="876"/>
+  <advance width="877"/>
   <unicode hex="00CA"/>
   <outline>
-    <component base="E"/>
-    <component base="circumflexcomb" xOffset="486" yOffset="346"/>
+    <component base="E" identifier="473BEAAD"/>
+    <component base="circumflexcomb" xOffset="542" yOffset="346" identifier="AF1FA202"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>473BEAAD</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>AF1FA202</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

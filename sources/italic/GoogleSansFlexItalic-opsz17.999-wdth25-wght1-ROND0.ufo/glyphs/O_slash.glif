@@ -2,9 +2,12 @@
 <glyph name="Oslash" format="2">
   <advance width="776"/>
   <unicode hex="00D8"/>
+  <guideline x="413" y="733" angle="0"/>
+  <guideline x="413" y="333" angle="0"/>
+  <guideline x="413" y="1133" angle="0"/>
   <outline>
-    <component base="O"/>
-    <component base="Oslash-bar" xOffset="52" yOffset="14"/>
+    <component base="O" identifier="21A4FA29"/>
+    <component base="Oslash-bar" xOffset="55" yOffset="14" identifier="CF4DF70B"/>
   </outline>
   <lib>
     <dict>
@@ -12,6 +15,19 @@
       <string>O</string>
       <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
       <string>O</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>21A4FA29</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>CF4DF70B</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
     </dict>
   </lib>
 </glyph>

@@ -2,7 +2,24 @@
 <glyph name="aring.alt" format="2">
   <advance width="1273"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="ringcomb" xOffset="610" yOffset="24"/>
+    <component base="a.alt" identifier="02B5803E"/>
+    <component base="ringcomb" xOffset="610" yOffset="24" identifier="74F7FEBB"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>02B5803E</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>74F7FEBB</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

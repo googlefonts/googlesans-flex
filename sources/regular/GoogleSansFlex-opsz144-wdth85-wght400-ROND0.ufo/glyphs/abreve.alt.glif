@@ -2,7 +2,24 @@
 <glyph name="abreve.alt" format="2">
   <advance width="1103"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="brevecomb" xOffset="533" yOffset="21"/>
+    <component base="a.alt" identifier="600CE835"/>
+    <component base="brevecomb" xOffset="533" yOffset="21" identifier="D224CB62"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>600CE835</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>D224CB62</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

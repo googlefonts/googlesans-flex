@@ -2,7 +2,24 @@
 <glyph name="adieresis.alt" format="2">
   <advance width="1273"/>
   <outline>
-    <component base="a.alt"/>
-    <component base="dieresiscomb" xOffset="616" yOffset="24"/>
+    <component base="a.alt" identifier="12D9EBB0"/>
+    <component base="dieresiscomb" xOffset="616" yOffset="24" identifier="18F62596"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>12D9EBB0</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>18F62596</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

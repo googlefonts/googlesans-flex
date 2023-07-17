@@ -3,8 +3,8 @@
   <advance width="1329"/>
   <unicode hex="00BF"/>
   <outline>
-    <component base="question-bottom"/>
-    <component base="dot-composite-top" xOffset="487" yOffset="818"/>
+    <component base="question-bottom" identifier="255FF801"/>
+    <component base="dot-composite-top" xOffset="622" yOffset="818" identifier="E50B4C23"/>
   </outline>
   <lib>
     <dict>
@@ -12,6 +12,19 @@
       <string>=|question</string>
       <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
       <string>=|question</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>255FF801</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>E50B4C23</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
     </dict>
   </lib>
 </glyph>

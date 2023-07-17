@@ -3,7 +3,24 @@
   <advance width="2220"/>
   <unicode hex="0145"/>
   <outline>
-    <component base="N"/>
-    <component base="commaaccentcomb" xOffset="1132"/>
+    <component base="N" identifier="FF371ECA"/>
+    <component base="commaaccentcomb" xOffset="1132" identifier="DA2A8242"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>DA2A8242</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>FF371ECA</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>

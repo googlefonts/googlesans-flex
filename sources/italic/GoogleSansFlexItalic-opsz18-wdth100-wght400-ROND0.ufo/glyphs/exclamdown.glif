@@ -3,8 +3,8 @@
   <advance width="476"/>
   <unicode hex="00A1"/>
   <outline>
-    <component base="exclam-bottom"/>
-    <component base="dot-composite-top" yOffset="788"/>
+    <component base="exclam-bottom" identifier="DBC9C80E"/>
+    <component base="dot-composite-top" xOffset="130" yOffset="788" identifier="E6195432"/>
   </outline>
   <lib>
     <dict>
@@ -12,6 +12,19 @@
       <string>=|exclam</string>
       <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
       <string>=|exclam</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>DBC9C80E</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>E6195432</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
     </dict>
   </lib>
 </glyph>

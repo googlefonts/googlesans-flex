@@ -2,10 +2,10 @@
 <glyph name="exclamdown" format="2">
   <advance width="744"/>
   <unicode hex="00A1"/>
-  <guideline x="372" y="0" angle="90" identifier="xTZ3l1CEr5"/>
+  <guideline x="372" identifier="xTZ3l1CEr5"/>
   <outline>
-    <component base="exclam-bottom"/>
-    <component base="dot-composite-top" xOffset="135" yOffset="980"/>
+    <component base="exclam-bottom" identifier="38F6A790"/>
+    <component base="dot-composite-top" xOffset="135" yOffset="980" identifier="33720FAF"/>
   </outline>
   <lib>
     <dict>
@@ -13,6 +13,19 @@
       <string>=|exclam</string>
       <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
       <string>=|exclam</string>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>33720FAF</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>38F6A790</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
     </dict>
   </lib>
 </glyph>

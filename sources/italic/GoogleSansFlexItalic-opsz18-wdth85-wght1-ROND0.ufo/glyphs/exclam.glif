@@ -3,8 +3,8 @@
   <advance width="460"/>
   <unicode hex="0021"/>
   <outline>
-    <component base="exclam-top" xOffset="1" identifier="component0"/>
-    <component base="dot-composite" xOffset="-25" identifier="component1"/>
+    <component base="exclam-top" xOffset="-3" identifier="component0"/>
+    <component base="dot-composite" xOffset="-26" identifier="component1"/>
   </outline>
   <lib>
     <dict>
@@ -12,17 +12,21 @@
       <dict>
         <key>component0</key>
         <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
           <key>public.truetype.roundOffsetToGrid</key>
-          <true/>
+          <string>1</string>
           <key>public.truetype.useMyMetrics</key>
-          <true/>
+          <string>1</string>
         </dict>
         <key>component1</key>
         <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
           <key>public.truetype.roundOffsetToGrid</key>
-          <true/>
+          <string>1</string>
           <key>public.truetype.useMyMetrics</key>
-          <false/>
+          <string>0</string>
         </dict>
       </dict>
       <key>public.truetype.overlap</key>

@@ -2,9 +2,26 @@
 <glyph name="exclam" format="2">
   <advance width="576"/>
   <unicode hex="0021"/>
-  <guideline x="288" y="0" angle="90" identifier="CDQQAipRmJ"/>
+  <guideline x="288" identifier="CDQQAipRmJ"/>
   <outline>
-    <component base="exclam-top" xOffset="-14"/>
-    <component base="dot-composite" xOffset="28"/>
+    <component base="exclam-top" xOffset="-14" identifier="67A3331B"/>
+    <component base="dot-composite" xOffset="28" identifier="CE7862EC"/>
   </outline>
+  <lib>
+    <dict>
+      <key>public.objectLibs</key>
+      <dict>
+        <key>67A3331B</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+        <key>CE7862EC</key>
+        <dict>
+          <key>com.schriftgestaltung.alignment</key>
+          <integer>-1</integer>
+        </dict>
+      </dict>
+    </dict>
+  </lib>
 </glyph>
