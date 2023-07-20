@@ -18,21 +18,4 @@ reverseOutlineDirection: false
 removeOutlineOverlaps: false
 
 outputDir: "./variable_ttf"
-
-stat:
-    - name: Roundness
-      tag: ROND
-      values:
-        - name: Default
-          value: 0
-          flags: 2
-        - name: Rounded fully
-          value: 100
-    - name: Grade
-      tag: GRAD
-      values:
-        - name: Default
-          value: 0
-          flags: 2
-        - name: Grade Max
-          value: 50
+cleanUp: false
