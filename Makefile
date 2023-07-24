@@ -28,7 +28,7 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 	venv/bin/python scripts/prune_font_binary.py fonts/variable/*.ttf
 	venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/regular/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,wdth,wght].ttf
 	venv/bin/python scripts/set-overlap-bits.py sources/italic/glyphs-with-overlap.txt sources/italic/GoogleSansFlex-Italic.designspace fonts/variable/GoogleSansFlex-Italic[ROND,opsz,wdth,wght].ttf
-	venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/GoogleSansFlex-Full.designspace fonts/variable/GoogleSansFlex-Full[ROND,opsz,slnt,wdth,wght].ttf
+	venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
 	touch build.stamp
 
 venv/touchfile: requirements.txt

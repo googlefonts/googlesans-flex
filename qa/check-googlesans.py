@@ -13,6 +13,7 @@
 # limitations under the License.
 
 
+from pathlib import Path
 from fontbakery.callable import check, condition
 from fontbakery.checkrunner import FAIL, PASS, SKIP, WARN, Section
 from fontbakery.constants import UNICODERANGE_DATA
@@ -69,6 +70,16 @@ AXIS_NAMES = {
     "ROND": "Roundness",
     "wdth": "Width",
     "wght": "Weight",
+}
+
+AXIS_DEFAULTS_FULL_VF = {
+    **AXIS_DEFAULTS,
+    "slnt": 0,
+}
+
+AXIS_NAMES_FULL_VF = {
+    **AXIS_NAMES,
+    "slnt": "Slant",
 }
 
 # Global Google Sans attributes, in 1000 upM font units.
@@ -196,9 +207,15 @@ def com_google_fonts_check_googlesansflex_unicode_range_bits(ttFont, unicoderang
     all expected axis tags
     """,
 )
-def com_google_fonts_check_googlesansflex_variable_fvar_axes(ttFont):
+def com_google_fonts_check_googlesansflex_variable_fvar_axes(font, ttFont):
     """Confirms that the variable font builds include expected axes."""
-    expected_fvar_axes = AXIS_DEFAULTS.keys()
+    font_name = Path(font).name
+    if "[ROND,opsz,slnt,wdth,wght]" in font_name:
+        expected_fvar_axes = AXIS_DEFAULTS_FULL_VF.keys()
+    elif "[ROND,opsz,wdth,wght]" in font_name:
+        expected_fvar_axes = AXIS_DEFAULTS.keys()
+    else:
+        raise Exception("Unknown variable font build")
     observed_axis_list = {axis.axisTag for axis in ttFont["fvar"].axes}
 
     if observed_axis_list != expected_fvar_axes:
@@ -208,22 +225,29 @@ def com_google_fonts_check_googlesansflex_variable_fvar_axes(ttFont):
             f"Expected: {expected_fvar_axes}"
         )
     else:
-        yield PASS, f"Font includes all expected axis tags"
+        yield PASS, "Font includes all expected axis tags"
 
 
 @check(
     id="com.google.fonts/check/googlesansflex/vf/axis_names",
     conditions=["is_variable_font"],
 )
-def com_google_fonts_check_googlesansflex_axis_names(ttFont):
+def com_google_fonts_check_googlesansflex_axis_names(font, ttFont):
     """Confirms that axes have the expected names."""
+    font_name = Path(font).name
+    if "[ROND,opsz,slnt,wdth,wght]" in font_name:
+        axis_names = AXIS_NAMES_FULL_VF
+    elif "[ROND,opsz,wdth,wght]" in font_name:
+        axis_names = AXIS_NAMES
+    else:
+        raise Exception("Unknown variable font build")
 
     names = ttFont["name"]
     fvar = ttFont["fvar"]
 
     for axis in fvar.axes:
         name = names.getDebugName(axis.axisNameID)
-        expected = AXIS_NAMES.get(axis.axisTag)
+        expected = axis_names.get(axis.axisTag)
         if expected is None:
             yield WARN, f"Font has unexpected axis tagged {axis.axisTag}"
         elif name == expected:
@@ -240,11 +264,19 @@ def com_google_fonts_check_googlesansflex_axis_names(ttFont):
     default definitions for the Google Sans design axes
     """,
 )
-def com_google_fonts_check_googlesansflex_variable_fvar_default(ttFont):
+def com_google_fonts_check_googlesansflex_variable_fvar_default(font, ttFont):
     """Confirms that the variable font builds include correct fvar default."""
+    font_name = Path(font).name
+    if "[ROND,opsz,slnt,wdth,wght]" in font_name:
+        expected_fvar_axes = AXIS_DEFAULTS_FULL_VF
+    elif "[ROND,opsz,wdth,wght]" in font_name:
+        expected_fvar_axes = AXIS_DEFAULTS
+    else:
+        raise Exception("Unknown variable font build")
+
     for axis in ttFont["fvar"].axes:
         tag = axis.axisTag
-        expected = AXIS_DEFAULTS.get(tag)
+        expected = expected_fvar_axes.get(tag)
         if expected is None:
             yield FAIL, f"Font has unexpected axis tagged {tag}"
         elif axis.defaultValue != expected:

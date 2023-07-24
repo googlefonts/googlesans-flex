@@ -64,7 +64,7 @@ def check_same_tabular_widths(ufo_font: Font) -> CheckStatus:
         if "zero.tf" in tabulars:
             width_glyph = "zero.tf"
         else:
-            width_glyph = iter(next(tabulars))
+            width_glyph = next(iter(tabulars))
         width = layer[width_glyph].width
         if width is None:
             yield FAIL, f"layer {layer.name}: {width_glyph} has no width, stopping check"

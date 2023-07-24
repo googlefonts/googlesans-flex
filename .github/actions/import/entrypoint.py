@@ -50,8 +50,8 @@ def main():
     file_text = (SOURCE_DIR / CONFIG_FILE).read_text()
     gftools_config = yaml.safe_load(file_text)
     for designspace_path in gftools_config["sources"]:
-        if designspace_path == "GoogleSansFlex-Full.designspace":
-            # Skip this designspace because italics is already imported by italic/GoogleSansFlex-Italic.designspace
+        if designspace_path == "GoogleSansFlex.designspace":
+            # Skip this (Full) designspace because italics is already imported by italic/GoogleSansFlex-Italic.designspace
             continue
         logging.info(f"Merging {designspace_path}")
         designspace_path_target = designspace_path.replace("roman/", "regular/", 1)
