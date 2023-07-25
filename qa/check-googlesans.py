@@ -56,6 +56,7 @@ excluded_check_ids = (
     "com.google.fonts/check/glyph_coverage",  # We have our own target
     "com.google.fonts/check/file_size",  # We're going bigger
     "com.google.fonts/check/font_names",  # We have our own naming ideas
+    "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1"  # Expected and desired
 )
 
 AXIS_DEFAULTS = {
@@ -391,7 +392,7 @@ def com_google_fonts_check_googlesansflex_round_reflow(ttFont, config):
 # skip filter function to exclude checks defined in the
 # fontbakery universal profile
 def check_skip_filter(checkid, font=None, **iterargs):
-    if font and checkid in excluded_check_ids:
+    if checkid in excluded_check_ids:
         return False, ("Check skipped in Google Sans Flex profile")
     return True, None
 
