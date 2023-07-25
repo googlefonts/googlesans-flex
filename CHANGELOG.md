@@ -1,5 +1,37 @@
 # Google Sans Changelog
 
+## Version 1.002 (2022-03-08)
+
+### New
+- Italic font
+- New font with a slant axis, which combines Italic and Upright
+
+- new scripts
+defuse-guidelines.py
+gs-glyphs2ufo.py
+gs-merge-designspace.py
+gs-normalize-designspace.py
+gdef.py
+normalize.py
+prune_font_binary.py
+reachable_glyphs.py
+set-overlap-bits.py
+print-space-width.py
+prune-glyphsets.py
+set-notdef-glyph.py
+find-data-source.py
+
+
+### Changed
+- Bug fixes in outlines
+- Bug fixes in kerning
+- added burndown chart workflow
+- diffenator workflow
+- updated check-googlesans.py
+- gs-progress-burndown.py
+- gs-ufo2glyphs.py
+- cut-instances.py
+
 ## Version 1.001 (2022-03-08)
 
 ### New
