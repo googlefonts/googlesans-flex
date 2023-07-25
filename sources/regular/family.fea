@@ -6,8 +6,6 @@ languagesystem latn MOL;
 languagesystem latn NLD;
 languagesystem latn LTH;
 
-@CombiningTopAccents = [gravecomb acutecomb tildecomb];
-
 @a_ALT_OFF = [a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron ];
 @a_ALT_ON = [a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt ];
 
@@ -23,6 +21,19 @@ languagesystem latn LTH;
 @SYMBOLS = [period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal];
 @SYMBOLS_TAB = [period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf currency.tf dollar.tf sterling.tf plus.tf multiply.tf divide.tf equal.tf greater.tf less.tf plusminus.tf logicalnot.tf percent.tf section.tf Euro.tf minus.tf notequal.tf greaterequal.tf lessequal.tf approxequal.tf];
 
+@CombiningTopAccents = [gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotaccentcomb dieresiscomb ringcomb hungarumlautcomb caroncomb commaturnedabovecomb ];
+@LAT_dotted = [i j]; 
+@LAT_dotless= [idotless jdotless];
+
+lookup ccmp_soft_dotted {
+    lookupflag UseMarkFilteringSet @CombiningTopAccents;
+    sub @LAT_dotted' @CombiningTopAccents by @LAT_dotless;
+	sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
+} ccmp_soft_dotted;
+
+feature ccmp {
+	lookup ccmp_soft_dotted;
+} ccmp;
 
 feature locl {
   script latn;
