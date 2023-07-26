@@ -21,7 +21,7 @@ from scripts.gs_merge_designspace import merge_designspace
 from scripts.gs_normalize_designspace import normalize_in_dir
 from scripts.fix_metadata_in_sources import fix_metadata
 
-REPLACE_TARGET_DESIGNSPACE = False
+REPLACE_TARGET_DESIGNSPACE = True
 FOLLOW_GLYPHS = True  # while sources are in flux
 
 WORKSPACE_ROOT = Path("/github/workspace")
