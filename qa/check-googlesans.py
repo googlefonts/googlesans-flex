@@ -18,7 +18,7 @@ from fontbakery.callable import check, condition
 from fontbakery.checkrunner import FAIL, PASS, SKIP, WARN, Section
 from fontbakery.constants import UNICODERANGE_DATA
 from fontbakery.fonts_profile import profile_factory
-from fontbakery.message import Message
+from fontbakery.message import Message, KEEP_ORIGINAL_MESSAGE
 from fontbakery.profiles.googlefonts import GOOGLEFONTS_PROFILE_CHECKS
 from fontbakery.profiles.outline import OUTLINE_PROFILE_CHECKS
 from fontbakery.profiles.shared_conditions import is_italic
@@ -400,3 +400,8 @@ def check_skip_filter(checkid, font=None, **iterargs):
 profile.check_skip_filter = check_skip_filter
 profile.auto_register(globals())
 profile.test_expected_checks(GOOGLESANSFLEX_PROFILE_CHECKS, exclusive=True)
+profile.check_log_override(
+    "com.google.fonts/check/varfont/consistent_axes",
+    overrides=(("missing-axis", WARN, KEEP_ORIGINAL_MESSAGE),),
+    reason="It's intended as slnt becomes italics",
+)
