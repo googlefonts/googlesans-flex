@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>com.github.googlei18n.ufo2ft.filters</key>
+    <array>
+      <dict>
+        <key>name</key>
+        <string>dottedCircle</string>
+        <key>pre</key>
+        <true/>
+      </dict>
+    </array>
     <key>public.glyphOrder</key>
     <array>
       <string>.notdef</string>
@@ -678,6 +687,8 @@
       <string>mark</string>
       <key>u</key>
       <string>base</string>
+      <key>uni25CC</key>
+      <string>base</string>
       <key>v</key>
       <string>base</string>
       <key>w</key>
@@ -689,5 +700,7 @@
       <key>z</key>
       <string>base</string>
     </dict>
+    <key>public.postscriptNames</key>
+    <dict/>
   </dict>
 </plist>
