@@ -130,12 +130,13 @@ def scrub_ufo(
         }
 
     # Reset the ufo2ft filters.
-    if "com.github.googlei18n.ufo2ft.filters" in ufo.lib:
-        # TODO: use propagateAnchors filter?
-        ufo.lib["com.github.googlei18n.ufo2ft.filters"] = [
-            {"name": "decomposeTransformedComponents", "pre": True},
-            {"name": "flattenComponents", "pre": True},
-        ]
+    # TODO: use propagateAnchors filter?
+    ufo.lib["com.github.googlei18n.ufo2ft.filters"] = [
+        # TODO: Decide whether to enable these:
+        # {"name": "decomposeTransformedComponents", "pre": True},
+        # {"name": "flattenComponents", "pre": True},
+        {"name": "dottedCircle", "pre": True},
+    ]
 
     # Delete non-build-relevant layers.
     layers_to_delete = []
@@ -274,6 +275,7 @@ def infer_opentype_categories(source: ufoLib2.Font) -> Dict[str, str]:
     # the GDEF table. Use the UFO copy so we can safely save the original with
     # just updated features.
     ufo_copy = copy.deepcopy(source)
+    ufo_copy._path = source._path
     pre_filter, _ = ufo2ft.filters.loadFilters(ufo_copy)
     for pf in pre_filter:
         pf(font=ufo_copy)
