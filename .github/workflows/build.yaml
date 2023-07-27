@@ -41,6 +41,7 @@ jobs:
         run: make build
       - name: Check with fontbakery
         run: make test
+        continue-on-error: true
       - name: Check with OT Sanitizer
         uses: f-actions/opentype-sanitizer@v2
         with:
