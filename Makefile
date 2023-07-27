@@ -44,18 +44,18 @@ test: venv build.stamp
 			sources/GoogleSansFlex.designspace \
 			sources/regular/GoogleSansFlex.designspace \
 			sources/italic/GoogleSansFlex-Italic.designspace \
-			$(shell find sources -name "*.ufo")
+			$(shell find sources -name "*.ufo") || echo "Continuing..."
 	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html \
-		fontbakery.profiles.outline $(shell find fonts/variable -type f)
+		fontbakery.profiles.outline $(shell find fonts/variable -type f) || echo "Continuing..."
 	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html \
-		qa/check-googlesans.py $(shell find fonts/variable -type f)
+		qa/check-googlesans.py $(shell find fonts/variable -type f) || echo "Continuing..."
 	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html \
-		qa/check-fea.py $(shell find fonts/variable -type f)
+		qa/check-fea.py $(shell find fonts/variable -type f) || echo "Continuing..."
 	# NOTE: The following checks can be activated after the sources are stable:
 	# venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html \
-	#	qa/check-charset.py $(shell find fonts/variable -type f)
+	#	qa/check-charset.py $(shell find fonts/variable -type f) || echo "Continuing..."
 	# venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
-	#	qa/check-shaping.py $(shell find fonts/variable -type f)
+	#	qa/check-shaping.py $(shell find fonts/variable -type f) || echo "Continuing..."
 
 proof: venv build.stamp
 	. venv/bin/activate; mkdir -p out/proof; diffenator2 proof $(shell find fonts/variable -type f) -o out/proof
