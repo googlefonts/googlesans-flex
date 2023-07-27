@@ -57,6 +57,7 @@ excluded_check_ids = (
     "com.google.fonts/check/file_size",  # We're going bigger
     "com.google.fonts/check/font_names",  # We have our own naming ideas
     "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1"  # Expected and desired
+    "com.google.fonts/check/STAT/gf_axisregistry" # Buggy in 0.8.13
 )
 
 AXIS_DEFAULTS = {
