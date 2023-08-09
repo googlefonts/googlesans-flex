@@ -51,13 +51,20 @@ jobs:
       - name: Analyze file size
         uses: ./.github/actions/file-size
         continue-on-error: true
-      - name: Archive artifacts
+      - name: Archive fonts & QA reports
+        if: github.event_name != 'release'
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ZIP_NAME }}
           path: |
             fonts
             out
+      - name: Archive fonts
+        if: github.event_name == 'release'
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.ZIP_NAME }}
+          path: fonts
     outputs:
       zip_name: ${{ env.ZIP_NAME }}
   release:
