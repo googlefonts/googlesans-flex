@@ -12,7 +12,22 @@ Fonts are built by triggering the build workflow in the [Actions tab](https://gi
 4. Enter the name of the branch or commit you want to build in the text box
 5. Press the green "Run workflow" button
 
-## On your computer
+#### How the CI pipeline builds the font
+
+1. Create/Activate venv*
+2. Install requirements.txt*
+3. (if release) [`bumpfontversion`](https://github.com/simoncozens/bumpfontversion) sets the font version in the sources based on the tag name
+4. Call gftools builder*
+5. [font-v](https://github.com/source-foundry/font-v) sets TTF version strings
+6. [`scripts/sanitize-name-table.py`](./scripts/sanitize-name-table.py) replaces any disallowed characters in the TTF name table with "_"
+7. [`scripts/prune_font_binary.py`](./scripts/prune_font_binary.py) removes unused/unencoded glyphs from TTFs
+8. [`scripts/set-overlap-bits.py`](./scripts/set-overlap-bits.py) adjusts overlap flags in the GLYF table
+9. [OT Sanitizer](https://github.com/khaledhosny/ots) validates & sanitizes the TTFs
+10. TTFs are archived for download (along with QA reports if not a release)
+
+(*This is the part of the process [`fontc`](https://github.com/googlefonts/fontc) would speed-up/replace)
+
+### On your computer
 
 * `make build` will produce font files.
 * `make test` will run [FontBakery](https://github.com/googlefonts/fontbakery)'s quality assurance tests.
