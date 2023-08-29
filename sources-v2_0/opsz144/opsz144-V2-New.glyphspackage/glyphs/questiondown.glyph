@@ -166,11 +166,11 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|question";
 width = 1044;
 },
 {
-layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
+background = {
 shapes = (
 {
 alignment = -1;
-pos = (0,-24);
+pos = (55,-24);
 ref = "question-bottom";
 userData = {
 UFO.identifier = 5873AB54;
@@ -180,13 +180,22 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (305,677);
+pos = (360,677);
 ref = "dot-composite-top";
 userData = {
 UFO.identifier = 6C627658;
 UFO.lib = {
 };
 };
+}
+);
+};
+layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
+shapes = (
+{
+angle = 180;
+pos = (1038,1158);
+ref = question;
 }
 );
 userData = {
@@ -289,5 +298,7 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|question";
 width = 1649;
 }
 );
+metricLeft = "=|question";
+metricRight = "=|question";
 unicode = 191;
 }

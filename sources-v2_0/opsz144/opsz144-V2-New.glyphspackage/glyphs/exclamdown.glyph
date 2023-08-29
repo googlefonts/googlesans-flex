@@ -165,13 +165,7 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|exclam";
 width = 492;
 },
 {
-guides = (
-{
-angle = 90;
-pos = (288,0);
-}
-);
-layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
+background = {
 shapes = (
 {
 alignment = -1;
@@ -191,6 +185,21 @@ UFO.identifier = C69AA863;
 UFO.lib = {
 };
 };
+}
+);
+};
+guides = (
+{
+angle = 90;
+pos = (288,0);
+}
+);
+layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
+shapes = (
+{
+pos = (0,1161);
+ref = exclam;
+scale = (1,-1);
 }
 );
 userData = {
@@ -300,5 +309,7 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|exclam";
 width = 932;
 }
 );
+metricLeft = exclam;
+metricRight = exclam;
 unicode = 161;
 }
