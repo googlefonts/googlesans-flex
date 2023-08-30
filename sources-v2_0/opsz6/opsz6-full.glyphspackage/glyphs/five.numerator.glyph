@@ -1,8 +1,9 @@
 {
+color = 4;
 glyphname = five.numerator;
 layers = (
 {
-layerId = m001;
+background = {
 shapes = (
 {
 closed = 1;
@@ -76,10 +77,18 @@ name = inserted;
 );
 }
 );
+};
+layerId = m001;
+shapes = (
+{
+pos = (0,501);
+ref = five.denominator;
+}
+);
 width = 599;
 },
 {
-layerId = "3FC95AE1-19AB-496F-875C-3FB1D5823AFA";
+background = {
 shapes = (
 {
 closed = 1;
@@ -151,10 +160,18 @@ name = inserted;
 );
 }
 );
+};
+layerId = "3FC95AE1-19AB-496F-875C-3FB1D5823AFA";
+shapes = (
+{
+pos = (0,501);
+ref = five.denominator;
+}
+);
 width = 784;
 },
 {
-layerId = "41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C";
+background = {
 shapes = (
 {
 closed = 1;
@@ -222,6 +239,14 @@ nodes = (
 (163,955,o),
 (165,974,q)
 );
+}
+);
+};
+layerId = "41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C";
+shapes = (
+{
+pos = (0,501);
+ref = five.denominator;
 }
 );
 width = 1104;
