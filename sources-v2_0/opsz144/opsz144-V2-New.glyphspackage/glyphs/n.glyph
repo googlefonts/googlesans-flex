@@ -590,7 +590,6 @@ nodes = (
 );
 }
 );
-visible = 1;
 width = 2072;
 },
 {
@@ -884,11 +883,6 @@ name = top;
 pos = (635,1020);
 }
 );
-guides = (
-{
-pos = (272,1046);
-}
-);
 layerId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
 name = "opsz144-wdth100-wght1-Ital0-Rond0-Grad0";
 shapes = (
@@ -898,7 +892,9 @@ nodes = (
 (1038,0,o,{
 name = inserted;
 }),
-(1038,0,o),
+(1038,0,o,{
+name = inserted;
+}),
 (1036,0,q),
 (1036,0,l),
 (1034,0,o),
@@ -917,7 +913,9 @@ name = inserted;
 (214,0,o,{
 name = inserted;
 }),
-(214,0,o),
+(214,0,o,{
+name = inserted;
+}),
 (212,0,q),
 (212,0,l),
 (210,0,o),

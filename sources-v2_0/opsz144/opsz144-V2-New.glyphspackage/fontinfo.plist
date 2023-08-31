@@ -1,5 +1,5 @@
 {
-.appVersion = "3213";
+.appVersion = "3214";
 .formatVersion = 3;
 axes = (
 {
@@ -623,6 +623,13 @@ value = GOOG;
 {
 name = trademarks;
 value = "Google Sans is a trademark of Google.";
+},
+{
+disabled = 1;
+name = "Disable Masters";
+value = (
+"opsz144-wdth100-wght400-Ital0-Rond0-Grad0"
+);
 }
 );
 date = "2017-07-06 09:41:44 +0000";
@@ -1040,24 +1047,39 @@ value = -320;
 );
 guides = (
 {
+locked = 1;
 name = "diacritics-t";
 pos = (83,1432);
 },
 {
+locked = 1;
 name = "diacritics-b";
 pos = (101,1169);
 },
 {
+locked = 1;
 name = "numerators-base";
 pos = (338,685);
 },
 {
+locked = 1;
 name = "numerator-osb";
 pos = (566,670);
 },
 {
+locked = 1;
 name = "numerator-ost";
 pos = (564,1446);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (272,1046);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (470,-26);
 }
 );
 id = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
@@ -1098,6 +1120,7 @@ pos = -216;
 }
 );
 name = "opsz144-wdth100-wght1-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1675,36 +1698,6 @@ name = "opsz144-wdth151-wght1000-Ital0-Rond0-Grad0";
 }
 );
 instances = (
-{
-axesValues = (
-0,
-0,
-0,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = postscriptWeightName;
-value = Thin;
-},
-{
-name = "Use Typo Metrics";
-value = 1;
-}
-);
-instanceInterpolations = {
-"01856C8F-DF22-4242-84EC-D0E09743B379" = -0.00127;
-"24F9F4B4-D0E2-4556-A687-664485485925" = -0.13231;
-"9783FD78-D1DA-4A2F-9939-C716E4B6354F" = -0.11119;
-"9BDCF2A8-945E-440F-82D9-208F3BD99FE0" = -0.00053;
-m001 = 1.24531;
-};
-name = "opsz144-wdth25-wght1-ROND0";
-weightClass = 1;
-widthClass = 1;
-},
 {
 axesValues = (
 144,
