@@ -6,44 +6,44 @@ layers = (
 layerId = m001;
 shapes = (
 {
-ref = zeropercent;
-userData = {
-UFO.identifier = component0;
-};
-},
-{
-pos = (906,0);
-ref = zeropercent;
+alignment = -1;
+pos = (245,0);
+ref = zero.dnom.percent;
 userData = {
 UFO.identifier = component1;
 };
 },
 {
-pos = (1812,0);
-ref = percentbar.tf;
+pos = (13,0);
+ref = fraction.tf;
+},
+{
+alignment = -1;
+pos = (-122,0);
+ref = zero.numr.percent;
 }
 );
-width = 2846;
+width = 1034;
 },
 {
 layerId = "3FC95AE1-19AB-496F-875C-3FB1D5823AFA";
 shapes = (
 {
-ref = zeropercent;
+ref = zero.dnom.percent;
 userData = {
 UFO.identifier = component0;
 };
 },
 {
 pos = (954,0);
-ref = zeropercent;
+ref = zero.dnom.percent;
 userData = {
 UFO.identifier = component1;
 };
 },
 {
 pos = (1908,0);
-ref = percentbar.tf;
+ref = fraction.tf;
 }
 );
 width = 3380;
@@ -54,7 +54,7 @@ shapes = (
 {
 alignment = -1;
 pos = (-29,30);
-ref = zeropercent;
+ref = zero.dnom.percent;
 userData = {
 UFO.identifier = component0;
 UFO.lib = {
@@ -64,7 +64,7 @@ UFO.lib = {
 {
 alignment = -1;
 pos = (923,-661);
-ref = zeropercent;
+ref = zero.dnom.percent;
 userData = {
 UFO.identifier = component1;
 UFO.lib = {
@@ -73,7 +73,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-ref = percentbar.tf;
+ref = fraction.tf;
 userData = {
 UFO.identifier = 38726C3E;
 UFO.lib = {
