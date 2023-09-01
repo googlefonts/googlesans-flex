@@ -3,31 +3,136 @@ color = 0;
 glyphname = percent;
 layers = (
 {
+background = {
+shapes = (
+{
+closed = 1;
+nodes = (
+(272,714,o),
+(52,938,o),
+(52,1090,q),
+(52,1090,l),
+(52,1240,o),
+(272,1466,o),
+(426,1466,qs),
+(582,1466,o),
+(798,1240,o),
+(798,1090,q),
+(798,1090,l),
+(798,938,o),
+(582,714,o),
+(426,714,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(554,792,o),
+(718,966,o),
+(718,1086,q),
+(718,1086,l),
+(718,1206,o),
+(550,1382,o),
+(428,1382,qs),
+(302,1382,o),
+(132,1206,o),
+(132,1086,q),
+(132,1086,l),
+(132,966,o),
+(306,792,o),
+(428,792,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(1176,-32,o),
+(956,192,o),
+(956,344,q),
+(956,344,l),
+(956,494,o),
+(1176,720,o),
+(1330,720,qs),
+(1486,720,o),
+(1702,494,o),
+(1702,344,q),
+(1702,344,l),
+(1702,192,o),
+(1486,-32,o),
+(1330,-32,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(1458,46,o),
+(1622,220,o),
+(1622,340,q),
+(1622,340,l),
+(1622,460,o),
+(1454,636,o),
+(1332,636,qs),
+(1206,636,o),
+(1036,460,o),
+(1036,340,q),
+(1036,340,l),
+(1036,220,o),
+(1210,46,o),
+(1332,46,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(532,13,ls),
+(509,-28,o,{
+name = inserted;
+}),
+(509,-28,o),
+(473,-1,q),
+(473,-1,l),
+(438,24,o),
+(438,24,o),
+(459,62,qs),
+(1215,1430,ls),
+(1234,1464,o,{
+name = inserted;
+}),
+(1234,1464,o),
+(1270,1442,q),
+(1270,1442,l),
+(1302,1422,o),
+(1302,1422,o),
+(1282,1385,qs)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
-ref = zeropercent;
+ref = zero.numr.percent;
 },
 {
-pos = (906,0);
-ref = zeropercent;
+pos = (786,0);
+ref = fraction;
 },
 {
-pos = (1812,0);
-ref = percentbar;
+pos = (1086,0);
+ref = zero.dnom.percent;
 }
 );
-width = 3188;
+width = 1872;
 },
 {
 layerId = "3FC95AE1-19AB-496F-875C-3FB1D5823AFA";
 shapes = (
 {
-ref = zeropercent;
+ref = zero.dnom.percent;
 },
 {
 pos = (954,0);
-ref = zeropercent;
+ref = zero.dnom.percent;
 },
 {
 pos = (1908,0);
@@ -42,7 +147,7 @@ shapes = (
 {
 alignment = -1;
 pos = (120,2);
-ref = zeropercent;
+ref = zero.dnom.percent;
 userData = {
 UFO.identifier = 4F7CFF57;
 UFO.lib = {
@@ -52,7 +157,7 @@ UFO.lib = {
 {
 alignment = -1;
 pos = (1302,-652);
-ref = zeropercent;
+ref = zero.dnom.percent;
 userData = {
 UFO.identifier = E29092F7;
 UFO.lib = {
