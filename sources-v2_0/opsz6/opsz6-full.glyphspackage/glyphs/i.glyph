@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = i;
 kernLeft = i_left;
 layers = (
@@ -82,6 +83,66 @@ ref = dotaccentcomb;
 }
 );
 width = 752;
+},
+{
+anchors = (
+{
+name = bottom;
+pos = (392,0);
+},
+{
+name = ogonek;
+pos = (548,0);
+},
+{
+name = top;
+pos = (342,1532);
+}
+);
+layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (338,0);
+ref = dotaccentcomb;
+}
+);
+width = 680;
+},
+{
+anchors = (
+{
+name = bottom;
+pos = (356,0);
+},
+{
+name = ogonek;
+pos = (564,0);
+},
+{
+name = top;
+pos = (356,1492);
+}
+);
+guides = (
+{
+angle = 90;
+pos = (356,0);
+}
+);
+layerId = "4296CD9C-54F3-4369-8782-4D8C9C978D13";
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (398,0);
+ref = dotaccentcomb;
+}
+);
+width = 795;
 }
 );
 unicode = 105;
