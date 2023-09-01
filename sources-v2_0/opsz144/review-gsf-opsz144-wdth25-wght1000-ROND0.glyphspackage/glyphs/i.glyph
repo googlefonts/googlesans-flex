@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = i;
 kernLeft = i_left;
 layers = (
@@ -17,16 +18,7 @@ name = top;
 pos = (233,1432);
 }
 );
-guides = (
-{
-angle = 90;
-pos = (295,0);
-userData = {
-UFO.identifier = v8EOJfQZKJ;
-};
-}
-);
-layerId = m001;
+background = {
 shapes = (
 {
 closed = 1;
@@ -69,6 +61,26 @@ name = inserted;
 (432,782,q),
 (432,241,l)
 );
+}
+);
+};
+guides = (
+{
+angle = 90;
+pos = (295,0);
+userData = {
+UFO.identifier = v8EOJfQZKJ;
+};
+}
+);
+layerId = m001;
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (233,0);
+ref = dotaccentcomb;
 }
 );
 width = 466;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = I;
 kernLeft = H_left;
 kernRight = H_right;
@@ -7,21 +8,21 @@ layers = (
 anchors = (
 {
 name = bottom;
-pos = (271,0);
+pos = (257,0);
 },
 {
 name = ogonek;
-pos = (508,0);
+pos = (494,0);
 },
 {
 name = top;
-pos = (271,1432);
+pos = (257,1432);
 }
 );
 guides = (
 {
 angle = 90;
-pos = (343,0);
+pos = (329,0);
 userData = {
 UFO.identifier = NYkcWFkH2X;
 };
@@ -32,26 +33,26 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(508,0,o,{
+(480,0,o,{
 name = inserted;
 }),
-(508,0,o),
-(263,0,q),
-(263,0,l),
-(34,0,o),
-(34,0,o),
-(34,294,q),
-(34,1138,l),
-(34,1432,o),
-(34,1432,o),
-(263,1432,q),
-(263,1432,l),
-(508,1432,o),
-(508,1432,o,{
+(480,0,o),
+(249,0,q),
+(249,0,l),
+(33,0,o),
+(33,0,o),
+(33,294,q),
+(33,1138,l),
+(33,1432,o),
+(33,1432,o),
+(249,1432,q),
+(249,1432,l),
+(480,1432,o),
+(480,1432,o,{
 name = inserted;
 }),
-(508,1138,q),
-(508,294,l)
+(480,1138,q),
+(480,294,l)
 );
 }
 );
@@ -59,7 +60,7 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
 };
-width = 541;
+width = 513;
 },
 {
 anchors = (
@@ -403,5 +404,7 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
 width = 686;
 }
 );
+metricLeft = H;
+metricRight = H;
 unicode = 73;
 }

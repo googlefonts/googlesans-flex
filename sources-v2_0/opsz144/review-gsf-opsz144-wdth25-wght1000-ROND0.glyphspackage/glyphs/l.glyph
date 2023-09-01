@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = l;
 kernLeft = h_left;
 layers = (
@@ -6,25 +7,25 @@ layers = (
 anchors = (
 {
 name = bottom;
-pos = (228,0);
+pos = (226,0);
 },
 {
 name = center;
-pos = (227,716);
+pos = (225,716);
 },
 {
 name = top;
-pos = (228,1432);
+pos = (226,1432);
 },
 {
 name = topright;
-pos = (586,1020);
+pos = (584,1020);
 }
 );
 guides = (
 {
 angle = 90;
-pos = (289,0);
+pos = (287,0);
 userData = {
 UFO.identifier = toqp9HRCaU;
 };
@@ -35,30 +36,30 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(427,0,o,{
+(423,0,o,{
 name = inserted;
 }),
-(427,0,o),
-(226,0,q),
-(226,0,l),
+(423,0,o),
+(224,0,q),
+(224,0,l),
 (28,0,o),
 (28,0,o),
 (28,241,q),
 (28,1191,l),
 (28,1432,o),
 (28,1432,o),
-(227,1432,q),
-(227,1432,l),
-(427,1432,o),
-(427,1432,o,{
+(225,1432,q),
+(225,1432,l),
+(423,1432,o),
+(423,1432,o,{
 name = inserted;
 }),
-(427,1191,q),
-(427,241,l)
+(423,1191,q),
+(423,241,l)
 );
 }
 );
-width = 456;
+width = 451;
 },
 {
 anchors = (
@@ -414,5 +415,7 @@ name = inserted;
 width = 578;
 }
 );
+metricLeft = n;
+metricRight = "=|n";
 unicode = 108;
 }

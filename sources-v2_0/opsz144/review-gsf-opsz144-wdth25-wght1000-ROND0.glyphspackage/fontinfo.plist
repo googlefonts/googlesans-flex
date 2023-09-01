@@ -1116,46 +1116,6 @@ value = -320;
 );
 guides = (
 {
-name = "diacritics-b";
-pos = (274,1122);
-userData = {
-UFO.color = "0.99183,0,0.86166,1";
-UFO.identifier = 0fT04FcBhT;
-};
-},
-{
-name = "diacritics-t";
-pos = (685,1482);
-userData = {
-UFO.color = "0.99183,0,0.86166,1";
-UFO.identifier = 8v8QdjAvjD;
-};
-},
-{
-name = "numerators-ost";
-pos = (723,1442);
-userData = {
-UFO.color = "0.25208,0.92329,1,1";
-UFO.identifier = 1Jkwqz9ARu;
-};
-},
-{
-name = "numerator-osb";
-pos = (732,675);
-userData = {
-UFO.color = "0.25208,0.92329,1,1";
-UFO.identifier = 9Sr9N8Eh5A;
-};
-},
-{
-name = "numerator-b";
-pos = (398,685);
-userData = {
-UFO.color = "0.25208,0.92329,1,1";
-UFO.identifier = rDGJXHocG9;
-};
-},
-{
 locked = 1;
 name = "overshoot-bottom";
 pos = (9,-22);
@@ -1164,6 +1124,10 @@ pos = (9,-22);
 locked = 1;
 name = "overshoot-top-lc";
 pos = (238,1042);
+},
+{
+locked = 1;
+pos = (49,1454);
 }
 );
 id = m001;
@@ -13889,16 +13853,20 @@ value = "Google Sans is a trademark of Google.";
 }
 );
 settings = {
-disablesAutomaticAlignment = 1;
 disablesNiceNames = 1;
 };
 unitsPerEm = 2000;
 userData = {
 GSDimensionPlugin.Dimensions = {
 m001 = {
-nV = "420";
-oH = "415";
-oV = "430";
+HH = "440";
+HV = "446";
+OH = "460";
+OV = "474";
+nV = "395";
+oH = "385";
+oV = "408";
+tH = "390";
 };
 };
 UFO.lib = {
