@@ -1,5 +1,5 @@
 {
-.appVersion = "3214";
+.appVersion = "3215";
 .formatVersion = 3;
 axes = (
 {
@@ -1429,6 +1429,16 @@ pos = (782,674);
 {
 name = "numerator-base";
 pos = (261,684);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (1369,1054);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (1369,-34);
 }
 );
 id = "24F9F4B4-D0E2-4556-A687-664485485925";
@@ -1437,12 +1447,15 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 34;
 pos = 1432;
 },
 {
+over = 34;
 pos = 1020;
 },
 {
+over = -34;
 },
 {
 pos = -432;
@@ -1459,6 +1472,7 @@ pos = -432;
 }
 );
 name = "opsz144-wdth151-wght1-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1543,13 +1557,15 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 38;
 pos = 1432;
 },
 {
+over = 38;
 pos = 1020;
 },
 {
-over = -16;
+over = -38;
 },
 {
 pos = -432;
@@ -1677,6 +1693,7 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 44;
 pos = 1432;
 },
 {
@@ -1701,6 +1718,7 @@ pos = -432;
 }
 );
 name = "opsz144-wdth151-wght1000-Ital0-Rond0-Grad0";
+visible = 1;
 }
 );
 instances = (
@@ -1928,11 +1946,21 @@ disablesNiceNames = 1;
 unitsPerEm = 2000;
 userData = {
 GSDimensionPlugin.Dimensions = {
+"24F9F4B4-D0E2-4556-A687-664485485925" = {
+HH = "9";
+HV = "10";
+};
+"44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31" = {
+HV = "850";
+};
 "733112D2-2833-4B86-B7ED-934B97F7C918" = {
 HV = "590";
 nV = "506";
 oH = "414";
 oV = "439";
+};
+"D4025A93-B215-454F-9D60-B6448166D546" = {
+nV = "146";
 };
 };
 GSDontShowVersionAlert = 1;
