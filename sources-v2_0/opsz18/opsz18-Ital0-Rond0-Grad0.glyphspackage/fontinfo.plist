@@ -1008,6 +1008,10 @@ value = "175";
 {
 name = paramDepth;
 value = "12";
+},
+{
+name = paramOver;
+value = 0;
 }
 );
 guides = (
@@ -1302,7 +1306,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1482,6 +1485,18 @@ value = 168;
 {
 name = underlinePosition;
 value = -320;
+},
+{
+name = paramArea;
+value = 530;
+},
+{
+name = paramDepth;
+value = 16;
+},
+{
+name = paramOver;
+value = 0;
 }
 );
 guides = (
@@ -1730,6 +1745,18 @@ value = 168;
 {
 name = underlinePosition;
 value = -320;
+},
+{
+name = paramArea;
+value = 390;
+},
+{
+name = paramDepth;
+value = 16;
+},
+{
+name = paramOver;
+value = 0;
 }
 );
 guides = (
@@ -1737,7 +1764,8 @@ guides = (
 pos = (1092,1446);
 },
 {
-pos = (576,551);
+pos = (618,540);
+showMeasurement = 1;
 },
 {
 pos = (766,573);
@@ -1784,272 +1812,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-0,
-0,
-1,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-}
-);
-guides = (
-{
-pos = (325,576);
-},
-{
-pos = (308,566);
-},
-{
-pos = (127,1448);
-},
-{
-pos = (127,1432);
-},
-{
-pos = (31,0);
-},
-{
-pos = (-9,-10);
-},
-{
-pos = (47,1036);
-},
-{
-pos = (76,856);
-},
-{
-pos = (76,866);
-},
-{
-pos = (213,-417);
-},
-{
-pos = (213,-407);
-},
-{
-pos = (20,186);
-showMeasurement = 1;
-},
-{
-pos = (65,1876);
-},
-{
-pos = (98,1226);
-showMeasurement = 1;
-},
-{
-pos = (15,1460);
-},
-{
-pos = (-9,-16);
-}
-);
-id = "2B0BF085-F989-4EBC-AD2D-3BA663661F50";
-metricValues = (
-{
-over = 16;
-pos = 1432;
-},
-{
-over = 16;
-pos = 1432;
-},
-{
-over = 16;
-pos = 1020;
-},
-{
-over = -16;
-},
-{
-over = -16;
-pos = -432;
-},
-{
-over = -16;
-},
-{
-over = 16;
-pos = 510;
-},
-{
-over = 16;
-pos = 580;
-},
-{
-over = 16;
-pos = 716;
-},
-{
-over = -16;
-pos = -216;
-}
-);
-name = "opsz18-wdth25-wght1-Ital0-Rond0-Grad0-ORIGINAL";
-},
-{
-axesValues = (
-0,
-0,
-1000,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-}
-);
-guides = (
-{
-pos = (486,1456);
-},
-{
-pos = (489,562);
-},
-{
-pos = (1019,574);
-}
-);
-id = "AB5DCE49-2EEC-4D72-9874-C95825222D2E";
-metricValues = (
-{
-over = 24;
-pos = 1432;
-},
-{
-over = 24;
-pos = 1432;
-},
-{
-over = 24;
-pos = 1020;
-},
-{
-over = -24;
-},
-{
-over = -24;
-pos = -432;
-},
-{
-},
-{
-over = 24;
-pos = 510;
-},
-{
-over = 24;
-pos = 580;
-},
-{
-over = 24;
-pos = 716;
-},
-{
-over = -24;
-pos = -216;
-}
-);
-name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0-ORIGINAL";
 }
 );
 instances = (
@@ -2179,7 +1941,6 @@ axesValues = (
 0,
 0
 );
-exports = 0;
 instanceInterpolations = {
 "82EDAE61-C337-4E57-86ED-8ABB62F5EE04" = 1;
 };
@@ -2312,7 +2073,25 @@ oH = "27";
 oV = "28";
 tH = "27";
 };
+"6F2368DB-63B6-430D-B9CD-08A6184CB9E7" = {
+HH = "28";
+HV = "30";
+OH = "28";
+OV = "32";
+nV = "28";
+oH = "28";
+oV = "28";
+tH = "27";
+};
 "82EDAE61-C337-4E57-86ED-8ABB62F5EE04" = {
+HH = "412";
+HV = "480";
+OH = "415";
+OV = "500";
+nV = "474";
+oH = "358";
+oV = "478";
+tH = "326";
 };
 };
 UFO.lib = {
