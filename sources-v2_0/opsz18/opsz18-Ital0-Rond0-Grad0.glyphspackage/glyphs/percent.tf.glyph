@@ -274,6 +274,41 @@ ref = percentbar.tf;
 }
 );
 width = 3080;
+},
+{
+layerId = "59C106D9-34D8-4EDF-9467-5A22D3D96ECF";
+shapes = (
+{
+alignment = -1;
+pos = (-21,40);
+ref = zero.dnom.percent;
+userData = {
+UFO.identifier = component0;
+UFO.lib = {
+};
+};
+},
+{
+alignment = -1;
+pos = (886,-735);
+ref = zero.dnom.percent;
+userData = {
+UFO.identifier = component1;
+UFO.lib = {
+};
+};
+},
+{
+alignment = -1;
+ref = percentbar.tf;
+userData = {
+UFO.identifier = 51AFA6CF;
+UFO.lib = {
+};
+};
+}
+);
+width = 2112;
 }
 );
 }

@@ -1,5 +1,4 @@
 {
-color = 1;
 glyphname = Q;
 kernLeft = O_left;
 kernRight = O_right;
@@ -1020,6 +1019,35 @@ ref = _tail.Q;
 }
 );
 width = 1640;
+},
+{
+anchors = (
+{
+name = bottom;
+pos = (1225,0);
+},
+{
+name = top;
+pos = (1225,1432);
+}
+);
+layerId = "59C106D9-34D8-4EDF-9467-5A22D3D96ECF";
+shapes = (
+{
+alignment = -1;
+ref = O;
+},
+{
+alignment = -1;
+pos = (15,0);
+ref = _tail.Q;
+}
+);
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = O;
+com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = O;
+};
+width = 2481;
 }
 );
 unicode = 81;

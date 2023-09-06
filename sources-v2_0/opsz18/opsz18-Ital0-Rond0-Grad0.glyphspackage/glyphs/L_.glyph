@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = L;
 kernLeft = H_left;
 kernRight = L_right;
@@ -641,6 +642,67 @@ name = inserted;
 }
 );
 width = 1254;
+},
+{
+anchors = (
+{
+name = bottom;
+pos = (925,0);
+},
+{
+name = center;
+pos = (431,726);
+},
+{
+name = top;
+pos = (308,1432);
+},
+{
+name = topright;
+pos = (1084,1020);
+}
+);
+layerId = "59C106D9-34D8-4EDF-9467-5A22D3D96ECF";
+shapes = (
+{
+closed = 1;
+nodes = (
+(1527,0,l),
+(1619,0,o,{
+name = inserted;
+}),
+(1619,0,o,{
+name = inserted;
+}),
+(1619,77,q),
+(1619,77,l),
+(1619,156,o),
+(1619,156,o),
+(1527,156,q),
+(392,156,l),
+(392,1336,l),
+(392,1432,o,{
+name = inserted;
+}),
+(392,1432,o,{
+name = inserted;
+}),
+(308,1432,q),
+(308,1432,l),
+(222,1432,o),
+(222,1432,o),
+(222,1336,q),
+(222,86,l),
+(222,0,o),
+(223,0,o),
+(308,0,q)
+);
+}
+);
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
+};
+width = 1704;
 }
 );
 unicode = 76;

@@ -1,5 +1,4 @@
 {
-color = 1;
 glyphname = i;
 kernLeft = i_left;
 layers = (
@@ -655,6 +654,33 @@ ref = dotaccentcomb;
 }
 );
 width = 698;
+},
+{
+anchors = (
+{
+name = bottom;
+pos = (306,0);
+},
+{
+name = ogonek;
+pos = (394,0);
+},
+{
+name = top;
+pos = (308,1440);
+}
+);
+layerId = "59C106D9-34D8-4EDF-9467-5A22D3D96ECF";
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (277,0);
+ref = dotaccentcomb;
+}
+);
+width = 553;
 }
 );
 unicode = 105;
