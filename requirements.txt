@@ -27,13 +27,13 @@ axisregistry==0.4.0
     #   gftools
 babelfont==3.0.0
     # via
+    #   collidoscope
     #   gftools
     #   glyphtools
 beautifulsoup4==4.12.0
     # via fontbakery
 beziers==0.5.0
     # via
-    #   collidoscope
     #   fontbakery
     #   fontfeatures
     #   glyphtools
@@ -144,6 +144,7 @@ fonttools[lxml,ufo,unicode]==4.39.3
     #   glyphsets
     #   glyphslib
     #   hyperglot
+    #   kurbopy
     #   matplotlib
     #   nanoemoji
     #   statmake
@@ -167,7 +168,7 @@ gftools[qa]==0.9.27
     # via -r requirements.in
 gitdb==4.0.10
     # via gitpython
-gitpython==3.1.31
+gitpython==3.1.34
     # via font-v
 glyphsets==0.6.0
     # via
@@ -200,6 +201,8 @@ jinja2==3.1.2
     #   gftools
 kiwisolver==1.4.4
     # via matplotlib
+kurbopy==0.9.0
+    # via collidoscope
 lxml==4.9.2
     # via
     #   fontbakery
@@ -418,8 +421,6 @@ youseedee==0.3.0
     # via diffenator2
 zopfli==0.2.2
     # via nanoemoji
-
-kurbopy==0.9.0
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
