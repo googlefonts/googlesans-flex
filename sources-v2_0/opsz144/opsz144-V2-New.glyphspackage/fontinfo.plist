@@ -706,11 +706,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = 200;
 },
 {
 name = paramDepth;
-value = 10;
+value = 14;
 }
 );
 id = m001;
@@ -719,13 +719,15 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 12;
 pos = 1432;
 },
 {
+over = 12;
 pos = 1020;
 },
 {
-over = -16;
+over = -12;
 },
 {
 pos = -432;
@@ -835,6 +837,10 @@ pos = (160,679);
 {
 name = "numerator-ost";
 pos = (436,1438);
+},
+{
+angle = 180;
+pos = (223,890);
 }
 );
 id = "01856C8F-DF22-4242-84EC-D0E09743B379";
@@ -843,13 +849,15 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 14;
 pos = 1432;
 },
 {
+over = 14;
 pos = 1020;
 },
 {
-over = -16;
+over = -14;
 },
 {
 pos = -432;
@@ -858,19 +866,15 @@ pos = -432;
 over = -16;
 },
 {
-over = 16;
 pos = 510;
 },
 {
-over = 16;
 pos = 580;
 },
 {
-over = 16;
 pos = 716;
 },
 {
-over = -16;
 pos = -216;
 }
 );
@@ -879,8 +883,8 @@ name = "opsz144-wdth25-wght400-Ital0-Rond0-Grad0";
 {
 axesValues = (
 144,
-1000,
 25,
+1000,
 0,
 0,
 0
@@ -933,6 +937,14 @@ value = 168;
 {
 name = underlinePosition;
 value = -320;
+},
+{
+name = paramArea;
+value = 400;
+},
+{
+name = paramDepth;
+value = 10;
 }
 );
 guides = (
@@ -957,13 +969,15 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 22;
 pos = 1432;
 },
 {
+over = 22;
 pos = 1020;
 },
 {
-over = -16;
+over = -22;
 },
 {
 pos = -432;
@@ -1948,8 +1962,7 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"01856C8F-DF22-4242-84EC-D0E09743B379" = 0.00166;
-"9BDCF2A8-945E-440F-82D9-208F3BD99FE0" = 0.99834;
+"8F69D9BF-EE35-44AA-BD6F-D41841F9764C" = 1;
 };
 name = "opsz144-wdth25-wght1000-Ital0-Rond0-Grad0";
 },
@@ -3660,6 +3673,11 @@ disablesNiceNames = 1;
 unitsPerEm = 2000;
 userData = {
 GSDimensionPlugin.Dimensions = {
+"01856C8F-DF22-4242-84EC-D0E09743B379" = {
+nV = "134";
+oH = "132";
+oV = "134";
+};
 "24F9F4B4-D0E2-4556-A687-664485485925" = {
 HH = "9";
 HV = "10";
