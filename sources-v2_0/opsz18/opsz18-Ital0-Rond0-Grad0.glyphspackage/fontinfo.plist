@@ -1,5 +1,5 @@
 {
-.appVersion = "3215";
+.appVersion = "3217";
 .formatVersion = 3;
 axes = (
 {
@@ -1371,19 +1371,39 @@ guides = (
 pos = (557,565);
 },
 {
-pos = (773,1455);
+angle = 180;
+pos = (147,1464);
 },
 {
-pos = (516,573);
+pos = (253,956);
+showMeasurement = 1;
 },
 {
 pos = (557,565);
 },
 {
-pos = (773,1455);
+pos = (408,510);
+showMeasurement = 1;
 },
 {
-pos = (516,573);
+angle = 180;
+pos = (147,1432);
+},
+{
+angle = 180;
+pos = (147,0);
+},
+{
+angle = 180;
+pos = (147,-32);
+},
+{
+angle = 180;
+pos = (147,1052);
+},
+{
+angle = 180;
+pos = (147,1020);
 }
 );
 id = "3FE559C8-92B2-4945-98E1-957E28CC3242";
@@ -1812,6 +1832,280 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+0,
+80,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = "175";
+},
+{
+name = paramDepth;
+value = "12";
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+pos = (286,1432);
+},
+{
+pos = (489,562);
+},
+{
+pos = (1007,461);
+showMeasurement = 1;
+},
+{
+pos = (286,1456);
+},
+{
+pos = (286,1020);
+},
+{
+pos = (286,1044);
+},
+{
+pos = (286,1432);
+},
+{
+pos = (286,1456);
+}
+);
+id = "06F43A2B-FC69-4951-8075-62840BDECA33";
+metricValues = (
+{
+over = 30;
+pos = 1432;
+},
+{
+over = 30;
+pos = 1432;
+},
+{
+over = 30;
+pos = 1020;
+},
+{
+over = -30;
+},
+{
+over = -30;
+pos = -432;
+},
+{
+},
+{
+over = 30;
+pos = 510;
+},
+{
+over = 30;
+pos = 580;
+},
+{
+over = 30;
+pos = 716;
+},
+{
+over = -30;
+pos = -216;
+}
+);
+name = "opsz18-100-1000-interpolada";
+},
+{
+axesValues = (
+0,
+100,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+}
+);
+guides = (
+{
+pos = (557,565);
+},
+{
+angle = 180;
+pos = (147,1464);
+},
+{
+pos = (516,573);
+},
+{
+pos = (557,565);
+},
+{
+pos = (773,1455);
+},
+{
+pos = (516,573);
+},
+{
+angle = 180;
+pos = (147,1432);
+},
+{
+angle = 180;
+pos = (147,0);
+},
+{
+angle = 180;
+pos = (147,-32);
+}
+);
+id = "F279BE48-A950-4D00-8AEF-D05103F867ED";
+metricValues = (
+{
+over = 32;
+pos = 1432;
+},
+{
+over = 32;
+pos = 1432;
+},
+{
+over = 32;
+pos = 1020;
+},
+{
+over = -32;
+},
+{
+over = -32;
+pos = -432;
+},
+{
+},
+{
+over = 32;
+pos = 510;
+},
+{
+over = 32;
+pos = 580;
+},
+{
+over = 32;
+pos = 716;
+},
+{
+over = -32;
+pos = -216;
+}
+);
+name = "opsz18-100-1000-ORIGINAL";
 }
 );
 instances = (
@@ -1828,6 +2122,7 @@ instanceInterpolations = {
 "6F2368DB-63B6-430D-B9CD-08A6184CB9E7" = 1;
 };
 name = "opsz18-wdth25-wght1-Ital0-Rond0-Grad0";
+visible = 0;
 },
 {
 axesValues = (
@@ -1843,6 +2138,7 @@ instanceInterpolations = {
 "F6F68A98-DCEF-4963-8274-BBC8AF17E072" = 1;
 };
 name = "opsz18-wdth25-wght400-Ital0-Rond0-Grad0";
+visible = 0;
 },
 {
 axesValues = (
@@ -1872,6 +2168,7 @@ instanceInterpolations = {
 "2AD89F5A-D51E-448D-8643-C2A32E07200C" = 1;
 };
 name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
+visible = 0;
 },
 {
 axesValues = (
@@ -1887,6 +2184,7 @@ instanceInterpolations = {
 m001 = 1;
 };
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
+visible = 0;
 },
 {
 axesValues = (
@@ -1916,6 +2214,7 @@ instanceInterpolations = {
 "0021AA3E-33E2-4F1E-9FD6-8297B68C23E5" = 1;
 };
 name = "opsz18-wdth151-wght1-Ital0-Rond0-Grad0";
+visible = 0;
 },
 {
 axesValues = (
@@ -1931,6 +2230,7 @@ instanceInterpolations = {
 "A54C7893-B668-445E-87CD-B719012B931B" = 1;
 };
 name = "opsz18-wdth151-wght400-Ital0-Rond0-Grad0";
+visible = 0;
 },
 {
 axesValues = (
@@ -2072,6 +2372,16 @@ nV = "28";
 oH = "27";
 oV = "28";
 tH = "27";
+};
+"3FE559C8-92B2-4945-98E1-957E28CC3242" = {
+HH = "444";
+HV = "480";
+OH = "468";
+OV = "480";
+nV = "474";
+oH = "384";
+oV = "456";
+tH = "328";
 };
 "6F2368DB-63B6-430D-B9CD-08A6184CB9E7" = {
 HH = "28";
