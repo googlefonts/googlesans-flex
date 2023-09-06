@@ -430,6 +430,57 @@ name = inserted;
 }
 );
 width = 897;
+},
+{
+anchors = (
+{
+name = bottom;
+pos = (233,0);
+},
+{
+name = ogonek;
+pos = (434,0);
+},
+{
+name = top;
+pos = (233,1020);
+}
+);
+guides = (
+{
+angle = 90;
+pos = (288,1153);
+}
+);
+layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(32,776,l),
+(32,1020,o),
+(32,1020,o),
+(233,1020,q),
+(233,1020,l),
+(434,1020,o),
+(434,1020,o,{
+name = inserted;
+}),
+(434,776,q),
+(434,244,l),
+(434,0,o,{
+name = inserted;
+}),
+(434,0,o),
+(227,0,q),
+(227,0,l),
+(32,0,o),
+(32,0,o),
+(32,244,q)
+);
+}
+);
+width = 466;
 }
 );
 unicode = 305;
