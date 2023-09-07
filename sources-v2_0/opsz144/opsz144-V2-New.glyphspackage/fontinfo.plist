@@ -713,6 +713,11 @@ name = paramDepth;
 value = 14;
 }
 );
+guides = (
+{
+pos = (140,-432);
+}
+);
 id = m001;
 metricValues = (
 {
@@ -814,11 +819,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = 120;
 },
 {
 name = paramDepth;
-value = 10;
+value = 14;
 }
 );
 guides = (
@@ -879,6 +884,10 @@ pos = -216;
 }
 );
 name = "opsz144-wdth25-wght400-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerMasterRules = {
+};
+};
 },
 {
 axesValues = (
@@ -961,6 +970,9 @@ pos = (238,1042);
 {
 locked = 1;
 pos = (49,1454);
+},
+{
+pos = (220,-432);
 }
 );
 id = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
@@ -1003,134 +1015,6 @@ pos = -216;
 }
 );
 name = "opsz144-wdth25-wght1000-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-25,
-1001,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 400;
-},
-{
-name = paramDepth;
-value = 10;
-}
-);
-guides = (
-{
-name = "diacritics-b";
-pos = (274,1122);
-},
-{
-name = "diacritics-t";
-pos = (685,1482);
-},
-{
-name = "numerators-ost";
-pos = (723,1442);
-},
-{
-name = "numerator-osb";
-pos = (732,675);
-},
-{
-name = "numerator-b";
-pos = (398,685);
-}
-);
-id = "9BDCF2A8-945E-440F-82D9-208F3BD99FE0";
-metricValues = (
-{
-pos = 1432;
-},
-{
-pos = 1432;
-},
-{
-pos = 1020;
-},
-{
-over = -16;
-},
-{
-pos = -432;
-},
-{
-over = -16;
-},
-{
-over = 16;
-pos = 510;
-},
-{
-over = 16;
-pos = 580;
-},
-{
-over = 16;
-pos = 716;
-},
-{
-over = -16;
-pos = -216;
-}
-);
-name = "opsz144-wdth25-wght1001-Ital0-Rond0-Grad0 OLD VERSION";
 },
 {
 axesValues = (
@@ -1192,7 +1076,7 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = 340;
 },
 {
 name = paramDepth;
@@ -1242,13 +1126,15 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 26;
 pos = 1432;
 },
 {
+over = 26;
 pos = 1020;
 },
 {
-over = -16;
+over = -26;
 },
 {
 pos = -432;
@@ -1335,11 +1221,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = 320;
 },
 {
 name = paramDepth;
-value = 10;
+value = 16;
 }
 );
 guides = (
@@ -1358,34 +1244,33 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 28;
 pos = 1432;
 },
 {
+over = 28;
 pos = 1020;
 },
 {
-over = -16;
+over = -28;
 },
 {
+over = -28;
 pos = -432;
 },
 {
 over = -16;
 },
 {
-over = 16;
 pos = 510;
 },
 {
-over = 16;
 pos = 580;
 },
 {
-over = 16;
 pos = 716;
 },
 {
-over = -16;
 pos = -216;
 }
 );
@@ -1507,12 +1392,15 @@ metricValues = (
 pos = 1432;
 },
 {
+over = 32;
 pos = 1432;
 },
 {
+over = 32;
 pos = 1020;
 },
 {
+over = -32;
 },
 {
 pos = -432;
@@ -1642,6 +1530,7 @@ pos = 1020;
 over = -34;
 },
 {
+over = -34;
 pos = -432;
 },
 {
@@ -1759,6 +1648,7 @@ pos = 1020;
 over = -38;
 },
 {
+over = -38;
 pos = -432;
 },
 {
@@ -1903,6 +1793,7 @@ pos = 1020;
 over = -44;
 },
 {
+over = -44;
 pos = -432;
 },
 {
@@ -1921,6 +1812,134 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
+},
+{
+axesValues = (
+144,
+25,
+1001,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 400;
+},
+{
+name = paramDepth;
+value = 10;
+}
+);
+guides = (
+{
+name = "diacritics-b";
+pos = (274,1122);
+},
+{
+name = "diacritics-t";
+pos = (685,1482);
+},
+{
+name = "numerators-ost";
+pos = (723,1442);
+},
+{
+name = "numerator-osb";
+pos = (732,675);
+},
+{
+name = "numerator-b";
+pos = (398,685);
+}
+);
+id = "9BDCF2A8-945E-440F-82D9-208F3BD99FE0";
+metricValues = (
+{
+pos = 1432;
+},
+{
+pos = 1432;
+},
+{
+pos = 1020;
+},
+{
+over = -16;
+},
+{
+pos = -432;
+},
+{
+over = -16;
+},
+{
+over = 16;
+pos = 510;
+},
+{
+over = 16;
+pos = 580;
+},
+{
+over = 16;
+pos = 716;
+},
+{
+over = -16;
+pos = -216;
+}
+);
+name = "OLD VERSION opsz144-wdth25-wght1001-Ital0-Rond0-Grad0 ";
 }
 );
 instances = (
@@ -3674,6 +3693,8 @@ unitsPerEm = 2000;
 userData = {
 GSDimensionPlugin.Dimensions = {
 "01856C8F-DF22-4242-84EC-D0E09743B379" = {
+HH = "140";
+HV = "136";
 nV = "134";
 oH = "132";
 oV = "134";
@@ -3685,6 +3706,11 @@ HV = "10";
 "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31" = {
 HV = "850";
 nV = "738";
+};
+"67F07427-87DC-4334-BF93-D84D1ECDAAB8" = {
+nV = "142";
+oH = "136";
+oV = "146";
 };
 "733112D2-2833-4B86-B7ED-934B97F7C918" = {
 HV = "590";
