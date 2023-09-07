@@ -722,7 +722,7 @@ pos = (325,576);
 pos = (308,566);
 },
 {
-pos = (127,1448);
+pos = (128,1448);
 },
 {
 pos = (127,1432);
@@ -749,7 +749,7 @@ pos = (213,-417);
 pos = (213,-407);
 },
 {
-pos = (20,186);
+pos = (20,326);
 showMeasurement = 1;
 },
 {
@@ -766,7 +766,7 @@ pos = (15,1460);
 pos = (-9,-16);
 },
 {
-angle = 196.7786;
+angle = 16.7786;
 pos = (89,242);
 },
 {
@@ -778,7 +778,7 @@ angle = 163.2214;
 pos = (506,463);
 }
 );
-id = "6F2368DB-63B6-430D-B9CD-08A6184CB9E7";
+id = "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F";
 metricValues = (
 {
 over = 16;
@@ -878,6 +878,14 @@ value = 168;
 {
 name = underlinePosition;
 value = -320;
+},
+{
+name = paramArea;
+value = "205";
+},
+{
+name = paramDepth;
+value = "12";
 }
 );
 guides = (
@@ -889,7 +897,7 @@ name = undershoot;
 pos = (450,573);
 },
 {
-pos = (-106,1472);
+pos = (-106,1448);
 },
 {
 pos = (409,560);
@@ -901,24 +909,32 @@ pos = (358,1432);
 pos = (41,0);
 },
 {
-pos = (41,-13);
+pos = (41,-16);
 },
 {
-pos = (266,859);
+pos = (266,1020);
 },
 {
-pos = (266,872);
+pos = (266,1036);
 },
 {
 pos = (-152,1228);
 },
 {
 angle = 15.843;
-pos = (624,1136);
+pos = (192,283);
 },
 {
 angle = -15.843;
-pos = (624,306);
+pos = (326,307);
+},
+{
+angle = 15.843;
+pos = (513,798);
+},
+{
+pos = (352,223);
+showMeasurement = 1;
 }
 );
 id = "F6F68A98-DCEF-4963-8274-BBC8AF17E072";
@@ -1066,7 +1082,7 @@ pos = (884,769);
 },
 {
 angle = 167.6979;
-pos = (609,445);
+pos = (599,370);
 },
 {
 angle = 192.3021;
@@ -1172,6 +1188,14 @@ value = 168;
 {
 name = underlinePosition;
 value = -320;
+},
+{
+name = paramArea;
+value = 400;
+},
+{
+name = paramDepth;
+value = 10;
 }
 );
 guides = (
@@ -1287,6 +1311,14 @@ value = 168;
 {
 name = underlinePosition;
 value = -320;
+},
+{
+name = paramArea;
+value = 400;
+},
+{
+name = paramDepth;
+value = 10;
 }
 );
 guides = (
@@ -1396,6 +1428,14 @@ value = 168;
 {
 name = underlinePosition;
 value = -320;
+},
+{
+name = paramArea;
+value = 400;
+},
+{
+name = paramDepth;
+value = 10;
 }
 );
 guides = (
@@ -1688,11 +1728,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 530;
+value = 540;
 },
 {
 name = paramDepth;
-value = 16;
+value = 18;
 },
 {
 name = paramOver;
@@ -1779,6 +1819,10 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght400-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerMasterRules = {
+};
+};
 },
 {
 axesValues = (
@@ -1904,392 +1948,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-0,
-151,
-400,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-}
-);
-guides = (
-{
-pos = (822,1469);
-},
-{
-pos = (821,559);
-},
-{
-pos = (729,573);
-}
-);
-id = "A54C7893-B668-445E-87CD-B719012B931B";
-metricValues = (
-{
-over = 37;
-pos = 1432;
-},
-{
-over = 37;
-pos = 1432;
-},
-{
-over = 37;
-pos = 1020;
-},
-{
-over = -37;
-},
-{
-over = -37;
-pos = -432;
-},
-{
-},
-{
-over = 37;
-pos = 510;
-},
-{
-over = 37;
-pos = 580;
-},
-{
-over = 37;
-pos = 716;
-},
-{
-over = -37;
-pos = -216;
-}
-);
-name = "opsz18-151-400-ORIGINAL";
-},
-{
-axesValues = (
-0,
-80,
-1000,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = "175";
-},
-{
-name = paramDepth;
-value = "12";
-},
-{
-name = paramOver;
-value = 0;
-}
-);
-guides = (
-{
-pos = (286,1432);
-},
-{
-pos = (489,562);
-},
-{
-pos = (1007,461);
-showMeasurement = 1;
-},
-{
-pos = (286,1456);
-},
-{
-pos = (286,1020);
-},
-{
-pos = (286,1044);
-},
-{
-pos = (286,1432);
-},
-{
-pos = (286,1456);
-}
-);
-id = "06F43A2B-FC69-4951-8075-62840BDECA33";
-metricValues = (
-{
-over = 30;
-pos = 1432;
-},
-{
-over = 30;
-pos = 1432;
-},
-{
-over = 30;
-pos = 1020;
-},
-{
-over = -30;
-},
-{
-over = -30;
-pos = -432;
-},
-{
-},
-{
-over = 30;
-pos = 510;
-},
-{
-over = 30;
-pos = 580;
-},
-{
-over = 30;
-pos = 716;
-},
-{
-over = -30;
-pos = -216;
-}
-);
-name = "opsz18-100-1000-interpolada";
-},
-{
-axesValues = (
-0,
-100,
-1000,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-}
-);
-guides = (
-{
-pos = (557,565);
-},
-{
-angle = 180;
-pos = (147,1464);
-},
-{
-pos = (516,573);
-},
-{
-pos = (557,565);
-},
-{
-pos = (773,1455);
-},
-{
-pos = (516,573);
-},
-{
-angle = 180;
-pos = (147,1432);
-},
-{
-angle = 180;
-pos = (147,0);
-},
-{
-angle = 180;
-pos = (147,-32);
-}
-);
-id = "F279BE48-A950-4D00-8AEF-D05103F867ED";
-metricValues = (
-{
-over = 32;
-pos = 1432;
-},
-{
-over = 32;
-pos = 1432;
-},
-{
-over = 32;
-pos = 1020;
-},
-{
-over = -32;
-},
-{
-over = -32;
-pos = -432;
-},
-{
-},
-{
-over = 32;
-pos = 510;
-},
-{
-over = 32;
-pos = 580;
-},
-{
-over = 32;
-pos = 716;
-},
-{
-over = -32;
-pos = -216;
-}
-);
-name = "opsz18-100-1000-ORIGINAL";
 }
 );
 instances = (
@@ -2303,10 +1961,9 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"6F2368DB-63B6-430D-B9CD-08A6184CB9E7" = 1;
+"2D6FF8E8-DE2B-49DD-9A84-B928AA35427F" = 1;
 };
 name = "opsz18-wdth25-wght1-Ital0-Rond0-Grad0";
-visible = 0;
 },
 {
 axesValues = (
@@ -2317,12 +1974,10 @@ axesValues = (
 0,
 0
 );
-exports = 0;
 instanceInterpolations = {
 "F6F68A98-DCEF-4963-8274-BBC8AF17E072" = 1;
 };
 name = "opsz18-wdth25-wght400-Ital0-Rond0-Grad0";
-visible = 0;
 },
 {
 axesValues = (
@@ -2336,7 +1991,7 @@ axesValues = (
 instanceInterpolations = {
 "0B6E8B28-0A6B-4789-81CC-53B6E98EF6CB" = 1;
 };
-name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0-DEF";
+name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
@@ -2352,7 +2007,6 @@ instanceInterpolations = {
 "2AD89F5A-D51E-448D-8643-C2A32E07200C" = 1;
 };
 name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
-visible = 0;
 },
 {
 axesValues = (
@@ -2368,7 +2022,6 @@ instanceInterpolations = {
 m001 = 1;
 };
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
-visible = 0;
 },
 {
 axesValues = (
@@ -2398,7 +2051,6 @@ instanceInterpolations = {
 "0021AA3E-33E2-4F1E-9FD6-8297B68C23E5" = 1;
 };
 name = "opsz18-wdth151-wght1-Ital0-Rond0-Grad0";
-visible = 0;
 },
 {
 axesValues = (
@@ -2409,12 +2061,10 @@ axesValues = (
 0,
 0
 );
-exports = 0;
 instanceInterpolations = {
 "59C106D9-34D8-4EDF-9467-5A22D3D96ECF" = 1;
 };
 name = "opsz18-wdth151-wght400-Ital0-Rond0-Grad0";
-visible = 0;
 },
 {
 axesValues = (
@@ -2563,6 +2213,16 @@ oH = "27";
 oV = "28";
 tH = "27";
 };
+"2D6FF8E8-DE2B-49DD-9A84-B928AA35427F" = {
+HH = "28";
+HV = "30";
+OH = "28";
+OV = "32";
+nV = "28";
+oH = "27";
+oV = "28";
+tH = "27";
+};
 "3FE559C8-92B2-4945-98E1-957E28CC3242" = {
 HH = "444";
 HV = "480";
@@ -2602,6 +2262,15 @@ nV = "474";
 oH = "358";
 oV = "478";
 tH = "326";
+};
+"F6F68A98-DCEF-4963-8274-BBC8AF17E072" = {
+HH = "146";
+HV = "156";
+OH = "148";
+OV = "160";
+nV = "150";
+oH = "140";
+oV = "152";
 };
 };
 UFO.lib = {
@@ -2773,6 +2442,174 @@ zerowidthspace = uni200B;
 };
 UFOFormat = 3;
 UFOLayerName = foreground;
+com.eweracs.HTLSManager.fontRules = {
+Letter = {
+133d0f96fd5349dda2d3a8de4ab1d4b5 = {
+case = 1;
+filter = "";
+referenceGlyph = H;
+subcategory = Any;
+value = "1.16";
+};
+15a6143d83804c44a99929a1b1c8a8be = {
+case = 0;
+filter = "";
+referenceGlyph = devaHeight;
+subcategory = Ligature;
+value = "1";
+};
+4ffe0d10990a4b57b145e79e51c2019c = {
+case = 0;
+filter = "";
+referenceGlyph = devaHeight;
+subcategory = Other;
+value = "1";
+};
+6f48578aac19421e87f6566b74281f0e = {
+case = 4;
+filter = .sups;
+referenceGlyph = m.sups;
+subcategory = Any;
+value = "0.7";
+};
+9f851c9156404dfaa5c7daa83e7c0709 = {
+case = 3;
+filter = "";
+referenceGlyph = h.sc;
+subcategory = Any;
+value = "1.1";
+};
+b102981b7ed5481f83a40fcc2f24689a = {
+case = 2;
+filter = "";
+referenceGlyph = x;
+subcategory = Any;
+value = "1";
+};
+};
+Mark = {
+c447ff6285d94645b44d111075b8b374 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1";
+};
+};
+Number = {
+1354d7aece8b4226b2587a712265a314 = {
+case = 0;
+filter = .dnom;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+1ca87643ddb446e199a39d761f5afe30 = {
+case = 0;
+filter = .inferior;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+70440623796e4af7aa30749867dc8f16 = {
+case = 0;
+filter = "";
+referenceGlyph = one;
+subcategory = "Decimal Digit";
+value = "1.2";
+};
+9fd662de23ae4882833e97ddc46e54e5 = {
+case = 0;
+filter = .numr;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+a95d826b10594465a32c0e801194fb17 = {
+case = 0;
+filter = .osf;
+referenceGlyph = zero.osf;
+subcategory = "Decimal Digit";
+value = "1.2";
+};
+ab258ce2721f4dafb89f8f0ebfe0aea3 = {
+case = 0;
+filter = superior;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+c6a76d80343341d9ab4f30862f366d25 = {
+case = 4;
+filter = "";
+referenceGlyph = "";
+subcategory = Fraction;
+value = "1.3";
+};
+};
+Punctuation = {
+15d0a0ec33bb40fcadd47c2be9002ac5 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Dash;
+value = "1";
+};
+5b5479b9ca1d45f5b39ab1513715e8d8 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1.2";
+};
+7f4046e69f7b4e56a1ba9a5aec64f5c1 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Parenthesis;
+value = "1.2";
+};
+8277ddc61dcb4696a44fd188c763ff51 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Other;
+value = "1.4";
+};
+b05a566689124fd0aa9081147436e2ca = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Quote;
+value = "1.2";
+};
+f14041279d2a4da1a8b254858bbf38c9 = {
+case = 0;
+filter = slash;
+referenceGlyph = "";
+subcategory = Any;
+value = "1";
+};
+};
+Separator = {
+};
+Symbol = {
+21c2702a201740f197cbff9a2a8c640c = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Currency;
+value = "1.6";
+};
+f15888f51036402aa4a9dbd4694fbe50 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1.5";
+};
+};
+};
 };
 versionMajor = 1;
 versionMinor = 0;
