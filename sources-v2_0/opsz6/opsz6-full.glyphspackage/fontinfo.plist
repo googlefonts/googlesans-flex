@@ -819,11 +819,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 420;
+value = "420";
 },
 {
 name = paramDepth;
-value = 20;
+value = "20";
 }
 );
 guides = (
@@ -965,26 +965,6 @@ name = "overshoot top";
 pos = (471,1462);
 },
 {
-name = baseline;
-pos = (1213,504);
-},
-{
-name = overshoot;
-pos = (466,481);
-},
-{
-pos = (97,1657);
-},
-{
-pos = (-49,1318);
-},
-{
-pos = (27,471);
-},
-{
-pos = (189,1196);
-},
-{
 locked = 1;
 pos = (1139,-30);
 },
@@ -1016,7 +996,7 @@ over = -30;
 },
 {
 over = -30;
-pos = -360;
+pos = -460;
 },
 {
 over = -16;
@@ -1429,11 +1409,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = 450;
 },
 {
 name = paramDepth;
-value = 10;
+value = 16;
 }
 );
 guides = (
@@ -1465,6 +1445,9 @@ pos = (396,1201);
 {
 locked = 1;
 pos = (192,1124);
+},
+{
+pos = (951,-399);
 }
 );
 id = "4296CD9C-54F3-4369-8782-4D8C9C978D13";
@@ -1486,7 +1469,7 @@ over = -38;
 },
 {
 over = -38;
-pos = -360;
+pos = -460;
 },
 {
 over = -16;
@@ -1509,6 +1492,10 @@ pos = -216;
 }
 );
 name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerMasterRules = {
+};
+};
 },
 {
 axesValues = (
@@ -1570,46 +1557,46 @@ value = -320;
 },
 {
 name = paramArea;
-value = 780;
+value = 645;
 },
 {
 name = paramDepth;
-value = 12;
+value = 22;
 }
 );
 guides = (
 {
 locked = 1;
-pos = (1614,-44);
+pos = (1614,-40);
 },
 {
 locked = 1;
-pos = (1716,1100);
+pos = (1716,1096);
 },
 {
 locked = 1;
-pos = (1700,-504);
+pos = (1700,-500);
 }
 );
 id = "41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C";
 metricValues = (
 {
-over = 44;
+over = 40;
 pos = 1512;
 },
 {
-over = 44;
+over = 40;
 pos = 1432;
 },
 {
-over = 44;
+over = 40;
 pos = 1056;
 },
 {
-over = -44;
+over = -40;
 },
 {
-over = -44;
+over = -40;
 pos = -460;
 },
 {
@@ -1643,6 +1630,134 @@ HTLSManagerMasterRules = {
 axesValues = (
 6,
 151,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 600;
+},
+{
+name = paramDepth;
+value = 15;
+}
+);
+guides = (
+{
+locked = 1;
+pos = (1614,-40);
+},
+{
+locked = 1;
+pos = (1716,1096);
+},
+{
+locked = 1;
+pos = (1700,-464);
+},
+{
+locked = 1;
+pos = (1489,1130);
+}
+);
+id = "5DA06E3F-B65C-4341-B330-53F50D9F2964";
+metricValues = (
+{
+over = 43;
+pos = 1512;
+},
+{
+over = 43;
+pos = 1432;
+},
+{
+over = 43;
+pos = 1086;
+},
+{
+over = -43;
+},
+{
+over = -43;
+pos = -460;
+},
+{
+over = -16;
+},
+{
+over = 30;
+pos = 510;
+},
+{
+over = 30;
+pos = 580;
+},
+{
+over = 30;
+pos = 716;
+},
+{
+over = -30;
+pos = -216;
+}
+);
+name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+151,
 1000,
 0,
 0,
@@ -1699,11 +1814,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = 580;
 },
 {
 name = paramDepth;
-value = 10;
+value = 20;
 }
 );
 guides = (
@@ -1723,32 +1838,36 @@ pos = (1127,480);
 pos = (2550,1677);
 },
 {
-pos = (550,1181);
+pos = (549,1181);
 },
 {
 pos = (395,433);
+},
+{
+locked = 1;
+pos = (1466,1134);
 }
 );
 id = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 metricValues = (
 {
-over = 46;
+over = 48;
 pos = 1512;
 },
 {
-over = 46;
+over = 48;
 pos = 1432;
 },
 {
-over = 46;
+over = 48;
 pos = 1086;
 },
 {
-over = -46;
+over = -48;
 },
 {
-over = -46;
-pos = -360;
+over = -48;
+pos = -460;
 },
 {
 over = -16;
@@ -1774,48 +1893,6 @@ name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
 }
 );
 instances = (
-{
-axesValues = (
-6,
-100,
-1,
-0,
-0,
-0
-);
-instanceInterpolations = {
-"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 1;
-};
-name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-6,
-100,
-400,
-0,
-0,
-0
-);
-instanceInterpolations = {
-"AA600D03-8064-48D6-9688-B5065330793C" = 1;
-};
-name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-6,
-100,
-1000,
-0,
-0,
-0
-);
-instanceInterpolations = {
-"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 1;
-};
-name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
-},
 {
 axesValues = (
 6,
@@ -1861,6 +1938,48 @@ name = "opsz6-wdth25-wght1000-Ital0-Rond0-Grad0";
 {
 axesValues = (
 6,
+100,
+1,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 1;
+};
+name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+400,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"AA600D03-8064-48D6-9688-B5065330793C" = 1;
+};
+name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+1000,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 1;
+};
+name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
 151,
 1,
 0,
@@ -1876,6 +1995,20 @@ name = "opsz6-wdth151-wght1-Ital0-Rond0-Grad0";
 axesValues = (
 6,
 151,
+400,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 1;
+};
+name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+151,
 1000,
 0,
 0,
@@ -1885,6 +2018,24 @@ instanceInterpolations = {
 "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 1;
 };
 name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+145,
+430,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 0.00588;
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 0.83824;
+"AA600D03-8064-48D6-9688-B5065330793C" = 0.11176;
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 0.04412;
+};
+name = "wdth151-wght400 BUILDER";
 }
 );
 kerningLTR = {
@@ -3515,14 +3666,14 @@ unitsPerEm = 2000;
 userData = {
 GSDimensionPlugin.Dimensions = {
 "2D1C241B-E6AD-41FB-985B-55D4E5F84943" = {
-HH = "385";
-HV = "428";
+HH = "365";
+HV = "408";
 OH = "374";
-OV = "436";
-nV = "418";
+OV = "421";
+nV = "398";
 oH = "324";
-oV = "424";
-tH = "334";
+oV = "404";
+tH = "298";
 };
 "3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = {
 HH = "87";
@@ -3544,6 +3695,26 @@ oH = "82";
 oV = "94";
 tH = "84";
 };
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = {
+HH = "384";
+HV = "428";
+OH = "403";
+OV = "435";
+nV = "419";
+oH = "348";
+oV = "428";
+tH = "298";
+};
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = {
+HH = "216";
+HV = "243";
+OH = "215";
+OV = "250";
+nV = "237";
+oH = "198";
+oV = "244";
+tH = "185";
+};
 "7C224297-46A4-408E-BDB1-99237B4DCB3A" = {
 HH = "184";
 HV = "200";
@@ -3563,6 +3734,16 @@ nV = "220";
 oH = "190";
 oV = "225";
 tH = "195";
+};
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = {
+HH = "384";
+HV = "442";
+OH = "390";
+OV = "455";
+nV = "432";
+oH = "354";
+oV = "445";
+tH = "298";
 };
 m001 = {
 HH = "78";
