@@ -19,11 +19,10 @@ Fonts are built by triggering the build workflow in the [Actions tab](https://gi
 3. (if release) [`bumpfontversion`](https://github.com/simoncozens/bumpfontversion) sets the font version in the sources based on the tag name
 4. Call gftools builder*
 5. [font-v](https://github.com/source-foundry/font-v) sets TTF version strings
-6. [`scripts/sanitize-name-table.py`](./scripts/sanitize-name-table.py) replaces any disallowed characters in the TTF name table with "_"
-7. [`scripts/prune_font_binary.py`](./scripts/prune_font_binary.py) removes unused/unencoded glyphs from TTFs
-8. [`scripts/set-overlap-bits.py`](./scripts/set-overlap-bits.py) adjusts overlap flags in the GLYF table
-9. [OT Sanitizer](https://github.com/khaledhosny/ots) validates & sanitizes the TTFs
-10. TTFs are archived for download (along with QA reports if not a release)
+6. [`scripts/prune_font_binary.py`](./scripts/prune_font_binary.py) removes unused/unencoded glyphs from TTFs
+7. [`scripts/set-overlap-bits.py`](./scripts/set-overlap-bits.py) adjusts overlap flags in the GLYF table
+8. [OT Sanitizer](https://github.com/khaledhosny/ots) validates & sanitizes the TTFs
+9. TTFs are archived for download (along with QA reports if not a release)
 
 (*This is the part of the process [`fontc`](https://github.com/googlefonts/fontc) would speed-up/replace)
 
