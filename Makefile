@@ -24,7 +24,6 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 	# Font-v cannot deal with worktrees, which we use for imports. See
 	# https://github.com/source-foundry/font-v/issues/169. Just skip it.
 	if [ -z "${SKIP_FONTV}" ]; then venv/bin/font-v write --sha1 fonts/variable/*.ttf; fi
-	venv/bin/python scripts/sanitize-name-table.py fonts/variable/*.ttf
 	venv/bin/python scripts/prune_font_binary.py fonts/variable/*.ttf
 	venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/regular/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,wdth,wght].ttf
 	venv/bin/python scripts/set-overlap-bits.py sources/italic/glyphs-with-overlap.txt sources/italic/GoogleSansFlex-Italic.designspace fonts/variable/GoogleSansFlex-Italic[ROND,opsz,wdth,wght].ttf
