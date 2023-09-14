@@ -703,7 +703,7 @@ value = -320;
 },
 {
 name = paramArea;
-value = "295";
+value = "285";
 },
 {
 name = paramDepth;
@@ -753,7 +753,7 @@ pos = (99,334);
 showMeasurement = 1;
 },
 {
-pos = (65,1876);
+pos = (-4,1585);
 },
 {
 pos = (10,980);
@@ -771,11 +771,11 @@ pos = (81,367);
 },
 {
 angle = 196.7786;
-pos = (438,798);
+pos = (410,911);
 },
 {
 angle = 163.2214;
-pos = (506,463);
+pos = (51,1116);
 },
 {
 pos = (47,998);
@@ -826,7 +826,10 @@ pos = 859;
 }
 );
 name = "opsz18-wdth25-wght1-Ital0-Rond0-Grad0";
-visible = 1;
+userData = {
+HTLSManagerMasterRules = {
+};
+};
 },
 {
 axesValues = (
@@ -1072,10 +1075,11 @@ guides = (
 pos = (129,1432);
 },
 {
-pos = (489,562);
+angle = 90;
+pos = (489,461);
 },
 {
-pos = (1007,461);
+pos = (986,917);
 showMeasurement = 1;
 },
 {
@@ -1085,7 +1089,8 @@ pos = (133,1460);
 pos = (209,1036);
 },
 {
-pos = (210,1064);
+pos = (210,1292);
+showMeasurement = 1;
 },
 {
 pos = (286,1432);
@@ -1095,12 +1100,8 @@ angle = 192.3021;
 pos = (884,769);
 },
 {
-angle = 167.6979;
-pos = (599,370);
-},
-{
 angle = 192.3021;
-pos = (330,356);
+pos = (-13,444);
 },
 {
 pos = (17,0);
@@ -1110,6 +1111,10 @@ pos = (17,-28);
 },
 {
 pos = (675,103);
+showMeasurement = 1;
+},
+{
+pos = (17,-18);
 }
 );
 id = "769463EF-2EF4-41A9-85A9-285641285009";
@@ -1329,7 +1334,6 @@ pos = 859;
 }
 );
 name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1465,6 +1469,7 @@ pos = -216;
 }
 );
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1677,13 +1682,14 @@ pos = (9,1036);
 pos = (9,998);
 },
 {
-pos = (-7,-37);
+pos = (-7,-38);
 },
 {
 pos = (72,859);
 },
 {
-pos = (72,881);
+pos = (72,904);
+showMeasurement = 1;
 },
 {
 pos = (-7,-22);
@@ -1692,7 +1698,8 @@ pos = (-7,-22);
 pos = (-74,1584);
 },
 {
-pos = (-113,1226);
+pos = (-33,1351);
+showMeasurement = 1;
 },
 {
 pos = (-74,1552);
@@ -1708,6 +1715,10 @@ pos = (93,1470);
 },
 {
 pos = (93,1432);
+},
+{
+pos = (48,164);
+showMeasurement = 1;
 }
 );
 id = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
@@ -2105,6 +2116,7 @@ axesValues = (
 0,
 0
 );
+exports = 0;
 instanceInterpolations = {
 "91251A45-EED6-44E6-BC9D-709435BB03FD" = 1;
 };
@@ -2147,6 +2159,7 @@ axesValues = (
 0,
 0
 );
+exports = 0;
 instanceInterpolations = {
 m001 = 1;
 };
@@ -2161,6 +2174,7 @@ axesValues = (
 0,
 0
 );
+exports = 0;
 instanceInterpolations = {
 "879AA4C1-268E-45F5-A479-E8A4233029E2" = 1;
 };
@@ -2189,6 +2203,7 @@ axesValues = (
 0,
 0
 );
+exports = 0;
 instanceInterpolations = {
 "854B8A49-0698-4FEC-AD72-BCF838C96101" = 1;
 };
@@ -2203,6 +2218,7 @@ axesValues = (
 0,
 0
 );
+exports = 0;
 instanceInterpolations = {
 "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = 1;
 };
@@ -2665,170 +2681,16 @@ UFOFormat = 3;
 UFOLayerName = foreground;
 com.eweracs.HTLSManager.fontRules = {
 Letter = {
-133d0f96fd5349dda2d3a8de4ab1d4b5 = {
-case = 1;
-filter = "";
-referenceGlyph = H;
-subcategory = Any;
-value = "1.16";
-};
-15a6143d83804c44a99929a1b1c8a8be = {
-case = 0;
-filter = "";
-referenceGlyph = devaHeight;
-subcategory = Ligature;
-value = "1";
-};
-4ffe0d10990a4b57b145e79e51c2019c = {
-case = 0;
-filter = "";
-referenceGlyph = devaHeight;
-subcategory = Other;
-value = "1";
-};
-6f48578aac19421e87f6566b74281f0e = {
-case = 4;
-filter = .sups;
-referenceGlyph = m.sups;
-subcategory = Any;
-value = "0.7";
-};
-9f851c9156404dfaa5c7daa83e7c0709 = {
-case = 3;
-filter = "";
-referenceGlyph = h.sc;
-subcategory = Any;
-value = "1.1";
-};
-b102981b7ed5481f83a40fcc2f24689a = {
-case = 2;
-filter = "";
-referenceGlyph = x;
-subcategory = Any;
-value = "1";
-};
 };
 Mark = {
-c447ff6285d94645b44d111075b8b374 = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Any;
-value = "1";
-};
 };
 Number = {
-1354d7aece8b4226b2587a712265a314 = {
-case = 0;
-filter = .dnom;
-referenceGlyph = "";
-subcategory = Any;
-value = "0.8";
-};
-1ca87643ddb446e199a39d761f5afe30 = {
-case = 0;
-filter = .inferior;
-referenceGlyph = "";
-subcategory = Any;
-value = "0.8";
-};
-70440623796e4af7aa30749867dc8f16 = {
-case = 0;
-filter = "";
-referenceGlyph = one;
-subcategory = "Decimal Digit";
-value = "1.2";
-};
-9fd662de23ae4882833e97ddc46e54e5 = {
-case = 0;
-filter = .numr;
-referenceGlyph = "";
-subcategory = Any;
-value = "0.8";
-};
-a95d826b10594465a32c0e801194fb17 = {
-case = 0;
-filter = .osf;
-referenceGlyph = zero.osf;
-subcategory = "Decimal Digit";
-value = "1.2";
-};
-ab258ce2721f4dafb89f8f0ebfe0aea3 = {
-case = 0;
-filter = superior;
-referenceGlyph = "";
-subcategory = Any;
-value = "0.8";
-};
-c6a76d80343341d9ab4f30862f366d25 = {
-case = 4;
-filter = "";
-referenceGlyph = "";
-subcategory = Fraction;
-value = "1.3";
-};
 };
 Punctuation = {
-15d0a0ec33bb40fcadd47c2be9002ac5 = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Dash;
-value = "1";
-};
-5b5479b9ca1d45f5b39ab1513715e8d8 = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Any;
-value = "1.2";
-};
-7f4046e69f7b4e56a1ba9a5aec64f5c1 = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Parenthesis;
-value = "1.2";
-};
-8277ddc61dcb4696a44fd188c763ff51 = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Other;
-value = "1.4";
-};
-b05a566689124fd0aa9081147436e2ca = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Quote;
-value = "1.2";
-};
-f14041279d2a4da1a8b254858bbf38c9 = {
-case = 0;
-filter = slash;
-referenceGlyph = "";
-subcategory = Any;
-value = "1";
-};
 };
 Separator = {
 };
 Symbol = {
-21c2702a201740f197cbff9a2a8c640c = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Currency;
-value = "1.6";
-};
-f15888f51036402aa4a9dbd4694fbe50 = {
-case = 0;
-filter = "";
-referenceGlyph = "";
-subcategory = Any;
-value = "1.5";
-};
 };
 };
 };

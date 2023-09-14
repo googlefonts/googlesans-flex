@@ -18,12 +18,15 @@
 *,Number,*,*,0.8,*,superior,
 
 # Punctuation
-*,Punctuation,Other,*,1.4,*,*,
-*,Punctuation,Parenthesis,*,1.2,*,*,
-*,Punctuation,Quote,*,1.2,*,*,
-*,Punctuation,Dash,*,1,*,*,
-*,Punctuation,*,*,1,*,slash,
-*,Punctuation,*,*,1.2,*,*,
+
+*,Punctuation,Other,*,1.4,*,*, #1.4
+*,Punctuation,Parenthesis,*,1.4,*,*, #1.2
+*,Punctuation,Quote,*,1.2,*,*, #1.2
+# *,Punctuation,Dash,*,5,*,*, #0.8
+*,Punctuation,*,*,1,*,slash, #1
+*,Punctuation,*,*,2,*,question, # by Juanlu
+*,Punctuation,*,*,2,*,exclam, # by Juanlu
+*,Punctuation,*,*,1.1,*,*, #1.1
 
 # Symbols
 *,Symbol,Currency,*,1.6,*,*,
