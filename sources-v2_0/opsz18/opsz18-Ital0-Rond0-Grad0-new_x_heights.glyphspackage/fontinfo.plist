@@ -1,5 +1,5 @@
 {
-.appVersion = "3217";
+.appVersion = "3218";
 .formatVersion = 3;
 axes = (
 {
@@ -830,6 +830,7 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -998,6 +999,7 @@ pos = -216;
 }
 );
 name = "opsz18-wdth25-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1086,7 +1088,7 @@ showMeasurement = 1;
 pos = (133,1460);
 },
 {
-pos = (209,1036);
+pos = (-11,1064);
 },
 {
 pos = (210,1292);
@@ -1115,6 +1117,15 @@ showMeasurement = 1;
 },
 {
 pos = (17,-18);
+},
+{
+pos = (-11,1036);
+},
+{
+pos = (-11,1054);
+},
+{
+pos = (584,1432);
 }
 );
 id = "769463EF-2EF4-41A9-85A9-285641285009";
@@ -1160,6 +1171,7 @@ pos = -216;
 }
 );
 name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1334,6 +1346,7 @@ pos = 859;
 }
 );
 name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1548,15 +1561,31 @@ pos = (62,322);
 showMeasurement = 1;
 },
 {
-pos = (46,1036);
+locked = 1;
+pos = (-25,1036);
 showMeasurement = 1;
 },
 {
-pos = (46,1074);
+locked = 1;
+pos = (-23,1074);
 showMeasurement = 1;
 },
 {
-pos = (584,1432);
+locked = 1;
+pos = (-29,0);
+},
+{
+locked = 1;
+pos = (-29,-22);
+},
+{
+locked = 1;
+pos = (-29,-38);
+},
+{
+locked = 1;
+pos = (-23,1058);
+showMeasurement = 1;
 }
 );
 id = "879AA4C1-268E-45F5-A479-E8A4233029E2";
@@ -1602,6 +1631,7 @@ pos = -216;
 }
 );
 name = "opsz18-wdth100-wght1000-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1764,6 +1794,7 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1836,51 +1867,6 @@ name = paramOver;
 value = 0;
 }
 );
-guides = (
-{
-pos = (9,1062);
-},
-{
-pos = (9,1020);
-},
-{
-pos = (-7,-42);
-},
-{
-pos = (72,859);
-},
-{
-pos = (72,881);
-},
-{
-pos = (-7,0);
-},
-{
-pos = (-74,1584);
-},
-{
-pos = (-113,1226);
-},
-{
-pos = (-74,1552);
-},
-{
-pos = (-74,-216);
-},
-{
-pos = (-74,-248);
-},
-{
-pos = (127,211);
-showMeasurement = 1;
-},
-{
-pos = (69,1474);
-},
-{
-pos = (69,1432);
-}
-);
 id = "854B8A49-0698-4FEC-AD72-BCF838C96101";
 metricValues = (
 {
@@ -1928,6 +1914,7 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -2002,49 +1989,52 @@ value = 0;
 );
 guides = (
 {
-pos = (92,1432);
-},
-{
-pos = (618,150);
+pos = (69,937);
 showMeasurement = 1;
 },
 {
-pos = (766,573);
+pos = (-62,-308);
+showMeasurement = 1;
 },
 {
-pos = (205,1020);
+pos = (-7,249);
+showMeasurement = 1;
 },
 {
-pos = (47,1036);
+pos = (3,1584);
+showMeasurement = 1;
 },
 {
-pos = (92,1480);
+locked = 1;
+pos = (-30,-28);
 },
 {
-pos = (56,-48);
+locked = 1;
+pos = (-30,0);
 },
 {
-pos = (56,0);
+locked = 1;
+pos = (-30,-48);
 },
 {
-pos = (56,1020);
+locked = 1;
+pos = (-30,1036);
 },
 {
-pos = (47,1084);
+locked = 1;
+pos = (-30,1084);
 },
 {
-pos = (20,-480);
+locked = 1;
+pos = (-30,1064);
 },
 {
-pos = (20,-432);
+locked = 1;
+pos = (-28,1480);
 },
 {
-angle = 180;
-pos = (1573,916);
-},
-{
-angle = 180;
-pos = (1573,131);
+locked = 1;
+pos = (-28,1432);
 }
 );
 id = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
@@ -2090,6 +2080,7 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
+visible = 1;
 }
 );
 instances = (
