@@ -830,7 +830,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -999,7 +998,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth25-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1171,7 +1169,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1248,13 +1245,6 @@ guides = (
 {
 pos = (32,859);
 showMeasurement = 1;
-},
-{
-angle = 180;
-pos = (452,573);
-},
-{
-pos = (517,559);
 },
 {
 pos = (49,1462);
@@ -1346,7 +1336,6 @@ pos = 859;
 }
 );
 name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1424,7 +1413,7 @@ guides = (
 pos = (-40,1228);
 },
 {
-pos = (-40,1472);
+pos = (-40,1464);
 },
 {
 pos = (55,1052);
@@ -1544,11 +1533,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = "300";
 },
 {
 name = paramDepth;
-value = 10;
+value = "16";
 },
 {
 name = paramOver;
@@ -1557,18 +1546,16 @@ value = 0;
 );
 guides = (
 {
-pos = (62,322);
+pos = (-7,911);
 showMeasurement = 1;
 },
 {
 locked = 1;
 pos = (-25,1036);
-showMeasurement = 1;
 },
 {
 locked = 1;
 pos = (-23,1074);
-showMeasurement = 1;
 },
 {
 locked = 1;
@@ -1585,7 +1572,26 @@ pos = (-29,-38);
 {
 locked = 1;
 pos = (-23,1058);
+},
+{
+pos = (31,-305);
 showMeasurement = 1;
+},
+{
+pos = (-7,-48);
+showMeasurement = 1;
+},
+{
+pos = (-9,137);
+showMeasurement = 1;
+},
+{
+locked = 1;
+pos = (-20,1470);
+},
+{
+locked = 1;
+pos = (-20,1432);
 }
 );
 id = "879AA4C1-268E-45F5-A479-E8A4233029E2";
@@ -1631,7 +1637,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth100-wght1000-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1794,7 +1799,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1914,7 +1918,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -2080,7 +2083,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
-visible = 1;
 }
 );
 instances = (
@@ -2209,7 +2211,6 @@ axesValues = (
 0,
 0
 );
-exports = 0;
 instanceInterpolations = {
 "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = 1;
 };
