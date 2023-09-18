@@ -3,7 +3,7 @@ glyphname = j;
 kernLeft = i_left;
 layers = (
 {
-layerId = m001;
+background = {
 shapes = (
 {
 closed = 1;
@@ -60,6 +60,23 @@ nodes = (
 (92,1200,o),
 (98,1200,qs)
 );
+}
+);
+};
+guides = (
+{
+angle = 90;
+pos = (100,1141);
+}
+);
+layerId = m001;
+shapes = (
+{
+ref = jdotless;
+},
+{
+pos = (98,0);
+ref = dotaccentcomb;
 }
 );
 userData = {
