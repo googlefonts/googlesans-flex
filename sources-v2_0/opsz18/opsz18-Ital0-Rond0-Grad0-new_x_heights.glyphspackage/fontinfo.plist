@@ -1018,7 +1018,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth25-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1089,62 +1088,6 @@ value = "12";
 {
 name = paramOver;
 value = 0;
-}
-);
-guides = (
-{
-pos = (129,1432);
-},
-{
-angle = 90;
-pos = (489,461);
-},
-{
-pos = (986,917);
-showMeasurement = 1;
-},
-{
-pos = (133,1460);
-},
-{
-pos = (-11,1064);
-},
-{
-pos = (210,1292);
-showMeasurement = 1;
-},
-{
-pos = (286,1432);
-},
-{
-angle = 192.3021;
-pos = (884,769);
-},
-{
-angle = 192.3021;
-pos = (-13,444);
-},
-{
-pos = (17,0);
-},
-{
-pos = (17,-28);
-},
-{
-pos = (675,103);
-showMeasurement = 1;
-},
-{
-pos = (17,-18);
-},
-{
-pos = (-11,1036);
-},
-{
-pos = (-11,1054);
-},
-{
-pos = (584,1432);
 }
 );
 id = "769463EF-2EF4-41A9-85A9-285641285009";
@@ -1437,7 +1380,8 @@ pos = (-40,1228);
 pos = (-40,1464);
 },
 {
-pos = (55,1052);
+pos = (55,1082);
+showMeasurement = 1;
 },
 {
 pos = (55,1020);
@@ -1447,6 +1391,9 @@ pos = (68,0);
 },
 {
 pos = (68,-32);
+},
+{
+pos = (68,-19);
 }
 );
 id = m001;
@@ -1492,7 +1439,6 @@ pos = -216;
 }
 );
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1903,11 +1849,11 @@ pos = (-24,0);
 },
 {
 locked = 1;
-pos = (-32,716);
+pos = (-32,1020);
 },
 {
 locked = 1;
-pos = (-32,758);
+pos = (-32,1062);
 },
 {
 locked = 1;
@@ -1919,6 +1865,22 @@ pos = (-32,1474);
 },
 {
 pos = (15,1216);
+showMeasurement = 1;
+},
+{
+locked = 1;
+pos = (14,-474);
+},
+{
+locked = 1;
+pos = (14,-432);
+},
+{
+pos = (16,-25);
+showMeasurement = 1;
+},
+{
+pos = (44,925);
 showMeasurement = 1;
 }
 );
@@ -2134,6 +2096,138 @@ pos = -216;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+0,
+0,
+0,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 400;
+},
+{
+name = paramDepth;
+value = 10;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+pos = (-40,1464);
+},
+{
+pos = (55,1052);
+},
+{
+pos = (55,1020);
+},
+{
+pos = (68,0);
+},
+{
+pos = (68,-32);
+}
+);
+id = "43DCFA98-DC14-43D3-A6AD-0DCCC3DC4C17";
+metricValues = (
+{
+over = 32;
+pos = 1432;
+},
+{
+over = 32;
+pos = 1432;
+},
+{
+over = 32;
+pos = 1020;
+},
+{
+over = -32;
+},
+{
+over = -32;
+pos = -432;
+},
+{
+},
+{
+over = 32;
+pos = 510;
+},
+{
+over = 32;
+pos = 580;
+},
+{
+over = 32;
+pos = 716;
+},
+{
+over = -32;
+pos = -216;
+},
+{
+}
+);
+name = "ROND0-compatibility-reference";
 }
 );
 instances = (
@@ -2202,7 +2296,6 @@ axesValues = (
 0,
 0
 );
-exports = 0;
 instanceInterpolations = {
 m001 = 1;
 };
@@ -2217,7 +2310,6 @@ axesValues = (
 0,
 0
 );
-exports = 0;
 instanceInterpolations = {
 "879AA4C1-268E-45F5-A479-E8A4233029E2" = 1;
 };
@@ -2246,7 +2338,6 @@ axesValues = (
 0,
 0
 );
-exports = 0;
 instanceInterpolations = {
 "854B8A49-0698-4FEC-AD72-BCF838C96101" = 1;
 };
@@ -2500,7 +2591,7 @@ OV = "180";
 nV = "168";
 oH = "140";
 oV = "172";
-tH = "152";
+tH = "148";
 };
 "879AA4C1-268E-45F5-A479-E8A4233029E2" = {
 HH = "425";
@@ -2544,7 +2635,7 @@ oV = "152";
 m001 = {
 HH = "162";
 HV = "170";
-OH = "462";
+OH = "162";
 OV = "172";
 nV = "170";
 oH = "154";
