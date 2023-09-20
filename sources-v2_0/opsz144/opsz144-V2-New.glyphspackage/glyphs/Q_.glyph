@@ -456,7 +456,17 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = O;
 width = 2678;
 },
 {
-background = {
+anchors = (
+{
+name = bottom;
+pos = (1288,0);
+},
+{
+name = top;
+pos = (1288,1432);
+}
+);
+layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
 shapes = (
 {
 closed = 1;
@@ -522,18 +532,7 @@ name = inserted;
 );
 }
 );
-};
-layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
-shapes = (
-{
-ref = O;
-},
-{
-pos = (2048,0);
-ref = _tail.Q;
-}
-);
-width = 2572;
+width = 2576;
 },
 {
 anchors = (
