@@ -5,19 +5,20 @@ layers = (
 layerId = m001;
 shapes = (
 {
-pos = (141,0);
+alignment = 1;
 ref = one.numerator;
 },
 {
-pos = (837,0);
+pos = (555,0);
 ref = fraction;
 },
 {
-pos = (1156,0);
+alignment = 1;
+pos = (855,0);
 ref = four.denominator;
 }
 );
-width = 1933;
+width = 1466;
 },
 {
 layerId = "3FC95AE1-19AB-496F-875C-3FB1D5823AFA";
@@ -111,27 +112,6 @@ ref = four.denominator;
 }
 );
 width = 2083;
-},
-{
-layerId = "AA600D03-8064-48D6-9688-B5065330793C";
-shapes = (
-{
-alignment = -1;
-pos = (180,0);
-ref = one.numerator;
-},
-{
-alignment = -1;
-pos = (993,0);
-ref = fraction;
-},
-{
-alignment = -1;
-pos = (1400,0);
-ref = four.denominator;
-}
-);
-width = 2411;
 },
 {
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
