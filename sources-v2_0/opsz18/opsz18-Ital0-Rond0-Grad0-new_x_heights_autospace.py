@@ -24,8 +24,8 @@
 *,Punctuation,Quote,*,1.2,*,*, #1.2
 # *,Punctuation,Dash,*,5,*,*, #0.8
 *,Punctuation,*,*,1,*,slash, #1
-*,Punctuation,*,*,2,*,question, # by Juanlu
-*,Punctuation,*,*,2,*,exclam, # by Juanlu
+*,Punctuation,*,*,1.6,*,question, # by Juanlu
+*,Punctuation,*,*,1.6,*,exclam, # by Juanlu
 *,Punctuation,*,*,1.1,*,*, #1.1
 
 # Symbols

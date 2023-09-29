@@ -1,5 +1,5 @@
 {
-.appVersion = "3218";
+.appVersion = "3219";
 .formatVersion = 3;
 axes = (
 {
@@ -749,7 +749,7 @@ pos = (213,-432);
 pos = (213,-448);
 },
 {
-pos = (99,334);
+pos = (28,82);
 showMeasurement = 1;
 },
 {
@@ -804,22 +804,6 @@ pos = -432;
 },
 {
 over = -16.452;
-},
-{
-over = 16;
-pos = 510;
-},
-{
-over = 16;
-pos = 580;
-},
-{
-over = 16;
-pos = 716;
-},
-{
-over = -16;
-pos = -216;
 },
 {
 pos = 859;
@@ -929,7 +913,7 @@ pos = (41,-20);
 pos = (29,1020);
 },
 {
-pos = (19,1144);
+pos = (19,1104);
 showMeasurement = 1;
 },
 {
@@ -997,22 +981,6 @@ over = -20;
 pos = -432;
 },
 {
-},
-{
-over = 20;
-pos = 510;
-},
-{
-over = 20;
-pos = 580;
-},
-{
-over = 20;
-pos = 716;
-},
-{
-over = -20;
-pos = -216;
 },
 {
 }
@@ -1090,6 +1058,12 @@ name = paramOver;
 value = 0;
 }
 );
+guides = (
+{
+angle = 180;
+pos = (811,104);
+}
+);
 id = "769463EF-2EF4-41A9-85A9-285641285009";
 metricValues = (
 {
@@ -1114,25 +1088,10 @@ pos = -432;
 {
 },
 {
-over = 28;
-pos = 510;
-},
-{
-over = 28;
-pos = 580;
-},
-{
-over = 28;
-pos = 716;
-},
-{
-over = -28;
-pos = -216;
-},
-{
 }
 );
 name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1279,22 +1238,6 @@ pos = -432;
 {
 },
 {
-over = 30;
-pos = 510;
-},
-{
-over = 30;
-pos = 580;
-},
-{
-over = 30;
-pos = 716;
-},
-{
-over = -30;
-pos = -216;
-},
-{
 over = 18;
 pos = 859;
 }
@@ -1380,11 +1323,12 @@ pos = (-40,1228);
 pos = (-40,1464);
 },
 {
-pos = (55,1082);
+pos = (16,1373);
 showMeasurement = 1;
 },
 {
-pos = (55,1020);
+pos = (8,385);
+showMeasurement = 1;
 },
 {
 pos = (68,0);
@@ -1418,22 +1362,6 @@ over = -32;
 pos = -432;
 },
 {
-},
-{
-over = 32;
-pos = 510;
-},
-{
-over = 32;
-pos = 580;
-},
-{
-over = 32;
-pos = 716;
-},
-{
-over = -32;
-pos = -216;
 },
 {
 }
@@ -1585,25 +1513,10 @@ pos = -432;
 {
 },
 {
-over = 38;
-pos = 510;
-},
-{
-over = 38;
-pos = 580;
-},
-{
-over = 38;
-pos = 716;
-},
-{
-over = -38;
-pos = -216;
-},
-{
 }
 );
 name = "opsz18-wdth100-wght1000-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1747,22 +1660,6 @@ pos = -432;
 {
 },
 {
-over = 38;
-pos = 510;
-},
-{
-over = 38;
-pos = 580;
-},
-{
-over = 38;
-pos = 716;
-},
-{
-over = -38;
-pos = -216;
-},
-{
 }
 );
 name = "opsz18-wdth151-wght1-Ital0-Rond0-Grad0";
@@ -1880,7 +1777,11 @@ pos = (16,-25);
 showMeasurement = 1;
 },
 {
-pos = (44,925);
+pos = (44,818);
+showMeasurement = 1;
+},
+{
+pos = (44,218);
 showMeasurement = 1;
 }
 );
@@ -1906,22 +1807,6 @@ over = -42;
 pos = -432;
 },
 {
-},
-{
-over = 42;
-pos = 510;
-},
-{
-over = 42;
-pos = 580;
-},
-{
-over = 42;
-pos = 716;
-},
-{
-over = -42;
-pos = -216;
 },
 {
 }
@@ -2005,7 +1890,7 @@ value = 0;
 );
 guides = (
 {
-pos = (69,937);
+pos = (107,676);
 showMeasurement = 1;
 },
 {
@@ -2013,7 +1898,7 @@ pos = (-62,-308);
 showMeasurement = 1;
 },
 {
-pos = (-7,249);
+pos = (-7,369);
 showMeasurement = 1;
 },
 {
@@ -2075,22 +1960,6 @@ over = -48;
 pos = -432;
 },
 {
-},
-{
-over = 48;
-pos = 510;
-},
-{
-over = 48;
-pos = 580;
-},
-{
-over = 48;
-pos = 716;
-},
-{
-over = -48;
-pos = -216;
 },
 {
 }
@@ -2207,22 +2076,6 @@ over = -32;
 pos = -432;
 },
 {
-},
-{
-over = 32;
-pos = 510;
-},
-{
-over = 32;
-pos = 580;
-},
-{
-over = 32;
-pos = 716;
-},
-{
-over = -32;
-pos = -216;
 },
 {
 }
@@ -2376,18 +2229,6 @@ type = descender;
 },
 {
 type = "italic angle";
-},
-{
-name = "zone 1";
-},
-{
-name = "zone 2";
-},
-{
-name = "zone 3";
-},
-{
-name = "zone 4";
 },
 {
 filter = "name CONTAINS \".denominator\"";
@@ -2610,7 +2451,7 @@ OH = "148";
 OV = "160";
 nV = "150";
 oH = "140";
-oV = "28";
+oV = "152";
 tH = "138";
 };
 "B7698FA3-622B-421D-9516-7D8300A7950D" = {

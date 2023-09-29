@@ -1,5 +1,5 @@
 {
-color = 9;
+color = 4;
 glyphname = Oslash;
 kernLeft = O_left;
 kernRight = O_right;
@@ -11,7 +11,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (-85,-11);
+pos = (-86,-13);
 ref = slashlongcomb.case;
 }
 );
@@ -28,7 +28,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (260,-35);
+pos = (265,-35);
 ref = slashlongcomb.case;
 }
 );
@@ -74,8 +74,8 @@ shapes = (
 ref = O;
 },
 {
-pos = (1323,0);
-ref = "Oslash-bar";
+pos = (-37,-44);
+ref = slashlongcomb.case;
 }
 );
 userData = {
@@ -91,8 +91,8 @@ shapes = (
 ref = O;
 },
 {
-pos = (1770,0);
-ref = "Oslash-bar";
+pos = (130,-28);
+ref = slashlongcomb.case;
 }
 );
 userData = {
@@ -103,7 +103,16 @@ width = 1770;
 },
 {
 layerId = "7C224297-46A4-408E-BDB1-99237B4DCB3A";
-width = 1104;
+shapes = (
+{
+ref = O;
+},
+{
+pos = (-100,-39);
+ref = slashlongcomb.case;
+}
+);
+width = 1191;
 },
 {
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
@@ -112,8 +121,8 @@ shapes = (
 ref = O;
 },
 {
-pos = (2191,0);
-ref = "Oslash-bar";
+pos = (331,-51);
+ref = slashlongcomb.case;
 }
 );
 userData = {
@@ -124,11 +133,29 @@ width = 2191;
 },
 {
 layerId = "5DA06E3F-B65C-4341-B330-53F50D9F2964";
-width = 2119;
+shapes = (
+{
+ref = O;
+},
+{
+pos = (405,-25);
+ref = slashlongcomb.case;
+}
+);
+width = 2132;
 },
 {
 layerId = "C6E6A82E-5529-473D-BA0B-E088A1B2D63E";
-width = 1677;
+shapes = (
+{
+ref = O;
+},
+{
+pos = (179,-24);
+ref = slashlongcomb.case;
+}
+);
+width = 1787;
 }
 );
 unicode = 216;
