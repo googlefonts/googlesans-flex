@@ -145,6 +145,49 @@ name = top;
 pos = (294,1432);
 }
 );
+background = {
+anchors = (
+{
+name = bottom;
+pos = (291,0);
+},
+{
+name = ogonek;
+pos = (511,0);
+},
+{
+name = top;
+pos = (294,1432);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(509,0,o),
+(509,0,o,{
+name = inserted;
+}),
+(509,198,qs),
+(509,1233,ls),
+(509,1432,o,{
+name = inserted;
+}),
+(509,1432,o,{
+name = inserted;
+}),
+(291,1432,q),
+(79,1432,o),
+(79,1432,o),
+(79,1233,qs),
+(79,198,ls),
+(79,0,o),
+(79,0,o),
+(291,0,q)
+);
+}
+);
+};
 layerId = "769463EF-2EF4-41A9-85A9-285641285009";
 shapes = (
 {

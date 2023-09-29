@@ -156,6 +156,53 @@ name = topright;
 pos = (779,1020);
 }
 );
+background = {
+anchors = (
+{
+name = bottom;
+pos = (281,0);
+},
+{
+name = center;
+pos = (281,716);
+},
+{
+name = top;
+pos = (277,1432);
+},
+{
+name = topright;
+pos = (779,1020);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(493,0,o),
+(493,0,o,{
+name = inserted;
+}),
+(493,197,qs),
+(493,1231,ls),
+(493,1432,o,{
+name = inserted;
+}),
+(493,1432,o,{
+name = inserted;
+}),
+(277,1432,q),
+(68,1432,o),
+(68,1432,o),
+(68,1231,qs),
+(68,197,ls),
+(68,0,o),
+(68,0,o),
+(277,0,q)
+);
+}
+);
+};
 layerId = "769463EF-2EF4-41A9-85A9-285641285009";
 shapes = (
 {
