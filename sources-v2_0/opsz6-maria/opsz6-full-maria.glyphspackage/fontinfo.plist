@@ -1,0 +1,5441 @@
+{
+.appVersion = "3220";
+.formatVersion = 3;
+axes = (
+{
+name = "Optical size";
+tag = opsz;
+},
+{
+name = Width;
+tag = wdth;
+},
+{
+name = Weight;
+tag = wght;
+},
+{
+name = Italic;
+tag = ital;
+},
+{
+name = Round;
+tag = ROND;
+},
+{
+name = Grade;
+tag = GRAD;
+}
+);
+customParameters = (
+{
+name = glyphOrder;
+value = (
+.notdef,
+uni000D,
+space,
+exclam,
+quotedbl,
+numbersign,
+dollar,
+cent,
+currency,
+dollar,
+Euro,
+percent,
+ampersand,
+quotesingle,
+parenleft,
+parenright,
+asterisk,
+plus,
+comma,
+hyphen,
+period,
+slash,
+zero,
+one,
+two,
+three,
+four,
+five,
+six,
+seven,
+eight,
+nine,
+colon,
+semicolon,
+less,
+equal,
+greater,
+question,
+at,
+A,
+B,
+C,
+D,
+E,
+F,
+G,
+H,
+I,
+J,
+K,
+L,
+M,
+N,
+O,
+P,
+Q,
+R,
+S,
+T,
+U,
+V,
+W,
+X,
+Y,
+Z,
+bracketleft,
+backslash,
+bracketright,
+asciicircum,
+underscore,
+grave,
+a,
+b,
+c,
+d,
+e,
+f,
+g,
+h,
+i,
+j,
+k,
+l,
+m,
+n,
+o,
+p,
+q,
+r,
+s,
+t,
+u,
+v,
+w,
+x,
+y,
+z,
+braceleft,
+bar,
+braceright,
+asciitilde,
+nbspace,
+exclamdown,
+cent,
+sterling,
+currency,
+yen,
+brokenbar,
+section,
+dieresis,
+copyright,
+ordfeminine,
+guillemetleft,
+logicalnot,
+softhyphen,
+registered,
+macron,
+degree,
+plusminus,
+twosuperior,
+threesuperior,
+acute,
+micro,
+paragraph,
+periodcentered,
+cedilla,
+onesuperior,
+ordmasculine,
+guillemetright,
+onequarter,
+onehalf,
+threequarters,
+questiondown,
+Agrave,
+Aacute,
+Acircumflex,
+Atilde,
+Adieresis,
+Aring,
+AE,
+Ccedilla,
+Egrave,
+Eacute,
+Ecircumflex,
+Edieresis,
+Igrave,
+Iacute,
+Icircumflex,
+Idieresis,
+Eth,
+Ntilde,
+Ograve,
+Oacute,
+Ocircumflex,
+Otilde,
+Odieresis,
+multiply,
+Oslash,
+Ugrave,
+Uacute,
+Ucircumflex,
+Udieresis,
+Yacute,
+Thorn,
+germandbls,
+agrave,
+aacute,
+acircumflex,
+atilde,
+adieresis,
+aring,
+ae,
+ccedilla,
+egrave,
+eacute,
+ecircumflex,
+edieresis,
+igrave,
+iacute,
+icircumflex,
+idieresis,
+eth,
+ntilde,
+ograve,
+oacute,
+ocircumflex,
+otilde,
+odieresis,
+divide,
+oslash,
+ugrave,
+uacute,
+ucircumflex,
+udieresis,
+yacute,
+thorn,
+ydieresis,
+idotless,
+circumflex,
+caron,
+breve,
+dotaccent,
+ring,
+ogonek,
+tilde,
+hungarumlaut,
+gravecomb,
+acutecomb,
+circumflexcomb,
+tildecomb,
+macroncomb,
+brevecomb,
+dotaccentcomb,
+dieresiscomb,
+ringcomb,
+hungarumlautcomb,
+caroncomb,
+cedillacomb,
+ogonekcomb,
+mu,
+guilsinglleft,
+guilsinglright,
+fraction,
+foursuperior,
+f_i,
+f_l,
+Germandbls,
+OE,
+oe,
+commaaccentcomb,
+commaturnedabovecomb,
+Ccaron,
+ccaron,
+Dcaron,
+dcaron,
+Ecaron,
+ecaron,
+Ncaron,
+ncaron,
+Rcaron,
+rcaron,
+Scaron,
+scaron,
+Tcaron,
+tcaron,
+Uring,
+uring,
+Zcaron,
+zcaron,
+IJ,
+ij,
+jdotless,
+Ydieresis,
+Ohungarumlaut,
+ohungarumlaut,
+Uhungarumlaut,
+uhungarumlaut,
+Edotaccent,
+edotaccent,
+Iogonek,
+iogonek,
+Umacron,
+umacron,
+Uogonek,
+uogonek,
+Aogonek,
+aogonek,
+Cacute,
+cacute,
+Eogonek,
+eogonek,
+Ldot,
+ldot,
+Lslash,
+lslash,
+Nacute,
+nacute,
+Sacute,
+sacute,
+Zacute,
+zacute,
+Zdotaccent,
+zdotaccent,
+Abreve,
+abreve,
+Scommaaccent,
+scommaaccent,
+Tcommaaccent,
+tcommaaccent,
+Tcedilla,
+tcedilla,
+Scedilla,
+scedilla,
+Lacute,
+lacute,
+Lcaron,
+lcaron,
+Racute,
+racute,
+Amacron,
+amacron,
+Emacron,
+emacron,
+Gcommaaccent,
+gcommaaccent,
+Imacron,
+imacron,
+Kcommaaccent,
+kcommaaccent,
+Lcommaaccent,
+lcommaaccent,
+Ncommaaccent,
+ncommaaccent,
+Wcircumflex,
+wcircumflex,
+Wgrave,
+wgrave,
+Wacute,
+wacute,
+Wdieresis,
+wdieresis,
+Ycircumflex,
+ycircumflex,
+Gbreve,
+gbreve,
+Idotaccent,
+Dcroat,
+dcroat,
+greaterequal,
+lessequal,
+approxequal,
+notequal,
+G.logo,
+e.logo,
+g.logo,
+l.logo,
+o.logo,
+Google.logo,
+G.super,
+Gsuper,
+f_b,
+f_f,
+f_f_b,
+f_f_h,
+f_f_i,
+f_f_j,
+f_f_k,
+f_f_l,
+f_f_t,
+f_h,
+f_i,
+f_j,
+f_k,
+f_l,
+f_t,
+t_f,
+t_t,
+zero.denominator,
+one.denominator,
+two.denominator,
+three.denominator,
+four.denominator,
+five.denominator,
+six.denominator,
+seven.denominator,
+eight.denominator,
+nine.denominator,
+zero.numerator,
+one.numerator,
+two.numerator,
+three.numerator,
+four.numerator,
+five.numerator,
+six.numerator,
+seven.numerator,
+eight.numerator,
+nine.numerator,
+zero.tf,
+one.tf,
+two.tf,
+three.tf,
+four.tf,
+five.tf,
+six.tf,
+seven.tf,
+eight.tf,
+nine.tf,
+period.tf,
+comma.tf,
+colon.tf,
+semicolon.tf,
+numbersign.tf,
+colon.time,
+space.tf,
+cent.tf,
+currency.tf,
+dollar.tf,
+Euro.tf,
+sterling.tf,
+plus.tf,
+minus.tf,
+multiply.tf,
+divide.tf,
+equal.tf,
+notequal.tf,
+greater.tf,
+less.tf,
+greaterequal.tf,
+lessequal.tf,
+plusminus.tf,
+approxequal.tf,
+logicalnot.tf,
+percent.tf,
+section.tf,
+a.alt,
+aacute.alt,
+abreve.alt,
+acaron.alt,
+acircumflex.alt,
+adieresis.alt,
+agrave.alt,
+amacron.alt,
+aogonek.alt,
+aring.alt,
+atilde.alt,
+ae.alt,
+g.alt,
+gbreve.alt,
+gcommaaccent.alt,
+gdotaccent.alt,
+caroncomb.alt,
+zero.slash,
+zeroslash,
+zeroslash.tf,
+wiggle.medium,
+quoteright,
+quoteleft,
+quotesinglbase,
+quotedblbase,
+quotedblleft,
+quotedblright,
+bullet,
+endash,
+emdash,
+minus,
+horizontalelipsis,
+trademark,
+emspace,
+enspace,
+thinspace,
+hairspace,
+figurespace,
+fourperemspace,
+sixperemspace,
+threeperemspace,
+zerowidthspace,
+acaron,
+Acaron,
+cdotaccent,
+Cdotaccent,
+gdotaccent,
+Gdotaccent,
+hbar,
+Hbar,
+omacron,
+Omacron,
+rcommaaccent,
+Rcommaaccent,
+ubreve,
+Ubreve,
+ygrave,
+Ygrave,
+zero.sinf,
+one.sinf,
+two.sinf,
+three.sinf,
+four.sinf,
+five.sinf,
+six.sinf,
+seven.sinf,
+eight.sinf,
+nine.sinf,
+zerosuperscript,
+onesuperscript,
+twosuperscript,
+threesuperscript,
+foursuperscript,
+fivesuperscript,
+sixsuperscript,
+sevensuperscript,
+eightsuperscript,
+ninesuperscript,
+zerosubscript,
+onesubscript,
+twosubscript,
+threesubscript,
+foursubscript,
+fivesubscript,
+sixsubscript,
+sevensubscript,
+eightsubscript,
+ninesubscript,
+flig2,
+flig1,
+tlig,
+gcircumflex.alt,
+zeropercent,
+percentbar,
+"exclam-top",
+"question-top",
+"exclam-bottom",
+"question-bottom",
+"dot-composite",
+"dot-composite-top",
+"Eth-bar",
+"Oslash-bar",
+"oslash-bar",
+diagonalbarl,
+horizontalbarlc,
+"H-bar",
+Engeng,
+"notequal-slash",
+"greaterequal-stroke",
+percentbar.tf,
+diagonalbarllc,
+"diagonalbarl-lc"
+);
+},
+{
+name = openTypeHheaCaretSlopeRise;
+value = 1;
+},
+{
+name = openTypeHheaCaretSlopeRun;
+value = 0;
+},
+{
+name = licenses;
+value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
+},
+{
+name = openTypeOS2SubscriptXOffset;
+value = 0;
+},
+{
+name = openTypeOS2SubscriptXSize;
+value = 1300;
+},
+{
+name = openTypeOS2SubscriptYOffset;
+value = 150;
+},
+{
+name = openTypeOS2SubscriptYSize;
+value = 1200;
+},
+{
+name = openTypeOS2SuperscriptXOffset;
+value = 0;
+},
+{
+name = openTypeOS2SuperscriptXSize;
+value = 1300;
+},
+{
+name = openTypeOS2SuperscriptYOffset;
+value = 700;
+},
+{
+name = openTypeOS2SuperscriptYSize;
+value = 1200;
+},
+{
+name = fsType;
+value = (
+);
+},
+{
+name = vendorID;
+value = GOOG;
+},
+{
+name = trademarks;
+value = "Google Sans is a trademark of Google.";
+}
+);
+date = "2017-07-06 09:41:44 +0000";
+familyName = "Google Sans Flex";
+featurePrefixes = (
+{
+code = "include(family.fea);";
+disabled = 1;
+name = Prefix;
+}
+);
+fontMaster = (
+{
+axesValues = (
+6,
+25,
+1,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 450;
+},
+{
+name = paramDepth;
+value = 18;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+name = "overshoot top";
+pos = (805,1482);
+userData = {
+UFO.identifier = 4YrXcs2DWN;
+};
+},
+{
+locked = 1;
+pos = (883,1086);
+},
+{
+locked = 1;
+pos = (699,-20);
+},
+{
+locked = 1;
+pos = (825,-480);
+},
+{
+angle = 90;
+pos = (-197,557);
+}
+);
+id = m001;
+metricValues = (
+{
+over = 20;
+pos = 1498;
+},
+{
+over = 20;
+pos = 1432;
+},
+{
+over = 20;
+pos = 1066;
+},
+{
+over = -20;
+},
+{
+over = -20;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth25-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+25,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 420;
+},
+{
+name = paramDepth;
+value = 20;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+angle = 90;
+name = "1";
+pos = (725,629);
+},
+{
+locked = 1;
+pos = (781,1110);
+},
+{
+locked = 1;
+pos = (153,-25);
+},
+{
+locked = 1;
+pos = (879,-484);
+},
+{
+pos = (118,1567);
+}
+);
+id = "7C224297-46A4-408E-BDB1-99237B4DCB3A";
+metricValues = (
+{
+over = 24;
+pos = 1498;
+},
+{
+over = 24;
+pos = 1432;
+},
+{
+over = 24;
+pos = 1086;
+},
+{
+over = -24;
+},
+{
+over = -24;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+25,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 340;
+},
+{
+name = paramDepth;
+value = 10;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+name = "overshoot top";
+pos = (471,1489);
+},
+{
+locked = 1;
+pos = (1139,-30);
+},
+{
+locked = 1;
+pos = (1067,1116);
+},
+{
+locked = 1;
+pos = (236,1542);
+},
+{
+pos = (651,510);
+}
+);
+id = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
+metricValues = (
+{
+over = 30;
+pos = 1498;
+},
+{
+over = 30;
+pos = 1432;
+},
+{
+over = 30;
+pos = 1086;
+},
+{
+over = -30;
+},
+{
+over = -30;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth25-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+1,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 500;
+},
+{
+name = paramDepth;
+value = 14;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+angle = 180;
+name = baseline;
+pos = (145,618);
+},
+{
+name = overshoot;
+pos = (799,528);
+},
+{
+name = "overshoot top";
+pos = (701,1451);
+},
+{
+pos = (18,1561);
+},
+{
+pos = (694,1309);
+},
+{
+name = top;
+pos = (28,1561);
+},
+{
+pos = (1166,817);
+},
+{
+locked = 1;
+pos = (1351,1088);
+},
+{
+locked = 1;
+pos = (1180,-32);
+},
+{
+locked = 1;
+pos = (55,-32);
+},
+{
+locked = 1;
+pos = (1416,1464);
+},
+{
+angle = 180;
+pos = (622,-492);
+},
+{
+locked = 1;
+pos = (252,1524);
+},
+{
+angle = 90;
+pos = (1222,376);
+}
+);
+id = "3FC95AE1-19AB-496F-875C-3FB1D5823AFA";
+metricValues = (
+{
+over = 32;
+pos = 1498;
+},
+{
+over = 32;
+pos = 1432;
+},
+{
+over = 32;
+pos = 1066;
+},
+{
+over = -32;
+},
+{
+over = -32;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 500;
+},
+{
+name = paramDepth;
+value = 18;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+name = baseline;
+pos = (480,543);
+},
+{
+name = overshoot;
+pos = (792,491);
+},
+{
+name = "overshoot top";
+pos = (701,1451);
+},
+{
+pos = (18,1561);
+},
+{
+pos = (694,1309);
+},
+{
+name = top;
+pos = (28,1561);
+},
+{
+pos = (1807,919);
+},
+{
+name = "1";
+pos = (52,660);
+},
+{
+locked = 1;
+pos = (1351,1122);
+},
+{
+locked = 1;
+pos = (1180,-36);
+},
+{
+locked = 1;
+pos = (1416,1468);
+},
+{
+locked = 1;
+pos = (787,-496);
+},
+{
+angle = 90;
+pos = (1071,440);
+}
+);
+id = "C6E6A82E-5529-473D-BA0B-E088A1B2D63E";
+metricValues = (
+{
+over = 35;
+pos = 1498;
+},
+{
+over = 35;
+pos = 1432;
+},
+{
+over = 35;
+pos = 1085;
+},
+{
+over = -35;
+},
+{
+over = -35;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 420;
+},
+{
+name = paramDepth;
+value = 16;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+name = "overshoot top";
+pos = (289,1460);
+},
+{
+angle = 90;
+name = baseline;
+pos = (999,547);
+},
+{
+pos = (340,1318);
+},
+{
+pos = (123,1646);
+},
+{
+pos = (396,1201);
+},
+{
+locked = 1;
+pos = (192,1124);
+},
+{
+pos = (951,-399);
+},
+{
+pos = (693,647);
+}
+);
+id = "4296CD9C-54F3-4369-8782-4D8C9C978D13";
+metricValues = (
+{
+over = 38;
+pos = 1498;
+},
+{
+over = 38;
+pos = 1432;
+},
+{
+over = 38;
+pos = 1086;
+},
+{
+over = -38;
+},
+{
+over = -38;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerMasterRules = {
+};
+};
+},
+{
+axesValues = (
+6,
+151,
+1,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 520;
+},
+{
+name = paramDepth;
+value = 18;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+locked = 1;
+pos = (1614,-40);
+},
+{
+locked = 1;
+pos = (1716,1096);
+},
+{
+locked = 1;
+pos = (1700,-500);
+},
+{
+pos = (737,422);
+},
+{
+pos = (1026,804);
+},
+{
+pos = (976,619);
+}
+);
+id = "41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C";
+metricValues = (
+{
+over = 40;
+pos = 1498;
+},
+{
+over = 40;
+pos = 1432;
+},
+{
+over = 40;
+pos = 1066;
+},
+{
+over = -40;
+},
+{
+over = -40;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth151-wght1-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerLinkedMaster = m001;
+HTLSManagerMasterRules = {
+};
+};
+},
+{
+axesValues = (
+6,
+151,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 550;
+},
+{
+name = paramDepth;
+value = 15;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+locked = 1;
+pos = (1614,-40);
+},
+{
+locked = 1;
+pos = (1716,1096);
+},
+{
+locked = 1;
+pos = (1700,-464);
+},
+{
+locked = 1;
+pos = (1489,1130);
+},
+{
+pos = (1857,657);
+}
+);
+id = "5DA06E3F-B65C-4341-B330-53F50D9F2964";
+metricValues = (
+{
+over = 43;
+pos = 1498;
+},
+{
+over = 43;
+pos = 1432;
+},
+{
+over = 43;
+pos = 1086;
+},
+{
+over = -43;
+},
+{
+over = -43;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+151,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 580;
+},
+{
+name = paramDepth;
+value = 20;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+name = baseline;
+pos = (844,607);
+},
+{
+name = "overshoot top";
+pos = (1291,1458);
+},
+{
+name = overshoot;
+pos = (1127,480);
+},
+{
+pos = (2550,1677);
+},
+{
+pos = (549,1181);
+},
+{
+pos = (371,543);
+},
+{
+locked = 1;
+pos = (1466,1134);
+}
+);
+id = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
+metricValues = (
+{
+over = 48;
+pos = 1498;
+},
+{
+over = 48;
+pos = 1432;
+},
+{
+over = 48;
+pos = 1086;
+},
+{
+over = -48;
+},
+{
+over = -48;
+pos = -442;
+},
+{
+over = -16;
+},
+{
+}
+);
+name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
+}
+);
+instances = (
+{
+axesValues = (
+6,
+25,
+1,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+m001 = 1;
+};
+name = "opsz6-wdth25-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+25,
+400,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 1;
+};
+name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+25,
+1000,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"2D1C241B-E6AD-41FB-985B-55D4E5F84943" = 1;
+};
+name = "opsz6-wdth25-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+1,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 1;
+};
+name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+400,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 1;
+};
+name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+1000,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 1;
+};
+name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+151,
+1,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C" = 1;
+};
+name = "opsz6-wdth151-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+151,
+400,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 1;
+};
+name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+151,
+1000,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 1;
+};
+name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+145,
+430,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 0.00588;
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 0.83824;
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 0.04412;
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 0.11176;
+};
+name = "wdth151-wght400 BUILDER";
+visible = 0;
+},
+{
+axesValues = (
+6,
+86,
+385,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 0.03058;
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 0.17965;
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 0.78276;
+m001 = 0.00702;
+};
+name = "wdth100-wght400 BUILDER lc";
+visible = 0;
+},
+{
+axesValues = (
+6,
+93,
+384,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = "Disable Masters";
+value = (
+"opsz6-wdth100-wght400-Ital0-Rond0-Grad0"
+);
+}
+);
+exports = 0;
+instanceInterpolations = {
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 0.14527;
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 0.14195;
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 0.36872;
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 0.23578;
+m001 = 0.10829;
+};
+name = "wdth100-wght400 BUILDER UC";
+visible = 0;
+}
+);
+kerningLTR = {
+m001 = {
+one.numerator = {
+fraction = 40;
+};
+};
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = {
+"@MMK_L_A_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -13;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = -20;
+"@MMK_R_Y_left" = -20;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 47;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = -17;
+"@MMK_R_hyphen_left" = -13;
+"@MMK_R_o_left" = 13;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = -80;
+"@MMK_R_quotes_right" = -73;
+"@MMK_R_quotes_straight_left" = -33;
+"@MMK_R_s_left" = 55;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+AE = 0;
+J = 0;
+V = -20;
+X = 0;
+asterisk = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_C_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 33;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 33;
+"@MMK_R_h_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 33;
+"@MMK_R_t_left" = 33;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 20;
+"@MMK_R_y_left" = 20;
+"@MMK_R_z_left" = 33;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+asterisk = 0;
+exclam = 0;
+question = 0;
+v = 20;
+x = 20;
+};
+"@MMK_L_E_right" = {
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 20;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_G_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_H_right" = {
+"@MMK_R_A_left" = 0;
+AE = 0;
+ordmasculine = 0;
+};
+"@MMK_L_K_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_H_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 60;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -40;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 27;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 80;
+"@MMK_R_t_left" = 40;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_z_left" = 40;
+AE = 0;
+J = 80;
+X = 0;
+exclam = 0;
+question = 0;
+x = 0;
+};
+"@MMK_L_L_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 13;
+"@MMK_R_T_left" = -13;
+"@MMK_R_Y_left" = -13;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 47;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_hyphen_left" = -13;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 20;
+"@MMK_R_quotes_left" = -93;
+"@MMK_R_quotes_right" = -53;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 20;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = -20;
+"@MMK_R_y_left" = -20;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 73;
+V = 0;
+X = 0;
+question = 0;
+v = -20;
+x = 0;
+};
+"@MMK_L_O_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+};
+"@MMK_L_R_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = 33;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+exclam = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_S_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 20;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 13;
+"@MMK_R_a_left" = 33;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 13;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 27;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 20;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 20;
+X = 20;
+exclam = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_T_right" = {
+"@MMK_R_A_left" = -13;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = -57;
+"@MMK_R_colon_left" = -27;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = -27;
+"@MMK_R_n_left" = -33;
+"@MMK_R_o_left" = -33;
+"@MMK_R_period_left" = -53;
+"@MMK_R_quotes_base_left" = -47;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = -73;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = -33;
+"@MMK_R_w_left" = -33;
+"@MMK_R_y_left" = -33;
+"@MMK_R_z_left" = -40;
+AE = -100;
+J = -40;
+V = 0;
+X = 0;
+exclam = 0;
+imacron = 13;
+question = 20;
+v = -33;
+x = -40;
+};
+"@MMK_L_U_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+AE = 0;
+};
+"@MMK_L_W_right" = {
+"@MMK_R_A_left" = -20;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = -13;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -20;
+"@MMK_R_n_left" = -20;
+"@MMK_R_period_left" = -47;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -40;
+J = 0;
+V = 0;
+X = 0;
+ampersand = 0;
+exclam = 0;
+question = 0;
+v = 0;
+};
+"@MMK_L_Y_right" = {
+"@MMK_R_A_left" = -20;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 13;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = -20;
+"@MMK_R_colon_left" = -40;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -20;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = -33;
+"@MMK_R_o_left" = -33;
+"@MMK_R_period_left" = -60;
+"@MMK_R_quotes_base_left" = -80;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = -20;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = -33;
+"@MMK_R_w_left" = -13;
+"@MMK_R_y_left" = -13;
+"@MMK_R_z_left" = -13;
+AE = -87;
+J = 0;
+V = 0;
+X = 0;
+ampersand = 0;
+exclam = 0;
+germandbls = 0;
+question = 0;
+v = -13;
+x = -20;
+};
+"@MMK_L_Z_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 20;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+exclam = 0;
+idieresis = 13;
+question = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_a_right" = {
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+asterisk = 0;
+backslash = 0;
+j = 0;
+registered = 0;
+};
+"@MMK_L_c_right" = {
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 13;
+"@MMK_R_t_left" = 13;
+"@MMK_R_w_left" = 13;
+"@MMK_R_y_left" = 13;
+J = 0;
+asterisk = 0;
+backslash = 0;
+periodcentered = 0;
+question = 0;
+registered = 0;
+v = 13;
+x = 0;
+};
+"@MMK_L_colon_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -27;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = -13;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = 0;
+X = 0;
+five = 0;
+four = 0;
+one = 0;
+six = 0;
+three = 0;
+two = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_d_right" = {
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_e_right" = {
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_z_left" = 0;
+asterisk = 0;
+question = 0;
+x = 0;
+};
+"@MMK_L_f_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 40;
+"@MMK_R_quotes_right" = 27;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 13;
+"@MMK_R_w_left" = 27;
+"@MMK_R_y_left" = 27;
+"@MMK_R_z_left" = 20;
+ampersand = 0;
+asterisk = 0;
+backslash = 0;
+braceright = 67;
+exclam = 0;
+idieresis = 103;
+parenright = 67;
+periodcentered = 0;
+question = 0;
+trademark = 93;
+v = 27;
+x = 20;
+};
+"@MMK_L_g_right" = {
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+backslash = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_guillemetleft_right" = {
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+five = 0;
+four = 0;
+one = 0;
+three = 0;
+two = 0;
+};
+"@MMK_L_guillemetright_right" = {
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+V = 0;
+X = 0;
+one = 0;
+seven = 0;
+two = 0;
+};
+"@MMK_L_hyphen_right" = {
+"@MMK_R_A_left" = -13;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -27;
+"@MMK_R_W_left" = -20;
+"@MMK_R_Y_left" = -20;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = -27;
+V = -13;
+X = -40;
+one = 0;
+three = 0;
+two = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_k_right" = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+ampersand = 0;
+backslash = 0;
+exclam = 0;
+periodcentered = 0;
+question = 0;
+registered = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_n_right" = {
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = -20;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_w_left" = 0;
+asterisk = 0;
+backslash = 0;
+question = 0;
+quotedbl = 0;
+quotesingle = 0;
+registered = 0;
+v = 0;
+};
+"@MMK_L_o_right" = {
+"@MMK_R_Y_left" = -33;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_z_left" = 0;
+asterisk = 0;
+backslash = 0;
+copyright = 0;
+question = 0;
+registered = 0;
+};
+"@MMK_L_period_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -40;
+"@MMK_R_W_left" = -47;
+"@MMK_R_Y_left" = -53;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = -33;
+X = 0;
+four = 0;
+one = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_quotes_base_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -40;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = -47;
+"@MMK_R_Y_left" = -53;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = -33;
+X = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_quotes_left" = {
+"@MMK_R_A_left" = -73;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -133;
+J = -73;
+V = 0;
+X = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_quotes_right" = {
+"@MMK_R_A_left" = -80;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = -67;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -133;
+J = -73;
+V = 0;
+X = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_quotes_straight_right" = {
+"@MMK_R_A_left" = -33;
+"@MMK_R_S_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+J = -67;
+four = 0;
+six = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_r_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 17;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 27;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 27;
+"@MMK_R_u_left" = 0;
+"@MMK_R_z_left" = 0;
+ampersand = 0;
+backslash = 0;
+braceright = 0;
+bracketright = 0;
+exclam = 0;
+parenright = 0;
+periodcentered = 0;
+question = 0;
+slash = 0;
+x = 0;
+};
+"@MMK_L_s_right" = {
+"@MMK_R_T_left" = -47;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 20;
+"@MMK_R_z_left" = 13;
+backslash = 0;
+copyright = 0;
+question = 0;
+x = 0;
+};
+"@MMK_L_t_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 13;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 20;
+backslash = 0;
+exclam = 0;
+parenright = 0;
+periodcentered = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_u_right" = {
+"@MMK_R_Y_left" = -27;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_w_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 17;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_t_left" = 20;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+exclam = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_y_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 17;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_t_left" = 20;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+ampersand = 0;
+backslash = 0;
+exclam = 0;
+periodcentered = 0;
+question = 0;
+slash = 0;
+v = 0;
+x = 0;
+};
+"@MMK_L_z_right" = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 20;
+"@MMK_R_t_left" = 27;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+backslash = 0;
+exclam = 0;
+periodcentered = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+A = {
+question = 0;
+};
+B = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+A = 0;
+AE = 0;
+V = 0;
+X = 0;
+question = 0;
+};
+E = {
+O = 0;
+};
+Euro = {
+four = 0;
+one = 0;
+three = 0;
+};
+F = {
+"@MMK_R_A_left" = -13;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = -47;
+"@MMK_R_quotes_base_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -87;
+J = -80;
+question = 0;
+v = 0;
+x = 0;
+};
+G = {
+V = 0;
+Y = 0;
+};
+Iogonek = {
+"@MMK_R_i_left" = 20;
+};
+L = {
+A = 0;
+question = 0;
+};
+Lcaron = {
+"@MMK_R_T_left" = 20;
+V = 33;
+};
+P = {
+"@MMK_R_A_left" = -20;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = -133;
+"@MMK_R_quotes_base_left" = -133;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+AE = -133;
+J = -93;
+V = 0;
+X = 0;
+ampersand = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+Thorn = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_T_left" = -27;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = -23;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_period_left" = -67;
+AE = -93;
+J = 0;
+V = 0;
+X = -20;
+};
+V = {
+"@MMK_R_A_left" = -20;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = -13;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 47;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -13;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = -17;
+"@MMK_R_o_left" = -17;
+"@MMK_R_period_left" = -60;
+"@MMK_R_quotes_base_left" = -40;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_t_left" = 47;
+"@MMK_R_u_left" = -17;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -40;
+J = -20;
+V = 0;
+X = 0;
+exclam = 0;
+question = 0;
+v = 0;
+};
+X = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 33;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -40;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+exclam = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+ampersand = {
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+};
+aogonek = {
+j = 33;
+};
+asterisk = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+four = 0;
+six = 0;
+};
+backslash = {
+four = 0;
+one = 0;
+};
+braceleft = {
+"@MMK_R_i_left" = 27;
+four = 0;
+one = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+bracketleft = {
+four = 0;
+one = 0;
+six = 0;
+};
+copyright = {
+four = 0;
+seven = 0;
+six = 0;
+};
+currency = {
+four = 0;
+one = 0;
+};
+dcaron = {
+"@MMK_R_h_left" = 27;
+"@MMK_R_i_left" = 47;
+"@MMK_R_quotes_left" = 53;
+"@MMK_R_quotes_right" = 53;
+"@MMK_R_quotes_straight_left" = 67;
+backslash = 140;
+braceright = 140;
+bracketright = 93;
+parenright = 120;
+trademark = 133;
+};
+degree = {
+"@MMK_R_period_left" = 0;
+four = 0;
+three = 0;
+two = 0;
+};
+divide = {
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+dollar = {
+four = 0;
+one = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+eight = {
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+ordfeminine = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+equal = {
+one = 0;
+seven = 0;
+};
+exclamdown = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = 0;
+X = 0;
+four = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+v = 0;
+x = 0;
+};
+f = {
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_period_left" = 0;
+};
+five = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_t_left" = 0;
+backslash = 0;
+degree = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+ordmasculine = 0;
+percent = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+four = {
+"@MMK_R_t_left" = 0;
+cent = 0;
+currency = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+minus = 0;
+nine = 0;
+one = 0;
+ordfeminine = 0;
+ordmasculine = 0;
+percent = 0;
+plus = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+fraction = {
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+greater = {
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+idieresis = {
+backslash = 87;
+braceright = 40;
+};
+iogonek = {
+j = 27;
+};
+lcaron = {
+"@MMK_R_h_left" = 13;
+"@MMK_R_i_left" = 13;
+"@MMK_R_z_left" = 27;
+};
+less = {
+four = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+minus = {
+one = 0;
+seven = 0;
+two = 0;
+};
+nine = {
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_period_left" = 0;
+backslash = 0;
+braceright = 0;
+bracketright = 0;
+cent = 0;
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+parenright = 0;
+plus = 0;
+seven = 0;
+six = 0;
+slash = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+numbersign = {
+five = 0;
+four = 0;
+one = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+one = {
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+ordmasculine = {
+four = 0;
+six = 0;
+};
+paragraph = {
+one = 0;
+two = 0;
+};
+parenleft = {
+four = 0;
+one = -13;
+six = 0;
+};
+periodcentered = {
+four = 0;
+one = 0;
+three = 0;
+two = 0;
+x = 0;
+};
+plus = {
+five = 0;
+four = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+questiondown = {
+"@MMK_R_A_left" = -13;
+"@MMK_R_H_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -33;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = -53;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = -40;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = -53;
+X = 0;
+Y = -40;
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+v = -40;
+x = 0;
+zero = 0;
+};
+section = {
+four = 0;
+seven = 0;
+};
+seven = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_t_left" = 0;
+Euro = 0;
+braceright = 0;
+cent = 0;
+currency = 0;
+divide = 0;
+eight = 0;
+equal = 0;
+five = 0;
+four = -20;
+fraction = 0;
+greater = 0;
+less = 0;
+minus = 0;
+nine = 0;
+one = 20;
+paragraph = 0;
+parenright = 0;
+periodcentered = 0;
+plus = 0;
+question = 0;
+section = 0;
+seven = 0;
+six = -33;
+slash = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+six = {
+"@MMK_R_t_left" = 0;
+degree = 0;
+eight = 0;
+five = -13;
+four = 0;
+fraction = 0;
+nine = -20;
+one = 0;
+ordfeminine = 0;
+ordmasculine = 0;
+paragraph = 0;
+percent = 0;
+question = 0;
+seven = -13;
+six = 0;
+three = 0;
+two = -13;
+zero = 0;
+};
+slash = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+four = 0;
+slash = 0;
+x = 0;
+};
+sterling = {
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+three = {
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+percent = 0;
+seven = 0;
+six = 0;
+three = 13;
+two = 0;
+zero = 0;
+};
+two = {
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = -13;
+fraction = 0;
+less = 0;
+one = 20;
+seven = 33;
+three = 13;
+two = 0;
+zero = 0;
+};
+u = {
+"@MMK_R_i_left" = 0;
+};
+uogonek = {
+"@MMK_R_i_left" = 0;
+j = 27;
+};
+v = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 17;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_t_left" = 20;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+exclam = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+x = {
+"@MMK_R_a_left" = -13;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = -13;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+backslash = 0;
+exclam = 0;
+periodcentered = 0;
+question = 0;
+v = 0;
+x = 0;
+};
+yen = {
+four = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+zero = {
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+ordfeminine = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+};
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = {
+"@MMK_L_A_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -1;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = -2;
+"@MMK_R_Y_left" = -2;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 4;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = -2;
+"@MMK_R_hyphen_left" = -1;
+"@MMK_R_o_left" = 1;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = -7;
+"@MMK_R_quotes_right" = -7;
+"@MMK_R_quotes_straight_left" = -3;
+"@MMK_R_s_left" = 5;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+AE = 0;
+J = 0;
+V = -2;
+X = 0;
+asterisk = 0;
+question = 0;
+};
+"@MMK_L_C_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 3;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 3;
+"@MMK_R_h_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 3;
+"@MMK_R_t_left" = 3;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 2;
+"@MMK_R_y_left" = 2;
+"@MMK_R_z_left" = 3;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+asterisk = 0;
+exclam = 0;
+question = 0;
+};
+"@MMK_L_E_right" = {
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 2;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+question = 0;
+};
+"@MMK_L_G_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+};
+"@MMK_L_H_right" = {
+"@MMK_R_A_left" = 0;
+AE = 0;
+ordmasculine = 0;
+};
+"@MMK_L_K_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_H_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 5;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -4;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 2;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 7;
+"@MMK_R_t_left" = 4;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_z_left" = 4;
+AE = 0;
+J = 7;
+X = 0;
+exclam = 0;
+question = 0;
+};
+"@MMK_L_L_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 1;
+"@MMK_R_T_left" = -1;
+"@MMK_R_Y_left" = -1;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 4;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_hyphen_left" = -1;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 2;
+"@MMK_R_quotes_left" = -8;
+"@MMK_R_quotes_right" = -5;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 2;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = -2;
+"@MMK_R_y_left" = -2;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 7;
+V = 0;
+X = 0;
+question = 0;
+};
+"@MMK_L_O_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+};
+"@MMK_L_R_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = 3;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+exclam = 0;
+};
+"@MMK_L_S_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 2;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 1;
+"@MMK_R_a_left" = 3;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 1;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 2;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 2;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 2;
+X = 2;
+exclam = 0;
+};
+"@MMK_L_T_right" = {
+"@MMK_R_A_left" = -1;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = -5;
+"@MMK_R_colon_left" = -2;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = -2;
+"@MMK_R_n_left" = -3;
+"@MMK_R_o_left" = -3;
+"@MMK_R_period_left" = -5;
+"@MMK_R_quotes_base_left" = -4;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = -7;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = -3;
+"@MMK_R_w_left" = -3;
+"@MMK_R_y_left" = -3;
+"@MMK_R_z_left" = -4;
+AE = -9;
+J = -4;
+V = 0;
+X = 0;
+exclam = 0;
+question = 2;
+};
+"@MMK_L_U_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+AE = 0;
+};
+"@MMK_L_W_right" = {
+"@MMK_R_A_left" = -2;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = -1;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -2;
+"@MMK_R_n_left" = -2;
+"@MMK_R_period_left" = -4;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -4;
+J = 0;
+V = 0;
+X = 0;
+ampersand = 0;
+exclam = 0;
+question = 0;
+};
+"@MMK_L_Y_right" = {
+"@MMK_R_A_left" = -2;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 1;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = -2;
+"@MMK_R_colon_left" = -4;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -2;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = -3;
+"@MMK_R_o_left" = -3;
+"@MMK_R_period_left" = -5;
+"@MMK_R_quotes_base_left" = -7;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = -2;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = -3;
+"@MMK_R_w_left" = -1;
+"@MMK_R_y_left" = -1;
+"@MMK_R_z_left" = -1;
+AE = -8;
+J = 0;
+V = 0;
+X = 0;
+ampersand = 0;
+exclam = 0;
+question = 0;
+};
+"@MMK_L_Z_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 2;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+exclam = 0;
+question = 0;
+};
+"@MMK_L_a_right" = {
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+asterisk = 0;
+backslash = 0;
+registered = 0;
+};
+"@MMK_L_c_right" = {
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 1;
+"@MMK_R_t_left" = 1;
+"@MMK_R_w_left" = 1;
+"@MMK_R_y_left" = 1;
+J = 0;
+asterisk = 0;
+backslash = 0;
+periodcentered = 0;
+question = 0;
+registered = 0;
+};
+"@MMK_L_colon_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -2;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = -1;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = 0;
+X = 0;
+five = 0;
+four = 0;
+one = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+"@MMK_L_d_right" = {
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+};
+"@MMK_L_e_right" = {
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_z_left" = 0;
+asterisk = 0;
+question = 0;
+};
+"@MMK_L_f_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 4;
+"@MMK_R_quotes_right" = 2;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 1;
+"@MMK_R_w_left" = 2;
+"@MMK_R_y_left" = 2;
+"@MMK_R_z_left" = 2;
+ampersand = 0;
+asterisk = 0;
+backslash = 0;
+braceright = 6;
+exclam = 0;
+parenright = 6;
+periodcentered = 0;
+question = 0;
+trademark = 8;
+};
+"@MMK_L_g_right" = {
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+backslash = 0;
+question = 0;
+};
+"@MMK_L_guillemetleft_right" = {
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+five = 0;
+four = 0;
+one = 0;
+three = 0;
+two = 0;
+};
+"@MMK_L_guillemetright_right" = {
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+V = 0;
+X = 0;
+one = 0;
+seven = 0;
+two = 0;
+};
+"@MMK_L_hyphen_right" = {
+"@MMK_R_A_left" = -1;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -2;
+"@MMK_R_W_left" = -2;
+"@MMK_R_Y_left" = -2;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = -2;
+V = -1;
+X = -4;
+one = 0;
+three = 0;
+two = 0;
+};
+"@MMK_L_k_right" = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+ampersand = 0;
+backslash = 0;
+exclam = 0;
+periodcentered = 0;
+question = 0;
+registered = 0;
+};
+"@MMK_L_n_right" = {
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = -2;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_w_left" = 0;
+asterisk = 0;
+backslash = 0;
+question = 0;
+quotedbl = 0;
+quotesingle = 0;
+registered = 0;
+};
+"@MMK_L_o_right" = {
+"@MMK_R_Y_left" = -3;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_z_left" = 0;
+asterisk = 0;
+backslash = 0;
+copyright = 0;
+question = 0;
+registered = 0;
+};
+"@MMK_L_period_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -4;
+"@MMK_R_W_left" = -4;
+"@MMK_R_Y_left" = -5;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = -3;
+X = 0;
+four = 0;
+one = 0;
+};
+"@MMK_L_quotes_base_right" = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -4;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = -4;
+"@MMK_R_Y_left" = -5;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = -3;
+X = 0;
+};
+"@MMK_L_quotes_left" = {
+"@MMK_R_A_left" = -7;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -12;
+J = -7;
+V = 0;
+X = 0;
+};
+"@MMK_L_quotes_right" = {
+"@MMK_R_A_left" = -7;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = -6;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -12;
+J = -7;
+V = 0;
+X = 0;
+};
+"@MMK_L_quotes_straight_right" = {
+"@MMK_R_A_left" = -3;
+"@MMK_R_S_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+J = -6;
+four = 0;
+six = 0;
+};
+"@MMK_L_r_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 2;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 2;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 2;
+"@MMK_R_u_left" = 0;
+"@MMK_R_z_left" = 0;
+ampersand = 0;
+backslash = 0;
+braceright = 0;
+bracketright = 0;
+exclam = 0;
+parenright = 0;
+periodcentered = 0;
+question = 0;
+slash = 0;
+};
+"@MMK_L_s_right" = {
+"@MMK_R_T_left" = -4;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 2;
+"@MMK_R_z_left" = 1;
+backslash = 0;
+copyright = 0;
+question = 0;
+};
+"@MMK_L_t_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 1;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 2;
+backslash = 0;
+exclam = 0;
+parenright = 0;
+periodcentered = 0;
+question = 0;
+};
+"@MMK_L_u_right" = {
+"@MMK_R_Y_left" = -2;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+};
+"@MMK_L_w_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 2;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_t_left" = 2;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+exclam = 0;
+question = 0;
+};
+"@MMK_L_y_right" = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 2;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_t_left" = 2;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+ampersand = 0;
+backslash = 0;
+exclam = 0;
+periodcentered = 0;
+question = 0;
+slash = 0;
+};
+"@MMK_L_z_right" = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 2;
+"@MMK_R_t_left" = 2;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+backslash = 0;
+exclam = 0;
+periodcentered = 0;
+question = 0;
+};
+A = {
+question = 0;
+};
+B = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+A = 0;
+AE = 0;
+V = 0;
+X = 0;
+question = 0;
+};
+E = {
+O = 0;
+};
+Euro = {
+four = 0;
+one = 0;
+three = 0;
+};
+F = {
+"@MMK_R_A_left" = -1;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = -4;
+"@MMK_R_quotes_base_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -8;
+J = -7;
+question = 0;
+};
+G = {
+V = 0;
+Y = 0;
+};
+Iogonek = {
+"@MMK_R_i_left" = 2;
+};
+L = {
+A = 0;
+question = 0;
+};
+Lcaron = {
+"@MMK_R_T_left" = 2;
+V = 3;
+};
+P = {
+"@MMK_R_A_left" = -2;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = -12;
+"@MMK_R_quotes_base_left" = -12;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_quotes_straight_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+AE = -12;
+J = -8;
+V = 0;
+X = 0;
+ampersand = 0;
+question = 0;
+};
+Thorn = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_T_left" = -2;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = -2;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_period_left" = -6;
+AE = -8;
+J = 0;
+V = 0;
+X = -2;
+};
+V = {
+"@MMK_R_A_left" = -2;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = -1;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 4;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -1;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = -2;
+"@MMK_R_o_left" = -2;
+"@MMK_R_period_left" = -5;
+"@MMK_R_quotes_base_left" = -4;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_t_left" = 4;
+"@MMK_R_u_left" = -2;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = -4;
+J = -2;
+V = 0;
+X = 0;
+exclam = 0;
+question = 0;
+};
+X = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 3;
+"@MMK_R_colon_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_hyphen_left" = -4;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_quotes_left" = 0;
+"@MMK_R_quotes_right" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+AE = 0;
+J = 0;
+V = 0;
+X = 0;
+exclam = 0;
+question = 0;
+};
+ampersand = {
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+};
+asterisk = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_period_left" = 0;
+four = 0;
+six = 0;
+};
+backslash = {
+four = 0;
+one = 0;
+};
+braceleft = {
+"@MMK_R_i_left" = 2;
+four = 0;
+one = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+bracketleft = {
+four = 0;
+one = 0;
+six = 0;
+};
+copyright = {
+four = 0;
+seven = 0;
+six = 0;
+};
+currency = {
+four = 0;
+one = 0;
+};
+degree = {
+"@MMK_R_period_left" = 0;
+four = 0;
+three = 0;
+two = 0;
+};
+divide = {
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+dollar = {
+four = 0;
+one = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+eight = {
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+ordfeminine = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+equal = {
+one = 0;
+seven = 0;
+};
+exclamdown = {
+"@MMK_R_A_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = 0;
+"@MMK_R_W_left" = 0;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_w_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = 0;
+X = 0;
+four = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+five = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_t_left" = 0;
+backslash = 0;
+degree = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+ordmasculine = 0;
+percent = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+four = {
+"@MMK_R_t_left" = 0;
+cent = 0;
+currency = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+minus = 0;
+nine = 0;
+one = 0;
+ordfeminine = 0;
+ordmasculine = 0;
+percent = 0;
+plus = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+fraction = {
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+greater = {
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+less = {
+four = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+minus = {
+one = 0;
+seven = 0;
+two = 0;
+};
+nine = {
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_period_left" = 0;
+backslash = 0;
+braceright = 0;
+bracketright = 0;
+cent = 0;
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+parenright = 0;
+plus = 0;
+seven = 0;
+six = 0;
+slash = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+numbersign = {
+five = 0;
+four = 0;
+one = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+one = {
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+question = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+ordmasculine = {
+four = 0;
+six = 0;
+};
+paragraph = {
+one = 0;
+two = 0;
+};
+parenleft = {
+four = 0;
+one = -1;
+six = 0;
+};
+periodcentered = {
+four = 0;
+one = 0;
+three = 0;
+two = 0;
+};
+plus = {
+five = 0;
+four = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+};
+questiondown = {
+"@MMK_R_A_left" = -1;
+"@MMK_R_H_left" = 0;
+"@MMK_R_O_left" = 0;
+"@MMK_R_S_left" = 0;
+"@MMK_R_T_left" = -3;
+"@MMK_R_U_left" = 0;
+"@MMK_R_W_left" = -5;
+"@MMK_R_Y_left" = 0;
+"@MMK_R_Z_left" = 0;
+"@MMK_R_a_left" = 0;
+"@MMK_R_f_left" = 0;
+"@MMK_R_h_left" = 0;
+"@MMK_R_i_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_u_left" = 0;
+"@MMK_R_w_left" = -4;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+J = 0;
+V = -5;
+X = 0;
+Y = -4;
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+section = {
+four = 0;
+seven = 0;
+};
+seven = {
+"@MMK_R_colon_left" = 0;
+"@MMK_R_guillemetleft_left" = 0;
+"@MMK_R_guillemetright" = 0;
+"@MMK_R_hyphen_left" = 0;
+"@MMK_R_period_left" = 0;
+"@MMK_R_t_left" = 0;
+Euro = 0;
+braceright = 0;
+cent = 0;
+currency = 0;
+divide = 0;
+eight = 0;
+equal = 0;
+five = 0;
+four = -2;
+fraction = 0;
+greater = 0;
+less = 0;
+minus = 0;
+nine = 0;
+one = 2;
+paragraph = 0;
+parenright = 0;
+periodcentered = 0;
+plus = 0;
+question = 0;
+section = 0;
+seven = 0;
+six = -3;
+slash = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+six = {
+"@MMK_R_t_left" = 0;
+degree = 0;
+eight = 0;
+five = -1;
+four = 0;
+fraction = 0;
+nine = -2;
+one = 0;
+ordfeminine = 0;
+ordmasculine = 0;
+paragraph = 0;
+percent = 0;
+question = 0;
+seven = -1;
+six = 0;
+three = 0;
+two = -1;
+zero = 0;
+};
+slash = {
+"@MMK_R_a_left" = 0;
+"@MMK_R_n_left" = 0;
+"@MMK_R_o_left" = 0;
+"@MMK_R_s_left" = 0;
+"@MMK_R_t_left" = 0;
+"@MMK_R_y_left" = 0;
+"@MMK_R_z_left" = 0;
+four = 0;
+slash = 0;
+};
+sterling = {
+eight = 0;
+five = 0;
+four = 0;
+nine = 0;
+one = 0;
+seven = 0;
+three = 0;
+two = 0;
+zero = 0;
+};
+three = {
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+percent = 0;
+seven = 0;
+six = 0;
+three = 1;
+two = 0;
+zero = 0;
+};
+two = {
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = -1;
+fraction = 0;
+less = 0;
+one = 2;
+seven = 3;
+three = 1;
+two = 0;
+zero = 0;
+};
+yen = {
+four = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+zero = {
+"@MMK_R_t_left" = 0;
+eight = 0;
+five = 0;
+four = 0;
+fraction = 0;
+nine = 0;
+one = 0;
+ordfeminine = 0;
+seven = 0;
+six = 0;
+three = 0;
+two = 0;
+};
+};
+};
+metrics = (
+{
+type = ascender;
+},
+{
+type = "cap height";
+},
+{
+type = "x-height";
+},
+{
+type = baseline;
+},
+{
+type = descender;
+},
+{
+type = "italic angle";
+},
+{
+filter = "name CONTAINS \".denominator\"";
+name = "Height for";
+}
+);
+properties = (
+{
+key = designers;
+values = (
+{
+language = dflt;
+value = "Google Sans Authors";
+}
+);
+},
+{
+key = designerURL;
+value = "https://design.google";
+},
+{
+key = manufacturers;
+values = (
+{
+language = dflt;
+value = "Google LLC";
+}
+);
+},
+{
+key = manufacturerURL;
+value = "https://design.google";
+},
+{
+key = copyrights;
+values = (
+{
+language = dflt;
+value = "Copyright 2015 Google LLC. All Rights Reserved.";
+}
+);
+},
+{
+key = vendorID;
+value = GOOG;
+},
+{
+key = licenses;
+values = (
+{
+language = dflt;
+value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
+}
+);
+},
+{
+key = trademarks;
+values = (
+{
+language = dflt;
+value = "Google Sans is a trademark of Google.";
+}
+);
+}
+);
+settings = {
+disablesNiceNames = 1;
+};
+unitsPerEm = 2000;
+userData = {
+GSDimensionPlugin.Dimensions = {
+"2D1C241B-E6AD-41FB-985B-55D4E5F84943" = {
+HH = "365";
+HV = "408";
+OH = "374";
+OV = "421";
+nV = "398";
+oH = "324";
+oV = "404";
+tH = "298";
+};
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = {
+HH = "87";
+HV = "90";
+OH = "82";
+OV = "93";
+nV = "88";
+oH = "80";
+oV = "90";
+tH = "82";
+};
+"41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C" = {
+HH = "91";
+HV = "94";
+OH = "84";
+OV = "96";
+nV = "92";
+oH = "82";
+oV = "94";
+tH = "84";
+};
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = {
+HH = "384";
+HV = "428";
+OH = "403";
+OV = "435";
+nV = "419";
+oH = "348";
+oV = "428";
+tH = "298";
+};
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = {
+HH = "216";
+HV = "243";
+OH = "215";
+OV = "250";
+nV = "237";
+oH = "198";
+oV = "244";
+tH = "185";
+};
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = {
+HH = "184";
+HV = "200";
+OH = "180";
+OV = "205";
+nV = "195";
+oH = "172";
+oV = "199";
+tH = "168";
+};
+"AA600D03-8064-48D6-9688-B5065330793C" = {
+HH = "204";
+HV = "225";
+OH = "200";
+OV = "230";
+nV = "220";
+oH = "190";
+oV = "225";
+tH = "195";
+};
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = {
+HH = "384";
+HV = "442";
+OH = "390";
+OV = "455";
+nV = "432";
+oH = "354";
+oV = "445";
+tH = "298";
+};
+m001 = {
+HH = "78";
+HV = "86";
+OH = "76";
+OV = "88";
+nV = "84";
+oH = "76";
+oV = "86";
+tH = "77";
+};
+};
+UFO.lib = {
+public.openTypeCategories = {
+A = base;
+AE = base;
+B = base;
+C = base;
+D = base;
+E = base;
+F = base;
+G = base;
+H = base;
+I = base;
+J = base;
+K = base;
+L = base;
+M = base;
+N = base;
+O = base;
+P = base;
+Q = base;
+R = base;
+S = base;
+T = base;
+Thorn = base;
+U = base;
+V = base;
+W = base;
+X = base;
+Y = base;
+Z = base;
+a = base;
+a.alt = base;
+acutecomb = mark;
+ae = base;
+b = base;
+brevecomb = mark;
+c = base;
+caroncomb = mark;
+caroncomb.alt = mark;
+cedillacomb = mark;
+circumflexcomb = mark;
+commaaccentcomb = mark;
+commaturnedabovecomb = mark;
+d = base;
+dieresiscomb = mark;
+dotaccentcomb = mark;
+e = base;
+eth = base;
+f = base;
+g = base;
+g.alt = base;
+germandbls = base;
+gravecomb = mark;
+h = base;
+hungarumlautcomb = mark;
+i = base;
+idotless = base;
+jdotless = base;
+k = base;
+l = base;
+m = base;
+macroncomb = mark;
+n = base;
+o = base;
+ogonekcomb = mark;
+p = base;
+q = base;
+r = base;
+ringcomb = mark;
+s = base;
+t = base;
+thorn = base;
+tildecomb = mark;
+u = base;
+uni25CC = base;
+v = base;
+w = base;
+x = base;
+y = base;
+z = base;
+};
+public.postscriptNames = {
+Acaron = uni01CD;
+"Eth-bar" = Ethbar;
+Gcommaaccent = uni0122;
+Germandbls = uni1E9E;
+"H-bar" = Hbar;
+Kcommaaccent = uni0136;
+Lcommaaccent = uni013B;
+Ncommaaccent = uni0145;
+"Oslash-bar" = Oslashbar;
+Rcommaaccent = uni0156;
+Scommaaccent = uni0218;
+Tcedilla = uni0162;
+Tcommaaccent = uni021A;
+acaron = uni01CE;
+acaron.alt = uni01CE.alt;
+brevecomb = uni0306;
+caroncomb = uni030C;
+caroncomb.alt = uni030C.alt;
+cedillacomb = uni0327;
+circumflexcomb = uni0302;
+commaaccentcomb = uni0326;
+commaturnedabovecomb = uni0312;
+"diagonalbarl-lc" = diagonalbarllc;
+dieresiscomb = uni0308;
+"dot-composite" = dotcomposite;
+"dot-composite-top" = dotcompositetop;
+dotaccentcomb = uni0307;
+eightsubscript = uni2088;
+eightsuperscript = uni2078;
+emspace = uni2003;
+enspace = uni2002;
+"exclam-bottom" = exclambottom;
+"exclam-top" = exclamtop;
+fivesubscript = uni2085;
+fivesuperscript = uni2075;
+fourperemspace = uni2005;
+foursubscript = uni2084;
+foursuperior = uni2074;
+foursuperscript = uni2074;
+gcommaaccent = uni0123;
+gcommaaccent.alt = uni0123.alt;
+"greaterequal-stroke" = greaterequalstroke;
+guillemetleft = guillemotleft;
+guillemetright = guillemotright;
+hairspace = uni200A;
+hungarumlautcomb = uni030B;
+idotless = dotlessi;
+jdotless = uni0237;
+kcommaaccent = uni0137;
+lcommaaccent = uni013C;
+macroncomb = uni0304;
+micro = uni00B5;
+mu = uni03BC;
+ncommaaccent = uni0146;
+ninesubscript = uni2089;
+ninesuperscript = uni2079;
+"notequal-slash" = notequalslash;
+ogonekcomb = uni0328;
+onesubscript = uni2081;
+onesuperior = uni00B9;
+"oslash-bar" = oslashbar;
+"question-bottom" = questionbottom;
+"question-top" = questiontop;
+rcommaaccent = uni0157;
+ringcomb = uni030A;
+scommaaccent = uni0219;
+sevensubscript = uni2087;
+sevensuperscript = uni2077;
+sixperemspace = uni2006;
+sixsubscript = uni2086;
+sixsuperscript = uni2076;
+softhyphen = uni00AD;
+tcedilla = uni0163;
+tcommaaccent = uni021B;
+thinspace = uni2009;
+threeperemspace = uni2004;
+threesubscript = uni2083;
+threesuperior = uni00B3;
+twosubscript = uni2082;
+twosuperior = uni00B2;
+zerosubscript = uni2080;
+zerosuperscript = uni2070;
+zerowidthspace = uni200B;
+};
+};
+UFOFormat = 3;
+UFOLayerName = foreground;
+com.eweracs.HTLSManager.fontRules = {
+Letter = {
+161c12cfb25b4e4f95787e1e4f2bdcea = {
+case = 2;
+filter = "";
+referenceGlyph = x;
+subcategory = Any;
+value = "1";
+};
+31375694df57481a849d3a442ef361bc = {
+case = 4;
+filter = .sups;
+referenceGlyph = m.sups;
+subcategory = Any;
+value = "0.7";
+};
+3fa7bd70c45e42a1a7d51eccd1875236 = {
+case = 1;
+filter = "";
+referenceGlyph = H;
+subcategory = Any;
+value = "1.25";
+};
+4627ea45293e493cbaabec26c67e53e6 = {
+case = 0;
+filter = "";
+referenceGlyph = devaHeight;
+subcategory = Ligature;
+value = "1";
+};
+b9c402f2f71441e3a4ddaea2964855ec = {
+case = 0;
+filter = "";
+referenceGlyph = devaHeight;
+subcategory = Other;
+value = "1";
+};
+c71c85a5c0d5448695994c825987c183 = {
+case = 3;
+filter = "";
+referenceGlyph = h.sc;
+subcategory = Any;
+value = "1.1";
+};
+};
+Mark = {
+35bf43087cc149e6813faa99f547ecc1 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1";
+};
+};
+Number = {
+2c90545af2a9452c898a17c799839dcc = {
+case = 0;
+filter = .osf;
+referenceGlyph = zero.osf;
+subcategory = "Decimal Digit";
+value = "1.2";
+};
+3494c71aac1446b08a5e884c024c05f4 = {
+case = 0;
+filter = .dnom;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+554519522cd048c994fedb94f2000ace = {
+case = 0;
+filter = .numr;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+7d510b13b2fb4fe68c5051dea33bc019 = {
+case = 0;
+filter = superior;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+7e2e82070f7d474e9550f1725ce6d753 = {
+case = 0;
+filter = "";
+referenceGlyph = one;
+subcategory = "Decimal Digit";
+value = "1.2";
+};
+80eadacfe1c140ef84c016460d9e54f5 = {
+case = 0;
+filter = .inferior;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+da93648c117b4d0a95c3ae787392f8fb = {
+case = 4;
+filter = "";
+referenceGlyph = "";
+subcategory = Fraction;
+value = "1.3";
+};
+};
+Punctuation = {
+05428b6cb4d1445c874b33614851cdfd = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Other;
+value = "1.4";
+};
+3e66a5134bfe425e9235010e7d4bebe1 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Parenthesis;
+value = "1.2";
+};
+4483cf4211b749ebbe285930057d5aa7 = {
+case = 0;
+filter = slash;
+referenceGlyph = "";
+subcategory = Any;
+value = "1";
+};
+63deb24ed7b34f83bae1dc0276b478d7 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Quote;
+value = "1.2";
+};
+82f6be890db9400d89e8dc8dc3812595 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Dash;
+value = "1";
+};
+f84a77b420494e48a54651af4122cf17 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1.2";
+};
+};
+Separator = {
+};
+Symbol = {
+b16a8ccbea5e423e93b9418f7a0e0642 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Currency;
+value = "1.6";
+};
+c0cd946d3ca249ddad6c4fe58cf9d285 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1.5";
+};
+};
+};
+};
+versionMajor = 1;
+versionMinor = 0;
+}
