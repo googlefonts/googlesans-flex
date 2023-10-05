@@ -22,7 +22,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(98,0,l),
 (100,0,o),
 (100,0,o,{
 name = inserted;
@@ -42,7 +41,7 @@ name = inserted;
 (96,2,ls),
 (96,0,o),
 (96,0,o),
-(98,0,q)
+(98,0,qs)
 );
 }
 );
@@ -68,7 +67,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(113,0,l),
 (180,0,o),
 (180,0,o,{
 name = inserted;
@@ -114,7 +112,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(220,0,l),
 (222,0,o),
 (222,0,o,{
 name = inserted;
@@ -160,7 +157,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(228,0,l),
 (299,0,o),
 (299,0,o),
 (299,67,qs),
@@ -198,7 +194,7 @@ pos = (338,1060);
 guides = (
 {
 angle = 90;
-pos = (337,0);
+pos = (337,-2);
 }
 );
 layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
@@ -206,7 +202,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(341,0,ls),
 (590,0,o),
 (590,0,o,{
 name = inserted;
@@ -226,7 +221,7 @@ name = inserted;
 (84,241,ls),
 (84,0,o),
 (84,0,o),
-(335,0,qs)
+(337,0,qs)
 );
 }
 );
@@ -252,7 +247,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(194,0,l),
 (199,0,o),
 (199,0,o,{
 name = inserted;
@@ -298,7 +292,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(306,0,l),
 (378,0,o),
 (378,0,o,{
 name = inserted;
@@ -344,7 +337,6 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(466,0,l),
 (833,0,o),
 (833,0,o,{
 name = inserted;
@@ -357,14 +349,14 @@ name = inserted;
 (833,1060,o,{
 name = inserted;
 }),
-(458,1060,qs),
+(462,1060,qs),
 (95,1060,o),
 (95,1060,o),
 (95,790,qs),
 (95,359,ls),
 (95,0,o),
 (95,0,o),
-(466,0,q)
+(462,0,q)
 );
 }
 );
@@ -389,10 +381,6 @@ guides = (
 {
 angle = 90;
 pos = (297,1153);
-},
-{
-angle = 90;
-pos = (246,0);
 }
 );
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
@@ -400,8 +388,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(246,0,l),
-(443,0,o),
+(443,-1,o),
 (443,0,o,{
 name = inserted;
 }),
