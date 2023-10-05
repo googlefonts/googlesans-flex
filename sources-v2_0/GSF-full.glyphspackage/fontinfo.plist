@@ -1,5 +1,5 @@
 {
-.appVersion = "3218";
+.appVersion = "3219";
 .formatVersion = 3;
 axes = (
 {
@@ -29,7 +29,6 @@ tag = GRAD;
 );
 customParameters = (
 {
-disabled = 1;
 name = glyphOrder;
 value = (
 .notdef,
@@ -573,21 +572,6 @@ name = licenses;
 value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
 },
 {
-name = panose;
-value = (
-2,
-11,
-5,
-3,
-3,
-5,
-2,
-4,
-2,
-4
-);
-},
-{
 name = openTypeOS2SubscriptXOffset;
 value = 0;
 },
@@ -634,7 +618,7 @@ value = "Google Sans is a trademark of Google.";
 }
 );
 date = "2017-07-06 09:41:44 +0000";
-familyName = "Google Sans Flex V2";
+familyName = "Google Sans Flex";
 featurePrefixes = (
 {
 code = "include(family.fea);";
@@ -718,6 +702,9 @@ guides = (
 {
 name = "overshoot top";
 pos = (805,1411);
+userData = {
+UFO.identifier = 4YrXcs2DWN;
+};
 },
 {
 locked = 1;
@@ -736,7 +723,7 @@ angle = 90;
 pos = (-197,557);
 }
 );
-id = "B9C77C9B-9697-40FF-9078-3AF04F5FC209";
+id = m001;
 metricValues = (
 {
 over = 20;
@@ -1500,11 +1487,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = 520;
+value = 540;
 },
 {
 name = paramDepth;
-value = 18;
+value = 20;
 },
 {
 name = paramOver;
@@ -1631,7 +1618,7 @@ value = -320;
 },
 {
 name = paramArea;
-value = 550;
+value = 530;
 },
 {
 name = paramDepth;
@@ -1895,10 +1882,8 @@ value = 0;
 );
 guides = (
 {
-pos = (325,559);
-},
-{
-pos = (303,508);
+pos = (208,534);
+showMeasurement = 1;
 },
 {
 pos = (124,1448);
@@ -1928,7 +1913,7 @@ pos = (213,-432);
 pos = (213,-448);
 },
 {
-pos = (67,714);
+pos = (52,636);
 showMeasurement = 1;
 },
 {
@@ -1958,9 +1943,6 @@ pos = (51,1116);
 },
 {
 pos = (47,998);
-},
-{
-pos = (325,545);
 },
 {
 pos = (-56,1442);
@@ -2347,10 +2329,11 @@ value = 0;
 );
 guides = (
 {
-pos = (882,559);
+pos = (882,712);
+showMeasurement = 1;
 },
 {
-pos = (882,529);
+pos = (882,533);
 },
 {
 pos = (3,0);
@@ -2494,7 +2477,7 @@ pos = (68,-19);
 pos = (649,572);
 },
 {
-pos = (637,544);
+pos = (637,547);
 },
 {
 pos = (-31,1432);
@@ -2509,7 +2492,7 @@ pos = (68,-432);
 pos = (68,-464);
 }
 );
-id = m001;
+id = "AADE85A1-A860-44F2-8D7E-7992A34C99ED";
 metricValues = (
 {
 over = 32;
@@ -2536,7 +2519,6 @@ pos = -432;
 }
 );
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -2765,30 +2747,16 @@ value = 0;
 );
 guides = (
 {
-pos = (9,1036);
-},
-{
 pos = (9,998);
 },
 {
 pos = (-7,-38);
 },
 {
-pos = (72,859);
-},
-{
-pos = (625,1210);
-showMeasurement = 1;
-},
-{
 pos = (-7,-22);
 },
 {
 pos = (-74,1584);
-},
-{
-pos = (-177,834);
-showMeasurement = 1;
 },
 {
 pos = (-74,1552);
@@ -2804,16 +2772,6 @@ pos = (93,1470);
 },
 {
 pos = (93,1442);
-},
-{
-pos = (48,164);
-showMeasurement = 1;
-},
-{
-pos = (325,559);
-},
-{
-pos = (325,526);
 },
 {
 pos = (93,1465);
@@ -3004,7 +2962,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -3079,7 +3036,7 @@ value = 0;
 );
 guides = (
 {
-pos = (107,676);
+pos = (-28,292);
 showMeasurement = 1;
 },
 {
@@ -3160,65 +3117,9 @@ name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
 instances = (
 {
 axesValues = (
-18,
+6,
 25,
 1,
-0,
-0,
-0
-);
-instanceInterpolations = {
-"2D6FF8E8-DE2B-49DD-9A84-B928AA35427F" = 1;
-};
-name = "opsz18-wdth25-wght1-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-18,
-25,
-400,
-0,
-0,
-0
-);
-instanceInterpolations = {
-"91251A45-EED6-44E6-BC9D-709435BB03FD" = 1;
-};
-name = "opsz18-wdth25-wght400-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-18,
-25,
-1000,
-0,
-0,
-0
-);
-instanceInterpolations = {
-"769463EF-2EF4-41A9-85A9-285641285009" = 1;
-};
-name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-18,
-100,
-1,
-0,
-0,
-0
-);
-instanceInterpolations = {
-"B7698FA3-622B-421D-9516-7D8300A7950D" = 1;
-};
-name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-18,
-100,
-400,
 0,
 0,
 0
@@ -3226,11 +3127,67 @@ axesValues = (
 instanceInterpolations = {
 m001 = 1;
 };
-name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth25-wght1-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
+6,
+25,
+400,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 1;
+};
+name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+25,
+1000,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"2D1C241B-E6AD-41FB-985B-55D4E5F84943" = 1;
+};
+name = "opsz6-wdth25-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+1,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 1;
+};
+name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+100,
+400,
+0,
+0,
+0
+);
+instanceInterpolations = {
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 1;
+};
+name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
 100,
 1000,
 0,
@@ -3238,13 +3195,13 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = 1;
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 1;
 };
-name = "opsz18-wdth100-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
+6,
 151,
 1,
 0,
@@ -3252,13 +3209,13 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"35323741-4FBD-4EB9-8288-00DA7AD3A8A0" = 1;
+"41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C" = 1;
 };
-name = "opsz18-wdth151-wght1-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght1-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
+6,
 151,
 400,
 0,
@@ -3266,13 +3223,13 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"854B8A49-0698-4FEC-AD72-BCF838C96101" = 1;
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 1;
 };
-name = "opsz18-wdth151-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
+6,
 151,
 1000,
 0,
@@ -3280,13 +3237,79 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = 1;
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 1;
 };
-name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+6,
+145,
+430,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 0.00588;
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 0.83824;
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 0.04412;
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 0.11176;
+};
+name = "wdth151-wght400 BUILDER";
+visible = 0;
+},
+{
+axesValues = (
+6,
+86,
+385,
+0,
+0,
+0
+);
+exports = 0;
+instanceInterpolations = {
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 0.03058;
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 0.17965;
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 0.78276;
+m001 = 0.00702;
+};
+name = "wdth100-wght400 BUILDER lc";
+visible = 0;
+},
+{
+axesValues = (
+6,
+93,
+384,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = "Disable Masters";
+value = (
+"opsz6-wdth100-wght400-Ital0-Rond0-Grad0"
+);
+}
+);
+exports = 0;
+instanceInterpolations = {
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = 0.14527;
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 0.14195;
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 0.36872;
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 0.23578;
+m001 = 0.10829;
+};
+name = "wdth100-wght400 BUILDER UC";
+visible = 0;
 }
 );
 kerningLTR = {
-"B9C77C9B-9697-40FF-9078-3AF04F5FC209" = {
+m001 = {
 one.numerator = {
 fraction = 40;
 };
@@ -6278,188 +6301,95 @@ disablesNiceNames = 1;
 unitsPerEm = 2000;
 userData = {
 GSDimensionPlugin.Dimensions = {
-"0021AA3E-33E2-4F1E-9FD6-8297B68C23E5" = {
-HH = "31";
-HV = "32";
-OH = "31";
-OV = "35";
-nV = "31";
-oH = "30";
-oV = "32";
+"2D1C241B-E6AD-41FB-985B-55D4E5F84943" = {
+HH = "365";
+HV = "408";
+OH = "374";
+OV = "421";
+nV = "398";
+oH = "324";
+oV = "404";
+tH = "298";
 };
-"0B6E8B28-0A6B-4789-81CC-53B6E98EF6CB" = {
-HH = "400";
-HV = "430";
-OH = "410";
-OV = "440";
-nV = "425";
-oH = "395";
-oV = "430";
-tH = "302";
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = {
+HH = "87";
+HV = "90";
+OH = "82";
+OV = "93";
+nV = "88";
+oH = "80";
+oV = "90";
+tH = "82";
 };
-"1FEA22D7-2068-4056-88D4-2AD2F85FF1E6" = {
-HH = "158";
-HV = "170";
-OH = "154";
-OV = "180";
+"41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C" = {
+HH = "91";
+HV = "94";
+OH = "84";
+OV = "96";
+nV = "92";
+oH = "82";
+oV = "94";
+tH = "84";
 };
-"2AD89F5A-D51E-448D-8643-C2A32E07200C" = {
-HH = "30";
-HV = "32";
-OH = "30";
-OV = "33";
-nV = "31";
-oH = "28";
-oV = "32";
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = {
+HH = "384";
+HV = "428";
+OH = "403";
+OV = "435";
+nV = "419";
+oH = "348";
+oV = "428";
+tH = "298";
 };
-"2B0BF085-F989-4EBC-AD2D-3BA663661F50" = {
-HH = "28";
-HV = "30";
-OH = "28";
-OV = "32";
-nV = "28";
-oH = "27";
-oV = "28";
-tH = "27";
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = {
+HH = "216";
+HV = "243";
+OH = "215";
+OV = "250";
+nV = "237";
+oH = "198";
+oV = "244";
+tH = "185";
 };
-"2D6FF8E8-DE2B-49DD-9A84-B928AA35427F" = {
-HH = "28";
-HV = "30";
-OH = "28";
-OV = "32";
-nV = "28";
-oH = "27";
-oV = "28";
-tH = "27";
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = {
+HH = "184";
+HV = "200";
+OH = "180";
+OV = "205";
+nV = "195";
+oH = "172";
+oV = "199";
+tH = "168";
 };
-"35323741-4FBD-4EB9-8288-00DA7AD3A8A0" = {
-HH = "31";
-HV = "32";
-OH = "31";
-OV = "35";
-nV = "31";
-oH = "30";
-oV = "32";
-tH = "30";
+"AA600D03-8064-48D6-9688-B5065330793C" = {
+HH = "204";
+HV = "225";
+OH = "200";
+OV = "230";
+nV = "220";
+oH = "190";
+oV = "225";
+tH = "195";
 };
-"3FE559C8-92B2-4945-98E1-957E28CC3242" = {
-HH = "444";
-HV = "480";
-OH = "468";
-OV = "480";
-nV = "474";
-oH = "384";
-oV = "456";
-tH = "328";
-};
-"59C106D9-34D8-4EDF-9467-5A22D3D96ECF" = {
-HH = "156";
-HV = "170";
-OH = "154";
-OV = "180";
-nV = "168";
-oH = "140";
-oV = "172";
-tH = "152";
-};
-"6F2368DB-63B6-430D-B9CD-08A6184CB9E7" = {
-HH = "28";
-HV = "30";
-OH = "28";
-OV = "32";
-nV = "28";
-oH = "28";
-oV = "28";
-tH = "27";
-};
-"769463EF-2EF4-41A9-85A9-285641285009" = {
-HH = "400";
-HV = "430";
-OH = "410";
-OV = "440";
-nV = "425";
-oH = "395";
-oV = "430";
-tH = "302";
-};
-"82EDAE61-C337-4E57-86ED-8ABB62F5EE04" = {
-HH = "412";
-HV = "480";
-OH = "415";
-OV = "500";
-nV = "474";
-oH = "358";
-oV = "478";
-tH = "326";
-};
-"82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = {
-HH = "412";
-HV = "480";
-OH = "406";
-OV = "500";
-nV = "474";
-oH = "356";
-oV = "478";
-tH = "326";
-};
-"854B8A49-0698-4FEC-AD72-BCF838C96101" = {
-HH = "156";
-HV = "170";
-OH = "154";
-OV = "180";
-nV = "168";
-oH = "140";
-oV = "172";
-tH = "148";
-};
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = {
-HH = "425";
-HV = "460";
-OH = "449";
-OV = "461";
-nV = "455";
-oH = "369";
-oV = "438";
-tH = "317";
-};
-"91251A45-EED6-44E6-BC9D-709435BB03FD" = {
-HH = "146";
-HV = "156";
-OH = "148";
-OV = "160";
-nV = "150";
-oH = "140";
-oV = "152";
-tH = "138";
-};
-"B7698FA3-622B-421D-9516-7D8300A7950D" = {
-HH = "30";
-HV = "32";
-OH = "30";
-OV = "33";
-nV = "31";
-oH = "28";
-oV = "32";
-tH = "30";
-};
-"F6F68A98-DCEF-4963-8274-BBC8AF17E072" = {
-HH = "146";
-HV = "156";
-OH = "148";
-OV = "160";
-nV = "150";
-oH = "140";
-oV = "152";
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = {
+HH = "384";
+HV = "442";
+OH = "390";
+OV = "455";
+nV = "432";
+oH = "354";
+oV = "445";
+tH = "298";
 };
 m001 = {
-HH = "162";
-HV = "170";
-OH = "162";
-OV = "172";
-nV = "170";
-oH = "154";
-oV = "170";
-tH = "154";
+HH = "78";
+HV = "86";
+OH = "76";
+OV = "88";
+nV = "84";
+oH = "76";
+oV = "86";
+tH = "77";
 };
 };
 UFO.lib = {
@@ -6633,16 +6563,170 @@ UFOFormat = 3;
 UFOLayerName = foreground;
 com.eweracs.HTLSManager.fontRules = {
 Letter = {
+161c12cfb25b4e4f95787e1e4f2bdcea = {
+case = 2;
+filter = "";
+referenceGlyph = x;
+subcategory = Any;
+value = "1";
+};
+31375694df57481a849d3a442ef361bc = {
+case = 4;
+filter = .sups;
+referenceGlyph = m.sups;
+subcategory = Any;
+value = "0.7";
+};
+3fa7bd70c45e42a1a7d51eccd1875236 = {
+case = 1;
+filter = "";
+referenceGlyph = H;
+subcategory = Any;
+value = "1.25";
+};
+4627ea45293e493cbaabec26c67e53e6 = {
+case = 0;
+filter = "";
+referenceGlyph = devaHeight;
+subcategory = Ligature;
+value = "1";
+};
+b9c402f2f71441e3a4ddaea2964855ec = {
+case = 0;
+filter = "";
+referenceGlyph = devaHeight;
+subcategory = Other;
+value = "1";
+};
+c71c85a5c0d5448695994c825987c183 = {
+case = 3;
+filter = "";
+referenceGlyph = h.sc;
+subcategory = Any;
+value = "1.1";
+};
 };
 Mark = {
+35bf43087cc149e6813faa99f547ecc1 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1";
+};
 };
 Number = {
+2c90545af2a9452c898a17c799839dcc = {
+case = 0;
+filter = .osf;
+referenceGlyph = zero.osf;
+subcategory = "Decimal Digit";
+value = "1.2";
+};
+3494c71aac1446b08a5e884c024c05f4 = {
+case = 0;
+filter = .dnom;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+554519522cd048c994fedb94f2000ace = {
+case = 0;
+filter = .numr;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+7d510b13b2fb4fe68c5051dea33bc019 = {
+case = 0;
+filter = superior;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+7e2e82070f7d474e9550f1725ce6d753 = {
+case = 0;
+filter = "";
+referenceGlyph = one;
+subcategory = "Decimal Digit";
+value = "1.2";
+};
+80eadacfe1c140ef84c016460d9e54f5 = {
+case = 0;
+filter = .inferior;
+referenceGlyph = "";
+subcategory = Any;
+value = "0.8";
+};
+da93648c117b4d0a95c3ae787392f8fb = {
+case = 4;
+filter = "";
+referenceGlyph = "";
+subcategory = Fraction;
+value = "1.3";
+};
 };
 Punctuation = {
+05428b6cb4d1445c874b33614851cdfd = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Other;
+value = "1.4";
+};
+3e66a5134bfe425e9235010e7d4bebe1 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Parenthesis;
+value = "1.2";
+};
+4483cf4211b749ebbe285930057d5aa7 = {
+case = 0;
+filter = slash;
+referenceGlyph = "";
+subcategory = Any;
+value = "1";
+};
+63deb24ed7b34f83bae1dc0276b478d7 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Quote;
+value = "1.2";
+};
+82f6be890db9400d89e8dc8dc3812595 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Dash;
+value = "1";
+};
+f84a77b420494e48a54651af4122cf17 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1.2";
+};
 };
 Separator = {
 };
 Symbol = {
+b16a8ccbea5e423e93b9418f7a0e0642 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Currency;
+value = "1.6";
+};
+c0cd946d3ca249ddad6c4fe58cf9d285 = {
+case = 0;
+filter = "";
+referenceGlyph = "";
+subcategory = Any;
+value = "1.5";
+};
 };
 };
 };
