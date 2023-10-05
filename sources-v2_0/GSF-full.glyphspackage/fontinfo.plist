@@ -634,7 +634,7 @@ value = "Google Sans is a trademark of Google.";
 }
 );
 date = "2017-07-06 09:41:44 +0000";
-familyName = "Google Sans Flex";
+familyName = "Google Sans Flex V2";
 featurePrefixes = (
 {
 code = "include(family.fea);";
@@ -736,7 +736,7 @@ angle = 90;
 pos = (-197,557);
 }
 );
-id = "8D1F0511-C844-4857-A8D1-7A31B1255321";
+id = "B9C77C9B-9697-40FF-9078-3AF04F5FC209";
 metricValues = (
 {
 over = 20;
@@ -764,6 +764,10 @@ over = -16;
 }
 );
 name = "opsz6-wdth25-wght1-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerMasterRules = {
+};
+};
 },
 {
 axesValues = (
@@ -1284,22 +1288,22 @@ pos = (1071,440);
 id = "C6E6A82E-5529-473D-BA0B-E088A1B2D63E";
 metricValues = (
 {
-over = 35;
+over = 36;
 pos = 1498;
 },
 {
-over = 35;
+over = 36;
 pos = 1432;
 },
 {
-over = 35;
+over = 36;
 pos = 1086;
 },
 {
-over = -35;
+over = -36;
 },
 {
-over = -35;
+over = -36;
 pos = -442;
 },
 {
@@ -1385,11 +1389,6 @@ guides = (
 {
 name = "overshoot top";
 pos = (289,1460);
-},
-{
-angle = 90;
-name = baseline;
-pos = (999,547);
 },
 {
 pos = (340,1318);
@@ -1787,11 +1786,11 @@ pos = (2550,1677);
 pos = (549,1181);
 },
 {
-pos = (371,543);
-},
-{
 locked = 1;
 pos = (1466,1134);
+},
+{
+pos = (8193,1003);
 }
 );
 id = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
@@ -1962,6 +1961,12 @@ pos = (47,998);
 },
 {
 pos = (325,545);
+},
+{
+pos = (-56,1442);
+},
+{
+pos = (-56,1210);
 }
 );
 id = "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F";
@@ -2352,6 +2357,12 @@ pos = (3,0);
 },
 {
 pos = (3,-30);
+},
+{
+pos = (-113,1210);
+},
+{
+pos = (-113,1442);
 }
 );
 id = "B7698FA3-622B-421D-9516-7D8300A7950D";
@@ -2525,6 +2536,7 @@ pos = -432;
 }
 );
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -2765,7 +2777,7 @@ pos = (-7,-38);
 pos = (72,859);
 },
 {
-pos = (772,1324);
+pos = (625,1210);
 showMeasurement = 1;
 },
 {
@@ -2791,7 +2803,7 @@ pos = (-74,-248);
 pos = (93,1470);
 },
 {
-pos = (93,1432);
+pos = (93,1442);
 },
 {
 pos = (48,164);
@@ -2992,6 +3004,7 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -3142,1166 +3155,6 @@ pos = -432;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-25,
-1,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 200;
-},
-{
-name = paramDepth;
-value = 14;
-}
-);
-guides = (
-{
-locked = 1;
-pos = (161,-387);
-},
-{
-pos = (299,626);
-},
-{
-locked = 1;
-pos = (337,-7);
-},
-{
-locked = 1;
-pos = (325,1439);
-},
-{
-pos = (124,1584);
-},
-{
-name = "diacritics-t";
-pos = (62,1354);
-},
-{
-name = "diacritics-b";
-pos = (171,1109);
-}
-);
-id = "246BF595-C3E1-4C22-9BFC-3FA25AC44AB1";
-metricValues = (
-{
-over = 7;
-pos = 1432;
-},
-{
-over = 7;
-pos = 1432;
-},
-{
-over = 7;
-pos = 1020;
-},
-{
-over = -7;
-},
-{
-over = -7;
-pos = -380;
-},
-{
-over = -16;
-},
-{
-}
-);
-name = "opsz144-wdth25-wght1-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-25,
-400,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 120;
-},
-{
-name = paramDepth;
-value = 14;
-}
-);
-guides = (
-{
-name = "numerator-base";
-pos = (-11,671);
-},
-{
-locked = 1;
-name = "numerator-ost";
-pos = (2,1446);
-},
-{
-locked = 1;
-pos = (382,1064);
-},
-{
-locked = 1;
-pos = (89,-14);
-},
-{
-locked = 1;
-pos = (426,-393);
-},
-{
-name = "numerator-base";
-pos = (-11,671);
-},
-{
-name = "diacritics-t";
-pos = (61,1346);
-},
-{
-name = "diacritics-b";
-pos = (171,1109);
-}
-);
-id = "01856C8F-DF22-4242-84EC-D0E09743B379";
-metricValues = (
-{
-over = 14;
-pos = 1432;
-},
-{
-over = 14;
-pos = 1432;
-},
-{
-over = 14;
-pos = 1050;
-},
-{
-over = -14;
-},
-{
-over = -14;
-pos = -380;
-},
-{
-over = -16;
-},
-{
-}
-);
-name = "opsz144-wdth25-wght400-Ital0-Rond0-Grad0";
-userData = {
-HTLSManagerMasterRules = {
-};
-};
-},
-{
-axesValues = (
-144,
-25,
-1000,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 135;
-},
-{
-name = paramDepth;
-value = 12;
-}
-);
-guides = (
-{
-locked = 1;
-name = "overshoot-bottom";
-pos = (9,-22);
-},
-{
-locked = 1;
-name = "overshoot-top-lc";
-pos = (349,1082);
-},
-{
-locked = 1;
-pos = (49,1454);
-},
-{
-name = "diacritics-t";
-pos = (61,1481);
-},
-{
-name = "diacritics-b";
-pos = (169,1122);
-}
-);
-id = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
-metricValues = (
-{
-over = 22;
-pos = 1432;
-},
-{
-over = 22;
-pos = 1432;
-},
-{
-over = 22;
-pos = 1060;
-},
-{
-over = -22;
-},
-{
-over = -22;
-pos = -380;
-},
-{
-over = -16;
-},
-{
-}
-);
-name = "opsz144-wdth25-wght1000-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-100,
-1,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 340;
-},
-{
-name = paramDepth;
-value = 16;
-}
-);
-guides = (
-{
-locked = 1;
-name = "diacritics-t";
-pos = (83,1432);
-},
-{
-locked = 1;
-name = "diacritics-b";
-pos = (101,1169);
-},
-{
-locked = 1;
-name = "numerators-base";
-pos = (338,685);
-},
-{
-locked = 1;
-name = "numerator-osb";
-pos = (566,670);
-},
-{
-locked = 1;
-name = "numerator-ost";
-pos = (564,1442);
-},
-{
-locked = 1;
-name = OVERSHOOT;
-pos = (470,-10);
-}
-);
-id = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
-metricValues = (
-{
-over = 10;
-pos = 1432;
-},
-{
-over = 10;
-pos = 1432;
-},
-{
-over = 10;
-pos = 1020;
-},
-{
-over = -10;
-},
-{
-over = -10;
-pos = -380;
-},
-{
-over = -16;
-},
-{
-}
-);
-name = "opsz144-wdth100-wght1-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-100,
-400,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 310;
-},
-{
-name = paramDepth;
-value = 16;
-}
-);
-guides = (
-{
-locked = 1;
-pos = (834,1068);
-},
-{
-locked = 1;
-pos = (224,-18);
-},
-{
-locked = 1;
-pos = (1492,1450);
-},
-{
-name = "diacritics-t";
-pos = (61,1439);
-},
-{
-name = "diacritics-b";
-pos = (171,1174);
-}
-);
-id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
-metricValues = (
-{
-over = 18;
-pos = 1432;
-},
-{
-over = 18;
-pos = 1432;
-},
-{
-over = 18;
-pos = 1050;
-},
-{
-over = -18;
-},
-{
-over = -18;
-pos = -380;
-},
-{
-over = -16;
-},
-{
-}
-);
-name = "opsz144-wdth100-wght400-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-100,
-1000,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 180;
-},
-{
-name = paramDepth;
-value = 11;
-}
-);
-guides = (
-{
-name = "diacritics-t";
-pos = (61,1484);
-},
-{
-name = "diacritics-b";
-pos = (171,1145);
-},
-{
-locked = 1;
-name = "numerator-base";
-pos = (475,680);
-},
-{
-name = "numerator-osb";
-pos = (555,535);
-},
-{
-locked = 1;
-name = "numerator-ost";
-pos = (523,1440);
-},
-{
-lockAngle = 1;
-locked = 1;
-name = OVERSHOOT;
-pos = (670,1084);
-},
-{
-locked = 1;
-name = OVERSHOOT;
-pos = (399,-24);
-}
-);
-id = "733112D2-2833-4B86-B7ED-934B97F7C918";
-metricValues = (
-{
-over = 24;
-pos = 1432;
-},
-{
-over = 24;
-pos = 1432;
-},
-{
-over = 24;
-pos = 1060;
-},
-{
-over = -24;
-},
-{
-over = -24;
-pos = -380;
-},
-{
-},
-{
-}
-);
-name = "opsz144-wdth100-wght1000-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-151,
-1,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 480;
-},
-{
-name = paramDepth;
-value = 16;
-}
-);
-guides = (
-{
-name = "diacritics-b";
-pos = (1505,177);
-},
-{
-name = "numerators-ost";
-pos = (1533,1423);
-},
-{
-angle = 0.5036;
-name = "numerator-osb";
-pos = (782,674);
-},
-{
-angle = 90;
-name = "numerator-base";
-pos = (64,597);
-},
-{
-locked = 1;
-name = OVERSHOOT;
-pos = (1385,1036);
-},
-{
-locked = 1;
-name = OVERSHOOT;
-pos = (1610,-16);
-},
-{
-locked = 1;
-pos = (1785,-396);
-},
-{
-locked = 1;
-pos = (473,1448);
-},
-{
-name = "diacritics-t";
-pos = (73,1532);
-},
-{
-name = "diacritics-b";
-pos = (151,1247);
-}
-);
-id = "24F9F4B4-D0E2-4556-A687-664485485925";
-metricValues = (
-{
-over = 16;
-pos = 1432;
-},
-{
-over = 16;
-pos = 1432;
-},
-{
-over = 16;
-pos = 1020;
-},
-{
-over = -16;
-},
-{
-over = -16;
-pos = -380;
-},
-{
-},
-{
-}
-);
-name = "opsz144-wdth151-wght1-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-151,
-400,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 390;
-},
-{
-name = paramDepth;
-value = 10;
-}
-);
-guides = (
-{
-locked = 1;
-name = overshoot;
-pos = (724,1456);
-},
-{
-locked = 1;
-pos = (633,1074);
-},
-{
-pos = (262,-24);
-},
-{
-name = "numerators-ost";
-pos = (1533,1423);
-},
-{
-angle = 90;
-name = "numerator-base";
-pos = (60,674);
-},
-{
-name = "numerators-ost";
-pos = (1533,1423);
-},
-{
-angle = 90;
-name = "numerator-osb";
-pos = (805,665);
-},
-{
-locked = 1;
-name = "diacritics-t";
-pos = (60,1532);
-},
-{
-locked = 1;
-name = "diacritics-b";
-pos = (138,1247);
-}
-);
-id = "D4025A93-B215-454F-9D60-B6448166D546";
-metricValues = (
-{
-over = 24;
-pos = 1432;
-},
-{
-over = 24;
-pos = 1432;
-},
-{
-over = 24;
-pos = 1050;
-},
-{
-over = -24;
-},
-{
-over = -24;
-pos = -380;
-},
-{
-over = -16;
-},
-{
-}
-);
-name = "opsz144-wdth151-wght400-Ital0-Rond0-Grad0";
-},
-{
-axesValues = (
-144,
-151,
-1000,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 250;
-},
-{
-name = paramDepth;
-value = 9;
-}
-);
-guides = (
-{
-locked = 1;
-name = "numerator-ost";
-pos = (1020,1454);
-},
-{
-name = "numerator-osb";
-pos = (-80,535);
-},
-{
-locked = 1;
-name = "numerators-b";
-pos = (1329,699);
-},
-{
-pos = (1355,-26);
-},
-{
-name = "diacritics-t";
-pos = (73,1637);
-},
-{
-name = "diacritics-b";
-pos = (151,1139);
-}
-);
-id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
-metricValues = (
-{
-over = 26;
-pos = 1432;
-},
-{
-over = 26;
-pos = 1432;
-},
-{
-over = 26;
-pos = 1060;
-},
-{
-over = -26;
-},
-{
-over = -26;
-pos = -380;
-},
-{
-},
-{
-}
-);
-name = "opsz144-wdth151-wght1000-Ital0-Rond0-Grad0";
-userData = {
-HTLSManagerMasterRules = {
-};
-};
 }
 );
 instances = (
@@ -4433,7 +3286,7 @@ name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
 }
 );
 kerningLTR = {
-"8D1F0511-C844-4857-A8D1-7A31B1255321" = {
+"B9C77C9B-9697-40FF-9078-3AF04F5FC209" = {
 one.numerator = {
 fraction = 40;
 };
