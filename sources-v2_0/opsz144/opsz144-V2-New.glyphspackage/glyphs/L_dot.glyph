@@ -2,13 +2,19 @@
 glyphname = Ldot;
 layers = (
 {
+guides = (
+{
+pos = (260,768);
+showMeasurement = 1;
+}
+);
 layerId = m001;
 shapes = (
 {
 ref = L;
 },
 {
-pos = (211,259);
+pos = (136,238);
 ref = periodcentered;
 }
 );
@@ -19,6 +25,10 @@ guides = (
 {
 angle = 270;
 pos = (362,904);
+},
+{
+pos = (474,802);
+showMeasurement = 1;
 }
 );
 layerId = "01856C8F-DF22-4242-84EC-D0E09743B379";
@@ -34,7 +44,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (172,184);
+pos = (175,114);
 ref = periodcentered;
 userData = {
 UFO.identifier = D8E5810B;
@@ -46,32 +56,50 @@ UFO.lib = {
 width = 474;
 },
 {
+guides = (
+{
+pos = (636,735);
+showMeasurement = 1;
+}
+);
 layerId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
 shapes = (
 {
 ref = L;
 },
 {
-pos = (480,261);
+pos = (486,208);
 ref = periodcentered;
 }
 );
 width = 943;
 },
 {
+guides = (
+{
+pos = (894,731);
+showMeasurement = 1;
+}
+);
 layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
 shapes = (
 {
 ref = L;
 },
 {
-pos = (541,173);
+pos = (514,104);
 ref = periodcentered;
 }
 );
 width = 1018;
 },
 {
+guides = (
+{
+pos = (1423,876);
+showMeasurement = 1;
+}
+);
 layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
 shapes = (
 {
@@ -85,7 +113,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (821,145);
+pos = (792,95);
 ref = periodcentered;
 userData = {
 UFO.identifier = 51A38979;
@@ -94,29 +122,45 @@ UFO.lib = {
 };
 }
 );
-width = 1469;
+width = 1407;
 },
 {
+guides = (
+{
+pos = (1031,737);
+showMeasurement = 1;
+},
+{
+pos = (1031,791);
+showMeasurement = 1;
+}
+);
 layerId = "24F9F4B4-D0E2-4556-A687-664485485925";
 shapes = (
 {
 ref = L;
 },
 {
-pos = (663,251);
+pos = (725,197);
 ref = periodcentered;
 }
 );
 width = 1689;
 },
 {
+guides = (
+{
+pos = (1243,733);
+showMeasurement = 1;
+}
+);
 layerId = "D4025A93-B215-454F-9D60-B6448166D546";
 shapes = (
 {
 ref = L;
 },
 {
-pos = (689,163);
+pos = (713,95);
 ref = periodcentered;
 }
 );
@@ -125,8 +169,8 @@ width = 1743;
 {
 guides = (
 {
-angle = 270;
-pos = (1954,675);
+pos = (1921,1056);
+showMeasurement = 1;
 }
 );
 layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
@@ -135,13 +179,42 @@ shapes = (
 ref = L;
 },
 {
-pos = (1024,214);
+pos = (1080,214);
 ref = periodcentered;
 }
 );
 width = 2041;
 },
 {
+background = {
+shapes = (
+{
+alignment = -1;
+ref = L;
+userData = {
+UFO.identifier = 83E015DD;
+UFO.lib = {
+};
+};
+},
+{
+alignment = -1;
+pos = (536,63);
+ref = periodcentered;
+userData = {
+UFO.identifier = B4563F54;
+UFO.lib = {
+};
+};
+}
+);
+};
+guides = (
+{
+pos = (947,815);
+showMeasurement = 1;
+}
+);
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 shapes = (
 {
@@ -155,7 +228,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (535,63);
+pos = (536,3);
 ref = periodcentered;
 userData = {
 UFO.identifier = B4563F54;
