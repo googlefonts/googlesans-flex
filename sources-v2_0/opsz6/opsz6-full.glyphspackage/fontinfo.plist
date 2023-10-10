@@ -755,7 +755,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -853,6 +852,14 @@ pos = (118,1567);
 pos = (296,1448);
 },
 {
+},
+{
+name = "overshoot top";
+pos = (805,1411);
+},
+{
+angle = 90;
+pos = (-197,557);
 }
 );
 id = "7C224297-46A4-408E-BDB1-99237B4DCB3A";
@@ -1149,7 +1156,6 @@ over = -16;
 }
 );
 name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1297,6 +1303,7 @@ over = -16;
 }
 );
 name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1476,32 +1483,6 @@ value = 20;
 {
 name = paramOver;
 value = 0;
-}
-);
-guides = (
-{
-locked = 1;
-pos = (1614,-40);
-},
-{
-locked = 1;
-pos = (1716,1096);
-},
-{
-locked = 1;
-pos = (1700,-500);
-},
-{
-pos = (737,422);
-},
-{
-pos = (1026,804);
-},
-{
-pos = (976,619);
-},
-{
-pos = (-21,1463);
 }
 );
 id = "41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C";
@@ -3384,7 +3365,6 @@ eight = 0;
 five = -13;
 four = 0;
 fraction = 0;
-nine = -20;
 one = 0;
 ordfeminine = 0;
 ordmasculine = 0;
@@ -4990,17 +4970,17 @@ HV = "90";
 OH = "82";
 OV = "93";
 nV = "88";
-oH = "80";
+oH = "79";
 oV = "90";
 tH = "82";
 };
 "41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C" = {
 HH = "91";
-HV = "94";
+HV = "92";
 OH = "84";
-OV = "96";
+OV = "94";
 nV = "90";
-oH = "82";
+oH = "81";
 oV = "92";
 tH = "84";
 };
