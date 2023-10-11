@@ -12,10 +12,10 @@
 *,Number,Decimal Digit,*,1.2,one,*,
 *,Number,Decimal Digit,*,1.2,zero.osf,.osf,
 *,Number,Fraction,minor,1.3,*,*,
-*,Number,*,*,0.8,*,.dnom,
-*,Number,*,*,0.8,*,.numr,
-*,Number,*,*,0.8,*,.inferior,
-*,Number,*,*,0.8,*,superior,
+*,Number,*,*,1,*,.denominator,
+*,Number,*,*,1,*,.numerator,
+*,Number,*,*,1,*,.inferior,
+*,Number,*,*,1,*,.superior,
 
 # Punctuation
 
