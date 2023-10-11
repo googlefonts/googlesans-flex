@@ -126,7 +126,7 @@ ref = four.denominator;
 width = 3431;
 },
 {
-layerId = "D4025A93-B215-454F-9D60-B6448166D546";
+background = {
 shapes = (
 {
 pos = (180,0);
@@ -141,7 +141,24 @@ pos = (1985,0);
 ref = four.denominator;
 }
 );
-width = 3277;
+};
+layerId = "D4025A93-B215-454F-9D60-B6448166D546";
+shapes = (
+{
+alignment = 1;
+ref = three.numerator;
+},
+{
+pos = (1102,0);
+ref = fraction;
+},
+{
+alignment = 1;
+pos = (1839,0);
+ref = four.denominator;
+}
+);
+width = 3028;
 },
 {
 layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
