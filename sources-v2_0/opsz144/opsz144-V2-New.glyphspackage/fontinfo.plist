@@ -739,6 +739,18 @@ pos = (62,1354);
 {
 name = "diacritics-b";
 pos = (171,1109);
+},
+{
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+name = "numeratos-overshoot";
+pos = (250,623);
 }
 );
 id = m001;
@@ -839,15 +851,6 @@ value = 14;
 );
 guides = (
 {
-name = "numerator-base";
-pos = (-11,671);
-},
-{
-locked = 1;
-name = "numerator-ost";
-pos = (2,1446);
-},
-{
 locked = 1;
 pos = (382,1064);
 },
@@ -860,16 +863,24 @@ locked = 1;
 pos = (426,-393);
 },
 {
-name = "numerator-base";
-pos = (-11,671);
-},
-{
 name = "diacritics-t";
 pos = (61,1346);
 },
 {
 name = "diacritics-b";
 pos = (141,1006);
+},
+{
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+name = "numeratos-overshoot";
+pos = (250,623);
 }
 );
 id = "01856C8F-DF22-4242-84EC-D0E09743B379";
@@ -994,6 +1005,18 @@ pos = (61,1481);
 {
 name = "diacritics-b";
 pos = (169,1122);
+},
+{
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+name = "numeratos-overshoot";
+pos = (250,623);
 }
 );
 id = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
@@ -1105,21 +1128,6 @@ pos = (101,1169);
 },
 {
 locked = 1;
-name = "numerators-base";
-pos = (338,685);
-},
-{
-locked = 1;
-name = "numerator-osb";
-pos = (566,670);
-},
-{
-locked = 1;
-name = "numerator-ost";
-pos = (564,1442);
-},
-{
-locked = 1;
 name = OVERSHOOT;
 pos = (470,-10);
 },
@@ -1133,8 +1141,23 @@ pos = (259,414);
 pos = (298,429);
 },
 {
+name = "denominator-overshoot";
+pos = (239,804);
+},
+{
 locked = 1;
-pos = (239,794);
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+locked = 1;
+name = "numerators-overshoot";
+pos = (80,1442);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,628);
 }
 );
 id = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
@@ -1255,9 +1278,13 @@ name = "diacritics-b";
 pos = (171,1174);
 },
 {
-pos = (250,685);
+locked = 1;
+name = "numeratos-base";
+pos = (250,638);
 },
 {
+locked = 1;
+name = "numerators-overshoot";
 pos = (80,1447);
 },
 {
@@ -1271,6 +1298,11 @@ angle = 180;
 locked = 1;
 name = denominator;
 pos = (456,794);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,623);
 }
 );
 id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
@@ -1301,6 +1333,7 @@ over = -16;
 }
 );
 name = "opsz144-wdth100-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1379,16 +1412,6 @@ name = "diacritics-b";
 pos = (171,1145);
 },
 {
-locked = 1;
-name = "numerator-base";
-pos = (475,680);
-},
-{
-locked = 1;
-name = "numerator-ost";
-pos = (523,1440);
-},
-{
 lockAngle = 1;
 locked = 1;
 name = OVERSHOOT;
@@ -1403,6 +1426,18 @@ pos = (399,-24);
 locked = 1;
 name = denominators;
 pos = (352,794);
+},
+{
+name = "numeratos-base";
+pos = (-66,638);
+},
+{
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+name = "numeratos-overshoot";
+pos = (250,623);
 }
 );
 id = "733112D2-2833-4B86-B7ED-934B97F7C918";
@@ -1510,11 +1545,6 @@ name = "numerators-ost";
 pos = (1533,1423);
 },
 {
-angle = 0.5036;
-name = "numerator-osb";
-pos = (782,674);
-},
-{
 angle = 90;
 name = "numerator-base";
 pos = (64,597);
@@ -1544,6 +1574,14 @@ pos = (73,1532);
 {
 name = "diacritics-b";
 pos = (151,1247);
+},
+{
+angle = 180;
+name = "numerator-top";
+pos = (92,794);
+},
+{
+pos = (273,809);
 }
 );
 id = "24F9F4B4-D0E2-4556-A687-664485485925";
@@ -1651,21 +1689,9 @@ pos = (724,1456);
 pos = (262,-24);
 },
 {
-name = "numerators-ost";
-pos = (1533,1423);
-},
-{
 angle = 180;
 name = "numerator-top";
 pos = (92,794);
-},
-{
-name = "numerators-ost";
-pos = (1533,1423);
-},
-{
-name = "numerator-osb";
-pos = (805,486);
 },
 {
 locked = 1;
@@ -1679,6 +1705,24 @@ pos = (138,1247);
 },
 {
 pos = (273,809);
+},
+{
+pos = (649,572);
+},
+{
+locked = 1;
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+locked = 1;
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,623);
 }
 );
 id = "D4025A93-B215-454F-9D60-B6448166D546";
@@ -1788,9 +1832,8 @@ name = "numerator-osb";
 pos = (-80,535);
 },
 {
-locked = 1;
-name = "numerators-b";
-pos = (1329,699);
+name = "denominators-b";
+pos = (618,812);
 },
 {
 pos = (1355,-26);
@@ -1802,6 +1845,21 @@ pos = (73,1637);
 {
 name = "diacritics-b";
 pos = (151,1139);
+},
+{
+locked = 1;
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+locked = 1;
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,623);
 }
 );
 id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
