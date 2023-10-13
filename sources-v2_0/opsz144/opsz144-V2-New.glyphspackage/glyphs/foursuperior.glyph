@@ -5,7 +5,8 @@ layers = (
 layerId = m001;
 shapes = (
 {
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
@@ -18,21 +19,22 @@ width = 217;
 layerId = "01856C8F-DF22-4242-84EC-D0E09743B379";
 shapes = (
 {
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = four.numerator;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = four.numerator;
 };
-width = 286;
+width = 313;
 },
 {
 layerId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
 shapes = (
 {
-pos = (0,383);
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
@@ -45,8 +47,8 @@ width = 602;
 layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
 shapes = (
 {
-pos = (0,383);
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
@@ -56,11 +58,16 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = four.numerator;
 width = 639;
 },
 {
+guides = (
+{
+pos = (495,1026);
+}
+);
 layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
 shapes = (
 {
-pos = (0,388);
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
@@ -73,7 +80,8 @@ width = 719;
 layerId = "24F9F4B4-D0E2-4556-A687-664485485925";
 shapes = (
 {
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
@@ -83,11 +91,19 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = four.numerator;
 width = 1147;
 },
 {
+background = {
+shapes = (
+{
+pos = (0,382);
+ref = four.numerator;
+}
+);
+};
 layerId = "D4025A93-B215-454F-9D60-B6448166D546";
 shapes = (
 {
-pos = (0,383);
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
@@ -97,11 +113,19 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = four.numerator;
 width = 1189;
 },
 {
-layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+background = {
 shapes = (
 {
 pos = (0,383);
 ref = four.numerator;
+}
+);
+};
+layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+shapes = (
+{
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
@@ -114,7 +138,8 @@ width = 1323;
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 shapes = (
 {
-ref = four.numerator;
+pos = (0,1020);
+ref = four.denominator;
 }
 );
 userData = {
