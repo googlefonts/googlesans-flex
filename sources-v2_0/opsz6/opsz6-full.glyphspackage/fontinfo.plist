@@ -990,7 +990,6 @@ over = -16;
 }
 );
 name = "opsz6-wdth25-wght1000-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1218,17 +1217,6 @@ name = baseline;
 pos = (480,543);
 },
 {
-name = overshoot;
-pos = (792,491);
-},
-{
-name = "overshoot top";
-pos = (611,1468);
-},
-{
-pos = (18,1561);
-},
-{
 pos = (694,1309);
 },
 {
@@ -1236,19 +1224,13 @@ name = top;
 pos = (28,1561);
 },
 {
-pos = (1807,919);
-},
-{
-name = "1";
-pos = (52,660);
+lockAngle = 1;
+locked = 1;
+pos = (1807,920);
 },
 {
 locked = 1;
 pos = (1351,1122);
-},
-{
-locked = 1;
-pos = (1180,-36);
 },
 {
 locked = 1;
@@ -1396,7 +1378,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -1593,9 +1574,6 @@ pos = (1489,1130);
 },
 {
 pos = (1857,657);
-},
-{
-pos = (131,1469);
 }
 );
 id = "5DA06E3F-B65C-4341-B330-53F50D9F2964";
