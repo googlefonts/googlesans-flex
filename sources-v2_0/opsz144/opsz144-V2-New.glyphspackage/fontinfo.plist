@@ -751,6 +751,22 @@ pos = (80,1447);
 {
 name = "numeratos-overshoot";
 pos = (250,623);
+},
+{
+name = "sinf-overshoot";
+pos = (284,399);
+},
+{
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+name = "sinf-b";
+pos = (284,384);
+},
+{
+name = "sinf-overshoot";
+pos = (27,-425);
 }
 );
 id = m001;
@@ -867,30 +883,63 @@ name = "diacritics-t";
 pos = (61,1346);
 },
 {
-name = "diacritics-b";
-pos = (141,1006);
-},
-{
-name = "numeratos-base";
-pos = (250,638);
-},
-{
-name = "numeratos-overshoot";
-pos = (250,623);
-},
-{
 locked = 1;
 name = "denominators-overshoot";
 pos = (262,-9);
 },
 {
 angle = 180;
-locked = 1;
-name = "numerator-top";
+name = "denominator-top";
 pos = (92,794);
 },
 {
+name = "denominator-overshoot";
 pos = (273,803);
+},
+{
+locked = 1;
+name = "numerator-overshoot";
+pos = (156,1441);
+},
+{
+locked = 1;
+name = "superior-overshoot";
+pos = (289,1823);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1011);
+},
+{
+locked = 1;
+name = "superior-b";
+pos = (289,1814);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,393);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-419);
 }
 );
 id = "01856C8F-DF22-4242-84EC-D0E09743B379";
@@ -1027,6 +1076,46 @@ pos = (80,1447);
 {
 name = "numeratos-overshoot";
 pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (344,1832);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (344,1814);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1002);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,399);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-425);
 }
 );
 id = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
@@ -1142,19 +1231,6 @@ name = OVERSHOOT;
 pos = (470,-10);
 },
 {
-pos = (184,761);
-},
-{
-pos = (259,414);
-},
-{
-pos = (298,429);
-},
-{
-name = "denominator-overshoot";
-pos = (239,804);
-},
-{
 locked = 1;
 name = "numeratos-base";
 pos = (250,638);
@@ -1168,6 +1244,42 @@ pos = (80,1442);
 locked = 1;
 name = "numeratos-overshoot";
 pos = (250,628);
+},
+{
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1010);
+},
+{
+name = "superiors-b";
+pos = (495,1815);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1825);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,395);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (292,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-420);
 }
 );
 id = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
@@ -1298,10 +1410,14 @@ name = "numerators-overshoot";
 pos = (80,1447);
 },
 {
-pos = (259,412);
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,399);
 },
 {
-pos = (31,-395);
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
 },
 {
 angle = 180;
@@ -1313,6 +1429,36 @@ pos = (456,794);
 locked = 1;
 name = "numeratos-overshoot";
 pos = (250,623);
+},
+{
+locked = 1;
+name = "superior-overshoot";
+pos = (289,1829);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1005);
+},
+{
+locked = 1;
+name = "superior-b";
+pos = (289,1814);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-425);
 }
 );
 id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
@@ -1447,6 +1593,46 @@ pos = (80,1447);
 {
 name = "numeratos-overshoot";
 pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (344,1832);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (344,1814);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1002);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,402);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-428);
 }
 );
 id = "733112D2-2833-4B86-B7ED-934B97F7C918";
@@ -1570,10 +1756,6 @@ pos = (1610,-16);
 },
 {
 locked = 1;
-pos = (1785,-396);
-},
-{
-locked = 1;
 pos = (473,1448);
 },
 {
@@ -1591,6 +1773,42 @@ pos = (92,794);
 },
 {
 pos = (273,809);
+},
+{
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1006);
+},
+{
+name = "superiors-b";
+pos = (495,1815);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1829);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,399);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-425);
 }
 );
 id = "24F9F4B4-D0E2-4556-A687-664485485925";
@@ -1732,6 +1950,42 @@ pos = (80,1447);
 locked = 1;
 name = "numeratos-overshoot";
 pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1005);
+},
+{
+locked = 1;
+name = "superior-overshoot";
+pos = (289,1829);
+},
+{
+locked = 1;
+name = "superior-b";
+pos = (289,1814);
+},
+{
+name = "sinf-overshoot";
+pos = (284,399);
+},
+{
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+name = "sinf-b";
+pos = (284,384);
+},
+{
+name = "sinf-overshoot";
+pos = (27,-425);
 }
 );
 id = "D4025A93-B215-454F-9D60-B6448166D546";
@@ -1762,6 +2016,7 @@ over = -16;
 }
 );
 name = "opsz144-wdth151-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1869,6 +2124,46 @@ pos = (80,1447);
 locked = 1;
 name = "numeratos-overshoot";
 pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (344,1832);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (344,1814);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1002);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (287,402);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (30,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (287,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-428);
 }
 );
 id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
