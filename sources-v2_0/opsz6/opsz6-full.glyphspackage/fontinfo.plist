@@ -839,10 +839,6 @@ pos = (781,1110);
 },
 {
 locked = 1;
-pos = (153,-25);
-},
-{
-locked = 1;
 pos = (879,-484);
 },
 {
@@ -850,8 +846,6 @@ pos = (118,1567);
 },
 {
 pos = (296,1448);
-},
-{
 },
 {
 name = "overshoot top";
@@ -890,6 +884,7 @@ over = -16;
 }
 );
 name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1674,16 +1669,12 @@ value = 0;
 );
 guides = (
 {
-name = baseline;
-pos = (844,607);
-},
-{
 name = "overshoot top";
 pos = (1291,1458);
 },
 {
 name = overshoot;
-pos = (1127,480);
+pos = (1146,481);
 },
 {
 pos = (2550,1677);
@@ -3052,6 +3043,12 @@ zero = 0;
 };
 eight.denominator = {
 eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+three.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 equal = {
 one = 0;
@@ -3107,6 +3104,12 @@ zero = 0;
 };
 five.denominator = {
 five.denominator = 0;
+eight.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+three.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 four = {
 "@MMK_R_t_left" = 0;
@@ -3330,6 +3333,12 @@ zero = 0;
 };
 seven.denominator = {
 seven.denominator = 0;
+eight.denominator = 0;
+five.denominator = 0;
+six.denominator = -24;
+three.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 six = {
 "@MMK_R_t_left" = 0;
@@ -3352,6 +3361,12 @@ zero = 0;
 };
 six.denominator = {
 six.denominator = 0;
+eight.denominator = 0;
+five.denominator = -9;
+seven.denominator = -9;
+three.denominator = 0;
+two.denominator = -9;
+zero.denominator = 0;
 };
 slash = {
 "@MMK_R_a_left" = 0;
@@ -3391,7 +3406,13 @@ two = 0;
 zero = 0;
 };
 three.denominator = {
-three.denominator = 13;
+three.denominator = 9;
+eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 two = {
 "@MMK_R_t_left" = 0;
@@ -3408,6 +3429,11 @@ zero = 0;
 };
 two.denominator = {
 two.denominator = 0;
+eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 24;
+three.denominator = 9;
+zero.denominator = 0;
 };
 u = {
 "@MMK_R_i_left" = 0;
@@ -3478,6 +3504,17 @@ seven = 0;
 six = 0;
 three = 0;
 two = 0;
+};
+nine.denominator = {
+nine.denominator = 0;
+};
+zero.denominator = {
+eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+three.denominator = 0;
+two.denominator = 0;
 };
 };
 "C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = {
@@ -4516,6 +4553,12 @@ zero = 0;
 };
 eight.denominator = {
 eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+three.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 equal = {
 one = 0;
@@ -4565,6 +4608,12 @@ zero = 0;
 };
 five.denominator = {
 five.denominator = 0;
+eight.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+three.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 four = {
 "@MMK_R_t_left" = 0;
@@ -4772,6 +4821,12 @@ zero = 0;
 };
 seven.denominator = {
 seven.denominator = 0;
+eight.denominator = 0;
+five.denominator = 0;
+six.denominator = -2;
+three.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 six = {
 "@MMK_R_t_left" = 0;
@@ -4793,6 +4848,11 @@ zero = 0;
 };
 six.denominator = {
 six.denominator = 0;
+eight.denominator = 0;
+five.denominator = -1;
+three.denominator = 0;
+two.denominator = -1;
+zero.denominator = 0;
 };
 slash = {
 "@MMK_R_a_left" = 0;
@@ -4832,6 +4892,12 @@ zero = 0;
 };
 three.denominator = {
 three.denominator = 1;
+eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+two.denominator = 0;
+zero.denominator = 0;
 };
 two = {
 "@MMK_R_t_left" = 0;
@@ -4848,6 +4914,11 @@ zero = 0;
 };
 two.denominator = {
 two.denominator = 0;
+eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 2;
+three.denominator = 1;
+zero.denominator = 0;
 };
 yen = {
 four = 0;
@@ -4868,6 +4939,17 @@ seven = 0;
 six = 0;
 three = 0;
 two = 0;
+};
+nine.denominator = {
+nine.denominator = 0;
+};
+zero.denominator = {
+eight.denominator = 0;
+five.denominator = 0;
+seven.denominator = 0;
+six.denominator = 0;
+three.denominator = 0;
+two.denominator = 0;
 };
 };
 };
