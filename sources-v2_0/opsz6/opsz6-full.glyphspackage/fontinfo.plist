@@ -1,5 +1,5 @@
 {
-.appVersion = "3221";
+.appVersion = "3222";
 .formatVersion = 3;
 axes = (
 {
@@ -745,7 +745,6 @@ over = -20;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -878,7 +877,6 @@ over = -24;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -978,7 +976,6 @@ over = -30;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1123,7 +1120,6 @@ over = -32;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1203,7 +1199,7 @@ value = 0;
 );
 guides = (
 {
-pos = (694,1309);
+pos = (688,1281);
 },
 {
 name = top;
@@ -1249,7 +1245,6 @@ over = -36;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1349,7 +1344,6 @@ over = -38;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1453,7 +1447,6 @@ over = -40;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1554,7 +1547,7 @@ locked = 1;
 pos = (1489,1130);
 },
 {
-pos = (1857,657);
+pos = (1806,660);
 }
 );
 id = "5DA06E3F-B65C-4341-B330-53F50D9F2964";
@@ -1579,7 +1572,6 @@ over = -43;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1685,13 +1677,11 @@ over = -48;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
 );
 name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
-visible = 1;
 }
 );
 instances = (
@@ -4953,6 +4943,15 @@ name = "Height for";
 );
 properties = (
 {
+key = copyrights;
+values = (
+{
+language = dflt;
+value = "Copyright 2015 Google LLC. All Rights Reserved.";
+}
+);
+},
+{
 key = designers;
 values = (
 {
@@ -4964,6 +4963,15 @@ value = "Google Sans Authors";
 {
 key = designerURL;
 value = "https://design.google";
+},
+{
+key = licenses;
+values = (
+{
+language = dflt;
+value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
+}
+);
 },
 {
 key = manufacturers;
@@ -4979,28 +4987,6 @@ key = manufacturerURL;
 value = "https://design.google";
 },
 {
-key = copyrights;
-values = (
-{
-language = dflt;
-value = "Copyright 2015 Google LLC. All Rights Reserved.";
-}
-);
-},
-{
-key = vendorID;
-value = GOOG;
-},
-{
-key = licenses;
-values = (
-{
-language = dflt;
-value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
-}
-);
-},
-{
 key = trademarks;
 values = (
 {
@@ -5008,6 +4994,10 @@ language = dflt;
 value = "Google Sans is a trademark of Google.";
 }
 );
+},
+{
+key = vendorID;
+value = GOOG;
 }
 );
 settings = {
