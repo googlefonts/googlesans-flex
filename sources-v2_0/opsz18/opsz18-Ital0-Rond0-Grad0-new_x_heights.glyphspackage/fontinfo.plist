@@ -1,5 +1,5 @@
 {
-.appVersion = "3221";
+.appVersion = "3222";
 .formatVersion = 3;
 axes = (
 {
@@ -804,7 +804,6 @@ over = -16;
 pos = -432;
 },
 {
-over = -16.452;
 },
 {
 pos = 859;
@@ -1388,6 +1387,7 @@ pos = -432;
 }
 );
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1501,7 +1501,7 @@ locked = 1;
 pos = (-20,1470);
 },
 {
-pos = (118,1584);
+pos = (106,1584);
 },
 {
 angle = 180;
@@ -1934,7 +1934,7 @@ pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-174,1584);
+pos = (-165,1432);
 showMeasurement = 1;
 },
 {
@@ -1962,12 +1962,8 @@ locked = 1;
 pos = (-28,1480);
 },
 {
-pos = (-402,1208);
-},
-{
 locked = 1;
 pos = (44,859);
-showMeasurement = 1;
 },
 {
 pos = (-12,1525);
@@ -1975,7 +1971,6 @@ pos = (-12,1525);
 {
 locked = 1;
 pos = (44,887);
-showMeasurement = 1;
 },
 {
 pos = (-40,472);
@@ -1986,26 +1981,12 @@ pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
-},
-{
 pos = (-40,431);
 showMeasurement = 1;
 },
 {
 pos = (-62,-380);
 showMeasurement = 1;
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
 },
 {
 angle = 90;
@@ -2021,29 +2002,8 @@ pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
-},
-{
 pos = (-40,431);
 showMeasurement = 1;
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
 },
 {
 angle = 90;
@@ -2059,29 +2019,8 @@ pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
-},
-{
 pos = (-40,431);
 showMeasurement = 1;
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-402,1208);
 },
 {
 angle = 90;
@@ -2322,6 +2261,15 @@ name = "Height for";
 );
 properties = (
 {
+key = copyrights;
+values = (
+{
+language = dflt;
+value = "Copyright 2015 Google LLC. All Rights Reserved.";
+}
+);
+},
+{
 key = designers;
 values = (
 {
@@ -2333,6 +2281,15 @@ value = "Google Sans Authors";
 {
 key = designerURL;
 value = "https://design.google";
+},
+{
+key = licenses;
+values = (
+{
+language = dflt;
+value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
+}
+);
 },
 {
 key = manufacturers;
@@ -2348,28 +2305,6 @@ key = manufacturerURL;
 value = "https://design.google";
 },
 {
-key = copyrights;
-values = (
-{
-language = dflt;
-value = "Copyright 2015 Google LLC. All Rights Reserved.";
-}
-);
-},
-{
-key = vendorID;
-value = GOOG;
-},
-{
-key = licenses;
-values = (
-{
-language = dflt;
-value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
-}
-);
-},
-{
 key = trademarks;
 values = (
 {
@@ -2377,6 +2312,10 @@ language = dflt;
 value = "Google Sans is a trademark of Google.";
 }
 );
+},
+{
+key = vendorID;
+value = GOOG;
 }
 );
 settings = {
