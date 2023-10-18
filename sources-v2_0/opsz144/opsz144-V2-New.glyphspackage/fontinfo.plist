@@ -1,5 +1,5 @@
 {
-.appVersion = "3221";
+.appVersion = "3806";
 .formatVersion = 3;
 axes = (
 {
@@ -801,7 +801,6 @@ over = -7;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -980,7 +979,6 @@ over = -14;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -1163,7 +1161,6 @@ over = -22;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -1333,7 +1330,6 @@ over = -10;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -1518,7 +1514,6 @@ over = -18;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -2060,7 +2055,6 @@ over = -24;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -2408,6 +2402,15 @@ name = "Height for";
 );
 properties = (
 {
+key = copyrights;
+values = (
+{
+language = dflt;
+value = "Copyright 2015 Google LLC. All Rights Reserved.";
+}
+);
+},
+{
 key = designers;
 values = (
 {
@@ -2419,6 +2422,15 @@ value = "Google Sans Authors";
 {
 key = designerURL;
 value = "https://design.google";
+},
+{
+key = licenses;
+values = (
+{
+language = dflt;
+value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
+}
+);
 },
 {
 key = manufacturers;
@@ -2434,28 +2446,6 @@ key = manufacturerURL;
 value = "https://design.google";
 },
 {
-key = copyrights;
-values = (
-{
-language = dflt;
-value = "Copyright 2015 Google LLC. All Rights Reserved.";
-}
-);
-},
-{
-key = vendorID;
-value = GOOG;
-},
-{
-key = licenses;
-values = (
-{
-language = dflt;
-value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
-}
-);
-},
-{
 key = trademarks;
 values = (
 {
@@ -2463,6 +2453,10 @@ language = dflt;
 value = "Google Sans is a trademark of Google.";
 }
 );
+},
+{
+key = vendorID;
+value = GOOG;
 }
 );
 settings = {
