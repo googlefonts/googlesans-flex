@@ -1,5 +1,5 @@
 {
-.appVersion = "3221";
+.appVersion = "3222";
 .formatVersion = 3;
 axes = (
 {
@@ -745,7 +745,6 @@ over = -20;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -878,12 +877,12 @@ over = -24;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
 );
 name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -978,7 +977,6 @@ over = -30;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1058,29 +1056,6 @@ value = 0;
 );
 guides = (
 {
-angle = 180;
-name = baseline;
-pos = (145,618);
-},
-{
-angle = 180;
-name = "overshoot top";
-pos = (709,1440);
-},
-{
-pos = (18,1561);
-},
-{
-pos = (694,1309);
-},
-{
-name = top;
-pos = (28,1561);
-},
-{
-pos = (1222,1822);
-},
-{
 locked = 1;
 pos = (1351,1088);
 },
@@ -1089,16 +1064,8 @@ locked = 1;
 pos = (1416,1464);
 },
 {
-angle = 180;
-pos = (622,-492);
-},
-{
 locked = 1;
 pos = (252,1524);
-},
-{
-angle = 90;
-pos = (1222,376);
 }
 );
 id = "3FC95AE1-19AB-496F-875C-3FB1D5823AFA";
@@ -1123,13 +1090,11 @@ over = -32;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
 );
 name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1204,11 +1169,7 @@ value = 0;
 );
 guides = (
 {
-name = baseline;
-pos = (480,543);
-},
-{
-pos = (694,1309);
+pos = (688,1281);
 },
 {
 name = top;
@@ -1226,10 +1187,6 @@ pos = (1351,1122);
 {
 locked = 1;
 pos = (787,-496);
-},
-{
-angle = 90;
-pos = (1071,440);
 }
 );
 id = "C6E6A82E-5529-473D-BA0B-E088A1B2D63E";
@@ -1254,7 +1211,6 @@ over = -36;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1355,7 +1311,6 @@ over = -38;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1459,7 +1414,6 @@ over = -40;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1560,7 +1514,7 @@ locked = 1;
 pos = (1489,1130);
 },
 {
-pos = (1857,657);
+pos = (1806,660);
 }
 );
 id = "5DA06E3F-B65C-4341-B330-53F50D9F2964";
@@ -1585,12 +1539,12 @@ over = -43;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
 );
 name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1691,7 +1645,6 @@ over = -48;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1771,10 +1724,6 @@ value = 0;
 );
 guides = (
 {
-pos = (285,48);
-showMeasurement = 1;
-},
-{
 pos = (121,1448);
 },
 {
@@ -1790,51 +1739,23 @@ pos = (-12,-10);
 pos = (44,1014);
 },
 {
-pos = (73,859);
-},
-{
-pos = (73,868);
-},
-{
 pos = (210,-432);
 },
 {
 pos = (210,-448);
 },
 {
-pos = (6,646);
-showMeasurement = 1;
-},
-{
-pos = (-7,1585);
-},
-{
-pos = (6,1111);
-showMeasurement = 1;
+pos = (-7,1592);
 },
 {
 pos = (-12,-16);
 },
 {
-angle = 16.7786;
-pos = (78,367);
-},
-{
-angle = 196.7786;
-pos = (407,911);
-},
-{
-angle = 163.2214;
-pos = (48,1116);
+pos = (63,339);
+showMeasurement = 1;
 },
 {
 pos = (44,998);
-},
-{
-pos = (-59,1466);
-},
-{
-pos = (-63,1234);
 }
 );
 id = "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F";
@@ -1859,7 +1780,6 @@ over = -16;
 pos = -432;
 },
 {
-over = -16.452;
 },
 {
 pos = 859;
@@ -1979,7 +1899,7 @@ pos = (336,242);
 showMeasurement = 1;
 },
 {
-pos = (28,596);
+pos = (28,766);
 showMeasurement = 1;
 },
 {
@@ -1997,7 +1917,7 @@ pos = (-3,1170);
 showMeasurement = 1;
 },
 {
-pos = (-41,1228);
+pos = (-41,1237);
 },
 {
 pos = (-41,1472);
@@ -2120,7 +2040,8 @@ locked = 1;
 pos = (-8,1432);
 },
 {
-pos = (-260,1209);
+pos = (-106,1062);
+showMeasurement = 1;
 },
 {
 pos = (-260,1585);
@@ -2143,9 +2064,12 @@ locked = 1;
 pos = (0,875);
 },
 {
-pos = (0,-16);
 },
 {
+pos = (0,-28);
+},
+{
+pos = (-163,767);
 }
 );
 id = "769463EF-2EF4-41A9-85A9-285641285009";
@@ -2249,7 +2173,7 @@ value = 0;
 );
 guides = (
 {
-pos = (882,712);
+pos = (79,726);
 showMeasurement = 1;
 },
 {
@@ -2262,7 +2186,8 @@ pos = (3,0);
 pos = (3,-30);
 },
 {
-pos = (-113,1234);
+pos = (41,1216);
+showMeasurement = 1;
 },
 {
 pos = (-65,1462);
@@ -2374,14 +2299,7 @@ value = 0;
 );
 guides = (
 {
-pos = (-40,1228);
-},
-{
-pos = (16,1373);
-showMeasurement = 1;
-},
-{
-pos = (120,859);
+pos = (16,761);
 showMeasurement = 1;
 },
 {
@@ -2412,11 +2330,11 @@ pos = (68,-464);
 pos = (68,-19);
 },
 {
-pos = (120,878);
+pos = (-17,1160);
 showMeasurement = 1;
 }
 );
-id = "51C43777-4325-4261-AEE7-B3A43074589D";
+id = "DE4292DB-DC8B-47D2-9515-95F944594B01";
 metricValues = (
 {
 over = 32;
@@ -2517,7 +2435,7 @@ value = 0;
 );
 guides = (
 {
-pos = (10,859);
+pos = (1,859);
 },
 {
 locked = 1;
@@ -2544,11 +2462,11 @@ locked = 1;
 pos = (-23,1058);
 },
 {
-pos = (31,-305);
+pos = (78,-280);
 showMeasurement = 1;
 },
 {
-pos = (20,988);
+pos = (-17,280);
 showMeasurement = 1;
 },
 {
@@ -2556,20 +2474,25 @@ locked = 1;
 pos = (-20,1470);
 },
 {
-pos = (127,1584);
+pos = (106,1584);
 },
 {
 angle = 180;
-pos = (995,1208);
+pos = (58,1234);
 },
 {
-pos = (-20,1464);
+pos = (-29,1464);
 },
 {
-pos = (693,953);
+pos = (684,953);
 },
 {
-pos = (10,881);
+pos = (1,881);
+},
+{
+angle = 180;
+pos = (-5,716);
+showMeasurement = 1;
 }
 );
 id = "879AA4C1-268E-45F5-A479-E8A4233029E2";
@@ -2698,7 +2621,7 @@ pos = (-74,-248);
 pos = (93,1470);
 },
 {
-pos = (-99,1331);
+pos = (29,1239);
 showMeasurement = 1;
 },
 {
@@ -2715,6 +2638,10 @@ pos = (73,859);
 },
 {
 pos = (73,875);
+},
+{
+pos = (76,779);
+showMeasurement = 1;
 }
 );
 id = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
@@ -2841,7 +2768,7 @@ locked = 1;
 pos = (-32,1474);
 },
 {
-pos = (-27,610);
+pos = (-18,731);
 showMeasurement = 1;
 },
 {
@@ -2859,7 +2786,7 @@ pos = (16,-25);
 pos = (-32,1464);
 },
 {
-pos = (67,1235);
+pos = (67,1239);
 },
 {
 pos = (-40,1472);
@@ -2981,15 +2908,11 @@ value = 0;
 );
 guides = (
 {
-pos = (-40,289);
-showMeasurement = 1;
-},
-{
 pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-174,1584);
+pos = (-165,1432);
 showMeasurement = 1;
 },
 {
@@ -3005,9 +2928,6 @@ locked = 1;
 pos = (-30,-48);
 },
 {
-pos = (-30,1036);
-},
-{
 locked = 1;
 pos = (-30,1084);
 },
@@ -3020,70 +2940,24 @@ locked = 1;
 pos = (-28,1480);
 },
 {
-pos = (-402,1208);
-},
-{
 locked = 1;
 pos = (44,859);
-showMeasurement = 1;
-},
-{
-pos = (-24,1473);
 },
 {
 locked = 1;
 pos = (44,887);
-showMeasurement = 1;
-},
-{
-pos = (-40,431);
-showMeasurement = 1;
 },
 {
 pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
-},
-{
-pos = (-40,431);
-showMeasurement = 1;
-},
-{
 pos = (-62,-380);
 showMeasurement = 1;
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
 },
 {
 angle = 90;
-pos = (667,-155);
-showMeasurement = 1;
-},
-{
-pos = (-40,289);
+pos = (403,-163);
 showMeasurement = 1;
 },
 {
@@ -3091,107 +2965,7 @@ pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
-},
-{
-pos = (-40,431);
-showMeasurement = 1;
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
-},
-{
-angle = 90;
-pos = (667,-155);
-showMeasurement = 1;
-},
-{
-pos = (-40,289);
-showMeasurement = 1;
-},
-{
 pos = (-62,-380);
-showMeasurement = 1;
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
-},
-{
-pos = (-40,431);
-showMeasurement = 1;
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
-},
-{
-pos = (-174,1584);
-showMeasurement = 1;
-},
-{
-pos = (-30,1036);
-},
-{
-pos = (-402,1208);
-},
-{
-pos = (-24,1473);
-},
-{
-angle = 90;
-pos = (667,-155);
 showMeasurement = 1;
 }
 );
@@ -3222,6 +2996,1605 @@ pos = -432;
 }
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+25,
+1,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 200;
+},
+{
+name = paramDepth;
+value = 14;
+}
+);
+guides = (
+{
+locked = 1;
+pos = (161,-387);
+},
+{
+pos = (299,626);
+},
+{
+locked = 1;
+pos = (337,-7);
+},
+{
+locked = 1;
+pos = (325,1439);
+},
+{
+pos = (124,1584);
+},
+{
+name = "diacritics-t";
+pos = (62,1354);
+},
+{
+name = "diacritics-b";
+pos = (171,1109);
+},
+{
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+name = "numeratos-overshoot";
+pos = (250,623);
+},
+{
+name = "sinf-overshoot";
+pos = (284,388);
+},
+{
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+name = "sinf-b";
+pos = (284,384);
+},
+{
+name = "sinf-overshoot";
+pos = (27,-414);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+},
+{
+pos = (173,798);
+}
+);
+id = "96492EC2-F7D8-47EB-8AF2-08299CD82A63";
+metricValues = (
+{
+over = 7;
+pos = 1432;
+},
+{
+over = 7;
+pos = 1432;
+},
+{
+over = 7;
+pos = 1020;
+},
+{
+over = -7;
+},
+{
+over = -7;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth25-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+25,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 120;
+},
+{
+name = paramDepth;
+value = 14;
+}
+);
+guides = (
+{
+locked = 1;
+pos = (382,1064);
+},
+{
+locked = 1;
+pos = (89,-14);
+},
+{
+locked = 1;
+pos = (426,-393);
+},
+{
+name = "diacritics-t";
+pos = (61,1346);
+},
+{
+locked = 1;
+name = "denominators-overshoot";
+pos = (262,-9);
+},
+{
+angle = 180;
+name = "denominator-top";
+pos = (92,794);
+},
+{
+name = "denominator-overshoot";
+pos = (273,803);
+},
+{
+locked = 1;
+name = "numerator-overshoot";
+pos = (156,1441);
+},
+{
+locked = 1;
+name = "superior-overshoot";
+pos = (289,1823);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1011);
+},
+{
+locked = 1;
+name = "superior-b";
+pos = (289,1814);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,393);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-419);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "01856C8F-DF22-4242-84EC-D0E09743B379";
+metricValues = (
+{
+over = 14;
+pos = 1432;
+},
+{
+over = 14;
+pos = 1432;
+},
+{
+over = 14;
+pos = 1050;
+},
+{
+over = -14;
+},
+{
+over = -14;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth25-wght400-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerMasterRules = {
+};
+};
+},
+{
+axesValues = (
+144,
+25,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 135;
+},
+{
+name = paramDepth;
+value = 12;
+}
+);
+guides = (
+{
+locked = 1;
+name = "overshoot-bottom";
+pos = (9,-22);
+},
+{
+locked = 1;
+name = "overshoot-top-lc";
+pos = (349,1082);
+},
+{
+locked = 1;
+pos = (49,1454);
+},
+{
+name = "diacritics-t";
+pos = (61,1481);
+},
+{
+name = "diacritics-b";
+pos = (169,1122);
+},
+{
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+name = "numeratos-overshoot";
+pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (344,1832);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (344,1814);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1002);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,399);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-425);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
+metricValues = (
+{
+over = 22;
+pos = 1432;
+},
+{
+over = 22;
+pos = 1432;
+},
+{
+over = 22;
+pos = 1060;
+},
+{
+over = -22;
+},
+{
+over = -22;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth25-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+100,
+1,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 340;
+},
+{
+name = paramDepth;
+value = 16;
+}
+);
+guides = (
+{
+locked = 1;
+name = "diacritics-t";
+pos = (83,1432);
+},
+{
+locked = 1;
+name = "diacritics-b";
+pos = (101,1169);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (470,-10);
+},
+{
+locked = 1;
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+locked = 1;
+name = "numerators-overshoot";
+pos = (80,1442);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,628);
+},
+{
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1010);
+},
+{
+name = "superiors-b";
+pos = (495,1815);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1825);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,395);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (292,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-420);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
+metricValues = (
+{
+over = 10;
+pos = 1432;
+},
+{
+over = 10;
+pos = 1432;
+},
+{
+over = 10;
+pos = 1020;
+},
+{
+over = -10;
+},
+{
+over = -10;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth100-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+100,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 310;
+},
+{
+name = paramDepth;
+value = 16;
+}
+);
+guides = (
+{
+locked = 1;
+pos = (834,1068);
+},
+{
+locked = 1;
+pos = (224,-18);
+},
+{
+locked = 1;
+pos = (1492,1450);
+},
+{
+name = "diacritics-t";
+pos = (61,1439);
+},
+{
+name = "diacritics-b";
+pos = (171,1174);
+},
+{
+locked = 1;
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+locked = 1;
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,399);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+angle = 180;
+locked = 1;
+name = denominator;
+pos = (456,794);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,623);
+},
+{
+locked = 1;
+name = "superior-overshoot";
+pos = (289,1829);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1005);
+},
+{
+locked = 1;
+name = "superior-b";
+pos = (289,1814);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-425);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
+metricValues = (
+{
+over = 18;
+pos = 1432;
+},
+{
+over = 18;
+pos = 1432;
+},
+{
+over = 18;
+pos = 1050;
+},
+{
+over = -18;
+},
+{
+over = -18;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth100-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+100,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 180;
+},
+{
+name = paramDepth;
+value = 11;
+}
+);
+guides = (
+{
+name = "diacritics-t";
+pos = (61,1484);
+},
+{
+name = "diacritics-b";
+pos = (171,1145);
+},
+{
+lockAngle = 1;
+locked = 1;
+name = OVERSHOOT;
+pos = (670,1084);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (399,-24);
+},
+{
+locked = 1;
+name = denominators;
+pos = (352,794);
+},
+{
+name = "numeratos-base";
+pos = (-66,638);
+},
+{
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+name = "numeratos-overshoot";
+pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (344,1832);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (344,1814);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1002);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,402);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-428);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "733112D2-2833-4B86-B7ED-934B97F7C918";
+metricValues = (
+{
+over = 24;
+pos = 1432;
+},
+{
+over = 24;
+pos = 1432;
+},
+{
+over = 24;
+pos = 1060;
+},
+{
+over = -24;
+},
+{
+over = -24;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth100-wght1000-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+151,
+1,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 480;
+},
+{
+name = paramDepth;
+value = 16;
+}
+);
+guides = (
+{
+name = "diacritics-b";
+pos = (1505,177);
+},
+{
+name = "numerators-ost";
+pos = (1533,1423);
+},
+{
+angle = 90;
+name = "numerator-base";
+pos = (64,597);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (1385,1036);
+},
+{
+locked = 1;
+name = OVERSHOOT;
+pos = (1610,-16);
+},
+{
+locked = 1;
+pos = (473,1448);
+},
+{
+name = "diacritics-t";
+pos = (73,1532);
+},
+{
+name = "diacritics-b";
+pos = (151,1247);
+},
+{
+angle = 180;
+name = "numerator-top";
+pos = (92,794);
+},
+{
+pos = (273,809);
+},
+{
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1006);
+},
+{
+name = "superiors-b";
+pos = (495,1815);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1829);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (284,399);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (284,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-425);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "24F9F4B4-D0E2-4556-A687-664485485925";
+metricValues = (
+{
+over = 16;
+pos = 1432;
+},
+{
+over = 16;
+pos = 1432;
+},
+{
+over = 16;
+pos = 1020;
+},
+{
+over = -16;
+},
+{
+over = -16;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth151-wght1-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+151,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 390;
+},
+{
+name = paramDepth;
+value = 10;
+}
+);
+guides = (
+{
+locked = 1;
+name = overshoot;
+pos = (724,1456);
+},
+{
+pos = (262,-24);
+},
+{
+angle = 180;
+name = "numerator-top";
+pos = (92,794);
+},
+{
+locked = 1;
+name = "diacritics-t";
+pos = (60,1532);
+},
+{
+locked = 1;
+name = "diacritics-b";
+pos = (138,1247);
+},
+{
+pos = (649,572);
+},
+{
+locked = 1;
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+locked = 1;
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1005);
+},
+{
+locked = 1;
+name = "superior-overshoot";
+pos = (289,1829);
+},
+{
+locked = 1;
+name = "superior-b";
+pos = (289,1814);
+},
+{
+name = "sinf-overshoot";
+pos = (264,395);
+},
+{
+name = "sinf-b";
+pos = (27,-410);
+},
+{
+name = "sinf-b";
+pos = (284,384);
+},
+{
+name = "sinf-overshoot";
+pos = (27,-425);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "D4025A93-B215-454F-9D60-B6448166D546";
+metricValues = (
+{
+over = 24;
+pos = 1432;
+},
+{
+over = 24;
+pos = 1432;
+},
+{
+over = 24;
+pos = 1050;
+},
+{
+over = -24;
+},
+{
+over = -24;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth151-wght400-Ital0-Rond0-Grad0";
+},
+{
+axesValues = (
+144,
+151,
+1000,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 250;
+},
+{
+name = paramDepth;
+value = 9;
+}
+);
+guides = (
+{
+locked = 1;
+name = "numerator-ost";
+pos = (1020,1454);
+},
+{
+name = "numerator-osb";
+pos = (-80,535);
+},
+{
+name = "denominators-b";
+pos = (618,812);
+},
+{
+pos = (1355,-26);
+},
+{
+name = "diacritics-t";
+pos = (73,1637);
+},
+{
+name = "diacritics-b";
+pos = (151,1139);
+},
+{
+locked = 1;
+name = "numeratos-base";
+pos = (250,638);
+},
+{
+locked = 1;
+name = "numerators-overshoot";
+pos = (80,1447);
+},
+{
+locked = 1;
+name = "numeratos-overshoot";
+pos = (250,623);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (495,1020);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (344,1832);
+},
+{
+locked = 1;
+name = "superiors-b";
+pos = (344,1814);
+},
+{
+locked = 1;
+name = "superiors-overshoot";
+pos = (495,1002);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (287,402);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (30,-410);
+},
+{
+locked = 1;
+name = "sinf-b";
+pos = (287,384);
+},
+{
+locked = 1;
+name = "sinf-overshoot";
+pos = (27,-428);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
+}
+);
+id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+metricValues = (
+{
+over = 26;
+pos = 1432;
+},
+{
+over = 26;
+pos = 1432;
+},
+{
+over = 26;
+pos = 1060;
+},
+{
+over = -26;
+},
+{
+over = -26;
+pos = -380;
+},
+{
+},
+{
+}
+);
+name = "opsz144-wdth151-wght1000-Ital0-Rond0-Grad0";
+userData = {
+HTLSManagerMasterRules = {
+};
+};
 }
 );
 instances = (
@@ -5021,6 +6394,11 @@ three.denominator = 0;
 two.denominator = 0;
 };
 };
+"3FC95AE1-19AB-496F-875C-3FB1D5823AFA" = {
+fraction = {
+four.denominator = -80;
+};
+};
 "C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = {
 "@MMK_L_A_right" = {
 "@MMK_R_A_left" = 0;
@@ -6148,6 +7526,7 @@ fraction = {
 eight = 0;
 five = 0;
 four = 0;
+four.denominator = -90;
 nine = 0;
 one = 0;
 seven = 0;
@@ -6456,6 +7835,26 @@ three.denominator = 0;
 two.denominator = 0;
 };
 };
+"4296CD9C-54F3-4369-8782-4D8C9C978D13" = {
+fraction = {
+four.denominator = -100;
+};
+};
+"41B1B64A-62E2-4CAB-B8D0-FC7DABC36D1C" = {
+fraction = {
+four.denominator = -140;
+};
+};
+"5DA06E3F-B65C-4341-B330-53F50D9F2964" = {
+fraction = {
+four.denominator = -140;
+};
+};
+"C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = {
+fraction = {
+four.denominator = -140;
+};
+};
 "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F" = {
 fraction = {
 four.denominator = -25;
@@ -6476,7 +7875,7 @@ fraction = {
 four.denominator = -120;
 };
 };
-"51C43777-4325-4261-AEE7-B3A43074589D" = {
+"DE4292DB-DC8B-47D2-9515-95F944594B01" = {
 fraction = {
 four.denominator = -80;
 };
@@ -6531,6 +7930,15 @@ name = "Height for";
 );
 properties = (
 {
+key = copyrights;
+values = (
+{
+language = dflt;
+value = "Copyright 2015 Google LLC. All Rights Reserved.";
+}
+);
+},
+{
 key = designers;
 values = (
 {
@@ -6542,6 +7950,15 @@ value = "Google Sans Authors";
 {
 key = designerURL;
 value = "https://design.google";
+},
+{
+key = licenses;
+values = (
+{
+language = dflt;
+value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
+}
+);
 },
 {
 key = manufacturers;
@@ -6557,28 +7974,6 @@ key = manufacturerURL;
 value = "https://design.google";
 },
 {
-key = copyrights;
-values = (
-{
-language = dflt;
-value = "Copyright 2015 Google LLC. All Rights Reserved.";
-}
-);
-},
-{
-key = vendorID;
-value = GOOG;
-},
-{
-key = licenses;
-values = (
-{
-language = dflt;
-value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
-}
-);
-},
-{
 key = trademarks;
 values = (
 {
@@ -6586,6 +7981,10 @@ language = dflt;
 value = "Google Sans is a trademark of Google.";
 }
 );
+},
+{
+key = vendorID;
+value = GOOG;
 }
 );
 settings = {
