@@ -4,14 +4,24 @@ kernLeft = guillemetleft_left;
 kernRight = guillemetleft_right;
 layers = (
 {
-layerId = m001;
+background = {
 shapes = (
 {
+pos = (-17,0);
 ref = guilsinglleft;
 },
 {
-pos = (400,0);
+pos = (383,0);
 ref = guilsinglleft;
+}
+);
+};
+layerId = m001;
+shapes = (
+{
+angle = 180;
+pos = (1100,1019);
+ref = guillemetright;
 }
 );
 userData = {
@@ -25,11 +35,12 @@ background = {
 shapes = (
 {
 alignment = -1;
+pos = (-2,0);
 ref = guilsinglleft;
 },
 {
 alignment = -1;
-pos = (240,0);
+pos = (238,0);
 ref = guilsinglleft;
 }
 );
@@ -37,13 +48,9 @@ ref = guilsinglleft;
 layerId = "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F";
 shapes = (
 {
-alignment = -1;
-ref = guilsinglleft;
-},
-{
-alignment = -1;
-pos = (240,0);
-ref = guilsinglleft;
+angle = 180;
+pos = (614,997);
+ref = guillemetright;
 }
 );
 userData = {
@@ -53,33 +60,53 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 width = 614;
 },
 {
-layerId = "91251A45-EED6-44E6-BC9D-709435BB03FD";
+background = {
 shapes = (
 {
+pos = (-5,0);
 ref = guilsinglleft;
 },
 {
-pos = (279,0);
+pos = (274,0);
 ref = guilsinglleft;
+}
+);
+};
+layerId = "91251A45-EED6-44E6-BC9D-709435BB03FD";
+shapes = (
+{
+angle = 180;
+pos = (673,1020);
+ref = guillemetright;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 };
-width = 674;
+width = 673;
 },
 {
-layerId = "769463EF-2EF4-41A9-85A9-285641285009";
+background = {
 shapes = (
 {
 alignment = -1;
+pos = (-9,0);
 ref = guilsinglleft;
 },
 {
 alignment = -1;
-pos = (423,0);
+pos = (414,0);
 ref = guilsinglleft;
+}
+);
+};
+layerId = "769463EF-2EF4-41A9-85A9-285641285009";
+shapes = (
+{
+angle = 180;
+pos = (904,1036);
+ref = guillemetright;
 }
 );
 userData = {
@@ -89,69 +116,109 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 width = 904;
 },
 {
+background = {
+shapes = (
+{
+pos = (-3,0);
+ref = guilsinglleft;
+},
+{
+pos = (345,0);
+ref = guilsinglleft;
+}
+);
+};
 layerId = "B7698FA3-622B-421D-9516-7D8300A7950D";
 shapes = (
 {
-ref = guilsinglleft;
-},
-{
-pos = (348,0);
-ref = guilsinglleft;
+angle = 180;
+pos = (955,997);
+ref = guillemetright;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 };
-width = 956;
+width = 955;
 },
 {
+background = {
+shapes = (
+{
+alignment = -1;
+pos = (-19,0);
+ref = guilsinglleft;
+},
+{
+alignment = -1;
+pos = (492,0);
+ref = guilsinglleft;
+}
+);
+};
 layerId = "879AA4C1-268E-45F5-A479-E8A4233029E2";
 shapes = (
 {
-alignment = -1;
-ref = guilsinglleft;
-},
-{
-alignment = -1;
-pos = (511,0);
-ref = guilsinglleft;
+angle = 180;
+pos = (1157,1031);
+ref = guillemetright;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 };
-width = 1158;
+width = 1157;
 },
 {
+background = {
+shapes = (
+{
+pos = (-4,0);
+ref = guilsinglleft;
+},
+{
+pos = (460,0);
+ref = guilsinglleft;
+}
+);
+};
 layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
 shapes = (
 {
-ref = guilsinglleft;
-},
-{
-pos = (464,0);
-ref = guilsinglleft;
+angle = 180;
+pos = (1145,997);
+ref = guillemetright;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 };
-width = 1144;
+width = 1145;
 },
 {
-layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
+background = {
 shapes = (
 {
 alignment = -1;
+pos = (-20,0);
 ref = guilsinglleft;
 },
 {
 alignment = -1;
-pos = (520,0);
+pos = (500,0);
 ref = guilsinglleft;
+}
+);
+};
+layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
+shapes = (
+{
+angle = 180;
+pos = (1415,1020);
+ref = guillemetright;
 }
 );
 userData = {
@@ -161,21 +228,31 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 width = 1415;
 },
 {
-layerId = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
+background = {
 shapes = (
 {
+pos = (-28,0);
 ref = guilsinglleft;
 },
 {
-pos = (644,0);
+pos = (616,0);
 ref = guilsinglleft;
+}
+);
+};
+layerId = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
+shapes = (
+{
+angle = 180;
+pos = (1608,1026);
+ref = guillemetright;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 };
-width = 1610;
+width = 1608;
 }
 );
 metricLeft = "=|guilsinglright";
