@@ -700,13 +700,6 @@ value = 0;
 );
 guides = (
 {
-name = "overshoot top";
-pos = (805,1411);
-userData = {
-UFO.identifier = 4YrXcs2DWN;
-};
-},
-{
 locked = 1;
 pos = (883,1086);
 },
@@ -717,10 +710,6 @@ pos = (699,-20);
 {
 locked = 1;
 pos = (825,-480);
-},
-{
-angle = 90;
-pos = (-197,557);
 }
 );
 id = m001;
@@ -754,6 +743,7 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -882,7 +872,6 @@ pos = -442;
 }
 );
 name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1095,6 +1084,7 @@ pos = -442;
 }
 );
 name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -1216,7 +1206,6 @@ pos = -442;
 }
 );
 name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1544,7 +1533,6 @@ pos = -442;
 }
 );
 name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
-visible = 1;
 },
 {
 axesValues = (
@@ -1899,7 +1887,7 @@ pos = (336,242);
 showMeasurement = 1;
 },
 {
-pos = (28,766);
+pos = (-8,633);
 showMeasurement = 1;
 },
 {
@@ -1923,7 +1911,7 @@ pos = (-41,1237);
 pos = (-41,1472);
 },
 {
-pos = (13,859);
+pos = (15,859);
 },
 {
 pos = (13,871);
@@ -2299,7 +2287,7 @@ value = 0;
 );
 guides = (
 {
-pos = (16,761);
+pos = (-7,612);
 showMeasurement = 1;
 },
 {
@@ -2334,7 +2322,7 @@ pos = (-17,1160);
 showMeasurement = 1;
 }
 );
-id = "DE4292DB-DC8B-47D2-9515-95F944594B01";
+id = "CA22B21C-EF55-456E-B936-4C63FCFA9D1D";
 metricValues = (
 {
 over = 32;
@@ -2435,9 +2423,6 @@ value = 0;
 );
 guides = (
 {
-pos = (1,859);
-},
-{
 locked = 1;
 pos = (-25,1036);
 },
@@ -2462,37 +2447,8 @@ locked = 1;
 pos = (-23,1058);
 },
 {
-pos = (78,-280);
-showMeasurement = 1;
-},
-{
-pos = (-17,280);
-showMeasurement = 1;
-},
-{
 locked = 1;
 pos = (-20,1470);
-},
-{
-pos = (106,1584);
-},
-{
-angle = 180;
-pos = (58,1234);
-},
-{
-pos = (-29,1464);
-},
-{
-pos = (684,953);
-},
-{
-pos = (1,881);
-},
-{
-angle = 180;
-pos = (-5,716);
-showMeasurement = 1;
 }
 );
 id = "879AA4C1-268E-45F5-A479-E8A4233029E2";
@@ -3129,7 +3085,7 @@ pos = (468,-166);
 pos = (173,798);
 }
 );
-id = "96492EC2-F7D8-47EB-8AF2-08299CD82A63";
+id = "49D353C2-BBCA-47FD-A5D8-C13B83DC983D";
 metricValues = (
 {
 over = 7;
@@ -3431,7 +3387,7 @@ pos = (169,1122);
 },
 {
 name = "numeratos-base";
-pos = (250,638);
+pos = (250,803);
 },
 {
 name = "numerators-overshoot";
@@ -3439,7 +3395,7 @@ pos = (80,1447);
 },
 {
 name = "numeratos-overshoot";
-pos = (250,623);
+pos = (250,794);
 },
 {
 locked = 1;
@@ -3447,9 +3403,8 @@ name = "superiors-b";
 pos = (495,1020);
 },
 {
-locked = 1;
 name = "superiors-overshoot";
-pos = (344,1832);
+pos = (344,1823);
 },
 {
 locked = 1;
@@ -3459,33 +3414,33 @@ pos = (344,1814);
 {
 locked = 1;
 name = "superiors-overshoot";
-pos = (495,1002);
+pos = (495,1011);
 },
 {
-locked = 1;
 name = "sinf-overshoot";
-pos = (284,399);
+pos = (284,393);
 },
 {
-locked = 1;
 name = "sinf-b";
 pos = (27,-410);
 },
 {
-locked = 1;
 name = "sinf-b";
 pos = (284,384);
 },
 {
-locked = 1;
 name = "sinf-overshoot";
-pos = (27,-425);
+pos = (27,-419);
 },
 {
 pos = (489,1598);
 },
 {
 pos = (468,-166);
+},
+{
+name = "numeratos-overshoot";
+pos = (480,-9);
 }
 );
 id = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
@@ -4322,7 +4277,7 @@ name = "diacritics-b";
 pos = (138,1247);
 },
 {
-pos = (649,572);
+pos = (549,572);
 },
 {
 locked = 1;
@@ -7875,7 +7830,7 @@ fraction = {
 four.denominator = -120;
 };
 };
-"DE4292DB-DC8B-47D2-9515-95F944594B01" = {
+"CA22B21C-EF55-456E-B936-4C63FCFA9D1D" = {
 fraction = {
 four.denominator = -80;
 };
