@@ -716,12 +716,6 @@ value = 0;
 );
 guides = (
 {
-pos = (121,1448);
-},
-{
-pos = (124,1432);
-},
-{
 pos = (28,0);
 },
 {
@@ -748,6 +742,14 @@ showMeasurement = 1;
 },
 {
 pos = (44,998);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-176,1440);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-179,1160);
 }
 );
 id = "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F";
@@ -859,12 +861,6 @@ guides = (
 pos = (560,1623);
 },
 {
-pos = (13,1452);
-},
-{
-pos = (17,1432);
-},
-{
 pos = (40,0);
 },
 {
@@ -897,20 +893,18 @@ pos = (40,-12);
 pos = (408,554);
 },
 {
-pos = (-3,1170);
-showMeasurement = 1;
-},
-{
-pos = (-41,1237);
-},
-{
-pos = (-41,1472);
-},
-{
 pos = (15,859);
 },
 {
 pos = (13,871);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-176,1440);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-179,1160);
 }
 );
 id = "91251A45-EED6-44E6-BC9D-709435BB03FD";
@@ -1030,6 +1024,13 @@ pos = (0,859);
 {
 locked = 1;
 pos = (0,875);
+},
+{
+angle = 180;
+pos = (41,1151);
+},
+{
+pos = (-65,1544);
 }
 );
 id = "769463EF-2EF4-41A9-85A9-285641285009";
@@ -1146,14 +1147,11 @@ pos = (3,0);
 pos = (3,-30);
 },
 {
-pos = (41,1216);
-showMeasurement = 1;
+angle = 180;
+pos = (41,1200);
 },
 {
-pos = (-65,1462);
-},
-{
-pos = (-65,1432);
+pos = (-65,1480);
 }
 );
 id = "B7698FA3-622B-421D-9516-7D8300A7950D";
@@ -1275,12 +1273,6 @@ pos = (649,572);
 pos = (648,148);
 },
 {
-pos = (-31,1432);
-},
-{
-pos = (-40,1464);
-},
-{
 pos = (68,-432);
 },
 {
@@ -1290,8 +1282,15 @@ pos = (68,-464);
 pos = (68,-19);
 },
 {
-pos = (-17,1160);
-showMeasurement = 1;
+filter = "category == \"Mark\"";
+pos = (-176,1480);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-179,1200);
+},
+{
+pos = (57,1020);
 }
 );
 id = m001;
@@ -1421,6 +1420,14 @@ pos = (-23,1058);
 {
 locked = 1;
 pos = (-20,1470);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1584);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1191);
 }
 );
 id = "879AA4C1-268E-45F5-A479-E8A4233029E2";
@@ -1533,27 +1540,11 @@ pos = (-7,-38);
 pos = (-2,0);
 },
 {
-pos = (-74,1584);
-},
-{
-pos = (-74,1552);
-},
-{
 pos = (-129,65);
 showMeasurement = 1;
 },
 {
 pos = (-74,-248);
-},
-{
-pos = (93,1470);
-},
-{
-pos = (29,1239);
-showMeasurement = 1;
-},
-{
-pos = (82,1432);
 },
 {
 pos = (-15,-432);
@@ -1570,6 +1561,14 @@ pos = (73,875);
 {
 pos = (76,779);
 showMeasurement = 1;
+},
+{
+filter = "category == \"Mark\"";
+pos = (-176,1480);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-179,1200);
 }
 );
 id = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
@@ -1690,13 +1689,6 @@ locked = 1;
 pos = (-32,1062);
 },
 {
-pos = (-32,1432);
-},
-{
-locked = 1;
-pos = (-32,1474);
-},
-{
 pos = (-13,752);
 showMeasurement = 1;
 },
@@ -1712,9 +1704,6 @@ pos = (14,-432);
 pos = (16,-25);
 },
 {
-pos = (67,1239);
-},
-{
 pos = (50,884);
 },
 {
@@ -1724,6 +1713,14 @@ pos = (50,859);
 angle = 90;
 pos = (625,268);
 showMeasurement = 1;
+},
+{
+filter = "category == \"Mark\"";
+pos = (-176,1480);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-179,1200);
 }
 );
 id = "854B8A49-0698-4FEC-AD72-BCF838C96101";
@@ -1757,6 +1754,7 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -1835,9 +1833,6 @@ pos = (-62,-380);
 showMeasurement = 1;
 },
 {
-pos = (-165,1432);
-},
-{
 locked = 1;
 pos = (-30,-28);
 },
@@ -1856,10 +1851,6 @@ pos = (-30,1084);
 {
 locked = 1;
 pos = (-30,1064);
-},
-{
-locked = 1;
-pos = (-28,1480);
 },
 {
 locked = 1;
@@ -1889,6 +1880,14 @@ showMeasurement = 1;
 {
 pos = (-62,-380);
 showMeasurement = 1;
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1584);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1191);
 }
 );
 id = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
