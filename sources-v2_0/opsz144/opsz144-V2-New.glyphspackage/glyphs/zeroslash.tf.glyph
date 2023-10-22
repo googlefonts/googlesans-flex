@@ -2,13 +2,22 @@
 glyphname = zeroslash.tf;
 layers = (
 {
-layerId = m001;
+background = {
 shapes = (
 {
 ref = zero;
 },
 {
 ref = zero.slash;
+}
+);
+};
+layerId = m001;
+shapes = (
+{
+alignment = -1;
+pos = (-11,0);
+ref = zeroslash;
 }
 );
 width = 386;
@@ -17,40 +26,56 @@ width = 386;
 layerId = "01856C8F-DF22-4242-84EC-D0E09743B379";
 shapes = (
 {
-ref = zero;
-},
-{
-ref = zero.slash;
+alignment = -1;
+ref = zeroslash;
 }
 );
 width = 474;
 },
 {
-layerId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
+background = {
 shapes = (
 {
 ref = zero;
 },
 {
 ref = zero.slash;
+}
+);
+};
+layerId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
+shapes = (
+{
+alignment = -1;
+pos = (24,0);
+ref = zeroslash;
 }
 );
 width = 1260;
 },
 {
-layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
+background = {
 shapes = (
 {
 ref = zero;
 },
 {
 ref = zero.slash;
+}
+);
+};
+layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
+shapes = (
+{
+alignment = -1;
+pos = (25,0);
+ref = zeroslash;
 }
 );
 width = 1286;
 },
 {
-layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
+background = {
 shapes = (
 {
 ref = zero;
@@ -59,10 +84,18 @@ ref = zero;
 ref = zero.slash;
 }
 );
+};
+layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
+shapes = (
+{
+alignment = -1;
+ref = zeroslash;
+}
+);
 width = 1270;
 },
 {
-layerId = "24F9F4B4-D0E2-4556-A687-664485485925";
+background = {
 shapes = (
 {
 ref = zero;
@@ -72,10 +105,18 @@ pos = (-40,0);
 ref = zero.slash;
 }
 );
+};
+layerId = "24F9F4B4-D0E2-4556-A687-664485485925";
+shapes = (
+{
+alignment = -1;
+ref = zeroslash;
+}
+);
 width = 2226;
 },
 {
-layerId = "D4025A93-B215-454F-9D60-B6448166D546";
+background = {
 shapes = (
 {
 ref = zero;
@@ -84,10 +125,18 @@ ref = zero;
 ref = zero.slash;
 }
 );
+};
+layerId = "D4025A93-B215-454F-9D60-B6448166D546";
+shapes = (
+{
+alignment = -1;
+ref = zeroslash;
+}
+);
 width = 2210;
 },
 {
-layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+background = {
 shapes = (
 {
 ref = zero;
@@ -97,10 +146,18 @@ pos = (-1,0);
 ref = zero.slash;
 }
 );
+};
+layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+shapes = (
+{
+alignment = -1;
+ref = zeroslash;
+}
+);
 width = 2380;
 },
 {
-layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
+background = {
 shapes = (
 {
 ref = zero;
@@ -108,6 +165,15 @@ ref = zero;
 {
 pos = (0,-30);
 ref = zero.slash;
+}
+);
+};
+layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
+shapes = (
+{
+alignment = -1;
+pos = (-10,0);
+ref = zeroslash;
 }
 );
 width = 909;
