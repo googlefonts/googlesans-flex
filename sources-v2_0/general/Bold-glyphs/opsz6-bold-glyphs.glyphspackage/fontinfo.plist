@@ -1,5 +1,5 @@
 {
-.appVersion = "3221";
+.appVersion = "3222";
 .formatVersion = 3;
 axes = (
 {
@@ -734,7 +734,6 @@ over = -20;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -867,7 +866,6 @@ over = -24;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -967,7 +965,6 @@ over = -30;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1112,7 +1109,6 @@ over = -32;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1242,7 +1238,6 @@ over = -36;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1342,7 +1337,6 @@ over = -38;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1446,7 +1440,6 @@ over = -40;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1572,7 +1565,6 @@ over = -43;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -1695,7 +1687,6 @@ over = -48;
 pos = -442;
 },
 {
-over = -16;
 },
 {
 }
@@ -3282,7 +3273,6 @@ over = -7;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -3461,7 +3451,6 @@ over = -14;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -3643,7 +3632,6 @@ over = -22;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -3813,7 +3801,6 @@ over = -10;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -3998,7 +3985,6 @@ over = -18;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -4540,7 +4526,6 @@ over = -24;
 pos = -380;
 },
 {
-over = -16;
 },
 {
 }
@@ -4929,8 +4914,6 @@ visible = 0;
 }
 );
 kerningLTR = {
-m001 = {
-};
 "7C224297-46A4-408E-BDB1-99237B4DCB3A" = {
 "@MMK_L_A_right" = {
 "@MMK_R_A_left" = 0;
@@ -5538,8 +5521,6 @@ m001 = {
 "@MMK_R_w_left" = 0;
 "@MMK_R_y_left" = 0;
 "@MMK_R_z_left" = 0;
-};
-dollar = {
 };
 };
 "C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = {
@@ -6150,8 +6131,6 @@ dollar = {
 "@MMK_R_y_left" = 0;
 "@MMK_R_z_left" = 0;
 };
-dollar = {
-};
 };
 };
 metrics = (
@@ -6180,6 +6159,15 @@ name = "Height for";
 );
 properties = (
 {
+key = copyrights;
+values = (
+{
+language = dflt;
+value = "Copyright 2015 Google LLC. All Rights Reserved.";
+}
+);
+},
+{
 key = designers;
 values = (
 {
@@ -6191,6 +6179,15 @@ value = "Google Sans Authors";
 {
 key = designerURL;
 value = "https://design.google";
+},
+{
+key = licenses;
+values = (
+{
+language = dflt;
+value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
+}
+);
 },
 {
 key = manufacturers;
@@ -6206,28 +6203,6 @@ key = manufacturerURL;
 value = "https://design.google";
 },
 {
-key = copyrights;
-values = (
-{
-language = dflt;
-value = "Copyright 2015 Google LLC. All Rights Reserved.";
-}
-);
-},
-{
-key = vendorID;
-value = GOOG;
-},
-{
-key = licenses;
-values = (
-{
-language = dflt;
-value = "Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.";
-}
-);
-},
-{
 key = trademarks;
 values = (
 {
@@ -6235,6 +6210,10 @@ language = dflt;
 value = "Google Sans is a trademark of Google.";
 }
 );
+},
+{
+key = vendorID;
+value = GOOG;
 }
 );
 settings = {
