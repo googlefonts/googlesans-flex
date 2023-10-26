@@ -983,7 +983,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -1256,18 +1255,8 @@ pos = (470,-10);
 },
 {
 locked = 1;
-name = "numeratos-base";
-pos = (250,638);
-},
-{
-locked = 1;
 name = "numerators-overshoot";
 pos = (80,1442);
-},
-{
-locked = 1;
-name = "numeratos-overshoot";
-pos = (250,628);
 },
 {
 locked = 1;
@@ -1288,6 +1277,11 @@ pos = (292,384);
 locked = 1;
 name = "sinf-overshoot";
 pos = (27,-420);
+},
+{
+locked = 1;
+name = MATH;
+pos = (171,620);
 }
 );
 id = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
@@ -1404,11 +1398,6 @@ pos = (171,1174);
 },
 {
 locked = 1;
-name = "numeratos-base";
-pos = (250,638);
-},
-{
-locked = 1;
 name = "numerators-overshoot";
 pos = (80,1447);
 },
@@ -1427,11 +1416,6 @@ angle = 180;
 locked = 1;
 name = denominator;
 pos = (456,794);
-},
-{
-locked = 1;
-name = "numeratos-overshoot";
-pos = (250,623);
 },
 {
 locked = 1;
@@ -1472,6 +1456,11 @@ pos = (468,-166);
 {
 name = PARENT;
 pos = (305,1584);
+},
+{
+locked = 1;
+name = math;
+pos = (571,669);
 }
 );
 id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
@@ -1571,14 +1560,6 @@ value = 11;
 );
 guides = (
 {
-name = "diacritics-t";
-pos = (61,1484);
-},
-{
-name = "diacritics-b";
-pos = (171,1145);
-},
-{
 lockAngle = 1;
 locked = 1;
 name = OVERSHOOT;
@@ -1595,16 +1576,9 @@ name = denominators;
 pos = (352,794);
 },
 {
-name = "numeratos-base";
-pos = (-66,638);
-},
-{
-name = "numerators-overshoot";
-pos = (80,1447);
-},
-{
-name = "numeratos-overshoot";
-pos = (250,623);
+locked = 1;
+name = MATH;
+pos = (-66,644);
 },
 {
 locked = 1;
@@ -1645,16 +1619,6 @@ pos = (284,384);
 locked = 1;
 name = "sinf-overshoot";
 pos = (27,-428);
-},
-{
-pos = (489,1598);
-},
-{
-pos = (468,-166);
-},
-{
-name = "numeratos-base";
-pos = (-66,604);
 }
 );
 id = "733112D2-2833-4B86-B7ED-934B97F7C918";
@@ -1762,11 +1726,6 @@ name = "numerators-ost";
 pos = (1533,1423);
 },
 {
-angle = 90;
-name = "numerator-base";
-pos = (64,597);
-},
-{
 locked = 1;
 name = OVERSHOOT;
 pos = (1385,1036);
@@ -1790,10 +1749,12 @@ pos = (151,1247);
 },
 {
 angle = 180;
+locked = 1;
 name = "numerator-top";
 pos = (92,784);
 },
 {
+locked = 1;
 pos = (273,809);
 },
 {
@@ -1837,6 +1798,11 @@ pos = (489,1598);
 },
 {
 pos = (468,-166);
+},
+{
+locked = 1;
+name = MATH;
+pos = (-310,620);
 }
 );
 id = "24F9F4B4-D0E2-4556-A687-664485485925";
@@ -1944,11 +1910,6 @@ pos = (724,1456);
 pos = (262,-24);
 },
 {
-angle = 180;
-name = "numerator-top";
-pos = (92,774);
-},
-{
 locked = 1;
 name = "diacritics-t";
 pos = (60,1532);
@@ -1960,18 +1921,8 @@ pos = (138,1247);
 },
 {
 locked = 1;
-name = "numeratos-base";
-pos = (250,638);
-},
-{
-locked = 1;
 name = "numerators-overshoot";
 pos = (80,1447);
-},
-{
-locked = 1;
-name = "numeratos-overshoot";
-pos = (250,623);
 },
 {
 locked = 1;
@@ -2014,6 +1965,11 @@ pos = (489,1584);
 },
 {
 pos = (468,-166);
+},
+{
+locked = 1;
+name = MATH;
+pos = (491,669);
 }
 );
 id = "D4025A93-B215-454F-9D60-B6448166D546";
@@ -2043,6 +1999,7 @@ pos = -380;
 }
 );
 name = "opsz144-wdth151-wght400-Ital0-Rond0-Grad0";
+visible = 1;
 },
 {
 axesValues = (
@@ -2118,14 +2075,6 @@ name = "numerator-ost";
 pos = (1020,1454);
 },
 {
-name = "numerator-osb";
-pos = (-115,535);
-},
-{
-name = "denominators-b";
-pos = (618,812);
-},
-{
 pos = (1355,-26);
 },
 {
@@ -2134,18 +2083,8 @@ pos = (73,1637);
 },
 {
 locked = 1;
-name = "numeratos-base";
-pos = (250,638);
-},
-{
-locked = 1;
 name = "numerators-overshoot";
 pos = (80,1447);
-},
-{
-locked = 1;
-name = "numeratos-overshoot";
-pos = (250,623);
 },
 {
 locked = 1;
@@ -2196,6 +2135,11 @@ pos = (468,-166);
 {
 name = "denominators-b";
 pos = (618,812);
+},
+{
+locked = 1;
+name = MATH;
+pos = (-82,704);
 }
 );
 id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
