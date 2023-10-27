@@ -1,11 +1,19 @@
 {
-color = 3;
 glyphname = lessequal;
 layers = (
 {
+guides = (
+{
+pos = (373,823);
+},
+{
+pos = (373,415);
+}
+);
 layerId = m001;
 shapes = (
 {
+pos = (0,81);
 ref = less;
 },
 {
@@ -15,18 +23,109 @@ ref = "greaterequal-stroke";
 width = 516;
 },
 {
+background = {
+shapes = (
+{
+closed = 1;
+nodes = (
+(373,395,o),
+(373,395,o,{
+name = inserted;
+}),
+(373,450,q),
+(373,832,l),
+(373,883,o,{
+name = inserted;
+}),
+(373,883,o,{
+name = inserted;
+}),
+(309,883,q),
+(247,883,o),
+(247,883,o),
+(247,832,q),
+(247,450,l),
+(247,395,o),
+(247,395,o),
+(309,395,q)
+);
+},
+{
+closed = 1;
+nodes = (
+(491,579,l),
+(544,579,o),
+(544,579,o),
+(544,638,q),
+(544,699,o),
+(544,699,o,{
+name = inserted;
+}),
+(491,699,q),
+(130,699,l),
+(76,699,o,{
+name = inserted;
+}),
+(76,699,o,{
+name = inserted;
+}),
+(76,638,q),
+(76,579,o),
+(76,579,o),
+(130,579,q)
+);
+},
+{
+closed = 1;
+nodes = (
+(491,139,l),
+(544,139,o),
+(544,139,o),
+(544,198,q),
+(544,259,o),
+(544,259,o,{
+name = inserted;
+}),
+(491,259,q),
+(130,259,l),
+(76,259,o,{
+name = inserted;
+}),
+(76,259,o,{
+name = inserted;
+}),
+(76,198,q),
+(76,139,o),
+(76,139,o),
+(130,139,q)
+);
+}
+);
+};
+guides = (
+{
+angle = 90;
+pos = (76,259);
+},
+{
+angle = 90;
+pos = (544,310);
+},
+{
+pos = (309,883);
+}
+);
 layerId = "01856C8F-DF22-4242-84EC-D0E09743B379";
 shapes = (
 {
-pos = (-11,-5);
+pos = (12,2);
 ref = less;
 },
 {
-pos = (14,70);
 ref = "greaterequal-stroke";
 }
 );
-width = 516;
+width = 620;
 },
 {
 background = {
@@ -135,7 +234,7 @@ pos = (966,473);
 layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
 shapes = (
 {
-pos = (-8,0);
+pos = (-8,-4);
 ref = less;
 },
 {
@@ -203,7 +302,7 @@ width = 1650;
 layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
 shapes = (
 {
-pos = (0,366);
+pos = (1,366);
 ref = less;
 },
 {
@@ -214,18 +313,27 @@ ref = "greaterequal-stroke";
 width = 1750;
 },
 {
+guides = (
+{
+angle = 90;
+pos = (91,471);
+},
+{
+angle = 180.3704;
+pos = (810,1149);
+}
+);
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 shapes = (
 {
-pos = (7,150);
+pos = (16,50);
 ref = less;
 },
 {
-pos = (50,0);
 ref = "greaterequal-stroke";
 }
 );
-width = 767;
+width = 860;
 }
 );
 metricWidth = plus;

@@ -1,9 +1,8 @@
 {
-color = 3;
 glyphname = notequal;
 layers = (
 {
-layerId = m001;
+background = {
 shapes = (
 {
 ref = equal;
@@ -13,20 +12,38 @@ pos = (-252,0);
 ref = "notequal-slash";
 }
 );
+};
+layerId = m001;
+shapes = (
+{
+ref = equal;
+},
+{
+pos = (-208,79);
+ref = "notequal-slash";
+}
+);
 width = 516;
 },
 {
+background = {
+shapes = (
+{
+ref = equal;
+}
+);
+};
 layerId = "01856C8F-DF22-4242-84EC-D0E09743B379";
 shapes = (
 {
 ref = equal;
 },
 {
-pos = (-283,0);
+pos = (-227,88);
 ref = "notequal-slash";
 }
 );
-width = 516;
+width = 620;
 },
 {
 background = {
@@ -168,17 +185,24 @@ ref = "notequal-slash";
 width = 1750;
 },
 {
+background = {
+shapes = (
+{
+ref = equal;
+}
+);
+};
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 shapes = (
 {
 ref = equal;
 },
 {
-pos = (-117,24);
+pos = (-14,112);
 ref = "notequal-slash";
 }
 );
-width = 767;
+width = 860;
 }
 );
 metricWidth = plus;

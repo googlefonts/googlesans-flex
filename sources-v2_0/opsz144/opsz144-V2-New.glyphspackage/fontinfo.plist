@@ -720,9 +720,6 @@ locked = 1;
 pos = (161,-387);
 },
 {
-pos = (299,626);
-},
-{
 locked = 1;
 pos = (337,-7);
 },
@@ -742,16 +739,8 @@ name = "diacritics-b";
 pos = (171,1109);
 },
 {
-name = "numeratos-base";
-pos = (250,638);
-},
-{
 name = "numerators-overshoot";
 pos = (80,1447);
-},
-{
-name = "numeratos-overshoot";
-pos = (250,623);
 },
 {
 name = "sinf-overshoot";
@@ -776,7 +765,8 @@ pos = (489,1598);
 pos = (468,-166);
 },
 {
-pos = (173,798);
+name = "MATH tf";
+pos = (47,716);
 }
 );
 id = m001;
@@ -897,10 +887,6 @@ name = "denominators-overshoot";
 pos = (262,-9);
 },
 {
-name = "denominator-overshoot";
-pos = (273,803);
-},
-{
 locked = 1;
 name = "numerator-overshoot";
 pos = (156,1441);
@@ -950,6 +936,10 @@ pos = (489,1598);
 },
 {
 pos = (468,-166);
+},
+{
+name = "MATH tf";
+pos = (47,716);
 }
 );
 id = "01856C8F-DF22-4242-84EC-D0E09743B379";
@@ -1075,16 +1065,8 @@ name = "diacritics-b";
 pos = (182,1117);
 },
 {
-name = "numeratos-base";
-pos = (250,803);
-},
-{
 name = "numerators-overshoot";
 pos = (80,1447);
-},
-{
-name = "numeratos-overshoot";
-pos = (240,794);
 },
 {
 locked = 1;
@@ -1107,7 +1089,7 @@ pos = (495,1011);
 },
 {
 name = "sinf-overshoot";
-pos = (282,393);
+pos = (280,408);
 },
 {
 name = "sinf-b";
@@ -1136,10 +1118,9 @@ name = "diacritics-b";
 pos = (309,1122);
 },
 {
-pos = (723,843);
-},
-{
-pos = (723,445);
+locked = 1;
+name = "MATH tf";
+pos = (702,716);
 }
 );
 id = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
@@ -1279,9 +1260,10 @@ name = "sinf-overshoot";
 pos = (27,-420);
 },
 {
+angle = 180;
 locked = 1;
-name = MATH;
-pos = (171,620);
+name = "Math tf";
+pos = (606,716);
 }
 );
 id = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
@@ -1412,10 +1394,9 @@ name = "sinf-b";
 pos = (27,-410);
 },
 {
-angle = 180;
-locked = 1;
+angle = 90;
 name = denominator;
-pos = (456,794);
+pos = (444,787);
 },
 {
 locked = 1;
@@ -1458,9 +1439,9 @@ name = PARENT;
 pos = (305,1584);
 },
 {
-locked = 1;
-name = math;
-pos = (571,669);
+angle = 180;
+name = "MATH tf";
+pos = (618,716);
 }
 );
 id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
@@ -1572,16 +1553,6 @@ pos = (399,-24);
 },
 {
 locked = 1;
-name = denominators;
-pos = (352,794);
-},
-{
-locked = 1;
-name = MATH;
-pos = (-66,644);
-},
-{
-locked = 1;
 name = "superiors-b";
 pos = (495,1020);
 },
@@ -1619,6 +1590,11 @@ pos = (284,384);
 locked = 1;
 name = "sinf-overshoot";
 pos = (27,-428);
+},
+{
+locked = 1;
+name = "MATH TF";
+pos = (635,720);
 }
 );
 id = "733112D2-2833-4B86-B7ED-934B97F7C918";
@@ -1723,7 +1699,7 @@ pos = (1505,177);
 },
 {
 name = "numerators-ost";
-pos = (1533,1423);
+pos = (1533,1362);
 },
 {
 locked = 1;
@@ -1746,16 +1722,6 @@ pos = (73,1532);
 {
 name = "diacritics-b";
 pos = (151,1247);
-},
-{
-angle = 180;
-locked = 1;
-name = "numerator-top";
-pos = (92,784);
-},
-{
-locked = 1;
-pos = (273,809);
 },
 {
 name = "superiors-b";
@@ -1801,8 +1767,8 @@ pos = (468,-166);
 },
 {
 locked = 1;
-name = MATH;
-pos = (-310,620);
+name = "math tf";
+pos = (1918,716);
 }
 );
 id = "24F9F4B4-D0E2-4556-A687-664485485925";
@@ -1967,9 +1933,8 @@ pos = (489,1584);
 pos = (468,-166);
 },
 {
-locked = 1;
-name = MATH;
-pos = (491,669);
+name = "MATH tf";
+pos = (491,716);
 }
 );
 id = "D4025A93-B215-454F-9D60-B6448166D546";
@@ -2137,8 +2102,8 @@ pos = (618,812);
 },
 {
 locked = 1;
-name = MATH;
-pos = (-82,704);
+name = "MATH tf";
+pos = (-82,722);
 }
 );
 id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";

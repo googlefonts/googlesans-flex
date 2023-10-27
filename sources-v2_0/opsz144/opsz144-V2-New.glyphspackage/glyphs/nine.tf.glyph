@@ -20,22 +20,22 @@ layerId = m001;
 shapes = (
 {
 angle = 180;
-pos = (386,1432);
+pos = (420,1432);
 ref = six.tf;
 }
 );
-width = 386;
+width = 420;
 },
 {
 layerId = "01856C8F-DF22-4242-84EC-D0E09743B379";
 shapes = (
 {
 angle = 180;
-pos = (474,1432);
+pos = (480,1432);
 ref = six.tf;
 }
 );
-width = 474;
+width = 480;
 },
 {
 background = {
@@ -127,6 +127,46 @@ ref = six.tf;
 }
 );
 width = 910;
+},
+{
+associatedMasterId = m001;
+background = {
+shapes = (
+{
+alignment = -1;
+pos = (21,0);
+ref = nine;
+userData = {
+UFO.identifier = C1A30F94;
+UFO.lib = {
+};
+};
+}
+);
+};
+layerId = "6EE5CE33-BD65-474F-88C1-FE8A363E634C";
+name = "27 Oct 23 at 18:01";
+shapes = (
+{
+angle = 180;
+pos = (420,1432);
+ref = six.tf;
+}
+);
+width = 420;
+},
+{
+associatedMasterId = "01856C8F-DF22-4242-84EC-D0E09743B379";
+layerId = "DE742827-8F2D-40AD-932F-47D98B294C89";
+name = "27 Oct 23 at 18:07";
+shapes = (
+{
+angle = 180;
+pos = (480,1432);
+ref = six.tf;
+}
+);
+width = 480;
 }
 );
 metricLeft = "=|six.tf";
