@@ -8,84 +8,88 @@ background = {
 anchors = (
 {
 name = bottom;
-pos = (47,-442);
+pos = (-23,-380);
 },
 {
 name = top;
-pos = (251,1458);
+pos = (98,1228);
 }
 );
 shapes = (
 {
 closed = 1;
 nodes = (
-(159,-462,o),
-(292,-298,o),
-(292,-146,qs),
-(292,1036,ls),
-(292,1066,o,{
+(29,-387,o),
+(100,-315,o),
+(100,-232,qs),
+(100,1018,l),
+(100,1020,o),
+(100,1020,o),
+(98,1020,q),
+(96,1020,o),
+(96,1020,o,{
 name = inserted;
 }),
-(292,1066,o,{
+(96,1018,q),
+(96,-234,ls),
+(96,-314,o),
+(27,-383,o),
+(-26,-383,qs),
+(-51,-383,o),
+(-92,-373,o),
+(-107,-363,qs),
+(-110,-361,o),
+(-110,-361,o),
+(-110,-363,q),
+(-110,-365,o),
+(-110,-365,o,{
 name = inserted;
 }),
-(251,1066,qs),
-(208,1066,o),
-(208,1066,o),
-(208,1036,qs),
-(208,-126,ls),
-(208,-270,o),
-(115,-385,o),
-(38,-385,qs),
-(8,-385,o),
-(-29,-381,o),
-(-54,-374,q),
-(-95,-358,o),
-(-95,-358,o),
-(-95,-401,qs),
-(-95,-438,o),
-(-95,-438,o,{
-name = inserted;
-}),
-(-58,-450,qs),
-(-31,-457,o),
-(16,-462,o),
-(47,-462,qs)
+(-109,-366,qs),
+(-93,-376,o),
+(-53,-387,o),
+(-26,-387,qs)
 );
 },
 {
 closed = 1;
 nodes = (
-(216,1290,o),
-(165,1338,o),
-(165,1373,q),
-(165,1410,o),
-(216,1458,o),
-(250,1458,q),
-(288,1458,o),
-(336,1410,o),
-(336,1373,q),
-(336,1338,o),
-(288,1290,o),
-(250,1290,q)
+(104,1200,o),
+(112,1208,o),
+(112,1214,qs),
+(112,1220,o),
+(104,1228,o),
+(98,1228,qs),
+(92,1228,o),
+(84,1220,o),
+(84,1214,qs),
+(84,1208,o),
+(92,1200,o),
+(98,1200,qs)
 );
 }
 );
 };
+guides = (
+{
+angle = 90;
+pos = (100,1141);
+}
+);
 layerId = m001;
 shapes = (
 {
 ref = jdotless;
 },
 {
-pos = (250,-10);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = i;
 };
-width = 436;
+width = 196;
 },
 {
 background = {
@@ -1026,14 +1030,14 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (130,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = i;
 };
-width = 258;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1111,11 +1115,11 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (156,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
-width = 314;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1193,11 +1197,11 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (297,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
-width = 573;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1277,14 +1281,14 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (178,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = i;
 };
-width = 354;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1356,11 +1360,11 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (229,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
-width = 452;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1432,11 +1436,11 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (349,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
-width = 697;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1514,14 +1518,14 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (229,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = i;
 };
-width = 458;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1601,14 +1605,14 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (296,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = i;
 };
-width = 595;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1688,14 +1692,14 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (387,0);
+pos = (98,0);
 ref = dotaccentcomb;
 }
 );
 userData = {
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = i;
 };
-width = 782;
+width = 196;
 },
 {
 associatedMasterId = m001;
@@ -1787,7 +1791,7 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = i;
 width = 196;
 },
 {
-associatedMasterId = m001;
+associatedMasterId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
 layerId = "805A9CAB-0F5A-4054-9C28-1E62D71F3984";
 name = "1.2";
 shapes = (
@@ -1859,7 +1863,7 @@ name = inserted;
 width = 440;
 },
 {
-associatedMasterId = m001;
+associatedMasterId = "733112D2-2833-4B86-B7ED-934B97F7C918";
 layerId = "0B06986C-E5A2-4475-909E-F161E842542E";
 name = "1.2";
 shapes = (
@@ -1931,7 +1935,7 @@ name = inserted;
 width = 668;
 },
 {
-associatedMasterId = m001;
+associatedMasterId = "733112D2-2833-4B86-B7ED-934B97F7C918";
 layerId = "92BC317E-70B6-4B80-AB43-2EA7507E77E2";
 name = "30 Aug 23, 13:31";
 shapes = (
