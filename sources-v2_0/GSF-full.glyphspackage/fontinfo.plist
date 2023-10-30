@@ -1,5 +1,5 @@
 {
-.appVersion = "3222";
+.appVersion = "3223";
 .formatVersion = 3;
 axes = (
 {
@@ -710,6 +710,10 @@ pos = (699,-20);
 {
 locked = 1;
 pos = (825,-480);
+},
+{
+pos = (454,563);
+showMeasurement = 1;
 }
 );
 id = m001;
@@ -2335,7 +2339,7 @@ pos = (969,0);
 showMeasurement = 1;
 }
 );
-id = "7D0D0AD6-A793-46E2-BC99-45C911DAB682";
+id = "175186F3-0220-414E-85E2-4AA1DF5A9EF6";
 metricValues = (
 {
 over = 32;
@@ -3161,7 +3165,7 @@ name = "MATH tf";
 pos = (47,716);
 }
 );
-id = "76270420-BE2C-49D4-BCC4-9052EF28412E";
+id = "CE4DFA67-4ED4-4AC4-BFB1-35988D4C8133";
 metricValues = (
 {
 over = 7;
@@ -3489,7 +3493,7 @@ pos = (27,-410);
 },
 {
 name = "sinf-b";
-pos = (284,384);
+pos = (-166,384);
 },
 {
 name = "sinf-overshoot";
@@ -4434,13 +4438,6 @@ name = "numerator-ost";
 pos = (1020,1454);
 },
 {
-pos = (1355,-26);
-},
-{
-name = "diacritics-t";
-pos = (73,1637);
-},
-{
 locked = 1;
 name = "numerators-overshoot";
 pos = (80,1447);
@@ -4486,22 +4483,9 @@ name = "sinf-overshoot";
 pos = (27,-428);
 },
 {
-pos = (489,1598);
-},
-{
-pos = (468,-166);
-},
-{
-name = "denominators-b";
-pos = (618,812);
-},
-{
 locked = 1;
 name = "MATH tf";
 pos = (-82,722);
-},
-{
-pos = (1286,570);
 }
 );
 id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
@@ -7815,7 +7799,7 @@ fraction = {
 four.denominator = -120;
 };
 };
-"7D0D0AD6-A793-46E2-BC99-45C911DAB682" = {
+"175186F3-0220-414E-85E2-4AA1DF5A9EF6" = {
 fraction = {
 four.denominator = -80;
 };
