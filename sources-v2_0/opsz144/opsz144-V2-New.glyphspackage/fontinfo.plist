@@ -796,6 +796,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth25-wght1-Ital0-Rond0-Grad0";
+stemValues = (
+4,
+4,
+4,
+4
+);
 },
 {
 axesValues = (
@@ -969,6 +975,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth25-wght400-Ital0-Rond0-Grad0";
+stemValues = (
+140,
+136,
+134,
+133
+);
 userData = {
 HTLSManagerMasterRules = {
 };
@@ -1150,6 +1162,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth25-wght1000-Ital0-Rond0-Grad0";
+stemValues = (
+446,
+440,
+395,
+340
+);
 },
 {
 axesValues = (
@@ -1293,6 +1311,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth100-wght1-Ital0-Rond0-Grad0";
+stemValues = (
+4,
+4,
+4,
+4
+);
 },
 {
 axesValues = (
@@ -1367,21 +1391,8 @@ locked = 1;
 pos = (834,1068);
 },
 {
-locked = 1;
-pos = (224,-18);
-},
-{
-locked = 1;
-pos = (1492,1450);
-},
-{
 name = "diacritics-b";
 pos = (171,1174);
-},
-{
-locked = 1;
-name = "numerators-overshoot";
-pos = (80,1447);
 },
 {
 locked = 1;
@@ -1392,11 +1403,6 @@ pos = (284,399);
 locked = 1;
 name = "sinf-b";
 pos = (27,-410);
-},
-{
-angle = 90;
-name = denominator;
-pos = (444,787);
 },
 {
 locked = 1;
@@ -1427,9 +1433,6 @@ pos = (284,384);
 locked = 1;
 name = "sinf-overshoot";
 pos = (27,-425);
-},
-{
-pos = (489,1598);
 },
 {
 pos = (468,-166);
@@ -1471,6 +1474,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth100-wght400-Ital0-Rond0-Grad0";
+stemValues = (
+146,
+138,
+1412,
+121
+);
 },
 {
 axesValues = (
@@ -1627,6 +1636,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth100-wght1000-Ital0-Rond0-Grad0";
+stemValues = (
+590,
+522,
+506,
+414
+);
 },
 {
 axesValues = (
@@ -1801,6 +1816,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth151-wght1-Ital0-Rond0-Grad0";
+stemValues = (
+10,
+9,
+10,
+10
+);
 },
 {
 axesValues = (
@@ -1967,6 +1988,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth151-wght400-Ital0-Rond0-Grad0";
+stemValues = (
+146,
+138,
+142,
+121
+);
 },
 {
 axesValues = (
@@ -2119,6 +2146,12 @@ pos = -380;
 }
 );
 name = "opsz144-wdth151-wght1000-Ital0-Rond0-Grad0";
+stemValues = (
+850,
+600,
+738,
+460
+);
 userData = {
 HTLSManagerMasterRules = {
 };
@@ -2339,21 +2372,44 @@ value = GOOG;
 settings = {
 disablesNiceNames = 1;
 };
+stems = (
+{
+name = "H vertical";
+},
+{
+name = "H horizontal";
+},
+{
+name = "n vertical";
+},
+{
+name = "t horizontal";
+}
+);
 unitsPerEm = 2000;
 userData = {
 GSDimensionPlugin.Dimensions = {
 "01856C8F-DF22-4242-84EC-D0E09743B379" = {
 HH = "136";
 HV = "140";
-OH = "134";
+OH = "138";
 OV = "140";
 nV = "134";
+nd = "128";
 oH = "126";
 oV = "134";
+tH = "133";
 };
 "24F9F4B4-D0E2-4556-A687-664485485925" = {
 HH = "9";
 HV = "10";
+OH = "10";
+OV = "10";
+nV = "10";
+nd = "10";
+oH = "10";
+oV = "10";
+tH = "10";
 };
 "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31" = {
 HH = "600";
@@ -2363,6 +2419,7 @@ OV = "875";
 nV = "738";
 oH = "422";
 oV = "797";
+tH = "460";
 };
 "67F07427-87DC-4334-BF93-D84D1ECDAAB8" = {
 HH = "138";
@@ -2370,6 +2427,7 @@ HV = "146";
 OH = "138";
 OV = "151";
 nV = "142";
+nd = "137";
 oH = "138";
 oV = "146";
 tH = "121";
@@ -2380,14 +2438,32 @@ HV = "590";
 OH = "543";
 OV = "613";
 nV = "506";
+nd = "336";
 oH = "451";
 oV = "468";
+tH = "414";
 };
 "8F69D9BF-EE35-44AA-BD6F-D41841F9764C" = {
+HH = "440";
 HV = "446";
+OH = "459";
+OV = "475";
 nV = "395";
+nd = "306";
+oH = "385";
 oV = "408";
 tH = "340";
+};
+"9783FD78-D1DA-4A2F-9939-C716E4B6354F" = {
+HH = "4";
+HV = "4";
+OH = "4";
+OV = "4";
+nV = "4";
+nd = "4";
+oH = "4";
+oV = "4";
+tH = "4";
 };
 "D4025A93-B215-454F-9D60-B6448166D546" = {
 HH = "142";
@@ -2395,7 +2471,7 @@ HV = "152";
 OH = "144";
 OV = "160";
 nV = "146";
-nd = "96";
+nd = "126";
 oH = "135";
 oV = "152";
 tH = "136";
