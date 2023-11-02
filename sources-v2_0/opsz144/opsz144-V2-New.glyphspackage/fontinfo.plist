@@ -744,7 +744,7 @@ pos = (80,1447);
 },
 {
 name = "sinf-overshoot";
-pos = (284,388);
+pos = (279,386);
 },
 {
 name = "sinf-b";
@@ -767,6 +767,11 @@ pos = (468,-166);
 {
 name = "MATH tf";
 pos = (47,716);
+showMeasurement = 1;
+},
+{
+name = "MATH ";
+pos = (39,620);
 showMeasurement = 1;
 }
 );
@@ -1124,9 +1129,10 @@ pos = (468,-166);
 },
 {
 name = "numeratos-overshoot";
-pos = (480,-9);
+pos = (428,-22);
 },
 {
+angle = 90;
 name = "diacritics-b";
 pos = (309,1122);
 },
@@ -2286,6 +2292,13 @@ instanceInterpolations = {
 name = "opsz144-wdth151-wght1000-Ital0-Rond0-Grad0";
 }
 );
+kerningLTR = {
+m001 = {
+plus = {
+zero = 0;
+};
+};
+};
 metrics = (
 {
 type = ascender;
