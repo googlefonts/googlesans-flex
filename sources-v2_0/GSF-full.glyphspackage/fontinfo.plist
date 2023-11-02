@@ -710,10 +710,6 @@ pos = (699,-20);
 {
 locked = 1;
 pos = (825,-480);
-},
-{
-pos = (454,563);
-showMeasurement = 1;
 }
 );
 id = m001;
@@ -1636,12 +1632,6 @@ name = paramOver;
 value = 0;
 }
 );
-guides = (
-{
-locked = 1;
-pos = (1466,1134);
-}
-);
 id = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 metricValues = (
 {
@@ -1925,9 +1915,6 @@ pos = (30,0);
 pos = (30,-20);
 },
 {
-pos = (18,1020);
-},
-{
 pos = (2,-229);
 showMeasurement = 1;
 },
@@ -1941,9 +1928,6 @@ pos = (305,84);
 },
 {
 pos = (30,-12);
-},
-{
-pos = (398,620);
 },
 {
 pos = (5,859);
@@ -1964,21 +1948,17 @@ filter = "category == \"Symbol\" AND subCategory == \"Math\"";
 pos = (129,620);
 },
 {
-pos = (33,235);
-},
-{
 pos = (21,1452);
 },
 {
 pos = (23,1432);
 },
 {
-pos = (25,402);
-showMeasurement = 1;
-},
-{
 angle = 90;
 pos = (583,-85);
+},
+{
+pos = (21,1445);
 }
 );
 id = "91251A45-EED6-44E6-BC9D-709435BB03FD";
@@ -2443,7 +2423,7 @@ pos = (969,0);
 showMeasurement = 1;
 }
 );
-id = "48F8A788-8F49-4435-90F0-9865A5CEC866";
+id = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
 metricValues = (
 {
 over = 32;
@@ -3307,9 +3287,10 @@ pos = (468,-166);
 {
 name = "MATH tf";
 pos = (47,716);
+showMeasurement = 1;
 }
 );
-id = "E73DCEEB-E9C0-4E73-8948-2A4F126EF571";
+id = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
 metricValues = (
 {
 over = 7;
@@ -4153,7 +4134,7 @@ pos = (27,-428);
 {
 locked = 1;
 name = "MATH TF";
-pos = (635,720);
+pos = (635,716);
 },
 {
 pos = (773,606);
@@ -4670,9 +4651,8 @@ name = "sinf-overshoot";
 pos = (27,-428);
 },
 {
-locked = 1;
 name = "MATH tf";
-pos = (-82,722);
+pos = (-82,717);
 }
 );
 id = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
@@ -6628,7 +6608,6 @@ X = 0;
 "@MMK_L_H_right" = {
 "@MMK_R_A_left" = 0;
 AE = 0;
-ordmasculine = 0;
 };
 "@MMK_L_K_right" = {
 "@MMK_R_A_left" = 0;
@@ -7994,7 +7973,7 @@ fraction = {
 four.denominator = -120;
 };
 };
-"48F8A788-8F49-4435-90F0-9865A5CEC866" = {
+"CDC268BA-5DF2-4BA6-82D8-FB561D7223B0" = {
 fraction = {
 four.denominator = -80;
 };
