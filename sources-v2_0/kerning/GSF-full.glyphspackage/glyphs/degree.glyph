@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = degree;
+kernLeft = degree_left;
+kernRight = degree_right;
 layers = (
 {
 background = {
@@ -2581,4 +2583,10 @@ width = 988;
 }
 );
 unicode = 176;
+userData = {
+KernOnSpecialSpacing = {
+L = superiors;
+R = superiors;
+};
+};
 }

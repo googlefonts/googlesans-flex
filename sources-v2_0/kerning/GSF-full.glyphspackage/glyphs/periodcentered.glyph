@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = periodcentered;
+kernLeft = period_c_left;
+kernRight = period_c__right;
 layers = (
 {
 background = {
@@ -1161,4 +1163,10 @@ width = 869;
 metricLeft = "=period";
 metricRight = "=period";
 unicode = 183;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
 }

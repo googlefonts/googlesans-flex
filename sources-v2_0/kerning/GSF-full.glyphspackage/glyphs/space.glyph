@@ -1,5 +1,7 @@
 {
 glyphname = space;
+kernLeft = space_left;
+kernRight = space_right;
 layers = (
 {
 layerId = m001;
@@ -117,4 +119,10 @@ width = 680;
 }
 );
 unicode = 32;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
 }

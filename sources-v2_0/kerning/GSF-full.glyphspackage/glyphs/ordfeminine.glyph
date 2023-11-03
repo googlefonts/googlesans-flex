@@ -1,6 +1,8 @@
 {
 color = 8;
 glyphname = ordfeminine;
+kernLeft = ord_left;
+kernRight = ord_right;
 layers = (
 {
 layerId = m001;
@@ -5516,4 +5518,10 @@ width = 1882;
 }
 );
 unicode = 170;
+userData = {
+KernOnSpecialSpacing = {
+L = superiors;
+R = superiors;
+};
+};
 }

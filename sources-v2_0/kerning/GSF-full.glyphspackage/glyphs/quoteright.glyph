@@ -2,8 +2,8 @@
 case = minor;
 color = 4;
 glyphname = quoteright;
-kernLeft = quotes_right;
-kernRight = quotes_right;
+kernLeft = quoteright_left;
+kernRight = quoteright_right;
 layers = (
 {
 background = {
@@ -988,4 +988,10 @@ width = 908;
 metricLeft = comma;
 metricRight = comma;
 unicode = 8217;
+userData = {
+KernOnSpecialSpacing = {
+L = quotes;
+R = quotes;
+};
+};
 }

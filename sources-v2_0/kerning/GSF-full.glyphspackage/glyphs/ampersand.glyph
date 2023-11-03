@@ -1,6 +1,8 @@
 {
 color = 8;
 glyphname = ampersand;
+kernLeft = ampersand_left;
+kernRight = ampersand_right;
 layers = (
 {
 background = {
@@ -6977,4 +6979,10 @@ width = 2537;
 }
 );
 unicode = 38;
+userData = {
+KernOnSpecialSpacing = {
+L = symbols;
+R = symbols;
+};
+};
 }

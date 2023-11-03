@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = yen;
+kernLeft = yen_left;
+kernRight = yen_right;
 layers = (
 {
 background = {
@@ -6012,4 +6014,10 @@ width = 2973;
 }
 );
 unicode = 165;
+userData = {
+KernOnSpecialSpacing = {
+L = symbols;
+R = symbols;
+};
+};
 }

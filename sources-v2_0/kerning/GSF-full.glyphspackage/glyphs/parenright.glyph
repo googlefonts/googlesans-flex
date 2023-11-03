@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = parenright;
+kernLeft = parenright_left;
+kernRight = parenright_right;
 layers = (
 {
 background = {
@@ -2366,4 +2368,9 @@ width = 1271;
 }
 );
 unicode = 41;
+userData = {
+KernOnSpecialSpacing = {
+L = parenthesis;
+};
+};
 }

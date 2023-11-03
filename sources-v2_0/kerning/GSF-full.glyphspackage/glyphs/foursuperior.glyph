@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = foursuperior;
+kernLeft = four_sup_left;
+kernRight = four_sup_right;
 layers = (
 {
 background = {
@@ -1543,4 +1545,10 @@ width = 1323;
 }
 );
 unicode = 8308;
+userData = {
+KernOnSpecialSpacing = {
+L = superiors;
+R = superiors;
+};
+};
 }

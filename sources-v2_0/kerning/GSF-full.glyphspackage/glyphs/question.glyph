@@ -1,6 +1,8 @@
 {
 color = 8;
 glyphname = question;
+kernLeft = question_left;
+kernRight = question_right;
 layers = (
 {
 background = {
@@ -9343,4 +9345,9 @@ width = 1649;
 }
 );
 unicode = 63;
+userData = {
+KernOnSpecialSpacing = {
+L = "spaced-off";
+};
+};
 }

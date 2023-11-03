@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = exclam;
+kernLeft = exclam_left;
+kernRight = exclam_right;
 layers = (
 {
 background = {
@@ -2504,4 +2506,9 @@ width = 952;
 }
 );
 unicode = 33;
+userData = {
+KernOnSpecialSpacing = {
+L = "spaced-off";
+};
+};
 }

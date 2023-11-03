@@ -1,8 +1,8 @@
 {
 color = 11;
 glyphname = hyphen;
-kernLeft = hyphen_left;
-kernRight = hyphen_right;
+kernLeft = dash_left;
+kernRight = dash_right;
 layers = (
 {
 background = {
@@ -1343,4 +1343,10 @@ width = 1020;
 metricRight = "=|";
 metricWidth = "=space*1.5";
 unicode = 45;
+userData = {
+KernOnSpecialSpacing = {
+L = hyphen;
+R = hyphen;
+};
+};
 }

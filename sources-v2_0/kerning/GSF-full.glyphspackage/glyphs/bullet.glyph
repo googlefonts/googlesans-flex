@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = bullet;
+kernLeft = bullet_left;
+kernRight = bullet_right;
 layers = (
 {
 background = {
@@ -1049,4 +1051,10 @@ width = 1053;
 }
 );
 unicode = 8226;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
 }

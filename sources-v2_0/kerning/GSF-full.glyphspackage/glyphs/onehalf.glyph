@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = onehalf;
+kernLeft = one_nu_left;
+kernRight = two_de_right;
 layers = (
 {
 background = {
@@ -133,16 +135,16 @@ alignment = 1;
 ref = one.numerator;
 },
 {
-pos = (556,0);
+pos = (516,0);
 ref = fraction;
 },
 {
 alignment = 1;
-pos = (800,0);
+pos = (760,0);
 ref = two.denominator;
 }
 );
-width = 1422;
+width = 1382;
 },
 {
 background = {
@@ -537,16 +539,16 @@ alignment = 1;
 ref = one.numerator;
 },
 {
-pos = (748,0);
+pos = (814,0);
 ref = fraction;
 },
 {
 alignment = 1;
-pos = (1091,0);
+pos = (1229,0);
 ref = two.denominator;
 }
 );
-width = 1905;
+width = 2043;
 },
 {
 background = {
@@ -2725,4 +2727,10 @@ width = 2776;
 }
 );
 unicode = 189;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
 }

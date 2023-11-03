@@ -1,6 +1,8 @@
 {
 color = 3;
 glyphname = dollar;
+kernLeft = S_left;
+kernRight = S_right;
 layers = (
 {
 background = {
@@ -11303,4 +11305,10 @@ width = 2095;
 }
 );
 unicode = 36;
+userData = {
+KernOnSpecialSpacing = {
+L = symbols;
+R = symbols;
+};
+};
 }

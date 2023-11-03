@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = copyright;
+kernLeft = round_u_left;
+kernRight = round_u_right;
 layers = (
 {
 background = {
@@ -3696,4 +3698,9 @@ width = 1715;
 }
 );
 unicode = 169;
+userData = {
+KernOnSpecialSpacing = {
+R = symbols;
+};
+};
 }

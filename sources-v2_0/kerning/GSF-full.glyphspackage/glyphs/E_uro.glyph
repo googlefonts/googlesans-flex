@@ -1,6 +1,8 @@
 {
 color = 8;
 glyphname = Euro;
+kernLeft = Euro_left;
+kernRight = C_right;
 layers = (
 {
 background = {
@@ -7134,4 +7136,10 @@ width = 2165;
 }
 );
 unicode = 8364;
+userData = {
+KernOnSpecialSpacing = {
+L = symbols;
+R = symbols;
+};
+};
 }

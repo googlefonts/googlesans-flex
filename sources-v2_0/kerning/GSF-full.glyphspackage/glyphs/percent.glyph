@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = percent;
+kernLeft = percent_left;
+kernRight = percent_right;
 layers = (
 {
 background = {
@@ -2951,4 +2953,9 @@ width = 3834;
 }
 );
 unicode = 37;
+userData = {
+KernOnSpecialSpacing = {
+L = "spaced-off";
+};
+};
 }

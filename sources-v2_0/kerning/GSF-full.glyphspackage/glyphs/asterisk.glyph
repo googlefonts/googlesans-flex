@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = asterisk;
+kernLeft = asterisk_left;
+kernRight = asterisk_right;
 layers = (
 {
 background = {
@@ -3928,4 +3930,10 @@ width = 1488;
 }
 );
 unicode = 42;
+userData = {
+KernOnSpecialSpacing = {
+L = quotes;
+R = quotes;
+};
+};
 }

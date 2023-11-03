@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = paragraph;
+kernLeft = paragraph_left;
+kernRight = H_right;
 layers = (
 {
 background = {
@@ -2696,4 +2698,10 @@ width = 3019;
 }
 );
 unicode = 182;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
 }

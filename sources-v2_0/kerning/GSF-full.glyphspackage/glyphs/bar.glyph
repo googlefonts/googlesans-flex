@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = bar;
+kernLeft = bar_left;
+kernRight = bar_right;
 layers = (
 {
 background = {
@@ -1323,4 +1325,10 @@ width = 1476;
 }
 );
 unicode = 124;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
 }

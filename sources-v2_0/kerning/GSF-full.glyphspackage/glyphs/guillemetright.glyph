@@ -1,8 +1,8 @@
 {
 color = 4;
 glyphname = guillemetright;
-kernLeft = guillemetright;
-kernRight = guillemetright_right;
+kernLeft = guilsingl_r_left;
+kernRight = guilsingl_r_right;
 layers = (
 {
 background = {
@@ -1818,4 +1818,10 @@ width = 2151;
 metricLeft = "=|guilsinglright";
 metricRight = "=|guilsinglright";
 unicode = 187;
+userData = {
+KernOnSpecialSpacing = {
+L = quotes;
+R = quotes;
+};
+};
 }

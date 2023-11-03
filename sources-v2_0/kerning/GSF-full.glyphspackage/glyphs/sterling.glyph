@@ -1,6 +1,8 @@
 {
 color = 8;
 glyphname = sterling;
+kernLeft = sterling_left;
+kernRight = sterling_right;
 layers = (
 {
 background = {
@@ -6656,4 +6658,10 @@ width = 2137;
 }
 );
 unicode = 163;
+userData = {
+KernOnSpecialSpacing = {
+L = symbols;
+R = symbols;
+};
+};
 }

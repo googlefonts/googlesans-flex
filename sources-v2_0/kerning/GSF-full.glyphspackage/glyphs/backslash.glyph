@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = backslash;
+kernLeft = b_slash_left;
+kernRight = b_slash_right;
 layers = (
 {
 background = {
@@ -1563,4 +1565,10 @@ width = 1499;
 }
 );
 unicode = 92;
+userData = {
+KernOnSpecialSpacing = {
+L = "spaced-off";
+R = "spaced-off";
+};
+};
 }

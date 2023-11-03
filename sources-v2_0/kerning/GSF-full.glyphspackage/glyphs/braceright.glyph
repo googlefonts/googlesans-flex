@@ -1,6 +1,8 @@
 {
 color = 9;
 glyphname = braceright;
+kernLeft = braceright_left;
+kernRight = braceright_right;
 layers = (
 {
 background = {
@@ -4171,4 +4173,9 @@ width = 1329;
 }
 );
 unicode = 125;
+userData = {
+KernOnSpecialSpacing = {
+L = parenthesis;
+};
+};
 }

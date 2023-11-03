@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = threequarters;
+kernLeft = three_nu_left;
+kernRight = four_de_righ;
 layers = (
 {
 background = {
@@ -356,11 +358,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1099,0);
+pos = (1179,0);
 ref = four.denominator;
 }
 );
-width = 1894;
+width = 1974;
 },
 {
 background = {
@@ -519,11 +521,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1555,0);
+pos = (1695,0);
 ref = four.denominator;
 }
 );
-width = 2687;
+width = 2827;
 },
 {
 background = {
@@ -701,16 +703,16 @@ alignment = 1;
 ref = three.numerator;
 },
 {
-pos = (819,0);
+pos = (902,0);
 ref = fraction;
 },
 {
 alignment = 1;
-pos = (1162,0);
+pos = (1245,0);
 ref = four.denominator;
 }
 );
-width = 2072;
+width = 2155;
 },
 {
 background = {
@@ -877,11 +879,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1347,0);
+pos = (1447,0);
 ref = four.denominator;
 }
 );
-width = 2359;
+width = 2459;
 },
 {
 background = {
@@ -1239,11 +1241,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1647,0);
+pos = (1787,0);
 ref = four.denominator;
 }
 );
-width = 2916;
+width = 3056;
 },
 {
 background = {
@@ -1410,11 +1412,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1556,0);
+pos = (1696,0);
 ref = four.denominator;
 }
 );
-width = 2741;
+width = 2881;
 },
 {
 background = {
@@ -1599,11 +1601,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1226,0);
+pos = (1316,0);
 ref = four.denominator;
 }
 );
-width = 2115;
+width = 2205;
 },
 {
 layerId = "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F";
@@ -1618,11 +1620,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (575,0);
+pos = (600,0);
 ref = four.denominator;
 }
 );
-width = 961;
+width = 986;
 },
 {
 layerId = "91251A45-EED6-44E6-BC9D-709435BB03FD";
@@ -1637,11 +1639,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (600,0);
+pos = (640,0);
 ref = four.denominator;
 }
 );
-width = 1008;
+width = 1048;
 },
 {
 layerId = "769463EF-2EF4-41A9-85A9-285641285009";
@@ -1656,11 +1658,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1045,0);
+pos = (1125,0);
 ref = four.denominator;
 }
 );
-width = 1781;
+width = 1861;
 },
 {
 layerId = "B7698FA3-622B-421D-9516-7D8300A7950D";
@@ -1675,11 +1677,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1074,0);
+pos = (1194,0);
 ref = four.denominator;
 }
 );
-width = 1889;
+width = 2009;
 },
 {
 layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
@@ -1694,11 +1696,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (989,0);
+pos = (1069,0);
 ref = four.denominator;
 }
 );
-width = 1656;
+width = 1736;
 },
 {
 layerId = "879AA4C1-268E-45F5-A479-E8A4233029E2";
@@ -1713,11 +1715,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1216,0);
+pos = (1296,0);
 ref = four.denominator;
 }
 );
-width = 2139;
+width = 2219;
 },
 {
 layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
@@ -1732,11 +1734,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1401,0);
+pos = (1531,0);
 ref = four.denominator;
 }
 );
-width = 2642;
+width = 2772;
 },
 {
 layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
@@ -1751,11 +1753,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1531,0);
+pos = (1661,0);
 ref = four.denominator;
 }
 );
-width = 2926;
+width = 3056;
 },
 {
 layerId = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
@@ -1770,11 +1772,11 @@ ref = fraction;
 },
 {
 alignment = 1;
-pos = (1689,0);
+pos = (1839,0);
 ref = four.denominator;
 }
 );
-width = 3105;
+width = 3255;
 },
 {
 background = {
@@ -3507,4 +3509,10 @@ width = 3158;
 }
 );
 unicode = 190;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
 }

@@ -1,8 +1,8 @@
 {
 color = 4;
 glyphname = quotedblbase;
-kernLeft = quotes_base_left;
-kernRight = quotes_base_right;
+kernLeft = period_left;
+kernRight = period_right;
 layers = (
 {
 background = {
@@ -1327,4 +1327,10 @@ width = 1718;
 metricLeft = "=quoteright";
 metricRight = "=quoteright";
 unicode = 8222;
+userData = {
+KernOnSpecialSpacing = {
+L = quotes;
+R = quotes;
+};
+};
 }

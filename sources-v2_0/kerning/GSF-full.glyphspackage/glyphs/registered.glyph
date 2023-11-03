@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = registered;
+kernLeft = round_u_left;
+kernRight = round_u_right;
 layers = (
 {
 background = {
@@ -3677,4 +3679,9 @@ width = 1715;
 }
 );
 unicode = 174;
+userData = {
+KernOnSpecialSpacing = {
+L = superiors;
+};
+};
 }

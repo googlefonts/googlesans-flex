@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = twosuperior;
+kernLeft = two_sup_left;
+kernRight = two_sup_right;
 layers = (
 {
 background = {
@@ -1455,4 +1457,10 @@ width = 1168;
 }
 );
 unicode = 178;
+userData = {
+KernOnSpecialSpacing = {
+L = superiors;
+R = superiors;
+};
+};
 }

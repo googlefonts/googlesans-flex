@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = divide;
+kernLeft = plus_left;
+kernRight = plus_right;
 layers = (
 {
 background = {
@@ -3103,4 +3105,10 @@ width = 1608;
 metricLeft = "=minus";
 metricRight = "=minus";
 unicode = 247;
+userData = {
+KernOnSpecialSpacing = {
+L = math;
+R = math;
+};
+};
 }

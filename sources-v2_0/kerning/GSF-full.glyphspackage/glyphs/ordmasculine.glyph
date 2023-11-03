@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = ordmasculine;
+kernLeft = ord_left;
+kernRight = ord_right;
 layers = (
 {
 background = {
@@ -1886,4 +1888,10 @@ width = 1911;
 }
 );
 unicode = 186;
+userData = {
+KernOnSpecialSpacing = {
+L = superiors;
+R = superiors;
+};
+};
 }

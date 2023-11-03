@@ -1,6 +1,8 @@
 {
 color = 8;
 glyphname = at;
+kernLeft = at_left;
+kernRight = at_right;
 layers = (
 {
 background = {
@@ -6637,4 +6639,10 @@ width = 2514;
 }
 );
 unicode = 64;
+userData = {
+KernOnSpecialSpacing = {
+L = symbols;
+R = symbols;
+};
+};
 }

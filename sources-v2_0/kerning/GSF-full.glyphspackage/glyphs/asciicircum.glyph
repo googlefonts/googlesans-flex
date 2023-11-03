@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = asciicircum;
+kernLeft = asciicircum_left;
+kernRight = asciicircum_right;
 layers = (
 {
 background = {
@@ -1938,4 +1940,10 @@ width = 2051;
 }
 );
 unicode = 94;
+userData = {
+KernOnSpecialSpacing = {
+L = math;
+R = math;
+};
+};
 }

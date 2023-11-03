@@ -1,6 +1,8 @@
 {
 color = 11;
 glyphname = fraction;
+kernLeft = fraction_left;
+kernRight = fraction_right;
 layers = (
 {
 background = {
@@ -1815,4 +1817,10 @@ width = 651;
 }
 );
 unicode = 8260;
+userData = {
+KernOnSpecialSpacing = {
+L = fraction;
+R = fraction;
+};
+};
 }

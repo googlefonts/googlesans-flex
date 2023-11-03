@@ -1,6 +1,8 @@
 {
 color = 4;
 glyphname = ldot;
+kernLeft = l_left;
+kernRight = ldot_right;
 layers = (
 {
 background = {
@@ -1635,4 +1637,9 @@ width = 1615;
 );
 metricRight = "=o*0.5";
 unicode = 320;
+userData = {
+KernOnSpecialSpacing = {
+R = NoKerning;
+};
+};
 }
