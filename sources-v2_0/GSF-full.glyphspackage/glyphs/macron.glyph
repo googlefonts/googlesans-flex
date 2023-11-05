@@ -3,6 +3,47 @@ color = 4;
 glyphname = macron;
 layers = (
 {
+background = {
+anchors = (
+{
+name = _top;
+pos = (500,1066);
+},
+{
+name = top;
+pos = (500,1448);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(715,1376,l),
+(747,1376,o),
+(747,1376,o),
+(747,1412,q),
+(747,1448,o,{
+name = inserted;
+}),
+(747,1448,o,{
+name = inserted;
+}),
+(715,1448,q),
+(285,1448,l),
+(253,1448,o,{
+name = inserted;
+}),
+(253,1448,o,{
+name = inserted;
+}),
+(253,1412,q),
+(253,1376,o),
+(253,1376,o),
+(285,1376,q)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -442,7 +483,7 @@ ref = macroncomb;
 width = 1000;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 pos = (500,0);
@@ -535,7 +576,7 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 pos = (500,0);

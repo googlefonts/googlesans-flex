@@ -1,5 +1,5 @@
 {
-.appVersion = "3223";
+.appVersion = "3225";
 .formatVersion = 3;
 axes = (
 {
@@ -1790,6 +1790,9 @@ pos = (25,1448);
 },
 {
 pos = (10,1432);
+},
+{
+pos = (-15,1442);
 }
 );
 id = "2D6FF8E8-DE2B-49DD-9A84-B928AA35427F";
@@ -2414,7 +2417,7 @@ pos = (21,1464);
 pos = (23,1432);
 },
 {
-pos = (123,511);
+pos = (123,571);
 showMeasurement = 1;
 },
 {
@@ -2423,7 +2426,7 @@ pos = (969,0);
 showMeasurement = 1;
 }
 );
-id = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+id = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 metricValues = (
 {
 over = 32;
@@ -2884,7 +2887,7 @@ locked = 1;
 pos = (-32,1062);
 },
 {
-pos = (-13,620);
+pos = (-13,503);
 showMeasurement = 1;
 },
 {
@@ -2919,7 +2922,7 @@ pos = (-179,1200);
 },
 {
 filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (18,620);
+pos = (63,761);
 },
 {
 pos = (34,146);
@@ -3264,7 +3267,7 @@ pos = (80,1447);
 },
 {
 name = "sinf-overshoot";
-pos = (284,388);
+pos = (279,386);
 },
 {
 name = "sinf-b";
@@ -3288,9 +3291,14 @@ pos = (468,-166);
 name = "MATH tf";
 pos = (47,716);
 showMeasurement = 1;
+},
+{
+name = "MATH ";
+pos = (39,632);
+showMeasurement = 1;
 }
 );
-id = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+id = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 metricValues = (
 {
 over = 7;
@@ -3648,9 +3656,10 @@ pos = (468,-166);
 },
 {
 name = "numeratos-overshoot";
-pos = (480,-9);
+pos = (428,-22);
 },
 {
+angle = 90;
 name = "diacritics-b";
 pos = (309,1122);
 },
@@ -4490,6 +4499,10 @@ pos = (489,1584);
 },
 {
 pos = (468,-166);
+},
+{
+name = "MATH tf";
+pos = (491,716);
 },
 {
 name = "MATH tf";
@@ -7973,7 +7986,7 @@ fraction = {
 four.denominator = -120;
 };
 };
-"CDC268BA-5DF2-4BA6-82D8-FB561D7223B0" = {
+"50175B8B-052B-4A3C-A962-31BBD5FE6D85" = {
 fraction = {
 four.denominator = -80;
 };
@@ -7999,6 +8012,16 @@ four.denominator = -130;
 "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = {
 fraction = {
 four.denominator = -150;
+};
+};
+"03CFA97C-6AFF-4BDA-AEA2-76351EF01E91" = {
+plus = {
+zero = 0;
+};
+};
+"8F69D9BF-EE35-44AA-BD6F-D41841F9764C" = {
+"@MMK_L_t_right" = {
+"@MMK_R_h_left" = 0;
 };
 };
 };

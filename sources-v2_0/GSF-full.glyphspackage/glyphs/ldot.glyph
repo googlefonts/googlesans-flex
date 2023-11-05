@@ -3,6 +3,70 @@ color = 4;
 glyphname = ldot;
 layers = (
 {
+background = {
+anchors = (
+{
+name = bottom;
+pos = (211,0);
+},
+{
+name = center;
+pos = (211,760);
+},
+{
+name = top;
+pos = (211,1498);
+},
+{
+name = topright;
+pos = (514,1086);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(253,0,o),
+(253,0,o,{
+name = inserted;
+}),
+(253,38,qs),
+(253,1460,ls),
+(253,1498,o,{
+name = inserted;
+}),
+(253,1498,o,{
+name = inserted;
+}),
+(211,1498,qs),
+(169,1498,o),
+(169,1498,o),
+(169,1460,qs),
+(169,38,ls),
+(169,0,o),
+(169,0,o),
+(211,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(687,518,o),
+(751,582,o),
+(751,630,qs),
+(751,674,o),
+(687,738,o),
+(641,738,qs),
+(595,738,o),
+(531,674,o),
+(531,630,qs),
+(531,582,o),
+(595,518,o),
+(641,518,qs)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -10,11 +74,11 @@ alignment = -1;
 ref = l;
 },
 {
-pos = (364,98);
+pos = (309,98);
 ref = periodcentered;
 }
 );
-width = 805;
+width = 750;
 },
 {
 background = {
@@ -87,11 +151,11 @@ ref = l;
 },
 {
 alignment = -1;
-pos = (384,92);
+pos = (330,92);
 ref = periodcentered;
 }
 );
-width = 864;
+width = 810;
 },
 {
 background = {
@@ -165,7 +229,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (414,85);
+pos = (337,85);
 ref = periodcentered;
 userData = {
 UFO.identifier = 3F2C47D9;
@@ -174,7 +238,7 @@ UFO.lib = {
 };
 }
 );
-width = 936;
+width = 859;
 },
 {
 background = {
@@ -243,11 +307,11 @@ ref = l;
 },
 {
 alignment = -1;
-pos = (650,96);
+pos = (603,96);
 ref = periodcentered;
 }
 );
-width = 1218;
+width = 1171;
 },
 {
 background = {
@@ -316,11 +380,11 @@ ref = l;
 },
 {
 alignment = -1;
-pos = (718,76);
+pos = (663,76);
 ref = periodcentered;
 }
 );
-width = 1346;
+width = 1291;
 },
 {
 background = {
@@ -395,11 +459,11 @@ ref = l;
 },
 {
 alignment = -1;
-pos = (426,79);
+pos = (393,79);
 ref = periodcentered;
 }
 );
-width = 905;
+width = 872;
 },
 {
 background = {
@@ -468,11 +532,11 @@ ref = l;
 },
 {
 alignment = -1;
-pos = (678,43);
+pos = (690,43);
 ref = periodcentered;
 }
 );
-width = 1441;
+width = 1453;
 },
 {
 background = {
@@ -547,11 +611,11 @@ ref = l;
 },
 {
 alignment = -1;
-pos = (581,49);
+pos = (493,49);
 ref = periodcentered;
 }
 );
-width = 1200;
+width = 1112;
 },
 {
 background = {
@@ -703,7 +767,7 @@ ref = periodcentered;
 width = 585;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 alignment = -1;
@@ -746,7 +810,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (322,152);
+pos = (323,152);
 ref = periodcentered;
 userData = {
 UFO.identifier = 899BF5F3;
@@ -755,7 +819,7 @@ UFO.lib = {
 };
 }
 );
-width = 714;
+width = 721;
 },
 {
 layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
@@ -878,7 +942,7 @@ nodes = (
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 alignment = -1;

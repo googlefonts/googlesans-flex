@@ -4,6 +4,76 @@ glyphname = imacron;
 kernLeft = i_left;
 layers = (
 {
+background = {
+anchors = (
+{
+name = bottom;
+pos = (227,0);
+},
+{
+name = ogonek;
+pos = (269,0);
+},
+{
+name = top;
+pos = (227,1448);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(269,0,o),
+(269,0,o,{
+name = inserted;
+}),
+(269,38,qs),
+(269,1028,ls),
+(269,1066,o,{
+name = inserted;
+}),
+(269,1066,o,{
+name = inserted;
+}),
+(227,1066,qs),
+(185,1066,o),
+(185,1066,o),
+(185,1028,qs),
+(185,38,ls),
+(185,0,o),
+(185,0,o),
+(227,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(442,1376,l),
+(474,1376,o),
+(474,1376,o),
+(474,1412,q),
+(474,1448,o,{
+name = inserted;
+}),
+(474,1448,o,{
+name = inserted;
+}),
+(442,1448,q),
+(12,1448,l),
+(-20,1448,o,{
+name = inserted;
+}),
+(-20,1448,o,{
+name = inserted;
+}),
+(-20,1412,q),
+(-20,1376,o),
+(-20,1376,o),
+(12,1376,q)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -687,7 +757,7 @@ ref = macroncomb;
 width = 354;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 ref = idotless;
@@ -822,7 +892,7 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 ref = idotless;

@@ -3,6 +3,55 @@ color = 4;
 glyphname = breve;
 layers = (
 {
+background = {
+anchors = (
+{
+name = _top;
+pos = (500,1066);
+},
+{
+name = top;
+pos = (500,1523);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(404,1273,o),
+(279,1401,o),
+(272,1489,qs),
+(269,1523,o),
+(269,1523,o),
+(303,1523,q),
+(347,1523,o),
+(347,1523,o,{
+name = inserted;
+}),
+(350,1495,qs),
+(356,1434,o),
+(436,1349,o),
+(500,1349,q),
+(564,1349,o),
+(644,1434,o),
+(650,1495,qs),
+(653,1523,o,{
+name = inserted;
+}),
+(653,1523,o,{
+name = inserted;
+}),
+(697,1523,q),
+(731,1523,o),
+(731,1523,o),
+(729,1489,qs),
+(723,1401,o),
+(596,1273,o),
+(500,1273,q)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -498,7 +547,7 @@ ref = brevecomb;
 width = 1000;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 pos = (500,0);
@@ -601,7 +650,7 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 pos = (500,0);

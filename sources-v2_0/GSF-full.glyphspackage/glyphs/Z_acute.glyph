@@ -5,6 +5,94 @@ kernLeft = Z_left;
 kernRight = Z_right;
 layers = (
 {
+background = {
+anchors = (
+{
+name = bottom;
+pos = (366,0);
+},
+{
+name = top;
+pos = (398,1889);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(666,0,ls),
+(704,0,o,{
+name = inserted;
+}),
+(704,0,o,{
+name = inserted;
+}),
+(704,40,qs),
+(704,78,o),
+(704,78,o),
+(666,78,qs),
+(173,78,l),
+(664,1311,ls),
+(684,1360,o),
+(684,1360,o),
+(684,1399,qs),
+(684,1432,o),
+(684,1432,o,{
+name = inserted;
+}),
+(636,1432,qs),
+(148,1432,ls),
+(110,1432,o,{
+name = inserted;
+}),
+(110,1432,o,{
+name = inserted;
+}),
+(110,1392,qs),
+(110,1354,o),
+(110,1354,o),
+(148,1354,qs),
+(590,1354,l),
+(100,126,ls),
+(78,70,o),
+(78,70,o),
+(78,36,qs),
+(78,0,o),
+(78,0,o,{
+name = inserted;
+}),
+(126,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(432,1645,o,{
+name = inserted;
+}),
+(432,1645,o,{
+name = inserted;
+}),
+(440,1660,qs),
+(541,1843,ls),
+(566,1889,o),
+(566,1889,o),
+(503,1889,qs),
+(456,1889,o,{
+name = inserted;
+}),
+(456,1889,o,{
+name = inserted;
+}),
+(437,1843,qs),
+(376,1691,ls),
+(357,1645,o),
+(357,1645,o),
+(409,1645,qs)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -824,7 +912,7 @@ ref = acutecomb;
 width = 1116;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 ref = Z;
@@ -973,7 +1061,7 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 ref = Z;

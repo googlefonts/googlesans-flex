@@ -3,6 +3,54 @@ color = 4;
 glyphname = ring;
 layers = (
 {
+background = {
+anchors = (
+{
+name = _top;
+pos = (500,1066);
+},
+{
+name = top;
+pos = (500,1600);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(417,1205,o),
+(303,1321,o),
+(303,1404,qs),
+(303,1486,o),
+(417,1600,o),
+(500,1600,qs),
+(582,1600,o),
+(697,1486,o),
+(697,1404,qs),
+(697,1321,o),
+(582,1205,o),
+(500,1205,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(550,1274,o),
+(627,1350,o),
+(627,1404,qs),
+(627,1455,o),
+(550,1530,o),
+(500,1530,qs),
+(448,1530,o),
+(373,1455,o),
+(373,1404,qs),
+(373,1350,o),
+(448,1274,o),
+(500,1274,qs)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -522,7 +570,7 @@ ref = ringcomb;
 width = 1000;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 pos = (500,0);
@@ -622,7 +670,7 @@ nodes = (
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 pos = (500,0);

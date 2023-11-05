@@ -5,6 +5,128 @@ kernLeft = O_left;
 kernRight = O_right;
 layers = (
 {
+background = {
+anchors = (
+{
+name = bottom;
+pos = (584,0);
+},
+{
+name = center;
+pos = (584,716);
+},
+{
+name = ogonek;
+pos = (718,0);
+},
+{
+name = tail;
+pos = (697,0);
+},
+{
+name = top;
+pos = (584,1889);
+},
+{
+name = topright;
+pos = (778,1432);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(780,-20,o),
+(1018,325,o),
+(1018,720,q),
+(1018,720,l),
+(1018,1123,o),
+(780,1452,o),
+(584,1452,qs),
+(388,1452,o),
+(150,1123,o),
+(150,720,q),
+(150,720,l),
+(150,325,o),
+(388,-20,o),
+(584,-20,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(431,56,o),
+(238,369,o),
+(238,720,q),
+(238,720,l),
+(238,1079,o),
+(431,1376,o),
+(584,1376,qs),
+(737,1376,o),
+(930,1079,o),
+(930,720,q),
+(930,720,l),
+(930,369,o),
+(737,56,o),
+(584,56,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(512,1645,o,{
+name = inserted;
+}),
+(512,1645,o,{
+name = inserted;
+}),
+(521,1661,qs),
+(619,1843,ls),
+(644,1889,o),
+(646,1889,o),
+(582,1889,q),
+(536,1889,o,{
+name = inserted;
+}),
+(536,1889,o,{
+name = inserted;
+}),
+(516,1843,q),
+(455,1692,ls),
+(436,1645,o),
+(436,1645,o),
+(489,1645,q)
+);
+},
+{
+closed = 1;
+nodes = (
+(730,1645,o,{
+name = inserted;
+}),
+(730,1645,o,{
+name = inserted;
+}),
+(739,1661,qs),
+(837,1843,ls),
+(862,1889,o),
+(864,1889,o),
+(800,1889,q),
+(754,1889,o,{
+name = inserted;
+}),
+(754,1889,o,{
+name = inserted;
+}),
+(734,1843,q),
+(673,1692,ls),
+(654,1645,o),
+(654,1645,o),
+(707,1645,q)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -1063,14 +1185,14 @@ shapes = (
 ref = O;
 },
 {
-pos = (888,434);
+pos = (899,434);
 ref = hungarumlautcomb;
 }
 );
-width = 1653;
+width = 1676;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 ref = O;
@@ -1257,7 +1379,7 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 ref = O;
@@ -1529,7 +1651,7 @@ pos = (610,372);
 ref = hungarumlautcomb;
 }
 );
-width = 1089;
+width = 1088;
 },
 {
 background = {
@@ -1803,11 +1925,11 @@ shapes = (
 ref = O;
 },
 {
-pos = (871,382);
+pos = (859,382);
 ref = hungarumlautcomb;
 }
 );
-width = 1614;
+width = 1587;
 },
 {
 background = {

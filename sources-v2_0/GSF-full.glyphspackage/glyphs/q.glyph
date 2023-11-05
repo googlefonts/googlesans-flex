@@ -15,6 +15,82 @@ name = top;
 pos = (470,1066);
 }
 );
+background = {
+anchors = (
+{
+name = bottom;
+pos = (470,0);
+},
+{
+name = top;
+pos = (470,1066);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(860,-442,o),
+(860,-442,o),
+(860,-404,q),
+(860,1030,l),
+(860,1066,o),
+(860,1066,o),
+(820,1066,q),
+(780,1066,o,{
+name = inserted;
+}),
+(780,1066,o,{
+name = inserted;
+}),
+(780,1030,q),
+(780,847,l),
+(775,847,l),
+(752,937,o),
+(596,1086,o),
+(476,1086,qs),
+(301,1086,o),
+(108,812,o),
+(108,528,q),
+(108,528,l),
+(108,261,o),
+(301,-20,o),
+(473,-20,qs),
+(596,-20,o),
+(760,144,o),
+(771,213,q),
+(776,213,l),
+(776,-404,l),
+(776,-442,o,{
+name = inserted;
+}),
+(776,-442,o,{
+name = inserted;
+}),
+(818,-442,q)
+);
+},
+{
+closed = 1;
+nodes = (
+(345,56,o),
+(192,282,o),
+(192,522,q),
+(192,522,l),
+(192,770,o),
+(342,1010,o),
+(480,1010,qs),
+(605,1010,o),
+(778,794,o),
+(778,516,q),
+(778,516,l),
+(778,261,o),
+(597,56,o),
+(470,56,qs)
+);
+}
+);
+};
 guides = (
 {
 pos = (819,-380);
@@ -662,7 +738,7 @@ width = 1585;
 anchors = (
 {
 name = bottom;
-pos = (483,0);
+pos = (387,0);
 },
 {
 name = top;
@@ -1814,7 +1890,7 @@ name = top;
 pos = (578,1020);
 }
 );
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 closed = 1;
@@ -2534,7 +2610,7 @@ nodes = (
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 closed = 1;
@@ -2612,8 +2688,8 @@ name = top;
 pos = (182,1020);
 }
 );
-associatedMasterId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
-layerId = "BFE06986-4BA3-435E-AC68-74ED9076B949";
+associatedMasterId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
+layerId = "70D92135-8D94-4DAF-9D85-16DBB7DB25FB";
 name = "1.2";
 shapes = (
 {
@@ -2685,7 +2761,7 @@ width = 446;
 anchors = (
 {
 name = bottom;
-pos = (205,0);
+pos = (167,0);
 },
 {
 name = top;
@@ -2847,7 +2923,7 @@ pos = (198,1020);
 }
 );
 associatedMasterId = "01856C8F-DF22-4242-84EC-D0E09743B379";
-layerId = "CE1D313B-4E52-41A5-ABA9-0CE532F25271";
+layerId = "35413C4F-AE51-4C9E-B48F-238B151FE728";
 name = "1.2";
 shapes = (
 {
@@ -2918,7 +2994,7 @@ width = 424;
 anchors = (
 {
 name = bottom;
-pos = (473,0);
+pos = (270,0);
 },
 {
 name = top;
@@ -3154,7 +3230,7 @@ nodes = (
 }
 );
 };
-layerId = "12F61A02-6A5B-41A9-89AD-ECE653A47301";
+layerId = "E617F06B-8FB0-4A7C-A923-C9182C92610D";
 name = "1.2";
 shapes = (
 {
@@ -3307,7 +3383,7 @@ angle = 90;
 pos = (528,-263);
 }
 );
-layerId = "F34D915D-C9A0-4892-81D3-BC21539A5BCC";
+layerId = "F0473ED7-C18C-4EB5-B0ED-89C37C7CC97B";
 name = "28 Sep 23, 11:05";
 shapes = (
 {
@@ -3581,7 +3657,7 @@ pos = (560,1020);
 }
 );
 associatedMasterId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
-layerId = "92086BE6-3EA4-416E-8A92-4CE50E8B93CD";
+layerId = "2EB75C61-5477-49CC-8D52-99A3CC63FA8C";
 name = "1.2";
 shapes = (
 {
@@ -3819,7 +3895,7 @@ ref = d;
 }
 );
 };
-layerId = "1E07A0AA-A729-40C7-8F01-FC1C1044640D";
+layerId = "259642F2-B39D-453C-99F7-F729474269F7";
 name = "1.2";
 shapes = (
 {
@@ -3883,7 +3959,7 @@ width = 1174;
 anchors = (
 {
 name = bottom;
-pos = (532,0);
+pos = (462,0);
 },
 {
 name = top;
@@ -4085,7 +4161,7 @@ pos = (518,1020);
 }
 );
 associatedMasterId = "733112D2-2833-4B86-B7ED-934B97F7C918";
-layerId = "42614C1F-540D-4995-9614-10BD13113C2F";
+layerId = "3F87F34B-48BA-46BA-918F-FF38A80F989D";
 name = "1.2";
 shapes = (
 {
@@ -4176,7 +4252,7 @@ pos = (548,1020);
 }
 );
 associatedMasterId = "733112D2-2833-4B86-B7ED-934B97F7C918";
-layerId = "607D99A6-D718-4D09-9085-8E46AC5FDC19";
+layerId = "9134B9C4-C494-4399-BC1E-F6FEE0E06128";
 name = "29 Aug 23, 11:47";
 shapes = (
 {
@@ -4364,7 +4440,7 @@ name = inserted;
 }
 );
 };
-layerId = "1AE12662-C687-4A97-A020-B9481565D1D6";
+layerId = "22898D81-4DC0-46AB-9AA7-C709D7442490";
 name = "as p";
 shapes = (
 {
@@ -4843,7 +4919,7 @@ nodes = (
 }
 );
 };
-layerId = "4161F252-31EB-4122-9FBC-7E3D771BDF20";
+layerId = "AEB75E6A-36B6-4107-8D45-B016E4F2473D";
 name = "1.2";
 shapes = (
 {
@@ -4915,7 +4991,7 @@ width = 2155;
 anchors = (
 {
 name = bottom;
-pos = (1134,0);
+pos = (797,0);
 },
 {
 name = top;
