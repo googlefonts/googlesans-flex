@@ -802,7 +802,9 @@ stemValues = (
 30,
 28,
 28,
-27
+27,
+0,
+0
 );
 userData = {
 HTLSManagerMasterRules = {
@@ -968,7 +970,9 @@ stemValues = (
 156,
 150,
 146,
-138
+138,
+0,
+0
 );
 },
 {
@@ -1116,7 +1120,9 @@ stemValues = (
 430,
 425,
 400,
-302
+302,
+0,
+0
 );
 },
 {
@@ -1179,7 +1185,7 @@ value = -320;
 },
 {
 name = paramArea;
-value = 400;
+value = "285";
 },
 {
 name = paramDepth;
@@ -1233,31 +1239,31 @@ angle = 90;
 pos = (994,0);
 }
 );
-id = "B7698FA3-622B-421D-9516-7D8300A7950D";
+id = "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5";
 metricValues = (
 {
-over = 30;
+over = 29;
 pos = 1432;
 },
 {
-over = 30;
+over = 29;
 pos = 1432;
 },
 {
-over = 30;
+over = 29;
 pos = 998;
 },
 {
-over = -30;
+over = -29;
 },
 {
-over = -30;
+over = -29;
 pos = -432;
 },
 {
 },
 {
-over = 18;
+over = 17;
 pos = 859;
 }
 );
@@ -1266,7 +1272,9 @@ stemValues = (
 32,
 31,
 30,
-30
+30,
+0,
+0
 );
 },
 {
@@ -1424,7 +1432,9 @@ stemValues = (
 170,
 170,
 162,
-154
+154,
+0,
+0
 );
 },
 {
@@ -1586,7 +1596,9 @@ stemValues = (
 460,
 455,
 425,
-317
+317,
+0,
+0
 );
 },
 {
@@ -1756,7 +1768,9 @@ stemValues = (
 32,
 31,
 31,
-30
+30,
+0,
+0
 );
 },
 {
@@ -1935,7 +1949,9 @@ stemValues = (
 170,
 168,
 156,
-148
+148,
+0,
+0
 );
 userData = {
 HTLSManagerMasterRules = {
@@ -2124,7 +2140,9 @@ stemValues = (
 170,
 168,
 156,
-148
+148,
+0,
+0
 );
 }
 );
@@ -2181,7 +2199,7 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"B7698FA3-622B-421D-9516-7D8300A7950D" = 1;
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 1;
 };
 name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
 },
@@ -2272,9 +2290,9 @@ fraction = {
 four.denominator = -80;
 };
 };
-"B7698FA3-622B-421D-9516-7D8300A7950D" = {
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = {
 fraction = {
-four.denominator = -120;
+four.denominator = -114;
 };
 };
 m001 = {
@@ -2403,6 +2421,14 @@ name = "n vertical";
 name = "H horizontal";
 },
 {
+name = "t horizontal";
+},
+{
+horizontal = 1;
+name = "H horizontal";
+},
+{
+horizontal = 1;
 name = "t horizontal";
 }
 );
