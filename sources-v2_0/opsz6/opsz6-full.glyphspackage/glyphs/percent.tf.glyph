@@ -785,8 +785,26 @@ ref = zero.numr.percent;
 width = 1838;
 },
 {
-layerId = "A894A955-5677-437D-AC6E-6732D508AC28";
-width = 977;
+layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
+shapes = (
+{
+alignment = -1;
+pos = (479,0);
+ref = zero.dnom.percent;
+userData = {
+UFO.identifier = component1;
+};
+},
+{
+alignment = -1;
+ref = fraction.tf;
+},
+{
+alignment = -1;
+ref = zero.numr.percent;
+}
+);
+width = 996;
 }
 );
 metricWidth = "=zero.tf";
