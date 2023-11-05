@@ -4,6 +4,75 @@ glyphname = lcommaaccent;
 kernLeft = h_left;
 layers = (
 {
+background = {
+anchors = (
+{
+name = bottom;
+pos = (211,0);
+},
+{
+name = center;
+pos = (211,760);
+},
+{
+name = top;
+pos = (211,1498);
+},
+{
+name = topright;
+pos = (514,1086);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(253,0,o),
+(253,0,o,{
+name = inserted;
+}),
+(253,38,qs),
+(253,1460,ls),
+(253,1498,o,{
+name = inserted;
+}),
+(253,1498,o,{
+name = inserted;
+}),
+(211,1498,qs),
+(169,1498,o),
+(169,1498,o),
+(169,1460,qs),
+(169,38,ls),
+(169,0,o),
+(169,0,o),
+(211,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(147,-485,o),
+(147,-485,o),
+(181,-431,q),
+(250,-321,ls),
+(269,-289,o),
+(283,-253,o),
+(283,-235,qs),
+(283,-202,o),
+(237,-157,o),
+(204,-157,qs),
+(170,-157,o),
+(124,-202,o),
+(124,-235,qs),
+(124,-263,o),
+(155,-303,o),
+(178,-307,q),
+(91,-448,l)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -699,7 +768,7 @@ ref = commaaccentcomb;
 width = 353;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 ref = l;
@@ -837,13 +906,13 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 ref = l;
 },
 {
-pos = (58,0);
+pos = (81,0);
 ref = commaaccentcomb;
 }
 );
@@ -1345,7 +1414,7 @@ shapes = (
 ref = l;
 },
 {
-pos = (130,0);
+pos = (194,0);
 ref = commaaccentcomb;
 }
 );

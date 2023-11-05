@@ -5,13 +5,108 @@ kernLeft = O_left;
 kernRight = O_right;
 layers = (
 {
+background = {
+anchors = (
+{
+name = bottom;
+pos = (584,0);
+},
+{
+name = center;
+pos = (584,716);
+},
+{
+name = ogonek;
+pos = (718,0);
+},
+{
+name = tail;
+pos = (889,0);
+},
+{
+name = top;
+pos = (584,1432);
+},
+{
+name = topright;
+pos = (778,1432);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(780,-20,o),
+(1018,325,o),
+(1018,720,q),
+(1018,720,l),
+(1018,1123,o),
+(780,1452,o),
+(584,1452,qs),
+(388,1452,o),
+(150,1123,o),
+(150,720,q),
+(150,720,l),
+(150,325,o),
+(388,-20,o),
+(584,-20,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(431,56,o),
+(238,369,o),
+(238,720,q),
+(238,720,l),
+(238,1079,o),
+(431,1376,o),
+(584,1376,qs),
+(737,1376,o),
+(930,1079,o),
+(930,720,q),
+(930,720,l),
+(930,369,o),
+(737,56,o),
+(584,56,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(982,-70,o,{
+name = inserted;
+}),
+(982,-70,o,{
+name = inserted;
+}),
+(955,-31,qs),
+(632,438,ls),
+(606,477,o),
+(606,477,o),
+(576,456,q),
+(543,433,o,{
+name = inserted;
+}),
+(543,433,o,{
+name = inserted;
+}),
+(566,399,qs),
+(885,-72,ls),
+(915,-116,o),
+(915,-116,o),
+(948,-94,q)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
 ref = O;
 },
 {
-pos = (571,0);
+pos = (763,0);
 ref = _tail.Q;
 }
 );
@@ -119,7 +214,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (911,0);
+pos = (1203,0);
 ref = _tail.Q;
 }
 );
@@ -223,7 +318,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (1159,0);
+pos = (1384,0);
 ref = _tail.Q;
 }
 );
@@ -331,7 +426,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (849,0);
+pos = (909,0);
 ref = _tail.Q;
 }
 );
@@ -439,7 +534,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (1233,0);
+pos = (1303,0);
 ref = _tail.Q;
 }
 );
@@ -547,7 +642,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (738,0);
+pos = (770,0);
 ref = _tail.Q;
 }
 );
@@ -651,7 +746,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (1612,0);
+pos = (1642,0);
 ref = _tail.Q;
 }
 );
@@ -755,7 +850,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (1248,0);
+pos = (1470,0);
 ref = _tail.Q;
 }
 );
@@ -863,7 +958,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (939,0);
+pos = (1219,0);
 ref = _tail.Q;
 }
 );
@@ -1289,7 +1384,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (1173,0);
+pos = (1184,0);
 ref = _tail.Q;
 }
 );
@@ -1297,7 +1392,7 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = O;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = O;
 };
-width = 1653;
+width = 1676;
 },
 {
 background = {
@@ -1395,7 +1490,7 @@ name = inserted;
 }
 );
 };
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 ref = O;
@@ -1939,7 +2034,7 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 ref = O;
@@ -2053,7 +2148,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (361,0);
+pos = (397,0);
 ref = _tail.Q;
 }
 );
@@ -2157,7 +2252,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (490,0);
+pos = (738,0);
 ref = _tail.Q;
 }
 );
@@ -2165,7 +2260,7 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = O;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = O;
 };
-width = 1089;
+width = 1088;
 },
 {
 background = {
@@ -2281,7 +2376,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (931,22);
+pos = (1161,22);
 ref = _tail.Q;
 }
 );
@@ -2289,7 +2384,7 @@ width = 1568;
 },
 {
 associatedMasterId = "9783FD78-D1DA-4A2F-9939-C716E4B6354F";
-layerId = "849AB030-1C66-4E6D-B712-54053D3021D3";
+layerId = "F611D136-136A-451B-AD12-FB3C18C73DDB";
 name = "1.2";
 shapes = (
 {
@@ -2468,11 +2563,11 @@ shapes = (
 ref = O;
 },
 {
-pos = (984,0);
+pos = (1185,0);
 ref = _tail.Q;
 }
 );
-width = 1614;
+width = 1587;
 },
 {
 background = {
@@ -2600,7 +2695,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (966,8);
+pos = (1155,8);
 ref = _tail.Q;
 }
 );
@@ -2608,7 +2703,7 @@ width = 1568;
 },
 {
 associatedMasterId = "733112D2-2833-4B86-B7ED-934B97F7C918";
-layerId = "AEA7E909-294A-44C3-886E-0D1D91964926";
+layerId = "E27532A1-6A78-4399-9B41-C9CB35A5A880";
 name = "1.2";
 shapes = (
 {
@@ -2903,7 +2998,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (1946,0);
+pos = (2006,0);
 ref = _tail.Q;
 }
 );
@@ -3011,7 +3106,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (2059,0);
+pos = (2119,0);
 ref = _tail.Q;
 }
 );

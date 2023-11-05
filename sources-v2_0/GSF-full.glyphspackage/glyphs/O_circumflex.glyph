@@ -5,6 +5,114 @@ kernLeft = O_left;
 kernRight = O_right;
 layers = (
 {
+background = {
+anchors = (
+{
+name = bottom;
+pos = (584,0);
+},
+{
+name = center;
+pos = (584,716);
+},
+{
+name = ogonek;
+pos = (718,0);
+},
+{
+name = tail;
+pos = (697,0);
+},
+{
+name = top;
+pos = (584,1889);
+},
+{
+name = topright;
+pos = (778,1432);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(780,-20,o),
+(1018,325,o),
+(1018,720,q),
+(1018,720,l),
+(1018,1123,o),
+(780,1452,o),
+(584,1452,qs),
+(388,1452,o),
+(150,1123,o),
+(150,720,q),
+(150,720,l),
+(150,325,o),
+(388,-20,o),
+(584,-20,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(431,56,o),
+(238,369,o),
+(238,720,q),
+(238,720,l),
+(238,1079,o),
+(431,1376,o),
+(584,1376,qs),
+(737,1376,o),
+(930,1079,o),
+(930,720,q),
+(930,720,l),
+(930,369,o),
+(737,56,o),
+(584,56,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(471,1647,o,{
+name = inserted;
+}),
+(471,1647,o,{
+name = inserted;
+}),
+(480,1660,qs),
+(581,1814,l),
+(586,1814,l),
+(687,1660,ls),
+(696,1647,o,{
+name = inserted;
+}),
+(696,1647,o,{
+name = inserted;
+}),
+(717,1647,q),
+(783,1647,o),
+(783,1647,o),
+(747,1700,qs),
+(631,1869,ls),
+(617,1889,o),
+(617,1889,o),
+(584,1889,q),
+(550,1889,o,{
+name = inserted;
+}),
+(550,1889,o,{
+name = inserted;
+}),
+(536,1868,qs),
+(421,1699,ls),
+(385,1647,o),
+(385,1647,o),
+(450,1647,q)
+);
+}
+);
+};
 layerId = m001;
 shapes = (
 {
@@ -1027,14 +1135,14 @@ shapes = (
 ref = O;
 },
 {
-pos = (827,434);
+pos = (838,434);
 ref = circumflexcomb;
 }
 );
-width = 1653;
+width = 1676;
 },
 {
-layerId = "CDC268BA-5DF2-4BA6-82D8-FB561D7223B0";
+layerId = "50175B8B-052B-4A3C-A962-31BBD5FE6D85";
 shapes = (
 {
 ref = O;
@@ -1207,7 +1315,7 @@ name = inserted;
 }
 );
 };
-layerId = "DF8EE0DC-A40C-4DC5-AAB1-570AFA2BFA03";
+layerId = "03CFA97C-6AFF-4BDA-AEA2-76351EF01E91";
 shapes = (
 {
 ref = O;
@@ -1455,7 +1563,7 @@ pos = (544,372);
 ref = circumflexcomb;
 }
 );
-width = 1089;
+width = 1088;
 },
 {
 background = {
@@ -1709,11 +1817,11 @@ shapes = (
 ref = O;
 },
 {
-pos = (804,382);
+pos = (792,382);
 ref = circumflexcomb;
 }
 );
-width = 1614;
+width = 1587;
 },
 {
 background = {
