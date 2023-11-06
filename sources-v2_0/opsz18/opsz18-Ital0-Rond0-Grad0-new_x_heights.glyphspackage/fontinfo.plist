@@ -802,9 +802,7 @@ stemValues = (
 30,
 28,
 28,
-27,
-0,
-0
+27
 );
 },
 {
@@ -966,9 +964,7 @@ stemValues = (
 156,
 150,
 146,
-138,
-0,
-0
+138
 );
 },
 {
@@ -1116,9 +1112,7 @@ stemValues = (
 430,
 425,
 400,
-302,
-0,
-0
+302
 );
 },
 {
@@ -1194,7 +1188,7 @@ value = 0;
 );
 guides = (
 {
-pos = (79,726);
+pos = (112,736);
 showMeasurement = 1;
 },
 {
@@ -1208,7 +1202,8 @@ pos = (3,-30);
 },
 {
 angle = 180;
-pos = (41,1200);
+pos = (41,1242);
+showMeasurement = 1;
 },
 {
 pos = (-65,1480);
@@ -1227,7 +1222,7 @@ pos = (21,1462);
 pos = (23,1432);
 },
 {
-pos = (228,258);
+pos = (14,258);
 showMeasurement = 1;
 },
 {
@@ -1268,9 +1263,7 @@ stemValues = (
 32,
 31,
 30,
-30,
-0,
-0
+30
 );
 },
 {
@@ -1428,10 +1421,9 @@ stemValues = (
 170,
 170,
 162,
-154,
-0,
-0
+154
 );
+visible = 1;
 },
 {
 axesValues = (
@@ -1592,9 +1584,7 @@ stemValues = (
 460,
 455,
 425,
-317,
-0,
-0
+317
 );
 },
 {
@@ -1764,9 +1754,7 @@ stemValues = (
 32,
 31,
 31,
-30,
-0,
-0
+30
 );
 },
 {
@@ -1945,14 +1933,13 @@ stemValues = (
 170,
 168,
 156,
-148,
-0,
-0
+148
 );
 userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -2133,12 +2120,10 @@ pos = -432;
 );
 name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
 stemValues = (
-170,
-168,
-156,
-148,
-0,
-0
+480,
+474,
+412,
+326
 );
 }
 );
@@ -2153,8 +2138,7 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-"769463EF-2EF4-41A9-85A9-285641285009" = -0.665;
-"91251A45-EED6-44E6-BC9D-709435BB03FD" = 1.665;
+"ECE3928B-0CC8-4E0B-96B5-3D55D3095D38" = 1;
 };
 name = "opsz18-wdth25-wght1-Ital0-Rond0-Grad0";
 },
@@ -2273,11 +2257,11 @@ name = "opsz18-wdth151-wght1000-Ital0-Rond0-Grad0";
 );
 kerningLTR = {
 "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38" = {
-fraction = {
-four.denominator = -23;
-};
 eight.numerator = {
 fraction = 0;
+};
+fraction = {
+four.denominator = -23;
 };
 };
 "91251A45-EED6-44E6-BC9D-709435BB03FD" = {
@@ -2416,12 +2400,6 @@ name = "H vertical";
 },
 {
 name = "n vertical";
-},
-{
-name = "H horizontal";
-},
-{
-name = "t horizontal";
 },
 {
 horizontal = 1;
@@ -2578,6 +2556,16 @@ nV = "455";
 oH = "369";
 oV = "438";
 tH = "317";
+};
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = {
+HH = "30";
+HV = "32";
+OH = "30";
+OV = "33";
+nV = "31";
+oH = "28";
+oV = "32";
+tH = "30";
 };
 "91251A45-EED6-44E6-BC9D-709435BB03FD" = {
 HH = "146";
