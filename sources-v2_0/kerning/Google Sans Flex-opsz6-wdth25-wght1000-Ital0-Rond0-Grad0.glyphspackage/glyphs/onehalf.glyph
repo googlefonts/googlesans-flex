@@ -1,0 +1,34 @@
+{
+color = 4;
+glyphname = onehalf;
+kernLeft = one_nu_left;
+kernRight = two_de_right;
+layers = (
+{
+layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
+shapes = (
+{
+alignment = 1;
+ref = one.numerator;
+},
+{
+pos = (814,0);
+ref = fraction;
+},
+{
+alignment = 1;
+pos = (1229,0);
+ref = two.denominator;
+}
+);
+width = 2043;
+}
+);
+unicode = 189;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
+}

@@ -1,0 +1,34 @@
+{
+color = 4;
+glyphname = threequarters;
+kernLeft = three_nu_left;
+kernRight = four_de_righ;
+layers = (
+{
+layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
+shapes = (
+{
+alignment = 1;
+ref = three.numerator;
+},
+{
+pos = (902,0);
+ref = fraction;
+},
+{
+alignment = 1;
+pos = (1245,0);
+ref = four.denominator;
+}
+);
+width = 2155;
+}
+);
+unicode = 190;
+userData = {
+KernOnSpecialSpacing = {
+L = NoKerning;
+R = NoKerning;
+};
+};
+}
