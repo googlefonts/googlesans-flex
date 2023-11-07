@@ -714,62 +714,6 @@ name = paramOver;
 value = 0;
 }
 );
-guides = (
-{
-pos = (28,0);
-},
-{
-pos = (-12,-10);
-},
-{
-pos = (44,1014);
-},
-{
-pos = (210,-432);
-},
-{
-pos = (210,-448);
-},
-{
-pos = (-7,1592);
-},
-{
-pos = (-12,-16);
-},
-{
-pos = (25,360);
-showMeasurement = 1;
-},
-{
-pos = (44,998);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-176,1440);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-179,1160);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (53,607);
-},
-{
-angle = 90;
-pos = (512,0);
-showMeasurement = 1;
-},
-{
-pos = (25,1448);
-},
-{
-pos = (10,1432);
-},
-{
-pos = (-15,1442);
-}
-);
 id = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
 metricValues = (
 {
@@ -966,6 +910,7 @@ stemValues = (
 146,
 138
 );
+visible = 1;
 },
 {
 axesValues = (
@@ -1060,6 +1005,7 @@ pos = (0,875);
 {
 angle = 180;
 pos = (41,1151);
+showMeasurement = 1;
 },
 {
 pos = (-65,1544);
@@ -1423,7 +1369,6 @@ stemValues = (
 162,
 154
 );
-visible = 1;
 },
 {
 axesValues = (
@@ -1939,7 +1884,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -2586,6 +2530,16 @@ nV = "31";
 oH = "28";
 oV = "32";
 tH = "30";
+};
+"ECE3928B-0CC8-4E0B-96B5-3D55D3095D38" = {
+HH = "28";
+HV = "30";
+OH = "28";
+OV = "32";
+nV = "28";
+oH = "27";
+oV = "28";
+tH = "27";
 };
 "F6F68A98-DCEF-4963-8274-BBC8AF17E072" = {
 HH = "146";
