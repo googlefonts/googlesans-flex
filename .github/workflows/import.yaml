@@ -23,12 +23,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - uses: actions/cache@v3
-        with:
-          path: ./venv/
-          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-venv-
       - name: Prepare environment
         env:
           # The sources we want to import from
@@ -49,6 +43,12 @@ jobs:
           fi
       # `$GITHUB_WORKSPACE/source` is a Git worktree of the import from branch
       # `$GITHUB_WORKSPACE/target` is a Git worktree of the branch to import to where changes should be made
+      - uses: actions/cache@v3
+        with:
+          path: target/venv/
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
       - name: Delete old designspace & sources
         run: |
           # TODO: remove once new sources structure is in place
