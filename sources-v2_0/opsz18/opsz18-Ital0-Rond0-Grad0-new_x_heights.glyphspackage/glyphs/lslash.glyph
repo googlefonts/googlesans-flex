@@ -4,29 +4,45 @@ kernLeft = h_left;
 layers = (
 {
 layerId = m001;
+metricLeft = "=+45";
+metricRight = "=+45";
 shapes = (
 {
+pos = (45,0);
 ref = l;
+userData = {
+UFO.identifier = 3283B31E;
+UFO.lib = {
+};
+};
 },
 {
-pos = (422,0);
-ref = slashshortcomb2;
+pos = (44,114);
+ref = slashshortcomb;
 }
 );
-width = 422;
+width = 512;
 },
 {
 layerId = "91251A45-EED6-44E6-BC9D-709435BB03FD";
+metricLeft = "=+28";
+metricRight = "=+28";
 shapes = (
 {
+pos = (28,0);
 ref = l;
+userData = {
+UFO.identifier = 3283B31E;
+UFO.lib = {
+};
+};
 },
 {
-pos = (314,0);
-ref = slashshortcomb2;
+pos = (28,114);
+ref = slashshortcomb;
 }
 );
-width = 314;
+width = 370;
 },
 {
 background = {
@@ -34,47 +50,55 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(0,335,o,{
+(197,335,o,{
 name = inserted;
 }),
-(0,335,o,{
+(197,335,o,{
 name = inserted;
 }),
-(59,385,qs),
-(291,582,l),
-(310,576,l),
-(510,747,ls),
-(573,801,o,{
+(256,385,qs),
+(488,582,l),
+(507,576,l),
+(707,747,ls),
+(770,801,o,{
 name = inserted;
 }),
-(573,801,o,{
+(770,801,o,{
 name = inserted;
 }),
-(573,941,q),
-(573,1075,o),
-(573,1075,o),
-(513,1024,qs),
-(277,823,l),
-(256,827,l),
-(64,663,ls),
-(0,609,o),
-(0,609,o),
-(0,430,q)
+(770,941,q),
+(770,1075,o),
+(770,1075,o),
+(710,1024,qs),
+(474,823,l),
+(453,827,l),
+(261,663,ls),
+(197,609,o),
+(197,609,o),
+(197,430,q)
 );
 }
 );
 };
 layerId = "769463EF-2EF4-41A9-85A9-285641285009";
+metricLeft = "=+25";
+metricRight = "=+25";
 shapes = (
 {
+pos = (25,0);
 ref = l;
+userData = {
+UFO.identifier = 3283B31E;
+UFO.lib = {
+};
+};
 },
 {
-pos = (573,0);
-ref = slashshortcomb2;
+pos = (26,104);
+ref = slashshortcomb;
 }
 );
-width = 573;
+width = 623;
 },
 {
 background = {
@@ -82,128 +106,110 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(331,552,l),
-(349,548,l),
-(670,730,ls),
-(775,790,o),
-(775,790,o),
-(712,909,q),
-(645,1034,o),
-(645,1034,o),
-(533,970,qs),
-(351,866,l),
-(330,868,l),
-(14,688,ls),
-(-89,629,o),
-(-89,629,o),
-(-28,511,q),
-(38,385,o),
-(38,385,o),
-(150,449,qs)
+(556,552,l),
+(574,548,l),
+(895,730,ls),
+(1000,790,o),
+(1000,790,o),
+(937,909,q),
+(870,1034,o),
+(870,1034,o),
+(758,970,qs),
+(576,866,l),
+(555,868,l),
+(239,688,ls),
+(136,629,o),
+(136,629,o),
+(197,511,q),
+(263,385,o),
+(263,385,o),
+(375,449,qs)
 );
 }
 );
 };
 layerId = "879AA4C1-268E-45F5-A479-E8A4233029E2";
+metricLeft = "=+35";
+metricRight = "=+35";
 shapes = (
 {
+pos = (35,0);
 ref = l;
+userData = {
+UFO.identifier = 3283B31E;
+UFO.lib = {
+};
+};
 },
 {
-pos = (685,0);
-ref = slashshortcomb2;
+pos = (35,104);
+ref = slashshortcomb;
 }
 );
-width = 685;
+width = 755;
 },
 {
 layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
+metricLeft = "=+90";
+metricRight = "=+90";
 shapes = (
 {
+pos = (90,0);
 ref = l;
 userData = {
-UFO.identifier = ABF85F26;
+UFO.identifier = 3283B31E;
 UFO.lib = {
 };
 };
 },
 {
-pos = (458,0);
-ref = slashshortcomb2;
+pos = (89,127);
+ref = slashshortcomb;
 }
 );
-width = 458;
+width = 638;
 },
 {
 layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
+metricLeft = "=+80";
+metricRight = "=+80";
 shapes = (
 {
+pos = (80,0);
 ref = l;
 userData = {
-UFO.identifier = ABF85F26;
+UFO.identifier = 3283B31E;
 UFO.lib = {
 };
 };
 },
 {
-pos = (593,0);
-ref = slashshortcomb2;
+pos = (80,114);
+ref = slashshortcomb;
 }
 );
-width = 593;
+width = 753;
 },
 {
-background = {
-shapes = (
-{
-closed = 1;
-nodes = (
-(376,532,l),
-(400,531,l),
-(661,715,ls),
-(772,794,o),
-(772,794,o),
-(772,1002,q),
-(772,1142,o,{
-name = inserted;
-}),
-(772,1142,o,{
-name = inserted;
-}),
-(675,1073,qs),
-(393,874,l),
-(380,883,l),
-(56,653,ls),
-(8,619,o),
-(8,619,o),
-(8,537,q),
-(8,271,o,{
-name = inserted;
-}),
-(8,271,o,{
-name = inserted;
-}),
-(220,422,qs)
-);
-}
-);
-};
 layerId = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
+metricLeft = "=+65";
+metricRight = "=+65";
 shapes = (
 {
+pos = (65,0);
 ref = l;
 userData = {
-UFO.identifier = 411DD6EE;
+UFO.identifier = 3283B31E;
 UFO.lib = {
 };
 };
 },
 {
-pos = (776,0);
-ref = slashshortcomb2;
+pos = (65,104);
+ref = slashshortcomb;
 }
 );
-width = 776;
+width = 906;
 },
 {
 background = {
@@ -211,39 +217,42 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(168,690,l),
-(179,697,l),
-(336,854,ls),
-(347,865,o),
-(347,863,o),
-(347,895,q),
-(347,905,o,{
+(404,690,l),
+(415,697,l),
+(572,854,ls),
+(583,865,o),
+(583,863,o),
+(583,895,q),
+(583,905,o,{
 name = inserted;
 }),
-(347,905,o,{
+(583,905,o,{
 name = inserted;
 }),
-(338,896,qs),
-(179,737,l),
-(168,730,l),
-(11,571,ls),
-(0,560,o),
-(0,560,o),
-(0,547,q),
-(0,520,o,{
+(574,896,qs),
+(415,737,l),
+(404,730,l),
+(247,571,ls),
+(236,560,o),
+(236,560,o),
+(236,547,q),
+(236,520,o,{
 name = inserted;
 }),
-(0,520,o,{
+(236,520,o,{
 name = inserted;
 }),
-(10,530,qs)
+(246,530,qs)
 );
 }
 );
 };
 layerId = "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5";
+metricLeft = "=+40";
+metricRight = "=+40";
 shapes = (
 {
+pos = (40,0);
 ref = l;
 userData = {
 UFO.identifier = 3283B31E;
@@ -252,16 +261,19 @@ UFO.lib = {
 };
 },
 {
-pos = (347,0);
-ref = slashshortcomb2;
+pos = (41,127);
+ref = slashshortcomb;
 }
 );
-width = 347;
+width = 427;
 },
 {
 layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
+metricLeft = "=+23";
+metricRight = "=+23";
 shapes = (
 {
+pos = (23,0);
 ref = l;
 userData = {
 UFO.identifier = 3283B31E;
@@ -270,12 +282,14 @@ UFO.lib = {
 };
 },
 {
-pos = (256,0);
-ref = slashshortcomb2;
+pos = (23,127);
+ref = slashshortcomb;
 }
 );
-width = 256;
+width = 302;
 }
 );
+metricLeft = "=+30";
+metricRight = "=+30";
 unicode = 322;
 }
