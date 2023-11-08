@@ -624,6 +624,234 @@ featurePrefixes = (
 code = "include(family.fea);";
 disabled = 1;
 name = Prefix;
+},
+{
+automatic = 1;
+code = "languagesystem DFLT dflt;
+
+languagesystem latn dflt;
+languagesystem latn ROM;
+languagesystem latn MOL;
+languagesystem latn CAT;
+";
+name = Languagesystems;
+}
+);
+features = (
+{
+automatic = 1;
+code = "feature locl;
+feature subs;
+feature sinf;
+feature sups;
+feature frac;
+feature ordn;
+feature pnum;
+feature tnum;
+";
+tag = aalt;
+},
+{
+automatic = 1;
+code = "lookup ccmp_Other_1 {
+	@CombiningTopAccents = [acutecomb brevecomb caroncomb circumflexcomb commaturnedabovecomb dieresiscomb dotaccentcomb gravecomb hungarumlautcomb macroncomb ringcomb tildecomb];
+	lookupflag UseMarkFilteringSet @CombiningTopAccents;
+	sub i' @CombiningTopAccents by idotless;
+	sub j' @CombiningTopAccents by jdotless;
+} ccmp_Other_1;
+";
+tag = ccmp;
+},
+{
+automatic = 1;
+code = "script latn;
+language ROM;
+lookup locl_latn_0 {
+	sub Scedilla by Scommaaccent;
+	sub scedilla by scommaaccent;
+	sub Tcedilla by Tcommaaccent;
+	sub tcedilla by tcommaaccent;
+} locl_latn_0;
+language MOL;
+lookup locl_latn_0;
+
+script latn;
+language CAT;
+lookup locl_latn_1 {
+	sub  l' periodcentered' l by ldot;
+	sub  L' periodcentered' L by Ldot;
+} locl_latn_1;
+";
+tag = locl;
+},
+{
+automatic = 1;
+code = "sub zero by zero.sinf;
+sub one by one.sinf;
+sub two by two.sinf;
+sub three by three.sinf;
+sub four by four.sinf;
+sub five by five.sinf;
+sub six by six.sinf;
+sub seven by seven.sinf;
+sub eight by eight.sinf;
+sub nine by nine.sinf;
+";
+tag = subs;
+},
+{
+automatic = 1;
+code = "sub zero by zero.sinf;
+sub one by one.sinf;
+sub two by two.sinf;
+sub three by three.sinf;
+sub four by four.sinf;
+sub five by five.sinf;
+sub six by six.sinf;
+sub seven by seven.sinf;
+sub eight by eight.sinf;
+sub nine by nine.sinf;
+";
+tag = sinf;
+},
+{
+automatic = 1;
+code = "sub two by twosuperior;
+sub three by threesuperior;
+sub one by onesuperior;
+sub four by foursuperior;
+";
+tag = sups;
+},
+{
+automatic = 1;
+code = "sub one slash four by onequarter;
+sub one slash two by onehalf;
+sub three slash four by threequarters;
+";
+tag = frac;
+},
+{
+automatic = 1;
+code = "sub [zero one two three four five six seven eight nine] [A a]' by ordfeminine;
+sub [zero one two three four five six seven eight nine] [O o]' by ordmasculine;
+";
+tag = ordn;
+},
+{
+automatic = 1;
+code = "sub zero.tf by zero;
+sub one.tf by one;
+sub two.tf by two;
+sub three.tf by three;
+sub four.tf by four;
+sub five.tf by five;
+sub six.tf by six;
+sub seven.tf by seven;
+sub eight.tf by eight;
+sub nine.tf by nine;
+sub period.tf by period;
+sub comma.tf by comma;
+sub colon.tf by colon;
+sub semicolon.tf by semicolon;
+sub numbersign.tf by numbersign;
+sub space.tf by space;
+sub cent.tf by cent;
+sub currency.tf by currency;
+sub dollar.tf by dollar;
+sub Euro.tf by Euro;
+sub sterling.tf by sterling;
+sub plus.tf by plus;
+sub minus.tf by minus;
+sub multiply.tf by multiply;
+sub divide.tf by divide;
+sub equal.tf by equal;
+sub notequal.tf by notequal;
+sub greater.tf by greater;
+sub less.tf by less;
+sub greaterequal.tf by greaterequal;
+sub lessequal.tf by lessequal;
+sub plusminus.tf by plusminus;
+sub approxequal.tf by approxequal;
+sub logicalnot.tf by logicalnot;
+sub percent.tf by percent;
+sub section.tf by section;
+sub zeroslash.tf by zeroslash;
+sub fraction.tf by fraction;
+";
+tag = pnum;
+},
+{
+automatic = 1;
+code = "sub zero by zero.tf;
+sub one by one.tf;
+sub two by two.tf;
+sub three by three.tf;
+sub four by four.tf;
+sub five by five.tf;
+sub six by six.tf;
+sub seven by seven.tf;
+sub eight by eight.tf;
+sub nine by nine.tf;
+sub period by period.tf;
+sub comma by comma.tf;
+sub colon by colon.tf;
+sub semicolon by semicolon.tf;
+sub numbersign by numbersign.tf;
+sub space by space.tf;
+sub cent by cent.tf;
+sub currency by currency.tf;
+sub dollar by dollar.tf;
+sub Euro by Euro.tf;
+sub sterling by sterling.tf;
+sub plus by plus.tf;
+sub minus by minus.tf;
+sub multiply by multiply.tf;
+sub divide by divide.tf;
+sub equal by equal.tf;
+sub notequal by notequal.tf;
+sub greater by greater.tf;
+sub less by less.tf;
+sub greaterequal by greaterequal.tf;
+sub lessequal by lessequal.tf;
+sub plusminus by plusminus.tf;
+sub approxequal by approxequal.tf;
+sub logicalnot by logicalnot.tf;
+sub percent by percent.tf;
+sub section by section.tf;
+sub zeroslash by zeroslash.tf;
+sub fraction by fraction.tf;
+";
+tag = tnum;
+},
+{
+automatic = 1;
+code = "lookupflag IgnoreMarks;
+sub f f b by f_f_b;
+sub f f h by f_f_h;
+sub f f j by f_f_j;
+sub f f k by f_f_k;
+sub f f t by f_f_t;
+sub f b by f_b;
+sub f h by f_h;
+sub f j by f_j;
+sub f k by f_k;
+sub f t by f_t;
+sub t f by t_f;
+sub t t by t_t;
+";
+tag = dlig;
+},
+{
+automatic = 1;
+code = "lookupflag IgnoreMarks;
+sub f f i by f_f_i;
+sub f f l by f_f_l;
+sub f f by f_f;
+sub f i by f_i;
+sub f l by f_l;
+";
+tag = liga;
 }
 );
 fontMaster = (
@@ -3936,35 +4164,36 @@ kerningLTR = {
 "@MMK_R_a_left" = -140;
 "@MMK_R_ampersand_left" = -80;
 "@MMK_R_b_slash_left" = 50;
-"@MMK_R_bowl_left" = -150;
+"@MMK_R_bowl_left" = -140;
 "@MMK_R_braceright_left" = 20;
 "@MMK_R_bracketright_left" = 20;
 "@MMK_R_bullet_left" = -120;
 "@MMK_R_colon_left" = -30;
-"@MMK_R_comma_left" = -230;
+"@MMK_R_comma_left" = -240;
 "@MMK_R_dash_left" = -180;
-"@MMK_R_eth_left" = -150;
+"@MMK_R_dotlessj_left" = -130;
+"@MMK_R_eth_left" = -140;
 "@MMK_R_exclam_d_left" = -50;
 "@MMK_R_exclam_left" = -10;
 "@MMK_R_f_left" = -45;
 "@MMK_R_four_left" = -140;
 "@MMK_R_four_sup_left" = 35;
 "@MMK_R_g_left" = -143;
-"@MMK_R_germandb_left" = -20;
+"@MMK_R_germandb_left" = -30;
 "@MMK_R_greater_left" = -30;
 "@MMK_R_guilsingl_l_left" = -180;
 "@MMK_R_guilsingl_r_left" = -60;
-"@MMK_R_i_left" = -49;
+"@MMK_R_i_left" = -35;
 "@MMK_R_j_left" = -76;
 "@MMK_R_l_left" = -30;
-"@MMK_R_lbar_left" = 20;
+"@MMK_R_lbar_left" = 30;
 "@MMK_R_less_left" = -80;
-"@MMK_R_n_left" = -70;
-"@MMK_R_o_left" = -190;
+"@MMK_R_n_left" = -90;
+"@MMK_R_o_left" = -170;
 "@MMK_R_oslash_left" = -160;
 "@MMK_R_parenright_left" = 0;
 "@MMK_R_period_c_left" = -130;
-"@MMK_R_period_left" = -250;
+"@MMK_R_period_left" = -260;
 "@MMK_R_question_d_left" = -160;
 "@MMK_R_question_left" = 0;
 "@MMK_R_quote_left" = -30;
@@ -3972,18 +4201,24 @@ kerningLTR = {
 "@MMK_R_s_left" = -130;
 "@MMK_R_six_left" = -140;
 "@MMK_R_slash_left" = -200;
-"@MMK_R_t_left" = -30;
+"@MMK_R_t_left" = -10;
 "@MMK_R_u_left" = -70;
 "@MMK_R_unscore_left" = -130;
-"@MMK_R_v_left" = -30;
-"@MMK_R_w_left" = -10;
+"@MMK_R_v_left" = -20;
+"@MMK_R_w_left" = 0;
 "@MMK_R_y_left" = -20;
 "@MMK_R_z_left" = -45;
 };
 "@MMK_L_ldot_right" = {
-"@MMK_R_t_left" = 10;
+"@MMK_R_a_left" = -10;
+"@MMK_R_colon_left" = 10;
+"@MMK_R_comma_left" = -60;
+"@MMK_R_dotlessj_left" = -40;
+"@MMK_R_period_left" = -60;
+"@MMK_R_t_left" = 20;
 "@MMK_R_v_left" = -20;
-"@MMK_R_w_left" = -20;
+"@MMK_R_w_left" = -10;
+"@MMK_R_x_left" = -60;
 "@MMK_R_y_left" = -20;
 };
 "@MMK_L_less_right" = {
@@ -4038,6 +4273,7 @@ kerningLTR = {
 "@MMK_R_bowl_left" = 46;
 "@MMK_R_colon_left" = 66;
 "@MMK_R_dash_left" = 68;
+"@MMK_R_dotlessj_left" = 30;
 "@MMK_R_exclam_left" = 102;
 "@MMK_R_f_left" = 70;
 "@MMK_R_four_sup_left" = 116;
