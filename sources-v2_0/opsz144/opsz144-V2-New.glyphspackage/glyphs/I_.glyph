@@ -329,6 +329,11 @@ nodes = (
 }
 );
 };
+guides = (
+{
+pos = (132,-380);
+}
+);
 layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
 shapes = (
 {
@@ -361,7 +366,7 @@ pos = (399,0);
 },
 {
 name = ogonek;
-pos = (700,0);
+pos = (694,0);
 },
 {
 name = top;
@@ -411,13 +416,18 @@ name = inserted;
 }
 );
 };
+guides = (
+{
+pos = (244,-404);
+}
+);
 layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
 shapes = (
 {
 closed = 1;
 nodes = (
-(694,2,o),
-(694,2,o,{
+(694,0,o),
+(694,0,o,{
 name = inserted;
 }),
 (694,267,qs),
@@ -435,7 +445,7 @@ name = inserted;
 (104,267,ls),
 (104,0,o),
 (104,0,o),
-(400,1,q)
+(400,0,q)
 );
 }
 );
