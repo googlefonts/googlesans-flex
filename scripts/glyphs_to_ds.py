@@ -119,6 +119,10 @@ if __name__ == "__main__":
             if layer._is_brace_layer():
                 layer.name = layer._brace_layer_name()
 
+    # Clear feature imports.
+    # Motivation: glyphsLib tries to export disabled features
+    font.featurePrefixes = []
+
     ###############
     ### Convert ###
     ###############
