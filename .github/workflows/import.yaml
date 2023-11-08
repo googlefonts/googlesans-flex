@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - name: Prepare environment
+      - name: Prepare worktrees
         env:
           # The sources we want to import from
           SOURCE_REF: ${{ github.event.inputs.branch }}
@@ -87,7 +87,7 @@ jobs:
         # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
         run: echo "ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-fonts" >> $GITHUB_ENV
       - name: Build font
-        run: cd "$GITHUB_WORKSPACE/target" && make build
+        run: make --directory "$GITHUB_WORKSPACE/target" build
         env:
           SKIP_FONTV: true
       - name: Check with fontbakery
