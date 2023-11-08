@@ -743,9 +743,7 @@ stemValues = (
 86,
 84,
 77,
-77,
-0,
-0
+77
 );
 },
 {
@@ -850,9 +848,7 @@ stemValues = (
 200,
 195,
 184,
-168,
-0,
-0
+168
 );
 },
 {
@@ -957,9 +953,7 @@ stemValues = (
 408,
 398,
 365,
-298,
-0,
-0
+298
 );
 },
 {
@@ -1078,9 +1072,7 @@ stemValues = (
 89,
 87,
 86,
-81,
-0,
-0
+81
 );
 },
 {
@@ -1200,9 +1192,7 @@ stemValues = (
 217,
 211,
 197,
-186,
-0,
-0
+186
 );
 },
 {
@@ -1307,9 +1297,7 @@ stemValues = (
 428,
 419,
 384,
-308,
-0,
-0
+308
 );
 userData = {
 HTLSManagerMasterRules = {
@@ -1418,9 +1406,7 @@ stemValues = (
 92,
 90,
 91,
-84,
-0,
-0
+84
 );
 },
 {
@@ -1543,14 +1529,13 @@ stemValues = (
 243,
 237,
 216,
-195,
-0,
-0
+195
 );
 userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -1654,10 +1639,9 @@ stemValues = (
 442,
 432,
 384,
-319,
-0,
-0
+319
 );
+visible = 1;
 },
 {
 axesValues = (
@@ -1732,58 +1716,10 @@ value = 0;
 );
 guides = (
 {
-pos = (28,0);
+pos = (134,1160);
 },
 {
-pos = (-12,-10);
-},
-{
-pos = (44,1014);
-},
-{
-pos = (210,-432);
-},
-{
-pos = (210,-448);
-},
-{
-pos = (-7,1592);
-},
-{
-pos = (-12,-16);
-},
-{
-pos = (25,360);
-showMeasurement = 1;
-},
-{
-pos = (44,998);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-176,1440);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-179,1160);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (53,607);
-},
-{
-angle = 90;
-pos = (512,0);
-showMeasurement = 1;
-},
-{
-pos = (25,1448);
-},
-{
-pos = (10,1432);
-},
-{
-pos = (-15,1442);
+pos = (134,1439);
 }
 );
 id = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
@@ -1818,9 +1754,7 @@ stemValues = (
 30,
 28,
 28,
-27,
-0,
-0
+27
 );
 },
 {
@@ -1894,6 +1828,63 @@ name = paramOver;
 value = 0;
 }
 );
+guides = (
+{
+pos = (550,1623);
+},
+{
+pos = (30,0);
+},
+{
+pos = (30,-20);
+},
+{
+pos = (2,-229);
+showMeasurement = 1;
+},
+{
+pos = (67,955);
+showMeasurement = 1;
+},
+{
+angle = 180;
+pos = (305,133);
+},
+{
+pos = (30,-12);
+},
+{
+pos = (5,859);
+},
+{
+pos = (3,871);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-186,1440);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1160);
+},
+{
+filter = "category == \"Symbol\" AND subCategory == \"Math\"";
+pos = (129,620);
+},
+{
+pos = (21,1452);
+},
+{
+pos = (23,1432);
+},
+{
+angle = 90;
+pos = (583,-85);
+},
+{
+pos = (21,1445);
+}
+);
 id = "91251A45-EED6-44E6-BC9D-709435BB03FD";
 metricValues = (
 {
@@ -1925,9 +1916,7 @@ stemValues = (
 156,
 150,
 146,
-138,
-0,
-0
+138
 );
 },
 {
@@ -2023,6 +2012,7 @@ pos = (0,875);
 {
 angle = 180;
 pos = (41,1151);
+showMeasurement = 1;
 },
 {
 pos = (-65,1544);
@@ -2035,7 +2025,7 @@ pos = (16,631);
 pos = (34,174);
 },
 {
-pos = (88,488);
+pos = (111,262);
 showMeasurement = 1;
 },
 {
@@ -2075,9 +2065,7 @@ stemValues = (
 430,
 425,
 400,
-302,
-0,
-0
+302
 );
 },
 {
@@ -2167,11 +2155,11 @@ pos = (3,-30);
 },
 {
 angle = 180;
-pos = (41,1242);
+pos = (41,1196);
 showMeasurement = 1;
 },
 {
-pos = (-65,1480);
+pos = (-65,1477);
 },
 {
 filter = "category == \"Symbol\" AND subCategory == \"Math\"";
@@ -2179,12 +2167,6 @@ pos = (58,607);
 },
 {
 pos = (67,128);
-},
-{
-pos = (21,1462);
-},
-{
-pos = (23,1432);
 },
 {
 pos = (14,258);
@@ -2228,9 +2210,7 @@ stemValues = (
 32,
 31,
 30,
-30,
-0,
-0
+30
 );
 },
 {
@@ -2348,7 +2328,7 @@ pos = (21,1464);
 pos = (23,1432);
 },
 {
-pos = (123,571);
+pos = (123,515);
 showMeasurement = 1;
 },
 {
@@ -2388,9 +2368,7 @@ stemValues = (
 170,
 170,
 162,
-154,
-0,
-0
+154
 );
 },
 {
@@ -2552,9 +2530,7 @@ stemValues = (
 460,
 455,
 425,
-317,
-0,
-0
+317
 );
 },
 {
@@ -2643,9 +2619,6 @@ pos = (-129,31);
 showMeasurement = 1;
 },
 {
-pos = (-74,-248);
-},
-{
 pos = (-15,-432);
 },
 {
@@ -2724,9 +2697,7 @@ stemValues = (
 32,
 31,
 31,
-30,
-0,
-0
+30
 );
 },
 {
@@ -2905,9 +2876,7 @@ stemValues = (
 170,
 168,
 156,
-148,
-0,
-0
+148
 );
 userData = {
 HTLSManagerMasterRules = {
@@ -2987,7 +2956,7 @@ value = 0;
 );
 guides = (
 {
-pos = (-62,-380);
+pos = (-58,-285);
 showMeasurement = 1;
 },
 {
@@ -3019,15 +2988,7 @@ locked = 1;
 pos = (44,887);
 },
 {
-pos = (-62,-380);
-showMeasurement = 1;
-},
-{
-pos = (-62,-380);
-showMeasurement = 1;
-},
-{
-pos = (-62,-380);
+pos = (-62,-432);
 showMeasurement = 1;
 },
 {
@@ -3096,9 +3057,7 @@ stemValues = (
 480,
 474,
 412,
-326,
-0,
-0
+326
 );
 },
 {
@@ -3198,7 +3157,7 @@ pos = (80,1447);
 },
 {
 name = "sinf-overshoot";
-pos = (279,386);
+pos = (284,375);
 },
 {
 name = "sinf-b";
@@ -3225,11 +3184,11 @@ showMeasurement = 1;
 },
 {
 name = "MATH ";
-pos = (39,632);
+pos = (39,620);
 showMeasurement = 1;
 }
 );
-id = "FCF583F0-C38F-420D-9271-80077D843248";
+id = "831119D9-6286-45C7-9699-0A9494C983BD";
 metricValues = (
 {
 over = 7;
@@ -3259,8 +3218,6 @@ name = "opsz144-wdth25-wght1-Ital0-Rond0-Grad0";
 stemValues = (
 4,
 4,
-0,
-0,
 4,
 4
 );
@@ -3440,8 +3397,6 @@ name = "opsz144-wdth25-wght400-Ital0-Rond0-Grad0";
 stemValues = (
 140,
 134,
-0,
-0,
 136,
 133
 );
@@ -3542,7 +3497,7 @@ pos = (182,1117);
 },
 {
 name = "numerators-overshoot";
-pos = (80,1447);
+pos = (76,1443);
 },
 {
 locked = 1;
@@ -3590,11 +3545,6 @@ name = "numeratos-overshoot";
 pos = (428,-22);
 },
 {
-angle = 90;
-name = "diacritics-b";
-pos = (309,1122);
-},
-{
 locked = 1;
 name = "MATH tf";
 pos = (702,716);
@@ -3630,8 +3580,6 @@ name = "opsz144-wdth25-wght1000-Ital0-Rond0-Grad0";
 stemValues = (
 446,
 395,
-0,
-0,
 440,
 340
 );
@@ -3780,8 +3728,6 @@ name = "opsz144-wdth100-wght1-Ital0-Rond0-Grad0";
 stemValues = (
 4,
 4,
-0,
-0,
 4,
 4
 );
@@ -3912,7 +3858,7 @@ pos = (305,1584);
 {
 angle = 180;
 name = "MATH tf";
-pos = (618,716);
+pos = (618,669);
 }
 );
 id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
@@ -3945,8 +3891,6 @@ name = "opsz144-wdth100-wght400-Ital0-Rond0-Grad0";
 stemValues = (
 146,
 1412,
-0,
-0,
 138,
 121
 );
@@ -4109,8 +4053,6 @@ name = "opsz144-wdth100-wght1000-Ital0-Rond0-Grad0";
 stemValues = (
 590,
 506,
-0,
-0,
 522,
 414
 );
@@ -4291,8 +4233,6 @@ name = "opsz144-wdth151-wght1-Ital0-Rond0-Grad0";
 stemValues = (
 10,
 10,
-0,
-0,
 9,
 10
 );
@@ -4469,8 +4409,6 @@ name = "opsz144-wdth151-wght400-Ital0-Rond0-Grad0";
 stemValues = (
 146,
 142,
-0,
-0,
 138,
 121
 );
@@ -4628,8 +4566,6 @@ name = "opsz144-wdth151-wght1000-Ital0-Rond0-Grad0";
 stemValues = (
 850,
 738,
-0,
-0,
 600,
 460
 );
@@ -5916,7 +5852,6 @@ four = 0;
 one = 0;
 };
 dcaron = {
-"@MMK_R_h_left" = 27;
 "@MMK_R_i_left" = 47;
 "@MMK_R_quotes_left" = 53;
 "@MMK_R_quotes_right" = 53;
@@ -6083,7 +6018,6 @@ iogonek = {
 j = 27;
 };
 lcaron = {
-"@MMK_R_h_left" = 13;
 "@MMK_R_i_left" = 13;
 "@MMK_R_z_left" = 27;
 };
@@ -7956,9 +7890,14 @@ fraction = {
 four.denominator = -150;
 };
 };
-"FCF583F0-C38F-420D-9271-80077D843248" = {
+"831119D9-6286-45C7-9699-0A9494C983BD" = {
 plus = {
 zero = 0;
+};
+};
+"01856C8F-DF22-4242-84EC-D0E09743B379" = {
+"@MMK_L_W_right" = {
+"@MMK_R_h_left" = 0;
 };
 };
 "8F69D9BF-EE35-44AA-BD6F-D41841F9764C" = {
@@ -8067,12 +8006,6 @@ name = "H horizontal";
 {
 horizontal = 1;
 name = "t horizontal";
-},
-{
-name = "H horizontal";
-},
-{
-name = "t horizontal";
 }
 );
 unitsPerEm = 2000;
@@ -8118,6 +8051,16 @@ oH = "348";
 oV = "436";
 tH = "308";
 };
+"4EAE7F17-0A08-4443-B85C-52E72D924BBD" = {
+HH = "78";
+HV = "86";
+OH = "76";
+OV = "88";
+nV = "84";
+oH = "76";
+oV = "86";
+tH = "77";
+};
 "5DA06E3F-B65C-4341-B330-53F50D9F2964" = {
 HH = "216";
 HV = "243";
@@ -8138,6 +8081,16 @@ oH = "172";
 oV = "199";
 tH = "168";
 };
+"7ED4B341-A37B-4DEE-8334-0DF71EE2D955" = {
+HH = "87";
+HV = "90";
+OH = "82";
+OV = "93";
+nV = "88";
+oH = "79";
+oV = "90";
+tH = "82";
+};
 "AA600D03-8064-48D6-9688-B5065330793C" = {
 HH = "204";
 HV = "225";
@@ -8157,6 +8110,16 @@ nV = "432";
 oH = "354";
 oV = "445";
 tH = "319";
+};
+"C2BA2B2A-76E0-4627-B638-B0CC7B22E341" = {
+HH = "91";
+HV = "92";
+OH = "84";
+OV = "94";
+nV = "90";
+oH = "81";
+oV = "92";
+tH = "84";
 };
 "C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = {
 HH = "197";
