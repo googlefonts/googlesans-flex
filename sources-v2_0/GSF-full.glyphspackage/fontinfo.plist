@@ -701,10 +701,6 @@ value = 0;
 guides = (
 {
 locked = 1;
-pos = (883,1086);
-},
-{
-locked = 1;
 pos = (699,-20);
 },
 {
@@ -1148,15 +1144,6 @@ value = 0;
 );
 guides = (
 {
-lockAngle = 1;
-locked = 1;
-pos = (1807,920);
-},
-{
-locked = 1;
-pos = (1351,1122);
-},
-{
 locked = 1;
 pos = (787,-496);
 }
@@ -1408,6 +1395,7 @@ stemValues = (
 91,
 84
 );
+visible = 1;
 },
 {
 axesValues = (
@@ -1641,7 +1629,6 @@ stemValues = (
 384,
 319
 );
-visible = 1;
 },
 {
 axesValues = (
@@ -1716,7 +1703,7 @@ value = 0;
 );
 guides = (
 {
-pos = (134,1160);
+pos = (134,900);
 },
 {
 pos = (134,1439);
@@ -1843,12 +1830,12 @@ pos = (2,-229);
 showMeasurement = 1;
 },
 {
-pos = (67,955);
+pos = (50,967);
 showMeasurement = 1;
 },
 {
 angle = 180;
-pos = (305,133);
+pos = (305,105);
 },
 {
 pos = (30,-12);
@@ -1883,6 +1870,10 @@ pos = (583,-85);
 },
 {
 pos = (21,1445);
+},
+{
+angle = 180;
+pos = (285,235);
 }
 );
 id = "91251A45-EED6-44E6-BC9D-709435BB03FD";
@@ -2011,7 +2002,7 @@ pos = (0,875);
 },
 {
 angle = 180;
-pos = (41,1151);
+pos = (30,1170);
 showMeasurement = 1;
 },
 {
@@ -2141,7 +2132,7 @@ value = 0;
 );
 guides = (
 {
-pos = (112,736);
+pos = (163,964);
 showMeasurement = 1;
 },
 {
@@ -2166,7 +2157,7 @@ filter = "category == \"Symbol\" AND subCategory == \"Math\"";
 pos = (58,607);
 },
 {
-pos = (67,128);
+pos = (67,132);
 },
 {
 pos = (14,258);
@@ -2292,7 +2283,7 @@ pos = (68,0);
 pos = (68,-32);
 },
 {
-pos = (402,752);
+pos = (403,752);
 },
 {
 pos = (68,-432);
@@ -2312,7 +2303,7 @@ filter = "category == \"Mark\"";
 pos = (-179,1200);
 },
 {
-pos = (57,1020);
+pos = (57,1052);
 },
 {
 filter = "category == \"Symbol\" AND subCategory == \"Math\"";
@@ -2487,7 +2478,7 @@ pos = (27,630);
 pos = (34,360);
 },
 {
-pos = (23,1432);
+pos = (5,1299);
 },
 {
 pos = (47,505);
@@ -2602,68 +2593,6 @@ value = 16;
 {
 name = paramOver;
 value = 0;
-}
-);
-guides = (
-{
-pos = (9,998);
-},
-{
-pos = (-7,-38);
-},
-{
-pos = (-2,0);
-},
-{
-pos = (-129,31);
-showMeasurement = 1;
-},
-{
-pos = (-15,-432);
-},
-{
-pos = (-15,-470);
-},
-{
-pos = (73,859);
-},
-{
-pos = (73,875);
-},
-{
-angle = 0.1771;
-pos = (76,779);
-showMeasurement = 1;
-},
-{
-filter = "category == \"Mark\"";
-pos = (-176,1480);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-179,1200);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (51,607);
-},
-{
-pos = (18,91);
-},
-{
-pos = (21,1470);
-},
-{
-pos = (23,1432);
-},
-{
-pos = (154,497);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (1545,-68);
-showMeasurement = 1;
 }
 );
 id = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
@@ -2833,7 +2762,7 @@ pos = (34,146);
 pos = (21,1474);
 },
 {
-pos = (23,1432);
+pos = (-16,1254);
 },
 {
 pos = (470,267);
@@ -3014,10 +2943,10 @@ pos = (60,374);
 pos = (21,1480);
 },
 {
-pos = (23,1432);
+pos = (23,1467);
 },
 {
-pos = (528,548);
+pos = (528,244);
 showMeasurement = 1;
 },
 {
@@ -3186,9 +3115,12 @@ showMeasurement = 1;
 name = "MATH ";
 pos = (39,620);
 showMeasurement = 1;
+},
+{
+pos = (50,1079);
 }
 );
-id = "831119D9-6286-45C7-9699-0A9494C983BD";
+id = "EF627B75-2FEB-4B39-B6B8-BA389964BD66";
 metricValues = (
 {
 over = 7;
@@ -3364,7 +3296,7 @@ pos = (468,-166);
 },
 {
 name = "MATH tf";
-pos = (47,716);
+pos = (37,758);
 }
 );
 id = "01856C8F-DF22-4242-84EC-D0E09743B379";
@@ -7890,7 +7822,7 @@ fraction = {
 four.denominator = -150;
 };
 };
-"831119D9-6286-45C7-9699-0A9494C983BD" = {
+"EF627B75-2FEB-4B39-B6B8-BA389964BD66" = {
 plus = {
 zero = 0;
 };

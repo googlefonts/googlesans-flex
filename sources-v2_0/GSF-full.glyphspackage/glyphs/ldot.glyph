@@ -764,7 +764,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (251,148);
+pos = (247,148);
 ref = periodcentered;
 userData = {
 UFO.identifier = 9345F333;
@@ -773,7 +773,7 @@ UFO.lib = {
 };
 }
 );
-width = 578;
+width = 570;
 },
 {
 layerId = m001;
@@ -799,11 +799,11 @@ ref = l;
 },
 {
 alignment = -1;
-pos = (637,-25);
+pos = (640,-25);
 ref = periodcentered;
 }
 );
-width = 1237;
+width = 1242;
 },
 {
 layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
@@ -819,7 +819,7 @@ UFO.lib = {
 },
 {
 alignment = -1;
-pos = (323,152);
+pos = (324,152);
 ref = periodcentered;
 userData = {
 UFO.identifier = 899BF5F3;
@@ -828,7 +828,7 @@ UFO.lib = {
 };
 }
 );
-width = 721;
+width = 724;
 },
 {
 layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
@@ -951,7 +951,7 @@ nodes = (
 }
 );
 };
-layerId = "831119D9-6286-45C7-9699-0A9494C983BD";
+layerId = "EF627B75-2FEB-4B39-B6B8-BA389964BD66";
 shapes = (
 {
 alignment = -1;
@@ -1125,10 +1125,10 @@ nodes = (
 {
 closed = 1;
 nodes = (
-(964,571,l),
-(1020,571,l),
-(1020,781,l),
-(964,781,l)
+(982,571,l),
+(1038,571,l),
+(1038,781,l),
+(982,781,l)
 );
 }
 );
@@ -1155,7 +1155,7 @@ UFO.lib = {
 };
 }
 );
-width = 972;
+width = 990;
 },
 {
 background = {
@@ -1487,6 +1487,121 @@ shapes = (
 {
 closed = 1;
 nodes = (
+(833,496,l),
+(936,496,l),
+(936,934,l),
+(833,934,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(833,0,o),
+(833,0,o,{
+name = inserted;
+}),
+(833,332,qs),
+(833,1100,ls),
+(833,1432,o,{
+name = inserted;
+}),
+(833,1432,o,{
+name = inserted;
+}),
+(464,1432,qs),
+(95,1432,o),
+(95,1432,o),
+(95,1100,qs),
+(95,332,ls),
+(95,0,o),
+(95,0,o),
+(464,0,q)
+);
+},
+{
+closed = 1;
+nodes = (
+(1409,424,o),
+(1602,604,o),
+(1602,745,qs),
+(1602,886,o),
+(1409,1066,o),
+(1269,1066,qs),
+(1129,1066,o),
+(936,886,o),
+(936,745,qs),
+(936,604,o),
+(1129,424,o),
+(1269,424,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(1602,496,l),
+(1705,496,l),
+(1705,934,l),
+(1602,934,l)
+);
+}
+);
+};
+guides = (
+{
+pos = (956,594);
+showMeasurement = 1;
+}
+);
+layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+metricRight = "=o*0.3";
+shapes = (
+{
+alignment = -1;
+ref = l;
+userData = {
+UFO.identifier = 2AEB773A;
+UFO.lib = {
+};
+};
+},
+{
+alignment = -1;
+pos = (820,-66);
+ref = periodcentered;
+userData = {
+UFO.identifier = 33AEDEE7;
+UFO.lib = {
+};
+};
+}
+);
+width = 1611;
+},
+{
+associatedMasterId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+background = {
+anchors = (
+{
+name = bottom;
+pos = (463,0);
+},
+{
+name = center;
+pos = (462,730);
+},
+{
+name = top;
+pos = (459,1432);
+},
+{
+name = topright;
+pos = (1292,1020);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
 (1600,496,l),
 (1710,496,l),
 (1710,934,l),
@@ -1552,7 +1667,8 @@ pos = (956,594);
 showMeasurement = 1;
 }
 );
-layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+layerId = "71A90699-4686-412B-B6B7-93CAA9328566";
+name = "7 Nov 23 at 19:25";
 shapes = (
 {
 alignment = -1;
