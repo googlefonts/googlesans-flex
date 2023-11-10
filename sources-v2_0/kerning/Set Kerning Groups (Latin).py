@@ -131,7 +131,7 @@ class SetKernPairs ( object ):
 				"OE" : ["O_left", "E_right"],
 				"P" : ["H_left", "P_right"],
 				"Thorn" : ["H_left", "Thorn_right"],
-				"Q" : ["O_left", "Q_right"],
+				"Q" : ["O_left", "O_right"],
 				"R" : ["H_left", "R_right"],
 				"Racute" : ["H_left", "R_right"],
 				"Rcaron" : ["H_left", "R_right"],
@@ -508,7 +508,7 @@ class SetKernPairs ( object ):
 			groupsMS = {
 			#punctuation
 				"period" : ["period_left", "period_right"],
-				"comma" : ["period_left", "period_right"],
+				"comma" : ["comma_left", "period_right"],
 				"colon" : ["colon_left", "colon_right"],
 				"semicolon" : ["colon_left", "colon_right"],
 				"ellipsis" : ["period_left", "period_right"],
@@ -539,8 +539,8 @@ class SetKernPairs ( object ):
 				"bracketleft" : ["bracketleft_left", "bracketleft_right"],
 				"bracketright" : ["bracketright_left", "bracketright_right"],
 			#quotes
-				"quotesinglbase" : ["period_left", "period_right"],
-				"quotedblbase" : ["period_left", "period_right"],
+				"quotesinglbase" : ["comma_left", "period_right"],
+				"quotedblbase" : ["comma_left", "period_right"],
 				"quoteleft" : ["quoteleft_left", "quoteleft_right"],
 				"quotedblleft" : ["quoteleft_left", "quoteleft_right"],
 				"quoteright" : ["quoteright_left", "quoteright_right"],
