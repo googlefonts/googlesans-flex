@@ -22,20 +22,21 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 	rm -rf fonts/
 	. venv/bin/activate \
 		&& gftools builder sources/config.yaml
-	# Font-v cannot deal with worktrees, which we use for imports. See
-	# https://github.com/source-foundry/font-v/issues/169. Just skip it.
-	if [ -z "${SKIP_FONTV}" ]; then venv/bin/font-v write --sha1 fonts/variable/*.ttf; fi
+# Font-v cannot deal with worktrees, which we use for imports. See
+# https://github.com/source-foundry/font-v/issues/169. Just skip it.
+	[ -z "${SKIP_FONTV}" ] && venv/bin/font-v write --sha1 fonts/variable/*.ttf
 	venv/bin/python scripts/prune_font_binary.py fonts/variable/*.ttf
-	# TODO: Re-enable when additional designspaces are restored.
-	#venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/regular/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,wdth,wght].ttf
-	#venv/bin/python scripts/set-overlap-bits.py sources/italic/glyphs-with-overlap.txt sources/italic/GoogleSansFlex-Italic.designspace fonts/variable/GoogleSansFlex-Italic[ROND,opsz,wdth,wght].ttf
-	#venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+# TODO: Re-enable when additional designspaces are restored.
+#venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/regular/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,wdth,wght].ttf
+#venv/bin/python scripts/set-overlap-bits.py sources/italic/glyphs-with-overlap.txt sources/italic/GoogleSansFlex-Italic.designspace fonts/variable/GoogleSansFlex-Italic[ROND,opsz,wdth,wght].ttf
+#venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
 	touch build.stamp
 
 venv/touchfile: requirements.txt
 	test -d venv || python3 -m venv venv
-	. venv/bin/activate; pip install -U setuptools wheel pip
-	. venv/bin/activate; pip install --no-deps -r requirements.txt
+	. venv/bin/activate \
+		&& pip install -U setuptools wheel pip \
+		&& pip install --no-deps -r requirements.txt
 	touch venv/touchfile
 
 test: build.stamp
@@ -47,23 +48,23 @@ test: build.stamp
 
 	# Run fontbakery tests
 	mkdir -p out/fontbakery
-	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-sources-report.html \
+	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-sources-report.html \
 		qa/check-sources.py \
 			sources/GoogleSansFlex.designspace \
 			sources/regular/GoogleSansFlex.designspace \
 			sources/italic/GoogleSansFlex-Italic.designspace \
-			$(shell find sources -name "*.ufo") || echo "Continuing..."
-	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html \
-		fontbakery.profiles.outline fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
-	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html \
-		qa/check-googlesans.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
-	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html \
-		qa/check-fea.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
-	# NOTE: The following checks can be activated after the sources are stable:
-	# venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html \
-	#	qa/check-charset.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
-	# venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
-	#	qa/check-shaping.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
+			$(shell find sources -name "*.ufo")
+	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html \
+		fontbakery.profiles.outline fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html \
+		qa/check-googlesans.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html \
+		qa/check-fea.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+# NOTE: The following checks can be activated after the sources are stable:
+# -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html \
+#	qa/check-charset.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+# -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
+#	qa/check-shaping.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
 
 proof: venv build.stamp
 	. venv/bin/activate; mkdir -p out/proof; diffenator2 proof $(shell find fonts/variable -type f) -o out/proof
