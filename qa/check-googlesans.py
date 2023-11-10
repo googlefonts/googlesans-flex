@@ -14,14 +14,16 @@
 
 
 from pathlib import Path
+
 from fontbakery.callable import check, condition
-from fontbakery.checkrunner import FAIL, PASS, SKIP, WARN, Section
 from fontbakery.constants import UNICODERANGE_DATA
 from fontbakery.fonts_profile import profile_factory
-from fontbakery.message import Message, KEEP_ORIGINAL_MESSAGE
+from fontbakery.message import KEEP_ORIGINAL_MESSAGE, Message
 from fontbakery.profiles.googlefonts import GOOGLEFONTS_PROFILE_CHECKS
 from fontbakery.profiles.outline import OUTLINE_PROFILE_CHECKS
 from fontbakery.profiles.shared_conditions import is_italic
+from fontbakery.section import Section
+from fontbakery.status import FAIL, PASS, SKIP, WARN
 from fontbakery.utils import (
     chars_in_range,
     compute_unicoderange_bits,

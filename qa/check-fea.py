@@ -13,10 +13,11 @@
 # limitations under the License.
 
 from fontbakery.callable import check, condition
-from fontbakery.checkrunner import FAIL, PASS, Section
 from fontbakery.fonts_profile import profile_factory
+from fontbakery.section import Section
+from fontbakery.status import FAIL, PASS
 
-profile_imports = ()
+profile_imports = [("fontbakery.profiles.shared_conditions", ("ttFont",))]
 profile = profile_factory(
     default_section=Section("Google Sans Custom Feature Support Checks")
 )

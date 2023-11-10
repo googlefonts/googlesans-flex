@@ -16,8 +16,9 @@ import os
 from difflib import unified_diff
 
 from fontbakery.callable import check
-from fontbakery.checkrunner import FAIL, PASS, Section
 from fontbakery.fonts_profile import profile_factory
+from fontbakery.section import Section
+from fontbakery.status import FAIL, PASS
 
 profile_imports = ()
 profile = profile_factory(
