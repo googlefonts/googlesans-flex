@@ -30,6 +30,9 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 #venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/regular/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,wdth,wght].ttf
 #venv/bin/python scripts/set-overlap-bits.py sources/italic/glyphs-with-overlap.txt sources/italic/GoogleSansFlex-Italic.designspace fonts/variable/GoogleSansFlex-Italic[ROND,opsz,wdth,wght].ttf
 #venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+# Remove intermediary file leftover by gftools
+# https://github.com/googlefonts/gftools/issues/764
+	rm -vf fonts/variable/*.ttf.stat.yaml
 	touch build.stamp
 
 venv/touchfile: requirements.txt
