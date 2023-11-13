@@ -24,59 +24,7 @@ from tempfile import TemporaryDirectory
 from argparse import ArgumentParser
 
 # Incompatible glyphs, that should not be included in the final build.
-INCOMPATIBLE = {
-    # fontmake compatibility checker
-    "ampersand",
-    "at",
-    "braceright",
-    "colon.tf",
-    "divide",
-    "Euro",
-    "flig2",
-    "flig3",
-    "fraction.tf",
-    "greaterequal-stroke",
-    "lslash",
-    "ordfeminine",
-    "percent.001",
-    "percent.tf",
-    "question",
-    "section",
-    "slashshortcomb",
-    "slashshortcomb.case",
-    "sterling",
-    "tlig",
-    "zero.dnom.percent",
-    # fontmake ufo2ft pass
-    "braceleft",
-    "bracketleft",
-    "divide.tf",
-    "Euro.tf",
-    "f_f_b",
-    "f_f_h",
-    "f_f_i",
-    "f_f_j",
-    "f_f_k",
-    "f_f_l",
-    "f_f_t",
-    "f_f",
-    "f_i",
-    "f_j",
-    "f_t",
-    "greaterequal.tf",
-    "greaterequal",
-    "guilsinglleft",
-    "lessequal.tf",
-    "lessequal",
-    "Lslash",
-    "percent",
-    "questiondown",
-    "section.tf",
-    "sterling.tf",
-    "t_f",
-    "t_t",
-    "zero.numr.percent",
-}
+INCOMPATIBLE = set()
 
 if __name__ == "__main__":
     parser = ArgumentParser()
