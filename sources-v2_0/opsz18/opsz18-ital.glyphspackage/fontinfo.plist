@@ -1,5 +1,5 @@
 {
-.appVersion = "3226";
+.appVersion = "3227";
 .formatVersion = 3;
 axes = (
 {
@@ -631,6 +631,10 @@ value = GOOG;
 {
 name = trademarks;
 value = "Google Sans is a trademark of Google.";
+},
+{
+name = "EditView Line Height";
+value = 1875;
 }
 );
 date = "2017-07-06 09:41:44 +0000";
@@ -1222,7 +1226,7 @@ axesValues = (
 18,
 100,
 400,
-0,
+10,
 0,
 0
 );
@@ -1290,55 +1294,8 @@ value = 0;
 );
 guides = (
 {
-pos = (68,0);
-},
-{
-pos = (68,-32);
-},
-{
-pos = (403,752);
-},
-{
-pos = (68,-432);
-},
-{
-pos = (68,-464);
-},
-{
-pos = (68,-19);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-176,1480);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-179,1200);
-},
-{
-pos = (57,1052);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (139,620);
-},
-{
-pos = (36,140);
-},
-{
-pos = (21,1464);
-},
-{
-pos = (23,1432);
-},
-{
-pos = (123,515);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (969,0);
-showMeasurement = 1;
+angle = 80;
+pos = (235,313);
 }
 );
 id = m001;
@@ -1363,17 +1320,29 @@ over = -32;
 pos = -432;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
+name = "opsz18-wdth100-wght400-Ital1-Rond0-Grad0";
 stemValues = (
 170,
 170,
 162,
 154
 );
+userData = {
+GSSlanterCursivy = 8;
+GSSlanterCursivyContrastFactor = 0.3;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 0;
+GSSlanterCursivyShapeFactor = 0.6;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 2;
+GSSlanterRotate = 0;
+};
 },
 {
 axesValues = (
@@ -1641,7 +1610,6 @@ stemValues = (
 31,
 30
 );
-visible = 1;
 },
 {
 axesValues = (
@@ -1825,7 +1793,6 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -2003,7 +1970,175 @@ stemValues = (
 412,
 326
 );
-visible = 1;
+},
+{
+axesValues = (
+0,
+100,
+400,
+0,
+0,
+0
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = 400;
+},
+{
+name = paramDepth;
+value = 10;
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+pos = (68,0);
+},
+{
+pos = (68,-32);
+},
+{
+pos = (403,752);
+},
+{
+pos = (68,-432);
+},
+{
+pos = (68,-464);
+},
+{
+pos = (68,-19);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-176,1480);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-179,1200);
+},
+{
+pos = (57,1052);
+},
+{
+filter = "category == \"Symbol\" AND subCategory == \"Math\"";
+pos = (139,620);
+},
+{
+pos = (36,140);
+},
+{
+pos = (21,1464);
+},
+{
+pos = (23,1432);
+},
+{
+pos = (123,515);
+showMeasurement = 1;
+},
+{
+angle = 90;
+pos = (969,0);
+showMeasurement = 1;
+}
+);
+id = "00A8AF8C-1F7F-4A0D-800D-776D582CE59F";
+metricValues = (
+{
+over = 32;
+pos = 1432;
+},
+{
+over = 32;
+pos = 1432;
+},
+{
+over = 32;
+pos = 1020;
+},
+{
+over = -32;
+},
+{
+over = -32;
+pos = -432;
+},
+{
+},
+{
+}
+);
+name = "COPY of upright 100-400";
+stemValues = (
+170,
+170,
+162,
+154
+);
+userData = {
+GSSlanterCursivy = 10;
+GSSlanterCursivyContrastFactor = 0.5;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 1;
+GSSlanterCursivyShapeFactor = 0.6;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 0;
+GSSlanterRotate = 0;
+};
 }
 );
 instances = (
@@ -2073,7 +2208,10 @@ axesValues = (
 0
 );
 instanceInterpolations = {
-m001 = 1;
+"854B8A49-0698-4FEC-AD72-BCF838C96101" = 0.29762;
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.1997;
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.3003;
+"91251A45-EED6-44E6-BC9D-709435BB03FD" = 0.20238;
 };
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
 },
@@ -2184,6 +2322,11 @@ four.denominator = -130;
 "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = {
 fraction = {
 four.denominator = -150;
+};
+};
+"00A8AF8C-1F7F-4A0D-800D-776D582CE59F" = {
+fraction = {
+four.denominator = -80;
 };
 };
 };
@@ -2487,9 +2630,9 @@ oV = "152";
 };
 m001 = {
 HH = "162";
-HV = "170";
+HV = "171";
 OH = "162";
-OV = "172";
+OV = "173";
 nV = "170";
 oH = "154";
 oV = "170";
