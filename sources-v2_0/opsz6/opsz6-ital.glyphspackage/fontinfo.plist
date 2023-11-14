@@ -1,5 +1,5 @@
 {
-.appVersion = "3226";
+.appVersion = "3227";
 .formatVersion = 3;
 axes = (
 {
@@ -632,7 +632,7 @@ axesValues = (
 6,
 25,
 1,
-0,
+10,
 0,
 0
 );
@@ -730,11 +730,12 @@ over = -19;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth25-wght1-Ital0-Rond0-Grad0";
+name = "opsz6-wdth25-wght1-Ital1-Rond0-Grad0";
 stemValues = (
 86,
 84,
@@ -747,7 +748,7 @@ axesValues = (
 6,
 25,
 400,
-0,
+10,
 0,
 0
 );
@@ -835,11 +836,12 @@ over = -24;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth25-wght400-Ital1-Rond0-Grad0";
 stemValues = (
 200,
 195,
@@ -852,7 +854,7 @@ axesValues = (
 6,
 25,
 1000,
-0,
+10,
 0,
 0
 );
@@ -940,25 +942,25 @@ over = -30;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth25-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth25-wght1000-Ital1-Rond0-Grad0";
 stemValues = (
 408,
 398,
 365,
 298
 );
-visible = 1;
 },
 {
 axesValues = (
 6,
 100,
 1,
-0,
+10,
 0,
 0
 );
@@ -1060,11 +1062,12 @@ over = -30;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
+name = "opsz6-wdth100-wght1-Ital1-Rond0-Grad0";
 stemValues = (
 89,
 87,
@@ -1077,7 +1080,7 @@ axesValues = (
 6,
 100,
 400,
-0,
+10,
 0,
 0
 );
@@ -1171,24 +1174,36 @@ over = -36;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth100-wght400-Ital1-Rond0-Grad0";
 stemValues = (
 217,
 211,
 197,
 186
 );
+userData = {
+GSSlanterCursivy = 10;
+GSSlanterCursivyContrastFactor = 0.5;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 0;
+GSSlanterCursivyShapeFactor = 0.5;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 0;
+GSSlanterRotate = 0;
+};
 },
 {
 axesValues = (
 6,
 100,
 1000,
-0,
+10,
 0,
 0
 );
@@ -1276,11 +1291,12 @@ over = -38;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth100-wght1000-Ital1-Rond0-Grad0";
 stemValues = (
 428,
 419,
@@ -1291,14 +1307,13 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
-visible = 1;
 },
 {
 axesValues = (
 6,
 151,
 1,
-0,
+10,
 0,
 0
 );
@@ -1386,11 +1401,12 @@ over = -39;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth151-wght1-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght1-Ital1-Rond0-Grad0";
 stemValues = (
 92,
 90,
@@ -1403,7 +1419,7 @@ axesValues = (
 6,
 151,
 400,
-0,
+10,
 0,
 0
 );
@@ -1509,11 +1525,12 @@ over = -43;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght400-Ital1-Rond0-Grad0";
 stemValues = (
 243,
 237,
@@ -1530,7 +1547,7 @@ axesValues = (
 6,
 151,
 1000,
-0,
+10,
 0,
 0
 );
@@ -1618,18 +1635,18 @@ over = -48;
 pos = -442;
 },
 {
+pos = 10;
 },
 {
 }
 );
-name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght1000-Ital1-Rond0-Grad0";
 stemValues = (
 442,
 432,
 384,
 319
 );
-visible = 1;
 }
 );
 instances = (
@@ -1638,126 +1655,126 @@ axesValues = (
 6,
 25,
 1,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "4EAE7F17-0A08-4443-B85C-52E72D924BBD" = 1;
 };
-name = "opsz6-wdth25-wght1-Ital0-Rond0-Grad0";
+name = "opsz6-wdth25-wght1-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 25,
 400,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "7C224297-46A4-408E-BDB1-99237B4DCB3A" = 1;
 };
-name = "opsz6-wdth25-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth25-wght400-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 25,
 1000,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "2D1C241B-E6AD-41FB-985B-55D4E5F84943" = 1;
 };
-name = "opsz6-wdth25-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth25-wght1000-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 100,
 1,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "7ED4B341-A37B-4DEE-8334-0DF71EE2D955" = 1;
 };
-name = "opsz6-wdth100-wght1-Ital0-Rond0-Grad0";
+name = "opsz6-wdth100-wght1-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 100,
 400,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 1;
 };
-name = "opsz6-wdth100-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth100-wght400-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 100,
 1000,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "4296CD9C-54F3-4369-8782-4D8C9C978D13" = 1;
 };
-name = "opsz6-wdth100-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth100-wght1000-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 151,
 1,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "C2BA2B2A-76E0-4627-B638-B0CC7B22E341" = 1;
 };
-name = "opsz6-wdth151-wght1-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght1-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 151,
 400,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "5DA06E3F-B65C-4341-B330-53F50D9F2964" = 1;
 };
-name = "opsz6-wdth151-wght400-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght400-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
 6,
 151,
 1000,
-0,
+10,
 0,
 0
 );
 instanceInterpolations = {
 "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 1;
 };
-name = "opsz6-wdth151-wght1000-Ital0-Rond0-Grad0";
+name = "opsz6-wdth151-wght1000-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
@@ -1816,11 +1833,10 @@ value = (
 );
 exports = 0;
 instanceInterpolations = {
-"4296CD9C-54F3-4369-8782-4D8C9C978D13" = 0.14195;
-"4EAE7F17-0A08-4443-B85C-52E72D924BBD" = 0.10829;
-"5DA06E3F-B65C-4341-B330-53F50D9F2964" = 0.36872;
-"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 0.23578;
-"7ED4B341-A37B-4DEE-8334-0DF71EE2D955" = 0.14527;
+"4EAE7F17-0A08-4443-B85C-52E72D924BBD" = 0.00374;
+"7C224297-46A4-408E-BDB1-99237B4DCB3A" = 0.08959;
+"7ED4B341-A37B-4DEE-8334-0DF71EE2D955" = 0.03636;
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 0.87031;
 };
 name = "wdth100-wght400 BUILDER UC";
 visible = 0;
