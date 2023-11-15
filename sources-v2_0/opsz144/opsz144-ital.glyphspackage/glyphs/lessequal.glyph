@@ -956,6 +956,18 @@ ref = "greaterequal-stroke";
 width = 1250;
 },
 {
+background = {
+shapes = (
+{
+pos = (10,-2);
+ref = less;
+},
+{
+pos = (44,2);
+ref = "greaterequal-stroke";
+}
+);
+};
 guides = (
 {
 angle = 90;
@@ -975,11 +987,11 @@ pos = (1134,1077);
 layerId = "62DD7B70-F989-4BD0-AC2B-368FAE21403D";
 shapes = (
 {
-pos = (10,-2);
+pos = (-4,0);
 ref = less;
 },
 {
-pos = (44,2);
+pos = (40,0);
 ref = "greaterequal-stroke";
 }
 );
