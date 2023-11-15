@@ -1,4 +1,5 @@
 {
+color = 0;
 glyphname = colon.tf;
 layers = (
 {
@@ -56,14 +57,6 @@ ref = colon;
 width = 1260;
 },
 {
-background = {
-shapes = (
-{
-pos = (419,0);
-ref = colon.time;
-}
-);
-};
 layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
 shapes = (
 {
@@ -168,6 +161,166 @@ ref = colon;
 }
 );
 width = 2169;
+},
+{
+background = {
+shapes = (
+{
+pos = (795,0);
+ref = colon.time;
+}
+);
+};
+layerId = "81E3A8CD-082C-49FF-9AE0-BD52C6181D0C";
+shapes = (
+{
+pos = (795,187);
+ref = colon;
+}
+);
+width = 2380;
+},
+{
+background = {
+shapes = (
+{
+pos = (771,0);
+ref = colon.time;
+}
+);
+};
+layerId = "8D0E3480-621B-4B94-86D8-E59E8F39FCCD";
+shapes = (
+{
+pos = (771,201);
+ref = colon;
+}
+);
+width = 2210;
+},
+{
+background = {
+shapes = (
+{
+alignment = -1;
+pos = (752,0);
+ref = colon.time;
+}
+);
+};
+layerId = "48D192DE-088F-4E76-8F75-A155DEEA4155";
+shapes = (
+{
+pos = (753,231);
+ref = colon;
+}
+);
+width = 2169;
+},
+{
+background = {
+shapes = (
+{
+pos = (340,0);
+ref = colon.time;
+}
+);
+};
+guides = (
+{
+pos = (670,1260);
+}
+);
+layerId = "4F916874-D865-4217-AC6B-8AA620D9F61C";
+shapes = (
+{
+pos = (341,188);
+ref = colon;
+}
+);
+width = 1270;
+},
+{
+layerId = "62DD7B70-F989-4BD0-AC2B-368FAE21403D";
+shapes = (
+{
+pos = (419,203);
+ref = colon;
+}
+);
+width = 1286;
+},
+{
+background = {
+shapes = (
+{
+pos = (488,0);
+ref = colon.time;
+}
+);
+};
+layerId = "22530A20-0046-4E4D-8599-AC305296A8E0";
+shapes = (
+{
+pos = (488,232);
+ref = colon;
+}
+);
+width = 1260;
+},
+{
+background = {
+shapes = (
+{
+pos = (177,0);
+ref = colon.time;
+}
+);
+};
+layerId = "47804706-7AC2-47E8-A4D8-D60362A1B181";
+shapes = (
+{
+pos = (178,199);
+ref = colon;
+}
+);
+width = 910;
+},
+{
+background = {
+shapes = (
+{
+pos = (75,0);
+ref = colon.time;
+}
+);
+};
+layerId = "60BAD40A-9B2A-4F39-A9BF-21F8D308EAFF";
+shapes = (
+{
+pos = (75,205);
+ref = colon;
+}
+);
+width = 500;
+},
+{
+background = {
+shapes = (
+{
+pos = (118,0);
+ref = colon.time;
+}
+);
+};
+layerId = "7518AAB2-0A12-4970-AF6F-1285484141D2";
+shapes = (
+{
+pos = (118,229);
+ref = colon;
+}
+);
+width = 420;
 }
 );
 metricWidth = "=zero.tf";
