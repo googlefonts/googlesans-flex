@@ -3,24 +3,24 @@
 .formatVersion = 3;
 axes = (
 {
-name = "Optical size";
-tag = opsz;
+name = Weight;
+tag = wght;
 },
 {
 name = Width;
 tag = wdth;
 },
 {
-name = Weight;
-tag = wght;
-},
-{
-name = Italic;
-tag = ital;
+name = "Optical size";
+tag = opsz;
 },
 {
 name = Round;
 tag = ROND;
+},
+{
+name = Slant;
+tag = slnt;
 },
 {
 name = Grade;
@@ -649,11 +649,11 @@ name = Prefix;
 fontMaster = (
 {
 axesValues = (
-18,
-25,
 1,
+25,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -763,11 +763,11 @@ stemValues = (
 },
 {
 axesValues = (
-18,
-25,
 400,
+25,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -929,11 +929,11 @@ stemValues = (
 },
 {
 axesValues = (
-18,
-25,
 1000,
+25,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -1078,11 +1078,11 @@ stemValues = (
 },
 {
 axesValues = (
-18,
-100,
 1,
+100,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -1223,11 +1223,11 @@ stemValues = (
 },
 {
 axesValues = (
-18,
-100,
 400,
-10,
+100,
+18,
 0,
+-10,
 0
 );
 customParameters = (
@@ -1294,8 +1294,34 @@ value = 0;
 );
 guides = (
 {
+angle = 259.8753;
+pos = (964,217);
+},
+{
+angle = 259.8753;
+pos = (1003,0);
+},
+{
+angle = 259.8753;
+pos = (1009,757);
+},
+{
+pos = (104,859);
+},
+{
+pos = (104,878);
+},
+{
 angle = 80;
-pos = (235,313);
+pos = (-90,0);
+},
+{
+angle = 80;
+pos = (521,248);
+},
+{
+angle = 80;
+pos = (325,139);
 }
 );
 id = m001;
@@ -1333,24 +1359,24 @@ stemValues = (
 154
 );
 userData = {
-GSSlanterCursivy = 8;
+GSSlanterCursivy = 6;
 GSSlanterCursivyContrastFactor = 0.3;
 GSSlanterCursivyDoContrast = 1;
 GSSlanterCursivyDoShape = 1;
 GSSlanterCursivyDoThickness = 0;
 GSSlanterCursivyShapeFactor = 0.6;
 GSSlanterCursivyThicknessFactor = 1;
-GSSlanterGeometric = 2;
+GSSlanterGeometric = 4;
 GSSlanterRotate = 0;
 };
 },
 {
 axesValues = (
-18,
-100,
 1000,
+100,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -1508,11 +1534,11 @@ stemValues = (
 },
 {
 axesValues = (
-18,
-151,
 1,
+151,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -1613,11 +1639,11 @@ stemValues = (
 },
 {
 axesValues = (
-18,
-151,
 400,
+151,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -1796,11 +1822,11 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-18,
-151,
 1000,
+151,
+18,
 0,
-0,
+-10,
 0
 );
 customParameters = (
@@ -1973,9 +1999,9 @@ stemValues = (
 },
 {
 axesValues = (
-0,
-100,
 400,
+100,
+0,
 0,
 0,
 0
@@ -2144,11 +2170,11 @@ GSSlanterRotate = 0;
 instances = (
 {
 axesValues = (
-18,
-25,
 1,
+25,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
@@ -2158,11 +2184,11 @@ name = "opsz18-wdth25-wght1-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-25,
 400,
+25,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
@@ -2172,11 +2198,11 @@ name = "opsz18-wdth25-wght400-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-25,
 1000,
+25,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
@@ -2186,11 +2212,11 @@ name = "opsz18-wdth25-wght1000-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-100,
 1,
+100,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
@@ -2200,28 +2226,25 @@ name = "opsz18-wdth100-wght1-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-100,
 400,
+100,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
-"854B8A49-0698-4FEC-AD72-BCF838C96101" = 0.29762;
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.1997;
-"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.3003;
-"91251A45-EED6-44E6-BC9D-709435BB03FD" = 0.20238;
+m001 = 1;
 };
 name = "opsz18-wdth100-wght400-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-100,
 1000,
+100,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
@@ -2231,11 +2254,11 @@ name = "opsz18-wdth100-wght1000-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-151,
 1,
+151,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
@@ -2245,11 +2268,11 @@ name = "opsz18-wdth151-wght1-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-151,
 400,
+151,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
@@ -2259,11 +2282,11 @@ name = "opsz18-wdth151-wght400-Ital0-Rond0-Grad0";
 },
 {
 axesValues = (
-18,
-151,
 1000,
+151,
+18,
 0,
-0,
+-10,
 0
 );
 instanceInterpolations = {
