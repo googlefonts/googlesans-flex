@@ -118,6 +118,18 @@ if __name__ == "__main__":
     # Remove all kerning, to avoid incompatible features across sources.
     for ufo in ufos:
         ufo.kerning.clear()
+    
+    # Rename the default UFO's style name to "Regular"; this is necessary to
+    # produce a correct name table, but otherwise inconvenient to have in
+    # upstream (unimported) sources.
+    default_source = doc.findDefault()
+    assert default_source is not None
+
+    default_ufo = default_source.font
+    assert isinstance(default_ufo, Font)
+    default_ufo.info.styleName = "Regular"
+    default_ufo.info.styleMapFamilyName = "Google Sans Flex"
+    # TODO: Apply this to the italic when it is added.
 
     # Save everything that we have tidied.
     doc.write(designspace_target)
