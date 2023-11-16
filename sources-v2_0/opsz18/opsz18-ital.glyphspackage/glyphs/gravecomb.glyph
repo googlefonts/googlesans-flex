@@ -5,6 +5,17 @@ layers = (
 anchors = (
 {
 name = _top;
+pos = (218,1020);
+},
+{
+name = top;
+pos = (206,1480);
+}
+);
+background = {
+anchors = (
+{
+name = _top;
 pos = (72,1020);
 },
 {
@@ -12,58 +23,6 @@ name = top;
 pos = (60,1480);
 }
 );
-background = {
-anchors = (
-{
-name = _top;
-pos = (0,1020);
-},
-{
-name = top;
-pos = (0,1466);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(63,1228,o),
-(77,1228,o),
-(44,1305,qs),
-(4,1397,ls),
-(-29,1472,o,{
-name = inserted;
-}),
-(-41,1472,o,{
-name = inserted;
-}),
-(-123,1472,q),
-(-208,1472,o),
-(-212,1471,o),
-(-170,1397,qs),
-(-117,1304,ls),
-(-75,1230,o,{
-name = inserted;
-}),
-(-75,1228,o,{
-name = inserted;
-}),
-(-7,1228,q)
-);
-}
-);
-};
-guides = (
-{
-angle = 119.9816;
-pos = (-138,1342);
-},
-{
-angle = 113.9625;
-pos = (27,1345);
-}
-);
-layerId = m001;
 shapes = (
 {
 closed = 1;
@@ -90,6 +49,47 @@ name = inserted;
 name = inserted;
 }),
 (51,1200,q)
+);
+}
+);
+};
+guides = (
+{
+angle = 119.9816;
+pos = (-138,1342);
+},
+{
+angle = 113.9625;
+pos = (27,1345);
+}
+);
+layerId = m001;
+shapes = (
+{
+closed = 1;
+nodes = (
+(273,1200,o),
+(273,1200,o),
+(248,1291,qs),
+(206,1442,ls),
+(196,1480,o,{
+name = inserted;
+}),
+(196,1480,o,{
+name = inserted;
+}),
+(143,1480,q),
+(20,1480,o),
+(20,1480,o),
+(63,1371,qs),
+(122,1228,ls),
+(133,1200,o,{
+name = inserted;
+}),
+(133,1200,o,{
+name = inserted;
+}),
+(176,1200,q)
 );
 }
 );
