@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = I;
 kernLeft = H_left;
 kernRight = H_right;
@@ -408,15 +409,15 @@ width = 840;
 anchors = (
 {
 name = bottom;
-pos = (198,0);
+pos = (111,0);
 },
 {
 name = ogonek;
-pos = (214,0);
+pos = (127,0);
 },
 {
 name = top;
-pos = (198,1432);
+pos = (364,1432);
 }
 );
 layerId = "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5";
@@ -424,20 +425,20 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(214,0,o),
-(214,0,o),
-(214,14,q),
-(214,1418,l),
-(214,1432,o),
-(214,1432,o),
-(198,1432,q),
-(182,1432,o),
-(182,1432,o),
-(182,1418,q),
-(182,14,ls),
-(182,0,o),
-(182,0,o),
-(198,0,q)
+(127,0,o),
+(127,0,o),
+(129,14,qs),
+(377,1418,ls),
+(379,1432,o),
+(379,1432,o),
+(364,1432,q),
+(347,1432,o),
+(347,1432,o),
+(345,1418,qs),
+(97,14,ls),
+(95,0,o),
+(95,0,o),
+(111,0,q)
 );
 }
 );
@@ -445,7 +446,7 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
 };
-width = 397;
+width = 398;
 },
 {
 anchors = (
@@ -494,40 +495,44 @@ width = 292;
 anchors = (
 {
 name = bottom;
-pos = (245,0);
+pos = (198,0);
 },
 {
 name = ogonek;
-pos = (330,0);
+pos = (214,0);
 },
 {
 name = top;
-pos = (245,1432);
+pos = (198,1432);
 }
 );
-layerId = "00A8AF8C-1F7F-4A0D-800D-776D582CE59F";
+layerId = "FA332CE9-33C9-4EB8-B214-CFF4D55E63A3";
 shapes = (
 {
 closed = 1;
 nodes = (
-(330,0,o),
-(330,0,o),
-(330,77,q),
-(330,1356,l),
-(330,1432,o),
-(330,1432,o),
-(245,1432,q),
-(160,1432,o),
-(160,1432,o),
-(160,1356,q),
-(160,77,l),
-(160,0,o),
-(160,0,o),
-(245,0,q)
+(214,0,o),
+(214,0,o),
+(214,14,q),
+(214,1418,l),
+(214,1432,o),
+(214,1432,o),
+(198,1432,q),
+(182,1432,o),
+(182,1432,o),
+(182,1418,q),
+(182,14,ls),
+(182,0,o),
+(182,0,o),
+(198,0,q)
 );
 }
 );
-width = 490;
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
+com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
+};
+width = 397;
 }
 );
 metricLeft = H;
