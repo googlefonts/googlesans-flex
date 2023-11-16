@@ -894,9 +894,9 @@ tag = liga;
 fontMaster = (
 {
 axesValues = (
-1,
-25,
 144,
+25,
+1,
 0,
 0,
 0
@@ -1057,9 +1057,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-25,
 144,
+25,
+400,
 0,
 0,
 0
@@ -1234,15 +1234,24 @@ stemValues = (
 133
 );
 userData = {
+GSSlanterCursivy = 0;
+GSSlanterCursivyContrastFactor = 0.5;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 1;
+GSSlanterCursivyShapeFactor = 0.5;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 0;
+GSSlanterRotate = 0;
 HTLSManagerMasterRules = {
 };
 };
 },
 {
 axesValues = (
-1000,
-25,
 144,
+25,
+1000,
 0,
 0,
 0
@@ -1419,9 +1428,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-100,
 144,
+100,
+1,
 0,
 0,
 0
@@ -1567,9 +1576,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-100,
 144,
+100,
+400,
 0,
 0,
 0
@@ -1692,10 +1701,6 @@ pos = (305,1584);
 angle = 180;
 name = "MATH tf";
 pos = (618,715);
-},
-{
-name = MATH;
-pos = (571,638);
 }
 );
 id = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
@@ -1731,23 +1736,12 @@ stemValues = (
 1412,
 121
 );
-userData = {
-GSSlanterCursivy = 0;
-GSSlanterCursivyContrastFactor = 0.5;
-GSSlanterCursivyDoContrast = 1;
-GSSlanterCursivyDoShape = 1;
-GSSlanterCursivyDoThickness = 0;
-GSSlanterCursivyShapeFactor = 0.5;
-GSSlanterCursivyThicknessFactor = 1;
-GSSlanterGeometric = 0;
-GSSlanterRotate = 0;
-};
 },
 {
 axesValues = (
-1000,
-100,
 144,
+100,
+1000,
 0,
 0,
 0
@@ -1907,9 +1901,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-151,
 144,
+151,
+1,
 0,
 0,
 0
@@ -2087,9 +2081,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-151,
 144,
+151,
+400,
 0,
 0,
 0
@@ -2263,9 +2257,9 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-151,
 144,
+151,
+1000,
 0,
 0,
 0
@@ -3173,7 +3167,7 @@ pos = (834,1068);
 },
 {
 name = "diacritics-b";
-pos = (171,1174);
+pos = (188,1174);
 },
 {
 locked = 1;
@@ -3220,7 +3214,7 @@ pos = (468,-166);
 },
 {
 name = PARENT;
-pos = (305,1584);
+pos = (305,1556);
 },
 {
 angle = 180;
@@ -3270,7 +3264,7 @@ userData = {
 GSSlanterCursivy = 10;
 GSSlanterCursivyContrastFactor = 0.5;
 GSSlanterCursivyDoContrast = 1;
-GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoShape = 0;
 GSSlanterCursivyDoThickness = 0;
 GSSlanterCursivyShapeFactor = 0.5;
 GSSlanterCursivyThicknessFactor = 1;
@@ -3762,6 +3756,10 @@ pos = (491,716);
 {
 name = "MATH tf";
 pos = (491,716);
+},
+{
+name = MATH;
+pos = (571,638);
 }
 );
 id = "8D0E3480-621B-4B94-86D8-E59E8F39FCCD";
