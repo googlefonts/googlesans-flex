@@ -24,7 +24,7 @@ from tempfile import TemporaryDirectory
 from argparse import ArgumentParser
 
 # Incompatible glyphs, that should not be included in the final build.
-INCOMPATIBLE = set()
+INCOMPATIBLE = set(["z", "zacute", "zcaron", "zdotaccent"])
 
 if __name__ == "__main__":
     parser = ArgumentParser()
