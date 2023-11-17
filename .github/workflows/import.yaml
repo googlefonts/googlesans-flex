@@ -15,13 +15,19 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: main
           fetch-depth: 0
-      - name: Prepare environment
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Prepare worktrees
         env:
+          # The sources we want to import from
           SOURCE_REF: ${{ github.event.inputs.branch }}
+          # The branch we're making to PR the imported changes
           TARGET_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
         run: |
           cd "$GITHUB_WORKSPACE/main"
@@ -35,8 +41,29 @@ jobs:
             echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
             git worktree add --quiet ../target -b "$TARGET_BRANCH" origin/main
           fi
-      - name: Run import scripts
-        uses: ./main/.github/actions/import
+      # `$GITHUB_WORKSPACE/source` is a Git worktree of the import from branch
+      # `$GITHUB_WORKSPACE/target` is a Git worktree of the branch to import to where changes should be made
+      - uses: actions/cache@v3
+        with:
+          path: target/venv/
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
+      - name: Delete old designspace & sources
+        run: |
+          # TODO: remove once new sources structure is in place
+          rm -rf "$GITHUB_WORKSPACE"/target/sources/{italic,regular}
+          # Remove everything except the config.yaml
+          # TODO remove the -f once the new sources structure is in place
+          rm -rf "$GITHUB_WORKSPACE"/target/sources/*.{ufo,designspace}
+      - name: Run import script
+        run: |
+          cd "$GITHUB_WORKSPACE/target"
+          echo "::group::setup venv"
+          make venv
+          echo "::endgroup::"
+          echo "Running glyphs_to_ds.py"
+          venv/bin/python scripts/glyphs_to_ds.py "$GITHUB_WORKSPACE"/source/sources-v2_0/GSF-full.glyphspackage sources/GoogleSansFlex.designspace
       - name: Commit & push changes
         env:
           SOURCE_REF: ${{ github.event.inputs.branch }}
@@ -52,23 +79,15 @@ jobs:
             
           This commit was creating automatically using the GitHub workflow"
           git push -u origin "$TARGET_BRANCH"
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-      - uses: actions/cache@v3
-        with:
-          path: ./venv/
-          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-venv-
+      # Build (TODO: make a composite action for this to save duplicating
+      # in workflows/build.yaml)
       - name: Generate zip file name
         id: zip-name
         shell: bash
         # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
         run: echo "ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-fonts" >> $GITHUB_ENV
       - name: Build font
-        run: cd "$GITHUB_WORKSPACE/target" && make build
+        run: make --directory "$GITHUB_WORKSPACE/target" build
         env:
           SKIP_FONTV: true
       - name: Check with fontbakery
