@@ -1,5 +1,5 @@
 {
-color = 10;
+color = 6;
 glyphname = percent.tf;
 layers = (
 {
@@ -715,15 +715,19 @@ nodes = (
 layerId = "C6E6A82E-5529-473D-BA0B-E088A1B2D63E";
 shapes = (
 {
+alignment = -1;
+pos = (16,116);
 ref = zero.numr.percent;
+scale = (0.92,0.92);
 },
 {
-pos = (696,0);
+pos = (706,0);
 ref = percentbar.tf;
 },
 {
-pos = (717,0);
+pos = (647,-2);
 ref = zero.dnom.percent;
+scale = (0.92,0.92);
 userData = {
 UFO.identifier = component1;
 };
