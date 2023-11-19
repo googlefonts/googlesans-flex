@@ -735,7 +735,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth25-wght1-Ital1-Rond0-Grad0";
+name = "wg1-wd25-oz6-GD0-RD0-sl-10";
 stemValues = (
 86,
 84,
@@ -841,7 +841,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth25-wght400-Ital1-Rond0-Grad0";
+name = "wg400-wd25-oz6-GD0-RD0-sl-10";
 stemValues = (
 200,
 195,
@@ -947,7 +947,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth25-wght1000-Ital1-Rond0-Grad0";
+name = "wg1000-wd25-oz6-GD0-RD0-sl-10";
 stemValues = (
 408,
 398,
@@ -1067,7 +1067,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth100-wght1-Ital1-Rond0-Grad0";
+name = "wg1-wd100-oz6-GD0-RD0-sl-10";
 stemValues = (
 89,
 87,
@@ -1173,7 +1173,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth100-wght400-Ital1-Rond0-Grad0";
+name = "wg400-wd100-oz6-GD0-RD0-sl-10";
 stemValues = (
 217,
 211,
@@ -1183,8 +1183,8 @@ stemValues = (
 userData = {
 GSSlanterCursivy = 10;
 GSSlanterCursivyContrastFactor = 0.5;
-GSSlanterCursivyDoContrast = 0;
-GSSlanterCursivyDoShape = 0;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
 GSSlanterCursivyDoThickness = 0;
 GSSlanterCursivyShapeFactor = 0.5;
 GSSlanterCursivyThicknessFactor = 1;
@@ -1290,7 +1290,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth100-wght1000-Ital1-Rond0-Grad0";
+name = "wg1000-wd100-oz6-GD0-RD0-sl-10";
 stemValues = (
 428,
 419,
@@ -1400,7 +1400,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth151-wght1-Ital1-Rond0-Grad0";
+name = "wg1-wd151-oz6-GD0-RD0-sl-10";
 stemValues = (
 92,
 90,
@@ -1524,7 +1524,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth151-wght400-Ital1-Rond0-Grad0";
+name = "wg400-wd151-oz6-GD0-RD0-sl-10";
 stemValues = (
 243,
 237,
@@ -1634,7 +1634,7 @@ pos = 10;
 {
 }
 );
-name = "opsz6-wdth151-wght1000-Ital1-Rond0-Grad0";
+name = "wg1000-wd151-oz6-GD0-RD0-sl-10";
 stemValues = (
 442,
 432,
@@ -4145,7 +4145,6 @@ slash = 0;
 "@MMK_R_quotes_right" = 0;
 "@MMK_R_quotes_straight_left" = 0;
 "@MMK_R_s_left" = 0;
-"@MMK_R_t_left" = 2;
 "@MMK_R_z_left" = 1;
 backslash = 0;
 copyright = 0;
@@ -4574,12 +4573,13 @@ fraction = {
 eight = 0;
 five = 0;
 four = 0;
-four.denominator = -90;
+four.denominator = -70;
 nine = 0;
 one = 0;
 seven = 0;
 three = 0;
 two = 0;
+two.denominator = 20;
 zero = 0;
 };
 greater = {
@@ -4650,6 +4650,9 @@ two = 0;
 };
 one.denominator = {
 one.denominator = 0;
+};
+one.numerator = {
+fraction = 50;
 };
 ordmasculine = {
 four = 0;
@@ -4832,6 +4835,9 @@ six.denominator = 0;
 three.denominator = 1;
 two.denominator = 0;
 zero.denominator = 0;
+};
+three.numerator = {
+fraction = 30;
 };
 two = {
 "@MMK_R_t_left" = 0;
