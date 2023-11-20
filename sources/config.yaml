@@ -163,6 +163,13 @@ stat:
        - flags: 0
          name: Slanted
          value: -10
+   - name: Grade
+     tag: GRAD
+     values:
+       - flags: 2
+         name: Normal
+         value: 0.0
+# TODO: Add GRAD axis to TTF name and axes entries
 #  "GoogleSansFlex[ROND,opsz,wdth,wght].ttf":
 #    - name: Weight
 #      tag: wght
@@ -298,6 +305,7 @@ stat:
 #          name: Roman
 #          value: 0
 #          linkedValue: 1
+# TODO: Add GRAD axis to TTF name and axes entries
 #  "GoogleSansFlex-Italic[ROND,opsz,wdth,wght].ttf":
 #    - name: Weight
 #      tag: wght
