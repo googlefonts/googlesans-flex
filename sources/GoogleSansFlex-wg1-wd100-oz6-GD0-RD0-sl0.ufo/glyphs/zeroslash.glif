@@ -1,8 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="zeroslash" format="2">
-  <advance width="1472"/>
+  <advance width="1419"/>
   <outline>
     <component base="zero"/>
-    <component base="zero.slash"/>
+    <component base="zero.slash" xOffset="5"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>zero</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>zero.slash</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

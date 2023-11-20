@@ -1,53 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="four.numerator" format="2">
-  <advance width="658"/>
+  <advance width="786"/>
   <outline>
-    <contour>
-      <point x="463" y="586" type="qcurve"/>
-      <point x="463" y="796" type="line"/>
-      <point x="463" y="802" type="line"/>
-      <point x="463" y="1416" type="line"/>
-      <point x="463" y="1424" name="inserted"/>
-      <point x="471" y="1432"/>
-      <point x="479" y="1432" type="qcurve"/>
-      <point x="479" y="1432" type="line"/>
-      <point x="487" y="1432"/>
-      <point x="495" y="1424"/>
-      <point x="495" y="1416" type="qcurve"/>
-      <point x="495" y="586" type="line"/>
-      <point x="495" y="576"/>
-      <point x="484" y="568"/>
-      <point x="479" y="568" type="qcurve"/>
-      <point x="479" y="568" type="line"/>
-      <point x="473" y="568"/>
-      <point x="463" y="576" name="inserted"/>
-    </contour>
-    <contour>
-      <point x="17" y="784" type="line"/>
-      <point x="10" y="784" name="inserted"/>
-      <point x="2" y="793"/>
-      <point x="2" y="801" type="qcurve"/>
-      <point x="2" y="801" type="line"/>
-      <point x="2" y="806"/>
-      <point x="5" y="814"/>
-      <point x="8" y="818" type="qcurve" smooth="yes"/>
-      <point x="458" y="1424" type="line" smooth="yes"/>
-      <point x="463" y="1430" name="inserted"/>
-      <point x="472" y="1432"/>
-      <point x="479" y="1432" type="qcurve"/>
-      <point x="479" y="1382" type="line"/>
-      <point x="462" y="1382" type="line"/>
-      <point x="41" y="814" type="line"/>
-      <point x="476" y="814" type="line"/>
-      <point x="482" y="814" type="line"/>
-      <point x="642" y="814" type="line"/>
-      <point x="649" y="814"/>
-      <point x="657" y="806"/>
-      <point x="657" y="799" type="qcurve"/>
-      <point x="657" y="799" type="line"/>
-      <point x="657" y="792"/>
-      <point x="649" y="784" name="inserted"/>
-      <point x="642" y="784" type="qcurve"/>
-    </contour>
+    <component base="four.denominator" yOffset="573"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>four.denominator</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

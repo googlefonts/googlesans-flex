@@ -1,26 +1,65 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="oslash" format="2">
-  <advance width="2042"/>
+  <advance width="2083"/>
   <unicode hex="00F8"/>
+  <anchor x="1042" y="0" name="bottom"/>
+  <anchor x="1042" y="1050" name="top"/>
   <outline>
-    <component base="o" identifier="FE974F4E"/>
-    <component base="oslash-bar" xOffset="-116" yOffset="17" identifier="6281A378"/>
+    <contour>
+      <point x="1042" y="-24" type="qcurve" smooth="yes"/>
+      <point x="1498" y="-24"/>
+      <point x="2022" y="277"/>
+      <point x="2023" y="524" type="qcurve" smooth="yes"/>
+      <point x="2023" y="524" type="line" smooth="yes"/>
+      <point x="2024" y="770"/>
+      <point x="1500" y="1074"/>
+      <point x="1042" y="1074" type="qcurve" smooth="yes"/>
+      <point x="586" y="1074"/>
+      <point x="61" y="774"/>
+      <point x="60" y="524" type="qcurve" smooth="yes"/>
+      <point x="60" y="524" type="line" smooth="yes"/>
+      <point x="59" y="279"/>
+      <point x="584" y="-24"/>
+    </contour>
+    <contour>
+      <point x="1042" y="111" type="qcurve" smooth="yes"/>
+      <point x="652" y="113"/>
+      <point x="211" y="341"/>
+      <point x="212" y="524" type="qcurve" smooth="yes"/>
+      <point x="212" y="524" type="line" smooth="yes"/>
+      <point x="213" y="712"/>
+      <point x="654" y="939"/>
+      <point x="1042" y="939" type="qcurve" smooth="yes"/>
+      <point x="1432" y="939"/>
+      <point x="1872" y="710"/>
+      <point x="1871" y="524" type="qcurve" smooth="yes"/>
+      <point x="1871" y="524" type="line" smooth="yes"/>
+      <point x="1870" y="337"/>
+      <point x="1430" y="111"/>
+    </contour>
+    <contour>
+      <point x="280" y="-17" type="qcurve"/>
+      <point x="318" y="-68"/>
+      <point x="318" y="-68"/>
+      <point x="376" y="-27" type="qcurve"/>
+      <point x="1077" y="471" type="line"/>
+      <point x="1084" y="476" type="line"/>
+      <point x="1091" y="481" type="line"/>
+      <point x="1099" y="486" type="line"/>
+      <point x="1784" y="973" type="line"/>
+      <point x="1842" y="1014"/>
+      <point x="1842" y="1014"/>
+      <point x="1803" y="1065" type="qcurve"/>
+      <point x="1765" y="1116"/>
+      <point x="1765" y="1116"/>
+      <point x="1706" y="1074" type="qcurve"/>
+      <point x="1001" y="573" type="line"/>
+      <point x="994" y="568" type="line"/>
+      <point x="987" y="563" type="line"/>
+      <point x="979" y="557" type="line"/>
+      <point x="300" y="74" type="line"/>
+      <point x="242" y="33"/>
+      <point x="242" y="33"/>
+    </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>6281A378</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-        <key>FE974F4E</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-      </dict>
-    </dict>
-  </lib>
 </glyph>

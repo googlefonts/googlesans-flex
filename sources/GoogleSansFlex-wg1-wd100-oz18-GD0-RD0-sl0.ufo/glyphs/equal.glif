@@ -1,43 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="equal" format="2">
-  <advance width="1136"/>
+  <advance width="1140"/>
   <unicode hex="003D"/>
   <outline>
-    <contour>
-      <point x="1000" y="316" type="qcurve"/>
-      <point x="136" y="316" type="line"/>
-      <point x="122" y="316"/>
-      <point x="122" y="316"/>
-      <point x="122" y="331" type="qcurve"/>
-      <point x="122" y="331" type="line"/>
-      <point x="122" y="346"/>
-      <point x="122" y="346" name="inserted"/>
-      <point x="136" y="346" type="qcurve"/>
-      <point x="1000" y="346" type="line"/>
-      <point x="1014" y="346" name="inserted"/>
-      <point x="1014" y="346"/>
-      <point x="1014" y="331" type="qcurve"/>
-      <point x="1014" y="331" type="line"/>
-      <point x="1014" y="316"/>
-      <point x="1014" y="316"/>
-    </contour>
-    <contour>
-      <point x="1008" y="696" type="qcurve"/>
-      <point x="128" y="696" type="line"/>
-      <point x="112" y="696"/>
-      <point x="112" y="696"/>
-      <point x="112" y="711" type="qcurve"/>
-      <point x="112" y="711" type="line"/>
-      <point x="112" y="726"/>
-      <point x="112" y="726" name="inserted"/>
-      <point x="128" y="726" type="qcurve"/>
-      <point x="1008" y="726" type="line"/>
-      <point x="1024" y="726" name="inserted"/>
-      <point x="1024" y="726"/>
-      <point x="1024" y="711" type="qcurve"/>
-      <point x="1024" y="711" type="line"/>
-      <point x="1024" y="696"/>
-      <point x="1024" y="696"/>
-    </contour>
+    <component base="minus" yOffset="188"/>
+    <component base="minus" yOffset="-188"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>minus</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>minus</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

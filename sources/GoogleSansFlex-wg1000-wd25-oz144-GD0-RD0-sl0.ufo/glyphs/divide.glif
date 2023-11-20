@@ -1,53 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="divide" format="2">
-  <advance width="1088"/>
+  <advance width="900"/>
   <unicode hex="00F7"/>
   <outline>
-    <contour>
-      <point x="544" y="-56" type="qcurve" smooth="yes"/>
-      <point x="452" y="-56"/>
-      <point x="328" y="58"/>
-      <point x="328" y="142" type="qcurve" smooth="yes"/>
-      <point x="328" y="226"/>
-      <point x="456" y="342"/>
-      <point x="548" y="342" type="qcurve" smooth="yes"/>
-      <point x="640" y="342"/>
-      <point x="764" y="229"/>
-      <point x="764" y="146" type="qcurve" smooth="yes"/>
-      <point x="764" y="62"/>
-      <point x="638" y="-56"/>
-    </contour>
-    <contour>
-      <point x="544" y="742" type="qcurve" smooth="yes"/>
-      <point x="452" y="742"/>
-      <point x="328" y="856"/>
-      <point x="328" y="940" type="qcurve" smooth="yes"/>
-      <point x="328" y="1024"/>
-      <point x="456" y="1140"/>
-      <point x="548" y="1140" type="qcurve" smooth="yes"/>
-      <point x="640" y="1140"/>
-      <point x="764" y="1027"/>
-      <point x="764" y="944" type="qcurve" smooth="yes"/>
-      <point x="764" y="860"/>
-      <point x="638" y="742"/>
-    </contour>
-    <contour>
-      <point x="290" y="362" type="line"/>
-      <point x="110" y="362"/>
-      <point x="110" y="362"/>
-      <point x="110" y="542" type="qcurve"/>
-      <point x="110" y="542" type="line"/>
-      <point x="110" y="722"/>
-      <point x="110" y="722" name="inserted"/>
-      <point x="290" y="722" type="qcurve"/>
-      <point x="798" y="722" type="line"/>
-      <point x="978" y="722" name="inserted"/>
-      <point x="978" y="722"/>
-      <point x="978" y="542" type="qcurve"/>
-      <point x="978" y="542" type="line"/>
-      <point x="978" y="362"/>
-      <point x="978" y="362"/>
-      <point x="798" y="362" type="qcurve"/>
-    </contour>
+    <component base="minus"/>
+    <component base="_dots-divide" xOffset="44"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>minus</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

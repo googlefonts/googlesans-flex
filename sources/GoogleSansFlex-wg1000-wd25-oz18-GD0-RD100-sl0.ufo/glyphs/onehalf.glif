@@ -1,10 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="onehalf" format="2">
-  <advance width="2122"/>
+  <advance width="1715"/>
   <unicode hex="00BD"/>
   <outline>
-    <component base="one.numerator" xOffset="104"/>
-    <component base="fraction" xOffset="821"/>
-    <component base="two.denominator" xOffset="1337"/>
+    <component base="one.numerator"/>
+    <component base="fraction" xOffset="581"/>
+    <component base="two.denominator" xOffset="1025"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>one.numerator</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>2</integer>
+          <key>name</key>
+          <string>two.denominator</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

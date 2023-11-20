@@ -1,35 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="bracketleft" format="2">
-  <advance width="804"/>
+  <advance width="631"/>
   <unicode hex="005B"/>
   <outline>
-    <contour>
-      <point x="654" y="-248" type="qcurve"/>
-      <point x="266" y="-248" type="line"/>
-      <point x="197" y="-248" name="inserted"/>
-      <point x="197" y="-248"/>
-      <point x="197" y="-168" type="qcurve"/>
-      <point x="197" y="1516" type="line"/>
-      <point x="197" y="1586"/>
-      <point x="197" y="1586" name="inserted"/>
-      <point x="266" y="1586" type="qcurve"/>
-      <point x="654" y="1586" type="line"/>
-      <point x="694" y="1586" name="inserted"/>
-      <point x="694" y="1586"/>
-      <point x="694" y="1543" type="qcurve"/>
-      <point x="694" y="1543" type="line"/>
-      <point x="694" y="1503"/>
-      <point x="694" y="1503"/>
-      <point x="654" y="1503" type="qcurve"/>
-      <point x="285" y="1503" type="line"/>
-      <point x="285" y="-165" type="line"/>
-      <point x="654" y="-165" type="line"/>
-      <point x="694" y="-165" name="inserted"/>
-      <point x="694" y="-165"/>
-      <point x="694" y="-208" type="qcurve"/>
-      <point x="694" y="-208" type="line"/>
-      <point x="694" y="-248"/>
-      <point x="694" y="-248"/>
-    </contour>
+    <component base="bracketright" xScale="-1.0" yScale="-1.0" xOffset="631" yOffset="1322"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>bracketright</string>
+        </dict>
+      </array>
+      <key>com.schriftgestaltung.hints</key>
+      <array>
+        <dict>
+          <key>horizontal</key>
+          <true/>
+          <key>name</key>
+          <string></string>
+          <key>options</key>
+          <integer>0</integer>
+          <key>place</key>
+          <array>
+            <integer>1614</integer>
+            <integer>32</integer>
+          </array>
+          <key>stem</key>
+          <integer>-2</integer>
+          <key>type</key>
+          <string>Stem</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

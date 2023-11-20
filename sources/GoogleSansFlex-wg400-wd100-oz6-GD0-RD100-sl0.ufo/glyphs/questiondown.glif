@@ -3,15 +3,21 @@
   <advance width="1008"/>
   <unicode hex="00BF"/>
   <outline>
-    <component base="question-bottom"/>
-    <component base="dot-composite-top" xOffset="270" yOffset="832"/>
+    <component base="question" xScale="-1.0" yScale="-1.0" xOffset="1008" yOffset="1086"/>
   </outline>
   <lib>
     <dict>
-      <key>com.schriftgestaltung.Glyphs.glyph.leftMetricsKey</key>
-      <string>=|question</string>
-      <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
-      <string>=|question</string>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>question</string>
+        </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

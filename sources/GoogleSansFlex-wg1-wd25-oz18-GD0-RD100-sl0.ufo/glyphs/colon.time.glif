@@ -1,34 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="colon.time" format="2">
-  <advance width="492"/>
+  <advance width="317"/>
   <outline>
-    <contour>
-      <point x="303" y="1037" type="qcurve" smooth="yes"/>
-      <point x="303" y="1013"/>
-      <point x="270" y="980"/>
-      <point x="246" y="980" type="qcurve" smooth="yes"/>
-      <point x="222" y="980"/>
-      <point x="189" y="1013"/>
-      <point x="189" y="1037" type="qcurve" smooth="yes"/>
-      <point x="189" y="1060"/>
-      <point x="222" y="1091"/>
-      <point x="246" y="1091" type="qcurve" smooth="yes"/>
-      <point x="270" y="1091"/>
-      <point x="303" y="1060"/>
-    </contour>
-    <contour>
-      <point x="303" y="397" type="qcurve" smooth="yes"/>
-      <point x="303" y="373"/>
-      <point x="270" y="340"/>
-      <point x="246" y="340" type="qcurve" smooth="yes"/>
-      <point x="222" y="340"/>
-      <point x="189" y="373"/>
-      <point x="189" y="397" type="qcurve" smooth="yes"/>
-      <point x="189" y="420"/>
-      <point x="222" y="451"/>
-      <point x="246" y="451" type="qcurve" smooth="yes"/>
-      <point x="270" y="451"/>
-      <point x="303" y="420"/>
-    </contour>
+    <component base="colon" yOffset="222"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>colon</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

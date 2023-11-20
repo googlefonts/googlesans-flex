@@ -2,52 +2,21 @@
 <glyph name="four.numerator" format="2">
   <advance width="667"/>
   <outline>
-    <contour>
-      <point x="402" y="647" type="qcurve"/>
-      <point x="402" y="810" type="line"/>
-      <point x="402" y="843" type="line"/>
-      <point x="402" y="1362" type="line"/>
-      <point x="402" y="1432"/>
-      <point x="402" y="1432"/>
-      <point x="475" y="1432" type="qcurve"/>
-      <point x="475" y="1432" type="line"/>
-      <point x="550" y="1432"/>
-      <point x="550" y="1432"/>
-      <point x="550" y="1360" type="qcurve"/>
-      <point x="550" y="647" type="line"/>
-      <point x="550" y="573"/>
-      <point x="550" y="573"/>
-      <point x="476" y="573" type="qcurve"/>
-      <point x="476" y="573" type="line"/>
-      <point x="402" y="573"/>
-      <point x="402" y="573"/>
-    </contour>
-    <contour>
-      <point x="63" y="762" type="line"/>
-      <point x="0" y="762"/>
-      <point x="0" y="762"/>
-      <point x="0" y="824" type="qcurve"/>
-      <point x="0" y="824" type="line"/>
-      <point x="0" y="867"/>
-      <point x="0" y="867"/>
-      <point x="30" y="910" type="qcurve" smooth="yes"/>
-      <point x="370" y="1387" type="line" smooth="yes"/>
-      <point x="402" y="1432"/>
-      <point x="402" y="1432"/>
-      <point x="475" y="1432" type="qcurve"/>
-      <point x="475" y="1276" type="line"/>
-      <point x="443" y="1276" type="line"/>
-      <point x="177" y="888" type="line"/>
-      <point x="464" y="888" type="line"/>
-      <point x="499" y="888" type="line"/>
-      <point x="598" y="888" type="line"/>
-      <point x="657" y="888"/>
-      <point x="657" y="888"/>
-      <point x="657" y="825" type="qcurve"/>
-      <point x="657" y="825" type="line"/>
-      <point x="657" y="762"/>
-      <point x="657" y="762"/>
-      <point x="598" y="762" type="qcurve"/>
-    </contour>
+    <component base="four.denominator" yOffset="573"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>four.denominator</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

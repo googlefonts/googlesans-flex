@@ -1,25 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="agrave.alt" format="2">
-  <advance width="2131"/>
+  <advance width="2023"/>
   <outline>
-    <component base="a.alt" identifier="DE38B3B7"/>
-    <component base="gravecomb" xOffset="1072" yOffset="42" identifier="3750068A"/>
+    <component base="a.alt"/>
+    <component base="gravecomb" xOffset="892"/>
   </outline>
   <lib>
     <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>3750068A</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>a.alt</string>
         </dict>
-        <key>DE38B3B7</key>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>gravecomb</string>
         </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

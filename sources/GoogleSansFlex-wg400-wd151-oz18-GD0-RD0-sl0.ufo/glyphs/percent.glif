@@ -1,32 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="percent" format="2">
-  <advance width="2843"/>
+  <advance width="2461"/>
   <unicode hex="0025"/>
   <outline>
-    <component base="zeropercent" xOffset="100" yOffset="40" identifier="4D25AE20"/>
-    <component base="zeropercent" xOffset="1506" yOffset="-794" identifier="194F4AE8"/>
-    <component base="percentbar" xOffset="535" identifier="569E4154"/>
+    <component base="zero.numr.percent"/>
+    <component base="fraction" xOffset="1036"/>
+    <component base="zero.dnom.percent" xOffset="1425"/>
   </outline>
-  <lib>
-    <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>194F4AE8</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-        <key>4D25AE20</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-        <key>569E4154</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-      </dict>
-    </dict>
-  </lib>
 </glyph>

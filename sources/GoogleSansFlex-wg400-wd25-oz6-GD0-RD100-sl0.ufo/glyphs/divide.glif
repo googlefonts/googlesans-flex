@@ -1,53 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="divide" format="2">
-  <advance width="928"/>
+  <advance width="1060"/>
   <unicode hex="00F7"/>
   <outline>
-    <contour>
-      <point x="464" y="134" type="qcurve"/>
-      <point x="407" y="134"/>
-      <point x="326" y="215"/>
-      <point x="326" y="271" type="qcurve"/>
-      <point x="326" y="326"/>
-      <point x="407" y="405"/>
-      <point x="464" y="405" type="qcurve"/>
-      <point x="521" y="405"/>
-      <point x="600" y="326"/>
-      <point x="600" y="271" type="qcurve"/>
-      <point x="600" y="215"/>
-      <point x="521" y="134"/>
-    </contour>
-    <contour>
-      <point x="464" y="876" type="qcurve"/>
-      <point x="407" y="876"/>
-      <point x="327" y="954"/>
-      <point x="327" y="1010" type="qcurve"/>
-      <point x="327" y="1068"/>
-      <point x="407" y="1147"/>
-      <point x="464" y="1147" type="qcurve"/>
-      <point x="522" y="1147"/>
-      <point x="601" y="1068"/>
-      <point x="601" y="1010" type="qcurve"/>
-      <point x="601" y="954"/>
-      <point x="522" y="876"/>
-    </contour>
-    <contour>
-      <point x="106" y="560" type="line" smooth="yes"/>
-      <point x="18" y="560"/>
-      <point x="18" y="560"/>
-      <point x="18" y="641" type="qcurve"/>
-      <point x="18" y="641" type="line"/>
-      <point x="18" y="721"/>
-      <point x="18" y="721" name="inserted"/>
-      <point x="106" y="721" type="qcurve" smooth="yes"/>
-      <point x="822" y="721" type="line"/>
-      <point x="910" y="721" name="inserted"/>
-      <point x="910" y="721"/>
-      <point x="910" y="641" type="qcurve"/>
-      <point x="910" y="641" type="line"/>
-      <point x="910" y="560"/>
-      <point x="910" y="560"/>
-      <point x="822" y="560" type="qcurve"/>
-    </contour>
+    <component base="minus"/>
+    <component base="_dots-divide"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>minus</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

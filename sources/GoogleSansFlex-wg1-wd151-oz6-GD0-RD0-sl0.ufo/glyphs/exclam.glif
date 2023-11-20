@@ -1,26 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="exclam" format="2">
-  <advance width="1008"/>
+  <advance width="607"/>
   <unicode hex="0021"/>
   <outline>
-    <component base="exclam-top" xOffset="240" identifier="E009682A"/>
-    <component base="dot-composite" xOffset="266" identifier="A04338B9"/>
+    <contour>
+      <point x="304" y="382" type="qcurve"/>
+      <point x="342" y="382" name="inserted"/>
+      <point x="342" y="382" name="inserted"/>
+      <point x="342" y="416" type="qcurve"/>
+      <point x="353" y="1387" type="line"/>
+      <point x="354" y="1432"/>
+      <point x="354" y="1432"/>
+      <point x="304" y="1432" type="qcurve"/>
+      <point x="254" y="1432" name="inserted"/>
+      <point x="254" y="1432" name="inserted"/>
+      <point x="255" y="1387" type="qcurve"/>
+      <point x="266" y="416" type="line"/>
+      <point x="266" y="382"/>
+      <point x="266" y="382"/>
+    </contour>
+    <contour>
+      <point x="303" y="-8" type="qcurve" smooth="yes"/>
+      <point x="349" y="-8"/>
+      <point x="414" y="56"/>
+      <point x="414" y="104" type="qcurve" smooth="yes"/>
+      <point x="414" y="148"/>
+      <point x="349" y="212"/>
+      <point x="303" y="212" type="qcurve" smooth="yes"/>
+      <point x="257" y="212"/>
+      <point x="194" y="148"/>
+      <point x="194" y="104" type="qcurve" smooth="yes"/>
+      <point x="194" y="56"/>
+      <point x="257" y="-8"/>
+    </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>A04338B9</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-        <key>E009682A</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-      </dict>
-    </dict>
-  </lib>
 </glyph>

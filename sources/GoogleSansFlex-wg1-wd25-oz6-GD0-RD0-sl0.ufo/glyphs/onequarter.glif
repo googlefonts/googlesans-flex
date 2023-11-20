@@ -1,10 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="onequarter" format="2">
-  <advance width="1933"/>
+  <advance width="1410"/>
   <unicode hex="00BC"/>
   <outline>
-    <component base="one.numerator" xOffset="141"/>
-    <component base="fraction" xOffset="837"/>
-    <component base="four.denominator" xOffset="1156"/>
+    <component base="one.numerator"/>
+    <component base="fraction" xOffset="551"/>
+    <component base="four.denominator" xOffset="787"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>one.numerator</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>2</integer>
+          <key>name</key>
+          <string>four.denominator</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>
