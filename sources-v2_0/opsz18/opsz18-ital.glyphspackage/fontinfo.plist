@@ -1150,6 +1150,20 @@ name = paramOver;
 value = 0;
 }
 );
+guides = (
+{
+pos = (3,0);
+},
+{
+pos = (3,-17);
+},
+{
+pos = (68,859);
+},
+{
+pos = (68,876);
+}
+);
 id = "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5";
 metricValues = (
 {
@@ -1191,12 +1205,13 @@ GSSlanterCursivy = 8;
 GSSlanterCursivyContrastFactor = 0.2;
 GSSlanterCursivyDoContrast = 1;
 GSSlanterCursivyDoShape = 1;
-GSSlanterCursivyDoThickness = 1;
+GSSlanterCursivyDoThickness = 0;
 GSSlanterCursivyShapeFactor = 0.8;
 GSSlanterCursivyThicknessFactor = 1;
 GSSlanterGeometric = 2;
 GSSlanterRotate = 0;
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -2061,7 +2076,7 @@ pos = (1129,425);
 pos = (3,0);
 },
 {
-pos = (3,-30);
+pos = (3,-17);
 },
 {
 angle = 180;
@@ -2085,6 +2100,12 @@ showMeasurement = 1;
 {
 angle = 90;
 pos = (994,0);
+},
+{
+pos = (68,859);
+},
+{
+pos = (68,876);
 }
 );
 id = "FA332CE9-33C9-4EB8-B214-CFF4D55E63A3";
