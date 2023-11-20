@@ -23,146 +23,146 @@ buildStatic: false
 reverseOutlineDirection: false
 removeOutlineOverlaps: false
 
-# TODO: Re-enable when original axis tags are restored.
-#stat:
-#  "GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf":
-#    - name: Weight
-#      tag: wght
-#      values:
-#        - flags: 0
-#          name: Thin
-#          value: 100.0
-#        - flags: 0
-#          name: ExtraLight
-#          value: 200.0
-#        - flags: 0
-#          name: Light
-#          value: 300.0
-#        - flags: 2
-#          linkedValue: 700.0
-#          name: Regular
-#          value: 400.0
-#        - flags: 0
-#          name: Medium
-#          value: 500.0
-#        - flags: 0
-#          name: SemiBold
-#          value: 600.0
-#        - flags: 0
-#          name: Bold
-#          value: 700.0
-#        - flags: 0
-#          name: ExtraBold
-#          value: 800.0
-#        - flags: 0
-#          name: Black
-#          value: 900.0
-#    - name: Width
-#      tag: wdth
-#      values:
-#        - flags: 0
-#          name: SuperCondensed
-#          value: 25.0
-#        - flags: 0
-#          name: UltraCondensed
-#          value: 50.0
-#        - flags: 0
-#          name: ExtraCondensed
-#          value: 62.5
-#        - flags: 0
-#          name: Condensed
-#          value: 75.0
-#        - flags: 0
-#          name: SemiCondensed
-#          value: 87.5
-#        - flags: 2
-#          name: Normal
-#          value: 100.0
-#        - flags: 0
-#          name: SemiExpanded
-#          value: 112.5
-#        - flags: 0
-#          name: Expanded
-#          value: 125.0
-#        - flags: 0
-#          name: ExtraExpanded
-#          value: 150.0
-#    - name: Optical Size
-#      tag: opsz
-#      values:
-#        - flags: 0
-#          name: 8pt
-#          value: 8.0
-#        - flags: 0
-#          name: 9pt
-#          value: 9.0
-#        - flags: 0
-#          name: 10pt
-#          value: 10.0
-#        - flags: 0
-#          name: 11pt
-#          value: 11.0
-#        - flags: 0
-#          name: 12pt
-#          value: 12.0
-#        - flags: 0
-#          name: 14pt
-#          value: 14.0
-#        - flags: 0
-#          name: 16pt
-#          value: 16.0
-#        - flags: 0
-#          name: 17pt
-#          value: 17.0
-#        - flags: 2
-#          name: 18pt
-#          value: 18.0
-#        - flags: 0
-#          name: 20pt
-#          value: 20.0
-#        - flags: 0
-#          name: 24pt
-#          value: 24.0
-#        - flags: 0
-#          name: 28pt
-#          value: 28.0
-#        - flags: 0
-#          name: 36pt
-#          value: 36.0
-#        - flags: 0
-#          name: 48pt
-#          value: 48.0
-#        - flags: 0
-#          name: 60pt
-#          value: 60.0
-#        - flags: 0
-#          name: 72pt
-#          value: 72.0
-#        - flags: 0
-#          name: 96pt
-#          value: 96.0
-#        - flags: 0
-#          name: 120pt
-#          value: 120.0
-#        - flags: 0
-#          name: 144pt
-#          value: 144.0
-#    - name: Roundness
-#      tag: ROND
-#      values:
-#        - flags: 2
-#          name: Default
-#          value: 0.0
-#    - name: Slant
-#      tag: slnt
-#      values:
-#        - flags: 2
-#          name: Default
-#          value: 0
-#          linkedValue: -10
-#        - flags: 0
-#          name: Slanted
-#          value: -10
+# TODO: Re-enable other TTFs when slanted sources are added.
+stat:
+ "GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf":
+   - name: Weight
+     tag: wght
+     values:
+       - flags: 0
+         name: Thin
+         value: 100.0
+       - flags: 0
+         name: ExtraLight
+         value: 200.0
+       - flags: 0
+         name: Light
+         value: 300.0
+       - flags: 2
+         linkedValue: 700.0
+         name: Regular
+         value: 400.0
+       - flags: 0
+         name: Medium
+         value: 500.0
+       - flags: 0
+         name: SemiBold
+         value: 600.0
+       - flags: 0
+         name: Bold
+         value: 700.0
+       - flags: 0
+         name: ExtraBold
+         value: 800.0
+       - flags: 0
+         name: Black
+         value: 900.0
+   - name: Width
+     tag: wdth
+     values:
+       - flags: 0
+         name: SuperCondensed
+         value: 25.0
+       - flags: 0
+         name: UltraCondensed
+         value: 50.0
+       - flags: 0
+         name: ExtraCondensed
+         value: 62.5
+       - flags: 0
+         name: Condensed
+         value: 75.0
+       - flags: 0
+         name: SemiCondensed
+         value: 87.5
+       - flags: 2
+         name: Normal
+         value: 100.0
+       - flags: 0
+         name: SemiExpanded
+         value: 112.5
+       - flags: 0
+         name: Expanded
+         value: 125.0
+       - flags: 0
+         name: ExtraExpanded
+         value: 150.0
+   - name: Optical Size
+     tag: opsz
+     values:
+       - flags: 0
+         name: 8pt
+         value: 8.0
+       - flags: 0
+         name: 9pt
+         value: 9.0
+       - flags: 0
+         name: 10pt
+         value: 10.0
+       - flags: 0
+         name: 11pt
+         value: 11.0
+       - flags: 0
+         name: 12pt
+         value: 12.0
+       - flags: 0
+         name: 14pt
+         value: 14.0
+       - flags: 0
+         name: 16pt
+         value: 16.0
+       - flags: 0
+         name: 17pt
+         value: 17.0
+       - flags: 2
+         name: 18pt
+         value: 18.0
+       - flags: 0
+         name: 20pt
+         value: 20.0
+       - flags: 0
+         name: 24pt
+         value: 24.0
+       - flags: 0
+         name: 28pt
+         value: 28.0
+       - flags: 0
+         name: 36pt
+         value: 36.0
+       - flags: 0
+         name: 48pt
+         value: 48.0
+       - flags: 0
+         name: 60pt
+         value: 60.0
+       - flags: 0
+         name: 72pt
+         value: 72.0
+       - flags: 0
+         name: 96pt
+         value: 96.0
+       - flags: 0
+         name: 120pt
+         value: 120.0
+       - flags: 0
+         name: 144pt
+         value: 144.0
+   - name: Roundness
+     tag: ROND
+     values:
+       - flags: 2
+         name: Default
+         value: 0.0
+   - name: Slant
+     tag: slnt
+     values:
+       - flags: 2
+         name: Default
+         value: 0
+         linkedValue: -10
+       - flags: 0
+         name: Slanted
+         value: -10
 #  "GoogleSansFlex[ROND,opsz,wdth,wght].ttf":
 #    - name: Weight
 #      tag: wght
