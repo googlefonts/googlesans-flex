@@ -1,5 +1,5 @@
 {
-color = 3;
+color = 4;
 glyphname = semicolon;
 kernLeft = colon_left;
 kernRight = colon_right;
@@ -247,18 +247,29 @@ ref = comma;
 width = 457;
 },
 {
-layerId = "22530A20-0046-4E4D-8599-AC305296A8E0";
+background = {
 shapes = (
 {
-pos = (137,944);
+pos = (173,944);
 ref = period;
 },
 {
-pos = (130,-2);
+pos = (6,0);
+ref = period;
+}
+);
+};
+layerId = "22530A20-0046-4E4D-8599-AC305296A8E0";
+shapes = (
+{
+pos = (173,944);
+ref = period;
+},
+{
 ref = comma;
 }
 );
-width = 509;
+width = 291;
 },
 {
 background = {
