@@ -634,7 +634,7 @@ value = "Google Sans is a trademark of Google.";
 },
 {
 name = "EditView Line Height";
-value = 2930;
+value = 1875;
 }
 );
 date = "2017-07-06 09:41:44 +0000";
@@ -1466,19 +1466,25 @@ filter = "category == \"Symbol\" AND subCategory == \"Math\"";
 pos = (27,630);
 },
 {
-pos = (34,360);
-},
-{
-pos = (5,1299);
-},
-{
-pos = (47,505);
+pos = (22,-86);
 showMeasurement = 1;
 },
 {
-angle = 90;
-pos = (1240,-104);
+pos = (155,480);
 showMeasurement = 1;
+},
+{
+pos = (-73,-130);
+showMeasurement = 1;
+},
+{
+angle = 80;
+pos = (24,0);
+showMeasurement = 1;
+},
+{
+angle = 80;
+pos = (578,852);
 }
 );
 id = "879AA4C1-268E-45F5-A479-E8A4233029E2";
@@ -1515,6 +1521,17 @@ stemValues = (
 425,
 317
 );
+userData = {
+GSSlanterCursivy = 8;
+GSSlanterCursivyContrastFactor = 0.2;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 1;
+GSSlanterCursivyShapeFactor = 0.5;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 2;
+GSSlanterRotate = 0;
+};
 },
 {
 axesValues = (
@@ -1711,7 +1728,7 @@ locked = 1;
 pos = (-32,1062);
 },
 {
-pos = (-13,503);
+pos = (-13,540);
 showMeasurement = 1;
 },
 {
@@ -1988,7 +2005,7 @@ stemValues = (
 axesValues = (
 18,
 100,
-1,
+1000,
 0,
 0,
 0
@@ -2044,11 +2061,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = "285";
+value = "300";
 },
 {
 name = paramDepth;
-value = "13";
+value = "16";
 },
 {
 name = paramOver;
@@ -2057,94 +2074,95 @@ value = 0;
 );
 guides = (
 {
-pos = (163,964);
-showMeasurement = 1;
+locked = 1;
+pos = (-25,1036);
 },
 {
-pos = (1129,425);
+locked = 1;
+pos = (-23,1074);
 },
 {
-pos = (3,0);
+locked = 1;
+pos = (-29,0);
 },
 {
-pos = (3,-17);
+locked = 1;
+pos = (-29,-22);
 },
 {
-angle = 180;
-pos = (41,1196);
-showMeasurement = 1;
+locked = 1;
+pos = (-29,-38);
 },
 {
-pos = (-65,1477);
+locked = 1;
+pos = (-23,1058);
+},
+{
+locked = 1;
+pos = (-20,1470);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1584);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1191);
 },
 {
 filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (58,607);
+pos = (27,630);
 },
 {
-pos = (67,132);
+pos = (34,360);
 },
 {
-pos = (14,258);
+pos = (5,1299);
+showMeasurement = 1;
+},
+{
+pos = (47,277);
 showMeasurement = 1;
 },
 {
 angle = 90;
-pos = (994,0);
-},
-{
-pos = (68,859);
-},
-{
-pos = (68,876);
+pos = (1240,-104);
+showMeasurement = 1;
 }
 );
-id = "FA332CE9-33C9-4EB8-B214-CFF4D55E63A3";
+id = "4CAB7C68-EE80-43F8-9961-07B4CD4DC65B";
 metricValues = (
 {
-over = 29;
+over = 38;
 pos = 1432;
 },
 {
-over = 29;
+over = 38;
 pos = 1432;
 },
 {
-over = 29;
-pos = 998;
+over = 38;
+pos = 1036;
 },
 {
-over = -29;
+over = -38;
 },
 {
-over = -29;
+over = -38;
 pos = -432;
 },
 {
 },
 {
-over = 17;
-pos = 859;
 }
 );
-name = "Copy-of-100-1";
+name = "COPY_of_100-1000";
 stemValues = (
-32,
-31,
-30,
-30
+460,
+455,
+425,
+317
 );
-userData = {
-GSSlanterCursivy = 8;
-GSSlanterCursivyContrastFactor = 0.2;
-GSSlanterCursivyDoContrast = 1;
-GSSlanterCursivyDoShape = 1;
-GSSlanterCursivyDoThickness = 0;
-GSSlanterCursivyShapeFactor = 0.8;
-GSSlanterCursivyThicknessFactor = 1;
-GSSlanterGeometric = 2;
-GSSlanterRotate = 0;
-};
 }
 );
 instances = (
@@ -2335,9 +2353,9 @@ fraction = {
 four.denominator = -150;
 };
 };
-"FA332CE9-33C9-4EB8-B214-CFF4D55E63A3" = {
+"4CAB7C68-EE80-43F8-9961-07B4CD4DC65B" = {
 fraction = {
-four.denominator = -114;
+four.denominator = -80;
 };
 };
 };
@@ -2520,6 +2538,15 @@ oH = "384";
 oV = "456";
 tH = "328";
 };
+"4CAB7C68-EE80-43F8-9961-07B4CD4DC65B" = {
+HH = "425";
+HV = "460";
+OH = "449";
+OV = "461";
+nV = "455";
+oH = "369";
+oV = "438";
+};
 "59C106D9-34D8-4EDF-9467-5A22D3D96ECF" = {
 HH = "156";
 HV = "170";
@@ -2582,10 +2609,10 @@ tH = "148";
 };
 "879AA4C1-268E-45F5-A479-E8A4233029E2" = {
 HH = "425";
-HV = "460";
+HV = "464";
 OH = "449";
 OV = "461";
-nV = "455";
+nV = "458";
 oH = "369";
 oV = "438";
 tH = "317";
