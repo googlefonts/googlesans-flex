@@ -188,15 +188,29 @@ ref = zeroslash;
 width = 628;
 },
 {
-layerId = "FA332CE9-33C9-4EB8-B214-CFF4D55E63A3";
+background = {
 shapes = (
 {
 alignment = -1;
-pos = (-70,0);
+pos = (2,0);
+ref = zero;
+},
+{
+alignment = -1;
+pos = (78,-13);
+ref = zero.slash;
+}
+);
+};
+layerId = "4CAB7C68-EE80-43F8-9961-07B4CD4DC65B";
+shapes = (
+{
+alignment = -1;
+pos = (3,0);
 ref = zeroslash;
 }
 );
-width = 1188;
+width = 1360;
 }
 );
 metricWidth = "=zero.tf";
