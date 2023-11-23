@@ -2488,29 +2488,121 @@ width = 2590;
 anchors = (
 {
 name = bottom;
-pos = (598,0);
+pos = (691,0);
 },
 {
 name = center;
-pos = (850,716);
+pos = (817,716);
 },
 {
 name = ogonek;
-pos = (825,8);
+pos = (917,8);
 },
 {
 name = tail;
-pos = (1096,8);
+pos = (1188,8);
 },
 {
 name = top;
-pos = (1102,1432);
+pos = (937,1432);
 },
 {
 name = topright;
-pos = (1317,1424);
+pos = (1159,1424);
 }
 );
+background = {
+anchors = (
+{
+name = bottom;
+pos = (691,0);
+},
+{
+name = center;
+pos = (817,716);
+},
+{
+name = ogonek;
+pos = (917,8);
+},
+{
+name = tail;
+pos = (1188,8);
+},
+{
+name = top;
+pos = (943,1432);
+},
+{
+name = topright;
+pos = (1159,1424);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(1034,-24,o),
+(1529,383,o,{
+name = inserted;
+}),
+(1584,694,q),
+(1584,694,l),
+(1639,1005,o),
+(1274,1456,o,{
+name = inserted;
+}),
+(937,1456,qs),
+(600,1456,o),
+(104,1049,o,{
+name = inserted;
+}),
+(50,738,q),
+(50,738,l),
+(-5,427,o),
+(360,-24,o,{
+name = inserted;
+}),
+(697,-24,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(703,529,o,{
+name = inserted;
+}),
+(608,639,o,{
+name = inserted;
+}),
+(623,722,q),
+(623,722,l),
+(637,805,o,{
+name = inserted;
+}),
+(764,903,o,{
+name = inserted;
+}),
+(847,903,qs),
+(928,903,o,{
+name = inserted;
+}),
+(1025,793,o,{
+name = inserted;
+}),
+(1011,710,q),
+(1011,710,l),
+(996,627,o,{
+name = inserted;
+}),
+(867,529,o,{
+name = inserted;
+}),
+(786,529,qs)
+);
+}
+);
+};
 guides = (
 {
 angle = 90;
