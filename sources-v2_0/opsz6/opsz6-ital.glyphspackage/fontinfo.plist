@@ -1071,6 +1071,7 @@ GSSlanterCursivyThicknessFactor = 1;
 GSSlanterGeometric = 0;
 GSSlanterRotate = 0;
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -1296,6 +1297,15 @@ stemValues = (
 308
 );
 userData = {
+GSSlanterCursivy = 10;
+GSSlanterCursivyContrastFactor = 0.5;
+GSSlanterCursivyDoContrast = 0;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 0;
+GSSlanterCursivyShapeFactor = 0.5;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 0;
+GSSlanterRotate = 0;
 HTLSManagerMasterRules = {
 };
 };
@@ -3440,10 +3450,14 @@ two.denominator = 0;
 };
 "7ED4B341-A37B-4DEE-8334-0DF71EE2D955" = {
 fraction = {
-four.denominator = -69;
+four.denominator = -70;
+zero.dnom.percent = -20;
 };
 one.numerator = {
 fraction = 5;
+};
+zero.numr.percent = {
+fraction = -20;
 };
 };
 "C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = {
@@ -4579,6 +4593,7 @@ three = 0;
 two = 0;
 two.denominator = 20;
 zero = 0;
+zero.dnom.percent = -30;
 };
 greater = {
 one = 0;
@@ -4885,6 +4900,9 @@ seven.denominator = 0;
 six.denominator = 0;
 three.denominator = 0;
 two.denominator = 0;
+};
+zero.numr.percent = {
+fraction = -30;
 };
 };
 "4296CD9C-54F3-4369-8782-4D8C9C978D13" = {
