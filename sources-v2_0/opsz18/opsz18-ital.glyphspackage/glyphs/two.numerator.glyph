@@ -299,7 +299,16 @@ ref = two.denominator;
 width = 357;
 },
 {
-layerId = "4CAB7C68-EE80-43F8-9961-07B4CD4DC65B";
+background = {
+shapes = (
+{
+alignment = -1;
+pos = (0,573);
+ref = two.denominator;
+}
+);
+};
+layerId = "324B708D-C4F4-4F36-B55A-398EF90F2FE1";
 shapes = (
 {
 alignment = 1;
@@ -307,7 +316,7 @@ pos = (0,573);
 ref = two.denominator;
 }
 );
-width = 884;
+width = 1050;
 }
 );
 metricLeft = two.denominator;

@@ -316,6 +316,25 @@ width = 1211;
 anchors = (
 {
 name = bottom;
+pos = (815,0);
+},
+{
+name = center;
+pos = (290,651);
+},
+{
+name = top;
+pos = (428,1432);
+},
+{
+name = topright;
+pos = (1221,998);
+}
+);
+background = {
+anchors = (
+{
+name = bottom;
 pos = (903,0);
 },
 {
@@ -331,7 +350,6 @@ name = topright;
 pos = (1133,998);
 }
 );
-layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
 shapes = (
 {
 closed = 1;
@@ -363,6 +381,42 @@ name = inserted;
 (247,0,o),
 (247,0,o),
 (267,0,q)
+);
+}
+);
+};
+layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
+shapes = (
+{
+closed = 1;
+nodes = (
+(1454,0,l),
+(1468,0,o,{
+name = inserted;
+}),
+(1468,0,o,{
+name = inserted;
+}),
+(1471,16,q),
+(1474,31,o),
+(1474,31,o),
+(1459,31,q),
+(198,31,l),
+(442,1418,l),
+(445,1432,o,{
+name = inserted;
+}),
+(445,1432,o,{
+name = inserted;
+}),
+(428,1432,q),
+(412,1432,o),
+(412,1432,o),
+(409,1418,q),
+(163,21,l),
+(159,0,o),
+(159,0,o),
+(179,0,q)
 );
 }
 );
@@ -599,49 +653,60 @@ width = 460;
 anchors = (
 {
 name = bottom;
-pos = (686,0);
+pos = (903,0);
 },
 {
 name = center;
-pos = (365,707);
+pos = (263,651);
 },
 {
 name = top;
-pos = (367,1432);
+pos = (263,1432);
 },
 {
 name = topright;
-pos = (973,998);
+pos = (1133,998);
 }
 );
-layerId = "4CAB7C68-EE80-43F8-9961-07B4CD4DC65B";
+layerId = "324B708D-C4F4-4F36-B55A-398EF90F2FE1";
 shapes = (
 {
 closed = 1;
 nodes = (
-(991,0,l),
-(1183,0,o),
-(1183,0,o),
-(1183,213,q),
-(1183,426,o),
-(1183,426,o),
-(991,426,q),
-(595,426,l),
-(595,1225,l),
-(595,1432,o),
-(595,1432,o),
-(365,1432,q),
-(135,1432,o),
-(135,1432,o),
-(135,1225,q),
-(135,226,l),
-(135,0,o),
-(135,0,o),
-(360,0,q)
+(1543,0,l),
+(1557,0,o,{
+name = inserted;
+}),
+(1557,0,o,{
+name = inserted;
+}),
+(1557,16,q),
+(1557,31,o),
+(1557,31,o),
+(1543,31,q),
+(279,31,l),
+(279,1418,l),
+(279,1432,o,{
+name = inserted;
+}),
+(279,1432,o,{
+name = inserted;
+}),
+(263,1432,q),
+(247,1432,o),
+(247,1432,o),
+(247,1418,q),
+(247,21,l),
+(247,0,o),
+(247,0,o),
+(267,0,q)
 );
 }
 );
-width = 1211;
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
+};
+width = 1657;
 }
 );
 metricLeft = H;
