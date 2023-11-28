@@ -62,22 +62,10 @@ if __name__ == "__main__":
     # Give every brace layer a name.
     # Motivation: required for glyphsLib to export unnamed brace layers.
     #             https://github.com/googlefonts/glyphsLib/issues/952
-    # TODO: Re-enable when the brace layers are restored.
-    # for glyph in font.glyphs:
-    #     for layer in glyph.layers:
-    #         if layer._is_brace_layer():
-    #             layer.name = layer._brace_layer_name()
-
-    # Delete brace layers.
-    # Motivation: these require some upstream changes in the sources or in
-    #             glyphsLib before they can be built.
-    # TODO: Disable and remove when this is no longer the case.
     for glyph in font.glyphs:
-        brace_layer_ids = [
-            layer.layerId for layer in glyph.layers if layer._is_brace_layer()
-        ]
-        for layer_id in brace_layer_ids:
-            del glyph.layers[layer_id]
+        for layer in glyph.layers:
+            if layer._is_brace_layer():
+                layer.name = layer._brace_layer_name()
 
     # Clear feature imports.
     # Motivation: glyphsLib tries to export disabled features
