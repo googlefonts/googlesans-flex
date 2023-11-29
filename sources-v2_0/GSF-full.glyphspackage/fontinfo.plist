@@ -3,28 +3,28 @@
 .formatVersion = 3;
 axes = (
 {
-name = Weight;
-tag = wght;
+name = "Optical size";
+tag = opsz;
 },
 {
 name = Width;
 tag = wdth;
 },
 {
-name = "Optical size";
-tag = opsz;
+name = Weight;
+tag = wght;
 },
 {
-name = Round;
+name = Grade;
+tag = GRAD;
+},
+{
+name = Roundness;
 tag = ROND;
 },
 {
 name = Slant;
 tag = slnt;
-},
-{
-name = Grade;
-tag = GRAD;
 }
 );
 customParameters = (
@@ -652,9 +652,9 @@ name = Prefix;
 fontMaster = (
 {
 axesValues = (
-1,
-25,
 6,
+25,
+1,
 0,
 0,
 0
@@ -767,11 +767,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-25,
 6,
-100,
+25,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -882,9 +882,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-25,
 6,
+25,
+400,
 0,
 0,
 0
@@ -987,11 +987,11 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-25,
 6,
-100,
+25,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -1092,9 +1092,9 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-25,
 6,
+25,
+1000,
 0,
 0,
 0
@@ -1197,11 +1197,11 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-25,
 6,
-100,
+25,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -1302,9 +1302,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-100,
 6,
+100,
+1,
 0,
 0,
 0
@@ -1424,11 +1424,11 @@ GSCornerRadius = 45;
 },
 {
 axesValues = (
-1,
-100,
 6,
 100,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -1543,9 +1543,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-100,
 6,
+100,
+400,
 0,
 0,
 0
@@ -1654,11 +1654,11 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-100,
 6,
 100,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -1765,9 +1765,9 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-100,
 6,
+100,
+1000,
 0,
 0,
 0
@@ -1874,11 +1874,11 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1000,
-100,
 6,
 100,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -1983,9 +1983,9 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1,
-151,
 6,
+151,
+1,
 0,
 0,
 0
@@ -2088,11 +2088,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-151,
 6,
-100,
+151,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -2193,9 +2193,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-151,
 6,
+151,
+400,
 0,
 0,
 0
@@ -2320,11 +2320,11 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-400,
-151,
 6,
-100,
+151,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -2447,9 +2447,9 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1000,
-151,
 6,
+151,
+1000,
 0,
 0,
 0
@@ -2552,11 +2552,11 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-151,
 6,
-100,
+151,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -2657,9 +2657,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-25,
 18,
+25,
+1,
 0,
 0,
 0
@@ -2771,11 +2771,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-25,
 18,
-100,
+25,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -2885,9 +2885,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-25,
 18,
+25,
+400,
 0,
 0,
 0
@@ -3051,11 +3051,11 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-25,
 18,
-100,
+25,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -3217,9 +3217,9 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-25,
 18,
+25,
+1000,
 0,
 0,
 0
@@ -3366,11 +3366,11 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-25,
 18,
-100,
+25,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -3515,9 +3515,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-100,
 18,
+100,
+1,
 0,
 0,
 0
@@ -3660,11 +3660,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-100,
 18,
 100,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -3805,9 +3805,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-100,
 18,
+100,
+400,
 0,
 0,
 0
@@ -3963,11 +3963,11 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-100,
 18,
 100,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -4121,9 +4121,9 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-100,
 18,
+100,
+1000,
 0,
 0,
 0
@@ -4283,11 +4283,11 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-100,
 18,
 100,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -4445,9 +4445,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-151,
 18,
+151,
+1,
 0,
 0,
 0
@@ -4550,11 +4550,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-151,
 18,
-100,
+151,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -4655,9 +4655,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-151,
 18,
+151,
+400,
 0,
 0,
 0
@@ -4838,11 +4838,11 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-400,
-151,
 18,
-100,
+151,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -5021,9 +5021,9 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1000,
-151,
 18,
+151,
+1000,
 0,
 0,
 0
@@ -5198,11 +5198,11 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-151,
 18,
-100,
+151,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -5375,9 +5375,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-25,
 144,
+25,
+1,
 0,
 0,
 0
@@ -5538,11 +5538,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-25,
 144,
-100,
+25,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -5701,9 +5701,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-25,
 144,
+25,
+400,
 0,
 0,
 0
@@ -5884,11 +5884,11 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-400,
-25,
 144,
-100,
+25,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -6053,9 +6053,9 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1000,
-25,
 144,
+25,
+1000,
 0,
 0,
 0
@@ -6232,11 +6232,11 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-25,
 144,
-100,
+25,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -6411,9 +6411,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-100,
 144,
+100,
+1,
 0,
 0,
 0
@@ -6559,11 +6559,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-100,
 144,
 100,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -6703,9 +6703,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-100,
 144,
+100,
+400,
 0,
 0,
 0
@@ -6866,11 +6866,11 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-100,
 144,
 100,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -7029,9 +7029,9 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-100,
 144,
+100,
+1000,
 0,
 0,
 0
@@ -7191,11 +7191,11 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-100,
 144,
 100,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -7353,9 +7353,9 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-151,
 144,
+151,
+1,
 0,
 0,
 0
@@ -7533,11 +7533,11 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-151,
 144,
-100,
+151,
+1,
 0,
+100,
 0
 );
 customParameters = (
@@ -7713,9 +7713,9 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-151,
 144,
+151,
+400,
 0,
 0,
 0
@@ -7889,11 +7889,11 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-151,
 144,
-100,
+151,
+400,
 0,
+100,
 0
 );
 customParameters = (
@@ -8068,9 +8068,9 @@ GSCornerRadius = 177;
 },
 {
 axesValues = (
-1000,
-151,
 144,
+151,
+1000,
 0,
 0,
 0
@@ -8229,11 +8229,11 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1000,
-151,
 144,
-100,
+151,
+1000,
 0,
+100,
 0
 );
 customParameters = (
@@ -8392,25 +8392,9 @@ HTLSManagerMasterRules = {
 instances = (
 {
 axesValues = (
-100,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.75188;
-m001 = 0.24812;
-};
-name = "Thin Italic";
-weightClass = 100;
-},
-{
-axesValues = (
 100,
 100,
-18,
 0,
 0,
 0
@@ -8424,25 +8408,9 @@ weightClass = 100;
 },
 {
 axesValues = (
-200,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.50125;
-m001 = 0.49875;
-};
-name = "ExtraLight Italic";
-weightClass = 200;
-},
-{
-axesValues = (
-200,
 100,
-18,
+200,
 0,
 0,
 0
@@ -8456,25 +8424,9 @@ weightClass = 200;
 },
 {
 axesValues = (
-300,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.25063;
-m001 = 0.74937;
-};
-name = "Light Italic";
-weightClass = 300;
-},
-{
-axesValues = (
-300,
 100,
-18,
+300,
 0,
 0,
 0
@@ -8488,23 +8440,9 @@ weightClass = 300;
 },
 {
 axesValues = (
-400,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-m001 = 1;
-};
-name = Italic;
-},
-{
-axesValues = (
-400,
 100,
-18,
+400,
 0,
 0,
 0
@@ -8516,25 +8454,9 @@ name = Regular;
 },
 {
 axesValues = (
-500,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.16667;
-m001 = 0.83333;
-};
-name = "Medium Italic";
-weightClass = 500;
-},
-{
-axesValues = (
-500,
 100,
-18,
+500,
 0,
 0,
 0
@@ -8548,25 +8470,9 @@ weightClass = 500;
 },
 {
 axesValues = (
-600,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.33333;
-m001 = 0.66667;
-};
-name = "SemiBold Italic";
-weightClass = 600;
-},
-{
-axesValues = (
-600,
 100,
-18,
+600,
 0,
 0,
 0
@@ -8580,25 +8486,9 @@ weightClass = 600;
 },
 {
 axesValues = (
-700,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.5;
-m001 = 0.5;
-};
-name = "Bold Italic";
-weightClass = 700;
-},
-{
-axesValues = (
-700,
 100,
-18,
+700,
 0,
 0,
 0
@@ -8612,25 +8502,9 @@ weightClass = 700;
 },
 {
 axesValues = (
-800,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.66667;
-m001 = 0.33333;
-};
-name = "ExtraBold Italic";
-weightClass = 800;
-},
-{
-axesValues = (
-800,
 100,
-18,
+800,
 0,
 0,
 0
@@ -8644,25 +8518,9 @@ weightClass = 800;
 },
 {
 axesValues = (
-900,
-100,
 18,
-0,
--10,
-0
-);
-instanceInterpolations = {
-"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.83333;
-m001 = 0.16667;
-};
-name = "Black Italic";
-weightClass = 900;
-},
-{
-axesValues = (
-900,
 100,
-18,
+900,
 0,
 0,
 0
@@ -8672,6 +8530,148 @@ instanceInterpolations = {
 m001 = 0.16667;
 };
 name = Black;
+weightClass = 900;
+},
+{
+axesValues = (
+18,
+100,
+100,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.75188;
+m001 = 0.24812;
+};
+name = "Thin Italic";
+weightClass = 100;
+},
+{
+axesValues = (
+18,
+100,
+200,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.50125;
+m001 = 0.49875;
+};
+name = "ExtraLight Italic";
+weightClass = 200;
+},
+{
+axesValues = (
+18,
+100,
+300,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.25063;
+m001 = 0.74937;
+};
+name = "Light Italic";
+weightClass = 300;
+},
+{
+axesValues = (
+18,
+100,
+400,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+m001 = 1;
+};
+name = Italic;
+},
+{
+axesValues = (
+18,
+100,
+500,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.16667;
+m001 = 0.83333;
+};
+name = "Medium Italic";
+weightClass = 500;
+},
+{
+axesValues = (
+18,
+100,
+600,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.33333;
+m001 = 0.66667;
+};
+name = "SemiBold Italic";
+weightClass = 600;
+},
+{
+axesValues = (
+18,
+100,
+700,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.5;
+m001 = 0.5;
+};
+name = "Bold Italic";
+weightClass = 700;
+},
+{
+axesValues = (
+18,
+100,
+800,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.66667;
+m001 = 0.33333;
+};
+name = "ExtraBold Italic";
+weightClass = 800;
+},
+{
+axesValues = (
+18,
+100,
+900,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.83333;
+m001 = 0.16667;
+};
+name = "Black Italic";
 weightClass = 900;
 }
 );
