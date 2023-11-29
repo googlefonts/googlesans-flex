@@ -3,28 +3,28 @@
 .formatVersion = 3;
 axes = (
 {
-name = Weight;
-tag = wght;
+name = "Optical size";
+tag = opsz;
 },
 {
 name = Width;
 tag = wdth;
 },
 {
-name = "Optical size";
-tag = opsz;
+name = Weight;
+tag = wght;
 },
 {
-name = Round;
+name = Grade;
+tag = GRAD;
+},
+{
+name = Roundness;
 tag = ROND;
 },
 {
 name = Slant;
 tag = slnt;
-},
-{
-name = Grade;
-tag = GRAD;
 }
 );
 customParameters = (
@@ -629,12 +629,12 @@ name = Prefix;
 fontMaster = (
 {
 axesValues = (
-1,
-25,
 6,
+25,
+1,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -745,12 +745,12 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-25,
 6,
+25,
+400,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -851,12 +851,12 @@ stemValues = (
 },
 {
 axesValues = (
-1000,
-25,
 6,
+25,
+1000,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -957,12 +957,12 @@ stemValues = (
 },
 {
 axesValues = (
-1,
-100,
 6,
+100,
+1,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -1075,12 +1075,12 @@ visible = 1;
 },
 {
 axesValues = (
-400,
-100,
 6,
+100,
+400,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -1193,12 +1193,12 @@ visible = 1;
 },
 {
 axesValues = (
-1000,
-100,
 6,
+100,
+1000,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -1312,12 +1312,12 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1,
-151,
 6,
+151,
+1,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -1418,12 +1418,12 @@ stemValues = (
 },
 {
 axesValues = (
-400,
-151,
 6,
+151,
+400,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -1546,12 +1546,12 @@ HTLSManagerMasterRules = {
 },
 {
 axesValues = (
-1000,
-151,
 6,
+151,
+1000,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -1654,12 +1654,12 @@ stemValues = (
 instances = (
 {
 axesValues = (
-1,
-25,
 6,
+25,
+1,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "4EAE7F17-0A08-4443-B85C-52E72D924BBD" = 1;
@@ -1668,12 +1668,12 @@ name = "opsz6-wdth25-wght1-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-400,
-25,
 6,
+25,
+400,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "7C224297-46A4-408E-BDB1-99237B4DCB3A" = 1;
@@ -1682,12 +1682,12 @@ name = "opsz6-wdth25-wght400-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-1000,
-25,
 6,
+25,
+1000,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "2D1C241B-E6AD-41FB-985B-55D4E5F84943" = 1;
@@ -1696,12 +1696,12 @@ name = "opsz6-wdth25-wght1000-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-1,
-100,
 6,
+100,
+1,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "7ED4B341-A37B-4DEE-8334-0DF71EE2D955" = 1;
@@ -1710,12 +1710,12 @@ name = "opsz6-wdth100-wght1-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-400,
-100,
 6,
+100,
+400,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 1;
@@ -1724,12 +1724,12 @@ name = "opsz6-wdth100-wght400-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-1000,
-100,
 6,
+100,
+1000,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "4296CD9C-54F3-4369-8782-4D8C9C978D13" = 1;
@@ -1738,12 +1738,12 @@ name = "opsz6-wdth100-wght1000-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-1,
-151,
 6,
+151,
+1,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "C2BA2B2A-76E0-4627-B638-B0CC7B22E341" = 1;
@@ -1752,12 +1752,12 @@ name = "opsz6-wdth151-wght1-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-400,
-151,
 6,
+151,
+400,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "5DA06E3F-B65C-4341-B330-53F50D9F2964" = 1;
@@ -1766,12 +1766,12 @@ name = "opsz6-wdth151-wght400-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-1000,
-151,
 6,
+151,
+1000,
 0,
--10,
-0
+0,
+-10
 );
 instanceInterpolations = {
 "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E" = 1;
@@ -1780,12 +1780,12 @@ name = "opsz6-wdth151-wght1000-Ital1-Rond0-Grad0";
 },
 {
 axesValues = (
-430,
-145,
 6,
+145,
+430,
 0,
--10,
-0
+0,
+-10
 );
 exports = 0;
 instanceInterpolations = {
@@ -1799,12 +1799,12 @@ visible = 0;
 },
 {
 axesValues = (
-385,
-86,
 6,
+86,
+385,
 0,
--10,
-0
+0,
+-10
 );
 exports = 0;
 instanceInterpolations = {
@@ -1818,12 +1818,12 @@ visible = 0;
 },
 {
 axesValues = (
-384,
-93,
 6,
+93,
+384,
 0,
--10,
-0
+0,
+-10
 );
 customParameters = (
 {
@@ -3451,7 +3451,6 @@ two.denominator = 0;
 "7ED4B341-A37B-4DEE-8334-0DF71EE2D955" = {
 fraction = {
 four.denominator = -70;
-zero.dnom.percent = -20;
 };
 one.numerator = {
 fraction = 5;
@@ -4593,7 +4592,6 @@ three = 0;
 two = 0;
 two.denominator = 20;
 zero = 0;
-zero.dnom.percent = -30;
 };
 greater = {
 one = 0;

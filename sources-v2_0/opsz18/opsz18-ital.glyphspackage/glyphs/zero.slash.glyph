@@ -1,4 +1,5 @@
 {
+color = 5;
 glyphname = zero.slash;
 layers = (
 {
@@ -89,10 +90,16 @@ width = 1200;
 anchors = (
 {
 name = _center;
+pos = (940,698);
+}
+);
+background = {
+anchors = (
+{
+name = _center;
 pos = (905,698);
 }
 );
-layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
 shapes = (
 {
 closed = 1;
@@ -101,6 +108,19 @@ nodes = (
 (1709,1048,l),
 (89,377,l),
 (101,347,l)
+);
+}
+);
+};
+layerId = "35323741-4FBD-4EB9-8288-00DA7AD3A8A0";
+shapes = (
+{
+closed = 1;
+nodes = (
+(1813,1018,l),
+(1806,1049,l),
+(67,378,l),
+(74,347,l)
 );
 }
 );
