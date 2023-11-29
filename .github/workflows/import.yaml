@@ -58,12 +58,12 @@ jobs:
           rm -rf "$GITHUB_WORKSPACE"/target/sources/*.{ufo,designspace}
       - name: Run import script
         run: |
-          cd "$GITHUB_WORKSPACE/target"
+          cd "$GITHUB_WORKSPACE/main"
           echo "::group::setup venv"
           make venv
           echo "::endgroup::"
           echo "Running glyphs_to_ds.py"
-          venv/bin/python scripts/glyphs_to_ds.py "$GITHUB_WORKSPACE"/source/sources-v2_0/GSF-full.glyphspackage sources/GoogleSansFlex.designspace
+          venv/bin/python scripts/glyphs_to_ds.py "$GITHUB_WORKSPACE"/source/sources-v2_0/GSF-full.glyphspackage "$GITHUB_WORKSPACE"/target/sources/GoogleSansFlex.designspace
       - name: Commit & push changes
         env:
           SOURCE_REF: ${{ github.event.inputs.branch }}
