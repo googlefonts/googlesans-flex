@@ -129,15 +129,15 @@ width = 344;
 anchors = (
 {
 name = bottom;
-pos = (291,0);
+pos = (200,0);
 },
 {
 name = ogonek;
-pos = (511,0);
+pos = (420,0);
 },
 {
 name = top;
-pos = (294,1432);
+pos = (455,1432);
 }
 );
 background = {
@@ -188,26 +188,26 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(509,0,o),
-(509,0,o,{
+(418,0,o),
+(418,0,o,{
 name = inserted;
 }),
-(509,194,qs),
-(509,1239,ls),
-(509,1432,o,{
+(452,194,qs),
+(636,1239,ls),
+(670,1432,o,{
 name = inserted;
 }),
-(509,1432,o,{
+(670,1432,o,{
 name = inserted;
 }),
-(294,1432,q),
-(79,1432,o),
-(79,1432,o),
-(79,1239,qs),
-(79,194,ls),
-(79,0,o),
-(79,0,o),
-(294,0,q)
+(455,1432,q),
+(240,1432,o),
+(240,1432,o),
+(206,1239,qs),
+(22,194,ls),
+(-12,0,o),
+(-12,0,o),
+(203,0,q)
 );
 }
 );
@@ -575,50 +575,89 @@ width = 292;
 anchors = (
 {
 name = bottom;
-pos = (263,0);
+pos = (291,0);
 },
 {
 name = ogonek;
-pos = (279,0);
+pos = (511,0);
 },
 {
 name = top;
-pos = (263,1432);
+pos = (294,1432);
 }
 );
-layerId = "324B708D-C4F4-4F36-B55A-398EF90F2FE1";
+background = {
+anchors = (
+{
+name = bottom;
+pos = (291,0);
+},
+{
+name = ogonek;
+pos = (511,0);
+},
+{
+name = top;
+pos = (294,1432);
+}
+);
 shapes = (
 {
 closed = 1;
 nodes = (
-(279,0,o),
-(279,0,o,{
+(509,0,o),
+(509,0,o,{
 name = inserted;
 }),
-(279,14,q),
-(279,1418,l),
-(279,1432,o,{
+(509,198,qs),
+(509,1233,ls),
+(509,1432,o,{
 name = inserted;
 }),
-(279,1432,o,{
+(509,1432,o,{
 name = inserted;
 }),
-(263,1432,q),
-(247,1432,o),
-(247,1432,o),
-(247,1418,q),
-(247,14,l),
-(247,0,o),
-(247,0,o),
-(263,0,q)
+(291,1432,q),
+(79,1432,o),
+(79,1432,o),
+(79,1233,qs),
+(79,198,ls),
+(79,0,o),
+(79,0,o),
+(291,0,q)
 );
 }
 );
-userData = {
-com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
-com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
 };
-width = 526;
+layerId = "7540A388-62C5-4BF6-9E84-388F0E6B80C6";
+shapes = (
+{
+closed = 1;
+nodes = (
+(509,0,o),
+(509,0,o,{
+name = inserted;
+}),
+(509,194,qs),
+(509,1239,ls),
+(509,1432,o,{
+name = inserted;
+}),
+(509,1432,o,{
+name = inserted;
+}),
+(294,1432,q),
+(79,1432,o),
+(79,1432,o),
+(79,1239,qs),
+(79,194,ls),
+(79,0,o),
+(79,0,o),
+(294,0,q)
+);
+}
+);
+width = 588;
 }
 );
 metricLeft = H;

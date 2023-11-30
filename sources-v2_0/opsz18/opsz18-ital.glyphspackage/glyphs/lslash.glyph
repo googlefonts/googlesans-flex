@@ -94,7 +94,7 @@ UFO.lib = {
 };
 },
 {
-pos = (26,104);
+pos = (63,104);
 ref = slashshortcomb;
 }
 );
@@ -289,12 +289,47 @@ ref = slashshortcomb;
 width = 302;
 },
 {
-layerId = "324B708D-C4F4-4F36-B55A-398EF90F2FE1";
-metricLeft = "=+90";
-metricRight = "=+90";
+background = {
 shapes = (
 {
-pos = (90,0);
+closed = 1;
+nodes = (
+(197,335,o,{
+name = inserted;
+}),
+(197,335,o,{
+name = inserted;
+}),
+(256,385,qs),
+(488,582,l),
+(507,576,l),
+(707,747,ls),
+(770,801,o,{
+name = inserted;
+}),
+(770,801,o,{
+name = inserted;
+}),
+(770,941,q),
+(770,1075,o),
+(770,1075,o),
+(710,1024,qs),
+(474,823,l),
+(453,827,l),
+(261,663,ls),
+(197,609,o),
+(197,609,o),
+(197,430,q)
+);
+}
+);
+};
+layerId = "7540A388-62C5-4BF6-9E84-388F0E6B80C6";
+metricLeft = "=+25";
+metricRight = "=+25";
+shapes = (
+{
+pos = (25,0);
 ref = l;
 userData = {
 UFO.identifier = 3283B31E;
@@ -303,11 +338,11 @@ UFO.lib = {
 };
 },
 {
-pos = (89,127);
+pos = (26,104);
 ref = slashshortcomb;
 }
 );
-width = 638;
+width = 623;
 }
 );
 metricLeft = "=+30";
