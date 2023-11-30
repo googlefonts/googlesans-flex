@@ -1,6 +1,6 @@
 {
 case = minor;
-color = 1;
+color = 0;
 glyphname = quoteright;
 kernLeft = quotes_right;
 kernRight = quotes_right;
@@ -253,14 +253,43 @@ ref = comma;
 width = 315;
 },
 {
-layerId = "324B708D-C4F4-4F36-B55A-398EF90F2FE1";
+background = {
 shapes = (
 {
-pos = (0,1341);
+closed = 1;
+nodes = (
+(-220,1160,l),
+(-38,1032,o),
+(-38,1032,o,{
+name = inserted;
+}),
+(85,1204,qs),
+(157,1308,l),
+(191,1357,o),
+(223,1436,o),
+(223,1482,qs),
+(223,1563,o),
+(100,1677,o),
+(14,1677,qs),
+(-71,1677,o),
+(-188,1569,o),
+(-188,1492,qs),
+(-188,1436,o),
+(-138,1355,o),
+(-98,1334,q),
+(-220,1160,l)
+);
+}
+);
+};
+layerId = "7540A388-62C5-4BF6-9E84-388F0E6B80C6";
+shapes = (
+{
+pos = (0,984);
 ref = comma;
 }
 );
-width = 539;
+width = 550;
 }
 );
 metricLeft = "=comma";
