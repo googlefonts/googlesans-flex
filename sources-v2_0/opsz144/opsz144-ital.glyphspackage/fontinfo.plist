@@ -678,6 +678,7 @@ code = "lookup ccmp_Other_1 {
 } ccmp_Other_1;
 
 lookup ccmp_Other_2 {
+	lookupflag 0;
 	@Markscomb = [strokeshortcomb slashshortcomb slashlongcomb];
 	@MarkscombCase = [strokeshortcomb.case slashshortcomb.case slashlongcomb.case];
 	sub @Markscomb @Markscomb' by @MarkscombCase;
@@ -685,6 +686,7 @@ lookup ccmp_Other_2 {
 } ccmp_Other_2;
 
 lookup ccmp_Other_3 {
+	lookupflag 0;
 	sub @Markscomb' @MarkscombCase by @MarkscombCase;
 	sub @MarkscombCase @Markscomb' by @MarkscombCase;
 } ccmp_Other_3;
@@ -805,7 +807,6 @@ sub plusminus.tf by plusminus;
 sub approxequal.tf by approxequal;
 sub logicalnot.tf by logicalnot;
 sub percent.tf by percent;
-sub percentbar.tf by percentbar;
 sub zeroslash.tf by zeroslash;
 ";
 tag = pnum;
@@ -848,7 +849,6 @@ sub plusminus by plusminus.tf;
 sub approxequal by approxequal.tf;
 sub logicalnot by logicalnot.tf;
 sub percent by percent.tf;
-sub percentbar by percentbar.tf;
 sub zeroslash by zeroslash.tf;
 ";
 tag = tnum;
