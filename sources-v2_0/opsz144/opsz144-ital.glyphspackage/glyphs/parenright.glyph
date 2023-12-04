@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = parenright;
 layers = (
 {
@@ -79,16 +80,7 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|parenleft";
 width = 1271;
 },
 {
-guides = (
-{
-pos = (207,1591);
-},
-{
-angle = 180;
-pos = (201,-256);
-}
-);
-layerId = "8D0E3480-621B-4B94-86D8-E59E8F39FCCD";
+background = {
 shapes = (
 {
 closed = 1;
@@ -118,6 +110,52 @@ name = inserted;
 (227,1481,o),
 (227,1481,o),
 (367,1380,o),
+(562,1137,o),
+(635,847,o),
+(603,668,qs)
+);
+}
+);
+};
+guides = (
+{
+pos = (207,1591);
+},
+{
+angle = 180;
+pos = (201,-256);
+}
+);
+layerId = "8D0E3480-621B-4B94-86D8-E59E8F39FCCD";
+shapes = (
+{
+closed = 1;
+nodes = (
+(571,485,o),
+(381,194,o),
+(118,-18,o),
+(-81,-135,o),
+(-81,-135,o),
+(-20,-258,o),
+(-20,-258,o,{
+name = inserted;
+}),
+(200,-139,o),
+(499,105,o),
+(710,432,o),
+(749,653,qs),
+(786,863,o),
+(695,1208,o),
+(480,1464,o),
+(315,1593,o,{
+name = inserted;
+}),
+(315,1593,o,{
+name = inserted;
+}),
+(227,1481,o),
+(227,1481,o),
+(367,1370,o),
 (562,1137,o),
 (635,847,o),
 (603,668,qs)
