@@ -408,3 +408,10 @@ profile.check_log_override(
     overrides=(("missing-axis", WARN, KEEP_ORIGINAL_MESSAGE),),
     reason="It's intended as slnt becomes italics",
 )
+
+print("Skipped checks (check-googlesans.py):")
+for check_id in excluded_check_ids:
+    # These are run in a seperate step so aren't important to log
+    if check_id in OUTLINE_PROFILE_CHECKS:
+        continue
+    print(f"  - {check_id}")

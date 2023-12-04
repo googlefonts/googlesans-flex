@@ -113,3 +113,7 @@ def check_skip_filter(checkid, font=None, **iterargs):
 profile.check_skip_filter = check_skip_filter
 profile.auto_register(globals())
 profile.test_expected_checks(GOOGLESANS_PROFILE_CHECKS, exclusive=True)
+
+print(f"Skipped checks (check-charset.py):")
+for check_id in excluded_check_ids:
+    print(f"  - {check_id}")
