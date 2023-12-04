@@ -1,5 +1,5 @@
 {
-color = 1;
+color = 0;
 glyphname = quotesingle;
 kernLeft = quotes_straight_left;
 kernRight = quotes_straight_right;
@@ -312,35 +312,41 @@ name = inserted;
 width = 301;
 },
 {
-layerId = "7540A388-62C5-4BF6-9E84-388F0E6B80C6";
+guides = (
+{
+pos = (38,1213);
+showMeasurement = 1;
+}
+);
+layerId = "9A15811E-FE9E-4312-A765-6943A31D05AA";
 shapes = (
 {
 closed = 1;
 nodes = (
-(428,895,o),
-(428,895,o,{
+(164,992,o),
+(164,992,o,{
 name = inserted;
 }),
-(428,1051,q),
-(428,1276,l),
-(428,1432,o,{
+(164,1005,q),
+(164,1419,l),
+(164,1432,o,{
 name = inserted;
 }),
-(428,1432,o,{
+(164,1432,o,{
 name = inserted;
 }),
-(255,1432,q),
-(82,1432,o),
-(82,1432,o),
-(82,1276,q),
-(82,1051,l),
-(82,895,o),
-(82,895,o),
-(255,895,q)
+(150,1432,q),
+(136,1432,o),
+(136,1432,o),
+(136,1419,q),
+(136,1005,l),
+(136,992,o),
+(136,992,o),
+(150,992,q)
 );
 }
 );
-width = 510;
+width = 301;
 }
 );
 unicode = 39;
