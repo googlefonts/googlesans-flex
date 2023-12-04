@@ -14,6 +14,7 @@
 
 
 from pathlib import Path
+import os
 
 from fontbakery.callable import check, condition
 from fontbakery.constants import UNICODERANGE_DATA
@@ -44,7 +45,7 @@ GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
 
 # define check ID's in the upstream `googlefonts` profile
 # that should be excluded here
-excluded_check_ids = (
+excluded_check_ids = [
     *OUTLINE_PROFILE_CHECKS,  # Separate.
     "com.google.fonts/check/ftxvalidator_is_available",
     "com.google.fonts/check/dsig",
@@ -58,9 +59,13 @@ excluded_check_ids = (
     "com.google.fonts/check/glyph_coverage",  # We have our own target
     "com.google.fonts/check/file_size",  # We're going bigger
     "com.google.fonts/check/font_names",  # We have our own naming ideas
-    "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1"  # Expected and desired
-    "com.google.fonts/check/STAT/gf_axisregistry" # Buggy in 0.8.13
-)
+    "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1",  # Expected and desired
+    "com.google.fonts/check/STAT/gf_axisregistry", # Buggy in 0.8.13
+]
+
+# Set in import.yaml
+if not "IS_IMPORT" in os.environ:
+    excluded_check_ids.append("com.google.fonts/check/interpolation_issues")
 
 AXIS_DEFAULTS = {
     "opsz": 18,

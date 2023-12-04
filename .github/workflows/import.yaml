@@ -72,6 +72,9 @@ jobs:
         env:
           SKIP_FONTV: true
       - name: Check with fontbakery
+        env:
+          # Used to enable com.google.fonts/check/interpolation_issues in check-googlesans.py
+          IS_IMPORT: true
         # Copy current QA files (and Makefile to drive them) from main so we
         # have up to date tests.
         run: |
