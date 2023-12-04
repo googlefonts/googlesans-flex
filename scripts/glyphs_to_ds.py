@@ -24,43 +24,7 @@ from tempfile import TemporaryDirectory
 from argparse import ArgumentParser
 
 # Incompatible glyphs, that should not be included in the final build.
-INCOMPATIBLE = set(
-    [
-        "acircumflex.alt",
-        "acircumflex",
-        "Acircumflex",
-        "circumflex",
-        "circumflexcomb",
-        "ecircumflex",
-        "Ecircumflex",
-        "four.denominator",
-        "four.numerator",
-        "four.sinf",
-        "four.tf",
-        "foursubscript",
-        "foursuperior",
-        "foursuperscript",
-        "hungarumlaut",
-        "hungarumlautcomb",
-        "icircumflex",
-        "Icircumflex",
-        "ocircumflex",
-        "Ocircumflex",
-        "ohungarumlaut",
-        "Ohungarumlaut",
-        "onequarter",
-        "t",
-        "threequarters",
-        "ucircumflex",
-        "Ucircumflex",
-        "uhungarumlaut",
-        "Uhungarumlaut",
-        "wcircumflex",
-        "Wcircumflex",
-        "ycircumflex",
-        "Ycircumflex",
-    ]
-)
+INCOMPATIBLE = set(["five.denominator"])
 
 if __name__ == "__main__":
     parser = ArgumentParser()
