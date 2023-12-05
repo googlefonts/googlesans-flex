@@ -1,31 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="exclamdown" format="2">
-  <advance width="492"/>
+  <advance width="472"/>
   <unicode hex="00A1"/>
-  <guideline x="246" identifier="o7bdpIFjqU"/>
   <outline>
-    <component base="exclam-bottom" identifier="11AFEE69"/>
-    <component base="dot-composite-top" xOffset="4" yOffset="808" identifier="D01C99AA"/>
+    <component base="exclam" xScale="-1.0" yScale="-1.0" xOffset="472" yOffset="1050"/>
   </outline>
   <lib>
     <dict>
-      <key>com.schriftgestaltung.Glyphs.glyph.leftMetricsKey</key>
-      <string>=|exclam</string>
-      <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
-      <string>=|exclam</string>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>11AFEE69</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>exclam</string>
         </dict>
-        <key>D01C99AA</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

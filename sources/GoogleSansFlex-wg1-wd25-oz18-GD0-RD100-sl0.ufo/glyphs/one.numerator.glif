@@ -1,33 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="one.numerator" format="2">
-  <advance width="260"/>
+  <advance width="273"/>
   <outline>
-    <contour>
-      <point x="182" y="586" type="line"/>
-      <point x="182" y="580" name="inserted"/>
-      <point x="173" y="572"/>
-      <point x="167" y="572" type="qcurve"/>
-      <point x="167" y="572" type="line"/>
-      <point x="161" y="572"/>
-      <point x="152" y="580"/>
-      <point x="152" y="586" type="qcurve"/>
-      <point x="152" y="1391" type="line"/>
-      <point x="37" y="1299" type="line" smooth="yes"/>
-      <point x="32" y="1295" name="inserted"/>
-      <point x="20" y="1296"/>
-      <point x="16" y="1300" type="qcurve"/>
-      <point x="16" y="1300" type="line"/>
-      <point x="11" y="1306"/>
-      <point x="13" y="1317"/>
-      <point x="17" y="1321" type="qcurve" smooth="yes"/>
-      <point x="154" y="1431" type="line" smooth="yes"/>
-      <point x="158" y="1434"/>
-      <point x="162" y="1436"/>
-      <point x="166" y="1436" type="qcurve"/>
-      <point x="166" y="1436" type="line"/>
-      <point x="174" y="1436"/>
-      <point x="182" y="1427" name="inserted"/>
-      <point x="182" y="1420" type="qcurve"/>
-    </contour>
+    <component base="one.denominator" yOffset="576"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>one.denominator</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

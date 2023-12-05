@@ -1,35 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="colon" format="2">
-  <advance width="712"/>
+  <advance width="550"/>
   <unicode hex="003A"/>
   <outline>
-    <contour>
-      <point x="612" y="806" type="qcurve" smooth="yes"/>
-      <point x="612" y="706"/>
-      <point x="464" y="562"/>
-      <point x="356" y="562" type="qcurve" smooth="yes"/>
-      <point x="250" y="562"/>
-      <point x="100" y="706"/>
-      <point x="100" y="806" type="qcurve" smooth="yes"/>
-      <point x="100" y="910"/>
-      <point x="250" y="1052"/>
-      <point x="356" y="1052" type="qcurve" smooth="yes"/>
-      <point x="464" y="1052"/>
-      <point x="612" y="910"/>
-    </contour>
-    <contour>
-      <point x="612" y="216" type="qcurve" smooth="yes"/>
-      <point x="612" y="114"/>
-      <point x="466" y="-32"/>
-      <point x="356" y="-32" type="qcurve" smooth="yes"/>
-      <point x="250" y="-32"/>
-      <point x="100" y="114"/>
-      <point x="100" y="216" type="qcurve" smooth="yes"/>
-      <point x="100" y="318"/>
-      <point x="250" y="458"/>
-      <point x="356" y="458" type="qcurve" smooth="yes"/>
-      <point x="464" y="458"/>
-      <point x="612" y="318"/>
-    </contour>
+    <component base="period" yOffset="588"/>
+    <component base="period"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>period</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>period</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

@@ -1,30 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="questiondown" format="2">
-  <advance width="1334"/>
+  <advance width="1922"/>
   <unicode hex="00BF"/>
   <outline>
-    <component base="question-bottom" identifier="9B799479"/>
-    <component base="dot-composite-top" xOffset="499" yOffset="927" identifier="50122628"/>
+    <component base="question" xScale="-1.0" yScale="-1.0" xOffset="1922" yOffset="998"/>
   </outline>
   <lib>
     <dict>
-      <key>com.schriftgestaltung.Glyphs.glyph.leftMetricsKey</key>
-      <string>=|question</string>
-      <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
-      <string>=|question</string>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>50122628</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>question</string>
         </dict>
-        <key>9B799479</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

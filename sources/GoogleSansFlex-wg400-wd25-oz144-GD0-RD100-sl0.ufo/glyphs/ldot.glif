@@ -1,26 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="ldot" format="2">
-  <advance width="520"/>
+  <advance width="464"/>
   <unicode hex="0140"/>
   <outline>
-    <component base="l" identifier="E39977BE"/>
-    <component base="periodcentered" xOffset="192" identifier="FB49A223"/>
+    <component base="l"/>
+    <component base="periodcentered" xOffset="170" yOffset="87"/>
   </outline>
   <lib>
     <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>E39977BE</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>l</string>
         </dict>
-        <key>FB49A223</key>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>periodcentered</string>
         </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

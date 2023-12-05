@@ -1,34 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="seven.numerator" format="2">
-  <advance width="887"/>
+  <advance width="1051"/>
   <outline>
-    <contour>
-      <point x="261" y="634" type="line" smooth="yes"/>
-      <point x="202" y="574"/>
-      <point x="202" y="574"/>
-      <point x="142" y="621" type="qcurve"/>
-      <point x="142" y="621" type="line"/>
-      <point x="82" y="668"/>
-      <point x="82" y="668" name="inserted"/>
-      <point x="150" y="736" type="qcurve" smooth="yes"/>
-      <point x="697" y="1288" type="line"/>
-      <point x="697" y="1288" type="line"/>
-      <point x="123" y="1288" type="line"/>
-      <point x="40" y="1288" name="inserted"/>
-      <point x="40" y="1288"/>
-      <point x="40" y="1360" type="qcurve"/>
-      <point x="40" y="1360" type="line"/>
-      <point x="40" y="1432"/>
-      <point x="40" y="1432"/>
-      <point x="123" y="1432" type="qcurve"/>
-      <point x="795" y="1432" type="line"/>
-      <point x="888" y="1432" name="inserted"/>
-      <point x="888" y="1432"/>
-      <point x="888" y="1352" type="qcurve"/>
-      <point x="888" y="1352" type="line"/>
-      <point x="888" y="1271"/>
-      <point x="889" y="1270" name="inserted"/>
-      <point x="833" y="1213" type="qcurve" smooth="yes"/>
-    </contour>
+    <component base="seven.denominator" yOffset="573"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>seven.denominator</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

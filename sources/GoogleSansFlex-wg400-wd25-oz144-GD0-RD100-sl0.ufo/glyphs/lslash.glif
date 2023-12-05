@@ -1,26 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="lslash" format="2">
-  <advance width="214"/>
+  <advance width="230"/>
   <unicode hex="0142"/>
   <outline>
-    <component base="l" identifier="B4381185"/>
-    <component base="diagonalbarl-lc" xOffset="-154" yOffset="-79" identifier="7B0653E1"/>
+    <component base="l" xOffset="2"/>
+    <component base="slashshortcomb" xOffset="-150" yOffset="-46"/>
   </outline>
   <lib>
     <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>7B0653E1</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>l</string>
         </dict>
-        <key>B4381185</key>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>slashshortcomb</string>
         </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

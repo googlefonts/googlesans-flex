@@ -1,42 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="semicolon" format="2">
-  <advance width="760"/>
+  <advance width="681"/>
   <unicode hex="003B"/>
-  <guideline x="189" y="298" angle="90" identifier="fxvG8gbDj2"/>
   <outline>
-    <contour>
-      <point x="525" y="887" type="qcurve" smooth="yes"/>
-      <point x="525" y="826"/>
-      <point x="441" y="743"/>
-      <point x="380" y="743" type="qcurve" smooth="yes"/>
-      <point x="319" y="743"/>
-      <point x="235" y="826"/>
-      <point x="235" y="887" type="qcurve" smooth="yes"/>
-      <point x="235" y="948"/>
-      <point x="319" y="1032"/>
-      <point x="380" y="1032" type="qcurve" smooth="yes"/>
-      <point x="441" y="1032"/>
-      <point x="525" y="948"/>
-    </contour>
-    <contour>
-      <point x="314" y="-264" type="line" smooth="yes"/>
-      <point x="287" y="-306" name="inserted"/>
-      <point x="184" y="-332"/>
-      <point x="129" y="-296" type="qcurve"/>
-      <point x="129" y="-296" type="line"/>
-      <point x="320" y="2" type="line"/>
-      <point x="277" y="23"/>
-      <point x="235" y="91"/>
-      <point x="235" y="131" type="qcurve" smooth="yes"/>
-      <point x="235" y="191"/>
-      <point x="320" y="275"/>
-      <point x="381" y="275" type="qcurve" smooth="yes"/>
-      <point x="443" y="275"/>
-      <point x="527" y="191"/>
-      <point x="527" y="131" type="qcurve" smooth="yes"/>
-      <point x="527" y="99"/>
-      <point x="503" y="31"/>
-      <point x="468" y="-24" type="qcurve" smooth="yes"/>
-    </contour>
+    <component base="period" xOffset="29" yOffset="766"/>
+    <component base="comma"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>period</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>comma</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

@@ -1,26 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="rcommaaccent" format="2">
-  <advance width="1397"/>
+  <advance width="1154"/>
   <unicode hex="0157"/>
   <outline>
-    <component base="r" identifier="B4770E05"/>
-    <component base="commaaccentcomb" xOffset="356" identifier="AB04AA3D"/>
+    <component base="r"/>
+    <component base="commaaccentcomb" xOffset="223"/>
   </outline>
   <lib>
     <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>AB04AA3D</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>r</string>
         </dict>
-        <key>B4770E05</key>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>commaaccentcomb</string>
         </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

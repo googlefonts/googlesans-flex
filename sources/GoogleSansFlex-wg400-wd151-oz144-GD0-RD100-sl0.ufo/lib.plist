@@ -2,15 +2,123 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>GSCornerRadius</key>
+    <integer>177</integer>
+    <key>com.github.googlei18n.ufo2ft.featureWriters</key>
+    <array>
+      <dict>
+        <key>class</key>
+        <string>KernFeatureWriter</string>
+      </dict>
+      <dict>
+        <key>class</key>
+        <string>ContextualMarkFeatureWriter</string>
+        <key>module</key>
+        <string>glyphsLib.featureWriters.markFeatureWriter</string>
+      </dict>
+      <dict>
+        <key>class</key>
+        <string>GdefFeatureWriter</string>
+      </dict>
+      <dict>
+        <key>class</key>
+        <string>CursFeatureWriter</string>
+      </dict>
+    </array>
     <key>com.github.googlei18n.ufo2ft.filters</key>
     <array>
       <dict>
         <key>name</key>
-        <string>dottedCircle</string>
+        <string>eraseOpenCorners</string>
+        <key>namespace</key>
+        <string>glyphsLib.filters</string>
         <key>pre</key>
         <true/>
       </dict>
     </array>
+    <key>com.schriftgestaltung.customParameter.GSFont.Axis Mappings</key>
+    <dict>
+      <key>GRAD</key>
+      <dict>
+        <key>0</key>
+        <integer>0</integer>
+      </dict>
+      <key>ROND</key>
+      <dict>
+        <key>0</key>
+        <integer>0</integer>
+        <key>100</key>
+        <integer>100</integer>
+      </dict>
+      <key>opsz</key>
+      <dict>
+        <key>144</key>
+        <integer>144</integer>
+        <key>6</key>
+        <integer>6</integer>
+      </dict>
+      <key>slnt</key>
+      <dict>
+        <key>-10</key>
+        <integer>-10</integer>
+        <key>0</key>
+        <integer>0</integer>
+      </dict>
+      <key>wdth</key>
+      <dict>
+        <key>151</key>
+        <integer>151</integer>
+        <key>25</key>
+        <integer>25</integer>
+      </dict>
+      <key>wght</key>
+      <dict>
+        <key>1</key>
+        <integer>1</integer>
+        <key>1000</key>
+        <integer>1000</integer>
+      </dict>
+    </dict>
+    <key>com.schriftgestaltung.customParameter.GSFont.Variable Font Origin</key>
+    <string>m001</string>
+    <key>com.schriftgestaltung.customParameter.GSFont.disablesAutomaticAlignment</key>
+    <false/>
+    <key>com.schriftgestaltung.customParameter.GSFont.licenses</key>
+    <string>Google offers many fonts on open source terms. Google Sans Flex is not one of them. Please see google.com/fonts for alternatives.</string>
+    <key>com.schriftgestaltung.customParameter.GSFont.trademarks</key>
+    <string>Google Sans is a trademark of Google.</string>
+    <key>com.schriftgestaltung.customParameter.GSFont.useNiceNames</key>
+    <integer>0</integer>
+    <key>com.schriftgestaltung.customParameter.GSFont.vendorID</key>
+    <string>GOOG</string>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.customValue</key>
+    <integer>400</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.customValue1</key>
+    <integer>0</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.customValue2</key>
+    <integer>100</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.customValue3</key>
+    <integer>0</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.iconName</key>
+    <string></string>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.paramArea</key>
+    <integer>390</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.paramDepth</key>
+    <integer>10</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.weightValue</key>
+    <integer>144</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.widthValue</key>
+    <integer>151</integer>
+    <key>com.schriftgestaltung.customValue</key>
+    <integer>400</integer>
+    <key>com.schriftgestaltung.customValue2</key>
+    <integer>100</integer>
+    <key>com.schriftgestaltung.fontMasterOrder</key>
+    <integer>51</integer>
+    <key>com.schriftgestaltung.weightValue</key>
+    <integer>144</integer>
+    <key>com.schriftgestaltung.widthValue</key>
+    <integer>151</integer>
     <key>public.glyphOrder</key>
     <array>
       <string>.notdef</string>
@@ -537,9 +645,25 @@
       <string>notequal-slash</string>
       <string>greaterequal-stroke</string>
       <string>percentbar.tf</string>
+      <string>diagonalbarllc</string>
       <string>diagonalbarl-lc</string>
+      <string>zero.dnom.percent</string>
+      <string>zero.numr.percent</string>
       <string>uni00A0</string>
       <string>uni25CC</string>
+      <string>strokeshortcomb</string>
+      <string>slashshortcomb</string>
+      <string>slashlongcomb</string>
+      <string>strokeshortcomb.case</string>
+      <string>strokelongcomb.case</string>
+      <string>slashshortcomb.case</string>
+      <string>slashlongcomb.case</string>
+      <string>_copyright-circle</string>
+      <string>_dots-divide</string>
+      <string>flig3</string>
+      <string>_tail.Q</string>
+      <string>_copyright-C</string>
+      <string>_registered-R</string>
     </array>
     <key>public.openTypeCategories</key>
     <dict>
@@ -575,9 +699,11 @@
       <string>base</string>
       <key>O</key>
       <string>base</string>
-      <key>P</key>
+      <key>OE</key>
       <string>base</string>
-      <key>Q</key>
+      <key>Oslash</key>
+      <string>base</string>
+      <key>P</key>
       <string>base</string>
       <key>R</key>
       <string>base</string>
@@ -606,6 +732,8 @@
       <key>acutecomb</key>
       <string>mark</string>
       <key>ae</key>
+      <string>base</string>
+      <key>ae.alt</key>
       <string>base</string>
       <key>b</key>
       <string>base</string>
@@ -649,8 +777,6 @@
       <string>base</string>
       <key>hungarumlautcomb</key>
       <string>mark</string>
-      <key>i</key>
-      <string>base</string>
       <key>idotless</key>
       <string>base</string>
       <key>jdotless</key>
@@ -663,12 +789,18 @@
       <string>base</string>
       <key>macroncomb</key>
       <string>mark</string>
+      <key>minus</key>
+      <string>base</string>
       <key>n</key>
       <string>base</string>
       <key>o</key>
       <string>base</string>
+      <key>oe</key>
+      <string>base</string>
       <key>ogonekcomb</key>
       <string>mark</string>
+      <key>oslash</key>
+      <string>base</string>
       <key>p</key>
       <string>base</string>
       <key>q</key>
@@ -679,6 +811,20 @@
       <string>mark</string>
       <key>s</key>
       <string>base</string>
+      <key>slashlongcomb</key>
+      <string>mark</string>
+      <key>slashlongcomb.case</key>
+      <string>mark</string>
+      <key>slashshortcomb</key>
+      <string>mark</string>
+      <key>slashshortcomb.case</key>
+      <string>mark</string>
+      <key>strokelongcomb.case</key>
+      <string>mark</string>
+      <key>strokeshortcomb</key>
+      <string>mark</string>
+      <key>strokeshortcomb.case</key>
+      <string>mark</string>
       <key>t</key>
       <string>base</string>
       <key>thorn</key>
@@ -699,27 +845,23 @@
       <string>base</string>
       <key>z</key>
       <string>base</string>
+      <key>zero</key>
+      <string>base</string>
     </dict>
     <key>public.postscriptNames</key>
     <dict>
       <key>Acaron</key>
       <string>uni01CD</string>
-      <key>Eth-bar</key>
-      <string>Ethbar</string>
       <key>Gcommaaccent</key>
       <string>uni0122</string>
       <key>Germandbls</key>
       <string>uni1E9E</string>
-      <key>H-bar</key>
-      <string>Hbar</string>
       <key>Kcommaaccent</key>
       <string>uni0136</string>
       <key>Lcommaaccent</key>
       <string>uni013B</string>
       <key>Ncommaaccent</key>
       <string>uni0145</string>
-      <key>Oslash-bar</key>
-      <string>Oslashbar</string>
       <key>Rcommaaccent</key>
       <string>uni0156</string>
       <key>Scommaaccent</key>
@@ -728,6 +870,14 @@
       <string>uni0162</string>
       <key>Tcommaaccent</key>
       <string>uni021A</string>
+      <key>_copyright-C</key>
+      <string>_copyrightC</string>
+      <key>_copyright-circle</key>
+      <string>_copyrightcircle</string>
+      <key>_dots-divide</key>
+      <string>_dotsdivide</string>
+      <key>_registered-R</key>
+      <string>_registeredR</string>
       <key>acaron</key>
       <string>uni01CE</string>
       <key>acaron.alt</key>
@@ -746,39 +896,17 @@
       <string>uni0326</string>
       <key>commaturnedabovecomb</key>
       <string>uni0312</string>
-      <key>diagonalbarl-lc</key>
-      <string>diagonalbarllc</string>
       <key>dieresiscomb</key>
       <string>uni0308</string>
-      <key>dot-composite</key>
-      <string>dotcomposite</string>
-      <key>dot-composite-top</key>
-      <string>dotcompositetop</string>
       <key>dotaccentcomb</key>
       <string>uni0307</string>
-      <key>eightsubscript</key>
-      <string>uni2088</string>
-      <key>eightsuperscript</key>
-      <string>uni2078</string>
       <key>emspace</key>
       <string>uni2003</string>
       <key>enspace</key>
       <string>uni2002</string>
-      <key>exclam-bottom</key>
-      <string>exclambottom</string>
-      <key>exclam-top</key>
-      <string>exclamtop</string>
-      <key>fivesubscript</key>
-      <string>uni2085</string>
-      <key>fivesuperscript</key>
-      <string>uni2075</string>
       <key>fourperemspace</key>
       <string>uni2005</string>
-      <key>foursubscript</key>
-      <string>uni2084</string>
       <key>foursuperior</key>
-      <string>uni2074</string>
-      <key>foursuperscript</key>
       <string>uni2074</string>
       <key>gcommaaccent</key>
       <string>uni0123</string>
@@ -810,42 +938,36 @@
       <string>uni03BC</string>
       <key>ncommaaccent</key>
       <string>uni0146</string>
-      <key>ninesubscript</key>
-      <string>uni2089</string>
-      <key>ninesuperscript</key>
-      <string>uni2079</string>
       <key>notequal-slash</key>
       <string>notequalslash</string>
       <key>ogonekcomb</key>
       <string>uni0328</string>
-      <key>onesubscript</key>
-      <string>uni2081</string>
       <key>onesuperior</key>
       <string>uni00B9</string>
-      <key>oslash-bar</key>
-      <string>oslashbar</string>
-      <key>question-bottom</key>
-      <string>questionbottom</string>
-      <key>question-top</key>
-      <string>questiontop</string>
       <key>rcommaaccent</key>
       <string>uni0157</string>
       <key>ringcomb</key>
       <string>uni030A</string>
       <key>scommaaccent</key>
       <string>uni0219</string>
-      <key>sevensubscript</key>
-      <string>uni2087</string>
-      <key>sevensuperscript</key>
-      <string>uni2077</string>
       <key>sixperemspace</key>
       <string>uni2006</string>
-      <key>sixsubscript</key>
-      <string>uni2086</string>
-      <key>sixsuperscript</key>
-      <string>uni2076</string>
+      <key>slashlongcomb</key>
+      <string>uni0338</string>
+      <key>slashlongcomb.case</key>
+      <string>uni0338.case</string>
+      <key>slashshortcomb</key>
+      <string>uni0337</string>
+      <key>slashshortcomb.case</key>
+      <string>uni0337.case</string>
       <key>softhyphen</key>
       <string>uni00AD</string>
+      <key>strokelongcomb.case</key>
+      <string>uni0336.case</string>
+      <key>strokeshortcomb</key>
+      <string>uni0335</string>
+      <key>strokeshortcomb.case</key>
+      <string>uni0335.case</string>
       <key>tcedilla</key>
       <string>uni0163</string>
       <key>tcommaaccent</key>
@@ -854,18 +976,10 @@
       <string>uni2009</string>
       <key>threeperemspace</key>
       <string>uni2004</string>
-      <key>threesubscript</key>
-      <string>uni2083</string>
       <key>threesuperior</key>
       <string>uni00B3</string>
-      <key>twosubscript</key>
-      <string>uni2082</string>
       <key>twosuperior</key>
       <string>uni00B2</string>
-      <key>zerosubscript</key>
-      <string>uni2080</string>
-      <key>zerosuperscript</key>
-      <string>uni2070</string>
       <key>zerowidthspace</key>
       <string>uni200B</string>
     </dict>

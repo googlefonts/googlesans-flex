@@ -1,35 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="parenleft" format="2">
-  <advance width="486"/>
+  <advance width="436"/>
   <unicode hex="0028"/>
   <outline>
-    <contour>
-      <point x="413" y="-178" type="qcurve" smooth="yes"/>
-      <point x="418" y="-183"/>
-      <point x="418" y="-194"/>
-      <point x="414" y="-198" type="qcurve"/>
-      <point x="414" y="-198" type="line"/>
-      <point x="409" y="-203"/>
-      <point x="398" y="-203" name="inserted"/>
-      <point x="394" y="-199" type="qcurve" smooth="yes"/>
-      <point x="259" y="-71"/>
-      <point x="70" y="396"/>
-      <point x="70" y="644" type="qcurve" smooth="yes"/>
-      <point x="70" y="892"/>
-      <point x="266" y="1374"/>
-      <point x="395" y="1489" type="qcurve" smooth="yes"/>
-      <point x="400" y="1493" name="inserted"/>
-      <point x="412" y="1492"/>
-      <point x="416" y="1488" type="qcurve"/>
-      <point x="416" y="1488" type="line"/>
-      <point x="421" y="1483"/>
-      <point x="420" y="1471"/>
-      <point x="416" y="1467" type="qcurve" smooth="yes"/>
-      <point x="277" y="1334"/>
-      <point x="102" y="880"/>
-      <point x="102" y="644" type="qcurve" smooth="yes"/>
-      <point x="102" y="408"/>
-      <point x="285" y="-59"/>
-    </contour>
+    <component base="parenright" xScale="-1.0" yScale="-1.0" xOffset="436" yOffset="1336"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>parenright</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

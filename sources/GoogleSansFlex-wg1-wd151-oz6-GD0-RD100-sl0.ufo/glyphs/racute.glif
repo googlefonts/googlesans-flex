@@ -1,26 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="racute" format="2">
-  <advance width="1397"/>
+  <advance width="1154"/>
   <unicode hex="0155"/>
   <outline>
-    <component base="r" identifier="CAF5B8EB"/>
-    <component base="acutecomb" xOffset="858" identifier="B1CF65AA"/>
+    <component base="r"/>
+    <component base="acutecomb" xOffset="818"/>
   </outline>
   <lib>
     <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>B1CF65AA</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>r</string>
         </dict>
-        <key>CAF5B8EB</key>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>acutecomb</string>
         </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

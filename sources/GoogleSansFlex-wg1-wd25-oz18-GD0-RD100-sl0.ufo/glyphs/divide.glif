@@ -1,53 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="divide" format="2">
-  <advance width="816"/>
+  <advance width="844"/>
   <unicode hex="00F7"/>
   <outline>
-    <contour>
-      <point x="408" y="229" type="qcurve" smooth="yes"/>
-      <point x="394" y="229"/>
-      <point x="375" y="248"/>
-      <point x="375" y="262" type="qcurve" smooth="yes"/>
-      <point x="375" y="276"/>
-      <point x="394" y="294"/>
-      <point x="408" y="294" type="qcurve" smooth="yes"/>
-      <point x="422" y="294"/>
-      <point x="441" y="276"/>
-      <point x="441" y="262" type="qcurve" smooth="yes"/>
-      <point x="441" y="248"/>
-      <point x="422" y="229"/>
-    </contour>
-    <contour>
-      <point x="408" y="790" type="qcurve" smooth="yes"/>
-      <point x="394" y="790"/>
-      <point x="375" y="809"/>
-      <point x="375" y="823" type="qcurve" smooth="yes"/>
-      <point x="375" y="837"/>
-      <point x="394" y="855"/>
-      <point x="408" y="855" type="qcurve" smooth="yes"/>
-      <point x="422" y="855"/>
-      <point x="441" y="837"/>
-      <point x="441" y="823" type="qcurve" smooth="yes"/>
-      <point x="441" y="809"/>
-      <point x="422" y="790"/>
-    </contour>
-    <contour>
-      <point x="73" y="528" type="line"/>
-      <point x="66" y="528"/>
-      <point x="59" y="535"/>
-      <point x="59" y="542" type="qcurve"/>
-      <point x="59" y="542" type="line"/>
-      <point x="59" y="548"/>
-      <point x="66" y="556" name="inserted"/>
-      <point x="73" y="556" type="qcurve"/>
-      <point x="743" y="556" type="line"/>
-      <point x="750" y="556" name="inserted"/>
-      <point x="757" y="548"/>
-      <point x="757" y="542" type="qcurve"/>
-      <point x="757" y="542" type="line"/>
-      <point x="757" y="535"/>
-      <point x="750" y="528"/>
-      <point x="743" y="528" type="qcurve"/>
-    </contour>
+    <component base="minus"/>
+    <component base="_dots-divide"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>minus</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

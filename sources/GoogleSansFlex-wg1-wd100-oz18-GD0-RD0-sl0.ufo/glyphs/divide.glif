@@ -1,53 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="divide" format="2">
-  <advance width="1016"/>
+  <advance width="1140"/>
   <unicode hex="00F7"/>
   <outline>
-    <contour>
-      <point x="507" y="166" type="qcurve" smooth="yes"/>
-      <point x="479" y="166"/>
-      <point x="443" y="205"/>
-      <point x="443" y="231" type="qcurve" smooth="yes"/>
-      <point x="443" y="256"/>
-      <point x="479" y="293"/>
-      <point x="507" y="293" type="qcurve" smooth="yes"/>
-      <point x="531" y="293"/>
-      <point x="571" y="256"/>
-      <point x="571" y="231" type="qcurve" smooth="yes"/>
-      <point x="571" y="205"/>
-      <point x="531" y="166"/>
-    </contour>
-    <contour>
-      <point x="507" y="791" type="qcurve" smooth="yes"/>
-      <point x="479" y="791"/>
-      <point x="443" y="830"/>
-      <point x="443" y="856" type="qcurve" smooth="yes"/>
-      <point x="443" y="882"/>
-      <point x="479" y="918"/>
-      <point x="507" y="918" type="qcurve" smooth="yes"/>
-      <point x="531" y="918"/>
-      <point x="571" y="882"/>
-      <point x="571" y="856" type="qcurve" smooth="yes"/>
-      <point x="571" y="830"/>
-      <point x="531" y="791"/>
-    </contour>
-    <contour>
-      <point x="126" y="527" type="line"/>
-      <point x="110" y="527"/>
-      <point x="110" y="527"/>
-      <point x="110" y="542" type="qcurve"/>
-      <point x="110" y="542" type="line"/>
-      <point x="110" y="557"/>
-      <point x="110" y="557" name="inserted"/>
-      <point x="126" y="557" type="qcurve"/>
-      <point x="891" y="557" type="line"/>
-      <point x="906" y="557" name="inserted"/>
-      <point x="906" y="557"/>
-      <point x="906" y="542" type="qcurve"/>
-      <point x="906" y="542" type="line"/>
-      <point x="906" y="527"/>
-      <point x="906" y="527"/>
-      <point x="891" y="527" type="qcurve"/>
-    </contour>
+    <component base="minus"/>
+    <component base="_dots-divide"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>minus</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

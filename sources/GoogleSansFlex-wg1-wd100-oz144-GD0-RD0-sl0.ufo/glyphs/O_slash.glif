@@ -1,30 +1,65 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="Oslash" format="2">
-  <advance width="1712"/>
+  <advance width="1568"/>
   <unicode hex="00D8"/>
+  <anchor x="784" y="0" name="bottom"/>
+  <anchor x="784" y="1432" name="top"/>
   <outline>
-    <component base="O" identifier="301B8E8B"/>
-    <component base="Oslash-bar" xOffset="175" yOffset="-50" identifier="F08F283E"/>
+    <contour>
+      <point x="784" y="-10" type="qcurve" smooth="yes"/>
+      <point x="1095" y="-10"/>
+      <point x="1498" y="400" name="inserted"/>
+      <point x="1498" y="716" type="qcurve"/>
+      <point x="1498" y="716" type="line"/>
+      <point x="1498" y="1032"/>
+      <point x="1095" y="1442" name="inserted"/>
+      <point x="784" y="1442" type="qcurve" smooth="yes"/>
+      <point x="473" y="1442"/>
+      <point x="70" y="1032" name="inserted"/>
+      <point x="70" y="716" type="qcurve"/>
+      <point x="70" y="716" type="line"/>
+      <point x="70" y="400"/>
+      <point x="473" y="-10" name="inserted"/>
+    </contour>
+    <contour>
+      <point x="784" y="-6" type="qcurve" smooth="yes"/>
+      <point x="475" y="-6"/>
+      <point x="74" y="401" name="inserted"/>
+      <point x="74" y="716" type="qcurve"/>
+      <point x="74" y="716" type="line"/>
+      <point x="74" y="1031"/>
+      <point x="475" y="1438" name="inserted"/>
+      <point x="784" y="1438" type="qcurve" smooth="yes"/>
+      <point x="1093" y="1438"/>
+      <point x="1494" y="1031" name="inserted"/>
+      <point x="1494" y="716" type="qcurve"/>
+      <point x="1494" y="716" type="line"/>
+      <point x="1494" y="401"/>
+      <point x="1093" y="-6" name="inserted"/>
+    </contour>
+    <contour>
+      <point x="187" y="-37" type="qcurve"/>
+      <point x="188" y="-38"/>
+      <point x="188" y="-38"/>
+      <point x="190" y="-36" type="qcurve"/>
+      <point x="331" y="142" type="line"/>
+      <point x="332" y="143" type="line"/>
+      <point x="1239" y="1285" type="line"/>
+      <point x="1240" y="1286" type="line"/>
+      <point x="1381" y="1464" type="line"/>
+      <point x="1383" y="1466" name="inserted"/>
+      <point x="1383" y="1466" name="inserted"/>
+      <point x="1382" y="1467" type="qcurve"/>
+      <point x="1380" y="1469"/>
+      <point x="1380" y="1469"/>
+      <point x="1378" y="1467" type="qcurve"/>
+      <point x="1237" y="1289" type="line"/>
+      <point x="1236" y="1288" type="line"/>
+      <point x="329" y="146" type="line"/>
+      <point x="328" y="145" type="line"/>
+      <point x="187" y="-33" type="line"/>
+      <point x="185" y="-35" name="inserted"/>
+      <point x="185" y="-35" name="inserted"/>
+    </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.schriftgestaltung.Glyphs.glyph.leftMetricsKey</key>
-      <string>O</string>
-      <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
-      <string>O</string>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>301B8E8B</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-        <key>F08F283E</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-      </dict>
-    </dict>
-  </lib>
 </glyph>

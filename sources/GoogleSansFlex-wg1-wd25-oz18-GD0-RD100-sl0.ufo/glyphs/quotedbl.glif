@@ -1,51 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="quotedbl" format="2">
-  <advance width="588"/>
+  <advance width="512"/>
   <unicode hex="0022"/>
   <outline>
-    <contour>
-      <point x="180" y="990" type="line"/>
-      <point x="180" y="983" name="inserted"/>
-      <point x="169" y="973"/>
-      <point x="162" y="973" type="qcurve"/>
-      <point x="162" y="973" type="line"/>
-      <point x="154" y="973"/>
-      <point x="143" y="983"/>
-      <point x="143" y="990" type="qcurve"/>
-      <point x="143" y="1427" type="line"/>
-      <point x="143" y="1436"/>
-      <point x="154" y="1446"/>
-      <point x="162" y="1446" type="qcurve"/>
-      <point x="162" y="1446" type="line"/>
-      <point x="169" y="1446"/>
-      <point x="180" y="1436" name="inserted"/>
-      <point x="180" y="1427" type="qcurve"/>
-    </contour>
-    <contour>
-      <point x="445" y="990" type="line"/>
-      <point x="445" y="983" name="inserted"/>
-      <point x="434" y="973"/>
-      <point x="427" y="973" type="qcurve"/>
-      <point x="427" y="973" type="line"/>
-      <point x="419" y="973"/>
-      <point x="408" y="983"/>
-      <point x="408" y="990" type="qcurve"/>
-      <point x="408" y="1427" type="line"/>
-      <point x="408" y="1436"/>
-      <point x="419" y="1446"/>
-      <point x="427" y="1446" type="qcurve"/>
-      <point x="427" y="1446" type="line"/>
-      <point x="434" y="1446"/>
-      <point x="445" y="1436" name="inserted"/>
-      <point x="445" y="1427" type="qcurve"/>
-    </contour>
+    <component base="quotesingle"/>
+    <component base="quotesingle" xOffset="211"/>
   </outline>
   <lib>
     <dict>
-      <key>com.schriftgestaltung.Glyphs.glyph.leftMetricsKey</key>
-      <string>quotesingle</string>
-      <key>com.schriftgestaltung.Glyphs.glyph.rightMetricsKey</key>
-      <string>quotesingle</string>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>quotesingle</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>quotesingle</string>
+        </dict>
+      </array>
     </dict>
   </lib>
 </glyph>

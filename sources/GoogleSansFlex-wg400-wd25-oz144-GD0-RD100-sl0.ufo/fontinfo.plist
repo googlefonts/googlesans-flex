@@ -9,7 +9,7 @@
     <key>copyright</key>
     <string>Copyright 2015 Google LLC. All Rights Reserved.</string>
     <key>descender</key>
-    <integer>-432</integer>
+    <integer>-380</integer>
     <key>familyName</key>
     <string>Google Sans Flex</string>
     <key>guidelines</key>
@@ -17,65 +17,138 @@
       <dict>
         <key>angle</key>
         <integer>0</integer>
-        <key>color</key>
-        <string>0.25208,0.92329,1,1</string>
-        <key>identifier</key>
-        <string>acwGIgID9P</string>
         <key>name</key>
-        <string>curve_overshoot</string>
+        <string> [locked]</string>
         <key>x</key>
-        <integer>149</integer>
+        <integer>382</integer>
         <key>y</key>
-        <integer>1028</integer>
+        <integer>1064</integer>
       </dict>
       <dict>
         <key>angle</key>
         <integer>0</integer>
-        <key>color</key>
-        <string>0.25208,0.92329,1,1</string>
-        <key>identifier</key>
-        <string>zWaqvLPvU8</string>
         <key>name</key>
-        <string>x</string>
+        <string> [locked]</string>
         <key>x</key>
-        <integer>855</integer>
+        <integer>89</integer>
         <key>y</key>
-        <integer>1442</integer>
+        <integer>-14</integer>
       </dict>
       <dict>
         <key>angle</key>
         <integer>0</integer>
-        <key>color</key>
-        <string>0.25208,0.92329,1,1</string>
-        <key>identifier</key>
-        <string>wlOcQPNLlo</string>
         <key>name</key>
-        <string>lc_os</string>
+        <string> [locked]</string>
         <key>x</key>
-        <integer>381</integer>
+        <integer>426</integer>
         <key>y</key>
-        <integer>-5</integer>
+        <integer>-393</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>denominators-overshoot [locked]</string>
+        <key>x</key>
+        <integer>262</integer>
+        <key>y</key>
+        <integer>-9</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>numerator-overshoot [locked]</string>
+        <key>x</key>
+        <integer>156</integer>
+        <key>y</key>
+        <integer>1441</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>superior-overshoot [locked]</string>
+        <key>x</key>
+        <integer>289</integer>
+        <key>y</key>
+        <integer>1823</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>superiors-b [locked]</string>
+        <key>x</key>
+        <integer>495</integer>
+        <key>y</key>
+        <integer>1020</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>superiors-overshoot [locked]</string>
+        <key>x</key>
+        <integer>495</integer>
+        <key>y</key>
+        <integer>1011</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>superior-b [locked]</string>
+        <key>x</key>
+        <integer>289</integer>
+        <key>y</key>
+        <integer>1814</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>sinf-overshoot [locked]</string>
+        <key>x</key>
+        <integer>284</integer>
+        <key>y</key>
+        <integer>393</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>sinf-b [locked]</string>
+        <key>x</key>
+        <integer>27</integer>
+        <key>y</key>
+        <integer>-410</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>sinf-b [locked]</string>
+        <key>x</key>
+        <integer>284</integer>
+        <key>y</key>
+        <integer>384</integer>
+      </dict>
+      <dict>
+        <key>angle</key>
+        <integer>0</integer>
+        <key>name</key>
+        <string>sinf-overshoot [locked]</string>
+        <key>x</key>
+        <integer>27</integer>
+        <key>y</key>
+        <integer>-419</integer>
       </dict>
     </array>
     <key>italicAngle</key>
     <integer>0</integer>
-    <key>note</key>
-    <string># Adjustment notes
-
-- All legacy marks have been made out of components to reduce the repetition in hinting
-- All accent marks have been slightly modified in height and position to align better. This is true in ALL optical sizes
-
-- Numbers (0123456789) (+tf variants) jump at optical size 14 to avoid a form morphing in interim steps (Angled to straight forms), which can look strange.
-
-
-– symbols – fixed minor spacing errors (tabular forms in the period.tf comma.tf colon.tf)
-
-– tcommaaccent.alt had an incorrect form 
-– tcedilla.alt was missing. Added in!
-– jdotless.alt jcircumflex.alt added
-– t_f t_f.alt – changed the f terminal to be inline with all of the other f components
-
-</string>
+    <key>openTypeHeadCreated</key>
+    <string>2017/07/06 09:41:44</string>
     <key>openTypeHheaAscender</key>
     <integer>1932</integer>
     <key>openTypeHheaCaretSlopeRise</key>
@@ -96,6 +169,23 @@
     <string>Google LLC</string>
     <key>openTypeNameManufacturerURL</key>
     <string>https://design.google</string>
+    <key>openTypeOS2Panose</key>
+    <array>
+      <integer>2</integer>
+      <integer>11</integer>
+      <integer>5</integer>
+      <integer>3</integer>
+      <integer>3</integer>
+      <integer>5</integer>
+      <integer>2</integer>
+      <integer>4</integer>
+      <integer>2</integer>
+      <integer>4</integer>
+    </array>
+    <key>openTypeOS2Selection</key>
+    <array>
+      <integer>7</integer>
+    </array>
     <key>openTypeOS2StrikeoutPosition</key>
     <integer>612</integer>
     <key>openTypeOS2StrikeoutSize</key>
@@ -124,64 +214,57 @@
     <integer>-572</integer>
     <key>openTypeOS2TypoLineGap</key>
     <integer>0</integer>
-    <key>openTypeOS2UnicodeRanges</key>
-    <array>
-      <integer>0</integer>
-      <integer>1</integer>
-      <integer>2</integer>
-      <integer>7</integer>
-      <integer>9</integer>
-      <integer>11</integer>
-    </array>
     <key>openTypeOS2VendorID</key>
     <string>GOOG</string>
-    <key>openTypeOS2WeightClass</key>
-    <integer>400</integer>
-    <key>openTypeOS2WidthClass</key>
-    <integer>1</integer>
     <key>openTypeOS2WinAscent</key>
     <integer>2214</integer>
     <key>openTypeOS2WinDescent</key>
     <integer>999</integer>
     <key>postscriptBlueValues</key>
     <array>
-      <integer>-16</integer>
+      <integer>-14</integer>
       <integer>0</integer>
-      <integer>510</integer>
-      <integer>526</integer>
-      <integer>580</integer>
-      <integer>596</integer>
-      <integer>716</integer>
-      <integer>732</integer>
+      <integer>1050</integer>
+      <integer>1064</integer>
+      <integer>1432</integer>
+      <integer>1446</integer>
+      <integer>1432</integer>
+      <integer>1446</integer>
     </array>
-    <key>postscriptFamilyBlues</key>
-    <array/>
-    <key>postscriptFamilyOtherBlues</key>
-    <array/>
     <key>postscriptOtherBlues</key>
     <array>
-      <integer>-232</integer>
-      <integer>-216</integer>
+      <integer>-394</integer>
+      <integer>-380</integer>
     </array>
     <key>postscriptStemSnapH</key>
-    <array/>
+    <array>
+      <integer>136</integer>
+      <integer>133</integer>
+    </array>
     <key>postscriptStemSnapV</key>
-    <array/>
+    <array>
+      <integer>140</integer>
+      <integer>134</integer>
+    </array>
     <key>postscriptUnderlinePosition</key>
     <integer>-320</integer>
     <key>postscriptUnderlineThickness</key>
     <integer>168</integer>
+    <key>styleMapFamilyName</key>
+    <string>Google Sans Flex wg400-wd25-oz144-GD0-RD100-sl0</string>
+    <key>styleMapStyleName</key>
+    <string>regular</string>
     <key>styleName</key>
-    <string>opsz144-wdth25-wght400-ROND100</string>
+    <string>wg400-wd25-oz144-GD0-RD100-sl0</string>
     <key>trademark</key>
     <string>Google Sans is a trademark of Google.</string>
     <key>unitsPerEm</key>
     <integer>2000</integer>
     <key>versionMajor</key>
-    <integer>1</integer>
+    <integer>2</integer>
     <key>versionMinor</key>
     <integer>0</integer>
     <key>xHeight</key>
-    <integer>1020</integer>
+    <integer>1050</integer>
   </dict>
 </plist>

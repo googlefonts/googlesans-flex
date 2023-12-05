@@ -1,9 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="greaterequal" format="2">
-  <advance width="952"/>
+  <advance width="1035"/>
   <unicode hex="2265"/>
   <outline>
-    <component base="greater" xOffset="8" yOffset="60"/>
-    <component base="greaterequal-stroke" xOffset="38"/>
+    <component base="greater" yOffset="30"/>
+    <component base="greaterequal-stroke" xOffset="33"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>greater</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>greaterequal-stroke</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

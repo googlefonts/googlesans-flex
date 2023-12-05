@@ -1,26 +1,65 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="oslash" format="2">
-  <advance width="426"/>
+  <advance width="414"/>
   <unicode hex="00F8"/>
+  <anchor x="207" y="0" name="bottom"/>
+  <anchor x="207" y="1020" name="top"/>
   <outline>
-    <component base="o" identifier="728D4A45"/>
-    <component base="oslash-bar" xOffset="-83" yOffset="24" identifier="AA6664CE"/>
+    <contour>
+      <point x="207" y="-7" type="qcurve" smooth="yes"/>
+      <point x="277" y="-7"/>
+      <point x="341" y="83"/>
+      <point x="341" y="193" type="qcurve" smooth="yes"/>
+      <point x="341" y="827" type="line" smooth="yes"/>
+      <point x="341" y="937"/>
+      <point x="277" y="1027"/>
+      <point x="207" y="1027" type="qcurve" smooth="yes"/>
+      <point x="137" y="1027"/>
+      <point x="73" y="937"/>
+      <point x="73" y="827" type="qcurve" smooth="yes"/>
+      <point x="73" y="193" type="line" smooth="yes"/>
+      <point x="73" y="83"/>
+      <point x="137" y="-7"/>
+    </contour>
+    <contour>
+      <point x="207" y="-3" type="qcurve" smooth="yes"/>
+      <point x="139" y="-3"/>
+      <point x="77" y="85"/>
+      <point x="77" y="193" type="qcurve" smooth="yes"/>
+      <point x="77" y="827" type="line" smooth="yes"/>
+      <point x="77" y="935"/>
+      <point x="139" y="1023"/>
+      <point x="207" y="1023" type="qcurve" smooth="yes"/>
+      <point x="275" y="1023"/>
+      <point x="337" y="935"/>
+      <point x="337" y="827" type="qcurve" smooth="yes"/>
+      <point x="337" y="193" type="line" smooth="yes"/>
+      <point x="337" y="85"/>
+      <point x="275" y="-3"/>
+    </contour>
+    <contour>
+      <point x="115" y="-69" type="qcurve"/>
+      <point x="117" y="-69"/>
+      <point x="117" y="-69" name="inserted"/>
+      <point x="117" y="-67" type="qcurve"/>
+      <point x="130" y="15" type="line"/>
+      <point x="130" y="15" type="line"/>
+      <point x="287" y="1004" type="line"/>
+      <point x="287" y="1004" type="line"/>
+      <point x="300" y="1087" type="line"/>
+      <point x="300" y="1089"/>
+      <point x="300" y="1089"/>
+      <point x="298" y="1089" type="qcurve"/>
+      <point x="296" y="1089"/>
+      <point x="296" y="1089" name="inserted"/>
+      <point x="296" y="1087" type="qcurve"/>
+      <point x="283" y="1006" type="line"/>
+      <point x="283" y="1006" type="line"/>
+      <point x="127" y="20" type="line"/>
+      <point x="127" y="20" type="line"/>
+      <point x="113" y="-67" type="line"/>
+      <point x="113" y="-69"/>
+      <point x="113" y="-69"/>
+    </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>728D4A45</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-        <key>AA6664CE</key>
-        <dict>
-          <key>com.schriftgestaltung.alignment</key>
-          <integer>-1</integer>
-        </dict>
-      </dict>
-    </dict>
-  </lib>
 </glyph>

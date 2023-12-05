@@ -1,25 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="amacron.alt" format="2">
-  <advance width="1882"/>
+  <advance width="1666"/>
   <outline>
-    <component base="a.alt" identifier="30F527CA"/>
-    <component base="macroncomb" xOffset="887" yOffset="36" identifier="1CC17E78"/>
+    <component base="a.alt"/>
+    <component base="macroncomb" xOffset="810"/>
   </outline>
   <lib>
     <dict>
-      <key>public.objectLibs</key>
-      <dict>
-        <key>1CC17E78</key>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>a.alt</string>
         </dict>
-        <key>30F527CA</key>
         <dict>
-          <key>com.schriftgestaltung.alignment</key>
+          <key>alignment</key>
           <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>macroncomb</string>
         </dict>
-      </dict>
+      </array>
     </dict>
   </lib>
 </glyph>
