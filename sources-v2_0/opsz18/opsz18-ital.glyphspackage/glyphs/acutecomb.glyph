@@ -1,4 +1,5 @@
 {
+color = 1;
 glyphname = acutecomb;
 layers = (
 {
@@ -586,6 +587,17 @@ width = 0;
 anchors = (
 {
 name = _top;
+pos = (28,998);
+},
+{
+name = top;
+pos = (106,1439);
+}
+);
+background = {
+anchors = (
+{
+name = _top;
 pos = (-60,998);
 },
 {
@@ -593,7 +605,6 @@ name = top;
 pos = (-60,1439);
 }
 );
-layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
 shapes = (
 {
 closed = 1;
@@ -616,6 +627,33 @@ name = inserted;
 (-72,1159,o),
 (-72,1159,o),
 (-55,1159,q)
+);
+}
+);
+};
+layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
+shapes = (
+{
+closed = 1;
+nodes = (
+(71,1159,o),
+(71,1159,o,{
+name = inserted;
+}),
+(75,1165,qs),
+(227,1418,ls),
+(239,1439,o),
+(239,1439,o),
+(215,1439,q),
+(203,1439,o),
+(203,1439,o,{
+name = inserted;
+}),
+(198,1430,q),
+(52,1175,ls),
+(43,1159,o),
+(43,1159,o),
+(61,1159,q)
 );
 }
 );
