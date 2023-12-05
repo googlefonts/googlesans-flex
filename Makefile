@@ -37,25 +37,32 @@ venv/touchfile: requirements.txt
 	. venv/bin/activate; pip install --no-deps -r requirements.txt
 	touch venv/touchfile
 
-test: venv build.stamp
+test: build.stamp
+# Install latest version of fontbakery on every run, isolated from build dependencies
+	test -d venv_bakery || python3 -m venv venv_bakery
+	venv_bakery/bin/pip install -U setuptools wheel pip
+# fonttools[interpolatable] makes com.google.fonts/check/interpolation_issues around 5x faster
+	venv_bakery/bin/pip install -U fontbakery[googlefonts] fonttools[interpolatable]
+
+	# Run fontbakery tests
 	mkdir -p out/fontbakery
-	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-sources-report.html \
+	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-sources-report.html \
 		qa/check-sources.py \
 			sources/GoogleSansFlex.designspace \
 			sources/regular/GoogleSansFlex.designspace \
 			sources/italic/GoogleSansFlex-Italic.designspace \
 			$(shell find sources -name "*.ufo") || echo "Continuing..."
-	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html \
-		fontbakery.profiles.outline $(shell find fonts/variable -type f) || echo "Continuing..."
-	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html \
-		qa/check-googlesans.py $(shell find fonts/variable -type f) || echo "Continuing..."
-	venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html \
-		qa/check-fea.py $(shell find fonts/variable -type f) || echo "Continuing..."
+	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html \
+		fontbakery.profiles.outline fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
+	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html \
+		qa/check-googlesans.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
+	venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html \
+		qa/check-fea.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
 	# NOTE: The following checks can be activated after the sources are stable:
-	# venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html \
-	#	qa/check-charset.py $(shell find fonts/variable -type f) || echo "Continuing..."
-	# venv/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
-	#	qa/check-shaping.py $(shell find fonts/variable -type f) || echo "Continuing..."
+	# venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html \
+	#	qa/check-charset.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
+	# venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
+	#	qa/check-shaping.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf || echo "Continuing..."
 
 proof: venv build.stamp
 	. venv/bin/activate; mkdir -p out/proof; diffenator2 proof $(shell find fonts/variable -type f) -o out/proof

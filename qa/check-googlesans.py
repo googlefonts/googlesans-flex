@@ -14,14 +14,17 @@
 
 
 from pathlib import Path
+import os
+
 from fontbakery.callable import check, condition
-from fontbakery.checkrunner import FAIL, PASS, SKIP, WARN, Section
 from fontbakery.constants import UNICODERANGE_DATA
 from fontbakery.fonts_profile import profile_factory
-from fontbakery.message import Message, KEEP_ORIGINAL_MESSAGE
+from fontbakery.message import KEEP_ORIGINAL_MESSAGE, Message
 from fontbakery.profiles.googlefonts import GOOGLEFONTS_PROFILE_CHECKS
 from fontbakery.profiles.outline import OUTLINE_PROFILE_CHECKS
 from fontbakery.profiles.shared_conditions import is_italic
+from fontbakery.section import Section
+from fontbakery.status import FAIL, PASS, SKIP, WARN
 from fontbakery.utils import (
     chars_in_range,
     compute_unicoderange_bits,
@@ -42,7 +45,7 @@ GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
 
 # define check ID's in the upstream `googlefonts` profile
 # that should be excluded here
-excluded_check_ids = (
+excluded_check_ids = [
     *OUTLINE_PROFILE_CHECKS,  # Separate.
     "com.google.fonts/check/ftxvalidator_is_available",
     "com.google.fonts/check/dsig",
@@ -56,9 +59,9 @@ excluded_check_ids = (
     "com.google.fonts/check/glyph_coverage",  # We have our own target
     "com.google.fonts/check/file_size",  # We're going bigger
     "com.google.fonts/check/font_names",  # We have our own naming ideas
-    "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1"  # Expected and desired
-    "com.google.fonts/check/STAT/gf_axisregistry" # Buggy in 0.8.13
-)
+    "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1",  # Expected and desired
+    "com.google.fonts/check/STAT/gf_axisregistry", # Buggy in 0.8.13
+]
 
 AXIS_DEFAULTS = {
     "opsz": 18,
@@ -406,3 +409,10 @@ profile.check_log_override(
     overrides=(("missing-axis", WARN, KEEP_ORIGINAL_MESSAGE),),
     reason="It's intended as slnt becomes italics",
 )
+
+print("Skipped checks (check-googlesans.py):")
+for check_id in excluded_check_ids:
+    # These are run in a seperate step so aren't important to log
+    if check_id in OUTLINE_PROFILE_CHECKS:
+        continue
+    print(f"  - {check_id}")

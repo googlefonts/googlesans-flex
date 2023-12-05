@@ -17,21 +17,12 @@ from __future__ import annotations
 from typing import Iterable, Tuple, Union
 
 from fontbakery.callable import check, condition
-from fontbakery.checkrunner import (
-    FAIL,
-    PASS,
-    WARN,
-    INFO,
-    SKIP,
-    Section,
-    Status,
-    Message,
-)
 from fontbakery.fonts_profile import profile_factory
-
+from fontbakery.message import Message
+from fontbakery.section import Section
+from fontbakery.status import FAIL, INFO, PASS, SKIP, WARN, Status
 from fontTools.designspaceLib import DesignSpaceDocument
 from ufoLib2 import Font
-
 
 CheckStatus = Iterable[Tuple[Status, Union[Message, str]]]
 

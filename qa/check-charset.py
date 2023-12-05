@@ -16,8 +16,9 @@ import os
 from difflib import unified_diff
 
 from fontbakery.callable import check
-from fontbakery.checkrunner import FAIL, PASS, Section
 from fontbakery.fonts_profile import profile_factory
+from fontbakery.section import Section
+from fontbakery.status import FAIL, PASS
 
 profile_imports = ()
 profile = profile_factory(
@@ -112,3 +113,7 @@ def check_skip_filter(checkid, font=None, **iterargs):
 profile.check_skip_filter = check_skip_filter
 profile.auto_register(globals())
 profile.test_expected_checks(GOOGLESANS_PROFILE_CHECKS, exclusive=True)
+
+print(f"Skipped checks (check-charset.py):")
+for check_id in excluded_check_ids:
+    print(f"  - {check_id}")
