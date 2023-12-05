@@ -24,7 +24,7 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 		&& gftools builder sources/config.yaml
 # Font-v cannot deal with worktrees, which we use for imports. See
 # https://github.com/source-foundry/font-v/issues/169. Just skip it.
-	[ -z "${SKIP_FONTV}" ] && venv/bin/font-v write --sha1 fonts/variable/*.ttf
+	if [ -z "${SKIP_FONTV}" ]; then venv/bin/font-v write --sha1 fonts/variable/*.ttf; fi
 	venv/bin/python scripts/prune_font_binary.py fonts/variable/*.ttf
 # TODO: Re-enable when additional designspaces are restored.
 #venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/regular/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,wdth,wght].ttf
