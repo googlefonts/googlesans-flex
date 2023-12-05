@@ -63,10 +63,6 @@ excluded_check_ids = [
     "com.google.fonts/check/STAT/gf_axisregistry", # Buggy in 0.8.13
 ]
 
-# Set in import.yaml
-if not "IS_IMPORT" in os.environ:
-    excluded_check_ids.append("com.google.fonts/check/interpolation_issues")
-
 AXIS_DEFAULTS = {
     "opsz": 18,
     "wdth": 100,

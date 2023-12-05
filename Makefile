@@ -37,10 +37,11 @@ venv/touchfile: requirements.txt
 	touch venv/touchfile
 
 test: build.stamp
-	# Install latest version of fontbakery on every run, isolated from build dependencies
+# Install latest version of fontbakery on every run, isolated from build dependencies
 	test -d venv_bakery || python3 -m venv venv_bakery
 	venv_bakery/bin/pip install -U setuptools wheel pip
-	venv_bakery/bin/pip install -U fontbakery[googlefonts]
+# fonttools[interpolatable] makes com.google.fonts/check/interpolation_issues around 5x faster
+	venv_bakery/bin/pip install -U fontbakery[googlefonts] fonttools[interpolatable]
 
 	# Run fontbakery tests
 	mkdir -p out/fontbakery
