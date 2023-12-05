@@ -1,4 +1,5 @@
 {
+color = 1;
 glyphname = gravecomb;
 layers = (
 {
@@ -373,7 +374,7 @@ name = inserted;
 name = inserted;
 }),
 (85,1480,q),
-(37,1480,o),
+(39,1480,o),
 (39,1480,o),
 (78,1451,qs),
 (403,1211,ls),
@@ -534,6 +535,17 @@ width = 0;
 anchors = (
 {
 name = _top;
+pos = (149,998);
+},
+{
+name = top;
+pos = (227,1439);
+}
+);
+background = {
+anchors = (
+{
+name = _top;
 pos = (60,998);
 },
 {
@@ -541,7 +553,6 @@ name = top;
 pos = (60,1439);
 }
 );
-layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
 shapes = (
 {
 closed = 1;
@@ -568,6 +579,37 @@ name = inserted;
 name = inserted;
 }),
 (55,1159,q)
+);
+}
+);
+};
+layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
+shapes = (
+{
+closed = 1;
+nodes = (
+(188,1159,o),
+(188,1159,o),
+(185,1175,qs),
+(130,1430,ls),
+(128,1439,o,{
+name = inserted;
+}),
+(128,1439,o,{
+name = inserted;
+}),
+(116,1439,q),
+(95,1439,o),
+(95,1439,o),
+(100,1419,qs),
+(162,1167,ls),
+(164,1159,o,{
+name = inserted;
+}),
+(164,1159,o,{
+name = inserted;
+}),
+(172,1159,q)
 );
 }
 );

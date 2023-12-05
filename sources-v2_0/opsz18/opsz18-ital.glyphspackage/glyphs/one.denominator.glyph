@@ -1,4 +1,5 @@
 {
+color = 5;
 glyphname = one.denominator;
 layers = (
 {
@@ -389,7 +390,7 @@ name = inserted;
 width = 481;
 },
 {
-layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
+background = {
 shapes = (
 {
 closed = 1;
@@ -424,6 +425,45 @@ name = inserted;
 (131,0,o),
 (131,0,o),
 (146,0,q)
+);
+}
+);
+};
+layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
+shapes = (
+{
+closed = 1;
+nodes = (
+(71,0,o),
+(71,0,o,{
+name = inserted;
+}),
+(73,13,q),
+(220,847,l),
+(222,859,o,{
+name = inserted;
+}),
+(222,859,o,{
+name = inserted;
+}),
+(211,859,q),
+(198,859,o),
+(198,859,o),
+(186,850,qs),
+(56,753,ls),
+(48,746,o),
+(48,746,o),
+(56,735,q),
+(63,726,o),
+(63,726,o,{
+name = inserted;
+}),
+(75,735,qs),
+(188,820,l),
+(45,13,l),
+(43,0,o),
+(43,0,o),
+(58,0,q)
 );
 }
 );
