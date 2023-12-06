@@ -69,9 +69,6 @@ test: build.stamp
 # -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
 #	qa/check-shaping.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
 
-proof: venv build.stamp
-	. venv/bin/activate; mkdir -p out/proof; diffenator2 proof $(shell find fonts/variable -type f) -o out/proof
-
 images: venv build.stamp $(DRAWBOT_OUTPUT)
 	git add documentation/*.png && git commit -m "Rebuild images" documentation/*.png
 
