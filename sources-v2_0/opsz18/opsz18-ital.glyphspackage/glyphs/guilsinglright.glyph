@@ -1,5 +1,4 @@
 {
-color = 4;
 glyphname = guilsinglright;
 kernLeft = guillemetright;
 kernRight = guillemetright_right;
@@ -833,39 +832,48 @@ com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|guilsinglleft";
 width = 367;
 },
 {
-layerId = "9A15811E-FE9E-4312-A765-6943A31D05AA";
+guides = (
+{
+pos = (12,510);
+}
+);
+layerId = "05FA349F-E618-4CD6-879B-689CC9BD38BD";
 shapes = (
 {
 closed = 1;
 nodes = (
-(64,63,o),
-(64,63,o,{
+(123,75,o),
+(123,75,o,{
 name = inserted;
 }),
-(71,74,qs),
-(324,490,ls),
-(326,493,o),
-(326,493,o),
-(326,499,q),
-(326,505,o),
-(326,505,o),
-(324,508,qs),
-(72,923,ls),
-(65,934,o,{
+(152,120,qs),
+(374,463,ls),
+(386,481,o,{
 name = inserted;
 }),
-(65,934,o,{
+(386,481,o,{
 name = inserted;
 }),
-(53,926,q),
-(42,919,o),
-(42,919,o),
-(48,909,qs),
-(297,499,l),
-(48,88,ls),
-(42,79,o),
-(42,79,o),
-(52,72,q)
+(386,510,q),
+(386,539,o),
+(386,539,o),
+(374,557,qs),
+(153,900,ls),
+(124,945,o,{
+name = inserted;
+}),
+(124,945,o,{
+name = inserted;
+}),
+(72,915,q),
+(15,882,o),
+(15,882,o),
+(47,832,qs),
+(255,510,l),
+(47,189,ls),
+(14,139,o),
+(14,139,o),
+(71,106,q)
 );
 }
 );
@@ -873,7 +881,7 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = "=|guilsinglleft";
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|guilsinglleft";
 };
-width = 367;
+width = 395;
 }
 );
 unicode = 8250;

@@ -634,7 +634,7 @@ value = "Google Sans is a trademark of Google.";
 },
 {
 name = "EditView Line Height";
-value = 2344;
+value = 1875;
 }
 );
 date = "2017-07-06 09:41:44 +0000";
@@ -768,7 +768,6 @@ GSSlanterCursivyThicknessFactor = 1;
 GSSlanterGeometric = 2;
 GSSlanterRotate = 0;
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -841,67 +840,6 @@ name = paramOver;
 value = 0;
 }
 );
-guides = (
-{
-pos = (550,1623);
-},
-{
-pos = (30,0);
-},
-{
-pos = (30,-20);
-},
-{
-pos = (2,-229);
-showMeasurement = 1;
-},
-{
-pos = (50,967);
-showMeasurement = 1;
-},
-{
-angle = 180;
-pos = (305,105);
-},
-{
-pos = (30,-12);
-},
-{
-pos = (5,859);
-},
-{
-pos = (3,871);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-186,1440);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-189,1160);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (129,620);
-},
-{
-pos = (21,1452);
-},
-{
-pos = (23,1432);
-},
-{
-angle = 90;
-pos = (583,-85);
-},
-{
-pos = (21,1445);
-},
-{
-angle = 180;
-pos = (285,235);
-}
-);
 id = "91251A45-EED6-44E6-BC9D-709435BB03FD";
 metricValues = (
 {
@@ -936,6 +874,17 @@ stemValues = (
 146,
 138
 );
+userData = {
+GSSlanterCursivy = 10;
+GSSlanterCursivyContrastFactor = 0.5;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 0;
+GSSlanterCursivyShapeFactor = 0.8;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 0;
+GSSlanterRotate = 0;
+};
 },
 {
 axesValues = (
@@ -1986,7 +1935,7 @@ stemValues = (
 axesValues = (
 18,
 25,
-1,
+400,
 0,
 0,
 0
@@ -2042,11 +1991,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = "285";
+value = "205";
 },
 {
 name = paramDepth;
-value = "13";
+value = "12";
 },
 {
 name = paramOver;
@@ -2055,45 +2004,97 @@ value = 0;
 );
 guides = (
 {
-pos = (134,900);
+pos = (550,1623);
 },
 {
-pos = (134,1439);
+pos = (30,0);
+},
+{
+pos = (30,-20);
+},
+{
+pos = (2,-229);
+showMeasurement = 1;
+},
+{
+pos = (50,967);
+showMeasurement = 1;
+},
+{
+angle = 180;
+pos = (305,105);
+},
+{
+pos = (30,-12);
+},
+{
+pos = (5,859);
+},
+{
+pos = (3,871);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-186,1440);
+},
+{
+filter = "category == \"Mark\"";
+pos = (-189,1160);
+},
+{
+filter = "category == \"Symbol\" AND subCategory == \"Math\"";
+pos = (129,620);
+},
+{
+pos = (21,1452);
+},
+{
+pos = (23,1432);
+},
+{
+angle = 90;
+pos = (583,-85);
+},
+{
+pos = (21,1445);
+},
+{
+angle = 180;
+pos = (285,235);
 }
 );
-id = "9A15811E-FE9E-4312-A765-6943A31D05AA";
+id = "05FA349F-E618-4CD6-879B-689CC9BD38BD";
 metricValues = (
 {
-over = 16;
+over = 20;
 pos = 1432;
 },
 {
-over = 16;
+over = 20;
 pos = 1432;
 },
 {
-over = 16;
-pos = 998;
+over = 20;
+pos = 1020;
 },
 {
-over = -16;
+over = -20;
 },
 {
-over = -16;
+over = -20;
 pos = -432;
 },
 {
 },
 {
-pos = 866;
 }
 );
-name = "COPY_of_25-1";
+name = "COPY_of_25-400";
 stemValues = (
-30,
-28,
-28,
-27
+156,
+150,
+146,
+138
 );
 }
 );
@@ -2280,12 +2281,9 @@ fraction = {
 four.denominator = -150;
 };
 };
-"9A15811E-FE9E-4312-A765-6943A31D05AA" = {
-eight.numerator = {
-fraction = 0;
-};
+"05FA349F-E618-4CD6-879B-689CC9BD38BD" = {
 fraction = {
-four.denominator = -23;
+four.denominator = -40;
 };
 };
 };
