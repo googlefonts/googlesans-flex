@@ -30,7 +30,6 @@ Fonts are built by triggering the build workflow in the [Actions tab](https://gi
 
 * `make build` will produce font files.
 * `make test` will run [FontBakery](https://github.com/googlefonts/fontbakery)'s quality assurance tests.
-* `make proof` will generate HTML proof files.
 
 ## Releasing
 
