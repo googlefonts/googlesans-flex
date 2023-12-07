@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 1;
 glyphname = currency.tf;
 layers = (
 {
@@ -13,6 +13,14 @@ ref = currency;
 width = 1290;
 },
 {
+background = {
+shapes = (
+{
+pos = (-30,0);
+ref = currency;
+}
+);
+};
 layerId = "91251A45-EED6-44E6-BC9D-709435BB03FD";
 shapes = (
 {
