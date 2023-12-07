@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 1;
 glyphname = section.tf;
 layers = (
 {
@@ -13,6 +13,14 @@ ref = section;
 width = 1290;
 },
 {
+background = {
+shapes = (
+{
+pos = (26,0);
+ref = section;
+}
+);
+};
 layerId = "91251A45-EED6-44E6-BC9D-709435BB03FD";
 shapes = (
 {
