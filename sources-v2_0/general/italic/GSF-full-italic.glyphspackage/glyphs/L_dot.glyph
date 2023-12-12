@@ -220,6 +220,196 @@ ref = periodcentered;
 }
 );
 width = 1473;
+},
+{
+background = {
+anchors = (
+{
+name = bottom;
+pos = (623,0);
+},
+{
+name = center;
+pos = (305,716);
+},
+{
+name = top;
+pos = (277,1432);
+},
+{
+name = topright;
+pos = (889,1069);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(969,0,ls),
+(1007,0,o,{
+name = inserted;
+}),
+(1007,0,o,{
+name = inserted;
+}),
+(1007,43,qs),
+(1007,86,o),
+(1007,86,o),
+(969,86,qs),
+(321,86,l),
+(321,1392,ls),
+(321,1432,o,{
+name = inserted;
+}),
+(321,1432,o,{
+name = inserted;
+}),
+(277,1432,qs),
+(232,1432,o),
+(232,1432,o),
+(232,1392,qs),
+(232,79,ls),
+(232,0,o),
+(232,0,o),
+(320,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(878,611,o),
+(944,678,o),
+(944,728,qs),
+(944,775,o),
+(878,841,o),
+(829,841,qs),
+(780,841,o),
+(714,775,o),
+(714,728,qs),
+(714,678,o),
+(780,611,o),
+(829,611,qs)
+);
+}
+);
+};
+layerId = m006;
+metricRight = "=L";
+shapes = (
+{
+alignment = -1;
+ref = L;
+},
+{
+alignment = -1;
+pos = (526,86);
+ref = periodcentered;
+}
+);
+width = 1112;
+},
+{
+background = {
+anchors = (
+{
+name = bottom;
+pos = (664,0);
+},
+{
+name = center;
+pos = (352,753);
+},
+{
+name = top;
+pos = (324,1432);
+},
+{
+name = topright;
+pos = (981,1086);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(1014,0,ls),
+(1103,0,o,{
+name = inserted;
+}),
+(1103,0,o,{
+name = inserted;
+}),
+(1103,98,qs),
+(1103,197,o),
+(1103,197,o),
+(1014,197,qs),
+(441,197,l),
+(441,1334,ls),
+(441,1432,o,{
+name = inserted;
+}),
+(441,1432,o,{
+name = inserted;
+}),
+(333,1432,qs),
+(224,1432,o),
+(224,1432,o),
+(224,1334,qs),
+(224,138,ls),
+(224,0,o),
+(224,0,o),
+(367,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(993,570,o),
+(1089,667,o),
+(1089,738,qs),
+(1089,806,o),
+(993,902,o),
+(921,902,qs),
+(852,902,o),
+(755,806,o),
+(755,738,qs),
+(755,667,o),
+(852,570,o),
+(921,570,qs)
+);
+}
+);
+};
+layerId = m007;
+metricRight = "=L";
+shapes = (
+{
+alignment = -1;
+ref = L;
+},
+{
+alignment = -1;
+pos = (621,96);
+ref = periodcentered;
+}
+);
+width = 1181;
+},
+{
+layerId = m008;
+metricRight = "=L";
+shapes = (
+{
+alignment = -1;
+ref = L;
+},
+{
+alignment = -1;
+pos = (827,170);
+ref = periodcentered;
+}
+);
+width = 1473;
 }
 );
 metricLeft = H;
