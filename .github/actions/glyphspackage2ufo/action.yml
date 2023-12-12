@@ -1,0 +1,45 @@
+name: Convert Glyphs package to UFO
+description: Convert Glyphs package to UFO using scripts/glyphs_to_ds.py
+
+outputs:
+  directory:
+    description: Where the repository with the converted sources is
+    value: ${{ steps.checkout-main.outputs.target }}
+
+runs:
+  using: composite
+  steps:
+  - name: Set up Python
+    uses: actions/setup-python@v4
+    with:
+      cache: "pip"
+  - name: Checkout Octavio's sources
+    uses: actions/checkout@v4
+    with:
+      ref: it-ad-wip-v2.0
+      path: octavio
+  - name: Checkout main
+    id: checkout-main
+    shell: bash
+    run: |
+      git -C octavio fetch origin main --depth 1
+      git -C octavio worktree add --quiet ./main origin/main
+      target=$(mktemp --tmpdir=. --directory glyphspackage2ufo)
+      ./main/.github/actions/glyphspackage2ufo/copy-exclude main "$target" .git
+      echo "target=$GITHUB_WORKSPACE/$target" >> "$GITHUB_OUTPUT"
+  - name: Delete old designspace & sources
+    shell: bash
+    run: |
+      # Remove everything except the config.yaml
+      rm -rfv "${{ steps.checkout-main.outputs.target }}"/sources/*.{ufo,designspace}
+  - name: Run import script
+    shell: bash
+    run: |
+      cd target
+      echo "::group::setup venv"
+      make venv
+      echo "::endgroup::"
+      echo "Running glyphs_to_ds.py"
+      venv/bin/python scripts/glyphs_to_ds.py \
+        "$GITHUB_WORKSPACE/octavio/sources-v2_0/GSF-full.glyphspackage" \
+        "${{ steps.checkout-main.outputs.target }}/sources/GoogleSansFlex.designspace"
