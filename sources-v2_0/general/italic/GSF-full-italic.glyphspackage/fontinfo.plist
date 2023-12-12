@@ -774,6 +774,131 @@ GSSlanterCursivyThicknessFactor = 1;
 GSSlanterGeometric = 2;
 GSSlanterRotate = 0;
 };
+},
+{
+axesValues = (
+18,
+100,
+1,
+0,
+100,
+-10
+);
+customParameters = (
+{
+name = typoAscender;
+value = 1932;
+},
+{
+name = typoDescender;
+value = -572;
+},
+{
+name = typoLineGap;
+value = 0;
+},
+{
+name = hheaAscender;
+value = 1932;
+},
+{
+name = hheaDescender;
+value = -572;
+},
+{
+name = hheaLineGap;
+value = 0;
+},
+{
+name = winAscent;
+value = 2214;
+},
+{
+name = winDescent;
+value = 999;
+},
+{
+name = strikeoutPosition;
+value = 612;
+},
+{
+name = strikeoutSize;
+value = 168;
+},
+{
+name = underlineThickness;
+value = 168;
+},
+{
+name = underlinePosition;
+value = -320;
+},
+{
+name = paramArea;
+value = "285";
+},
+{
+name = paramDepth;
+value = "13";
+},
+{
+name = paramOver;
+value = 0;
+}
+);
+guides = (
+{
+angle = 80;
+pos = (404,702);
+}
+);
+id = m002;
+metricValues = (
+{
+over = 29;
+pos = 1432;
+},
+{
+over = 29;
+pos = 1432;
+},
+{
+over = 29;
+pos = 998;
+},
+{
+over = -29;
+},
+{
+over = -29;
+pos = -432;
+},
+{
+pos = 10;
+},
+{
+over = 17;
+pos = 859;
+}
+);
+name = "wg1-wd100-oz18-GD0-RD100-sl-10";
+stemValues = (
+32,
+31,
+30,
+30
+);
+userData = {
+GSSlanterCursivy = 8;
+GSSlanterCursivyContrastFactor = 0.2;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 0;
+GSSlanterCursivyShapeFactor = 0.8;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 2;
+GSSlanterRotate = 0;
+};
 }
 );
 instances = (
@@ -1048,6 +1173,11 @@ weightClass = 900;
 );
 kerningLTR = {
 "31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = {
+fraction = {
+four.denominator = -114;
+};
+};
+m002 = {
 fraction = {
 four.denominator = -114;
 };
