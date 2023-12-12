@@ -2,6 +2,9 @@
 
 Pre-requisites: none
 
+Inputs:
+1. `git-ref` - the Git reference for the sources to convert
+
 Steps:
 0. Setup Python
 1. Check out `it-ad-wip-v2.0` in `$GITHUB_WORKSPACE/octavio`

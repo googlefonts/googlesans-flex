@@ -1,6 +1,11 @@
 name: Convert Glyphs package to UFO
 description: Convert Glyphs package to UFO using scripts/glyphs_to_ds.py
 
+inputs:
+  git-ref:
+    description: The Git reference to convert
+    required: true
+
 outputs:
   directory:
     description: Where the repository with the converted sources is
@@ -16,7 +21,7 @@ runs:
   - name: Checkout Octavio's sources
     uses: actions/checkout@v4
     with:
-      ref: it-ad-wip-v2.0
+      ref: ${{ inputs.git-ref }}
       path: octavio
   - name: Checkout main
     id: checkout-main
