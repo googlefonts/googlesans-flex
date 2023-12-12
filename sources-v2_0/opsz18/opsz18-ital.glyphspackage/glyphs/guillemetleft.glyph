@@ -1,5 +1,5 @@
 {
-color = 1;
+color = 0;
 glyphname = guillemetleft;
 kernLeft = guillemetleft_left;
 kernRight = guillemetleft_right;
@@ -223,20 +223,22 @@ width = 603;
 background = {
 shapes = (
 {
-pos = (-5,0);
+alignment = -1;
+pos = (62,0);
 ref = guilsinglleft;
 },
 {
-pos = (274,0);
+alignment = -1;
+pos = (582,0);
 ref = guilsinglleft;
 }
 );
 };
-layerId = "05FA349F-E618-4CD6-879B-689CC9BD38BD";
+layerId = "2E913103-23F5-4E23-B9D4-1007B5402989";
 shapes = (
 {
 angle = 180;
-pos = (673,1020);
+pos = (1497,1020);
 ref = guillemetright;
 }
 );
@@ -244,7 +246,7 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 };
-width = 673;
+width = 1497;
 }
 );
 metricLeft = "=|guilsinglright";
