@@ -29,7 +29,7 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 # TODO: Re-enable when additional designspaces are restored.
 #venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/regular/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,wdth,wght].ttf
 #venv/bin/python scripts/set-overlap-bits.py sources/italic/glyphs-with-overlap.txt sources/italic/GoogleSansFlex-Italic.designspace fonts/variable/GoogleSansFlex-Italic[ROND,opsz,wdth,wght].ttf
-#venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+#venv/bin/python scripts/set-overlap-bits.py sources/regular/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 # Remove intermediary file leftover by gftools
 # https://github.com/googlefonts/gftools/issues/764
 	rm -vf fonts/variable/*.ttf.stat.yaml
@@ -58,16 +58,16 @@ test: build.stamp
 			sources/italic/GoogleSansFlex-Italic.designspace \
 			$(shell find sources -name "*.ufo")
 	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html \
-		fontbakery.profiles.outline fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+		fontbakery.profiles.outline fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html \
-		qa/check-googlesans.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+		qa/check-googlesans.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-fea-report.html \
-		qa/check-fea.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+		qa/check-fea.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 # NOTE: The following checks can be activated after the sources are stable:
 # -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html \
-#	qa/check-charset.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+#	qa/check-charset.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 # -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
-#	qa/check-shaping.py fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf
+#	qa/check-shaping.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
 images: venv build.stamp $(DRAWBOT_OUTPUT)
 	git add documentation/*.png && git commit -m "Rebuild images" documentation/*.png
