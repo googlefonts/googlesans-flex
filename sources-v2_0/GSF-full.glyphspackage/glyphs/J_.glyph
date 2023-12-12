@@ -1,7 +1,8 @@
 {
 color = 5;
 glyphname = J;
-kernRight = H_right;
+kernLeft = J_left;
+kernRight = J_right;
 layers = (
 {
 anchors = (
@@ -58,6 +59,7 @@ nodes = (
 }
 );
 };
+color = 9;
 layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
 shapes = (
 {
@@ -340,6 +342,7 @@ nodes = (
 }
 );
 };
+color = 8;
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 shapes = (
 {
@@ -734,6 +737,7 @@ name = inserted;
 }
 );
 };
+color = 7;
 layerId = "C2BA2B2A-76E0-4627-B638-B0CC7B22E341";
 shapes = (
 {
@@ -836,6 +840,7 @@ name = inserted;
 }
 );
 };
+color = 6;
 layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
 shapes = (
 {
@@ -1800,6 +1805,7 @@ name = inserted;
 }
 );
 };
+color = 1;
 guides = (
 {
 pos = (130,441);
@@ -2026,6 +2032,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 guides = (
 {
 angle = 10.5994;
@@ -2450,6 +2457,7 @@ name = inserted;
 }
 );
 };
+color = 0;
 layerId = "457685AE-FA60-4D24-BC1F-969BFA480F13";
 shapes = (
 {
@@ -2654,6 +2662,7 @@ name = inserted;
 }
 );
 };
+color = 8;
 guides = (
 {
 angle = -66.0375;
@@ -5410,98 +5419,6 @@ name = inserted;
 }
 );
 width = 1904;
-},
-{
-anchors = (
-{
-name = bottom;
-pos = (408,0);
-},
-{
-name = top;
-pos = (1048,1432);
-}
-);
-background = {
-guides = (
-{
-angle = 174.615;
-pos = (309,327);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(604,-29,o),
-(847,202,o),
-(884,408,qs),
-(1058,1403,l),
-(1064,1432,o),
-(1064,1432,o),
-(1033,1432,q),
-(1032,1432,o),
-(1032,1432,o),
-(1026,1404,q),
-(852,409,ls),
-(818,218,o),
-(593,1,o),
-(421,1,qs),
-(328,1,o),
-(188,65,o),
-(108,185,o),
-(90,317,o),
-(90,317,o),
-(60,306,o),
-(60,306,o),
-(78,173,o),
-(164,39,o),
-(317,-29,o),
-(417,-29,qs)
-);
-}
-);
-};
-guides = (
-{
-angle = 174.615;
-pos = (309,327);
-}
-);
-layerId = "31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB";
-shapes = (
-{
-closed = 1;
-nodes = (
-(622,-29,o),
-(845,190,o),
-(883,406,qs),
-(1061,1415,ls),
-(1064,1432,o),
-(1064,1432,o),
-(1048,1432,q),
-(1032,1432,o),
-(1032,1432,o),
-(1029,1414,qs),
-(851,409,ls),
-(814,201,o),
-(608,1,o),
-(444,1,qs),
-(323,1,o),
-(164,107,o),
-(95,256,o),
-(80,357,o),
-(80,357,o),
-(51,351,o),
-(51,351,o),
-(66,249,o),
-(135,88,o),
-(309,-29,o),
-(445,-29,qs)
-);
-}
-);
-width = 1068;
 }
 );
 unicode = 74;

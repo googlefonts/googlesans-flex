@@ -1,6 +1,8 @@
 {
 color = 5;
 glyphname = plusminus;
+kernLeft = less_left;
+kernRight = less_right;
 layers = (
 {
 background = {
@@ -80,6 +82,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
 shapes = (
 {
@@ -572,6 +575,7 @@ name = inserted;
 }
 );
 };
+color = 8;
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 shapes = (
 {
@@ -1260,6 +1264,7 @@ name = inserted;
 }
 );
 };
+color = 7;
 layerId = "C2BA2B2A-76E0-4627-B638-B0CC7B22E341";
 shapes = (
 {
@@ -1432,6 +1437,7 @@ name = inserted;
 }
 );
 };
+color = 6;
 layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
 shapes = (
 {
@@ -2920,6 +2926,7 @@ name = inserted;
 }
 );
 };
+color = 1;
 layerId = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
 shapes = (
 {
@@ -3240,6 +3247,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 shapes = (
 {
@@ -3849,6 +3857,7 @@ name = inserted;
 }
 );
 };
+color = 0;
 layerId = "457685AE-FA60-4D24-BC1F-969BFA480F13";
 shapes = (
 {
@@ -4169,6 +4178,7 @@ name = inserted;
 }
 );
 };
+color = 8;
 layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
 shapes = (
 {
@@ -8205,7 +8215,7 @@ name = inserted;
 );
 }
 );
-width = 1472;
+width = 1464;
 },
 {
 background = {
@@ -8526,87 +8536,6 @@ name = inserted;
 }
 );
 width = 1750;
-},
-{
-layerId = "31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB";
-shapes = (
-{
-closed = 1;
-nodes = (
-(956,599,l),
-(969,599,o),
-(969,599,o),
-(969,614,q),
-(969,629,o),
-(969,629,o,{
-name = inserted;
-}),
-(956,629,q),
-(218,629,l),
-(204,629,o,{
-name = inserted;
-}),
-(204,629,o,{
-name = inserted;
-}),
-(204,614,q),
-(204,599,o),
-(204,599,o),
-(218,599,q)
-);
-},
-{
-closed = 1;
-nodes = (
-(603,262,o),
-(603,262,o,{
-name = inserted;
-}),
-(603,276,q),
-(603,950,l),
-(603,964,o,{
-name = inserted;
-}),
-(603,964,o,{
-name = inserted;
-}),
-(587,964,q),
-(571,964,o),
-(571,964,o),
-(571,950,q),
-(571,276,l),
-(571,262,o),
-(571,262,o),
-(587,262,q)
-);
-},
-{
-closed = 1;
-nodes = (
-(956,102,ls),
-(969,102,o),
-(969,102,o),
-(969,117,qs),
-(969,132,o),
-(969,132,o,{
-name = inserted;
-}),
-(956,132,qs),
-(218,132,ls),
-(204,132,o,{
-name = inserted;
-}),
-(204,132,o,{
-name = inserted;
-}),
-(204,117,qs),
-(204,102,o),
-(204,102,o),
-(218,102,qs)
-);
-}
-);
-width = 1140;
 }
 );
 metricWidth = "=plus";

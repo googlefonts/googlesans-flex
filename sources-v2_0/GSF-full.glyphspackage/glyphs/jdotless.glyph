@@ -1,7 +1,8 @@
 {
 color = 5;
 glyphname = jdotless;
-kernLeft = i_left;
+kernLeft = j_left;
+kernRight = u_right;
 layers = (
 {
 anchors = (
@@ -60,6 +61,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
 shapes = (
 {
@@ -344,6 +346,7 @@ nodes = (
 }
 );
 };
+color = 8;
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 shapes = (
 {
@@ -734,6 +737,7 @@ name = inserted;
 }
 );
 };
+color = 7;
 layerId = "C2BA2B2A-76E0-4627-B638-B0CC7B22E341";
 shapes = (
 {
@@ -836,6 +840,7 @@ name = inserted;
 }
 );
 };
+color = 6;
 layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
 shapes = (
 {
@@ -1815,6 +1820,7 @@ name = inserted;
 }
 );
 };
+color = 1;
 layerId = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
 shapes = (
 {
@@ -2007,6 +2013,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 shapes = (
 {
@@ -2445,6 +2452,7 @@ name = inserted;
 }
 );
 };
+color = 0;
 layerId = "457685AE-FA60-4D24-BC1F-969BFA480F13";
 shapes = (
 {
@@ -2645,6 +2653,7 @@ name = inserted;
 }
 );
 };
+color = 8;
 guides = (
 {
 angle = -16.8375;
@@ -5398,86 +5407,6 @@ name = inserted;
 }
 );
 width = 1158;
-},
-{
-anchors = (
-{
-name = bottom;
-pos = (-191,-432);
-},
-{
-name = top;
-pos = (263,998);
-}
-);
-background = {
-shapes = (
-{
-closed = 1;
-nodes = (
-(-89,-461,o),
-(45,-331,o),
-(68,-202,qs),
-(274,976,l),
-(277,998,o),
-(277,998,o),
-(249,998,q),
-(246,998,o),
-(246,998,o),
-(243,977,q),
-(37,-195,ls),
-(16,-317,o),
-(-95,-432,o),
-(-201,-432,qs),
-(-232,-432,o),
-(-291,-424,o),
-(-332,-410,o),
-(-364,-393,o),
-(-364,-393,o),
-(-369,-424,o),
-(-369,-424,o),
-(-341,-440,o),
-(-297,-454,o),
-(-235,-461,o),
-(-205,-461,qs)
-);
-}
-);
-};
-layerId = "31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB";
-shapes = (
-{
-closed = 1;
-nodes = (
-(-92,-461,o),
-(43,-335,o),
-(68,-195,qs),
-(276,984,l),
-(278,998,o),
-(278,998,o),
-(263,998,q),
-(247,998,o),
-(247,998,o),
-(245,984,q),
-(38,-190,ls),
-(15,-317,o),
-(-105,-432,o),
-(-213,-432,qs),
-(-242,-432,o),
-(-292,-424,o),
-(-333,-410,o),
-(-364,-393,o),
-(-364,-393,o),
-(-370,-424,o),
-(-370,-424,o),
-(-340,-439,o),
-(-292,-453,o),
-(-243,-461,o),
-(-214,-461,qs)
-);
-}
-);
-width = 348;
 }
 );
 metricRight = "=idotless";

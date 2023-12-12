@@ -1,6 +1,8 @@
 {
 color = 5;
 glyphname = bracketleft;
+kernLeft = bracketleft_left;
+kernRight = bracketleft_right;
 layers = (
 {
 background = {
@@ -46,6 +48,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
 shapes = (
 {
@@ -210,6 +213,7 @@ name = inserted;
 }
 );
 };
+color = 8;
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 shapes = (
 {
@@ -454,6 +458,7 @@ name = inserted;
 }
 );
 };
+color = 7;
 hints = (
 {
 horizontal = 1;
@@ -520,6 +525,7 @@ name = inserted;
 }
 );
 };
+color = 6;
 hints = (
 {
 horizontal = 1;
@@ -1090,6 +1096,7 @@ name = inserted;
 }
 );
 };
+color = 1;
 layerId = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
 shapes = (
 {
@@ -1210,6 +1217,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 guides = (
 {
 pos = (155,1584);
@@ -1443,6 +1451,7 @@ name = inserted;
 }
 );
 };
+color = 0;
 hints = (
 {
 horizontal = 1;
@@ -1573,6 +1582,7 @@ name = inserted;
 }
 );
 };
+color = 8;
 guides = (
 {
 pos = (-24,1584);
@@ -3181,24 +3191,6 @@ ref = bracketright;
 }
 );
 width = 1231;
-},
-{
-hints = (
-{
-horizontal = 1;
-place = (0,0);
-type = Stem;
-}
-);
-layerId = "31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB";
-shapes = (
-{
-angle = 180;
-pos = (667,1336);
-ref = bracketright;
-}
-);
-width = 608;
 }
 );
 metricLeft = "=|bracketright";

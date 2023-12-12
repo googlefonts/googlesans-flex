@@ -1,6 +1,8 @@
 {
 color = 5;
 glyphname = questiondown;
+kernLeft = question_d_left;
+kernRight = question_d_right;
 layers = (
 {
 background = {
@@ -70,6 +72,7 @@ nodes = (
 }
 );
 };
+color = 9;
 layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
 shapes = (
 {
@@ -311,6 +314,7 @@ nodes = (
 }
 );
 };
+color = 8;
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 shapes = (
 {
@@ -649,6 +653,7 @@ nodes = (
 }
 );
 };
+color = 7;
 layerId = "C2BA2B2A-76E0-4627-B638-B0CC7B22E341";
 shapes = (
 {
@@ -736,6 +741,7 @@ nodes = (
 }
 );
 };
+color = 6;
 layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
 shapes = (
 {
@@ -1596,6 +1602,7 @@ nodes = (
 }
 );
 };
+color = 1;
 layerId = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
 shapes = (
 {
@@ -1782,6 +1789,7 @@ nodes = (
 }
 );
 };
+color = 9;
 guides = (
 {
 angle = 90;
@@ -2158,6 +2166,7 @@ nodes = (
 }
 );
 };
+color = 0;
 layerId = "457685AE-FA60-4D24-BC1F-969BFA480F13";
 shapes = (
 {
@@ -2328,6 +2337,7 @@ nodes = (
 }
 );
 };
+color = 8;
 layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
 shapes = (
 {
@@ -4683,94 +4693,6 @@ com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = "=|question";
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|question";
 };
 width = 1689;
-},
-{
-background = {
-shapes = (
-{
-closed = 1;
-nodes = (
-(565,624,o),
-(565,624,o,{
-name = inserted;
-}),
-(565,606,q),
-(565,606,ls),
-(565,418,o),
-(492,294,o),
-(403,218,qs),
-(284,117,o),
-(174,-34,o),
-(174,-141,q),
-(174,-141,l),
-(174,-276,o),
-(377,-456,o),
-(541,-456,qs),
-(684,-456,o),
-(883,-314,o),
-(926,-162,q),
-(926,-162,o),
-(926,-162,o),
-(911,-157,q),
-(895,-152,o),
-(895,-152,o,{
-name = inserted;
-}),
-(895,-152,q,{
-name = inserted;
-}),
-(853,-296,o),
-(676,-426,o),
-(541,-426,qs),
-(390,-426,o),
-(208,-264,o),
-(208,-141,q),
-(208,-141,l),
-(208,-41,o),
-(309,99,o),
-(424,196,qs),
-(520,278,o),
-(599,412,o),
-(599,606,qs),
-(599,606,l),
-(599,624,o),
-(599,624,o),
-(583,624,q)
-);
-},
-{
-closed = 1;
-nodes = (
-(554,1015,o),
-(516,979,o),
-(516,952,qs),
-(516,924,o),
-(554,887,o),
-(581,887,qs),
-(607,887,o),
-(645,924,o),
-(645,952,qs),
-(645,979,o),
-(607,1015,o),
-(581,1015,qs)
-);
-}
-);
-};
-layerId = "31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB";
-shapes = (
-{
-alignment = 1;
-angle = 180;
-pos = (1088,998);
-ref = question;
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = "=|question";
-com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|question";
-};
-width = 1088;
 }
 );
 unicode = 191;

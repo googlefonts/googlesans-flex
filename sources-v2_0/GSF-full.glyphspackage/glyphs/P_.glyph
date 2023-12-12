@@ -2,6 +2,7 @@
 color = 5;
 glyphname = P;
 kernLeft = H_left;
+kernRight = P_right;
 layers = (
 {
 anchors = (
@@ -63,6 +64,7 @@ nodes = (
 }
 );
 };
+color = 9;
 layerId = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
 shapes = (
 {
@@ -376,6 +378,7 @@ nodes = (
 }
 );
 };
+color = 8;
 layerId = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 shapes = (
 {
@@ -806,6 +809,7 @@ name = inserted;
 }
 );
 };
+color = 7;
 layerId = "C2BA2B2A-76E0-4627-B638-B0CC7B22E341";
 shapes = (
 {
@@ -913,6 +917,7 @@ name = inserted;
 }
 );
 };
+color = 6;
 layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
 shapes = (
 {
@@ -1981,6 +1986,7 @@ name = inserted;
 }
 );
 };
+color = 1;
 layerId = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
 shapes = (
 {
@@ -2188,6 +2194,7 @@ name = inserted;
 }
 );
 };
+color = 9;
 layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 shapes = (
 {
@@ -2643,6 +2650,7 @@ name = inserted;
 }
 );
 };
+color = 0;
 layerId = "457685AE-FA60-4D24-BC1F-969BFA480F13";
 shapes = (
 {
@@ -2862,6 +2870,7 @@ name = inserted;
 }
 );
 };
+color = 8;
 layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
 shapes = (
 {
@@ -5804,102 +5813,6 @@ name = inserted;
 }
 );
 width = 2352;
-},
-{
-anchors = (
-{
-name = bottom;
-pos = (111,0);
-},
-{
-name = top;
-pos = (724,1432);
-}
-);
-background = {
-shapes = (
-{
-closed = 1;
-nodes = (
-(129,0,o),
-(129,0,o),
-(131,14,q),
-(375,1402,l),
-(708,1402,ls),
-(895,1402,o),
-(1087,1176,o),
-(1056,989,qs),
-(1024,815,o),
-(791,624,o),
-(603,624,qs),
-(221,624,l),
-(216,594,l),
-(600,594,ls),
-(801,594,o),
-(1053,798,o),
-(1089,985,qs),
-(1122,1187,o),
-(910,1432,o),
-(707,1432,qs),
-(353,1432,l),
-(347,1432,o),
-(347,1432,o),
-(346,1425,q),
-(101,30,l),
-(97,0,o),
-(97,0,o),
-(126,0,q)
-);
-}
-);
-};
-guides = (
-{
-pos = (24,594);
-}
-);
-layerId = "31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB";
-shapes = (
-{
-closed = 1;
-nodes = (
-(128,0,o),
-(128,0,o),
-(130,12,qs),
-(374,1402,l),
-(704,1402,ls),
-(891,1402,o),
-(1085,1176,o),
-(1054,989,q),
-(1054,989,l),
-(1022,815,o),
-(787,624,o),
-(599,624,qs),
-(221,624,l),
-(216,594,l),
-(596,594,ls),
-(797,594,o),
-(1051,798,o),
-(1087,985,q),
-(1087,985,l),
-(1120,1187,o),
-(906,1432,o),
-(703,1432,qs),
-(353,1432,l),
-(347,1432,o),
-(347,1432,o),
-(346,1425,q),
-(101,30,ls),
-(96,0,o),
-(96,0,o),
-(117,0,q)
-);
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
-};
-width = 1045;
 }
 );
 metricLeft = H;
