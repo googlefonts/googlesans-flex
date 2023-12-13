@@ -25,7 +25,7 @@ for path in "$source"/*; do
     base=$(basename "$path")
 
     if include "$base"; then
-        cp -vR "$path" "$target/$base"
+        cp -R "$path" "$target/$base"
     else
         echo "Skipped $path"
     fi

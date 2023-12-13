@@ -18,34 +18,37 @@ runs:
     uses: actions/setup-python@v4
     with:
       cache: "pip"
-  - name: Checkout Octavio's sources
-    uses: actions/checkout@v4
-    with:
-      ref: ${{ inputs.git-ref }}
-      path: octavio
   - name: Prepare import
     id: prepare-import
     shell: bash
+    env:
+      GIT_REF: ${{ github.event.inputs.git-ref }}
     run: |
       if [[ ! -d main ]]; then
         echo "main has not been checked out, this should be done before running glyphspackage2ufo"
         exit 1
       fi
-      target=$(mktemp --tmpdir=. --directory glyphspackage2ufo)
-      ./main/.github/actions/glyphspackage2ufo/copy-exclude main "$target" .git
+
+      echo "Checkout Octavio's sources ($GIT_REF)"
+      git -C main fetch origin "$GIT_REF"
+      # Note: path to create worktree is relative to Git dir (main) not current dir
+      git -C main worktree add --quiet --detach "$GITHUB_WORKSPACE/octavio" "origin/$GIT_REF"
+
+      target=$(mktemp --tmpdir=. --directory glyphspackage2ufo-XXXX)
+      $GITHUB_ACTION_PATH/copy-exclude main "$target" .git
       echo "Target dir: $target"
       echo "target=$GITHUB_WORKSPACE/$target" >> "$GITHUB_OUTPUT"
-      echo "::group::Remove everything except the config.yaml"
-      rm -rfv "$GITHUB_WORKSPACE/$target/sources/"*.{ufo,designspace}
-      echo "::endgroup::""
+
+      echo "Remove everything except the config.yaml"
+      rm -rf "$GITHUB_WORKSPACE/$target/sources/"*.{ufo,designspace}
   - name: Run import script
     shell: bash
     run: |
-      cd target
+      cd "${{ steps.prepare-import.outputs.target }}"
       echo "::group::Setup venv"
       make venv
       echo "::endgroup::"
       echo "Running glyphs_to_ds.py"
       venv/bin/python scripts/glyphs_to_ds.py \
         "$GITHUB_WORKSPACE/octavio/sources-v2_0/GSF-full.glyphspackage" \
-        "${{ steps.prepare-import.outputs.target }}/sources/GoogleSansFlex.designspace"
+        sources/GoogleSansFlex.designspace

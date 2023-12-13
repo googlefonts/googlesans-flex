@@ -7,7 +7,7 @@ Inputs:
 
 Steps:
 0. Setup Python
-1. Check out `it-ad-wip-v2.0` in `$GITHUB_WORKSPACE/octavio`
+1. Check out `git-ref` in `$GITHUB_WORKSPACE/octavio`
 3. Create a copy of `main` in target dir
 4. Run import script
 
