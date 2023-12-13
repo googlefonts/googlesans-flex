@@ -1,5 +1,5 @@
 {
-.appVersion = "3227";
+.appVersion = "3228";
 .formatVersion = 3;
 axes = (
 {
@@ -1749,6 +1749,15 @@ stemValues = (
 148
 );
 userData = {
+GSSlanterCursivy = 5;
+GSSlanterCursivyContrastFactor = 0.5;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 1;
+GSSlanterCursivyShapeFactor = 0.7;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 5;
+GSSlanterRotate = 0;
 HTLSManagerMasterRules = {
 };
 };
@@ -1934,7 +1943,7 @@ stemValues = (
 {
 axesValues = (
 18,
-25,
+151,
 400,
 0,
 0,
@@ -1991,11 +2000,11 @@ value = -320;
 },
 {
 name = paramArea;
-value = "205";
+value = 540;
 },
 {
 name = paramDepth;
-value = "12";
+value = 18;
 },
 {
 name = paramOver;
@@ -2004,84 +2013,97 @@ value = 0;
 );
 guides = (
 {
-pos = (550,1623);
+locked = 1;
+pos = (-24,-42);
 },
 {
-pos = (30,0);
+locked = 1;
+pos = (-24,0);
 },
 {
-pos = (30,-20);
+locked = 1;
+pos = (-32,1020);
 },
 {
-pos = (2,-229);
+locked = 1;
+pos = (-32,1062);
+},
+{
+pos = (-13,540);
 showMeasurement = 1;
 },
 {
-pos = (50,967);
-showMeasurement = 1;
+locked = 1;
+pos = (14,-474);
 },
 {
-angle = 180;
-pos = (305,105);
+locked = 1;
+pos = (14,-432);
 },
 {
-pos = (30,-12);
+pos = (16,-25);
 },
 {
-pos = (5,859);
+pos = (50,884);
 },
 {
-pos = (3,871);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-186,1440);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-189,1160);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (129,620);
-},
-{
-pos = (21,1452);
-},
-{
-pos = (23,1432);
+pos = (50,859);
 },
 {
 angle = 90;
-pos = (583,-85);
+pos = (63,295);
+showMeasurement = 1;
 },
 {
-pos = (21,1445);
+filter = "category == \"Mark\"";
+pos = (-176,1480);
 },
 {
-angle = 180;
-pos = (285,235);
+filter = "category == \"Mark\"";
+pos = (-179,1200);
+},
+{
+filter = "category == \"Symbol\" AND subCategory == \"Math\"";
+pos = (63,761);
+},
+{
+pos = (34,146);
+},
+{
+pos = (21,1474);
+},
+{
+pos = (-16,1254);
+},
+{
+pos = (470,267);
+showMeasurement = 1;
+},
+{
+angle = 90;
+pos = (1646,-42);
+showMeasurement = 1;
 }
 );
-id = "05FA349F-E618-4CD6-879B-689CC9BD38BD";
+id = "2E913103-23F5-4E23-B9D4-1007B5402989";
 metricValues = (
 {
-over = 20;
+over = 42;
 pos = 1432;
 },
 {
-over = 20;
+over = 42;
 pos = 1432;
 },
 {
-over = 20;
+over = 42;
 pos = 1020;
 },
 {
-over = -20;
+over = -42;
 },
 {
-over = -20;
+over = -42;
 pos = -432;
 },
 {
@@ -2089,13 +2111,17 @@ pos = -432;
 {
 }
 );
-name = "COPY_of_25-400";
+name = "COPY_of_151-400";
 stemValues = (
+170,
+168,
 156,
-150,
-146,
-138
+148
 );
+userData = {
+HTLSManagerMasterRules = {
+};
+};
 }
 );
 instances = (
@@ -2108,6 +2134,7 @@ axesValues = (
 0,
 -10
 );
+exports = 0;
 instanceInterpolations = {
 "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38" = 1;
 };
@@ -2122,7 +2149,6 @@ axesValues = (
 0,
 -10
 );
-exports = 0;
 instanceInterpolations = {
 "91251A45-EED6-44E6-BC9D-709435BB03FD" = 1;
 };
@@ -2137,6 +2163,7 @@ axesValues = (
 0,
 -10
 );
+exports = 0;
 instanceInterpolations = {
 "769463EF-2EF4-41A9-85A9-285641285009" = 1;
 };
@@ -2151,6 +2178,7 @@ axesValues = (
 0,
 -10
 );
+exports = 0;
 instanceInterpolations = {
 "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 1;
 };
@@ -2179,10 +2207,25 @@ axesValues = (
 0,
 -10
 );
+exports = 0;
 instanceInterpolations = {
 "879AA4C1-268E-45F5-A479-E8A4233029E2" = 1;
 };
 name = "wg1000-wd100-oz18-GD0-RD0-sl-10";
+},
+{
+axesValues = (
+18,
+151,
+400,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"854B8A49-0698-4FEC-AD72-BCF838C96101" = 1;
+};
+name = "wg400-wd151-oz18-GD0-RD0-sl-10";
 },
 {
 axesValues = (
@@ -2197,21 +2240,6 @@ instanceInterpolations = {
 "35323741-4FBD-4EB9-8288-00DA7AD3A8A0" = 1;
 };
 name = "wg1-wd151-oz18-GD0-RD0-sl-10";
-},
-{
-axesValues = (
-18,
-151,
-400,
-0,
-0,
--10
-);
-exports = 0;
-instanceInterpolations = {
-"854B8A49-0698-4FEC-AD72-BCF838C96101" = 1;
-};
-name = "wg400-wd151-oz18-GD0-RD0-sl-10";
 },
 {
 axesValues = (
@@ -2281,9 +2309,9 @@ fraction = {
 four.denominator = -150;
 };
 };
-"05FA349F-E618-4CD6-879B-689CC9BD38BD" = {
+"2E913103-23F5-4E23-B9D4-1007B5402989" = {
 fraction = {
-four.denominator = -40;
+four.denominator = -130;
 };
 };
 };
