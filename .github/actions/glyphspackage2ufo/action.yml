@@ -30,7 +30,7 @@ runs:
       fi
 
       echo "Checkout Octavio's sources ($GIT_REF)"
-      git -C main fetch origin "$GIT_REF"
+      git -C main fetch --depth 1 origin "$GIT_REF"
       # Note: path to create worktree is relative to Git dir (main) not current dir
       git -C main worktree add --quiet --detach "$GITHUB_WORKSPACE/octavio" "origin/$GIT_REF"
 
