@@ -1,5 +1,5 @@
 {
-color = 9;
+color = 3;
 glyphname = I;
 kernLeft = H_left;
 kernRight = H_right;
@@ -544,56 +544,56 @@ width = 597;
 anchors = (
 {
 name = bottom;
-pos = (256,0);
+pos = (163,0);
 },
 {
 name = ogonek;
-pos = (296,0);
+pos = (203,0);
 },
 {
 name = top;
-pos = (254,1432);
+pos = (412,1432);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (256,0);
+pos = (289,0);
 },
 {
 name = ogonek;
-pos = (296,0);
+pos = (329,0);
 },
 {
 name = top;
-pos = (254,1432);
+pos = (287,1432);
 }
 );
 shapes = (
 {
 closed = 1;
 nodes = (
-(296,0,o),
-(296,0,o,{
+(329,0,o),
+(329,0,o,{
 name = inserted;
 }),
-(296,39,qs),
-(296,1393,ls),
-(296,1432,o,{
+(329,39,qs),
+(329,1393,ls),
+(329,1432,o,{
 name = inserted;
 }),
-(296,1432,o,{
+(329,1432,o,{
 name = inserted;
 }),
-(253,1432,qs),
-(210,1432,o),
-(210,1432,o),
-(210,1393,qs),
-(210,39,ls),
-(210,0,o),
-(210,0,o),
-(253,0,q)
+(286,1432,qs),
+(243,1432,o),
+(243,1432,o),
+(243,1393,qs),
+(243,39,ls),
+(243,0,o),
+(243,0,o),
+(286,0,q)
 );
 }
 );
@@ -603,26 +603,26 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(296,0,o),
-(296,0,o,{
+(203,0,o),
+(203,0,o,{
 name = inserted;
 }),
-(296,39,qs),
-(296,1393,ls),
-(296,1432,o,{
+(210,39,qs),
+(448,1393,ls),
+(455,1432,o,{
 name = inserted;
 }),
-(296,1432,o,{
+(455,1432,o,{
 name = inserted;
 }),
-(253,1432,qs),
-(210,1432,o),
-(210,1432,o),
-(210,1393,qs),
-(210,39,ls),
-(210,0,o),
-(210,0,o),
-(253,0,q)
+(412,1432,qs),
+(369,1432,o),
+(369,1432,o),
+(362,1393,qs),
+(124,39,ls),
+(117,0,o),
+(117,0,o),
+(160,0,q)
 );
 }
 );
@@ -630,7 +630,7 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
 };
-width = 506;
+width = 507;
 }
 );
 metricLeft = H;
