@@ -15,6 +15,12 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Log inputs
+      shell: bash
+      run: |
+        echo "updated-sources: ${{ inputs.updated-sources }}"
+        echo "imported-branch: ${{ inputs.imported-branch }}"
+        echo "git-email: ${{ inputs.git-email }}"
     - name: Create/Checkout branch
       shell: bash
       env:
