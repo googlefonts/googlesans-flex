@@ -1,4 +1,5 @@
 {
+color = 5;
 glyphname = _tail.Q;
 layers = (
 {
@@ -367,47 +368,10 @@ width = 0;
 anchors = (
 {
 name = _tail;
-pos = (223,0);
+pos = (144,0);
 }
 );
 background = {
-anchors = (
-{
-name = _tail;
-pos = (223,0);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(436,-51,o,{
-name = inserted;
-}),
-(436,-51,o,{
-name = inserted;
-}),
-(371,-7,qs),
-(-265,435,ls),
-(-332,483,o),
-(-332,483,o),
-(-379,424,q),
-(-435,358,o,{
-name = inserted;
-}),
-(-435,358,o,{
-name = inserted;
-}),
-(-368,311,qs),
-(270,-133,ls),
-(338,-180,o),
-(338,-180,o),
-(387,-115,q)
-);
-}
-);
-};
-layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
 shapes = (
 {
 closed = 1;
@@ -434,6 +398,37 @@ name = inserted;
 (338,-180,o),
 (338,-180,o),
 (385,-118,q)
+);
+}
+);
+};
+layerId = "854B8A49-0698-4FEC-AD72-BCF838C96101";
+shapes = (
+{
+closed = 1;
+nodes = (
+(332,-53,o,{
+name = inserted;
+}),
+(332,-53,o,{
+name = inserted;
+}),
+(279,-10,qs),
+(-296,446,ls),
+(-343,483,o),
+(-343,483,o),
+(-395,426,q),
+(-455,361,o,{
+name = inserted;
+}),
+(-455,361,o,{
+name = inserted;
+}),
+(-400,317,qs),
+(175,-140,ls),
+(224,-179,o),
+(224,-179,o),
+(276,-118,q)
 );
 }
 );
