@@ -12,7 +12,9 @@ Inputs:
 Steps:
 1. Checkout main
 2. Create/Checkout branch as worktree
-3. Delete everything in the worktree (except `.git/`), and move the `updated-sources` in
-4. Commit & push
+3. Delete the sources, and move the `updated-sources/sources` in
+4. Commit
+5. Rebase on `main` (emits a warning if this fails)
+6. Push
 
 Outputs: none

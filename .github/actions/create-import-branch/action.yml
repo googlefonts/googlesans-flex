@@ -27,25 +27,27 @@ runs:
         TARGET_BRANCH: ${{ format('import-{0}', inputs.imported-branch) }}
       run: |
         if [[ ! -d main ]]; then
-          echo "main has not been checked out, this should be done before running glyphspackage2ufo"
+          echo "main has not been checked out, this should be done before running create-import-branch"
           exit 1
         fi
+
+        # Get all of main's history so rebasing works later
+        git -C main fetch origin main --unshallow
+
         # Try to fetch branch, if it doesn't exist we'll create it
         if git -C main fetch origin "$TARGET_BRANCH" &>/dev/null ; then
           echo "The target branch '$TARGET_BRANCH' already exists, updating."
-          git -C main worktree add --quiet target "$TARGET_BRANCH"
+          git -C main worktree add --quiet "$GITHUB_WORKSPACE/target" "$TARGET_BRANCH"
         else
           echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
-          git -C main worktree add --quiet target -b "$TARGET_BRANCH" origin/main
+          git -C main worktree add --quiet "$GITHUB_WORKSPACE/target" -b "$TARGET_BRANCH" origin/main
         fi
     - name: Apply changes
       shell: bash
       run: |
         shopt -s dotglob
-        echo "::group::Delete existing files"
-        find target -mindepth 1 -maxdepth 1 -not -path "target/.git" -exec rm -rfv {} \;
-        echo "::endgroup::"
-        mv --no-clobber "${{ inputs.updated-sources }}"/* target
+        rm -r target/sources
+        mv --no-clobber "${{ inputs.updated-sources }}"/sources target/
     - name: Commit & push changes
       shell: bash
       env:
@@ -55,7 +57,19 @@ runs:
         git config user.name "Import Script"
         git config user.email ${{ inputs.git-email }}
         git add sources
+        # git commit returns non-zero if there's nothing to commit, and GitHub
+        # runs scripts with exit on error, so we need to suppress this with
+        # `|| true`
         git commit --quiet -m "Import from ${{ inputs.imported-branch }}
           
-        This commit was creating automatically using the GitHub workflow"
-        git push -u origin "$TARGET_BRANCH"
+        This commit was creating automatically using the GitHub workflow" || true
+        
+        # Rebase to get non-source changes from main
+        if ! git rebase origin/main; then
+          echo "::warning title=Unable to rebase::Unable to automatically rebase due to conflicts. You will either need to resolve the conflicts yourself, or delete and re-create the import branch"
+          git rebase --abort
+        fi
+        
+        # --force is needed if we rebased
+        # --set-upstream is needed if the branch is new
+        git push --force --set-upstream origin "$TARGET_BRANCH"
