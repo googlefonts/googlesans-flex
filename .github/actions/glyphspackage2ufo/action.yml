@@ -9,7 +9,7 @@ inputs:
 outputs:
   directory:
     description: Where the repository with the converted sources is
-    value: ${{ steps.checkout-main.outputs.target }}
+    value: ${{ steps.prepare-import.outputs.target }}
 
 runs:
   using: composite
@@ -23,28 +23,29 @@ runs:
     with:
       ref: ${{ inputs.git-ref }}
       path: octavio
-  - name: Checkout main
-    id: checkout-main
+  - name: Prepare import
+    id: prepare-import
     shell: bash
     run: |
-      git -C octavio fetch origin main --depth 1
-      git -C octavio worktree add --quiet ./main origin/main
+      if [[ ! -d main ]]; then
+        echo "main has not been checked out, this should be done before running glyphspackage2ufo"
+        exit 1
+      fi
       target=$(mktemp --tmpdir=. --directory glyphspackage2ufo)
       ./main/.github/actions/glyphspackage2ufo/copy-exclude main "$target" .git
+      echo "Target dir: $target"
       echo "target=$GITHUB_WORKSPACE/$target" >> "$GITHUB_OUTPUT"
-  - name: Delete old designspace & sources
-    shell: bash
-    run: |
-      # Remove everything except the config.yaml
-      rm -rfv "${{ steps.checkout-main.outputs.target }}"/sources/*.{ufo,designspace}
+      echo "::group::Remove everything except the config.yaml"
+      rm -rfv "$GITHUB_WORKSPACE/$target/sources/"*.{ufo,designspace}
+      echo "::endgroup::""
   - name: Run import script
     shell: bash
     run: |
       cd target
-      echo "::group::setup venv"
+      echo "::group::Setup venv"
       make venv
       echo "::endgroup::"
       echo "Running glyphs_to_ds.py"
       venv/bin/python scripts/glyphs_to_ds.py \
         "$GITHUB_WORKSPACE/octavio/sources-v2_0/GSF-full.glyphspackage" \
-        "${{ steps.checkout-main.outputs.target }}/sources/GoogleSansFlex.designspace"
+        "${{ steps.prepare-import.outputs.target }}/sources/GoogleSansFlex.designspace"

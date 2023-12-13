@@ -15,18 +15,17 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Checkout main
-      uses: actions/checkout@v4
-      with:
-        ref: main
-        path: main
     - name: Create/Checkout branch
       shell: bash
       env:
         TARGET_BRANCH: ${{ format('import-{0}', inputs.imported-branch) }}
       run: |
+        if [[ ! -d main ]]; then
+          echo "main has not been checked out, this should be done before running glyphspackage2ufo"
+          exit 1
+        fi
         # Try to fetch branch, if it doesn't exist we'll create it
-        if git fetch origin "$TARGET_BRANCH" &>/dev/null ; then
+        if git -C main fetch origin "$TARGET_BRANCH" &>/dev/null ; then
           echo "The target branch '$TARGET_BRANCH' already exists, updating."
           git -C main worktree add --quiet target "$TARGET_BRANCH"
         else

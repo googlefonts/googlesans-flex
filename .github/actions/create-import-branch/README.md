@@ -1,6 +1,8 @@
 # create-import-branch
 
-Pre-requisites: `glyphspackage2ufo`
+Pre-requisites:
+1. `glyphspackage2ufo`
+2. Expects `main` to be checked out in `$GITHUB_WORKSPACE/main`
 
 Inputs:
 1. `updated-sources` - path for the sources `glyphspackage2ufo` produced

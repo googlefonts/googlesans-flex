@@ -14,11 +14,16 @@ jobs:
   import-branch:
     runs-on: [linux, googlefonts-64cores-256GB]
     steps:
-      - name: "Convert Glyphs package sources to UFO"
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+      - name: Convert Glyphs package sources to UFO
         id: glyphspackage2ufo
-        uses: ./.github/actions/glyphspackage2ufo
-      - name: "Create/Update import branch"
-        uses: ./.github/actions/create-import-branch
+        uses: ./main/.github/actions/glyphspackage2ufo
+      - name: Create/Update import branch
+        uses: ./main/.github/actions/create-import-branch
         with:
           updated-sources: ${{ steps.glyphspackage2ufo.outputs.directory }}
           imported-branch: ${{ github.event.inputs.git-ref }}
