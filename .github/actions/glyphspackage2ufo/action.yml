@@ -35,12 +35,11 @@ runs:
       git -C main worktree add --quiet --detach "$GITHUB_WORKSPACE/octavio" "origin/$GIT_REF"
 
       target=$(mktemp --tmpdir=. --directory glyphspackage2ufo-XXXX)
-      $GITHUB_ACTION_PATH/copy-exclude main "$target" .git
       echo "Target dir: $target"
+      echo "::group::Copy main to $target without sources"
+      $GITHUB_ACTION_PATH/copy-without-sources main "$target"
+      echo "::endgroup::"
       echo "target=$GITHUB_WORKSPACE/$target" >> "$GITHUB_OUTPUT"
-
-      echo "Remove everything except the config.yaml"
-      rm -rf "$GITHUB_WORKSPACE/$target/sources/"*.{ufo,designspace}
   - name: Run import script
     shell: bash
     run: |
