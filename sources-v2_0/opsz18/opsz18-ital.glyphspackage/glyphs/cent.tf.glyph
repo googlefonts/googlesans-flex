@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 1;
 glyphname = cent.tf;
 layers = (
 {
@@ -494,6 +494,28 @@ ref = cent;
 width = 2072;
 },
 {
+layerId = "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5";
+shapes = (
+{
+alignment = -1;
+pos = (50,0);
+ref = cent;
+}
+);
+width = 1188;
+},
+{
+layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
+shapes = (
+{
+alignment = -1;
+pos = (10,0);
+ref = cent;
+}
+);
+width = 628;
+},
+{
 background = {
 shapes = (
 {
@@ -579,7 +601,7 @@ name = inserted;
 }
 );
 };
-layerId = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
+layerId = "39BB56E0-17BD-4C23-94C9-8820B69E5B38";
 shapes = (
 {
 pos = (240,0);
@@ -587,126 +609,6 @@ ref = cent;
 }
 );
 width = 2192;
-},
-{
-layerId = "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5";
-shapes = (
-{
-alignment = -1;
-pos = (50,0);
-ref = cent;
-}
-);
-width = 1188;
-},
-{
-layerId = "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38";
-shapes = (
-{
-alignment = -1;
-pos = (10,0);
-ref = cent;
-}
-);
-width = 628;
-},
-{
-background = {
-shapes = (
-{
-closed = 1;
-nodes = (
-(1221,165,o),
-(1446,204,o),
-(1640,280,o),
-(1759,354,o,{
-name = inserted;
-}),
-(1759,354,o,{
-name = inserted;
-}),
-(1678,465,o),
-(1678,465,o),
-(1576,404,o),
-(1416,341,o),
-(1226,305,o),
-(1103,305,qs),
-(839,305,o),
-(503,514,o),
-(503,681,q),
-(503,681,l),
-(503,849,o),
-(847,1061,o),
-(1113,1061,qs),
-(1218,1061,o),
-(1403,1029,o),
-(1563,974,o),
-(1666,920,o),
-(1666,920,o),
-(1736,1042,o,{
-name = inserted;
-}),
-(1736,1042,o,{
-name = inserted;
-}),
-(1617,1103,o),
-(1437,1167,o),
-(1225,1201,o),
-(1105,1201,qs),
-(771,1201,o),
-(331,908,o),
-(331,679,q),
-(331,679,l),
-(331,455,o),
-(746,165,o),
-(1084,165,qs)
-);
-},
-{
-closed = 1;
-nodes = (
-(1194,684,l),
-(1194,1280,l),
-(1194,1361,o,{
-name = inserted;
-}),
-(1194,1361,o,{
-name = inserted;
-}),
-(1125,1361,q),
-(1056,1361,o),
-(1056,1361,o),
-(1056,1280,q),
-(1056,684,l)
-);
-},
-{
-closed = 1;
-nodes = (
-(1194,0,o),
-(1194,0,o,{
-name = inserted;
-}),
-(1194,85,q),
-(1194,684,l),
-(1056,684,l),
-(1056,85,l),
-(1056,0,o),
-(1056,0,o),
-(1125,0,q)
-);
-}
-);
-};
-layerId = "2E913103-23F5-4E23-B9D4-1007B5402989";
-shapes = (
-{
-alignment = -1;
-pos = (100,0);
-ref = cent;
-}
-);
-width = 2072;
 }
 );
 metricWidth = "=zero.tf";
