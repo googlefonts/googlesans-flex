@@ -1673,7 +1673,7 @@ pos = (14,-432);
 pos = (16,-25);
 },
 {
-pos = (50,884);
+pos = (50,736);
 },
 {
 angle = 90;
@@ -1693,7 +1693,7 @@ filter = "category == \"Symbol\" AND subCategory == \"Math\"";
 pos = (63,761);
 },
 {
-pos = (63,204);
+pos = (74,204);
 },
 {
 pos = (21,1474);
@@ -1702,12 +1702,12 @@ pos = (21,1474);
 pos = (-16,1254);
 },
 {
-pos = (470,267);
+pos = (325,241);
 showMeasurement = 1;
 },
 {
-angle = 90;
-pos = (1646,-42);
+angle = 80;
+pos = (1042,0);
 showMeasurement = 1;
 }
 );
@@ -1832,10 +1832,6 @@ value = 0;
 );
 guides = (
 {
-pos = (-58,-285);
-showMeasurement = 1;
-},
-{
 locked = 1;
 pos = (-30,-28);
 },
@@ -1864,45 +1860,35 @@ locked = 1;
 pos = (44,887);
 },
 {
-pos = (-62,-432);
-showMeasurement = 1;
+angle = 80.024;
+pos = (258,1354);
 },
 {
-pos = (-62,-380);
-showMeasurement = 1;
+angle = 80.024;
+pos = (2358,1230);
 },
 {
-filter = "category == \"Mark\"";
-pos = (-189,1584);
+angle = 80.024;
+pos = (2054,1064);
 },
 {
-filter = "category == \"Mark\"";
-pos = (-189,1191);
+angle = 80.024;
+pos = (538,1380);
 },
 {
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (30,630);
+angle = 80.024;
+pos = (697,1294);
 },
 {
-pos = (60,374);
+angle = 80.024;
+pos = (1015,1184);
 },
 {
-pos = (21,1480);
-},
-{
-pos = (23,1467);
-},
-{
-pos = (528,244);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (1801,-28);
-showMeasurement = 1;
+angle = 80.024;
+pos = (1465,1083);
 }
 );
-id = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
+id = "39BB56E0-17BD-4C23-94C9-8820B69E5B38";
 metricValues = (
 {
 over = 48;
@@ -1936,188 +1922,16 @@ stemValues = (
 412,
 326
 );
-},
-{
-axesValues = (
-18,
-151,
-400,
-0,
-0,
-0
-);
-customParameters = (
-{
-name = typoAscender;
-value = 1932;
-},
-{
-name = typoDescender;
-value = -572;
-},
-{
-name = typoLineGap;
-value = 0;
-},
-{
-name = hheaAscender;
-value = 1932;
-},
-{
-name = hheaDescender;
-value = -572;
-},
-{
-name = hheaLineGap;
-value = 0;
-},
-{
-name = winAscent;
-value = 2214;
-},
-{
-name = winDescent;
-value = 999;
-},
-{
-name = strikeoutPosition;
-value = 612;
-},
-{
-name = strikeoutSize;
-value = 168;
-},
-{
-name = underlineThickness;
-value = 168;
-},
-{
-name = underlinePosition;
-value = -320;
-},
-{
-name = paramArea;
-value = 540;
-},
-{
-name = paramDepth;
-value = 18;
-},
-{
-name = paramOver;
-value = 0;
-}
-);
-guides = (
-{
-locked = 1;
-pos = (-24,-42);
-},
-{
-locked = 1;
-pos = (-24,0);
-},
-{
-locked = 1;
-pos = (-32,1020);
-},
-{
-locked = 1;
-pos = (-32,1062);
-},
-{
-pos = (-13,540);
-showMeasurement = 1;
-},
-{
-locked = 1;
-pos = (14,-474);
-},
-{
-locked = 1;
-pos = (14,-432);
-},
-{
-pos = (16,-25);
-},
-{
-pos = (50,884);
-},
-{
-pos = (50,859);
-},
-{
-angle = 90;
-pos = (63,295);
-showMeasurement = 1;
-},
-{
-filter = "category == \"Mark\"";
-pos = (-176,1480);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-179,1200);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (63,761);
-},
-{
-pos = (34,146);
-},
-{
-pos = (21,1474);
-},
-{
-pos = (-16,1254);
-},
-{
-pos = (470,267);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (1646,-42);
-showMeasurement = 1;
-}
-);
-id = "2E913103-23F5-4E23-B9D4-1007B5402989";
-metricValues = (
-{
-over = 42;
-pos = 1432;
-},
-{
-over = 42;
-pos = 1432;
-},
-{
-over = 42;
-pos = 1020;
-},
-{
-over = -42;
-},
-{
-over = -42;
-pos = -432;
-},
-{
-},
-{
-}
-);
-name = "COPY_of_151-400";
-stemValues = (
-170,
-168,
-156,
-148
-);
 userData = {
-HTLSManagerMasterRules = {
-};
+GSSlanterCursivy = 0;
+GSSlanterCursivyContrastFactor = 0.5;
+GSSlanterCursivyDoContrast = 1;
+GSSlanterCursivyDoShape = 1;
+GSSlanterCursivyDoThickness = 1;
+GSSlanterCursivyShapeFactor = 0.5;
+GSSlanterCursivyThicknessFactor = 1;
+GSSlanterGeometric = 0;
+GSSlanterRotate = 0;
 };
 }
 );
@@ -2131,7 +1945,6 @@ axesValues = (
 0,
 -10
 );
-exports = 0;
 instanceInterpolations = {
 "ECE3928B-0CC8-4E0B-96B5-3D55D3095D38" = 1;
 };
@@ -2160,7 +1973,6 @@ axesValues = (
 0,
 -10
 );
-exports = 0;
 instanceInterpolations = {
 "769463EF-2EF4-41A9-85A9-285641285009" = 1;
 };
@@ -2175,7 +1987,6 @@ axesValues = (
 0,
 -10
 );
-exports = 0;
 instanceInterpolations = {
 "8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 1;
 };
@@ -2204,25 +2015,10 @@ axesValues = (
 0,
 -10
 );
-exports = 0;
 instanceInterpolations = {
 "879AA4C1-268E-45F5-A479-E8A4233029E2" = 1;
 };
 name = "wg1000-wd100-oz18-GD0-RD0-sl-10";
-},
-{
-axesValues = (
-18,
-151,
-400,
-0,
-0,
--10
-);
-instanceInterpolations = {
-"854B8A49-0698-4FEC-AD72-BCF838C96101" = 1;
-};
-name = "wg400-wd151-oz18-GD0-RD0-sl-10";
 },
 {
 axesValues = (
@@ -2242,14 +2038,27 @@ name = "wg1-wd151-oz18-GD0-RD0-sl-10";
 axesValues = (
 18,
 151,
+400,
+0,
+0,
+-10
+);
+instanceInterpolations = {
+"854B8A49-0698-4FEC-AD72-BCF838C96101" = 1;
+};
+name = "wg400-wd151-oz18-GD0-RD0-sl-10";
+},
+{
+axesValues = (
+18,
+151,
 1000,
 0,
 0,
 -10
 );
-exports = 0;
 instanceInterpolations = {
-"82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = 1;
+"39BB56E0-17BD-4C23-94C9-8820B69E5B38" = 1;
 };
 name = "wg1000-wd151-oz18-GD0-RD0-sl-10";
 }
@@ -2301,14 +2110,9 @@ fraction = {
 four.denominator = -130;
 };
 };
-"82FC06D3-8581-4B8E-8DAE-0B01F3360F1A" = {
+"39BB56E0-17BD-4C23-94C9-8820B69E5B38" = {
 fraction = {
 four.denominator = -150;
-};
-};
-"2E913103-23F5-4E23-B9D4-1007B5402989" = {
-fraction = {
-four.denominator = -130;
 };
 };
 };
