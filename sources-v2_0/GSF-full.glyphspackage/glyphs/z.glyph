@@ -1,5 +1,4 @@
 {
-color = 5;
 glyphname = z;
 kernLeft = z_left;
 kernRight = z_right;
@@ -5658,16 +5657,6 @@ pos = (407,1060);
 }
 );
 background = {
-anchors = (
-{
-name = bottom;
-pos = (407,0);
-},
-{
-name = top;
-pos = (407,1060);
-}
-);
 shapes = (
 {
 closed = 1;
@@ -5741,12 +5730,12 @@ name = inserted;
 (679,392,o),
 (598,392,qs),
 (506,392,l),
-(731,698,ls),
-(751,726,o,{
+(708,667,ls),
+(738,709,o,{
 name = inserted;
 }),
 (782,786,o),
-(782,835,qs),
+(782,847,qs),
 (782,930,o),
 (646,1060,o),
 (547,1060,qs),
@@ -5762,7 +5751,7 @@ name = inserted;
 (156,646,o),
 (242,646,qs),
 (260,646,l),
-(74,380,ls),
+(88,400,ls),
 (54,352,o,{
 name = inserted;
 }),
