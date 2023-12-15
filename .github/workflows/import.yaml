@@ -22,24 +22,38 @@ jobs:
           if [[ "${{ github.ref_name }}" != "main" ]]; then
             echo "::error title=Pipeline not run on main::Import workflow should always be run from main"
           fi
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version-file: .github/workflows/python-version.txt
-          cache: pip
       - name: Checkout main
         uses: actions/checkout@v4
         with:
           ref: main
           path: main
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version-file: ./main/.github/workflows/python-version.txt
+          cache: pip
       - name: Convert Glyphs package sources to UFO
         id: glyphspackage2ufo
         uses: ./main/.github/actions/glyphspackage2ufo
       - name: Create/Update import branch
+        id: create-update-import
         uses: ./main/.github/actions/create-import-branch
         with:
           updated-sources: ${{ steps.glyphspackage2ufo.outputs.directory }}
           imported-branch: ${{ github.event.inputs.git-ref }}
           git-email: ${{ github.event.inputs.email }}
+    outputs:
+      import-branch: ${{ steps.create-update-import.outputs.import-branch }}
+  build-variable:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 60
+    needs: import-branch
+    steps:
+      - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.import-branch.outputs.import-branch }}
+      - name: Build fonts
+        uses: ./.github/actions/build-ufos-py
 
-# TODO: re-add build
+# TODO: re-add test
