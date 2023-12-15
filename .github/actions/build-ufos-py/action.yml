@@ -29,12 +29,24 @@ runs:
     id: zip-name
     shell: bash
     run: |
+      case "${{ github.workflow }}" in
+        "Update from sources")
+          workflow="import"
+          ;;
+        "Build font and specimen")
+          workflow="build"
+          ;;
+        # TODO: add Octavio's workflow here when made
+        *)
+          workflow="unknown"
+          ;;
+      esac
       if [[ "${{ github.run_attempt }}" == "1" ]]; then
         suffix=""
       else
         suffix=" run ${{ github.run_attempt }}"
       fi
-      name="Google Sans Flex #${{ github.run_number }}$suffix"
+      name="Google Sans Flex $workflow#${{ github.run_number }}$suffix"
       echo "artifact-name: $name.zip"
       echo "artifact-name=$name" >> "$GITHUB_OUTPUT"
   - name: Upload archive

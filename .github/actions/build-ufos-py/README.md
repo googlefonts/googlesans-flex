@@ -14,3 +14,7 @@ Steps:
 
 Outputs:
 * `artifact-name`: the name of the artifact (without the .zip extension)
+
+## Maintenance notes
+
+Whenever a new workflow is made that uses this action, its name needs to be added to the `case` statement in the "Set zip file name" step
