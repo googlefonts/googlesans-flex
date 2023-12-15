@@ -2,26 +2,23 @@ name: Font tests
 description: Runs checks on UFO sources and built TTFs
 
 inputs:
-  branch:
-    description: The branch to get the sources from
+  repo-path:
+    description: Path to the repository containing the sources & build files
     required: true
+    default: '.'
   variable-artifact:
     description: >-
       The name of the artifact to get the variable TTF(s).
-      Must be built from the input branch
+      Must be built from the repo-path
     required: true
 
 runs:
   using: composite
   steps:
-  - name: Checkout ${{ inputs.branch }}
-    uses: actions/checkout@v4
-    with:
-      ref: ${{ inputs.branch }}
   - name: Set up Python
     uses: actions/setup-python@v4
     with:
-      python-version-file: ./.github/workflows/python-version.txt
+      python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
       cache: pip
   - name: Download built fonts
     uses: actions/download-artifact@v4
@@ -32,17 +29,19 @@ runs:
     shell: bash
     run: |
       # Trick make into not re-building the fonts
-      touch build.stamp
-      make test
+      touch "${{ inputs.repo-path }}/build.stamp"
+      make --directory ${{ inputs.repo-path }} test
   - name: Check with OT Sanitizer
     uses: f-actions/opentype-sanitizer@v2
     with:
-      path: fonts/variable/*.ttf
+      path: ${{ inputs.repo-path }}/fonts/variable/*.ttf
   - name: Analyze TTF file size
     uses: ./.github/actions/file-size
+    with:
+      path: ${{ inputs.repo-path }}
     continue-on-error: true
   - name: Upload Fontbakery reports
     uses: actions/upload-artifact@v4
     with:
       name: Fontbakery report ${{ github.run_number }}
-      path: out/fontbakery
+      path: ${{ inputs.repo-path }}/out/fontbakery

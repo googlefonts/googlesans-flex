@@ -69,8 +69,11 @@ jobs:
       - import-branch
       - build-variable
     steps:
+      - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.import-branch.outputs.import-branch }}
       - name: Run tests
         uses: ./.github/actions/tests
         with:
-          branch: ${{ needs.import-branch.outputs.import-branch }}
           variable-artifact: ${{ needs.build-variable.outputs.variable-artifact }}
