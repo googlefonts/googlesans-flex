@@ -6,11 +6,6 @@ inputs:
     description: Path to the repository containing the sources & build files
     required: true
     default: '.'
-  variable-artifact:
-    description: >-
-      The name of the artifact to get the variable TTF(s).
-      Must be built from the repo-path
-    required: true
 
 runs:
   using: composite
@@ -20,16 +15,16 @@ runs:
     with:
       python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
       cache: pip
-  - name: Download built fonts
-    uses: actions/download-artifact@v3
-    with:
-      name: ${{ inputs.variable-artifact }}
-      path: ${{ inputs.repo-path }}/fonts/variable
   - name: Run Fontbakery
     shell: bash
     run: |
-      # Trick make into not re-building the fonts
-      touch "${{ inputs.repo-path }}/build.stamp"
+      if [ -d "${{ inputs.repo-path }}/fonts/variable" ]; then
+        # Trick make into not re-building the fonts
+        touch "${{ inputs.repo-path }}/build.stamp"
+      else
+        echo "::error title=Built fonts not found::No built fonts in ${{ inputs.repo-path }}/fonts/variable"
+        exit 1
+      fi
       make --directory ${{ inputs.repo-path }} test
   - name: Check with OT Sanitizer
     uses: f-actions/opentype-sanitizer@v2
