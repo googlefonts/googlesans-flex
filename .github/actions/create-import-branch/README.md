@@ -17,4 +17,5 @@ Steps:
 5. Rebase on `main` (emits a warning if this fails)
 6. Push
 
-Outputs: none
+Outputs:
+* `import-branch`: the name of the new/updated import branch

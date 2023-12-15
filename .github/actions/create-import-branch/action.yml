@@ -12,6 +12,11 @@ inputs:
     description: The email to use for the Git commit
     required: true
 
+outputs:
+  import-branch:
+    description: The name of the branch that the updated sources are on
+    value: ${{ steps.commit-rebase-push.outputs.import-branch }}
+
 runs:
   using: composite
   steps:
@@ -48,7 +53,8 @@ runs:
         shopt -s dotglob
         rm -r target/sources
         mv --no-clobber "${{ inputs.updated-sources }}"/sources target/
-    - name: Commit & push changes
+    - name: Commit, rebase, and push changes
+      id: commit-rebase-push
       shell: bash
       env:
         TARGET_BRANCH: ${{ format('import-{0}', inputs.imported-branch) }}
@@ -73,3 +79,5 @@ runs:
         # --force is needed if we rebased
         # --set-upstream is needed if the branch is new
         git push --force --set-upstream origin "$TARGET_BRANCH"
+
+        echo "import-branch=$TARGET_BRANCH" >> "$GITHUB_OUTPUT"
