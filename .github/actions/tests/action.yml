@@ -43,5 +43,5 @@ runs:
   - name: Upload Fontbakery reports
     uses: actions/upload-artifact@v3
     with:
-      name: Fontbakery report ${{ github.run_number }}
+      name: Fontbakery reports
       path: ${{ inputs.repo-path }}/out/fontbakery
