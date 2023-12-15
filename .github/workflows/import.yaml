@@ -59,6 +59,7 @@ jobs:
           python-version-file: ./.github/workflows/python-version.txt
           cache: pip
       - name: Build fonts
+        id: build-ufos
         uses: ./.github/actions/build-ufos-py
-
-# TODO: re-add test
+    outputs:
+      variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
