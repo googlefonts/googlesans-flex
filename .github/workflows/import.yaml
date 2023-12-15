@@ -18,9 +18,15 @@ jobs:
         run: |
           echo "git-ref: ${{ github.event.inputs.git-ref }}"
           echo "git-email: ${{ github.event.inputs.email }}"
+          echo "python-version-file: $(head -n 1 -z .github/workflows/python-version.txt)"
           if [[ "${{ github.ref_name }}" != "main" ]]; then
             echo "::error title=Pipeline not run on main::Import workflow should always be run from main"
           fi
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version-file: .github/workflows/python-version.txt
+          cache: pip
       - name: Checkout main
         uses: actions/checkout@v4
         with:

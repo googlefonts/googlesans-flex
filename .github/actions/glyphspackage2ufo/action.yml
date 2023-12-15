@@ -14,10 +14,6 @@ outputs:
 runs:
   using: composite
   steps:
-  - name: Set up Python
-    uses: actions/setup-python@v4
-    with:
-      cache: "pip"
   - name: Prepare import
     id: prepare-import
     shell: bash
