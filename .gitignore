@@ -139,6 +139,8 @@ dmypy.json
 # Project specific
 fonts/
 build*/
+# Exclusion for the above
+!.github/actions/build-ufos-*/**
 build.stamp
 
 # Proof intermediate files

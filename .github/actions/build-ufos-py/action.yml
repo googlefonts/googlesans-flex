@@ -1,0 +1,44 @@
+name: Build UFOs
+description: Builds fonts using Python tooling
+
+inputs:
+  repo-path:
+    description: Path to the repository containing the sources & build files
+    required: true
+    default: '.'
+
+outputs:
+  artifact-name:
+    description: The name of the zip file containing the fonts
+    value: ${{ steps.zip-name.outputs.artifact-name }}
+
+runs:
+  using: composite
+  steps:
+  - name: Setup venv
+    shell: bash
+    run: make --directory ${{ inputs.repo-path }} venv
+  - name: Bump sources version to release tag version
+    if: github.event_name == 'release'
+    shell: bash
+    run: make --directory ${{ inputs.repo-path }} bump-to-tag
+  - name: Build the font
+    shell: bash
+    run: make --directory ${{ inputs.repo-path }} build
+  - name: Set zip file name
+    id: zip-name
+    shell: bash
+    run: |
+      if [[ "${{ github.run_attempt }}" == "1" ]]; then
+        suffix=""
+      else
+        suffix=" run ${{ github.run_attempt }}"
+      fi
+      name="Google Sans Flex ${{ github.run_id }}$suffix"
+      echo "artifact-name: $name.zip"
+      echo "artifact-name=$name" >> "$GITHUB_OUTPUT"
+  - name: Upload archive
+    uses: actions/upload-artifact@v4
+    with:
+      name: ${{ steps.zip-name.outputs.artifact-name }}
+      path: ${{ inputs.repo-path }}/fonts/variable
