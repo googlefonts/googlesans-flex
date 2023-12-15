@@ -24,7 +24,7 @@ runs:
     uses: actions/download-artifact@v3
     with:
       name: ${{ inputs.variable-artifact }}
-      path: fonts/variable
+      path: ${{ inputs.repo-path }}/fonts/variable
   - name: Run Fontbakery
     shell: bash
     run: |
