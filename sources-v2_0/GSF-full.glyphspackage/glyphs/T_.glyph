@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = T;
 kernLeft = T_left;
 kernRight = T_right;
@@ -6301,20 +6302,6 @@ pos = (1128,1432);
 }
 );
 background = {
-anchors = (
-{
-name = bottom;
-pos = (1120,0);
-},
-{
-name = center;
-pos = (1126,708);
-},
-{
-name = top;
-pos = (1128,1432);
-}
-);
 shapes = (
 {
 closed = 1;
@@ -6365,14 +6352,14 @@ shapes = (
 closed = 1;
 nodes = (
 (1301,-47,o),
-(1552,206,o,{
+(1552,168,o,{
 name = inserted;
 }),
-(1552,383,qs),
+(1552,318,qs),
 (1552,1180,l),
 (702,1180,l),
-(702,383,ls),
-(702,206,o),
+(702,318,ls),
+(702,168,o),
 (953,-47,o),
 (1127,-47,qs)
 );
