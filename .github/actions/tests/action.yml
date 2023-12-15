@@ -21,7 +21,7 @@ runs:
       python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
       cache: pip
   - name: Download built fonts
-    uses: actions/download-artifact@v4
+    uses: actions/download-artifact@v3
     with:
       name: ${{ inputs.variable-artifact }}
       path: fonts/variable
@@ -41,7 +41,7 @@ runs:
       path: ${{ inputs.repo-path }}
     continue-on-error: true
   - name: Upload Fontbakery reports
-    uses: actions/upload-artifact@v4
+    uses: actions/upload-artifact@v3
     with:
       name: Fontbakery report ${{ github.run_number }}
       path: ${{ inputs.repo-path }}/out/fontbakery

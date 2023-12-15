@@ -50,7 +50,7 @@ runs:
       echo "artifact-name: $name.zip"
       echo "artifact-name=$name" >> "$GITHUB_OUTPUT"
   - name: Upload archive
-    uses: actions/upload-artifact@v4
+    uses: actions/upload-artifact@v3
     with:
       name: ${{ steps.zip-name.outputs.artifact-name }}
       path: ${{ inputs.repo-path }}/fonts/variable
