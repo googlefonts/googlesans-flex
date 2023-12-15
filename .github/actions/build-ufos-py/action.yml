@@ -34,7 +34,7 @@ runs:
       else
         suffix=" run ${{ github.run_attempt }}"
       fi
-      name="Google Sans Flex ${{ github.run_id }}$suffix"
+      name="Google Sans Flex #${{ github.run_number }}$suffix"
       echo "artifact-name: $name.zip"
       echo "artifact-name=$name" >> "$GITHUB_OUTPUT"
   - name: Upload archive
