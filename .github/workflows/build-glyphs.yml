@@ -1,0 +1,79 @@
+name: Build from Glyphs package
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: The Git reference to build from (branch name or 7 character commit reference)
+        required: true
+
+env:
+  ufo_sources_name: UFO sources for ${{ github.event.inputs.git-ref }}
+
+jobs:
+  convert-sources:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    steps:
+    - name: Log & validate inputs
+      run: |
+        echo "git-ref: ${{ github.event.inputs.git-ref }}"
+        echo "python-version-file: $(head -n 1 -z .github/workflows/python-version.txt)"
+        if [[ "${{ github.ref_name }}" != "main" ]]; then
+          echo "::error title=Pipeline not run on main::Import workflow should always be run from main"
+        fi
+    - name: Checkout main
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        path: main
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: ./main/.github/workflows/python-version.txt
+        cache: pip
+    - name: Convert Glyphs package sources to UFO
+      id: glyphspackage2ufo
+      uses: ./main/.github/actions/glyphspackage2ufo
+      with:
+        git-ref: ${{ github.event.inputs.git-ref }}
+    - name: Upload sources archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ env.ufo_sources_name }}
+        path: ${{ steps.glyphspackage2ufo.outputs.directory }}
+  build-variable:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 60
+    needs: convert-sources
+    steps:
+    - name: Download UFO sources
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ env.ufo_sources_name }}
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: ./.github/workflows/python-version.txt
+        cache: pip
+    - name: Build fonts
+      id: build-ufos
+      uses: ./.github/actions/build-ufos-py
+    outputs:
+      variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
+  test:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    needs:
+    - convert-sources
+    - build-variable
+    steps:
+    - name: Download UFO sources
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ env.ufo_sources_name }}
+    - name: Download built fonts
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ needs.build-variable.outputs.variable-artifact }}
+        path: fonts/variable
+    - name: Run tests
+      uses: ./.github/actions/tests
