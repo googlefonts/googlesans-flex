@@ -92,8 +92,9 @@ update:
 	pip install -U pip-tools
 	pip-compile --resolver=backtracking -U requirements.in
 
-file-size: build
-	. venv/bin/activate && find fonts -name '*.ttf' -type f | xargs python .github/actions/file-size/report-filesize.py
+font-size: build
+	venv/bin/pip install -U font-size
+	find fonts -name '*.ttf' -type f | xargs venv/bin/font-size
 
 progress-chart: venv
 	. venv/bin/activate && python scripts/gs-progress-burndown.py
