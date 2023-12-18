@@ -39,7 +39,9 @@ runs:
         "Build font and specimen")
           workflow="build"
           ;;
-        # TODO: add Octavio's workflow here when made
+        "Build from Glyphs package")
+          workflow="glyphs"
+          ;;
         *)
           workflow="unknown"
           ;;
