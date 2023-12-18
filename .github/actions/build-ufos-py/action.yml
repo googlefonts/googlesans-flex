@@ -15,9 +15,12 @@ outputs:
 runs:
   using: composite
   steps:
-  - name: Setup venv
+  - name: Set up venv
     shell: bash
-    run: make --directory ${{ inputs.repo-path }} venv
+    run: |
+      echo "::group::Set up venv"
+      make --directory ${{ inputs.repo-path }} venv
+      echo "::endgroup::"
   - name: Bump sources version to release tag version
     if: github.event_name == 'release'
     shell: bash
