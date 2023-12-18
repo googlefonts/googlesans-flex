@@ -76,6 +76,8 @@ runs:
         # Rebase to get non-source changes from main
         if ! git rebase origin/main; then
           echo "::error title=Unable to rebase::Unable to automatically rebase due to conflicts. You will either need to resolve the conflicts yourself, or delete and re-create the import branch"
+          git rebase --abort
+          git push
           exit 1
         fi
         
