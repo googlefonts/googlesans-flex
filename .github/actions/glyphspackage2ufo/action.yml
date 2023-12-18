@@ -35,7 +35,9 @@ runs:
       echo "::group::Copy main to $target without sources"
       $GITHUB_ACTION_PATH/copy-without-sources main "$target"
       echo "::endgroup::"
-      echo "target=$GITHUB_WORKSPACE/$target" >> "$GITHUB_OUTPUT"
+      normalized_target="$(readlink -f "$GITHUB_WORKSPACE/$target")"
+      echo "glyphspackage2ufo.outputs.directory: $normalized_target"
+      echo "target=$normalized_target" >> "$GITHUB_OUTPUT"
   - name: Run import script
     shell: bash
     run: |
