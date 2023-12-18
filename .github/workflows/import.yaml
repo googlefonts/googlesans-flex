@@ -35,6 +35,8 @@ jobs:
       - name: Convert Glyphs package sources to UFO
         id: glyphspackage2ufo
         uses: ./main/.github/actions/glyphspackage2ufo
+        with:
+          git-ref: ${{ github.event.inputs.git-ref }}
       - name: Create/Update import branch
         id: create-update-import
         uses: ./main/.github/actions/create-import-branch
