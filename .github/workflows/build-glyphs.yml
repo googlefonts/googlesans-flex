@@ -7,11 +7,8 @@ on:
         description: The Git reference to build from (branch name or 7 character commit reference)
         required: true
 
-env:
-  ufo_sources_name: UFO sources for ${{ github.event.inputs.git-ref }}
-
 jobs:
-  convert-sources:
+  convert-build-test:
     runs-on: [linux, googlefonts-64cores-256GB]
     steps:
     - name: Log & validate inputs
@@ -36,44 +33,14 @@ jobs:
       uses: ./main/.github/actions/glyphspackage2ufo
       with:
         git-ref: ${{ github.event.inputs.git-ref }}
-    - name: Upload sources archive
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ env.ufo_sources_name }}
-        path: ${{ steps.glyphspackage2ufo.outputs.directory }}
-  build-variable:
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 60
-    needs: convert-sources
-    steps:
-    - name: Download UFO sources
-      uses: actions/download-artifact@v3
-      with:
-        name: ${{ env.ufo_sources_name }}
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version-file: ./.github/workflows/python-version.txt
-        cache: pip
     - name: Build fonts
       id: build-ufos
-      uses: ./.github/actions/build-ufos-py
-    outputs:
-      variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
-  test:
-    runs-on: [linux, googlefonts-64cores-256GB]
-    needs:
-    - convert-sources
-    - build-variable
-    steps:
-    - name: Download UFO sources
-      uses: actions/download-artifact@v3
+      uses: ./main/.github/actions/build-ufos-py
+      env:
+        SKIP_FONTV: true
       with:
-        name: ${{ env.ufo_sources_name }}
-    - name: Download built fonts
-      uses: actions/download-artifact@v3
-      with:
-        name: ${{ needs.build-variable.outputs.variable-artifact }}
-        path: fonts/variable
+        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
     - name: Run tests
-      uses: ./.github/actions/tests
+      uses: ./main/.github/actions/tests
+      with:
+        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
