@@ -40,7 +40,6 @@ GOOGLESANSFLEX_PROFILE_CHECKS = GOOGLEFONTS_PROFILE_CHECKS + [
     "com.google.fonts/check/googlesansflex/vf/axis_names",
     "com.google.fonts/check/googlesansflex/vf/fvardefault",
     "com.google.fonts/check/googlesansflex/opentype/global_fu_attributes",
-    "com.google.fonts/check/googlesansflex/round_reflow",
 ]
 
 # define check ID's in the upstream `googlefonts` profile
@@ -292,98 +291,6 @@ def com_google_fonts_check_googlesansflex_variable_fvar_default(font, ttFont):
             )
         else:
             yield PASS, f"Font contains the expected fvar {tag} default."
-
-
-@condition
-def rond_axis(ttFont):
-    if "fvar" in ttFont:
-        for axis in ttFont["fvar"].axes:
-            if axis.axisTag == "ROND":
-                return axis
-
-
-@check(
-    id="com.google.fonts/check/googlesansflex/round_reflow",
-    rationale="""
-        The round (ROND) axis should not change any advanceWidth or kerning data
-        across its design space. This is because altering the advance width of glyphs
-        can cause text reflow.
-    """,
-    conditions=["is_variable_font"],
-    proposal="https://github.com/googlefonts/fontbakery/issues/3187",
-)
-def com_google_fonts_check_googlesansflex_round_reflow(ttFont, config):
-    """Ensure VFs with the GRAD axis do not vary horizontal advance."""
-    from fontbakery.utils import all_kerning, pretty_print_list
-
-    if not rond_axis(ttFont):
-        yield SKIP, Message("no-rond", "This font has no ROND axis")
-        return
-
-    gvar = ttFont["gvar"]
-    bad_glyphs = set()
-    for glyph, deltas in gvar.variations.items():
-        for delta in deltas:
-            if "ROND" not in delta.axes:
-                continue
-            if any(c is not None and c != (0, 0) for c in delta.coordinates[-4:]):
-                bad_glyphs.add(glyph)
-
-    if bad_glyphs:
-        bad_glyphs_list = pretty_print_list(config, list(bad_glyphs))
-        yield FAIL, Message(
-            "rond-causes-reflow",
-            f"The following glyphs have variation in horizontal"
-            f" advance due to the ROND axis: {bad_glyphs_list}",
-        )
-
-    # Determine if any kerning rules vary the horizontal advance.
-    # This is going to get grubby.
-    bad_kerning = False
-
-    if "GDEF" in ttFont and hasattr(ttFont["GDEF"].table, "VarStore"):
-        effective_regions = []
-        varstore = ttFont["GDEF"].table.VarStore
-        regions = varstore.VarRegionList.Region
-        rond_index = [x.axisTag == "ROND" for x in ttFont["fvar"].axes].index(True)
-        for ix, region in enumerate(regions):
-            axis_tent = region.VarRegionAxis[rond_index]
-            effective = (
-                axis_tent.StartCoord != axis_tent.PeakCoord
-                or axis_tent.PeakCoord != axis_tent.EndCoord
-            )
-            if effective:
-                effective_regions.append(ix)
-
-        # Some regions vary *something* along the ROND axis. But what?
-        if effective_regions:
-            kerning = all_kerning(ttFont)
-            for left, right, v1, _ in kerning:
-                if v1 and hasattr(v1, "XAdvDevice") and v1.XAdvDevice:
-                    variation = [v1.XAdvDevice.StartSize, v1.XAdvDevice.EndSize]
-                    regions = varstore.VarData[variation[0]].VarRegionIndex
-                    if any(region in effective_regions for region in regions):
-                        deltas = varstore.VarData[variation[0]].Item[variation[1]]
-                        effective_deltas = [
-                            deltas[ix]
-                            for ix, region in enumerate(regions)
-                            if region in effective_regions
-                        ]
-                        if any(x for x in effective_deltas):
-                            yield FAIL, Message(
-                                "rond-kern-causes-reflow",
-                                f"Kerning rules cause variation in"
-                                f" horizontal advance on the ROND axis"
-                                f" (e.g. {left}/{right})",
-                            )
-                            bad_kerning = True
-                            break
-
-    # Check kerning here
-    if not bad_glyphs and not bad_kerning:
-        yield PASS, (
-            "No variations or kern rules vary horizontal advance along the ROND axis"
-        )
 
 
 # ================================================
