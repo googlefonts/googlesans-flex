@@ -57,6 +57,7 @@ runs:
       id: commit-rebase-push
       shell: bash
       env:
+        SOURCE_BRANCH: ${{ inputs.imported-branch }}
         TARGET_BRANCH: ${{ format('import-{0}', inputs.imported-branch) }}
       run: |
         cd target
@@ -66,8 +67,10 @@ runs:
         # git commit returns non-zero if there's nothing to commit, and GitHub
         # runs scripts with exit on error, so we need to suppress this with
         # `|| true`
-        git commit --quiet -m "Import from ${{ inputs.imported-branch }}
-          
+        git commit --quiet -m "Import from $SOURCE_BRANCH
+        
+        $SOURCE_BRANCH at $(git rev-parse --short HEAD)
+        
         This commit was creating automatically using the GitHub workflow" || true
         
         # Rebase to get non-source changes from main
