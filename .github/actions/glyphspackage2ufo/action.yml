@@ -21,7 +21,7 @@ runs:
       GIT_REF: ${{ github.event.inputs.git-ref }}
     run: |
       if [[ ! -d main ]]; then
-        echo "main has not been checked out, this should be done before running glyphspackage2ufo"
+        echo "::error title=main not checked out::main has not been checked out to ./main/, this should be done before running glyphspackage2ufo"
         exit 1
       fi
 
@@ -29,6 +29,11 @@ runs:
       git -C main fetch --depth 1 origin "$GIT_REF"
       # Note: path to create worktree is relative to Git dir (main) not current dir
       git -C main worktree add --quiet --detach "$GITHUB_WORKSPACE/octavio" "origin/$GIT_REF"
+
+      if [[ ! -d "$GITHUB_WORKSPACE/octavio/sources-v2_0" ]]; then
+        echo "::error title=No glyphspackage sources::$GIT_REF doesn't have a sources-v2_0 folder"
+        exit 1
+      fi
 
       target=$(mktemp --tmpdir=. --directory glyphspackage2ufo-XXXX)
       echo "Target dir: $target"
