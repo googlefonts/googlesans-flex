@@ -1,0 +1,56 @@
+name: Convert Glyphs package to UFO
+description: Convert Glyphs package to UFO using scripts/glyphs_to_ds.py
+
+inputs:
+  git-ref:
+    description: The branch to convert
+    required: true
+
+outputs:
+  directory:
+    description: Where the repository with the converted sources is
+    value: ${{ steps.prepare-import.outputs.target }}
+
+runs:
+  using: composite
+  steps:
+  - name: Prepare import
+    id: prepare-import
+    shell: bash
+    env:
+      GIT_REF: ${{ github.event.inputs.git-ref }}
+    run: |
+      if [[ ! -d main ]]; then
+        echo "::error title=main not checked out::main has not been checked out to ./main/, this should be done before running glyphspackage2ufo"
+        exit 1
+      fi
+
+      echo "Checkout Octavio's sources ($GIT_REF)"
+      git -C main fetch --depth 1 origin "$GIT_REF"
+      # Note: path to create worktree is relative to Git dir (main) not current dir
+      git -C main worktree add --quiet --detach "$GITHUB_WORKSPACE/octavio" "origin/$GIT_REF"
+
+      if [[ ! -d "$GITHUB_WORKSPACE/octavio/sources-v2_0" ]]; then
+        echo "::error title=No glyphspackage sources::$GIT_REF doesn't have a sources-v2_0 folder"
+        exit 1
+      fi
+
+      target=$(mktemp --tmpdir=. --directory glyphspackage2ufo-XXXX)
+      echo "Target dir: $target"
+      echo "::group::Copy main to $target without sources"
+      $GITHUB_ACTION_PATH/copy-without-sources main "$target"
+      echo "::endgroup::"
+      normalized_target="$(readlink -f "$GITHUB_WORKSPACE/$target")"
+      echo "glyphspackage2ufo.outputs.directory: $normalized_target"
+      echo "target=$normalized_target" >> "$GITHUB_OUTPUT"
+  - name: Run import script
+    shell: bash
+    run: |
+      cd "${{ steps.prepare-import.outputs.target }}"
+      echo "::group::Setup venv"
+      make venv
+      echo "::endgroup::"
+      echo "Running glyphs_to_ds.py"
+      venv/bin/python scripts/glyphs_to_ds.py \
+        "$GITHUB_WORKSPACE/octavio/sources-v2_0/GSF-full.glyphspackage" \
+        sources/GoogleSansFlex.designspace

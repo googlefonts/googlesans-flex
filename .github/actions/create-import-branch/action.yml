@@ -1,0 +1,88 @@
+name: Create/Update import branch
+description: Creates/Updates an import branch based on new UFO sources
+
+inputs:
+  updated-sources:
+    description: The path for the updated sources
+    required: true
+  imported-branch:
+    description: The name of the branch that was imported from
+    required: true
+  git-email:
+    description: The email to use for the Git commit
+    required: true
+
+outputs:
+  import-branch:
+    description: The name of the branch that the updated sources are on
+    value: ${{ steps.commit-rebase-push.outputs.import-branch }}
+
+runs:
+  using: composite
+  steps:
+    - name: Log inputs
+      shell: bash
+      run: |
+        echo "updated-sources: ${{ inputs.updated-sources }}"
+        echo "imported-branch: ${{ inputs.imported-branch }}"
+        echo "git-email: ${{ inputs.git-email }}"
+    - name: Create/Checkout branch
+      shell: bash
+      env:
+        TARGET_BRANCH: ${{ format('import-{0}', inputs.imported-branch) }}
+      run: |
+        if [[ ! -d main ]]; then
+          echo "main has not been checked out, this should be done before running create-import-branch"
+          exit 1
+        fi
+
+        # Get all of main's history so rebasing works later
+        git -C main fetch origin main --unshallow
+
+        # Try to fetch branch, if it doesn't exist we'll create it
+        if git -C main fetch origin "$TARGET_BRANCH" &>/dev/null ; then
+          echo "The target branch '$TARGET_BRANCH' already exists, updating."
+          git -C main worktree add --quiet "$GITHUB_WORKSPACE/target" "$TARGET_BRANCH"
+        else
+          echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
+          git -C main worktree add --quiet "$GITHUB_WORKSPACE/target" -b "$TARGET_BRANCH" origin/main
+        fi
+    - name: Apply changes
+      shell: bash
+      run: |
+        shopt -s dotglob
+        rm -r target/sources
+        mv --no-clobber "${{ inputs.updated-sources }}"/sources target/
+    - name: Commit, rebase, and push changes
+      id: commit-rebase-push
+      shell: bash
+      env:
+        SOURCE_BRANCH: ${{ inputs.imported-branch }}
+        TARGET_BRANCH: ${{ format('import-{0}', inputs.imported-branch) }}
+      run: |
+        cd target
+        git config user.name "Import Script"
+        git config user.email ${{ inputs.git-email }}
+        git add sources
+        # git commit returns non-zero if there's nothing to commit, and GitHub
+        # runs scripts with exit on error, so we need to suppress this with
+        # `|| true`
+        git commit --quiet -m "Import from $SOURCE_BRANCH
+        
+        $SOURCE_BRANCH at $(git rev-parse --short "origin/$SOURCE_BRANCH")
+        
+        This commit was creating automatically using the GitHub workflow" || true
+        
+        # Rebase to get non-source changes from main
+        if ! git rebase origin/main; then
+          echo "::error title=Unable to rebase::Unable to automatically rebase due to conflicts. You will either need to resolve the conflicts yourself, or delete and re-create the import branch"
+          git rebase --abort
+          git push
+          exit 1
+        fi
+        
+        # --force is needed if we rebased
+        # --set-upstream is needed if the branch is new
+        git push --force --set-upstream origin "$TARGET_BRANCH"
+
+        echo "import-branch=$TARGET_BRANCH" >> "$GITHUB_OUTPUT"

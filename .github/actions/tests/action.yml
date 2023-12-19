@@ -1,0 +1,40 @@
+name: Font tests
+description: Runs checks on UFO sources and built TTFs
+
+inputs:
+  repo-path:
+    description: Path to the repository containing the sources & build files
+    required: true
+    default: '.'
+
+runs:
+  using: composite
+  steps:
+  - name: Set up Python
+    uses: actions/setup-python@v4
+    with:
+      python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
+      cache: pip
+  - name: Run Fontbakery
+    shell: bash
+    run: |
+      if [ -d "${{ inputs.repo-path }}/fonts/variable" ]; then
+        # Trick make into not re-building the fonts
+        touch "${{ inputs.repo-path }}/build.stamp"
+      else
+        echo "::error title=Built fonts not found::No built fonts in ${{ inputs.repo-path }}/fonts/variable"
+        exit 1
+      fi
+      make --directory ${{ inputs.repo-path }} test
+  - name: Check with OT Sanitizer
+    uses: f-actions/opentype-sanitizer@v2
+    with:
+      path: ${{ inputs.repo-path }}/fonts/variable/*.ttf
+  - name: Analyze TTF file size
+    shell: bash
+    run: make --directory ${{ inputs.repo-path }} font-size
+  - name: Upload Fontbakery reports
+    uses: actions/upload-artifact@v3
+    with:
+      name: Fontbakery reports
+      path: ${{ inputs.repo-path }}/out/fontbakery
