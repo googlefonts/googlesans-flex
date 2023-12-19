@@ -58,23 +58,26 @@ There it a GitHub workflow that covers this from start to finish, no local work 
 You can access it from [Actions > Update from sources > Run workflow](https://github.com/googlefonts/googlesans-flex/actions/workflows/import.yaml).
 
 The "Use workflow from" determines which version of the import script will be used.
-* As Marianna or Chris, you'll always want this to be `main`, to use the latest stable version.
-* As a developer of the import script, you can select a branch on which you're
-  implementing fixes to the workflow, e.g. `fix-import-crash`.
+This should always be `main`.
 
-"The Git reference to import from" is where the updated UFOs will be taken
-from, e.g. `fb-wip`. The name of the target branch will be derived from that by
-prepending `import-`, e.g. `import-fb-wip`. The target branch will be created
-if it does not exist, or updated with a new commit otherwise.
+"The Git reference to import from" is where the updated sources will be taken
+from, e.g. `it-ad-wip-v2.0`. 
 
-If all goes according to plan, the workflow will create a new `import-...` branch,
+If all goes according to plan, the workflow will create or update an import branch,
 and you will have to open a PR for it (we can't do it automatically because of the CLA bot).
-If a PR already exists, it will be updated.
+The name of the import branch will be derived from the imported git reference by prepending `import-`, e.g. `import-it-ad-wip-v2.0`.
+The target branch will be created if it does not exist, or updated with a new commit otherwise.
+
+The import workflow also builds the font and runs tests on it, no need to request that separately.
 
 Otherwise, check the CI log for the run (accessible at the link above) to investigate why it failed.
+Some errors may show without needing to read the log, in the "Annotations" section of the workflow run summary page.
 
-The designspaces imported are determined by the `sources/config.yaml` file.
-To add a new designspace, update the file on the source branch (the one not starting `import-...`) and then run the import workflow again.
+## Testing builds from Glyphs sources
+
+There's a GitHub workflow for this too! It's called "Build from Glyphs package" ([here](https://github.com/googlefonts/googlesans-flex/actions/workflows/build-glyphs.yml)).
+
+All you need to do is specify the name of the branch that has .glyphspackage sources, and it'll be built & tested, with TTFs being produced for download.
 
 ## Scripts
 
