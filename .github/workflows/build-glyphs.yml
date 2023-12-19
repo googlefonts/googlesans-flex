@@ -10,6 +10,7 @@ on:
 jobs:
   convert-build-test:
     runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 60
     steps:
     - name: Log & validate inputs
       run: |
