@@ -60,8 +60,8 @@ You can access it from [Actions > Update from sources > Run workflow](https://gi
 The "Use workflow from" determines which version of the import script will be used.
 This should always be `main`.
 
-"The Git reference to import from" is where the updated sources will be taken
-from, e.g. `it-ad-wip-v2.0`. 
+"The branch import from" is where the updated sources will be taken from, e.g. 
+`it-ad-wip-v2.0`. 
 
 If all goes according to plan, the workflow will create or update an import branch,
 and you will have to open a PR for it (we can't do it automatically because of the CLA bot).

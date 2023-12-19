@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       git-ref:
-        description: The Git reference to build from (branch name or 7 character commit reference)
+        description: The branch to build from
         required: true
 
 jobs:

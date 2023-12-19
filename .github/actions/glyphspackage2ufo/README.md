@@ -5,7 +5,7 @@ Pre-requisites:
 2. expects Python to have been set up
 
 Inputs:
-1. `git-ref` - the Git reference for the sources to convert
+1. `git-ref` - the branch for the sources to convert
 
 Steps:
 1. Check out `git-ref` in `$GITHUB_WORKSPACE/octavio`

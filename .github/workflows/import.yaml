@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       git-ref:
-        description: The Git reference to import from (branch name or 7 character commit reference)
+        description: The branch to import from
         required: true
       email:
         description: Your GitHub email address (CLA approved)
