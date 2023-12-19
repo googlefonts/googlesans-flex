@@ -11,10 +11,14 @@ Inputs:
 
 Steps:
 1. Checkout main
-2. Create/Checkout branch as worktree
+2. Create/Checkout import branch as worktree
 3. Delete the sources, and move the `updated-sources/sources` in
 4. Commit
-5. Rebase on `main` (emits a warning if this fails)
+5. Rebase on `main`
+    * If this fails, a push without rebase is done instead, but the pipeline fails
+    * This is so someone can intervene and do the rebase themselves if they want to, resolving conflicts
+    * Otherwise, just delete the import branch and start over
+    * Conflicts should be super rare
 6. Push
 
 Outputs:
