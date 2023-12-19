@@ -1,7 +1,11 @@
-name: Build font
+name: Build from UFOs
 
 on:
   workflow_dispatch:
+    inputs:
+      git-ref:
+        description: The Git reference to build from (branch name or 7 character commit reference)
+        required: true
   release:
     # A release, pre-release, or draft of a release was published
     types: [published]
@@ -11,8 +15,10 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 60
     steps:
-    - name: Checkout main
+    - name: Checkout ${{ inputs.git-ref || 'main' }}
       uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.git-ref || 'main' }}
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
