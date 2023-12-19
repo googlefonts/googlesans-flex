@@ -21,6 +21,7 @@ jobs:
           echo "python-version-file: $(head -n 1 -z .github/workflows/python-version.txt)"
           if [[ "${{ github.ref_name }}" != "main" ]]; then
             echo "::error title=Pipeline not run on main::Import workflow should always be run from main"
+            exit 1
           fi
       - name: Checkout main
         uses: actions/checkout@v4
