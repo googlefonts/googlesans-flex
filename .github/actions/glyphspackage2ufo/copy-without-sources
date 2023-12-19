@@ -13,6 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+"""
+Copies a checkout of the repo to another folder, excluding most of the sources
+
+Copies the contents of positional arg 1 to positional arg 2, excluding:
+* `.git`
+* `sources/*.{ufo,designspace,fea}`
+"""
+
 from argparse import ArgumentParser
 from pathlib import Path
 import shutil
