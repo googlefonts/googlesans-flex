@@ -1,11 +1,10 @@
 # tests
 
 Pre-requisites:
-1. There should be an artifact of built fonts available
+1. There should be a checkout of the repo with up-to-date sources and built fonts
 
 Inputs:
-1. `branch` - the branch to get the sources from
-2. `variable-artifact` - the GitHub artifact name of the variable TTFs built from `branch`
+1. `repo-path` - where the repository checkout is (default `.`, i.e. `$GITHUB_WORKSPACE`)
 
 Steps:
 1. Checkout `branch`
