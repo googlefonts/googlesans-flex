@@ -9,10 +9,9 @@ Inputs:
 
 Steps:
 1. Checkout `branch`
-2. Download `variable-artifact`
-2. Run Fontbakery
-3. Run OT Sanitizer
-4. Run `file-size`
+2. Run [Fontbakery](https://github.com/fonttools/fontbakery)
+3. Run [OpenType Sanitizer](https://github.com/googlefonts/ots-python)
+4. Run [font-size](https://github.com/source-foundry/font-size)
 5. Upload Fontbakery reports
 
 Outputs: none
