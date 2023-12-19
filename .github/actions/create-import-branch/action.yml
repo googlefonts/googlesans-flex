@@ -69,7 +69,7 @@ runs:
         # `|| true`
         git commit --quiet -m "Import from $SOURCE_BRANCH
         
-        $SOURCE_BRANCH at $(git rev-parse --short HEAD)
+        $SOURCE_BRANCH at $(git rev-parse --short "origin/$SOURCE_BRANCH")
         
         This commit was creating automatically using the GitHub workflow" || true
         
