@@ -261,11 +261,11 @@ def com_google_fonts_check_googlesansflex_axis_names(font, ttFont):
         name = names.getDebugName(axis.axisNameID)
         expected = axis_names.get(axis.axisTag)
         if expected is None:
-            yield WARN, f"Font has unexpected axis tagged {axis.axisTag}"
+            yield FAIL, f"Font has unexpected axis tagged {axis.axisTag}"
         elif name == expected:
             yield PASS, f"Axis tagged {axis.axisTag} has expected name {expected}"
         else:
-            yield WARN, f"Axis tagged {axis.axisTag} has name {name} but should be named {expected}"
+            yield FAIL, f"Axis tagged {axis.axisTag} has name {name} but should be named {expected}"
 
 
 @check(
