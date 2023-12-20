@@ -73,6 +73,7 @@ AXIS_DEFAULTS = {
     "wdth": 100,
     "wght": 400,
     "ROND": 0,
+    "GRAD": 0,
 }
 
 AXIS_NAMES = {
@@ -80,6 +81,7 @@ AXIS_NAMES = {
     "ROND": "Roundness",
     "wdth": "Width",
     "wght": "Weight",
+    "GRAD": "Grade",
 }
 
 AXIS_DEFAULTS_FULL_VF = {
