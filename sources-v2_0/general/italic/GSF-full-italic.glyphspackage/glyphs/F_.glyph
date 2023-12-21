@@ -2469,6 +2469,69 @@ width = 1655;
 anchors = (
 {
 name = bottom;
+pos = (320,0);
+},
+{
+name = top;
+pos = (1161,1432);
+}
+);
+layerId = m026;
+shapes = (
+{
+closed = 1;
+nodes = (
+(564,0,o),
+(564,0,o,{
+name = inserted;
+}),
+(602,219,q),
+(744,1020,l),
+(1653,1020,l),
+(1838,1020,o),
+(1838,1020,o),
+(1874,1226,q),
+(1910,1432,o),
+(1910,1432,o,{
+name = inserted;
+}),
+(1725,1432,q),
+(569,1432,l),
+(336,1432,o),
+(336,1432,o),
+(297,1211,q),
+(122,219,l),
+(84,0,o),
+(84,0,o),
+(325,0,q)
+);
+},
+{
+closed = 1;
+nodes = (
+(1455,459,ls),
+(1631,459,o),
+(1631,459,o),
+(1665,655,q),
+(1700,851,o),
+(1700,851,o,{
+name = inserted;
+}),
+(1524,851,qs),
+(512,851,l),
+(443,459,l)
+);
+}
+);
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
+};
+width = 1833;
+},
+{
+anchors = (
+{
+name = bottom;
 pos = (242,0);
 },
 {
@@ -2578,69 +2641,6 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
 };
 width = 1744;
-},
-{
-anchors = (
-{
-name = bottom;
-pos = (320,0);
-},
-{
-name = top;
-pos = (1161,1432);
-}
-);
-layerId = m026;
-shapes = (
-{
-closed = 1;
-nodes = (
-(564,0,o),
-(564,0,o,{
-name = inserted;
-}),
-(602,219,q),
-(744,1020,l),
-(1653,1020,l),
-(1838,1020,o),
-(1838,1020,o),
-(1874,1226,q),
-(1910,1432,o),
-(1910,1432,o,{
-name = inserted;
-}),
-(1725,1432,q),
-(569,1432,l),
-(336,1432,o),
-(336,1432,o),
-(297,1211,q),
-(122,219,l),
-(84,0,o),
-(84,0,o),
-(325,0,q)
-);
-},
-{
-closed = 1;
-nodes = (
-(1455,459,ls),
-(1631,459,o),
-(1631,459,o),
-(1665,655,q),
-(1700,851,o),
-(1700,851,o,{
-name = inserted;
-}),
-(1524,851,qs),
-(512,851,l),
-(443,459,l)
-);
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
-};
-width = 1833;
 }
 );
 metricLeft = H;

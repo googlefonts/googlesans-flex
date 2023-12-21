@@ -842,20 +842,6 @@ ref = "_dots-divide";
 width = 1640;
 },
 {
-layerId = m025;
-shapes = (
-{
-alignment = 1;
-ref = minus;
-},
-{
-pos = (20,0);
-ref = "_dots-divide";
-}
-);
-width = 1720;
-},
-{
 guides = (
 {
 angle = 90;
@@ -874,6 +860,20 @@ ref = "_dots-divide";
 }
 );
 width = 1780;
+},
+{
+layerId = m025;
+shapes = (
+{
+alignment = 1;
+ref = minus;
+},
+{
+pos = (20,0);
+ref = "_dots-divide";
+}
+);
+width = 1720;
 }
 );
 metricLeft = "=minus";

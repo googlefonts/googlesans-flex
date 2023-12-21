@@ -1440,6 +1440,23 @@ ref = zero.dnom.percent;
 width = 2076;
 },
 {
+layerId = m026;
+shapes = (
+{
+ref = zero.numr.percent;
+},
+{
+pos = (1096,0);
+ref = percentbar.tf;
+},
+{
+pos = (1096,0);
+ref = zero.dnom.percent;
+}
+);
+width = 2192;
+},
+{
 background = {
 shapes = (
 {
@@ -1473,23 +1490,6 @@ ref = zero.dnom.percent;
 }
 );
 width = 2072;
-},
-{
-layerId = m026;
-shapes = (
-{
-ref = zero.numr.percent;
-},
-{
-pos = (1096,0);
-ref = percentbar.tf;
-},
-{
-pos = (1096,0);
-ref = zero.dnom.percent;
-}
-);
-width = 2192;
 }
 );
 metricWidth = "=zero.tf";

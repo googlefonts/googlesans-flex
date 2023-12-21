@@ -3097,6 +3097,92 @@ width = 1640;
 anchors = (
 {
 name = bottom;
+pos = (809,0);
+},
+{
+name = ogonek;
+pos = (1653,0);
+},
+{
+name = top;
+pos = (1012,1036);
+},
+{
+name = topright;
+pos = (1598,1035);
+}
+);
+background = {
+shapes = (
+{
+angle = 180;
+pos = (1894,1034);
+ref = n;
+}
+);
+};
+layerId = m026;
+shapes = (
+{
+closed = 1;
+nodes = (
+(791,-48,o),
+(1118,91,o),
+(1223,186,q),
+(1231,186,l),
+(1231,186,l),
+(1200,0,o,{
+name = inserted;
+}),
+(1200,0,o,{
+name = inserted;
+}),
+(1426,0,q),
+(1653,0,o),
+(1653,0,o),
+(1689,204,q),
+(1798,823,l),
+(1836,1036,o),
+(1836,1036,o),
+(1599,1036,q),
+(1362,1036,o),
+(1362,1036,o,{
+name = inserted;
+}),
+(1324,823,q),
+(1285,604,l),
+(1262,472,o),
+(1031,317,o),
+(868,317,qs),
+(728,317,o),
+(583,433,o),
+(608,573,qs),
+(652,823,l),
+(690,1036,o),
+(690,1036,o),
+(453,1036,q),
+(216,1036,o),
+(216,1036,o,{
+name = inserted;
+}),
+(178,823,q),
+(117,475,ls),
+(69,206,o),
+(346,-48,o),
+(605,-48,qs)
+);
+}
+);
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = "=|n";
+com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|n";
+};
+width = 1894;
+},
+{
+anchors = (
+{
+name = bottom;
 pos = (724,0);
 },
 {
@@ -3240,92 +3326,6 @@ com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = "=|n";
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|n";
 };
 width = 1753;
-},
-{
-anchors = (
-{
-name = bottom;
-pos = (809,0);
-},
-{
-name = ogonek;
-pos = (1653,0);
-},
-{
-name = top;
-pos = (1012,1036);
-},
-{
-name = topright;
-pos = (1598,1035);
-}
-);
-background = {
-shapes = (
-{
-angle = 180;
-pos = (1894,1034);
-ref = n;
-}
-);
-};
-layerId = m026;
-shapes = (
-{
-closed = 1;
-nodes = (
-(791,-48,o),
-(1118,91,o),
-(1223,186,q),
-(1231,186,l),
-(1231,186,l),
-(1200,0,o,{
-name = inserted;
-}),
-(1200,0,o,{
-name = inserted;
-}),
-(1426,0,q),
-(1653,0,o),
-(1653,0,o),
-(1689,204,q),
-(1798,823,l),
-(1836,1036,o),
-(1836,1036,o),
-(1599,1036,q),
-(1362,1036,o),
-(1362,1036,o,{
-name = inserted;
-}),
-(1324,823,q),
-(1285,604,l),
-(1262,472,o),
-(1031,317,o),
-(868,317,qs),
-(728,317,o),
-(583,433,o),
-(608,573,qs),
-(652,823,l),
-(690,1036,o),
-(690,1036,o),
-(453,1036,q),
-(216,1036,o),
-(216,1036,o,{
-name = inserted;
-}),
-(178,823,q),
-(117,475,ls),
-(69,206,o),
-(346,-48,o),
-(605,-48,qs)
-);
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = "=|n";
-com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = "=|n";
-};
-width = 1894;
 }
 );
 metricLeft = "=|n";
