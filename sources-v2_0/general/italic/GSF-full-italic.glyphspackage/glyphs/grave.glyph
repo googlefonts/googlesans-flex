@@ -547,17 +547,6 @@ ref = gravecomb;
 width = 1000;
 },
 {
-layerId = m025;
-shapes = (
-{
-alignment = -1;
-pos = (500,0);
-ref = gravecomb;
-}
-);
-width = 1000;
-},
-{
 guides = (
 {
 angle = 90;
@@ -567,6 +556,17 @@ pos = (500,0);
 layerId = m026;
 shapes = (
 {
+pos = (500,0);
+ref = gravecomb;
+}
+);
+width = 1000;
+},
+{
+layerId = m025;
+shapes = (
+{
+alignment = -1;
 pos = (500,0);
 ref = gravecomb;
 }

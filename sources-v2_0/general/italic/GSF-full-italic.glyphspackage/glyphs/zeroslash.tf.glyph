@@ -757,6 +757,29 @@ width = 2076;
 background = {
 shapes = (
 {
+pos = (1,0);
+ref = zero;
+},
+{
+pos = (171,-13);
+ref = zero.slash;
+}
+);
+};
+layerId = m026;
+shapes = (
+{
+alignment = -1;
+pos = (-23,0);
+ref = zeroslash;
+}
+);
+width = 2192;
+},
+{
+background = {
+shapes = (
+{
 alignment = -1;
 pos = (-20,0);
 ref = zero;
@@ -777,29 +800,6 @@ ref = zeroslash;
 }
 );
 width = 2072;
-},
-{
-background = {
-shapes = (
-{
-pos = (1,0);
-ref = zero;
-},
-{
-pos = (171,-13);
-ref = zero.slash;
-}
-);
-};
-layerId = m026;
-shapes = (
-{
-alignment = -1;
-pos = (-23,0);
-ref = zeroslash;
-}
-);
-width = 2192;
 }
 );
 metricWidth = "=zero.tf";

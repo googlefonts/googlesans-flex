@@ -917,6 +917,33 @@ width = 1444;
 background = {
 shapes = (
 {
+pos = (-30,0);
+ref = guilsinglleft;
+},
+{
+pos = (614,0);
+ref = guilsinglleft;
+}
+);
+};
+layerId = m026;
+shapes = (
+{
+angle = 180;
+pos = (1606,1026);
+ref = guillemetright;
+}
+);
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
+com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
+};
+width = 1608;
+},
+{
+background = {
+shapes = (
+{
 alignment = -1;
 pos = (62,0);
 ref = guilsinglleft;
@@ -941,33 +968,6 @@ com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
 };
 width = 1497;
-},
-{
-background = {
-shapes = (
-{
-pos = (-30,0);
-ref = guilsinglleft;
-},
-{
-pos = (614,0);
-ref = guilsinglleft;
-}
-);
-};
-layerId = m026;
-shapes = (
-{
-angle = 180;
-pos = (1606,1026);
-ref = guillemetright;
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = guilsinglleft;
-com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = guilsinglleft;
-};
-width = 1608;
 }
 );
 metricLeft = "=|guilsinglright";
