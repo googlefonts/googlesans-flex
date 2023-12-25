@@ -3,8 +3,8 @@ name: Update from sources
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: The Git reference to import from (branch name or 7 character commit reference)
+      git-ref:
+        description: The branch to import from
         required: true
       email:
         description: Your GitHub email address (CLA approved)
@@ -15,87 +15,73 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
-        with:
-          path: main
-          fetch-depth: 0
-      - name: Prepare environment
-        env:
-          SOURCE_REF: ${{ github.event.inputs.branch }}
-          TARGET_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
+      - name: Log & validate inputs
         run: |
-          cd "$GITHUB_WORKSPACE/main"
-          git worktree add --quiet ../source "$SOURCE_REF"
-
-          # Try to fetch, OK if it doesn't exist (we'll create it)
-          if git fetch origin "$TARGET_BRANCH" &>/dev/null ; then
-            echo "The target branch '$TARGET_BRANCH' already exists, updating."
-            git worktree add --quiet ../target "$TARGET_BRANCH"
-          else
-            echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
-            git worktree add --quiet ../target -b "$TARGET_BRANCH" origin/main
+          echo "git-ref: ${{ github.event.inputs.git-ref }}"
+          echo "git-email: ${{ github.event.inputs.email }}"
+          echo "python-version-file: $(head -n 1 -z .github/workflows/python-version.txt)"
+          if [[ "${{ github.ref_name }}" != "main" ]]; then
+            echo "::error title=Pipeline not run on main::Import workflow should always be run from main"
+            exit 1
           fi
-      - name: Run import scripts
-        uses: ./main/.github/actions/import
-      - name: Commit & push changes
-        env:
-          SOURCE_REF: ${{ github.event.inputs.branch }}
-          TARGET_BRANCH: ${{ format('import-{0}', github.event.inputs.branch) }}
-          GIT_EMAIL: ${{ github.event.inputs.email }}
-        run: |
-          # Create the import commit in the "target" worktree
-          cd "$GITHUB_WORKSPACE/target"
-          git config user.name "Import Script"
-          git config user.email "$GIT_EMAIL"
-          git add sources
-          git commit --quiet -m "Import from $SOURCE_REF
-            
-          This commit was creating automatically using the GitHub workflow"
-          git push -u origin "$TARGET_BRANCH"
-      - name: Set up Python 3.11
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
-      - uses: actions/cache@v3
+          python-version-file: ./main/.github/workflows/python-version.txt
+          cache: pip
+      - name: Convert Glyphs package sources to UFO
+        id: glyphspackage2ufo
+        uses: ./main/.github/actions/glyphspackage2ufo
         with:
-          path: ./venv/
-          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-venv-
-      - name: Generate zip file name
-        id: zip-name
-        shell: bash
-        # Set the archive name to repo name + "-assets" e.g "MavenPro-assets"
-        run: echo "ZIP_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')-fonts" >> $GITHUB_ENV
-      - name: Build font
-        run: cd "$GITHUB_WORKSPACE/target" && make build
-        env:
-          SKIP_FONTV: true
-      - name: Check with fontbakery
-        # Copy current QA files (and Makefile to drive them) from main so we
-        # have up to date tests.
-        run: |
-          cp "$GITHUB_WORKSPACE/main/Makefile" "$GITHUB_WORKSPACE/target"
-          cp -R "$GITHUB_WORKSPACE/main/qa" "$GITHUB_WORKSPACE/target"
-          cd "$GITHUB_WORKSPACE/target" && make test
-        continue-on-error: true
-      - name: Check with OT Sanitizer
-        uses: f-actions/opentype-sanitizer@v2
+          git-ref: ${{ github.event.inputs.git-ref }}
+      - name: Create/Update import branch
+        id: create-update-import
+        uses: ./main/.github/actions/create-import-branch
         with:
-          path: "fonts/variable/*.ttf"
-      - name: proof
-        run: cd "$GITHUB_WORKSPACE/target" && make proof
-      - name: Analyze file size
-        uses: ./main/.github/actions/file-size
-        with:
-          path: /github/workspace/target
-        continue-on-error: true
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ env.ZIP_NAME }}
-          path: |
-            target/fonts
-            target/out
+          updated-sources: ${{ steps.glyphspackage2ufo.outputs.directory }}
+          imported-branch: ${{ github.event.inputs.git-ref }}
+          git-email: ${{ github.event.inputs.email }}
     outputs:
-      zip_name: ${{ env.ZIP_NAME }}
+      import-branch: ${{ steps.create-update-import.outputs.import-branch }}
+  build-variable:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 60
+    needs: import-branch
+    steps:
+      - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.import-branch.outputs.import-branch }}
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version-file: ./.github/workflows/python-version.txt
+          cache: pip
+      - name: Build fonts
+        id: build-ufos
+        uses: ./.github/actions/build-ufos-py
+    outputs:
+      variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
+  test:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 60
+    needs:
+      - import-branch
+      - build-variable
+    steps:
+      - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.import-branch.outputs.import-branch }}
+      - name: Download built fonts
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ needs.build-variable.outputs.variable-artifact }}
+          path: fonts/variable
+      - name: Run tests
+        uses: ./.github/actions/tests

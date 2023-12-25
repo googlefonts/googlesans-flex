@@ -1,0 +1,48 @@
+name: Build from Glyphs package
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: The branch to build from
+        required: true
+
+jobs:
+  convert-build-test:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 60
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        path: main
+    - name: Log & validate inputs
+      run: |
+        echo "git-ref: ${{ github.event.inputs.git-ref }}"
+        echo "python-version-file: $(head -n 1 -z ./main/.github/workflows/python-version.txt)"
+        if [[ "${{ github.ref_name }}" != "main" ]]; then
+          echo "::error title=Pipeline not run on main::Build from Glyphs workflow should always be run from main"
+          exit 1
+        fi
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: ./main/.github/workflows/python-version.txt
+        cache: pip
+    - name: Convert Glyphs package sources to UFO
+      id: glyphspackage2ufo
+      uses: ./main/.github/actions/glyphspackage2ufo
+      with:
+        git-ref: ${{ github.event.inputs.git-ref }}
+    - name: Build fonts
+      id: build-ufos
+      uses: ./main/.github/actions/build-ufos-py
+      env:
+        SKIP_FONTV: true
+      with:
+        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
+    - name: Run tests
+      uses: ./main/.github/actions/tests
+      with:
+        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
