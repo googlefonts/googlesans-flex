@@ -6,6 +6,11 @@ on:
       git-ref:
         description: The branch to build from
         required: true
+  push:
+    tags:
+    branches-ignore:
+    - fb-wip
+    - it-ad-wip-*
   release:
     # A release, pre-release, or draft of a release was published
     types: [published]
@@ -15,10 +20,10 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 60
     steps:
-    - name: Checkout ${{ inputs.git-ref || 'main' }}
+    - name: Checkout ${{ inputs.git-ref || github.ref_name }}
       uses: actions/checkout@v4
       with:
-        ref: ${{ inputs.git-ref || 'main' }}
+        ref: ${{ inputs.git-ref || github.ref_name }}
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
