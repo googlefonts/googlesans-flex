@@ -45,7 +45,7 @@ jobs:
     - name: Download built fonts
       uses: actions/download-artifact@v3
       with:
-        name: ${{ needs.build-variable.outputs.artifact-name }}
+        name: ${{ needs.build.outputs.artifact-name }}
         path: fonts/variable
     - name: Run tests
       uses: ./.github/actions/tests
