@@ -26,45 +26,8 @@ runs:
         echo "::error title=Built fonts not found::No built fonts in ${{ inputs.repo-path }}/fonts/variable"
         exit 1
       fi
-      
-      # Mostly copied from Makefile
-      test -d venv_bakery || python3 -m venv venv_bakery
-      venv_bakery/bin/pip install -U setuptools wheel pip
-      venv_bakery/bin/pip install -U fontbakery[googlefonts] fonttools[interpolatable]
-      mkdir -p out/fontbakery
-      # All checks invocations are chained into `|| failed+=("test name")` so that:
-      # 1. we know if any of the tests failed
-      # 2. we don't immediately exit thanks to set -e
-      # 3. we can give a nice error message later
-      failed=()
-      find "${{ inputs.repo-path }}/sources/" -name "*.ufo" | xargs venv_bakery/bin/fontbakery \
-        check-profile -l WARN --auto-jobs --succinct \
-        --html out/fontbakery/fontbakery-sources-report.html \
-        qa/check-sources.py \
-        sources/GoogleSansFlex.designspace \
-        sources/regular/GoogleSansFlex.designspace \
-        sources/italic/GoogleSansFlex-Italic.designspace \
-        || failed+=("check-sources")
-      venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct \
-        --html out/fontbakery/fontbakery-outlines-report.html \
-        fontbakery.profiles.outline \
-        fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
-        || failed+=("fontbakery.profiles.outline")
-      venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct \
-        --html out/fontbakery/fontbakery-googlesans-report.html \
-        qa/check-googlesans.py \
-        fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
-        || failed+=("check-googlesans")
-      venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct \
-        --html out/fontbakery/fontbakery-fea-report.html \
-        qa/check-fea.py \
-        fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
-        || failed+=("check-fea")
-      
-      if [[ ${#failed[@]} -gt 0 ]]; then
-        echo "::error title=Fontbakery fails::The following Fontbakery profiles had fails/errors: ${failed[@]}"
-        exit 1
-      fi
+
+      scripts/fontbakery.sh "${{ inputs.repo-path }}"
   - name: Check with OT Sanitizer
     uses: f-actions/opentype-sanitizer@v2
     with:
