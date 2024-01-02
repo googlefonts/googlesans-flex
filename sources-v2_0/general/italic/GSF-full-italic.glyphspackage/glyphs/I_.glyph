@@ -2898,98 +2898,6 @@ width = 254;
 anchors = (
 {
 name = bottom;
-pos = (3,0);
-},
-{
-name = ogonek;
-pos = (5,0);
-},
-{
-name = top;
-pos = (256,1432);
-}
-);
-background = {
-anchors = (
-{
-name = bottom;
-pos = (93,0);
-},
-{
-name = ogonek;
-pos = (95,0);
-},
-{
-name = top;
-pos = (93,1432);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(95,0,o),
-(95,0,o,{
-name = inserted;
-}),
-(95,2,qs),
-(95,1430,ls),
-(95,1432,o,{
-name = inserted;
-}),
-(95,1432,o,{
-name = inserted;
-}),
-(93,1432,qs),
-(91,1432,o),
-(91,1432,o),
-(91,1430,qs),
-(91,2,ls),
-(91,0,o),
-(91,0,o),
-(93,0,q)
-);
-}
-);
-};
-layerId = "66851C98-9071-4084-A4AF-368A701DCE58";
-shapes = (
-{
-closed = 1;
-nodes = (
-(4,0,o),
-(5,1,o,{
-name = inserted;
-}),
-(5,1,q),
-(258,1430,l),
-(258,1431,o,{
-name = inserted;
-}),
-(257,1432,o,{
-name = inserted;
-}),
-(256,1432,q),
-(255,1432,o),
-(254,1431,o),
-(254,1431,q),
-(1,2,l),
-(1,1,o),
-(2,0,o),
-(3,0,q)
-);
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
-com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
-};
-width = 186;
-},
-{
-anchors = (
-{
-name = bottom;
 pos = (163,0);
 },
 {
@@ -3830,6 +3738,98 @@ com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
 com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
 };
 width = 505;
+},
+{
+anchors = (
+{
+name = bottom;
+pos = (3,0);
+},
+{
+name = ogonek;
+pos = (5,0);
+},
+{
+name = top;
+pos = (256,1432);
+}
+);
+background = {
+anchors = (
+{
+name = bottom;
+pos = (93,0);
+},
+{
+name = ogonek;
+pos = (95,0);
+},
+{
+name = top;
+pos = (93,1432);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(95,0,o),
+(95,0,o,{
+name = inserted;
+}),
+(95,2,qs),
+(95,1430,ls),
+(95,1432,o,{
+name = inserted;
+}),
+(95,1432,o,{
+name = inserted;
+}),
+(93,1432,qs),
+(91,1432,o),
+(91,1432,o),
+(91,1430,qs),
+(91,2,ls),
+(91,0,o),
+(91,0,o),
+(93,0,q)
+);
+}
+);
+};
+layerId = "113E061F-FAB3-4DDA-8D5E-A68BFF1446A4";
+shapes = (
+{
+closed = 1;
+nodes = (
+(5,0,o),
+(5,0,o,{
+name = inserted;
+}),
+(5,1,q),
+(258,1430,l),
+(258,1432,o,{
+name = inserted;
+}),
+(258,1432,o,{
+name = inserted;
+}),
+(256,1432,q),
+(254,1432,o),
+(254,1432,o),
+(254,1431,q),
+(1,2,l),
+(1,0,o),
+(1,0,o),
+(3,0,q)
+);
+}
+);
+userData = {
+com.schriftgestaltung.Glyphs.glyph.leftMetricsKey = H;
+com.schriftgestaltung.Glyphs.glyph.rightMetricsKey = H;
+};
+width = 186;
 }
 );
 metricLeft = H;

@@ -1674,89 +1674,6 @@ background = {
 anchors = (
 {
 name = bottom;
-pos = (98,0);
-},
-{
-name = ogonek;
-pos = (100,0);
-},
-{
-name = top;
-pos = (98,1165);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(100,0,o),
-(100,0,o,{
-name = inserted;
-}),
-(100,2,qs),
-(100,1018,ls),
-(100,1020,o,{
-name = inserted;
-}),
-(100,1020,o,{
-name = inserted;
-}),
-(98,1020,qs),
-(96,1020,o),
-(96,1020,o),
-(96,1018,qs),
-(96,2,ls),
-(96,0,o),
-(96,0,o),
-(98,0,qs)
-);
-},
-{
-closed = 1;
-nodes = (
-(212,1161,l),
-(214,1161,o,{
-name = inserted;
-}),
-(214,1161,o,{
-name = inserted;
-}),
-(214,1163,q),
-(214,1165,o),
-(214,1165,o),
-(212,1165,q),
-(-16,1165,l),
-(-18,1165,o,{
-name = inserted;
-}),
-(-18,1165,o,{
-name = inserted;
-}),
-(-18,1163,q),
-(-18,1161,o),
-(-18,1161,o),
-(-16,1161,q)
-);
-}
-);
-};
-layerId = "66851C98-9071-4084-A4AF-368A701DCE58";
-shapes = (
-{
-ref = idotless;
-},
-{
-pos = (81,0);
-ref = macroncomb;
-}
-);
-width = 162;
-},
-{
-background = {
-anchors = (
-{
-name = bottom;
 pos = (224,0);
 },
 {
@@ -2855,6 +2772,89 @@ ref = macroncomb;
 }
 );
 width = 448;
+},
+{
+background = {
+anchors = (
+{
+name = bottom;
+pos = (98,0);
+},
+{
+name = ogonek;
+pos = (100,0);
+},
+{
+name = top;
+pos = (98,1165);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(100,0,o),
+(100,0,o,{
+name = inserted;
+}),
+(100,2,qs),
+(100,1018,ls),
+(100,1020,o,{
+name = inserted;
+}),
+(100,1020,o,{
+name = inserted;
+}),
+(98,1020,qs),
+(96,1020,o),
+(96,1020,o),
+(96,1018,qs),
+(96,2,ls),
+(96,0,o),
+(96,0,o),
+(98,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(212,1161,l),
+(214,1161,o,{
+name = inserted;
+}),
+(214,1161,o,{
+name = inserted;
+}),
+(214,1163,q),
+(214,1165,o),
+(214,1165,o),
+(212,1165,q),
+(-16,1165,l),
+(-18,1165,o,{
+name = inserted;
+}),
+(-18,1165,o,{
+name = inserted;
+}),
+(-18,1163,q),
+(-18,1161,o),
+(-18,1161,o),
+(-16,1161,q)
+);
+}
+);
+};
+layerId = "113E061F-FAB3-4DDA-8D5E-A68BFF1446A4";
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (81,0);
+ref = macroncomb;
+}
+);
+width = 162;
 }
 );
 unicode = 299;

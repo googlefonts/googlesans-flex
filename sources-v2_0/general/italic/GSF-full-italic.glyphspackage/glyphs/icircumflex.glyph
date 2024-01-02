@@ -1859,102 +1859,6 @@ background = {
 anchors = (
 {
 name = bottom;
-pos = (98,0);
-},
-{
-name = ogonek;
-pos = (100,0);
-},
-{
-name = top;
-pos = (98,1354);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(100,0,o),
-(100,0,o,{
-name = inserted;
-}),
-(100,2,qs),
-(100,1018,ls),
-(100,1020,o,{
-name = inserted;
-}),
-(100,1020,o,{
-name = inserted;
-}),
-(98,1020,qs),
-(96,1020,o),
-(96,1020,o),
-(96,1018,qs),
-(96,2,ls),
-(96,0,o),
-(96,0,o),
-(98,0,qs)
-);
-},
-{
-closed = 1;
-nodes = (
-(11,1109,o),
-(11,1109,o),
-(12,1111,q),
-(98,1349,l),
-(98,1349,l),
-(185,1111,l),
-(186,1109,o,{
-name = inserted;
-}),
-(186,1109,o,{
-name = inserted;
-}),
-(188,1109,q),
-(190,1109,o),
-(190,1109,o),
-(189,1111,q),
-(101,1351,l),
-(100,1354,o,{
-name = inserted;
-}),
-(100,1354,o,{
-name = inserted;
-}),
-(98,1354,q),
-(96,1354,o),
-(96,1354,o),
-(95,1351,q),
-(8,1111,l),
-(7,1109,o,{
-name = inserted;
-}),
-(7,1109,o,{
-name = inserted;
-}),
-(9,1109,q)
-);
-}
-);
-};
-layerId = "66851C98-9071-4084-A4AF-368A701DCE58";
-shapes = (
-{
-ref = idotless;
-},
-{
-pos = (81,0);
-ref = circumflexcomb;
-}
-);
-width = 162;
-},
-{
-background = {
-anchors = (
-{
-name = bottom;
 pos = (224,0);
 },
 {
@@ -3259,6 +3163,102 @@ ref = circumflexcomb;
 }
 );
 width = 448;
+},
+{
+background = {
+anchors = (
+{
+name = bottom;
+pos = (98,0);
+},
+{
+name = ogonek;
+pos = (100,0);
+},
+{
+name = top;
+pos = (98,1354);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(100,0,o),
+(100,0,o,{
+name = inserted;
+}),
+(100,2,qs),
+(100,1018,ls),
+(100,1020,o,{
+name = inserted;
+}),
+(100,1020,o,{
+name = inserted;
+}),
+(98,1020,qs),
+(96,1020,o),
+(96,1020,o),
+(96,1018,qs),
+(96,2,ls),
+(96,0,o),
+(96,0,o),
+(98,0,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(11,1109,o),
+(11,1109,o),
+(12,1111,q),
+(98,1349,l),
+(98,1349,l),
+(185,1111,l),
+(186,1109,o,{
+name = inserted;
+}),
+(186,1109,o,{
+name = inserted;
+}),
+(188,1109,q),
+(190,1109,o),
+(190,1109,o),
+(189,1111,q),
+(101,1351,l),
+(100,1354,o,{
+name = inserted;
+}),
+(100,1354,o,{
+name = inserted;
+}),
+(98,1354,q),
+(96,1354,o),
+(96,1354,o),
+(95,1351,q),
+(8,1111,l),
+(7,1109,o,{
+name = inserted;
+}),
+(7,1109,o,{
+name = inserted;
+}),
+(9,1109,q)
+);
+}
+);
+};
+layerId = "113E061F-FAB3-4DDA-8D5E-A68BFF1446A4";
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (81,0);
+ref = circumflexcomb;
+}
+);
+width = 162;
 }
 );
 unicode = 238;
