@@ -94,8 +94,12 @@ def is_variable_font(ttFont):
 def com_google_fonts_check_googlesans_features_variable_uprights(ttFont):
     """Confirms that the upright builds contain expected feature tags."""
     tt = ttFont
-    gpos = tt["GPOS"]
-    gsub = tt["GSUB"]
+    gpos = tt.get("GPOS")
+    gsub = tt.get("GSUB")
+
+    if gpos is None or gsub is None:
+        yield FAIL, "Font must contain a 'GPOS' and 'GSUB' table"
+        return
 
     fea_tags = set()
 
