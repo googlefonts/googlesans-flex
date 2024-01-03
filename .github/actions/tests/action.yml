@@ -16,6 +16,7 @@ runs:
       python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
       cache: pip
   - name: Run Fontbakery
+    id: fontbakery
     shell: bash
     run: |
       if [ -d "${{ inputs.repo-path }}/fonts/variable" ]; then
@@ -25,7 +26,8 @@ runs:
         echo "::error title=Built fonts not found::No built fonts in ${{ inputs.repo-path }}/fonts/variable"
         exit 1
       fi
-      make --directory ${{ inputs.repo-path }} test
+
+      scripts/fontbakery.sh "${{ inputs.repo-path }}"
   - name: Check with OT Sanitizer
     uses: f-actions/opentype-sanitizer@v2
     with:
@@ -35,6 +37,10 @@ runs:
     run: make --directory ${{ inputs.repo-path }} font-size
   - name: Upload Fontbakery reports
     uses: actions/upload-artifact@v3
+    # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
+    # https://docs.github.com/en/actions/learn-github-actions/expressions#always
+    # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+    if: ${{ !cancelled() && (steps.fontbakery.conclusion == 'success' || steps.fontbakery.conclusion == 'failure') }}
     with:
       name: Fontbakery reports
       path: ${{ inputs.repo-path }}/out/fontbakery

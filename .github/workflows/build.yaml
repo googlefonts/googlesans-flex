@@ -6,6 +6,12 @@ on:
       git-ref:
         description: The branch to build from
         required: true
+  push:
+    branches:
+      - main
+    tags:
+  pull_request:
+    types: [opened, synchronize, reopened]
   release:
     # A release, pre-release, or draft of a release was published
     types: [published]
@@ -15,10 +21,11 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 60
     steps:
-    - name: Checkout ${{ inputs.git-ref || 'main' }}
+    # on: pull_request uses head_ref for branch name, on: push uses ref_name
+    - name: Checkout ${{ inputs.git-ref || github.head_ref || github.ref_name }}
       uses: actions/checkout@v4
       with:
-        ref: ${{ inputs.git-ref || 'main' }}
+        ref: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -40,7 +47,7 @@ jobs:
     - name: Download built fonts
       uses: actions/download-artifact@v3
       with:
-        name: ${{ needs.build-variable.outputs.artifact-name }}
+        name: ${{ needs.build.outputs.artifact-name }}
         path: fonts/variable
     - name: Run tests
       uses: ./.github/actions/tests

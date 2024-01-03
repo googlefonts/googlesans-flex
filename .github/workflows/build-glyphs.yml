@@ -12,19 +12,19 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 60
     steps:
-    - name: Log & validate inputs
-      run: |
-        echo "git-ref: ${{ github.event.inputs.git-ref }}"
-        echo "python-version-file: $(head -n 1 -z .github/workflows/python-version.txt)"
-        if [[ "${{ github.ref_name }}" != "main" ]]; then
-          echo "::error title=Pipeline not run on main::Build from Glyphs workflow should always be run from main"
-          exit 1
-        fi
     - name: Checkout main
       uses: actions/checkout@v4
       with:
         ref: main
         path: main
+    - name: Log & validate inputs
+      run: |
+        echo "git-ref: ${{ github.event.inputs.git-ref }}"
+        echo "python-version-file: $(head -n 1 -z ./main/.github/workflows/python-version.txt)"
+        if [[ "${{ github.ref_name }}" != "main" ]]; then
+          echo "::error title=Pipeline not run on main::Build from Glyphs workflow should always be run from main"
+          exit 1
+        fi
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
