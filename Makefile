@@ -54,9 +54,10 @@ test: build.stamp
 	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-sources-report.html \
 		qa/check-sources.py \
 			sources/GoogleSansFlex.designspace \
-			sources/regular/GoogleSansFlex.designspace \
-			sources/italic/GoogleSansFlex-Italic.designspace \
 			$(shell find sources -name "*.ufo")
+# TODO: Re-enable if additional designspaces are restored.
+#			sources/regular/GoogleSansFlex.designspace
+#			sources/italic/GoogleSansFlex-Italic.designspace
 	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-outlines-report.html \
 		fontbakery.profiles.outline fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-googlesans-report.html \
