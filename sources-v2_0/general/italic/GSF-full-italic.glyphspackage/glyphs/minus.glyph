@@ -2851,8 +2851,41 @@ name = inserted;
 width = 1480;
 },
 {
+anchors = (
+{
+name = center;
+pos = (267,620);
+}
+);
 layerId = "113E061F-FAB3-4DDA-8D5E-A68BFF1446A4";
-width = 600;
+shapes = (
+{
+closed = 1;
+nodes = (
+(459,618,l),
+(460,618,o,{
+name = inserted;
+}),
+(461,619,o,{
+name = inserted;
+}),
+(461,620,q),
+(461,621,o),
+(460,622,o),
+(459,622,q),
+(75,622,l),
+(74,622,o),
+(73,621,o),
+(73,620,q),
+(73,619,o),
+(74,618,o,{
+name = inserted;
+}),
+(75,618,q)
+);
+}
+);
+width = 496;
 }
 );
 metricWidth = "=plus";
