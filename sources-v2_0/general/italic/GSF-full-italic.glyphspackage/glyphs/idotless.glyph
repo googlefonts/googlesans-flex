@@ -1,5 +1,4 @@
 {
-color = 4;
 glyphname = idotless;
 kernLeft = i_left;
 layers = (
@@ -2227,49 +2226,6 @@ pos = (551,1060);
 }
 );
 background = {
-anchors = (
-{
-name = bottom;
-pos = (462,0);
-},
-{
-name = ogonek;
-pos = (833,0);
-},
-{
-name = top;
-pos = (458,1060);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(833,0,o),
-(833,0,o,{
-name = inserted;
-}),
-(833,359,qs),
-(833,790,ls),
-(833,1060,o,{
-name = inserted;
-}),
-(833,1060,o,{
-name = inserted;
-}),
-(462,1060,qs),
-(95,1060,o),
-(95,1060,o),
-(95,790,qs),
-(95,359,ls),
-(95,0,o),
-(95,0,o),
-(462,0,q)
-);
-}
-);
-};
-layerId = "30915ACD-135D-4F98-9FE0-11D49F00F6EA";
 shapes = (
 {
 closed = 1;
@@ -2292,6 +2248,35 @@ name = inserted;
 (141,795,qs),
 (70,390,ls),
 (39,212,o),
+(251,-40,o),
+(423,-40,q)
+);
+}
+);
+};
+layerId = "30915ACD-135D-4F98-9FE0-11D49F00F6EA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(552,-40,o),
+(761,116,o,{
+name = inserted;
+}),
+(779,222,qs),
+(867,730,ls),
+(894,884,o,{
+name = inserted;
+}),
+(676,1100,o,{
+name = inserted;
+}),
+(504,1100,qs),
+(375,1100,o),
+(167,946,o),
+(148,838,qs),
+(60,330,ls),
+(33,175,o),
 (251,-40,o),
 (423,-40,q)
 );
