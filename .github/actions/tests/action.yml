@@ -27,7 +27,7 @@ runs:
         exit 1
       fi
 
-      "${{ inputs.repo-path }}/scripts/fontbakery.sh" "${{ inputs.repo-path }}"
+      "${{ inputs.repo-path }}/scripts/fontbakery.sh"
   - name: Check with OT Sanitizer
     uses: f-actions/opentype-sanitizer@v2
     with:
