@@ -16,14 +16,14 @@
 # exiting non-zero if any of the suites failed. The name of the check profiles
 # that failed are also printed
 
-# Operates relative to the current working directory unless a positional
-# argument is given
+# Assumes the repository is in the parent folder of where the script lives
 
 set -e
 
 BIGGEST_TTF_PATH="fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf"
 
-[[ -d "$1" ]] && cd "$1"
+# Switch to repo path by going to the parent folder of where this script is
+cd "$(dirname "${BASH_SOURCE[0]}" | xargs dirname)"
 
 # Setup venv with dependencies
 [ -n "$GITHUB_RUN_ID" ] && echo "::group::Set up venv"
