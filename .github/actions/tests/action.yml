@@ -34,7 +34,7 @@ runs:
       path: ${{ inputs.repo-path }}/fonts/variable/*.ttf
   - name: Analyze TTF file size
     shell: bash
-    run: make --directory ${{ inputs.repo-path }} font-size
+    run: make --directory "${{ inputs.repo-path }}" font-size
   - name: Upload Fontbakery reports
     uses: actions/upload-artifact@v3
     # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
