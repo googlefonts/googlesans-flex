@@ -3996,7 +3996,6 @@ stemValues = (
 30,
 30
 );
-visible = 1;
 },
 {
 axesValues = (
@@ -4378,56 +4377,6 @@ value = 0;
 {
 name = "Link Metrics With Master";
 value = m001;
-}
-);
-guides = (
-{
-pos = (68,0);
-},
-{
-pos = (68,-32);
-},
-{
-pos = (403,752);
-},
-{
-pos = (68,-432);
-},
-{
-pos = (68,-464);
-},
-{
-pos = (68,-19);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-176,1480);
-},
-{
-filter = "category == \"Mark\"";
-pos = (-179,1200);
-},
-{
-pos = (57,1052);
-},
-{
-filter = "category == \"Symbol\" AND subCategory == \"Math\"";
-pos = (139,620);
-},
-{
-pos = (36,140);
-},
-{
-pos = (21,1464);
-},
-{
-pos = (123,515);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (969,0);
-showMeasurement = 1;
 }
 );
 id = "C8DF7DC7-E4A0-4C6D-97AA-C4629ECAB3F8";
@@ -6180,6 +6129,7 @@ userData = {
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -7129,7 +7079,7 @@ name = "sinf-overshoot";
 pos = (27,-425);
 },
 {
-pos = (468,-166);
+pos = (375,32);
 },
 {
 name = PARENT;
