@@ -32,6 +32,10 @@ runs:
   - name: Analyze TTF file size
     shell: bash
     run: make --directory "${{ inputs.repo-path }}" font-size
+  - name: Run shaperglot
+    uses: ${{ inputs.repo-path }}/.github/actions/shaperglot
+    with:
+      ttf-path: ${{ inputs.repo-path }}/fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
   - name: Run Fontbakery
     id: fontbakery
     shell: bash
