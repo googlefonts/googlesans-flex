@@ -71,17 +71,17 @@ clean:
 update-project-template:
 	npx update-template https://github.com/googlefonts/googlefonts-project-template/
 
-update-glyphset-expectations:
+update-glyphset-expectations: venv
 	. venv/bin/activate && python scripts/gs-update-glyphset-qa-files.py
 
-update-shaping-expectations:
+update-shaping-expectations: venv
 	. venv/bin/activate && bash -c "cd qa && bash update_all_shaping.sh"
 
-update:
+update: venv
 	pip install -U pip-tools
 	pip-compile --resolver=backtracking -U requirements.in
 
-font-size: build
+font-size: venv build
 	venv/bin/pip install -U font-size
 	find fonts -name '*.ttf' -type f | xargs venv/bin/font-size
 
@@ -93,3 +93,8 @@ bump-to-tag: venv
 
 glyph-hunt: venv
 	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
+
+shaperglot: venv build
+	venv/bin/pip install -U shaperglot
+	mkdir -p out
+	venv/bin/shaperglot report fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf | tee out/shaperglot.txt
