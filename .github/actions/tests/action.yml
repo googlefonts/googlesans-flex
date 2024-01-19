@@ -34,13 +34,12 @@ runs:
     run: make --directory "${{ inputs.repo-path }}" font-size
   - name: Run shaperglot
     shell: bash
-    run: |
-      echo "::group::Set up venv"
-      python -m venv shaperglot-venv
-      shaperglot-venv/bin/pip install --upgrade shaperglot
-      echo "::endgroup::"
-
-      shaperglot-venv/bin/shaperglot report fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+    run: make shaperglot
+  - name: Upload shaperglot report
+    uses: actions/upload-artifact@v3
+    with:
+      name: Shaperglot report
+      path: ${{ inputs.repo-path }}/out/shaperglot.txt
   - name: Run Fontbakery
     id: fontbakery
     shell: bash
