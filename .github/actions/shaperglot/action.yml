@@ -1,0 +1,21 @@
+name: Shaperglot
+description: Run shaperglot on built fonts
+
+inputs:
+  ttf-path:
+    description: Path to TTF to test for language coverage
+    required: true
+
+runs:
+  using: composite
+  steps:
+  - name: Setup venv
+    shell: bash
+    run: |
+      echo "::group::Set up venv"
+      python -m venv shaperglot-venv
+      shaperglot-venv/bin/pip install --upgrade shaperglot
+      echo "::endgroup::"
+  - name: Run shaperglot on TTFs
+    shell: bash
+    run: shaperglot-venv/bin/shaperglot report "${{ inputs.ttf-path }}"
