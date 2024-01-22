@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import re
 
 from ufoLib2 import Font
 from fontTools.designspaceLib import DesignSpaceDocument
@@ -26,7 +27,7 @@ from fontTools.ttLib.tables import _g_l_y_f
 def set_overlap_bits_if_overlapping(
     varfont: TTFont, overlapping_glyphs: set[str]
 ) -> tuple[int, int]:
-    glyf_table: _g_l_y_f.table__g_l_y_f = varfont["glyf"]
+    glyf_table: _g_l_y_f.table__g_l_y_f = varfont["glyf"]  # type: ignore
 
     overlapping_contours = 0
     overlapping_components = 0
@@ -44,6 +45,18 @@ def set_overlap_bits_if_overlapping(
     return (overlapping_contours, overlapping_components)
 
 
+# A glyph name that can have whitespace around it, with an optional comment at
+# the end of the line. 1st capture group is the glyph name (with no surrounding
+# whitespace)
+GLYPHS_LINE = re.compile(r"^\s*([A-z0-9._]+)\s*(#.*)?$")
+
+
+def parse_line(line: str) -> str | None:
+    if match := GLYPHS_LINE.fullmatch(line):
+        return match.group(1)
+    return None
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("glyph_list", type=Path)
 parser.add_argument("designspace", type=DesignSpaceDocument.fromfile)
@@ -55,15 +68,15 @@ font_path: Path = parsed_args.font
 
 designspace.loadSourceFonts(Font.open)
 default_source = designspace.default
-name_mapping = default_source.font.lib.get("public.postscriptNames", {})
+name_mapping = default_source.font.lib.get("public.postscriptNames", {})  # type: ignore
 glyph_list = {
     name_mapping.get(name, name)
     for line in glyph_list_path.read_text().splitlines()
-    if (name := line.strip())
+    if (name := parse_line(line))
 }
 
 font = TTFont(font_path)
-num_glyphs: int = font["maxp"].numGlyphs
+num_glyphs: int = font["maxp"].numGlyphs  # type: ignore
 fvar = font["fvar"]
 
 glyph_order = set(font.getGlyphOrder())
@@ -73,6 +86,7 @@ glyph_list_for_font = glyph_list.intersection(glyph_order)
 ocont, ocomp = set_overlap_bits_if_overlapping(font, glyph_list_for_font)
 ocont_p = ocont / num_glyphs
 ocomp_p = ocomp / num_glyphs
+assert font.reader
 print(
     font.reader.file.name,
     f"{num_glyphs} glyphs, "
