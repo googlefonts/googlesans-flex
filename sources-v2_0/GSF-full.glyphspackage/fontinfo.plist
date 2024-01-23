@@ -720,6 +720,27 @@ name = Prefix;
 );
 features = (
 {
+automatic = 1;
+code = "feature locl;
+feature frac;
+feature dnom;
+feature numr;
+feature sups;
+feature subs;
+feature sinf;
+feature zero;
+feature lnum;
+feature tnum;
+feature calt;
+feature ss01;
+feature ss02;
+feature ordn;
+feature pnum;
+feature case;
+";
+tag = aalt;
+},
+{
 code = "	lookup ccmp_soft_dotted;";
 tag = ccmp;
 },
@@ -969,6 +990,30 @@ code = "	sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;";
 tag = pnum;
+},
+{
+automatic = 1;
+code = "sub periodcentered.loclCAT by periodcentered.loclCAT.case;
+";
+tag = case;
+},
+{
+automatic = 1;
+code = "lookupflag IgnoreMarks;
+sub f f b by f_f_b;
+sub f f h by f_f_h;
+sub f f j by f_f_j;
+sub f f k by f_f_k;
+sub f f t by f_f_t;
+sub f b by f_b;
+sub f h by f_h;
+sub f j by f_j;
+sub f k by f_k;
+sub f t by f_t;
+sub t f by t_f;
+sub t t by t_t;
+";
+tag = dlig;
 }
 );
 fontMaster = (
