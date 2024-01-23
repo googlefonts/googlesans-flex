@@ -32,32 +32,14 @@ runs:
         echo "::warning title=Glyphs sources found::Building UFO sources, not the Glyphs sources, I hope this is what you want"
       fi
       make --directory ${{ inputs.repo-path }} build
-  - name: Set zip file name
+  - name: Generate archive name
     id: zip-name
-    shell: bash
-    run: |
-      case "${{ github.workflow }}" in
-        "Update from sources")
-          workflow="import"
-          ;;
-        "Build from UFOs")
-          workflow="build"
-          ;;
-        "Build from Glyphs package")
-          workflow="glyphs"
-          ;;
-        *)
-          workflow="unknown"
-          ;;
-      esac
-      if [[ "${{ github.run_attempt }}" == "1" ]]; then
-        suffix=""
-      else
-        suffix=" run ${{ github.run_attempt }}"
-      fi
-      name="Google Sans Flex $workflow#${{ github.run_number }}$suffix"
-      echo "artifact-name: $name.zip"
-      echo "artifact-name=$name" >> "$GITHUB_OUTPUT"
+    uses: alpha-tango-kilo/gha-artifact-name@master
+    with:
+      repo-name: Google Sans Flex
+      repo-root: ${{ inputs.repo-path }}
+      overrides: |
+        build-glyphs: glyphs
   - name: Upload archive
     uses: actions/upload-artifact@v3
     with:
