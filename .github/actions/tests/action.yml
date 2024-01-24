@@ -36,7 +36,9 @@ runs:
     run: make --directory "${{ inputs.repo-path }}" font-size
   - name: Run shaperglot
     shell: bash
-    run: make --directory "${{ inputs.repo-path }}" shaperglot
+    run: |
+      touch "${{ inputs.repo-path }}/build.stamp"
+      make --directory "${{ inputs.repo-path }}" shaperglot
   - name: Upload shaperglot report
     uses: actions/upload-artifact@v3
     with:
