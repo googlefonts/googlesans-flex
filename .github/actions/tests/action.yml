@@ -18,6 +18,8 @@ runs:
   - name: Avoid re-building fonts
     shell: bash
     run: |
+      python -m venv "${{ inputs.repo-path }}/venv"
+      touch "${{ inputs.repo-path }}/venv/touchfile"
       if [ -d "${{ inputs.repo-path }}/fonts/variable" ]; then
         # Trick make into not re-building the fonts
         touch "${{ inputs.repo-path }}/build.stamp"
