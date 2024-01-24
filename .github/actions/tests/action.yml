@@ -18,6 +18,8 @@ runs:
   - name: Avoid re-building fonts
     shell: bash
     run: |
+      python -m venv "${{ inputs.repo-path }}/venv"
+      touch "${{ inputs.repo-path }}/venv/touchfile"
       if [ -d "${{ inputs.repo-path }}/fonts/variable" ]; then
         # Trick make into not re-building the fonts
         touch "${{ inputs.repo-path }}/build.stamp"
@@ -34,7 +36,9 @@ runs:
     run: make --directory "${{ inputs.repo-path }}" font-size
   - name: Run shaperglot
     shell: bash
-    run: make --directory "${{ inputs.repo-path }}" shaperglot
+    run: |
+      touch "${{ inputs.repo-path }}/build.stamp"
+      make --directory "${{ inputs.repo-path }}" shaperglot
   - name: Upload shaperglot report
     uses: actions/upload-artifact@v3
     with:
