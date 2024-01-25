@@ -968,6 +968,12 @@ code = "	featureNames {
         name 1 \"Single-story a\";
     };
 	sub @a_ALT_OFF by @a_ALT_ON;";
+labels = (
+{
+language = dflt;
+value = "";
+}
+);
 tag = ss01;
 },
 {
@@ -976,7 +982,28 @@ code = "	featureNames {
         name 1 \"Double-story g\";
     };
 	sub @g_ALT_OFF by @g_ALT_ON;";
+labels = (
+{
+language = dflt;
+value = "";
+}
+);
 tag = ss02;
+},
+{
+code = "	featureNames {
+        name \"Double-story g form 2\";
+        name 1 \"Double-story form 2\";
+    };
+	sub @g_ALT_OFF by @g_ALT_ON;
+";
+labels = (
+{
+language = dflt;
+value = "";
+}
+);
+tag = ss03;
 },
 {
 code = "	sub [@FIGURES zeroslash] a' by ordfeminine;
