@@ -51,15 +51,13 @@ excluded_check_ids = [
     "com.google.fonts/check/unwanted_tables",
     "com.google.fonts/check/contour_count",  # design rather than QA problem
     "com.adobe.fonts/check/varfont/valid_default_instance_nameids",  # Bogus
-    "com.google.fonts/check/varfont/regular_wght_coord",  # Buggy in 0.8.9
-    "com.google.fonts/check/varfont/bold_wght_coord",  # Buggy in 0.8.9
     "com.google.fonts/check/vertical_metrics",  # GS is our reference.
     "com.google.fonts/check/varfont/regular_opsz_coord",  # No, opsz=18
     "com.google.fonts/check/glyph_coverage",  # We have our own target
     "com.google.fonts/check/file_size",  # We're going bigger
     "com.google.fonts/check/font_names",  # We have our own naming ideas
     "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1",  # Expected and desired
-    "com.google.fonts/check/STAT/gf_axisregistry", # Buggy in 0.8.13
+    "com.google.fonts/check/STAT/gf_axisregistry",  # https://github.com/fonttools/fontbakery/discussions/4214
 ]
 
 # Each VF we build will have one of these suffixes depending on whether it
