@@ -111,10 +111,6 @@ if __name__ == "__main__":
         already_skipped = set(ufo.lib.get("public.skipExportGlyphs", []))
         ufo.lib["public.skipExportGlyphs"] = sorted(already_skipped | INCOMPATIBLE)
 
-    # Remove all kerning, to avoid incompatible features across sources.
-    for ufo in ufos:
-        ufo.kerning.clear()
-    
     # Rename the default UFO's style name to "Regular"; this is necessary to
     # produce a correct name table, but otherwise inconvenient to have in
     # upstream (unimported) sources.
