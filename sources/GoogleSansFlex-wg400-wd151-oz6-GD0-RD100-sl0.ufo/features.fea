@@ -54,6 +54,27 @@ lookup ccmp_soft_dotted {
 	sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
 } ccmp_soft_dotted;
 
+feature aalt {
+# automatic
+feature locl;
+feature frac;
+feature dnom;
+feature numr;
+feature sups;
+feature subs;
+feature sinf;
+feature zero;
+feature lnum;
+feature tnum;
+feature calt;
+feature ss01;
+feature ss02;
+feature ordn;
+feature pnum;
+feature case;
+
+} aalt;
+
 feature ccmp {
 	lookup ccmp_soft_dotted;
 } ccmp;
@@ -277,6 +298,9 @@ feature calt {
 } calt;
 
 feature ss01 {
+featureNames {
+  name "";
+};
 	featureNames {
         name "Single-story a";
         name 1 "Single-story a";
@@ -285,12 +309,27 @@ feature ss01 {
 } ss01;
 
 feature ss02 {
+featureNames {
+  name "";
+};
 	featureNames {
         name "Double-story g";
         name 1 "Double-story g";
     };
 	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
+
+feature ss03 {
+featureNames {
+  name "";
+};
+	featureNames {
+        name "Double-story g form 2";
+        name 1 "Double-story form 2";
+    };
+	sub @g_ALT_OFF by @g_ALT_ON;
+
+} ss03;
 
 feature ordn {
 	sub [@FIGURES zeroslash] a' by ordfeminine;
@@ -304,3 +343,27 @@ feature pnum {
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;
 } pnum;
+
+feature case {
+# automatic
+sub periodcentered.loclCAT by periodcentered.loclCAT.case;
+
+} case;
+
+feature dlig {
+# automatic
+lookupflag IgnoreMarks;
+sub f f b by f_f_b;
+sub f f h by f_f_h;
+sub f f j by f_f_j;
+sub f f k by f_f_k;
+sub f f t by f_f_t;
+sub f b by f_b;
+sub f h by f_h;
+sub f j by f_j;
+sub f k by f_k;
+sub f t by f_t;
+sub t f by t_f;
+sub t t by t_t;
+
+} dlig;
