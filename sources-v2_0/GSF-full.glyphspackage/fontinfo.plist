@@ -15789,7 +15789,6 @@ GSSlanterCursivyThicknessFactor = 1;
 GSSlanterGeometric = 0;
 GSSlanterRotate = 0;
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -15898,11 +15897,6 @@ name = "superiors-b";
 pos = (495,1019);
 },
 {
-angle = -0.0573;
-name = "superiors-overshoot";
-pos = (494,1005);
-},
-{
 name = "superiors-b";
 pos = (495,1814);
 },
@@ -15987,7 +15981,6 @@ GSSlanterCursivyThicknessFactor = 1;
 GSSlanterGeometric = 0;
 GSSlanterRotate = 0;
 };
-visible = 1;
 },
 {
 axesValues = (
@@ -16063,9 +16056,6 @@ name = overshoot;
 pos = (724,1456);
 },
 {
-pos = (262,-24);
-},
-{
 locked = 1;
 name = "diacritics-t";
 pos = (60,1532);
@@ -16099,40 +16089,6 @@ pos = (289,1829);
 locked = 1;
 name = "superior-b";
 pos = (289,1814);
-},
-{
-name = "sinf-overshoot";
-pos = (264,395);
-},
-{
-name = "sinf-b";
-pos = (27,-410);
-},
-{
-name = "sinf-b";
-pos = (284,384);
-},
-{
-name = "sinf-overshoot";
-pos = (27,-425);
-},
-{
-pos = (489,1584);
-},
-{
-pos = (468,-166);
-},
-{
-name = "MATH tf";
-pos = (491,716);
-},
-{
-name = "MATH tf";
-pos = (491,716);
-},
-{
-name = MATH;
-pos = (571,638);
 }
 );
 id = "8D0E3480-621B-4B94-86D8-E59E8F39FCCD";
@@ -16259,9 +16215,6 @@ name = overshoot;
 pos = (724,1456);
 },
 {
-pos = (262,-24);
-},
-{
 locked = 1;
 name = "diacritics-t";
 pos = (60,1532);
@@ -16295,40 +16248,6 @@ pos = (289,1829);
 locked = 1;
 name = "superior-b";
 pos = (289,1814);
-},
-{
-name = "sinf-overshoot";
-pos = (264,395);
-},
-{
-name = "sinf-b";
-pos = (27,-410);
-},
-{
-name = "sinf-b";
-pos = (284,384);
-},
-{
-name = "sinf-overshoot";
-pos = (27,-425);
-},
-{
-pos = (489,1584);
-},
-{
-pos = (468,-166);
-},
-{
-name = "MATH tf";
-pos = (491,716);
-},
-{
-name = "MATH tf";
-pos = (491,716);
-},
-{
-name = MATH;
-pos = (571,638);
 }
 );
 id = "B15BE7B3-9BA1-4448-8BBB-3A3DDDB2727A";
@@ -16553,6 +16472,7 @@ GSSlanterRotate = 0;
 HTLSManagerMasterRules = {
 };
 };
+visible = 1;
 },
 {
 axesValues = (
@@ -16734,6 +16654,7 @@ axis = Width;
 interpolation = 136;
 };
 };
+visible = 1;
 }
 );
 instances = (
