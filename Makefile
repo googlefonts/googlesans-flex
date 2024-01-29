@@ -94,4 +94,4 @@ glyph-hunt: venv
 shaperglot: venv build
 	venv/bin/pip install -U shaperglot
 	mkdir -p out
-	venv/bin/shaperglot report fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf | tee out/shaperglot.txt
+	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt | tee out/shaperglot.txt
