@@ -324,10 +324,14 @@ featureNames {
   name "";
 };
 	featureNames {
-        name "Double-story g form 2";
-        name 1 "Double-story form 2";
+        name "two-story 'g' form 2";
+        name 1 "two-story 'g' form 2";
     };
-	sub @g_ALT_OFF by @g_ALT_ON;
+
+sub g by g.ss03;
+sub gbreve by gbreve.ss03;
+sub gcommaaccent by gcommaaccent.ss03;
+sub gdotaccent by gdotaccent.ss03;
 
 } ss03;
 
