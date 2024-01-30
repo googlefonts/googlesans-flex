@@ -50,13 +50,13 @@ if __name__ == "__main__":
     # Add axis mappings based on min and max of each axis.
     # Motivation: required for glyphsLib to set axes bounds correctly.
     #             https://github.com/googlefonts/glyphsLib/issues/942
-    font.customParameters["Axis Mappings"] = {
+    font.customParameters["Axis Mappings"] = {  # type: ignore
         "opsz": {"6": 6, "144": 144},
         "wdth": {"25": 25, "151": 151},
         "wght": {"1": 1, "1000": 1000},
         "slnt": {"0": 0, "-10": -10},
         "ROND": {"0": 0, "100": 100},
-        "GRAD": {"0": 0, "50": 50},
+        "GRAD": {"0": 0, "100": 100},
     }
 
     # Give every brace layer a name.
