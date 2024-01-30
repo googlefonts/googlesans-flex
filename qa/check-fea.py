@@ -29,8 +29,10 @@ GOOGLESANS_PROFILE_CHECKS = [
 
 # v1.100 feature set:
 VAR_UPRIGHT_FEA = [
+    "aalt",
     "calt",
     "ccmp",
+    "dlig",
     "dnom",
     "frac",
     "kern",
@@ -45,6 +47,7 @@ VAR_UPRIGHT_FEA = [
     "sinf",
     "ss01",
     "ss02",
+    "ss03",
     "subs",
     "sups",
     "tnum",
