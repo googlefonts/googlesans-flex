@@ -58,6 +58,7 @@ excluded_check_ids = [
     "com.google.fonts/check/font_names",  # We have our own naming ideas
     "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1",  # Expected and desired
     "com.google.fonts/check/STAT/gf_axisregistry",  # https://github.com/fonttools/fontbakery/discussions/4214
+    "com.google.fonts/check/fontdata_namecheck",  # online resource unavailable https://github.com/fonttools/fontbakery/issues/2719
 ]
 
 # Each VF we build will have one of these suffixes depending on whether it
