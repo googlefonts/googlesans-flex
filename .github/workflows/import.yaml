@@ -30,7 +30,7 @@ jobs:
           ref: main
           path: main
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version-file: ./main/.github/workflows/python-version.txt
           cache: pip
@@ -58,7 +58,7 @@ jobs:
         with:
           ref: ${{ needs.import-branch.outputs.import-branch }}
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version-file: ./.github/workflows/python-version.txt
           cache: pip
