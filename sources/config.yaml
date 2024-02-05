@@ -111,7 +111,10 @@ stat:
           value: 125.0
         - flags: 0
           name: ExtraExpanded
-          value: 151.0
+          value: 150.0
+          rangeMinValue: 150.0
+          nominalValue: 150.0
+          rangeMaxValue: 151.0
     - name: Weight
       tag: wght
       values:
@@ -155,9 +158,6 @@ stat:
         - flags: 2
           name: Normal
           value: 0.0
-        - flags: 0
-          name: Grade
-          value: 100.0
     - name: Roundness
       tag: ROND
       values:
@@ -165,7 +165,7 @@ stat:
           name: Default
           value: 0.0
         - flags: 0
-          name: Round
+          name: Rounded
           value: 100.0
     - name: Slant
       tag: slnt
