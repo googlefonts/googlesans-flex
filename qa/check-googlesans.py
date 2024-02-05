@@ -59,6 +59,7 @@ excluded_check_ids = [
     "com.adobe.fonts/check/family/bold_italic_unique_for_nameid1",  # Expected and desired
     "com.google.fonts/check/STAT/gf_axisregistry",  # https://github.com/fonttools/fontbakery/discussions/4214
     "com.google.fonts/check/fontdata_namecheck",  # online resource unavailable https://github.com/fonttools/fontbakery/issues/2719
+    "com.google.fonts/check/STAT_strings",  # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
 ]
 
 # Each VF we build will have one of these suffixes depending on whether it
