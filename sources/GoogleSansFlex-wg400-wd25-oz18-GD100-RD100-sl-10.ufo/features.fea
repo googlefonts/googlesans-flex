@@ -319,22 +319,6 @@ featureNames {
 	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
 
-feature ss03 {
-featureNames {
-  name "";
-};
-	featureNames {
-        name "two-story 'g' form 2";
-        name 1 "two-story 'g' form 2";
-    };
-
-sub g by g.ss03;
-sub gbreve by gbreve.ss03;
-sub gcommaaccent by gcommaaccent.ss03;
-sub gdotaccent by gdotaccent.ss03;
-
-} ss03;
-
 feature ordn {
 	sub [@FIGURES zeroslash] a' by ordfeminine;
 	sub [@FIGURES zeroslash] o' by ordmasculine;
