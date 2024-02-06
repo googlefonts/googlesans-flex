@@ -8,17 +8,17 @@
 - added kerning for the whole language target.
 
 - new scripts
-glyphs_to_ds.py Change maximum GRAD to 100
-gs-glyphs2ufo.py Add ufo2glyphs2ufo scripts
-gs-merge-designspace.py
-gs-normalize-designspace.py
-gs-progress-burndown.py
-gs-ufo2glyphs.py
-find-data-source.py - a script to find interpolation sources at a location
-name_ufos_by_position.py - a script for flattening UFO hierarchy and renaming with new scheme
-print-space-width.py - a script to write widths of space glyph to a CSV
-prune-glyphsets.py - a glyphset pruning script
-set-notdef-glyph.py - a script to set notdef in all sources
+  - glyphs_to_ds.py Change maximum GRAD to 100
+  - gs-glyphs2ufo.py Add ufo2glyphs2ufo scripts
+  - gs-merge-designspace.py
+  - gs-normalize-designspace.py
+  - gs-progress-burndown.py
+  - gs-ufo2glyphs.py
+  - find-data-source.py - a script to find interpolation sources at a location
+  - name_ufos_by_position.py - a script for flattening UFO hierarchy and renaming with new scheme
+  - print-space-width.py - a script to write widths of space glyph to a CSV
+  - prune-glyphsets.py - a glyphset pruning script
+  - set-notdef-glyph.py - a script to set notdef in all sources
 
 - added shaperglot
 
