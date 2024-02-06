@@ -1,5 +1,49 @@
 # Google Sans Flex Changelog
 
+## Version 2.000 (2024-02-26)
+
+### New
+- added Grade axis (tag: GRAD)
+- added Maōri language support (2 new marks, 15 precomposed glyphs)
+- added kerning for the whole language target.
+
+- new scripts
+glyphs_to_ds.py Change maximum GRAD to 100
+gs-glyphs2ufo.py Add ufo2glyphs2ufo scripts
+gs-merge-designspace.py
+gs-normalize-designspace.py
+gs-progress-burndown.py
+gs-ufo2glyphs.py
+find-data-source.py - a script to find interpolation sources at a location
+name_ufos_by_position.py - a script for flattening UFO hierarchy and renaming with new scheme
+print-space-width.py - a script to write widths of space glyph to a CSV
+prune-glyphsets.py - a glyphset pruning script
+set-notdef-glyph.py - a script to set notdef in all sources
+
+- added shaperglot
+
+### Changed
+- We moved to using .glyphspackage sources
+- Improved spacing and kerning
+
+- General updates in the design space:
+Improved balance of weight and width within each optical size
+Updated the setup of the source to reduce the number of masters and the file-size
+
+- Design improvements:
+ Design craft improvements: improved proportions, character balance and curves
+ Refined the point structure, e.g. remove extra points
+ Improved consistency of the stems
+ Improved consistency of the overshoots  
+ Refined angles of the terminals in C c G g S s J j 
+ Improved small number positioning (sups, subs, sinf, numr, dnom, frac)
+
+ Scripts:
+updated set-overlap-bits.py
+
+## Version 1.000 (2023-01-18)
+- initial release
+
 
 ## Version 1.002 (2023-06-28)
 
