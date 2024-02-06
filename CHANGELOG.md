@@ -8,7 +8,7 @@
 - added kerning for the whole language target.
 
 - new scripts
-  - glyphs_to_ds.py Change maximum GRAD to 100
+  - glyphs_to_ds.py 
   - gs-glyphs2ufo.py Add ufo2glyphs2ufo scripts
   - gs-merge-designspace.py
   - gs-normalize-designspace.py
