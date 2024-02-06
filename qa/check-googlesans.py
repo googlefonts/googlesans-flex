@@ -60,6 +60,7 @@ excluded_check_ids = [
     "com.google.fonts/check/STAT/gf_axisregistry",  # https://github.com/fonttools/fontbakery/discussions/4214
     "com.google.fonts/check/fontdata_namecheck",  # online resource unavailable https://github.com/fonttools/fontbakery/issues/2719
     "com.google.fonts/check/STAT_strings",  # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
+    "com.google.fonts/check/STAT",  # https://github.com/googlefonts/googlesans-flex/issues/835#issuecomment-1930057206
     "com.google.fonts/check/fontbakery_version",  # ignore this while we have Fontbakery pinned
 ]
 
