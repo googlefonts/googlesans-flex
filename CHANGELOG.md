@@ -1,7 +1,7 @@
-# Google Sans Changelog
+# Google Sans Flex Changelog
 
 
-## Version 1.002 (2022-03-08)
+## Version 1.002 (2023-06-28)
 
 ### New
 - Italic font
@@ -33,7 +33,7 @@ find-data-source.py
 - gs-ufo2glyphs.py
 - cut-instances.py
 
-## Version 1.001 (2022-03-08)
+## Version 1.001 (2023-03-08)
 
 ### New
 - OpenType Layout Features:
@@ -56,7 +56,7 @@ prune_font_binary.py
 ### Changed
 - This version doesn't contain GRAD axis
 
-## Version 1.000 (2022-01-18)
+## Version 1.000 (2023-01-18)
 - initial release
 
 
