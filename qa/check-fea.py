@@ -47,7 +47,6 @@ VAR_UPRIGHT_FEA = [
     "sinf",
     "ss01",
     "ss02",
-    "ss03",
     "subs",
     "sups",
     "tnum",
