@@ -52,19 +52,19 @@ updated set-overlap-bits.py
 - New font with a slant axis, which combines Italic and Upright
 
 - new scripts
-defuse-guidelines.py
-gs-glyphs2ufo.py
-gs-merge-designspace.py
-gs-normalize-designspace.py
-gdef.py
-normalize.py
-prune_font_binary.py
-reachable_glyphs.py
-set-overlap-bits.py
-print-space-width.py
-prune-glyphsets.py
-set-notdef-glyph.py
-find-data-source.py
+  - defuse-guidelines.py
+  - gs-glyphs2ufo.py
+  - gs-merge-designspace.py
+  - gs-normalize-designspace.py
+  - gdef.py
+  - normalize.py
+  - prune_font_binary.py
+  - reachable_glyphs.py
+  - set-overlap-bits.py
+  - print-space-width.py
+  - prune-glyphsets.py
+  - set-notdef-glyph.py
+  - find-data-source.py
 
 
 ### Changed
