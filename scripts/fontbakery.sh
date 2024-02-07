@@ -32,7 +32,8 @@ venv_bakery/bin/pip install -U setuptools wheel pip
 # Install latest version of fontbakery on every run, isolated from build dependencies
 # fonttools[interpolatable] makes com.google.fonts/check/interpolation_issues around 5x faster
 # TODO: Remove version pin after fonttools/fontbakery#4479 is fixed.
-venv_bakery/bin/pip install -U "fontbakery[googlefonts]<=0.10.9" "fonttools[interpolatable]"
+# TODO: Remove vharfbuzz constraint after https://github.com/fonttools/fontbakery/issues/4499 is solved and we unpin fontbakery
+venv_bakery/bin/pip install -U "fontbakery[googlefonts]<=0.10.9" "fonttools[interpolatable]" "vharfbuzz<0.3.0"
 [ -n "$GITHUB_RUN_ID" ] && echo "::endgroup::"
 mkdir -p out/fontbakery
 
