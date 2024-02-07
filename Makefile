@@ -92,6 +92,8 @@ glyph-hunt: venv
 	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
 
 shaperglot: venv build
-	venv/bin/pip install -U shaperglot
+# FIXME: shaperglot pulls in vharfbuzz v0.3 by default, which it doesn't support
+# remove this when https://github.com/googlefonts/shaperglot/issues/41 is closed
+	venv/bin/pip install -U shaperglot "vharfbuzz<0.3.0"
 	mkdir -p out
 	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt | tee out/shaperglot.txt
