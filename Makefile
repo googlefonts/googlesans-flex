@@ -46,7 +46,11 @@ run-collidoscope: build.stamp
 # Install latest version of fontbakery on every run, isolated from build dependencies
 	test -d venv_bakery || python3 -m venv venv_bakery
 	venv_bakery/bin/pip install -U setuptools wheel pip
-	venv_bakery/bin/pip install -U fontbakery[googlefonts] fonttools[interpolatable]
+	if [ -e "requirements-fb.txt" ]; then \
+		venv_bakery/bin/pip install -r requirements-fb.txt; \
+	else \
+		venv_bakery/bin/pip install -U fontbakery[googlefonts] fonttools[interpolatable]; \
+	fi
 
 # Run collidoscope tests
 	mkdir -p out/fontbakery
