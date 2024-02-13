@@ -1,0 +1,10 @@
+# In an ideal world, just fontbakery & fonttools will be specified here if we
+# need to pin FB. If we get to the problem too late, then additional things may
+# need to be specified.
+# To unpin, delete requirements-fb.txt and get rid of any extra constraints
+# added here
+
+fontbakery[googlefonts]==0.10.9
+fonttools[interpolatable]
+vharfbuzz<0.3.0
+glyphsets<0.6.13
