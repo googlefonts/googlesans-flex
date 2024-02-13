@@ -103,6 +103,45 @@
     <false/>
     <key>com.schriftgestaltung.customParameter.GSFont.useNiceNames</key>
     <integer>0</integer>
+    <key>com.schriftgestaltung.customParameter.GSFontMaster.Axis Location</key>
+    <array>
+      <dict>
+        <key>Axis</key>
+        <string>Optical Size</string>
+        <key>Location</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Axis</key>
+        <string>Width</string>
+        <key>Location</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Axis</key>
+        <string>Weight</string>
+        <key>Location</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Axis</key>
+        <string>Grade</string>
+        <key>Location</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Axis</key>
+        <string>Roundness</string>
+        <key>Location</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Axis</key>
+        <string>Slant</string>
+        <key>Location</key>
+        <integer>0</integer>
+      </dict>
+    </array>
     <key>com.schriftgestaltung.customParameter.GSFontMaster.Link Metrics With Master</key>
     <string>25BCBC3F-6339-41F7-88D2-5C74AFD6AE11</string>
     <key>com.schriftgestaltung.customParameter.GSFontMaster.customValue</key>
@@ -685,10 +724,10 @@
       <string>slashlongcomb.case</string>
       <string>_copyright-circle</string>
       <string>_dots-divide</string>
-      <string>_tail.Q</string>
       <string>_copyright-C</string>
       <string>_registered-R</string>
       <string>flig3</string>
+      <string>_tail.Q</string>
       <string>percentbar.tab</string>
     </array>
     <key>public.openTypeCategories</key>
@@ -788,6 +827,8 @@
       <key>dotaccentcomb</key>
       <string>mark</string>
       <key>e</key>
+      <string>base</string>
+      <key>equal</key>
       <string>base</string>
       <key>f</key>
       <string>base</string>

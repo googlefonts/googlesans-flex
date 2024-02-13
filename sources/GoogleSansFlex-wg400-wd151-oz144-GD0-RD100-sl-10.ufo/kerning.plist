@@ -21,19 +21,35 @@
     </dict>
     <key>icircumflex</key>
     <dict>
+      <key>public.kern2.H_left</key>
+      <integer>86</integer>
       <key>public.kern2.O_left</key>
       <integer>42</integer>
       <key>public.kern2.S_left</key>
       <integer>126</integer>
       <key>public.kern2.T_left</key>
       <integer>84</integer>
+      <key>public.kern2.V_left</key>
+      <integer>130</integer>
+      <key>public.kern2.W_left</key>
+      <integer>160</integer>
+      <key>public.kern2.X_left</key>
+      <integer>70</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>90</integer>
       <key>public.kern2.l_left</key>
       <integer>144</integer>
     </dict>
     <key>idieresis</key>
     <dict>
-      <key>public.kern2.H_left</key>
-      <integer>128</integer>
+      <key>public.kern2.T_left</key>
+      <integer>100</integer>
+      <key>public.kern2.V_left</key>
+      <integer>50</integer>
+      <key>public.kern2.W_left</key>
+      <integer>50</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>20</integer>
       <key>public.kern2.i_left</key>
       <integer>120</integer>
       <key>public.kern2.j_left</key>
@@ -45,6 +61,16 @@
     <dict>
       <key>public.kern2.H_left</key>
       <integer>48</integer>
+      <key>public.kern2.T_left</key>
+      <integer>258</integer>
+      <key>public.kern2.V_left</key>
+      <integer>220</integer>
+      <key>public.kern2.W_left</key>
+      <integer>250</integer>
+      <key>public.kern2.X_left</key>
+      <integer>130</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>190</integer>
       <key>public.kern2.j_left</key>
       <integer>168</integer>
       <key>public.kern2.l_left</key>
@@ -561,9 +587,7 @@
     <key>public.kern1.H_right</key>
     <dict>
       <key>icircumflex</key>
-      <integer>66</integer>
-      <key>idieresis</key>
-      <integer>170</integer>
+      <integer>86</integer>
       <key>imacron</key>
       <integer>48</integer>
     </dict>
@@ -1280,11 +1304,11 @@
       <key>icircumflex</key>
       <integer>158</integer>
       <key>idieresis</key>
-      <integer>268</integer>
+      <integer>100</integer>
       <key>igrave</key>
       <integer>32</integer>
       <key>imacron</key>
-      <integer>228</integer>
+      <integer>258</integer>
       <key>jdotless</key>
       <integer>-138</integer>
       <key>public.kern2.AE_left</key>
@@ -1515,11 +1539,11 @@
       <key>icircumflex</key>
       <integer>212</integer>
       <key>idieresis</key>
-      <integer>230</integer>
+      <integer>160</integer>
       <key>igrave</key>
-      <integer>32</integer>
+      <integer>52</integer>
       <key>imacron</key>
-      <integer>252</integer>
+      <integer>242</integer>
       <key>jdotless</key>
       <integer>-236</integer>
       <key>odieresis</key>
@@ -1674,9 +1698,11 @@
       <key>icircumflex</key>
       <integer>188</integer>
       <key>idieresis</key>
-      <integer>208</integer>
+      <integer>128</integer>
       <key>igrave</key>
       <integer>24</integer>
+      <key>imacron</key>
+      <integer>250</integer>
       <key>jdotless</key>
       <integer>-228</integer>
       <key>public.kern2.AE_left</key>
@@ -1743,6 +1769,8 @@
       <integer>-112</integer>
       <key>public.kern2.hyphen_left</key>
       <integer>-118</integer>
+      <key>public.kern2.i_left</key>
+      <integer>-100</integer>
       <key>public.kern2.j_left</key>
       <integer>-133</integer>
       <key>public.kern2.l_slash_left</key>
@@ -1778,7 +1806,7 @@
       <key>public.kern2.quoteright_left</key>
       <integer>-24</integer>
       <key>public.kern2.s_left</key>
-      <integer>-206</integer>
+      <integer>-186</integer>
       <key>public.kern2.section_left</key>
       <integer>-56</integer>
       <key>public.kern2.seven_left</key>
@@ -1822,10 +1850,10 @@
     </dict>
     <key>public.kern1.X_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>172</integer>
+      <key>icircumflex</key>
+      <integer>60</integer>
       <key>imacron</key>
-      <integer>156</integer>
+      <integer>100</integer>
       <key>public.kern2.A_left</key>
       <integer>-44</integer>
       <key>public.kern2.J_left</key>
@@ -1846,6 +1874,8 @@
       <integer>-20</integer>
       <key>public.kern2.Y_left</key>
       <integer>-76</integer>
+      <key>public.kern2.a_left</key>
+      <integer>-80</integer>
       <key>public.kern2.ampersand_left</key>
       <integer>-82</integer>
       <key>public.kern2.asterisk_left</key>
@@ -1916,11 +1946,11 @@
       <key>adieresis</key>
       <integer>-228</integer>
       <key>icircumflex</key>
-      <integer>80</integer>
+      <integer>110</integer>
       <key>idieresis</key>
       <integer>100</integer>
       <key>imacron</key>
-      <integer>-80</integer>
+      <integer>190</integer>
       <key>jdotless</key>
       <integer>-266</integer>
       <key>public.kern2.AE_left</key>
@@ -1989,6 +2019,8 @@
       <integer>-256</integer>
       <key>public.kern2.hyphen_left</key>
       <integer>-250</integer>
+      <key>public.kern2.i_left</key>
+      <integer>-70</integer>
       <key>public.kern2.j_left</key>
       <integer>-154</integer>
       <key>public.kern2.l_slash_left</key>
@@ -2002,7 +2034,7 @@
       <key>public.kern2.numbersign_left</key>
       <integer>-110</integer>
       <key>public.kern2.o_left</key>
-      <integer>-330</integer>
+      <integer>-350</integer>
       <key>public.kern2.one_left</key>
       <integer>-272</integer>
       <key>public.kern2.one_sinf_left</key>
@@ -2130,9 +2162,9 @@
       <key>public.kern2.T_left</key>
       <integer>-278</integer>
       <key>public.kern2.V_left</key>
-      <integer>-296</integer>
+      <integer>-416</integer>
       <key>public.kern2.W_left</key>
-      <integer>-228</integer>
+      <integer>-338</integer>
       <key>public.kern2.Y_left</key>
       <integer>-402</integer>
       <key>public.kern2.asterisk_left</key>
@@ -2609,7 +2641,7 @@
       <key>public.kern2.T_left</key>
       <integer>-264</integer>
       <key>public.kern2.V_left</key>
-      <integer>-162</integer>
+      <integer>-302</integer>
       <key>public.kern2.W_left</key>
       <integer>-108</integer>
       <key>public.kern2.Y_left</key>
@@ -2817,9 +2849,9 @@
       <key>public.kern2.T_left</key>
       <integer>-304</integer>
       <key>public.kern2.V_left</key>
-      <integer>-282</integer>
+      <integer>-402</integer>
       <key>public.kern2.W_left</key>
-      <integer>-172</integer>
+      <integer>-292</integer>
       <key>public.kern2.X_left</key>
       <integer>-26</integer>
       <key>public.kern2.Y_left</key>
@@ -3482,9 +3514,9 @@
       <key>public.kern2.T_left</key>
       <integer>-300</integer>
       <key>public.kern2.V_left</key>
-      <integer>-266</integer>
+      <integer>-396</integer>
       <key>public.kern2.W_left</key>
-      <integer>-194</integer>
+      <integer>-394</integer>
       <key>public.kern2.X_left</key>
       <integer>-50</integer>
       <key>public.kern2.Y_left</key>
@@ -3571,7 +3603,7 @@
       <key>public.kern2.W_left</key>
       <integer>-112</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-226</integer>
+      <integer>-326</integer>
       <key>public.kern2.b_slash_left</key>
       <integer>-90</integer>
       <key>public.kern2.f_left</key>
@@ -3775,7 +3807,9 @@
       <key>public.kern2.V_left</key>
       <integer>-30</integer>
       <key>public.kern2.W_left</key>
-      <integer>-30</integer>
+      <integer>-100</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-110</integer>
       <key>public.kern2.g_bi_left</key>
       <integer>-30</integer>
       <key>public.kern2.j_left</key>
@@ -3923,9 +3957,9 @@
     <key>public.kern1.lcaron_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
-      <integer>-302</integer>
+      <integer>-172</integer>
       <key>public.kern2.A_left</key>
-      <integer>-312</integer>
+      <integer>-182</integer>
       <key>public.kern2.J_left</key>
       <integer>-188</integer>
       <key>public.kern2.O_left</key>
@@ -4041,9 +4075,9 @@
       <key>public.kern2.T_left</key>
       <integer>-234</integer>
       <key>public.kern2.V_left</key>
-      <integer>-284</integer>
+      <integer>-324</integer>
       <key>public.kern2.W_left</key>
-      <integer>-216</integer>
+      <integer>-246</integer>
       <key>public.kern2.Y_left</key>
       <integer>-380</integer>
       <key>public.kern2.asterisk_left</key>
@@ -4258,13 +4292,13 @@
       <key>public.kern2.T_left</key>
       <integer>-344</integer>
       <key>public.kern2.V_left</key>
-      <integer>-328</integer>
+      <integer>-428</integer>
       <key>public.kern2.W_left</key>
-      <integer>-202</integer>
+      <integer>-292</integer>
       <key>public.kern2.X_left</key>
       <integer>-54</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-430</integer>
+      <integer>-490</integer>
       <key>public.kern2.Z_left</key>
       <integer>-20</integer>
       <key>public.kern2.asterisk_left</key>
@@ -5208,9 +5242,9 @@
       <key>public.kern2.T_left</key>
       <integer>-252</integer>
       <key>public.kern2.V_left</key>
-      <integer>-256</integer>
+      <integer>-286</integer>
       <key>public.kern2.W_left</key>
-      <integer>-156</integer>
+      <integer>-216</integer>
       <key>public.kern2.X_left</key>
       <integer>-70</integer>
       <key>public.kern2.Y_left</key>
@@ -6721,6 +6755,11 @@
       <integer>-56</integer>
       <key>public.kern2.zero_sup_left</key>
       <integer>-24</integer>
+    </dict>
+    <key>rcaron</key>
+    <dict>
+      <key>public.kern2.T_left</key>
+      <integer>-140</integer>
     </dict>
     <key>uogonek</key>
     <dict>
