@@ -10,7 +10,7 @@ on:
 jobs:
   convert-build-test:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 60
+    timeout-minutes: 50
     steps:
     - name: Checkout main
       uses: actions/checkout@v4

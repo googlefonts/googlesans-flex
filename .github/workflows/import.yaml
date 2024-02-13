@@ -13,7 +13,7 @@ on:
 jobs:
   import-branch:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 60
+    timeout-minutes: 15
     steps:
       - name: Log & validate inputs
         run: |
@@ -50,7 +50,7 @@ jobs:
       import-branch: ${{ steps.create-update-import.outputs.import-branch }}
   build-variable:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 60
+    timeout-minutes: 15
     needs: import-branch
     steps:
       - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
@@ -69,7 +69,7 @@ jobs:
       variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
   test:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 60
+    timeout-minutes: 20
     needs:
       - import-branch
       - build-variable
