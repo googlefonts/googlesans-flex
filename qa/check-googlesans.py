@@ -62,6 +62,7 @@ excluded_check_ids = [
     "com.google.fonts/check/STAT_strings",  # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "com.google.fonts/check/STAT",  # https://github.com/googlefonts/googlesans-flex/issues/835#issuecomment-1930057206
     "com.google.fonts/check/fontbakery_version",  # ignore this while we have Fontbakery pinned
+    "com.google.fonts/check/metadata/unreachable_subsetting",  # causes hang: https://github.com/googlefonts/googlesans-flex/issues/854
 ]
 
 # Each VF we build will have one of these suffixes depending on whether it
