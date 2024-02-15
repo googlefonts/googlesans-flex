@@ -148,8 +148,9 @@ gitpython==3.1.41
     # via font-v
 glyphsets==0.6.5
     # via gftools
-glyphslib==6.4.1
+glyphslib @ git+https://github.com/googlefonts/glyphsLib@no-width-linking-of-bracelayers
     # via
+    #   https://github.com/googlefonts/googlesans-flex/issues/855
     #   -r requirements.in
     #   babelfont
     #   bumpfontversion
