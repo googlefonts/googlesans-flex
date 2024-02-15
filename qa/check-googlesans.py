@@ -62,6 +62,7 @@ excluded_check_ids = [
     "com.google.fonts/check/STAT_strings",  # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "com.google.fonts/check/STAT",  # https://github.com/googlefonts/googlesans-flex/issues/835#issuecomment-1930057206
     "com.google.fonts/check/fontbakery_version",  # ignore this while we have Fontbakery pinned
+    "com.google.fonts/check/glyphsets/shape_languages",  # we do our own shpaerglot check
 ]
 
 # Each VF we build will have one of these suffixes depending on whether it
@@ -106,12 +107,13 @@ GS_FONTUNIT_ATTRIBUTES_UPRIGHT = {
     "OS/2.yStrikeoutPosition": 306,
     "OS/2.yStrikeoutSize": 84,
     "OS/2.ySubscriptXOffset": 0,
-    "OS/2.ySubscriptXSize": 650,
-    "OS/2.ySubscriptYOffset": 75,
+    # Commented out values have been intentionally changed
+    # "OS/2.ySubscriptXSize": 650,
+    # "OS/2.ySubscriptYOffset": 75,
     "OS/2.ySubscriptYSize": 600,
     "OS/2.ySuperscriptXOffset": 0,
-    "OS/2.ySuperscriptXSize": 650,
-    "OS/2.ySuperscriptYOffset": 350,
+    # "OS/2.ySuperscriptXSize": 650,
+    # "OS/2.ySuperscriptYOffset": 350,
     "OS/2.ySuperscriptYSize": 600,
     "post.underlinePosition": -160,
     "post.underlineThickness": 84,
