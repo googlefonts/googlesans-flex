@@ -40,7 +40,7 @@ runs:
       touch "${{ inputs.repo-path }}/build.stamp"
       make --directory "${{ inputs.repo-path }}" shaperglot
   - name: Upload shaperglot report
-    uses: actions/upload-artifact@v3
+    uses: actions/upload-artifact@v4
     with:
       name: Shaperglot report
       path: ${{ inputs.repo-path }}/out/shaperglot.txt
@@ -49,7 +49,7 @@ runs:
     shell: bash
     run: "${{ inputs.repo-path }}/scripts/fontbakery.sh"
   - name: Upload Fontbakery reports
-    uses: actions/upload-artifact@v3
+    uses: actions/upload-artifact@v4
     # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
     # https://docs.github.com/en/actions/learn-github-actions/expressions#always
     # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context

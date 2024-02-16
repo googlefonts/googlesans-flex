@@ -45,7 +45,7 @@ jobs:
     - name: Checkout main
       uses: actions/checkout@v4
     - name: Download built fonts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{ needs.build.outputs.artifact-name }}
         path: fonts/variable
@@ -63,7 +63,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Download artifact files
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{ needs.build.outputs.artifact-name }}
         path: ${{ needs.build.outputs.artifact-name }}
