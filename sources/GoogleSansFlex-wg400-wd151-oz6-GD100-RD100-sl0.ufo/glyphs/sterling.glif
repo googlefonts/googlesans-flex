@@ -4,7 +4,7 @@
   <unicode hex="00A3"/>
   <outline>
     <contour>
-      <point x="269" y="0" type="qcurve"/>
+      <point x="269" y="0" type="qcurve" smooth="yes"/>
       <point x="1022" y="0" type="line" smooth="yes"/>
       <point x="1193" y="0"/>
       <point x="1421" y="148"/>
@@ -14,7 +14,7 @@
       <point x="1256" y="361"/>
       <point x="1210" y="300"/>
       <point x="1105" y="235"/>
-      <point x="1005" y="235" type="qcurve"/>
+      <point x="1005" y="235" type="qcurve" smooth="yes"/>
       <point x="494" y="235" type="line"/>
       <point x="490" y="242" type="line"/>
       <point x="580" y="312"/>
@@ -59,18 +59,18 @@
     <contour>
       <point x="227" y="582" type="qcurve"/>
       <point x="990" y="582" type="line"/>
-      <point x="1029" y="582" name="inserted"/>
+      <point x="1029" y="582"/>
       <point x="1084" y="637"/>
       <point x="1084" y="676" type="qcurve"/>
-      <point x="1084" y="714"/>
-      <point x="1029" y="770"/>
+      <point x="1084" y="714" name="inserted"/>
+      <point x="1029" y="770" name="inserted"/>
       <point x="990" y="770" type="qcurve"/>
       <point x="227" y="770" type="line"/>
-      <point x="188" y="770"/>
-      <point x="132" y="714"/>
+      <point x="188" y="770" name="inserted"/>
+      <point x="132" y="714" name="inserted"/>
       <point x="132" y="676" type="qcurve"/>
-      <point x="132" y="637" name="inserted"/>
-      <point x="188" y="582" name="inserted"/>
+      <point x="132" y="637"/>
+      <point x="188" y="582"/>
     </contour>
   </outline>
 </glyph>

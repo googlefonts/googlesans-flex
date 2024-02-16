@@ -686,6 +686,9 @@
       <string>_copyright-C</string>
       <string>_registered-R</string>
       <string>flig3</string>
+      <string>ilig</string>
+      <string>jlig</string>
+      <string>tlig2</string>
       <string>_tail.Q</string>
       <string>percentbar.tab</string>
     </array>
@@ -837,7 +840,11 @@
       <string>mark</string>
       <key>idotless</key>
       <string>base</string>
+      <key>ilig</key>
+      <string>base</string>
       <key>jdotless</key>
+      <string>base</string>
+      <key>jlig</key>
       <string>base</string>
       <key>k</key>
       <string>base</string>
@@ -893,6 +900,8 @@
       <string>base</string>
       <key>tildecomb</key>
       <string>mark</string>
+      <key>tlig2</key>
+      <string>base</string>
       <key>u</key>
       <string>base</string>
       <key>uni25CC</key>
@@ -1049,5 +1058,12 @@
     </dict>
     <key>public.skipExportGlyphs</key>
     <array/>
+    <key>reinterpolator</key>
+    <dict>
+      <key>axis</key>
+      <string>Width</string>
+      <key>interpolation</key>
+      <real>68.52327</real>
+    </dict>
   </dict>
 </plist>
