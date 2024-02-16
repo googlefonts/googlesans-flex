@@ -28,7 +28,7 @@ runs:
         exit 1
       fi
   - name: Check with OT Sanitizer
-    uses: f-actions/opentype-sanitizer@v2
+    uses: f-actions/opentype-sanitizer@v3
     with:
       path: ${{ inputs.repo-path }}/fonts/variable/*.ttf
   - name: Analyze TTF file size
