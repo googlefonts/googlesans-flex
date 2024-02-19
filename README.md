@@ -4,10 +4,12 @@
 
 ### On GitHub
 
-Fonts are built by triggering the build workflow in the [Actions tab](https://github.com/googlefonts/googlesans-flex/actions) of the repository.
+Commits to the `main` branch are built & tested automatically.
+
+To build from other branches, workflows can be manually run from the [Actions tab](https://github.com/googlefonts/googlesans-flex/actions) of the repository.
 
 1. Go to the [Actions tab](https://github.com/googlefonts/googlesans-flex/actions)
-2. Click [Build font and specimen](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml)
+2. Click [Build from UFOs](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml) or [Build from Glyphs package](https://github.com/googlefonts/googlesans-flex/actions/workflows/build-glyphs.yml)
 3. Click the grey "Run workflow" dropdown button
 4. Enter the name of the branch or commit you want to build in the text box
 5. Press the green "Run workflow" button
@@ -21,15 +23,14 @@ Fonts are built by triggering the build workflow in the [Actions tab](https://gi
 5. [font-v](https://github.com/source-foundry/font-v) sets TTF version strings
 6. [`scripts/prune_font_binary.py`](./scripts/prune_font_binary.py) removes unused/unencoded glyphs from TTFs
 7. [`scripts/set-overlap-bits.py`](./scripts/set-overlap-bits.py) adjusts overlap flags in the GLYF table
-8. [OT Sanitizer](https://github.com/khaledhosny/ots) validates & sanitizes the TTFs
-9. TTFs are archived for download (along with QA reports if not a release)
+8. TTFs are archived for download
 
 (*This is the part of the process [`fontc`](https://github.com/googlefonts/fontc) would speed-up/replace)
 
 ### On your computer
 
 * `make build` will produce font files.
-* `make test` will run [FontBakery](https://github.com/googlefonts/fontbakery)'s quality assurance tests.
+* `make test` will run [Shaperglot](https://github.com/googlefonts/shaperglot), [opentype-sanitizer](https://github.com/googlefonts/ots-python), [file-size](https://github.com/source-foundry/font-size), and [FontBakery](https://github.com/googlefonts/fontbakery).
 
 ## Releasing
 
@@ -38,7 +39,7 @@ Then:
 1. Click "Draft a new release" (top right).
 2. Open the dropdown "Choose a tag".
 3. Either select the existing tag you want to make a release for, or type in the version you're releasing and then click "Create new tag: blah on publish".
-4. Fill in the release title and description.
+4. Fill in the release title (the description is filled automatically).
 5. Adjust checkboxes for pre-release and latest as you see fit.
 6. Click "Publish release".
 
@@ -65,7 +66,7 @@ This should always be `main`.
 
 If all goes according to plan, the workflow will create or update an import branch,
 and you will have to open a PR for it (we can't do it automatically because of the CLA bot).
-The name of the import branch will be derived from the imported git reference by prepending `import-`, e.g. `import-it-ad-wip-v2.0`.
+The name of the import branch will be derived from the imported branch by prepending `import-`, e.g. `import-it-ad-wip-v2.0`.
 The target branch will be created if it does not exist, or updated with a new commit otherwise.
 
 The import workflow also builds the font and runs tests on it, no need to request that separately.
