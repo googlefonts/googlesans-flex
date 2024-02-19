@@ -32,14 +32,20 @@ Updated the setup of the source to reduce the number of masters and the file-siz
 Reduced number of intermediete masters - related to the update to the terminals in the condensed styles 
 
 - Design improvements:
- Improved consistency of the the terminals font wide: an update to the condensed styles–terminals are now more open
+ Improved consistency of the terminals font wide: an update to the condensed styles–terminals are now more open
  Design craft improvements: improved proportions, character balance and curves
  Refined the point structure, e.g. remove extra points
  Improved consistency of the stems
  Improved consistency of the overshoots  
  Refined angles of the terminals in C c G g S s J j 
  Refined the proportions of letters with diagonal strokes to improve the design of the rounding styles
+ Refined fractions
+ Refined Black weight to improve legibility 
+ Updated design of the quotes and ellipsis in the heavier masters
+ Improved design of mathematical symbols
+ Improved positioning of small numbers for better consistency within the whole design space
  Improved small number positioning (sups, subs, sinf, numr, dnom, frac)
+
 
  Scripts:
 updated set-overlap-bits.py
