@@ -699,9 +699,7 @@ name = Prefix;
 );
 features = (
 {
-automatic = 1;
 code = "feature locl;
-feature frac;
 feature dnom;
 feature numr;
 feature sups;
@@ -973,7 +971,11 @@ tag = ss02;
 code = "	sub [@FIGURES zeroslash] a' by ordfeminine;
 	sub [@FIGURES zeroslash] o' by ordmasculine;
 	sub [@FIGURES zeroslash] period a' by ordfeminine;
-	sub [@FIGURES zeroslash] period o' by ordmasculine;";
+	sub [@FIGURES zeroslash] period o' by ordmasculine;
+   sub [@FIGURES zero] a' by ordfeminine;
+   sub [@FIGURES zero] o' by ordmasculine;
+   sub [@FIGURES zero] period a' by ordfeminine;
+   sub [@FIGURES zero] period o' by ordmasculine;";
 tag = ordn;
 },
 {
