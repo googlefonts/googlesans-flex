@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>Icircumflex</key>
+    <dict>
+      <key>Idieresis</key>
+      <integer>60</integer>
+    </dict>
+    <key>Idieresis</key>
+    <dict>
+      <key>Icircumflex</key>
+      <integer>60</integer>
+    </dict>
     <key>Oslash</key>
     <dict>
       <key>public.kern2.T_left</key>
@@ -41,6 +51,10 @@
       <integer>143</integer>
       <key>public.kern2.l_left</key>
       <integer>119</integer>
+      <key>public.kern2.quote_left</key>
+      <integer>20</integer>
+      <key>public.kern2.quoteright_left</key>
+      <integer>40</integer>
     </dict>
     <key>imacron</key>
     <dict>
@@ -83,7 +97,7 @@
       <key>public.kern2.TM_left</key>
       <integer>-50</integer>
       <key>public.kern2.T_left</key>
-      <integer>-320</integer>
+      <integer>-250</integer>
       <key>public.kern2.U_left</key>
       <integer>-105</integer>
       <key>public.kern2.V_left</key>
@@ -91,7 +105,7 @@
       <key>public.kern2.W_left</key>
       <integer>-292</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-364</integer>
+      <integer>-270</integer>
       <key>public.kern2.asterisk_left</key>
       <integer>-120</integer>
       <key>public.kern2.b_slash_left</key>
@@ -471,6 +485,10 @@
     </dict>
     <key>public.kern1.H_right</key>
     <dict>
+      <key>Icircumflex</key>
+      <integer>0</integer>
+      <key>Idieresis</key>
+      <integer>0</integer>
       <key>public.kern2.j_left</key>
       <integer>-20</integer>
       <key>public.kern2.one_sup_left</key>
@@ -1099,9 +1117,9 @@
       <key>otilde</key>
       <integer>-200</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-375</integer>
+      <integer>-300</integer>
       <key>public.kern2.A_left</key>
-      <integer>-320</integer>
+      <integer>-250</integer>
       <key>public.kern2.Germandb_left</key>
       <integer>-137</integer>
       <key>public.kern2.J_left</key>
@@ -1338,7 +1356,7 @@
       <key>jdotless</key>
       <integer>-84</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-372</integer>
+      <integer>-300</integer>
       <key>public.kern2.A_left</key>
       <integer>-367</integer>
       <key>public.kern2.Germandb_left</key>
@@ -1473,7 +1491,7 @@
       <key>jdotless</key>
       <integer>-83</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-253</integer>
+      <integer>-250</integer>
       <key>public.kern2.A_left</key>
       <integer>-286</integer>
       <key>public.kern2.Germandb_left</key>
@@ -1669,9 +1687,9 @@
       <key>jdotless</key>
       <integer>-110</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-362</integer>
+      <integer>-320</integer>
       <key>public.kern2.A_left</key>
-      <integer>-304</integer>
+      <integer>-270</integer>
       <key>public.kern2.Germandb_left</key>
       <integer>-119</integer>
       <key>public.kern2.J_left</key>
@@ -4171,6 +4189,8 @@
     </dict>
     <key>public.kern1.quote_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>20</integer>
       <key>public.kern2.AE_left</key>
       <integer>-220</integer>
       <key>public.kern2.A_left</key>
@@ -4228,6 +4248,8 @@
     </dict>
     <key>public.kern1.quoteleft_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>40</integer>
       <key>public.kern2.AE_left</key>
       <integer>-220</integer>
       <key>public.kern2.A_left</key>
@@ -4348,7 +4370,7 @@
       <key>public.kern2.guilsingl_r_left</key>
       <integer>-40</integer>
       <key>public.kern2.i_left</key>
-      <integer>-28</integer>
+      <integer>20</integer>
       <key>public.kern2.j_left</key>
       <integer>-52</integer>
       <key>public.kern2.n_left</key>
@@ -5347,7 +5369,7 @@
     <key>public.kern1.v_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
-      <integer>-220</integer>
+      <integer>-140</integer>
       <key>public.kern2.A_left</key>
       <integer>-232</integer>
       <key>public.kern2.Germandb_left</key>
@@ -5452,7 +5474,7 @@
     <key>public.kern1.w_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
-      <integer>-159</integer>
+      <integer>-110</integer>
       <key>public.kern2.A_left</key>
       <integer>-125</integer>
       <key>public.kern2.J_left</key>
@@ -5612,7 +5634,7 @@
     <key>public.kern1.y_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
-      <integer>-179</integer>
+      <integer>-140</integer>
       <key>public.kern2.A_left</key>
       <integer>-131</integer>
       <key>public.kern2.J_left</key>
