@@ -5,9 +5,9 @@
 ### New
 - added Grade axis (tag: GRAD)
 - added Maōri language support (2 new marks, 15 precomposed glyphs)
-- added kerning for the whole language target.
+- added new kerning to support the whole language target.
 
-- new scripts
+- New Scripts:
   - glyphs_to_ds.py 
   - gs-glyphs2ufo.py Add ufo2glyphs2ufo scripts
   - gs-merge-designspace.py
@@ -24,7 +24,7 @@
 
 ### Changed
 
-- Sources
+- Source type:
   - Using .glyphspackage as design sources while keeping the production sources as UFO
 
 - General updates in the design space of the variable font:
@@ -61,7 +61,7 @@
 - Italic font
 - New font with a slant axis, which combines Italic and Upright
 
-- new scripts
+- New Scripts:
   - defuse-guidelines.py
   - gs-glyphs2ufo.py
   - gs-merge-designspace.py
