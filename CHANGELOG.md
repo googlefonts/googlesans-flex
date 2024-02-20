@@ -5,7 +5,7 @@
 ### New
 - added Grade axis (tag: GRAD)
 - added Maōri language support (2 new marks, 15 precomposed glyphs)
-- added new kerning to support the whole language target.
+- added new kerning to support the whole language target
 
 - New Scripts:
   - glyphs_to_ds.py 
@@ -20,7 +20,8 @@
   - prune-glyphsets.py - a glyphset pruning script
   - set-notdef-glyph.py - a script to set notdef in all sources
 
-- added shaperglot
+- Testing:
+  - added shaperglot
 
 ### Changed
 
@@ -47,6 +48,10 @@
   - Improved design of mathematical symbols
   - Improved positioning of small numbers for better consistency within the whole design space
   - Improved small number positioning (sups, subs, sinf, numr, dnom, frac)
+
+- Metadata in the font: 
+  - updated STAT table
+  - updated MVAR 
 
 - Scripts:
   - updated set-overlap-bits.py
