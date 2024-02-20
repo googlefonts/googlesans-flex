@@ -7,6 +7,21 @@
       <key>public.kern2.j_left</key>
       <integer>80</integer>
     </dict>
+    <key>Iacute</key>
+    <dict>
+      <key>Idieresis</key>
+      <integer>100</integer>
+    </dict>
+    <key>Icircumflex</key>
+    <dict>
+      <key>Idieresis</key>
+      <integer>70</integer>
+    </dict>
+    <key>Idieresis</key>
+    <dict>
+      <key>Icircumflex</key>
+      <integer>60</integer>
+    </dict>
     <key>edieresis</key>
     <dict>
       <key>public.kern2.Y_left</key>
@@ -26,6 +41,14 @@
       <integer>100</integer>
       <key>public.kern2.Y_left</key>
       <integer>65</integer>
+      <key>public.kern2.braceright_left</key>
+      <integer>100</integer>
+      <key>public.kern2.bracketright_left</key>
+      <integer>100</integer>
+      <key>public.kern2.quote_left</key>
+      <integer>80</integer>
+      <key>public.kern2.quoteright_left</key>
+      <integer>80</integer>
     </dict>
     <key>imacron</key>
     <dict>
@@ -44,7 +67,7 @@
       <key>public.kern2.TM_left</key>
       <integer>-120</integer>
       <key>public.kern2.T_left</key>
-      <integer>-110</integer>
+      <integer>-60</integer>
       <key>public.kern2.U_left</key>
       <integer>-40</integer>
       <key>public.kern2.V_left</key>
@@ -52,7 +75,7 @@
       <key>public.kern2.W_left</key>
       <integer>-95</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-115</integer>
+      <integer>-80</integer>
       <key>public.kern2.asterisk_left</key>
       <integer>-80</integer>
       <key>public.kern2.at_left</key>
@@ -413,6 +436,10 @@
     </dict>
     <key>public.kern1.H_right</key>
     <dict>
+      <key>Icircumflex</key>
+      <integer>0</integer>
+      <key>Idieresis</key>
+      <integer>0</integer>
       <key>idieresis</key>
       <integer>60</integer>
       <key>public.kern2.four_sinf_left</key>
@@ -547,7 +574,7 @@
       <key>public.kern2.W_left</key>
       <integer>-60</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-130</integer>
+      <integer>-90</integer>
       <key>public.kern2.a_left</key>
       <integer>40</integer>
       <key>public.kern2.asterisk_left</key>
@@ -1029,9 +1056,9 @@
       <key>igrave</key>
       <integer>40</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-120</integer>
+      <integer>-100</integer>
       <key>public.kern2.A_left</key>
-      <integer>-130</integer>
+      <integer>-60</integer>
       <key>public.kern2.J_left</key>
       <integer>-120</integer>
       <key>public.kern2.O_left</key>
@@ -1236,7 +1263,7 @@
       <key>idieresis</key>
       <integer>70</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-180</integer>
+      <integer>-140</integer>
       <key>public.kern2.A_left</key>
       <integer>-150</integer>
       <key>public.kern2.Dcroat_Left</key>
@@ -1351,7 +1378,7 @@
       <key>idieresis</key>
       <integer>100</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-125</integer>
+      <integer>-90</integer>
       <key>public.kern2.A_left</key>
       <integer>-90</integer>
       <key>public.kern2.Dcroat_Left</key>
@@ -1551,7 +1578,7 @@
       <key>public.kern2.AE_left</key>
       <integer>-180</integer>
       <key>public.kern2.A_left</key>
-      <integer>-115</integer>
+      <integer>-80</integer>
       <key>public.kern2.Dcroat_Left</key>
       <integer>-20</integer>
       <key>public.kern2.J_left</key>
@@ -1973,6 +2000,8 @@
     </dict>
     <key>public.kern1.braceleft_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>100</integer>
       <key>public.kern2.AE_left</key>
       <integer>-20</integer>
       <key>public.kern2.J_left</key>
@@ -2081,6 +2110,8 @@
     </dict>
     <key>public.kern1.bracketleft_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>100</integer>
       <key>public.kern2.AE_left</key>
       <integer>-20</integer>
       <key>public.kern2.O_left</key>
@@ -2543,7 +2574,7 @@
       <key>igrave</key>
       <integer>30</integer>
       <key>public.kern2.AE_left</key>
-      <integer>-80</integer>
+      <integer>-60</integer>
       <key>public.kern2.A_left</key>
       <integer>-40</integer>
       <key>public.kern2.Dcroat_Left</key>
@@ -3900,6 +3931,8 @@
     </dict>
     <key>public.kern1.quote_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>80</integer>
       <key>public.kern2.AE_left</key>
       <integer>-220</integer>
       <key>public.kern2.A_left</key>
@@ -3951,6 +3984,8 @@
     </dict>
     <key>public.kern1.quoteleft_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>80</integer>
       <key>public.kern2.AE_left</key>
       <integer>-220</integer>
       <key>public.kern2.A_left</key>
@@ -4008,6 +4043,8 @@
     </dict>
     <key>public.kern1.quoteright_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>80</integer>
       <key>public.kern2.AE_left</key>
       <integer>-290</integer>
       <key>public.kern2.A_left</key>
@@ -5082,7 +5119,7 @@
     <key>public.kern1.v_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
-      <integer>-110</integer>
+      <integer>-90</integer>
       <key>public.kern2.A_left</key>
       <integer>-75</integer>
       <key>public.kern2.Hbar_left</key>
@@ -5191,7 +5228,7 @@
     <key>public.kern1.w_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
-      <integer>-90</integer>
+      <integer>-80</integer>
       <key>public.kern2.A_left</key>
       <integer>-60</integer>
       <key>public.kern2.Hbar_left</key>
@@ -5351,7 +5388,7 @@
     <key>public.kern1.y_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
-      <integer>-120</integer>
+      <integer>-90</integer>
       <key>public.kern2.A_left</key>
       <integer>-75</integer>
       <key>public.kern2.Hbar_left</key>

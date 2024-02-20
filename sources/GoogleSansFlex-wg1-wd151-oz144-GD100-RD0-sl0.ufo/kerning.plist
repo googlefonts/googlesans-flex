@@ -2,6 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>Iacute</key>
+    <dict>
+      <key>Idieresis</key>
+      <integer>140</integer>
+      <key>public.kern2.H_left</key>
+      <integer>0</integer>
+    </dict>
+    <key>Icircumflex</key>
+    <dict>
+      <key>Idieresis</key>
+      <integer>140</integer>
+    </dict>
+    <key>Idieresis</key>
+    <dict>
+      <key>Icircumflex</key>
+      <integer>140</integer>
+    </dict>
     <key>Oslash</key>
     <dict>
       <key>public.kern2.T_left</key>
@@ -42,6 +59,8 @@
       <integer>240</integer>
       <key>public.kern2.l_left</key>
       <integer>200</integer>
+      <key>public.kern2.quote_left</key>
+      <integer>90</integer>
     </dict>
     <key>imacron</key>
     <dict>
@@ -89,7 +108,7 @@
       <key>public.kern2.W_left</key>
       <integer>-470</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-570</integer>
+      <integer>-480</integer>
       <key>public.kern2.asterisk_left</key>
       <integer>-160</integer>
       <key>public.kern2.b_slash_left</key>
@@ -467,6 +486,10 @@
     </dict>
     <key>public.kern1.H_right</key>
     <dict>
+      <key>Icircumflex</key>
+      <integer>0</integer>
+      <key>Idieresis</key>
+      <integer>0</integer>
       <key>icircumflex</key>
       <integer>110</integer>
       <key>idieresis</key>
@@ -1635,7 +1658,7 @@
       <key>public.kern2.AE_left</key>
       <integer>-610</integer>
       <key>public.kern2.A_left</key>
-      <integer>-570</integer>
+      <integer>-480</integer>
       <key>public.kern2.Germandb_left</key>
       <integer>-200</integer>
       <key>public.kern2.J_left</key>
@@ -4126,6 +4149,8 @@
     </dict>
     <key>public.kern1.quote_right</key>
     <dict>
+      <key>idieresis</key>
+      <integer>90</integer>
       <key>public.kern2.AE_left</key>
       <integer>-220</integer>
       <key>public.kern2.A_left</key>
