@@ -63,7 +63,7 @@ compreffor==0.5.5
     # via ufo2ft
 contourpy==1.2.0
     # via matplotlib
-cryptography==41.0.5
+cryptography==42.0.4
     # via pyjwt
 cu2qu==1.6.7.post2
     # via babelfont
@@ -148,9 +148,8 @@ gitpython==3.1.41
     # via font-v
 glyphsets==0.6.5
     # via gftools
-glyphslib @ git+https://github.com/googlefonts/glyphsLib@no-width-linking-of-bracelayers
+glyphslib==6.6.5
     # via
-    #   https://github.com/googlefonts/googlesans-flex/issues/855
     #   -r requirements.in
     #   babelfont
     #   bumpfontversion
