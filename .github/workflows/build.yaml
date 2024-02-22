@@ -71,7 +71,7 @@ jobs:
       run: |
         release_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
         echo "RELEASE_ZIP_NAME=$release_zip_name" >> "$GITHUB_ENV"
-        zip -r $release_zip_name "${{ needs.build.outputs.artifact-name }}"
+        cd "${{ needs.build.outputs.artifact-name }}" && zip "../$release_zip_name" *.ttf
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
