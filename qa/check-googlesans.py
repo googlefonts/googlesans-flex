@@ -61,12 +61,15 @@ excluded_check_ids = [
     "com.google.fonts/check/fontdata_namecheck",  # online resource unavailable https://github.com/fonttools/fontbakery/issues/2719
     "com.google.fonts/check/STAT_strings",  # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "com.google.fonts/check/STAT",  # https://github.com/googlefonts/googlesans-flex/issues/835#issuecomment-1930057206
-    "com.google.fonts/check/fontbakery_version",  # ignore this while we have Fontbakery pinned
-    "com.google.fonts/check/glyphsets/shape_languages",  # we do our own shaperglot check
     "com.google.fonts/check/family/single_directory",  # conflicts with gftools' folder structure
     "com.adobe.fonts/check/family/consistent_family_name",  # intended with our statics
     "com.google.fonts/check/name/family_and_style_max_length",  # we know our statics exceed this limit and it's okay
+    "com.google.fonts/check/glyphsets/shape_languages",  # we do our own shpaerglot check
 ]
+
+if (Path(__file__).parent.parent / "requirements-fb.txt").exists():
+    # Fontbakery is currently pinned, ignore the version check
+    excluded_check_ids.append("com.google.fonts/check/fontbakery_version")
 
 # Each VF we build will have one of these suffixes depending on whether it
 # includes the full designspace or is restricted to upright or italic only.
