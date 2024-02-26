@@ -50,13 +50,13 @@ font-v==2.1.0
     # via fontbakery
 fontbakery[googlefonts]==0.10.9
     # via
-    #   -r requirements-qa.in
+    #   -r requirements-fb.in
     #   fontbakery
 fontfeatures==1.8.0
     # via babelfont
 fonttools[interpolatable,lxml,ufo,unicode]==4.48.1
     # via
-    #   -r requirements-qa.in
+    #   -r requirements-fb.in
     #   axisregistry
     #   babelfont
     #   booleanoperations
@@ -91,7 +91,7 @@ gitpython==3.1.41
     # via font-v
 glyphsets==0.6.11
     # via
-    #   -r requirements-qa.in
+    #   -r requirements-fb.in
     #   fontbakery
 glyphslib==6.6.3
     # via
@@ -123,7 +123,7 @@ opentype-sanitizer==9.1.0
     # via fontbakery
 opentypespec==1.9.1
     # via fontbakery
-orjson==3.9.13
+orjson==3.9.15
     # via babelfont
 packaging==23.2
     # via fontbakery
@@ -205,7 +205,7 @@ urllib3==2.2.0
     # via requests
 vharfbuzz==0.2.0
     # via
-    #   -r requirements-qa.in
+    #   -r requirements-fb.in
     #   fontbakery
     #   shaperglot
 youseedee==0.5.3
