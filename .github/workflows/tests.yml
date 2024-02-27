@@ -3,6 +3,10 @@ name: Tests
 on:
   workflow_call:
     inputs:
+      branch:
+        description: The branch to checkout
+        default: main
+        type: string
       repo-path:
         description: Path clone the repository into
         default: '.'
@@ -17,10 +21,11 @@ jobs:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 20
     steps:
-    - name: Checkout main
+    - name: Checkout ${{ inputs.branch }}
       uses: actions/checkout@v4
       with:
         path: ${{ inputs.repo-path }}
+        ref: ${{ inputs.branch }}
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -30,7 +35,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: ${{ inputs.artifact-name }}
-        path: fonts/variable
+        path: ${{ inputs.repo-path }}/fonts/variable
     - name: Avoid re-building fonts
       shell: bash
       run: |
