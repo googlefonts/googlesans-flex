@@ -1,4 +1,4 @@
-# tests
+# tests.yml
 
 Pre-requisites:
 1. There should be a checkout of the repo with up-to-date sources and built fonts
