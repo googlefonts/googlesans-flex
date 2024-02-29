@@ -8,7 +8,7 @@ on:
         required: true
 
 jobs:
-  convert-build-test:
+  convert:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 50
     steps:
@@ -35,14 +35,36 @@ jobs:
       uses: ./main/.github/actions/glyphspackage2ufo
       with:
         git-ref: ${{ github.event.inputs.git-ref }}
+    - name: Upload sources
+      id: upload-sources
+      uses: actions/upload-artifact@v4
+      with:
+        name: Generated UFO sources
+        path: sources
+  build-test:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 50
+    needs:
+    - convert
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        sparse-checkout: "!sources/"
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: ./main/.github/workflows/python-version.txt
+    - name: Download sources
+      uses: actions/download-artifact@v4
+      with:
+        name: Generated UFO sources
+        path: sources
     - name: Build fonts
       id: build-ufos
       uses: ./main/.github/actions/build-ufos-py
       env:
         SKIP_FONTV: true
-      with:
-        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
     - name: Run tests
       uses: ./main/.github/actions/tests
-      with:
-        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
