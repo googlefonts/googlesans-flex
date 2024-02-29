@@ -40,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Generated UFO sources
-        path: sources
+        path: ${{ steps.glyphspackage2ufo.outputs.directory }}/sources
   build-test:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 50
