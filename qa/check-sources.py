@@ -44,7 +44,7 @@ def ds(designspace: str) -> DesignSpaceDocument:
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/same_tabular_width")
-def check_same_tabular_widths(ufo_font: Font) -> CheckStatus:
+def check_same_tabular_widths(ufo_font: Font, config) -> CheckStatus:
     """Confirms that tabular glyphs have the same width within the same master."""
 
     warnings_by_layer = {}
@@ -76,15 +76,15 @@ def check_same_tabular_widths(ufo_font: Font) -> CheckStatus:
         yield PASS, "Tabular glyphs, if they exist, have the same width"
     else:
         for layer_name, warnings in warnings_by_layer.items():
-            txt = [
-                f"layer '{layer_name}':",
-                "",
-                *(
-                    f"* {name} ({width}) has different width than {ref_name} ({ref_width})"
-                    for (name, width, ref_name, ref_width) in warnings
+            yield (
+                FAIL,
+                Message(
+                    "mismatching-tabular-widths",
+                    f"layer '{layer_name}':\n\n"
+                    f"""{utils.bullet_list(config, [f"{name} ({width}) has different width than {ref_name} ({ref_width})"
+                     for (name, width, ref_name, ref_width) in warnings])}""",
                 ),
-            ]
-            yield FAIL, "\n".join(txt)
+            )
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/suspicious_kerning_values")
