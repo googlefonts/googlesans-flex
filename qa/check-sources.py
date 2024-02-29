@@ -21,6 +21,7 @@ from fontbakery.fonts_profile import profile_factory
 from fontbakery.message import Message
 from fontbakery.section import Section
 from fontbakery.status import FAIL, INFO, PASS, SKIP, WARN, Status
+from fontbakery import utils
 from fontTools.designspaceLib import DesignSpaceDocument
 from ufoLib2 import Font
 
@@ -84,7 +85,7 @@ def check_same_tabular_widths(ufo_font: Font) -> CheckStatus:
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/suspicious_kerning_values")
-def check_suspicious_kerning_values(ufo_font: Font) -> CheckStatus:
+def check_suspicious_kerning_values(ufo_font: Font, config) -> CheckStatus:
     """Check for small and large kerning values outside a range and other
     things."""
 
@@ -121,19 +122,24 @@ def check_suspicious_kerning_values(ufo_font: Font) -> CheckStatus:
     if not suspicious_kerning:
         yield PASS, "No suspicion raised"
     else:
-        txt = [
-            f"Kerning values outside the accepted range of [{threshold_low}, {threshold_high}]:",
-            "",
-            *(
-                f"* Pair {pair} (e.g. {example}): {value}"
-                for (pair, example, value) in suspicious_kerning
+        yield (
+            WARN,
+            Message(
+                "suspicious-kerning-values",
+                f"Kerning values outside the accepted range of [{threshold_low}, {threshold_high}]:\n\n"
+                f"""{utils.bullet_list(
+                    config,
+                    [
+                        f"Pair {pair} (e.g. {example}): {value}"
+                        for (pair, example, value) in suspicious_kerning
+                    ],
+                )}""",
             ),
-        ]
-        yield WARN, "\n".join(txt)
+        )
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/same_kerning_groups")
-def check_same_kerning_groupss(ds: DesignSpaceDocument) -> CheckStatus:
+def check_same_kerning_groups(ds: DesignSpaceDocument) -> CheckStatus:
     """Confirms that all sources have the same kerning groups per Designspace."""
 
     default_source = ds.findDefault()
