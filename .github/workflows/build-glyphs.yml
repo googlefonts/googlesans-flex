@@ -37,13 +37,17 @@ jobs:
         git-ref: ${{ github.event.inputs.git-ref }}
     - name: Create sources tarball
       shell: bash
-      run: tar --create --file "UFO sources.tar" "${{ steps.glyphspackage2ufo.outputs.directory }}/sources"
-    - name: Upload sources
+      run: |
+        cd "${{ steps.glyphspackage2ufo.outputs.directory }}"
+        rm -r venv
+        shopt -s dotglob
+        tar --create --exclude-vcs --file "UFO sources.tar" *
+    - name: Upload sources tarball
       id: upload-sources
       uses: actions/upload-artifact@v4
       with:
-        name: Generated UFO sources
-        path: UFO sources.tar
+        name: Generated UFO sources.tar
+        path: ${{ steps.glyphspackage2ufo.outputs.directory }}/UFO sources.tar
         compression-level: 9
         if-no-files-found: error
   build-test:
@@ -52,26 +56,21 @@ jobs:
     needs:
     - convert
     steps:
-    - name: Checkout main
-      uses: actions/checkout@v4
+    - name: Download sources tarball
+      uses: actions/download-artifact@v4
       with:
-        ref: main
-        sparse-checkout: "!sources/"
+        name: Generated UFO sources.tar
+    - name: Extract sources from tarball
+      shell: bash
+      run: tar --extract --file "UFO sources.tar"
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version-file: ./main/.github/workflows/python-version.txt
-    - name: Download sources
-      uses: actions/download-artifact@v4
-      with:
-        name: Generated UFO sources
-    - name: Extract sources from tarball
-      shell: bash
-      run: tar --extract --strip-components 8 --file "UFO sources.tar" --directory sources
+        python-version-file: ./.github/workflows/python-version.txt
     - name: Build fonts
       id: build-ufos
-      uses: ./main/.github/actions/build-ufos-py
+      uses: ./.github/actions/build-ufos-py
       env:
         SKIP_FONTV: true
     - name: Run tests
-      uses: ./main/.github/actions/tests
+      uses: ./.github/actions/tests
