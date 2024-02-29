@@ -35,12 +35,17 @@ jobs:
       uses: ./main/.github/actions/glyphspackage2ufo
       with:
         git-ref: ${{ github.event.inputs.git-ref }}
+    - name: Create sources tarball
+      shell: bash
+      run: tar --create --file "UFO sources.tar" "${{ steps.glyphspackage2ufo.outputs.directory }}/sources"
     - name: Upload sources
       id: upload-sources
       uses: actions/upload-artifact@v4
       with:
         name: Generated UFO sources
-        path: ${{ steps.glyphspackage2ufo.outputs.directory }}/sources
+        path: UFO sources.tar
+        compression-level: 9
+        if-no-files-found: error
   build-test:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 50
@@ -60,7 +65,9 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: Generated UFO sources
-        path: sources
+    - name: Extract sources from tarball
+      shell: bash
+      run: tar --extract --strip-components 8 --file "UFO sources.tar" --directory sources
     - name: Build fonts
       id: build-ufos
       uses: ./main/.github/actions/build-ufos-py
