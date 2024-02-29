@@ -59,7 +59,10 @@ def check_same_tabular_widths(ufo_font: Font) -> CheckStatus:
             width_glyph = next(iter(tabulars))
         width = layer[width_glyph].width
         if width is None:
-            yield FAIL, f"layer {layer.name}: {width_glyph} has no width, stopping check"
+            yield (
+                FAIL,
+                f"layer {layer.name}: {width_glyph} has no width, stopping check",
+            )
             return
 
         for name in tabulars:
@@ -150,7 +153,10 @@ def check_same_kerning_groups(ds: DesignSpaceDocument) -> CheckStatus:
         if source.font.groups == reference:
             yield PASS, f"{source.filename} has same kerning groups as default source"
         else:
-            yield WARN, f"{source.filename} does not have the same kerning groups as default source"
+            yield (
+                WARN,
+                f"{source.filename} does not have the same kerning groups as default source",
+            )
 
 
 @check(id="com.google.fonts/check/googlesansflex/sources/kerning_present")
@@ -180,9 +186,15 @@ def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
             effective_kerning[(first, second)] = value
 
         if effective_kerning:
-            yield INFO, f"{source.filename}: Found {len(effective_kerning)} kerning pairs (not counting exceptions)"
+            yield (
+                INFO,
+                f"{source.filename}: Found {len(effective_kerning)} kerning pairs (not counting exceptions)",
+            )
         else:
-            yield WARN, f"{source.filename}: Found no kerning pairs (not counting exceptions)"
+            yield (
+                WARN,
+                f"{source.filename}: Found no kerning pairs (not counting exceptions)",
+            )
 
 
 profile.auto_register(globals())
