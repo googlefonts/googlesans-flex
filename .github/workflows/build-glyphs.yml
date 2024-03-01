@@ -60,7 +60,7 @@ jobs:
         if-no-files-found: error
     outputs:
       sources-artifact: ${{ steps.zip-name.outputs.artifact-name }}
-  build-test:
+  build:
     runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 50
     needs:
@@ -82,5 +82,13 @@ jobs:
       uses: ./.github/actions/build-ufos-py
       env:
         SKIP_FONTV: true
-    - name: Run tests
-      uses: ./.github/actions/tests
+    outputs:
+      variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
+  test:
+    needs:
+    - convert
+    - build
+    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
+    with:
+      artifact-as-branch: ${{ needs.convert.outputs.sources-artifact }}.tar
+      artifact-name: ${{ needs.build.outputs.variable-artifact }}
