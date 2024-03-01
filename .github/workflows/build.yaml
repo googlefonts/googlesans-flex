@@ -39,7 +39,7 @@ jobs:
   test:
     needs:
     - build
-    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
+    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
     with:
       artifact-name: ${{ needs.build.outputs.artifact-name }}
   release:

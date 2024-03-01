@@ -71,7 +71,7 @@ jobs:
     needs:
     - import-branch
     - build-variable
-    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
+    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
     with:
       branch: ${{ needs.import-branch.outputs.import-branch }}
       artifact-name: ${{ needs.build-variable.outputs.variable-artifact }}

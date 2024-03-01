@@ -10,7 +10,7 @@ on:
 jobs:
   convert:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 50
+    timeout-minutes: 20
     steps:
     - name: Checkout main
       uses: actions/checkout@v4
@@ -62,7 +62,7 @@ jobs:
       sources-artifact: ${{ steps.zip-name.outputs.artifact-name }}
   build:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 50
+    timeout-minutes: 20
     needs:
     - convert
     steps:
@@ -88,7 +88,7 @@ jobs:
     needs:
     - convert
     - build
-    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
+    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
     with:
       artifact-as-branch: ${{ needs.convert.outputs.sources-artifact }}.tar
       artifact-name: ${{ needs.build.outputs.variable-artifact }}
