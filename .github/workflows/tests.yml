@@ -7,6 +7,9 @@ on:
         description: The branch to checkout
         default: main
         type: string
+      artifact-as-branch:
+        description: If set, download this artifact and use it as a checkout of the repo
+        type: string
       repo-path:
         description: Path clone the repository into
         default: '.'
@@ -22,17 +25,30 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: Checkout ${{ inputs.branch }}
+      if: ${{ inputs.artifact-as-branch == '' }}
       uses: actions/checkout@v4
       with:
         path: ${{ inputs.repo-path }}
         ref: ${{ inputs.branch }}
+    - name: Download sources from artifact
+      if: ${{ inputs.artifact-as-branch != '' }}
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-as-branch }}
+        path: ${{ inputs.repo-path }}
+    - name: Extract sources from tarball
+      if: ${{ inputs.artifact-as-branch != '' }}
+      shell: bash
+      run: |
+        cd "${{ inputs.repo-path }}"
+        tar --extract --file "UFO sources.tar"
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
         cache: pip
     - name: Download built fonts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.artifact-name }}
         path: ${{ inputs.repo-path }}/fonts/variable
@@ -61,7 +77,7 @@ jobs:
         touch "${{ inputs.repo-path }}/build.stamp"
         make --directory "${{ inputs.repo-path }}" shaperglot
     - name: Upload shaperglot report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Shaperglot report
         path: ${{ inputs.repo-path }}/out/shaperglot.txt
@@ -70,7 +86,7 @@ jobs:
       shell: bash
       run: "${{ inputs.repo-path }}/scripts/fontbakery.sh"
     - name: Upload Fontbakery reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
