@@ -45,3 +45,4 @@ runs:
     with:
       name: ${{ steps.zip-name.outputs.artifact-name }}
       path: ${{ inputs.repo-path }}/fonts/variable
+      if-no-files-found: error

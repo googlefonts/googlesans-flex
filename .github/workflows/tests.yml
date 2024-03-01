@@ -81,6 +81,7 @@ jobs:
       with:
         name: Shaperglot report
         path: ${{ inputs.repo-path }}/out/shaperglot.txt
+        if-no-files-found: error
     - name: Run Fontbakery
       id: fontbakery
       shell: bash
@@ -94,3 +95,4 @@ jobs:
       with:
         name: Fontbakery reports
         path: ${{ inputs.repo-path }}/out/fontbakery
+        if-no-files-found: error
