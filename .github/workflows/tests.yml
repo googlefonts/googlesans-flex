@@ -1,0 +1,75 @@
+name: Tests
+
+on:
+  workflow_call:
+    inputs:
+      repo-path:
+        description: Path clone the repository into
+        default: '.'
+        type: string
+      artifact-name:
+        description: The name of the artifact to download with the built fonts
+        required: true
+        type: string
+
+jobs:
+  tests:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 20
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v4
+      with:
+        path: ${{ inputs.repo-path }}
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
+        cache: pip
+    - name: Download built fonts
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: fonts/variable
+    - name: Avoid re-building fonts
+      shell: bash
+      run: |
+        python -m venv "${{ inputs.repo-path }}/venv"
+        touch "${{ inputs.repo-path }}/venv/touchfile"
+        if [ -d "${{ inputs.repo-path }}/fonts/variable" ]; then
+          # Trick make into not re-building the fonts
+          touch "${{ inputs.repo-path }}/build.stamp"
+        else
+          echo "::error title=Built fonts not found::No built fonts in ${{ inputs.repo-path }}/fonts/variable"
+          exit 1
+        fi
+    - name: Check with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@v2
+      with:
+        path: ${{ inputs.repo-path }}/fonts/variable/*.ttf
+    - name: Analyze TTF file size
+      shell: bash
+      run: make --directory "${{ inputs.repo-path }}" font-size
+    - name: Run shaperglot
+      shell: bash
+      run: |
+        touch "${{ inputs.repo-path }}/build.stamp"
+        make --directory "${{ inputs.repo-path }}" shaperglot
+    - name: Upload shaperglot report
+      uses: actions/upload-artifact@v3
+      with:
+        name: Shaperglot report
+        path: ${{ inputs.repo-path }}/out/shaperglot.txt
+    - name: Run Fontbakery
+      id: fontbakery
+      shell: bash
+      run: "${{ inputs.repo-path }}/scripts/fontbakery.sh"
+    - name: Upload Fontbakery reports
+      uses: actions/upload-artifact@v3
+      # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
+      # https://docs.github.com/en/actions/learn-github-actions/expressions#always
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+      if: ${{ !cancelled() && (steps.fontbakery.conclusion == 'success' || steps.fontbakery.conclusion == 'failure') }}
+      with:
+        name: Fontbakery reports
+        path: ${{ inputs.repo-path }}/out/fontbakery
