@@ -37,20 +37,11 @@ jobs:
     outputs:
       artifact-name: ${{ steps.build-ufos.outputs.artifact-name }}
   test:
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 20
     needs:
     - build
-    steps:
-    - name: Checkout main
-      uses: actions/checkout@v4
-    - name: Download built fonts
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ needs.build.outputs.artifact-name }}
-        path: fonts/variable
-    - name: Run tests
-      uses: ./.github/actions/tests
+    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
+    with:
+      artifact-name: ${{ needs.build.outputs.artifact-name }}
   release:
     # Only run if the commit is tagged...
     if: github.event_name == 'release'
