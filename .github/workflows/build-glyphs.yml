@@ -62,7 +62,7 @@ jobs:
       sources-artifact: ${{ steps.zip-name.outputs.artifact-name }}
   build:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 20
+    timeout-minutes: 15
     needs:
     - convert
     steps:

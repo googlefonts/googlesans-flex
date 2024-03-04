@@ -32,7 +32,4 @@ Outputs: none
 
 ### shaperglot
 
-Target language list is currently hand-converted from: https://github.com/googlefonts/googlesans-flex/issues/684#issuecomment-1875253602
-
-`target_langs.txt` currently isn't used due to `shaperglot check` seemingly not accepting this language codes, despite saying it does in the help text.
-Raised [here](https://github.com/googlefonts/shaperglot/issues/23#issuecomment-1900600952)
+Target language list is currently hand-converted from [this GitHub issue](https://github.com/googlefonts/googlesans-flex/issues/684#issuecomment-1875253602) and is passed to shaperglot through `xargs` (see the Makefile)

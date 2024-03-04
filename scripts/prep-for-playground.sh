@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This files makes any changes necessary to the GitHub workflows required for
+# This file makes any changes necessary to the GitHub workflows required for
 # you to be able to start devving on them in the playground repo. They're all
-# done in a single commit that you can rebase & drop later when ready to PR
+# done in a single commit ("Patchie") that you can rebase & drop later when
+# ready to PR
 
 # If you're testing this script and want to undo, run:
 # git reset -q HEAD^ && git restore .github/workflows
