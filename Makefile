@@ -32,13 +32,13 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 	touch build.stamp
 
 venv/touchfile: requirements.txt
-	@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Set up venv"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Set up venv"
 	test -d venv || python3 -m venv venv
 	. venv/bin/activate \
 		&& pip install -U setuptools wheel pip \
 		&& pip install --no-deps -r requirements.txt
 	touch venv/touchfile
-	@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 
 test: build.stamp
 	@scripts/fontbakery.sh
@@ -84,9 +84,9 @@ update: venv
 	pip-compile --resolver=backtracking -U requirements.in
 
 font-size: venv build
-	@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install font-size"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install font-size"
 	venv/bin/pip install -U font-size
-	@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 	find fonts -name '*.ttf' -type f | xargs venv/bin/font-size
 
 progress-chart: venv
@@ -99,8 +99,8 @@ glyph-hunt: venv
 	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
 
 shaperglot: venv build
-	@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install shaperglot"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install shaperglot"
 	venv/bin/pip install -U shaperglot
-	@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 	mkdir -p out
 	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt | tee out/shaperglot.txt
