@@ -39,11 +39,6 @@ runs:
     run: |
       touch "${{ inputs.repo-path }}/build.stamp"
       make --directory "${{ inputs.repo-path }}" shaperglot
-  - name: Upload shaperglot report
-    uses: actions/upload-artifact@v3
-    with:
-      name: Shaperglot report
-      path: ${{ inputs.repo-path }}/out/shaperglot.txt
   - name: Run Fontbakery
     id: fontbakery
     shell: bash

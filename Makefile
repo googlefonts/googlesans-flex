@@ -101,6 +101,6 @@ shaperglot: venv build
 	venv/bin/pip install -U "shaperglot>=0.5" pyyaml
 	mkdir -p out
 # Report coverage of target languages
-	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt | tee out/shaperglot.txt
+	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
 # Report coverage of all languages
 	venv/bin/shaperglot report --group fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
