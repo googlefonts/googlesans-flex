@@ -10,10 +10,6 @@ on:
       artifact-as-branch:
         description: If set, download this artifact and use it as a checkout of the repo
         type: string
-      repo-path:
-        description: Path clone the repository into
-        default: '.'
-        type: string
       artifact-name:
         description: The name of the artifact to download with the built fonts
         required: true
@@ -28,24 +24,20 @@ jobs:
       if: ${{ inputs.artifact-as-branch == '' }}
       uses: actions/checkout@v4
       with:
-        path: ${{ inputs.repo-path }}
         ref: ${{ inputs.branch }}
     - name: Download sources from artifact
       if: ${{ inputs.artifact-as-branch != '' }}
       uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.artifact-as-branch }}
-        path: ${{ inputs.repo-path }}
     - name: Extract sources from tarball
       if: ${{ inputs.artifact-as-branch != '' }}
       shell: bash
-      run: |
-        cd "${{ inputs.repo-path }}"
-        tar --extract --file "UFO sources.tar"
+      run: tar --extract --file "UFO sources.tar"
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version-file: ${{ inputs.repo-path }}/.github/workflows/python-version.txt
+        python-version-file: .github/workflows/python-version.txt
         cache: pip
     - name: Download built fonts
       uses: actions/download-artifact@v4
@@ -55,37 +47,37 @@ jobs:
     - name: Avoid re-building fonts
       shell: bash
       run: |
-        python -m venv "${{ inputs.repo-path }}/venv"
-        touch "${{ inputs.repo-path }}/venv/touchfile"
-        if [ -d "${{ inputs.repo-path }}/fonts/variable" ]; then
+        python -m venv venv
+        touch venv/touchfile
+        if [ -d "fonts/variable" ]; then
           # Trick make into not re-building the fonts
-          touch "${{ inputs.repo-path }}/build.stamp"
+          touch build.stamp
         else
-          echo "::error title=Built fonts not found::No built fonts in ${{ inputs.repo-path }}/fonts/variable"
+          echo "::error title=Built fonts not found::No built fonts in ./fonts/variable"
           exit 1
         fi
     - name: Check with OT Sanitizer
       uses: f-actions/opentype-sanitizer@v2
       with:
-        path: ${{ inputs.repo-path }}/fonts/variable/*.ttf
+        path: fonts/variable/*.ttf
     - name: Analyze TTF file size
       shell: bash
-      run: make --directory "${{ inputs.repo-path }}" font-size
+      run: make font-size
     - name: Run shaperglot
       shell: bash
       run: |
-        touch "${{ inputs.repo-path }}/build.stamp"
-        make --directory "${{ inputs.repo-path }}" shaperglot
+        touch build.stamp
+        make shaperglot
     - name: Upload shaperglot report
       uses: actions/upload-artifact@v4
       with:
         name: Shaperglot report
-        path: ${{ inputs.repo-path }}/out/shaperglot.txt
+        path: out/shaperglot.txt
         if-no-files-found: error
     - name: Run Fontbakery
       id: fontbakery
       shell: bash
-      run: "${{ inputs.repo-path }}/scripts/fontbakery.sh"
+      run: scripts/fontbakery.sh
     - name: Upload Fontbakery reports
       uses: actions/upload-artifact@v4
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
@@ -94,5 +86,5 @@ jobs:
       if: ${{ !cancelled() && (steps.fontbakery.conclusion == 'success' || steps.fontbakery.conclusion == 'failure') }}
       with:
         name: Fontbakery reports
-        path: ${{ inputs.repo-path }}/out/fontbakery
+        path: out/fontbakery
         if-no-files-found: error
