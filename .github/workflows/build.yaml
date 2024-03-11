@@ -41,6 +41,7 @@ jobs:
     - build
     uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
     with:
+      branch: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
       artifact-name: ${{ needs.build.outputs.artifact-name }}
   release:
     # Only run if the commit is tagged...
