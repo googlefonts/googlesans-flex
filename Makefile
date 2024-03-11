@@ -98,6 +98,9 @@ glyph-hunt: venv
 shaperglot: venv build
 # FIXME: shaperglot doesn't declare its dependency on pyyaml, remove once
 # https://github.com/googlefonts/shaperglot/issues/42 is solved & released
-	venv/bin/pip install -U shaperglot pyyaml
+	venv/bin/pip install -U "shaperglot>=0.5" pyyaml
 	mkdir -p out
-	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt | tee out/shaperglot.txt
+# Report coverage of target languages
+	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
+# Report coverage of all languages
+	venv/bin/shaperglot report --group fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
