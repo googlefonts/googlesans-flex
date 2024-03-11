@@ -35,7 +35,7 @@ jobs:
       shell: bash
       run: tar --extract --file "UFO sources.tar"
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version-file: .github/workflows/python-version.txt
         cache: pip
@@ -57,7 +57,7 @@ jobs:
           exit 1
         fi
     - name: Check with OT Sanitizer
-      uses: f-actions/opentype-sanitizer@v2
+      uses: f-actions/opentype-sanitizer@v3
       with:
         path: fonts/variable/*.ttf
     - name: Analyze TTF file size
