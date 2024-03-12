@@ -30,7 +30,7 @@ jobs:
           ref: main
           path: main
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version-file: ./main/.github/workflows/python-version.txt
           cache: pip
@@ -58,7 +58,7 @@ jobs:
         with:
           ref: ${{ needs.import-branch.outputs.import-branch }}
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version-file: ./.github/workflows/python-version.txt
           cache: pip
@@ -68,20 +68,10 @@ jobs:
     outputs:
       variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
   test:
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 20
     needs:
-      - import-branch
-      - build-variable
-    steps:
-      - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.import-branch.outputs.import-branch }}
-      - name: Download built fonts
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ needs.build-variable.outputs.variable-artifact }}
-          path: fonts/variable
-      - name: Run tests
-        uses: ./.github/actions/tests
+    - import-branch
+    - build-variable
+    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
+    with:
+      branch: ${{ needs.import-branch.outputs.import-branch }}
+      artifact-name: ${{ needs.build-variable.outputs.variable-artifact }}

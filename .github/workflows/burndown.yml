@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all so we get access to all tags, etc.
       - name: Set up Python 3.x
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
           cache: pip
@@ -26,7 +26,7 @@ jobs:
           PROGRESS_BURNDOWN_CACHING: 1
         run: make progress-chart
       - name: Upload chart
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gs-flex-progress
           path: gs-flex-progress.png

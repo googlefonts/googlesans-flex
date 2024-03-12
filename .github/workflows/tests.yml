@@ -1,0 +1,84 @@
+name: Tests
+
+on:
+  workflow_call:
+    inputs:
+      branch:
+        description: The branch to checkout
+        default: main
+        type: string
+      artifact-as-branch:
+        description: If set, download this artifact and use it as a checkout of the repo
+        type: string
+      artifact-name:
+        description: The name of the artifact to download with the built fonts
+        required: true
+        type: string
+
+jobs:
+  tests:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 20
+    steps:
+    - name: Checkout ${{ inputs.branch }}
+      if: ${{ inputs.artifact-as-branch == '' }}
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.branch }}
+    - name: Download sources from artifact
+      if: ${{ inputs.artifact-as-branch != '' }}
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-as-branch }}
+    - name: Extract sources from tarball
+      if: ${{ inputs.artifact-as-branch != '' }}
+      shell: bash
+      run: tar --extract --file "UFO sources.tar"
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: .github/workflows/python-version.txt
+        cache: pip
+    - name: Download built fonts
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ inputs.repo-path }}/fonts/variable
+    - name: Avoid re-building fonts
+      shell: bash
+      run: |
+        python -m venv venv
+        touch venv/touchfile
+        if [ -d "fonts/variable" ]; then
+          # Trick make into not re-building the fonts
+          touch build.stamp
+        else
+          echo "::error title=Built fonts not found::No built fonts in ./fonts/variable"
+          exit 1
+        fi
+    - name: Check with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@v3
+      with:
+        path: fonts/variable/*.ttf
+    - name: Analyze TTF file size
+      shell: bash
+      run: make font-size
+    - name: Run shaperglot
+      shell: bash
+      run: |
+        touch build.stamp
+        make shaperglot
+    - name: Run Fontbakery
+      id: fontbakery
+      shell: bash
+      run: scripts/fontbakery.sh
+    - name: Upload Fontbakery reports
+      uses: actions/upload-artifact@v4
+      # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
+      # https://docs.github.com/en/actions/learn-github-actions/expressions#always
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+      if: ${{ !cancelled() && (steps.fontbakery.conclusion == 'success' || steps.fontbakery.conclusion == 'failure') }}
+      with:
+        name: Fontbakery reports
+        path: out/fontbakery
+        if-no-files-found: error

@@ -34,14 +34,15 @@ runs:
       make --directory ${{ inputs.repo-path }} build
   - name: Generate archive name
     id: zip-name
-    uses: alpha-tango-kilo/gha-artifact-name@master
+    uses: alpha-tango-kilo/gha-artifact-name@v1
     with:
       repo-name: Google Sans Flex
       repo-root: ${{ inputs.repo-path }}
       overrides: |
         build-glyphs: glyphs
   - name: Upload archive
-    uses: actions/upload-artifact@v3
+    uses: actions/upload-artifact@v4
     with:
       name: ${{ steps.zip-name.outputs.artifact-name }}
       path: ${{ inputs.repo-path }}/fonts/variable
+      if-no-files-found: error

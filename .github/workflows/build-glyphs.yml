@@ -8,9 +8,9 @@ on:
         required: true
 
 jobs:
-  convert-build-test:
+  convert:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 50
+    timeout-minutes: 20
     steps:
     - name: Checkout main
       uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
           exit 1
         fi
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version-file: ./main/.github/workflows/python-version.txt
         cache: pip
@@ -35,14 +35,60 @@ jobs:
       uses: ./main/.github/actions/glyphspackage2ufo
       with:
         git-ref: ${{ github.event.inputs.git-ref }}
+    - name: Create sources tarball
+      shell: bash
+      run: |
+        cd "${{ steps.glyphspackage2ufo.outputs.directory }}"
+        rm -r venv
+        shopt -s dotglob
+        tar --create --exclude-vcs --file "UFO sources.tar" *
+    - name: Generate sources artifact name
+      id: zip-name
+      uses: alpha-tango-kilo/gha-artifact-name@v1
+      with:
+        repo-name: Generated UFO sources
+        repo-root: ${{ steps.glyphspackage2ufo.outputs.directory }}
+        overrides: |
+          build-glyphs: glyphs
+    - name: Upload sources tarball
+      id: upload-sources
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ steps.zip-name.outputs.artifact-name }}.tar
+        path: ${{ steps.glyphspackage2ufo.outputs.directory }}/UFO sources.tar
+        compression-level: 9
+        if-no-files-found: error
+    outputs:
+      sources-artifact: ${{ steps.zip-name.outputs.artifact-name }}
+  build:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 15
+    needs:
+    - convert
+    steps:
+    - name: Download sources tarball
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ needs.convert.outputs.sources-artifact }}.tar
+    - name: Extract sources from tarball
+      shell: bash
+      run: tar --extract --file "UFO sources.tar"
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: ./.github/workflows/python-version.txt
     - name: Build fonts
       id: build-ufos
-      uses: ./main/.github/actions/build-ufos-py
+      uses: ./.github/actions/build-ufos-py
       env:
         SKIP_FONTV: true
-      with:
-        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
-    - name: Run tests
-      uses: ./main/.github/actions/tests
-      with:
-        repo-path: ${{ steps.glyphspackage2ufo.outputs.directory }}
+    outputs:
+      variable-artifact: ${{ steps.build-ufos.outputs.artifact-name }}
+  test:
+    needs:
+    - convert
+    - build
+    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
+    with:
+      artifact-as-branch: ${{ needs.convert.outputs.sources-artifact }}.tar
+      artifact-name: ${{ needs.build.outputs.variable-artifact }}
