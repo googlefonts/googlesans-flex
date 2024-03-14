@@ -9,12 +9,8 @@ on:
   push:
     branches:
       - main
-    tags:
   pull_request:
     types: [opened, synchronize, reopened]
-  release:
-    # A release, pre-release, or draft of a release was published
-    types: [published]
 
 jobs:
   build:
@@ -43,33 +39,3 @@ jobs:
     with:
       branch: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
       artifact-name: ${{ needs.build.outputs.artifact-name }}
-  release:
-    # Only run if the commit is tagged...
-    if: github.event_name == 'release'
-    # ... and it builds successfully
-    needs:
-    - build
-    - test
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-    - uses: actions/checkout@v4
-    - name: Download artifact files
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ needs.build.outputs.artifact-name }}
-        path: ${{ needs.build.outputs.artifact-name }}
-    - name: Create release archive
-      run: |
-        release_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
-        echo "RELEASE_ZIP_NAME=$release_zip_name" >> "$GITHUB_ENV"
-        cd "${{ needs.build.outputs.artifact-name }}" && zip "../$release_zip_name" *.ttf
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ${{ env.RELEASE_ZIP_NAME }}
-        asset_name: ${{ env.RELEASE_ZIP_NAME }}
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: "Production ready fonts"

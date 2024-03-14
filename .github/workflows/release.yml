@@ -1,0 +1,119 @@
+name: Release variable & statics
+
+on:
+  release:
+    # A release, pre-release, or draft of a release was published
+    types: [published]
+
+jobs:
+  build-variable:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 15
+    steps:
+    - name: Checkout ${{ github.ref_name }}
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref_name }}
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: ./.github/workflows/python-version.txt
+        cache: pip
+    - name: Build font
+      id: build-ufos
+      uses: ./.github/actions/build-ufos-py
+    outputs:
+      artifact-name: ${{ steps.build-ufos.outputs.artifact-name }}
+  cut-instances:
+    needs:
+    - build-variable
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - name: Checkout ${{ github.ref_name }}
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref_name }}
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: ./.github/workflows/python-version.txt
+        cache: pip
+    - name: Download artifact files
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ needs.build-variable.outputs.artifact-name }}
+        path: fonts/variable
+    - name: Set up venv
+      run: make venv
+    - name: Cut instances
+      run: |
+        touch build.stamp # don't rebuild fonts
+        . venv/bin/activate && make release
+    - name: Generate archive name
+      id: zip-name
+      uses: alpha-tango-kilo/gha-artifact-name@v1
+      with:
+        repo-name: Google Sans Flex
+        overrides: "release: statics"
+    - name: Upload archive
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ steps.zip-name.outputs.artifact-name }}
+        path: fonts/ttf
+        compression-level: 9
+        if-no-files-found: error
+    outputs:
+      artifact-name: ${{ steps.zip-name.outputs.artifact-name }}
+  test-variable:
+    needs:
+    - build-variable
+    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
+    with:
+      branch: ${{ github.ref_name }}
+      artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
+  # test-statics:
+  #   needs:
+  #   - cut-instances
+  upload-to-release:
+    needs:
+    - build-variable
+    - cut-instances
+    - test-variable
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - name: Download variable fonts
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ needs.build-variable.outputs.artifact-name }}
+        path: ${{ needs.build-variable.outputs.artifact-name }}
+    - name: Download static fonts
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ needs.cut-instances.outputs.artifact-name }}
+        path: ${{ needs.cut-instances.outputs.artifact-name }}
+    - name: Create release archives
+      id: release-archives
+      run: |
+        # Note: unsupported characters (such as spaces) are changes for periods
+        #       when uploading to the release
+        variable_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
+        echo "variable-zip-name=$variable_zip_name" >> "$GITHUB_OUTPUT"
+        cd "$GITHUB_WORKSPACE/${{ needs.build-variable.outputs.artifact-name }}" \
+          && zip -9 "../$variable_zip_name" *.ttf
+
+        statics_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace statics.zip"
+        echo "statics-zip-name=$statics_zip_name" >> "$GITHUB_OUTPUT"
+        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.artifact-name }}" \
+          && zip -9 "../$statics_zip_name" *.ttf
+    - name: Upload variable font archive to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: ${{ steps.release-archives.outputs.variable-zip-name }}
+        overwrite: true
+        body: "Production ready fonts"
+    - name: Upload static fonts archive to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: ${{ steps.release-archives.outputs.statics-zip-name }}
