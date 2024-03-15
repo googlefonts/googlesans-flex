@@ -17,10 +17,11 @@
 # that failed are also printed
 
 # Assumes the repository is in the parent folder of where the script lives
+# Set env var SKIP_SOURCES if you don't want to check sources
 
 set -e
 
-BIGGEST_TTF_PATH="fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf"
+all_ttfs="$(find fonts/ -name '*.ttf')"
 
 # Switch to repo path by going to the parent folder of where this script is
 cd "$(dirname "${BASH_SOURCE[0]}" | xargs dirname)"
@@ -47,26 +48,33 @@ mkdir -p out/fontbakery
 # 3. we can give a nice error message later
 failed=()
 
-find sources/ -name "*.ufo" -print0 | xargs -0 venv_bakery/bin/fontbakery \
-    check-profile -l WARN --auto-jobs --succinct --no-progress \
-    --html out/fontbakery/fontbakery-sources-report.html \
-    qa/check-sources.py \
-    sources/GoogleSansFlex.designspace \
-    || failed+=("check-sources")
+# Source checks
+if [ -z "$SKIP_SOURCES" ]; then
+    find sources/ -name "*.ufo" -print0 | xargs -0 venv_bakery/bin/fontbakery \
+        check-profile -l WARN --auto-jobs --succinct --no-progress \
+        --html out/fontbakery/fontbakery-sources-report.html \
+        qa/check-sources.py \
+        sources/GoogleSansFlex.designspace \
+        || failed+=("check-sources")
+fi
 
-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+# Compiled font tests
+echo "$all_ttfs" \
+    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-outlines-report.html \
-    fontbakery.profiles.outline "$BIGGEST_TTF_PATH" \
+    fontbakery.profiles.outline {} \
     || failed+=("fontbakery.profiles.outline")
 
-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+echo "$all_ttfs" \
+    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-googlesans-report.html \
-    qa/check-googlesans.py "$BIGGEST_TTF_PATH" \
+    qa/check-googlesans.py {} \
     || failed+=("check-googlesans")
 
-venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+echo "$all_ttfs" \
+    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-fea-report.html \
-    qa/check-fea.py "$BIGGEST_TTF_PATH" \
+    qa/check-fea.py {} \
     || failed+=("check-fea")
 
 # NOTE: The following checks can be activated after the sources are stable:
