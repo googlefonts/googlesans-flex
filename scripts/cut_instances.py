@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import itertools
+import multiprocessing
 import subprocess
 import sys
 from pathlib import Path
@@ -218,42 +219,55 @@ def main(args: list[str] | None = None) -> int:
     output_dir: Path = parsed_args.output_dir
     variable_font: Path = parsed_args.variable_font
 
-    for (family_name, workspace_instance), instance in itertools.product(
-        TARGET_INSTANCES.items(), designspace.instances
-    ):
-        weight = instance.getFullUserLocation(designspace)["Weight"]
-        coordinates = dict(workspace_instance)
-        coordinates["wght"] = weight
+    with multiprocessing.Pool() as pool:
+        for (family_name, workspace_instance), instance in itertools.product(
+            TARGET_INSTANCES.items(), designspace.instances
+        ):
+            weight = instance.getFullUserLocation(designspace)["Weight"]
+            coordinates = dict(workspace_instance)
+            coordinates["wght"] = weight
 
-        custom_parameters = dict(
-            instance.lib.get("com.schriftgestaltung.customParameters", ())
-        )
-        style_name = custom_parameters.get("preferredSubfamilyName", instance.styleName)
+            custom_parameters = dict(
+                instance.lib.get("com.schriftgestaltung.customParameters", ())
+            )
+            style_name = custom_parameters.get(
+                "preferredSubfamilyName", instance.styleName
+            )
 
-        print(
-            f"Cutting {family_name} {style_name} {coordinates} from {variable_font.name}"
-        )
+            print(
+                f"Cutting {family_name} {style_name} {coordinates} from {variable_font.name}"
+            )
 
-        if "panose" in custom_parameters:
-            panose = custom_parameters["panose"]
-        else:
-            print(f"WARN: panose isn't set for instance {instance.name}, using default")
-            panose = DEFAULT_PANOSE
+            if "panose" in custom_parameters:
+                panose = custom_parameters["panose"]
+            else:
+                print(
+                    f"WARN: panose isn't set for instance {instance.name}, using default"
+                )
+                panose = DEFAULT_PANOSE
 
-        ttf_name = (
-            family_name.replace(" ", "") + "-" + style_name.replace(" ", "") + ".ttf"
-        )
+            ttf_name = (
+                family_name.replace(" ", "")
+                + "-"
+                + style_name.replace(" ", "")
+                + ".ttf"
+            )
 
-        cut_instance(
-            variable_font,
-            coordinates,
-            panose,
-            family_name,
-            style_name,
-            instance.styleMapFamilyName,
-            instance.styleMapStyleName,
-            output_dir / ttf_name,
-        )
+            pool.apply_async(
+                cut_instance,
+                (
+                    variable_font,
+                    coordinates,
+                    panose,
+                    family_name,
+                    style_name,
+                    instance.styleMapFamilyName,
+                    instance.styleMapStyleName,
+                    output_dir / ttf_name,
+                ),
+            )
+        pool.close()
+        pool.join()
 
     return 0
 
