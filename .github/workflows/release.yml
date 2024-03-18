@@ -72,14 +72,47 @@ jobs:
     with:
       branch: ${{ github.ref_name }}
       artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
-  # test-statics:
-  #   needs:
-  #   - cut-instances
+  test-statics:
+    needs:
+    - cut-instances
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - name: Checkout ${{ github.ref_name }}
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref_name }}
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: ./.github/workflows/python-version.txt
+        cache: pip
+    - name: Download static fonts
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ needs.cut-instances.outputs.artifact-name }}
+        path: fonts/ttf
+    - name: Run Fontbakery
+      id: fontbakery-statics
+      env:
+        SKIP_SOURCES: 1
+      run: scripts/fontbakery.sh
+    - name: Upload Fontbakery reports
+      uses: actions/upload-artifact@v4
+      # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
+      # https://docs.github.com/en/actions/learn-github-actions/expressions#always
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+      if: ${{ !cancelled() && (steps.fontbakery-statics.conclusion == 'success' || steps.fontbakery-statics.conclusion == 'failure') }}
+      with:
+        name: Fontbakery statics reports
+        path: out/fontbakery
+        if-no-files-found: error
   upload-to-release:
     needs:
     - build-variable
     - cut-instances
     - test-variable
+    - test-statics
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
