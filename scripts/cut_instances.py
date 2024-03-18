@@ -32,6 +32,14 @@ from ufo2ft.fontInfoData import (
     normalizeStringForPostscript,
 )
 
+class GoogleSansFlexInstance(TypedDict):
+    wght: float
+    wdth: int
+    opsz: int
+    GRAD: int
+    ROND: int
+    slnt: int
+
 
 class WorkspaceInstance(TypedDict):
     opsz: int
@@ -223,16 +231,20 @@ def main(args: list[str] | None = None) -> int:
         for (family_name, workspace_instance), instance in itertools.product(
             TARGET_INSTANCES.items(), designspace.instances
         ):
-            weight = instance.getFullUserLocation(designspace)["Weight"]
-            coordinates = dict(workspace_instance)
-            coordinates["wght"] = weight
-
             custom_parameters = dict(
                 instance.lib.get("com.schriftgestaltung.customParameters", ())
             )
-            style_name = custom_parameters.get(
+            style_name: str = custom_parameters.get(
                 "preferredSubfamilyName", instance.styleName
             )
+
+            weight = instance.getFullUserLocation(designspace)["Weight"]
+            coordinates: GoogleSansFlexInstance = {
+                "wght": weight,
+                "slnt": -10 if style_name.endswith("Italic") else 0,
+                "GRAD": 0,
+                **workspace_instance,
+            }
 
             print(
                 f"Cutting {family_name} {style_name} {coordinates} from {variable_font.name}"
