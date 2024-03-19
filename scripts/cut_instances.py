@@ -22,19 +22,18 @@ import sys
 from pathlib import Path
 from typing import Any, TypedDict
 
+import fontTools.otlLib.optimize.gpos
 import ufoLib2
 from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables.O_S_2f_2 import Panose
+from fontv.libfv import FontVersion
+from prune_font_binary import main as prune_font_binary_main
 from ufo2ft.fontInfoData import (
     getAttrWithFallback,
     intListToNum,
     normalizeStringForPostscript,
 )
-
-from prune_font_binary import main as prune_font_binary_main
-from fontv.libfv import FontVersion
-import fontTools.otlLib.optimize.gpos
 
 
 class GoogleSansFlexInstance(TypedDict):
