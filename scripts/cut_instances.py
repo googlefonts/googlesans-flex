@@ -33,6 +33,7 @@ from ufo2ft.fontInfoData import (
 )
 
 from prune_font_binary import main as prune_font_binary_main
+from fontv.libfv import FontVersion
 
 
 class GoogleSansFlexInstance(TypedDict):
@@ -212,12 +213,19 @@ def build_name_entries(info: dict[str, Any], name: Any) -> None:
         name.setName(nameVal, nameId, platformId, platEncId, langId)
 
 
+def fontv_sha1(ttf_path: Path) -> None:
+    fv = FontVersion(ttf_path)
+    fv.set_state_git_commit_sha1()
+
+
 def cut_then_post_process(cut_instance_args: list[Any]) -> None:
     ttf_path: Path = cut_instance_args[-1]
     print(f"Cutting {ttf_path.name}")
     cut_instance(*cut_instance_args)
     print(f"Pruning {ttf_path.name}")
     prune_font_binary_main([str(ttf_path)])
+    print(f"Running font-v on {ttf_path.name}")
+    fontv_sha1(ttf_path)
 
 
 def main(args: list[str] | None = None) -> int:
