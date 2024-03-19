@@ -32,6 +32,9 @@ from ufo2ft.fontInfoData import (
     normalizeStringForPostscript,
 )
 
+from prune_font_binary import main as prune_font_binary_main
+
+
 class GoogleSansFlexInstance(TypedDict):
     wght: float
     wdth: int
@@ -209,6 +212,14 @@ def build_name_entries(info: dict[str, Any], name: Any) -> None:
         name.setName(nameVal, nameId, platformId, platEncId, langId)
 
 
+def cut_then_post_process(cut_instance_args: list[Any]) -> None:
+    ttf_path: Path = cut_instance_args[-1]
+    print(f"Cutting {ttf_path.name}")
+    cut_instance(*cut_instance_args)
+    print(f"Pruning {ttf_path.name}")
+    prune_font_binary_main([str(ttf_path)])
+
+
 def main(args: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Cut workspace statics (not designspace static instances!) from the big VF",
@@ -246,10 +257,6 @@ def main(args: list[str] | None = None) -> int:
                 **workspace_instance,
             }
 
-            print(
-                f"Cutting {family_name} {style_name} {coordinates} from {variable_font.name}"
-            )
-
             if "panose" in custom_parameters:
                 panose = custom_parameters["panose"]
             else:
@@ -264,18 +271,22 @@ def main(args: list[str] | None = None) -> int:
                 + style_name.replace(" ", "")
                 + ".ttf"
             )
+            ttf_path = output_dir / ttf_name
 
             pool.apply_async(
-                cut_instance,
+                cut_then_post_process,
                 (
-                    variable_font,
-                    coordinates,
-                    panose,
-                    family_name,
-                    style_name,
-                    instance.styleMapFamilyName,
-                    instance.styleMapStyleName,
-                    output_dir / ttf_name,
+                    # cut_instance args
+                    [
+                        variable_font,
+                        coordinates,
+                        panose,
+                        family_name,
+                        style_name,
+                        instance.styleMapFamilyName,
+                        instance.styleMapStyleName,
+                        ttf_path,
+                    ],
                 ),
             )
         pool.close()
