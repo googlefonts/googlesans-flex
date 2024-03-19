@@ -148,9 +148,8 @@ gitpython==3.1.41
     # via font-v
 glyphsets==0.6.5
     # via gftools
-glyphslib @ git+https://github.com/googlefonts/glyphsLib@no-width-linking-of-bracelayers
+glyphslib==6.6.5
     # via
-    #   https://github.com/googlefonts/googlesans-flex/issues/855
     #   -r requirements.in
     #   babelfont
     #   bumpfontversion
@@ -199,7 +198,7 @@ openstep-plist==0.3.1
     #   glyphslib
 opentype-sanitizer==9.1.0
     # via gftools
-orjson==3.9.10
+orjson==3.9.15
     # via babelfont
 packaging==23.2
     # via
