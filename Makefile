@@ -26,16 +26,13 @@ build.stamp: venv sources/config.yaml $(SOURCES)
 	if [ -z "${SKIP_FONTV}" ]; then venv/bin/font-v write --sha1 fonts/variable/*.ttf; fi
 	venv/bin/python scripts/prune_font_binary.py fonts/variable/*.ttf
 	venv/bin/python scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
-# Remove intermediary file leftover by gftools
-# https://github.com/googlefonts/gftools/issues/764
-	rm -vf fonts/variable/*.ttf.stat.yaml
 	touch build.stamp
 
 venv/touchfile: requirements.txt
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Set up venv"
 	test -d venv || python3 -m venv venv
 	. venv/bin/activate \
-		&& pip install -U setuptools wheel pip \
+		&& pip install -U wheel pip \
 		&& pip install --no-deps -r requirements.txt
 	touch venv/touchfile
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
