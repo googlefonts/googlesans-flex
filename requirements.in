@@ -6,4 +6,5 @@ matplotlib
 font-v
 
 # Latest stable version, for importing from .glyphs/.glyphspackage sources
-glyphslib>=6.4.1
+# glyphslib>=6.4.1
+glyphslib @ git+https://github.com/googlefonts/glyphsLib@no-width-linking-of-bracelayers
