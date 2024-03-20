@@ -94,15 +94,9 @@ def cut_instance(
     panose_values: list[int],
     family_name: str | None,
     style_name: str | None,
-    stylemap_family_name: str | None,
-    stylemap_style_name: str | None,
     output_file: Path,
 ) -> None:
     user_location_args = [f"{k}={v}" for k, v in user_location.items()]
-
-    # Create output directory in case it doesn't exist yet on CI, when passing
-    # artifacts around.
-    output_file.parent.mkdir(parents=True, exist_ok=True)
 
     subprocess.check_call(
         [
@@ -138,8 +132,6 @@ def cut_instance(
     info = {
         "familyName": family_name,
         "styleName": style_name,
-        "styleMapFamilyName": stylemap_family_name,
-        "styleMapStyleName": stylemap_style_name,
     }
     build_name_entries(info, font["name"])
 
@@ -177,6 +169,12 @@ def build_name_entries(info: dict[str, Any], name: Any) -> None:
 
     familyName = getAttrWithFallback(info, "styleMapFamilyName")
     styleName = getAttrWithFallback(info, "styleMapStyleName").title()
+    # Manually fix ufo2ft's output
+    if familyName.endswith(" Italic"):
+        familyName = familyName[: -len(" Italic")]
+        assert " Bold" not in familyName, "build_name_entries can't handle this yet"
+        styleName = "Italic"
+
     preferredFamilyName = getAttrWithFallback(info, "openTypeNamePreferredFamilyName")
     preferredSubfamilyName = getAttrWithFallback(
         info, "openTypeNamePreferredSubfamilyName"
@@ -302,8 +300,6 @@ def main(args: list[str] | None = None) -> int:
                         panose,
                         family_name,
                         style_name,
-                        instance.styleMapFamilyName,
-                        instance.styleMapStyleName,
                         ttf_path,
                     ],
                 ),
