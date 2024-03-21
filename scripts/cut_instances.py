@@ -85,7 +85,9 @@ TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
     },
 }
 
-DEFAULT_PANOSE = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# As of 76995cc95c, all UFO masters use these PANOSE values
+# Inspect what masters use what PANOSE with scripts/one-off/panose_info.py
+DEFAULT_PANOSE = [2, 11, 5, 3, 3, 5, 2, 4, 2, 4]
 
 
 def cut_instance(
@@ -255,6 +257,8 @@ def main(args: list[str] | None = None) -> int:
     output_dir: Path = parsed_args.output_dir
     variable_font: Path = parsed_args.variable_font
 
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     with multiprocessing.Pool() as pool:
         for (family_name, workspace_instance), instance in itertools.product(
             TARGET_INSTANCES.items(), designspace.instances
@@ -277,9 +281,6 @@ def main(args: list[str] | None = None) -> int:
             if "panose" in custom_parameters:
                 panose = custom_parameters["panose"]
             else:
-                print(
-                    f"WARN: panose isn't set for instance {instance.name}, using default"
-                )
                 panose = DEFAULT_PANOSE
 
             ttf_name = (
@@ -295,12 +296,12 @@ def main(args: list[str] | None = None) -> int:
                 (
                     # cut_instance args
                     [
-                        variable_font,
-                        coordinates,
-                        panose,
-                        family_name,
-                        style_name,
-                        ttf_path,
+                        variable_font,  # variable_font: Path
+                        coordinates,  # user_location: dict[str, float | int]
+                        panose,  # panose_values: list[int]
+                        family_name,  # family_name: str | None
+                        style_name,  # style_name: str | None
+                        ttf_path,  # output_file: Path
                     ],
                 ),
             )
