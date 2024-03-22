@@ -89,10 +89,34 @@ TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
 # Inspect what masters use what PANOSE with scripts/one-off/panose_info.py
 DEFAULT_PANOSE = [2, 11, 5, 3, 3, 5, 2, 4, 2, 4]
 
+# Global Google Sans attributes, in 1000 upM font units.
+# These need to be kept in sync with qa/check-googlesans.py to avoid FB fails
+GS_OS2_ATTRIBUTES_UPRIGHT = {
+    "sTypoAscender": 966,  # set to match hhea metrics values
+    "sTypoDescender": -286,
+    "sTypoLineGap": 0,
+    "yStrikeoutPosition": 306,
+    "yStrikeoutSize": 84,
+    "ySubscriptXOffset": 0,
+    # Commented out values have been intentionally changed
+    # "ySubscriptXSize": 650,
+    # "ySubscriptYOffset": 75,
+    "ySubscriptYSize": 600,
+    "ySuperscriptXOffset": 0,
+    # "ySuperscriptXSize": 650,
+    # "ySuperscriptYOffset": 350,
+    "ySuperscriptYSize": 600,
+}
+GS_OS2_ATTRIBUTES_ITALIC = {
+    **GS_OS2_ATTRIBUTES_UPRIGHT,
+    "ySubscriptXOffset": -13,
+    "ySuperscriptXOffset": 62,
+}
+
 
 def cut_instance(
     variable_font: Path,
-    user_location: dict[str, float | int],
+    user_location: GoogleSansFlexInstance,
     panose_values: list[int],
     family_name: str | None,
     style_name: str | None,
@@ -162,6 +186,23 @@ def cut_instance(
         selection |= 1 << 0
         selection |= 1 << 5
     font["OS/2"].fsSelection = selection
+
+    # fudge global font unit attributes as they change for some reason
+    os2 = font["OS/2"]
+    upm_scale = font["head"].unitsPerEm / 1000
+    # before = {attr: getattr(os2, attr) for attr in GS_OS2_ATTRIBUTES_UPRIGHT.keys()}
+    if user_location["slnt"] == 0:
+        for attr, val in GS_OS2_ATTRIBUTES_UPRIGHT.items():
+            assert hasattr(os2, attr), f"don't have {attr}"
+            setattr(os2, attr, int(val * upm_scale))
+    elif user_location["slnt"] == -10:
+        for attr, val in GS_OS2_ATTRIBUTES_ITALIC.items():
+            assert hasattr(os2, attr), f"don't have {attr}"
+            setattr(os2, attr, int(val * upm_scale))
+    # for attr, before_val in before.items():
+    #     after_val = int(getattr(os2, attr))
+    #     if before_val != after_val:
+    #         print(f"{attr}: {before_val} -> {after_val}")
 
     font.save(output_file)
 
@@ -304,6 +345,7 @@ def main(args: list[str] | None = None) -> int:
                         ttf_path,  # output_file: Path
                     ],
                 ),
+                error_callback=lambda err: print(f"cut_then_post_process error: {err}"),
             )
         pool.close()
         pool.join()
