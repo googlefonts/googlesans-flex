@@ -27,7 +27,7 @@ jobs:
   cut-instances:
     needs:
     - build-variable
-    runs-on: ubuntu-latest
+    runs-on: [linux, googlefonts-64cores-256GB]
     timeout-minutes: 10
     steps:
     - name: Checkout ${{ github.ref_name }}
@@ -75,8 +75,8 @@ jobs:
   test-statics:
     needs:
     - cut-instances
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 20
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4
