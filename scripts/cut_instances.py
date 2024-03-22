@@ -85,10 +85,6 @@ TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
     },
 }
 
-# As of 76995cc95c, all UFO masters use these PANOSE values
-# Inspect what masters use what PANOSE with scripts/one-off/panose_info.py
-DEFAULT_PANOSE = [2, 11, 5, 3, 3, 5, 2, 4, 2, 4]
-
 # Global Google Sans attributes, in 1000 upM font units.
 # These need to be kept in sync with qa/check-googlesans.py to avoid FB fails
 GS_OS2_ATTRIBUTES_UPRIGHT = {
@@ -117,7 +113,6 @@ GS_OS2_ATTRIBUTES_ITALIC = {
 def cut_instance(
     variable_font: Path,
     user_location: GoogleSansFlexInstance,
-    panose_values: list[int],
     family_name: str | None,
     style_name: str | None,
     output_file: Path,
@@ -142,18 +137,7 @@ def cut_instance(
 
     font["OS/2"].recalcAvgCharWidth(font)
 
-    panose = Panose()
-    panose.bFamilyType = panose_values[0]
-    panose.bSerifStyle = panose_values[1]
-    panose.bWeight = panose_values[2]
-    panose.bProportion = panose_values[3]
-    panose.bContrast = panose_values[4]
-    panose.bStrokeVariation = panose_values[5]
-    panose.bArmStyle = panose_values[6]
-    panose.bLetterForm = panose_values[7]
-    panose.bMidline = panose_values[8]
-    panose.bXHeight = panose_values[9]
-    font["OS/2"].panose = panose
+    font["OS/2"].panose = generate_panose_entries(user_location)
 
     info = {
         "familyName": family_name,
@@ -254,6 +238,33 @@ def build_name_entries(info: dict[str, Any], name: Any) -> None:
         name.setName(nameVal, nameId, platformId, platEncId, langId)
 
 
+def generate_panose_entries(location: GoogleSansFlexInstance) -> Panose:
+    """Generates PANOSE values based on location
+
+    Logic explained here: https://github.com/googlefonts/googlesans-flex/issues/903#issuecomment-2015273322
+    """
+    WIDTH_PROPORTION = {
+        150: 5,
+        100: 3,
+        50: 7,
+        25: 8,
+    }
+
+    panose = Panose()
+    panose.bFamilyType = 2
+    panose.bSerifStyle = 11 if location["ROND"] == 0 else 15
+    panose.bWeight = int(location["wght"] // 100) + 1
+    panose.bProportion = WIDTH_PROPORTION[location["wdth"]]
+    panose.bContrast = 3
+    panose.bStrokeVariation = 5
+    panose.bArmStyle = 2
+    panose.bLetterForm = 4 if location["slnt"] == 0 else 11
+    panose.bMidline = 2
+    panose.bXHeight = 4
+    # print(vars(panose))
+    return panose
+
+
 def fontv_sha1(ttf_path: Path) -> None:
     fv = FontVersion(ttf_path)
     fv.set_state_git_commit_sha1()
@@ -319,11 +330,6 @@ def main(args: list[str] | None = None) -> int:
                 **workspace_instance,
             }
 
-            if "panose" in custom_parameters:
-                panose = custom_parameters["panose"]
-            else:
-                panose = DEFAULT_PANOSE
-
             ttf_name = (
                 family_name.replace(" ", "")
                 + "-"
@@ -339,7 +345,6 @@ def main(args: list[str] | None = None) -> int:
                     [
                         variable_font,  # variable_font: Path
                         coordinates,  # user_location: dict[str, float | int]
-                        panose,  # panose_values: list[int]
                         family_name,  # family_name: str | None
                         style_name,  # style_name: str | None
                         ttf_path,  # output_file: Path
