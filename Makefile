@@ -43,6 +43,13 @@ venv/touchfile: requirements.txt
 test: build.stamp
 	@scripts/fontbakery.sh
 
+release: build.stamp
+	-@rm fonts/ttf/*.ttf
+	python scripts/cut_instances.py \
+		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
+		sources/GoogleSansFlex.designspace \
+		fonts/ttf
+
 run-collidoscope: build.stamp
 # Install latest version of fontbakery on every run, isolated from build dependencies
 	test -d venv_bakery || python3 -m venv venv_bakery
