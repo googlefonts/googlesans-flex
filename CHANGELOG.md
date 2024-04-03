@@ -5,7 +5,7 @@
 
 ### Changed
 - added static instance package to the release artifacts, instanced dedicated to Workspace (#897)
-- removed unused uni0335 uni0337
+- removed uni0335 uni0337
 
 ## Version 2.000 (2024-02-26)
 
