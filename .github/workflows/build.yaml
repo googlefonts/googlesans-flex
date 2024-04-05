@@ -8,14 +8,11 @@ on:
         required: true
   push:
     branches:
-      - main
+    - main
   pull_request:
     types: [opened, synchronize, reopened]
-    # Do not build on PRs that only change the design sources; these do not
-    # affect the UFO sources or pipeline until manually imported, and so should
-    # have no effect on the final TTFs.
-    paths-ignore:
-      - 'sources/design-source/**'
+    branches:
+    - main
 
 jobs:
   build:
