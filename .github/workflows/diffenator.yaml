@@ -1,83 +1,98 @@
-name: diffenator2 tests
+name: Diffenate builds
 
 on:
-  push:
-    branches:
-      - "diff-*"
-
+  workflow_dispatch:
+    inputs:
+      before:
+        description: The 'before' git reference (tag, branch, or commit)
+        required: true
+      after:
+        description: The 'after' git reference (tag, branch, or commit)
+        required: true
 
 jobs:
-  build:
-    runs-on: [googlefonts-64cores-256GB]
+  build-before:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 15
     steps:
-      - name: Check out source repository
-        uses: actions/checkout@v3
-      - name: Set up Python v3.x environment
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-          cache: 'pip'
-      - name: Build fonts
-        run: make build
-      - uses: actions/upload-artifact@v4
-        with:
-          name: variable-fonts
-          path: 'fonts/variable'
-
-  screenshot:
+    - name: Checkout ${{ inputs.before }}
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.before }}
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: .github/workflows/python-version.txt
+        cache: pip
+    - name: Setup venv
+      run: make venv
+    - name: Build fonts
+      run: make build
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Before VFs (${{ inputs.before }})
+        path: fonts/variable
+        if-no-files-found: error
+  build-after:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 15
+    steps:
+    - name: Checkout ${{ inputs.after }}
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.after }}
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: .github/workflows/python-version.txt
+        cache: pip
+    - name: Setup venv
+      run: make venv
+    - name: Build fonts
+      run: make build
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: After VFs (${{ inputs.after }})
+        path: fonts/variable
+        if-no-files-found: error
+  diffenate:
+    runs-on: [linux, googlefonts-64cores-256GB]
+    timeout-minutes: 30
     needs:
-      - build
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    - build-before
+    - build-after
     steps:
-      - name: Check out source repository
-        uses: actions/checkout@v3
-      - name: Set up Python v3.x environment
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-          cache: 'pip'
-      - uses: actions/download-artifact@v4
-        with:
-          name: variable-fonts
-          path: 'fonts/variable'
-      - name: Browser Screenshots
-        uses: f-actions/diffenator2@main
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path: fonts/variable/*.ttf
-          fetch-before: 'github-release'
-          repo: 'googlefonts/googlesans-flex'
-          path-before: googlesans-flex-fonts/fonts/variable/*.ttf
-          run-diffenator: false
-          run-diffbrowsers: true
-          filter-styles: "Thin|Regular|Black"
-
-  diffenator:
-    needs:
-      - build
-    runs-on: [googlefonts-64cores-256GB]
-    steps:
-      - name: Check out source repository
-        uses: actions/checkout@v3
-      - name: Set up Python v3.x environment
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-          cache: 'pip'
-      - uses: actions/download-artifact@v4
-        with:
-          name: variable-fonts
-          path: 'fonts/variable'
-      - name: Diffenator
-        uses: f-actions/diffenator2@main
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path: fonts/variable/*.ttf
-          fetch-before: 'github-release'
-          repo: 'googlefonts/googlesans-flex'
-          path-before: googlesans-flex-fonts/fonts/variable/*.ttf
-          run-diffenator: true
-          run-diffbrowsers: false
+    - name: Checkout python-version.txt from main
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: .github/workflows/python-version.txt
+    - name: Download before fonts
+      uses: actions/download-artifact@v4
+      with:
+        name: Before VFs (${{ inputs.before }})
+        path: before
+    - name: Download after fonts
+      uses: actions/download-artifact@v4
+      with:
+        name: After VFs (${{ inputs.after }})
+        path: after
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: .github/workflows/python-version.txt
+        cache: pip
+    - name: Install diffenator2
+      run: pip install --upgrade diffenator2
+    - name: Run diffenator2
+      run: |
+        mkdir -p diffenator_report
+        diffenator2 diff --fonts-before before/*.ttf --fonts-after after/*.ttf \
+          --out diffenator_report
+    - name: Upload diffenator report
+      uses: actions/upload-artifact@v4
+      with:
+        name: Diffenator2 report (${{ inputs.before }} vs ${{ inputs.after }})
+        path: diffenator_report
+        if-no-files-found: error
