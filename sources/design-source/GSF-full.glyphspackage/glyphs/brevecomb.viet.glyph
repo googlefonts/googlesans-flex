@@ -198,17 +198,17 @@ pos = (0,1020);
 },
 {
 name = top;
-pos = (0,1257);
+pos = (0,1264);
 },
 {
 name = top.viet;
-pos = (0,1264);
+pos = (0,1271);
 }
 );
 layerId = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
 shapes = (
 {
-pos = (0,-16);
+pos = (0,-9);
 ref = brevecomb;
 }
 );
@@ -246,17 +246,17 @@ pos = (0,1050);
 },
 {
 name = top;
-pos = (0,1285);
+pos = (0,1295);
 },
 {
 name = top.viet;
-pos = (0,1317);
+pos = (0,1327);
 }
 );
 layerId = "01856C8F-DF22-4242-84EC-D0E09743B379";
 shapes = (
 {
-pos = (0,-16);
+pos = (0,-6);
 ref = brevecomb;
 }
 );
@@ -270,17 +270,17 @@ pos = (0,1050);
 },
 {
 name = top;
-pos = (0,1285);
+pos = (0,1295);
 },
 {
 name = top.viet;
-pos = (0,1317);
+pos = (0,1327);
 }
 );
 layerId = "BF180843-99D6-4C65-B8E4-10B904A58698";
 shapes = (
 {
-pos = (0,-16);
+pos = (0,-6);
 ref = brevecomb;
 }
 );
@@ -443,6 +443,11 @@ pos = (0,1440);
 {
 name = top.viet;
 pos = (0,1439);
+}
+);
+guides = (
+{
+pos = (-13,1456);
 }
 );
 layerId = "733112D2-2833-4B86-B7ED-934B97F7C918";
@@ -791,10 +796,32 @@ name = top.viet;
 pos = (133,1264);
 }
 );
+background = {
+anchors = (
+{
+name = _top;
+pos = (0,1020);
+},
+{
+name = top;
+pos = (0,1264);
+},
+{
+name = top.viet;
+pos = (0,1271);
+}
+);
+shapes = (
+{
+pos = (1,-9);
+ref = brevecomb;
+}
+);
+};
 layerId = "7518AAB2-0A12-4970-AF6F-1285484141D2";
 shapes = (
 {
-pos = (0,-16);
+pos = (1,-9);
 ref = brevecomb;
 }
 );
@@ -818,7 +845,7 @@ pos = (133,1264);
 layerId = "113E061F-FAB3-4DDA-8D5E-A68BFF1446A4";
 shapes = (
 {
-pos = (0,-16);
+pos = (0,-9);
 ref = brevecomb;
 }
 );
@@ -839,10 +866,32 @@ name = top.viet;
 pos = (140,1317);
 }
 );
+background = {
+anchors = (
+{
+name = _top;
+pos = (0,1050);
+},
+{
+name = top;
+pos = (0,1295);
+},
+{
+name = top.viet;
+pos = (0,1327);
+}
+);
+shapes = (
+{
+pos = (2,-6);
+ref = brevecomb;
+}
+);
+};
 layerId = "60BAD40A-9B2A-4F39-A9BF-21F8D308EAFF";
 shapes = (
 {
-pos = (0,-16);
+pos = (2,-6);
 ref = brevecomb;
 }
 );
@@ -866,7 +915,7 @@ pos = (140,1317);
 layerId = "591F6EEE-B4D0-4DCB-A31C-C9DC0210C057";
 shapes = (
 {
-pos = (0,-16);
+pos = (2,-6);
 ref = brevecomb;
 }
 );
