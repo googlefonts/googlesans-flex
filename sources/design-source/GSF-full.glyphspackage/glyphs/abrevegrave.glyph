@@ -234,14 +234,14 @@ pos = (209,0);
 ref = brevecomb.viet;
 },
 {
-pos = (209,277);
+pos = (209,267);
 ref = gravecomb.viet;
 }
 );
 width = 415;
 },
 {
-layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
+background = {
 shapes = (
 {
 ref = a;
@@ -309,10 +309,25 @@ name = inserted;
 );
 }
 );
+};
+layerId = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (480,0);
+ref = brevecomb.viet;
+},
+{
+pos = (480,389);
+ref = gravecomb.viet;
+}
+);
 width = 922;
 },
 {
-layerId = "C09FB21D-6B75-4928-B5AD-7420F8AAB406";
+background = {
 shapes = (
 {
 ref = a;
@@ -376,6 +391,21 @@ name = inserted;
 }),
 (490,1456,qs)
 );
+}
+);
+};
+layerId = "C09FB21D-6B75-4928-B5AD-7420F8AAB406";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (480,0);
+ref = brevecomb.viet;
+},
+{
+pos = (480,369);
+ref = gravecomb.viet;
 }
 );
 width = 922;
@@ -702,7 +732,7 @@ ref = gravecomb.viet;
 width = 1916;
 },
 {
-layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+background = {
 shapes = (
 {
 ref = a;
@@ -770,10 +800,25 @@ name = inserted;
 );
 }
 );
+};
+layerId = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (988,0);
+ref = brevecomb.viet;
+},
+{
+pos = (986,454);
+ref = gravecomb.viet;
+}
+);
 width = 2108;
 },
 {
-layerId = "10478940-D0BE-441F-9786-BA9AB95F2E75";
+background = {
 shapes = (
 {
 ref = a;
@@ -837,6 +882,21 @@ name = inserted;
 (739,1132,o),
 (987,1132,qs)
 );
+}
+);
+};
+layerId = "10478940-D0BE-441F-9786-BA9AB95F2E75";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (987,0);
+ref = brevecomb.viet;
+},
+{
+pos = (987,440);
+ref = gravecomb.viet;
 }
 );
 width = 2108;
@@ -1030,7 +1090,7 @@ pos = (209,0);
 ref = brevecomb.viet;
 },
 {
-pos = (256,267);
+pos = (257,277);
 ref = gravecomb.viet;
 }
 );
@@ -1047,14 +1107,14 @@ pos = (209,0);
 ref = brevecomb.viet;
 },
 {
-pos = (256,267);
+pos = (254,257);
 ref = gravecomb.viet;
 }
 );
 width = 415;
 },
 {
-layerId = "47804706-7AC2-47E8-A4D8-D60362A1B181";
+background = {
 shapes = (
 {
 closed = 1;
@@ -1122,10 +1182,25 @@ name = inserted;
 ref = a;
 }
 );
-width = 922;
+};
+layerId = "47804706-7AC2-47E8-A4D8-D60362A1B181";
+shapes = (
+{
+ref = a;
 },
 {
-layerId = "662D8A49-64FB-4A8F-AA26-E44ADB350143";
+pos = (480,0);
+ref = brevecomb.viet;
+},
+{
+pos = (549,389);
+ref = gravecomb.viet;
+}
+);
+width = 921;
+},
+{
+background = {
 shapes = (
 {
 closed = 1;
@@ -1191,7 +1266,22 @@ name = inserted;
 ref = a;
 }
 );
-width = 922;
+};
+layerId = "662D8A49-64FB-4A8F-AA26-E44ADB350143";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (480,0);
+ref = brevecomb.viet;
+},
+{
+pos = (546,369);
+ref = gravecomb.viet;
+}
+);
+width = 921;
 },
 {
 layerId = "22530A20-0046-4E4D-8599-AC305296A8E0";
@@ -1508,21 +1598,6 @@ width = 1916;
 background = {
 shapes = (
 {
-ref = a;
-},
-{
-pos = (986,0);
-ref = brevecomb.viet;
-},
-{
-pos = (1073,490);
-ref = gravecomb.viet;
-}
-);
-};
-layerId = "81E3A8CD-082C-49FF-9AE0-BD52C6181D0C";
-shapes = (
-{
 closed = 1;
 nodes = (
 (1319,1132,o),
@@ -1588,25 +1663,25 @@ name = inserted;
 ref = a;
 }
 );
-width = 2107;
-},
-{
-background = {
+};
+layerId = "81E3A8CD-082C-49FF-9AE0-BD52C6181D0C";
 shapes = (
 {
 ref = a;
 },
 {
-pos = (986,0);
+pos = (987,0);
 ref = brevecomb.viet;
 },
 {
-pos = (1073,490);
+pos = (1068,454);
 ref = gravecomb.viet;
 }
 );
-};
-layerId = "30915ACD-135D-4F98-9FE0-11D49F00F6EA";
+width = 2107;
+},
+{
+background = {
 shapes = (
 {
 closed = 1;
@@ -1670,6 +1745,21 @@ name = inserted;
 },
 {
 ref = a;
+}
+);
+};
+layerId = "30915ACD-135D-4F98-9FE0-11D49F00F6EA";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (987,0);
+ref = brevecomb.viet;
+},
+{
+pos = (1065,440);
+ref = gravecomb.viet;
 }
 );
 width = 2107;
@@ -2242,7 +2332,7 @@ pos = (988,0);
 ref = brevecomb.viet;
 },
 {
-pos = (988,494);
+pos = (986,454);
 ref = gravecomb.viet;
 }
 );
@@ -2311,7 +2401,7 @@ pos = (987,0);
 ref = brevecomb.viet;
 },
 {
-pos = (987,490);
+pos = (987,440);
 ref = gravecomb.viet;
 }
 );
@@ -2330,7 +2420,7 @@ pos = (480,0);
 ref = brevecomb.viet;
 },
 {
-pos = (480,419);
+pos = (480,389);
 ref = gravecomb.viet;
 }
 );
@@ -2349,7 +2439,7 @@ pos = (480,0);
 ref = brevecomb.viet;
 },
 {
-pos = (481,420);
+pos = (480,369);
 ref = gravecomb.viet;
 }
 );
