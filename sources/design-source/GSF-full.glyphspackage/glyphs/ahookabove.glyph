@@ -4,7 +4,7 @@ glyphname = ahookabove;
 layers = (
 {
 layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
-width = 600;
+width = 909;
 },
 {
 layerId = "0E427199-3761-4D16-8F3B-7327BA7E7A1E";
@@ -28,20 +28,40 @@ width = 600;
 },
 {
 layerId = "7ED4B341-A37B-4DEE-8334-0DF71EE2D955";
-width = 600;
-},
-{
-layerId = "B032EA3A-E153-4C18-9D81-C226C7DC7AF7";
-width = 600;
-},
-{
-layerId = "C6E6A82E-5529-473D-BA0B-E088A1B2D63E";
 shapes = (
 {
 ref = a;
 },
 {
 pos = (582,0);
+ref = hookabovecomb;
+}
+);
+width = 1178;
+},
+{
+layerId = "B032EA3A-E153-4C18-9D81-C226C7DC7AF7";
+width = 600;
+},
+{
+background = {
+shapes = (
+{
+ref = a;
+},
+{
+pos = (586,0);
+ref = hookabovecomb.viet;
+}
+);
+};
+layerId = "C6E6A82E-5529-473D-BA0B-E088A1B2D63E";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (586,0);
 ref = hookabovecomb;
 }
 );
