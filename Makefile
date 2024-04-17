@@ -42,7 +42,7 @@ test: build.stamp
 
 release: build.stamp
 	-@rm fonts/ttf/*.ttf
-	python scripts/cut_instances.py \
+	. venv/bin/activate && python scripts/cut_instances.py \
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
 		sources/GoogleSansFlex.designspace \
 		fonts/ttf
