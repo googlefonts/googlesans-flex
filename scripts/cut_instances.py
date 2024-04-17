@@ -53,7 +53,7 @@ class WorkspaceInstance(TypedDict):
 
 # These are then produced at each weight instance defined in the Designspace
 TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
-    "Google Sans Flex": {
+    "Google Sans Flex Normal": {
         "opsz": 144,
         "wdth": 100,
         "ROND": 0,
