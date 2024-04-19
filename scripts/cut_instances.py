@@ -24,7 +24,6 @@ from typing import Any, TypedDict
 
 import fontTools.otlLib.optimize.gpos
 import ufoLib2
-from fontTools.designspaceLib import DesignSpaceDocument
 from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables.O_S_2f_2 import Panose
 from fontv.libfv import FontVersion
@@ -37,12 +36,12 @@ from ufo2ft.fontInfoData import (
 
 
 class GoogleSansFlexInstance(TypedDict):
-    wght: float
-    wdth: int
-    opsz: int
-    GRAD: int
-    ROND: int
-    slnt: int
+    wght: float | str
+    wdth: int | str
+    opsz: int | str
+    GRAD: int | str
+    ROND: int | str
+    slnt: int | str
 
 
 class WorkspaceInstance(TypedDict):
@@ -119,6 +118,7 @@ def cut_instance(
 ) -> None:
     user_location_args = [f"{k}={v}" for k, v in user_location.items()]
 
+    # https://github.com/fonttools/fonttools/blob/main/Lib/fontTools/varLib/instancer/__init__.py
     subprocess.check_call(
         [
             "fonttools",
@@ -253,7 +253,7 @@ def generate_panose_entries(location: GoogleSansFlexInstance) -> Panose:
     panose = Panose()
     panose.bFamilyType = 2
     panose.bSerifStyle = 11 if location["ROND"] == 0 else 15
-    panose.bWeight = int(location["wght"] // 100) + 1
+    panose.bWeight = 0
     panose.bProportion = WIDTH_PROPORTION[location["wdth"]]
     panose.bContrast = 3
     panose.bStrokeVariation = 5
@@ -298,43 +298,29 @@ def main(args: list[str] | None = None) -> int:
     parser.add_argument(
         "variable_font", type=Path, help="Variable font to cut instances from."
     )
-    parser.add_argument(
-        "designspace",
-        type=DesignSpaceDocument.fromfile,
-        help="Designspace to take instance weights from.",
-    )
     parser.add_argument("output_dir", type=Path, help="Output directory.")
     parsed_args = parser.parse_args(args)
-    designspace: DesignSpaceDocument = parsed_args.designspace
     output_dir: Path = parsed_args.output_dir
     variable_font: Path = parsed_args.variable_font
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
     with multiprocessing.Pool() as pool:
-        for (family_name, workspace_instance), instance in itertools.product(
-            TARGET_INSTANCES.items(), designspace.instances
+        for (family_name, workspace_instance), italic in itertools.product(
+            TARGET_INSTANCES.items(), (False, True)
         ):
-            custom_parameters = dict(
-                instance.lib.get("com.schriftgestaltung.customParameters", ())
-            )
-            style_name: str = custom_parameters.get(
-                "preferredSubfamilyName", instance.styleName
-            )
-
-            weight = instance.getFullUserLocation(designspace)["Weight"]
             coordinates: GoogleSansFlexInstance = {
-                "wght": weight,
-                "slnt": -10 if style_name.endswith("Italic") else 0,
+                # Restrict weight axis to between 100 & 900, default to 400
+                "wght": "100:400:900",
+                "slnt": -10 if italic else 0,
                 "GRAD": 0,
                 **workspace_instance,
             }
 
             ttf_name = (
                 family_name.replace(" ", "")
-                + "-"
-                + style_name.replace(" ", "")
-                + ".ttf"
+                + ("-Italic" if italic else "")
+                + "[wght].ttf"
             )
             ttf_path = output_dir / ttf_name
 
@@ -344,9 +330,9 @@ def main(args: list[str] | None = None) -> int:
                     # cut_instance args
                     [
                         variable_font,  # variable_font: Path
-                        coordinates,  # user_location: dict[str, float | int]
+                        coordinates,  # user_location: GoogleSansFlexInstance
                         family_name,  # family_name: str | None
-                        style_name,  # style_name: str | None
+                        None,  # style_name: str | None
                         ttf_path,  # output_file: Path
                     ],
                 ),

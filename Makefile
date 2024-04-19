@@ -41,11 +41,10 @@ test: build.stamp
 	@scripts/fontbakery.sh
 
 release: build.stamp
-	-@rm fonts/ttf/*.ttf
+	-@rm fonts/workspace/*.ttf
 	. venv/bin/activate && python scripts/cut_instances.py \
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
-		sources/GoogleSansFlex.designspace \
-		fonts/ttf
+		fonts/workspace
 
 run-collidoscope: build.stamp
 # Install latest version of fontbakery on every run, isolated from build dependencies
