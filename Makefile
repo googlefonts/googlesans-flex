@@ -84,8 +84,9 @@ update-shaping-expectations: venv
 	. venv/bin/activate && bash -c "cd qa && bash update_all_shaping.sh"
 
 update: venv
-	pip install -U pip-tools
-	pip-compile --resolver=backtracking -U requirements.in
+	. venv/bin/activate && \
+		pip install -U pip-tools && \
+		pip-compile --resolver=backtracking -U requirements.in
 
 font-size: venv build
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install font-size"
