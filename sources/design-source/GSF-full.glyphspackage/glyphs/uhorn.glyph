@@ -1,6 +1,8 @@
 {
 color = 3;
 glyphname = uhorn;
+kernLeft = u_left;
+kernRight = uhorn_right;
 layers = (
 {
 layerId = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
@@ -708,19 +710,17 @@ nodes = (
 );
 };
 layerId = m001;
-metricRight = "=+80";
+metricRight = "=auto+80";
 shapes = (
 {
-alignment = -1;
 ref = u;
 },
 {
-alignment = -1;
 pos = (763,-412);
 ref = horncomb;
 }
 );
-width = 1202;
+width = 1122;
 },
 {
 layerId = "C8DF7DC7-E4A0-4C6D-97AA-C4629ECAB3F8";
@@ -2605,5 +2605,6 @@ layerId = "FE2A0B1B-9885-4164-841F-06DBCA51893B";
 width = 600;
 }
 );
+metricRight = "auto+80";
 unicode = 432;
 }
