@@ -43,7 +43,10 @@ Then:
 5. Adjust checkboxes for pre-release and latest as you see fit.
 6. Click "Publish release".
 
-That's everything you need to do done.
+That's everything you need to do done. In particular, no need to change the
+version number in either the design or UFO sources, as `bumpfontversion` will
+take care of that.
+
 A GitHub workflow will kick off in the background which will compile the font and attach a .zip file to the GitHub release once complete.
 You can track its progress [here](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml).
 
@@ -73,6 +76,15 @@ The import workflow also builds the font and runs tests on it, no need to reques
 
 Otherwise, check the CI log for the run (accessible at the link above) to investigate why it failed.
 Some errors may show without needing to read the log, in the "Annotations" section of the workflow run summary page.
+
+### Manually convert glyphspackage design sources to UFO production sources
+
+The important part of the import workflow, which you can run by hand, is this:
+
+```
+rm -r sources/*.{ufo,fea,designspace}
+python scripts/glyphs_to_ds.py sources/design-source/GSF-full.glyphspackage sources/GoogleSansFlex.designspace
+```
 
 ## Testing builds from Glyphs sources
 

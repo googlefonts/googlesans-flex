@@ -46,6 +46,10 @@ runs:
   - name: Run import script
     shell: bash
     run: |
+      # Run the glyphspackage to ds in the temporary directory
+      # glyphspackage2ufo-XXXX created above and passed through the GitHub
+      # output target=, because it's been prepared to NOT have leftover UFOs
+      # which is required to be able to emit a clean DS+UFOs
       cd "${{ steps.prepare-import.outputs.target }}"
       echo "::group::Setup venv"
       make venv
