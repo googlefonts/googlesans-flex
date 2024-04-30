@@ -7,8 +7,8 @@ on:
 
 jobs:
   build-variable:
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4
@@ -27,8 +27,8 @@ jobs:
   cut-instances:
     needs:
     - build-variable
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4
@@ -70,15 +70,15 @@ jobs:
   test-variable:
     needs:
     - build-variable
-    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
+    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
     with:
       branch: ${{ github.ref_name }}
       artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
   test-workspace:
     needs:
     - cut-instances
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4
@@ -116,7 +116,7 @@ jobs:
     - test-variable
     - test-workspace
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 60
     steps:
     - name: Download variable fonts
       uses: actions/download-artifact@v4
