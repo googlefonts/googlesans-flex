@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import itertools
 import multiprocessing
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -108,6 +109,30 @@ GS_OS2_ATTRIBUTES_ITALIC = {
     "ySuperscriptXOffset": 62,
 }
 
+# From https://github.com/googlefonts/axisregistry/blob/main/Lib/axisregistry/__init__.py#L32
+GF_STATIC_STYLES_UPRIGHT = [
+    ("Thin", 100),
+    ("ExtraLight", 200),
+    ("Light", 300),
+    ("Regular", 400),
+    ("Medium", 500),
+    ("SemiBold", 600),
+    ("Bold", 700),
+    ("ExtraBold", 800),
+    ("Black", 900),
+]
+GF_STATIC_STYLES_ITALIC = [
+    ("Thin Italic", 100),
+    ("ExtraLight Italic", 200),
+    ("Light Italic", 300),
+    ("Italic", 400),
+    ("Medium Italic", 500),
+    ("SemiBold Italic", 600),
+    ("Bold Italic", 700),
+    ("ExtraBold Italic", 800),
+    ("Black Italic", 900),
+]
+
 
 def cut_instance(
     variable_font: Path,
@@ -171,22 +196,27 @@ def cut_instance(
         selection |= 1 << 5
     font["OS/2"].fsSelection = selection
 
+    is_italic = user_location["slnt"] != 0
+
     # fudge global font unit attributes as they change for some reason
     os2 = font["OS/2"]
     upm_scale = font["head"].unitsPerEm / 1000
     # before = {attr: getattr(os2, attr) for attr in GS_OS2_ATTRIBUTES_UPRIGHT.keys()}
-    if user_location["slnt"] == 0:
-        for attr, val in GS_OS2_ATTRIBUTES_UPRIGHT.items():
+    if is_italic:
+        for attr, val in GS_OS2_ATTRIBUTES_ITALIC.items():
             assert hasattr(os2, attr), f"don't have {attr}"
             setattr(os2, attr, int(val * upm_scale))
-    elif user_location["slnt"] == -10:
-        for attr, val in GS_OS2_ATTRIBUTES_ITALIC.items():
+    else:
+        for attr, val in GS_OS2_ATTRIBUTES_UPRIGHT.items():
             assert hasattr(os2, attr), f"don't have {attr}"
             setattr(os2, attr, int(val * upm_scale))
     # for attr, before_val in before.items():
     #     after_val = int(getattr(os2, attr))
     #     if before_val != after_val:
     #         print(f"{attr}: {before_val} -> {after_val}")
+
+    add_fvar_instances(font, is_italic)
+    add_STAT_ital(font, is_italic)
 
     font.save(output_file)
 
@@ -208,6 +238,9 @@ def build_name_entries(info: dict[str, Any], name: Any) -> None:
     )
     fullName = f"{preferredFamilyName} {preferredSubfamilyName}"
 
+    # Name 25 must be different for each VF file
+    name25 = re.sub(r"[^a-zA-Z]", "", fullName)
+
     nameVals = {
         1: familyName,
         2: styleName,
@@ -215,6 +248,7 @@ def build_name_entries(info: dict[str, Any], name: Any) -> None:
         6: getAttrWithFallback(info, "postscriptFontName"),
         16: preferredFamilyName,
         17: preferredSubfamilyName,
+        25: name25,
     }
 
     # don't add typographic names if they are the same as the legacy ones
@@ -263,6 +297,60 @@ def generate_panose_entries(location: GoogleSansFlexInstance) -> Panose:
     panose.bXHeight = 4
     # print(vars(panose))
     return panose
+
+
+def add_fvar_instances(font: TTFont, is_italic: bool) -> None:
+    """Add instances from 100 to 900 along the Weight axis."""
+    from fontTools.ttLib.tables._f_v_a_r import NamedInstance
+
+    fvar = font["fvar"]
+    name = font["name"]
+    for style, weight in (
+        GF_STATIC_STYLES_ITALIC if is_italic else GF_STATIC_STYLES_UPRIGHT
+    ):
+        inst = NamedInstance()
+        inst.subfamilyNameID = name.addName(style)
+        inst.coordinates = {"wght": weight}  # No avar mapping in this font
+        fvar.instances.append(inst)
+
+
+def add_STAT_ital(font: TTFont, is_italic: bool) -> None:
+    """Add an ital axis to STAT to link the separate files for uprights and italics.
+
+    The STAT already has a slnt axis, but that doesn't work to link to separate VFs.
+
+    Turn the slnt entry into ital, to appease the Fontbakery check
+    `com.google.fonts/check/italic_axis_in_stat`
+    """
+    stat = font["STAT"]
+    # breakpoint()
+    for slntIndex, slnt in enumerate(stat.table.DesignAxisRecord.Axis):
+        if slnt.AxisTag == "slnt":
+            break
+    else:
+        raise RuntimeError("Cannot find axis slnt")
+
+    slnt.AxisTag = "ital"
+    # Find the "Slant" name in the name table and change to "Italic"
+    for name in font["name"].names:
+        if name.nameID == slnt.AxisNameID:
+            name.string = "Italic"
+
+    # Find the "-10" value and change it to "1"
+    if is_italic:
+        for minusTen in stat.table.AxisValueArray.AxisValue:
+            if minusTen.AxisIndex == slntIndex and minusTen.Value == -10:
+                minusTen.AxisValue = 1
+                break
+        else:
+            raise RuntimeError("Cannot find -10 slant value")
+    else:
+        for minusTen in stat.table.AxisValueArray.AxisValue:
+            if minusTen.AxisIndex == slntIndex and minusTen.LinkedValue == -10:
+                minusTen.LinkedValue = 1
+                break
+        else:
+            raise RuntimeError("Cannot find -10 slant value")
 
 
 def fontv_sha1(ttf_path: Path) -> None:
@@ -332,7 +420,7 @@ def main(args: list[str] | None = None) -> int:
                         variable_font,  # variable_font: Path
                         coordinates,  # user_location: GoogleSansFlexInstance
                         family_name,  # family_name: str | None
-                        None,  # style_name: str | None
+                        "Italic" if italic else None,  # style_name: str | None
                         ttf_path,  # output_file: Path
                     ],
                 ),
