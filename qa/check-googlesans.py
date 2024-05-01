@@ -72,6 +72,7 @@ excluded_check_ids = [
 # includes the full designspace or is restricted to upright or italic only.
 SUFFIX_FULL_VF = "[GRAD,ROND,opsz,slnt,wdth,wght]"
 SUFFIX_PARTIAL_VF = "[GRAD,ROND,opsz,wdth,wght]"
+SUFFIX_WORKSPACE_WEIGHT_ONLY_VF = "[wght]"
 
 AXIS_DEFAULTS = {
     "opsz": 18,
@@ -97,6 +98,14 @@ AXIS_DEFAULTS_FULL_VF = {
 AXIS_NAMES_FULL_VF = {
     **AXIS_NAMES,
     "slnt": "Slant",
+}
+
+AXIS_DEFAULTS_WORKSPACE = {
+    "wght": 400,
+}
+
+AXIS_NAMES_WORKSPACE = {
+    "wght": "Weight",
 }
 
 # Global Google Sans attributes, in 1000 upM font units.
@@ -232,6 +241,8 @@ def com_google_fonts_check_googlesansflex_variable_fvar_axes(font, ttFont):
         expected_fvar_axes = AXIS_DEFAULTS_FULL_VF.keys()
     elif SUFFIX_PARTIAL_VF in font_name:
         expected_fvar_axes = AXIS_DEFAULTS.keys()
+    elif SUFFIX_WORKSPACE_WEIGHT_ONLY_VF in font_name:
+        expected_fvar_axes = AXIS_DEFAULTS_WORKSPACE.keys()
     else:
         raise Exception("Unknown variable font build")
     observed_axis_list = {axis.axisTag for axis in ttFont["fvar"].axes}
@@ -257,6 +268,8 @@ def com_google_fonts_check_googlesansflex_axis_names(font, ttFont):
         axis_names = AXIS_NAMES_FULL_VF
     elif SUFFIX_PARTIAL_VF in font_name:
         axis_names = AXIS_NAMES
+    elif SUFFIX_WORKSPACE_WEIGHT_ONLY_VF in font_name:
+        axis_names = AXIS_NAMES_WORKSPACE
     else:
         raise Exception("Unknown variable font build")
 
@@ -289,6 +302,8 @@ def com_google_fonts_check_googlesansflex_variable_fvar_default(font, ttFont):
         expected_fvar_axes = AXIS_DEFAULTS_FULL_VF
     elif SUFFIX_PARTIAL_VF in font_name:
         expected_fvar_axes = AXIS_DEFAULTS
+    elif SUFFIX_WORKSPACE_WEIGHT_ONLY_VF in font_name:
+        expected_fvar_axes = AXIS_DEFAULTS_WORKSPACE
     else:
         raise Exception("Unknown variable font build")
 
