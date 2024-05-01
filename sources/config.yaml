@@ -13,8 +13,8 @@ buildOTF: false
 # Not released through the repository:
 buildStatic: false
 
-# Outlines are quadratic, don't touch.
-reverseOutlineDirection: false
+# Outlines are quadratic, but drawn in PS direction, as per Glyphs.app requirements.
+reverseOutlineDirection: true
 removeOutlineOverlaps: false
 
 stat:
