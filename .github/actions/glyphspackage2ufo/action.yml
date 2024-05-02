@@ -30,8 +30,8 @@ runs:
       # Note: path to create worktree is relative to Git dir (main) not current dir
       git -C main worktree add --quiet --detach "$GITHUB_WORKSPACE/octavio" "origin/$GIT_REF"
 
-      if [[ ! -d "$GITHUB_WORKSPACE/octavio/sources-v2_0" ]]; then
-        echo "::error title=No glyphspackage sources::$GIT_REF doesn't have a sources-v2_0 folder"
+      if [[ ! -d "$GITHUB_WORKSPACE/octavio/sources/design-source" ]]; then
+        echo "::error title=No glyphspackage sources::$GIT_REF doesn't have a sources/design-source folder"
         exit 1
       fi
 
@@ -52,5 +52,5 @@ runs:
       echo "::endgroup::"
       echo "Running glyphs_to_ds.py"
       venv/bin/python scripts/glyphs_to_ds.py \
-        "$GITHUB_WORKSPACE/octavio/sources-v2_0/GSF-full.glyphspackage" \
+        "$GITHUB_WORKSPACE/octavio/sources/design-source/GSF-full.glyphspackage" \
         sources/GoogleSansFlex.designspace
