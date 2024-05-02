@@ -340,7 +340,7 @@ def add_STAT_ital(font: TTFont, is_italic: bool) -> None:
     if is_italic:
         for minusTen in stat.table.AxisValueArray.AxisValue:
             if minusTen.AxisIndex == slntIndex and minusTen.Value == -10:
-                minusTen.AxisValue = 1
+                minusTen.Value = 1
                 break
         else:
             raise RuntimeError("Cannot find -10 slant value")
