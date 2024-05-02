@@ -50,6 +50,8 @@ jobs:
       run: |
         touch build.stamp # don't rebuild fonts
         . venv/bin/activate && make release
+        # Copy README_WORKSPACE.md into the target folder with the fonts
+        cp README_WORKSPACE.md fonts/workspace/
     - name: Generate archive name
       id: zip-name
       uses: alpha-tango-kilo/gha-artifact-name@v1
@@ -139,7 +141,7 @@ jobs:
         workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
         echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
         cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.artifact-name }}" \
-          && zip -9 "../$workspace_zip_name" *.ttf
+          && zip -9 "../$workspace_zip_name" *.ttf *.md
     - name: Upload variable font archive to release
       uses: svenstaro/upload-release-action@v2
       with:
