@@ -1227,13 +1227,13 @@ width = 600;
 anchors = (
 {
 name = _top.viet;
-pos = (26,1020);
+pos = (0,1020);
 }
 );
 layerId = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
 shapes = (
 {
-pos = (-10,-20);
+pos = (-6,-20);
 ref = hookabovecomb;
 }
 );
@@ -1243,13 +1243,27 @@ width = 600;
 anchors = (
 {
 name = _top.viet;
+pos = (0,1020);
+}
+);
+background = {
+anchors = (
+{
+name = _top.viet;
 pos = (26,1020);
 }
 );
-layerId = "7EEEA5E0-76CC-4F0A-A765-6E3C19B8B704";
 shapes = (
 {
 pos = (-10,-20);
+ref = hookabovecomb;
+}
+);
+};
+layerId = "7EEEA5E0-76CC-4F0A-A765-6E3C19B8B704";
+shapes = (
+{
+pos = (-6,-20);
 ref = hookabovecomb;
 }
 );
