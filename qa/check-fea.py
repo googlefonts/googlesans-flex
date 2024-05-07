@@ -12,114 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from fontbakery.callable import check, condition
-from fontbakery.fonts_profile import profile_factory
-from fontbakery.section import Section
-from fontbakery.status import FAIL, PASS
+from pathlib import Path
 
-profile_imports = [("fontbakery.profiles.shared_conditions", ("ttFont",))]
-profile = profile_factory(
-    default_section=Section("Google Sans Custom Feature Support Checks")
-)
-
-GOOGLESANS_PROFILE_CHECKS = [
-    "com.google.fonts/check/googlesans/features/variableuprights",
-    # "com.google.fonts/check/googlesans/features/regression",  # TODO: For later.
-]
-
-# v1.100 feature set:
-VAR_UPRIGHT_FEA = [
-    "aalt",
-    "calt",
-    "ccmp",
-    "dlig",
-    "dnom",
-    "frac",
-    "kern",
-    "liga",
-    "lnum",
-    "locl",
-    "mark",
-    "mkmk",
-    "numr",
-    "ordn",
-    "pnum",
-    "sinf",
-    "ss01",
-    "ss02",
-    "subs",
-    "sups",
-    "tnum",
-    "zero",
-]
-
-
-# ================================================
-#
-# Conditions
-#
-# ================================================
-
-
-@condition
-def is_italic(ttFont):
-    return "Italic" in ttFont.reader.file.name
-
-
-@condition
-def is_not_italic(ttFont):
-    return "Italic" not in ttFont.reader.file.name
-
-
-@condition
-def is_not_variable_font(ttFont):
-    return "fvar" not in ttFont.keys()
-
-
-@condition
-def is_variable_font(ttFont):
-    return "fvar" in ttFont.keys()
-
-
-# ================================================
-# Feature support
-# ================================================
-
-
-@check(
-    id="com.google.fonts/check/googlesans/features/variableuprights",
-    conditions=["is_not_italic", "is_variable_font"],
-    rationale="""
-    Confirms that the variable upright builds contain expected feature tags.
-    """,
-)
-def com_google_fonts_check_googlesans_features_variable_uprights(ttFont):
-    """Confirms that the upright builds contain expected feature tags."""
-    tt = ttFont
-    gpos = tt.get("GPOS")
-    gsub = tt.get("GSUB")
-
-    if gpos is None or gsub is None:
-        yield FAIL, "Font must contain a 'GPOS' and 'GSUB' table"
-        return
-
-    fea_tags = set()
-
-    for gpos_record in gpos.table.FeatureList.FeatureRecord:
-        fea_tags.add(gpos_record.FeatureTag)
-
-    for gsub_record in gsub.table.FeatureList.FeatureRecord:
-        fea_tags.add(gsub_record.FeatureTag)
-
-    if sorted(fea_tags) == VAR_UPRIGHT_FEA:
-        yield PASS, f"Font contains the expected feature tags"
-    else:
-        yield (
-            FAIL,
-            f"Font does not contain the expected feature tags.\n"
-            f"Found:{sorted(fea_tags)}\nExpected:{VAR_UPRIGHT_FEA}",
-        )
-
-
-profile.auto_register(globals())
-profile.test_expected_checks(GOOGLESANS_PROFILE_CHECKS, exclusive=True)
+PROFILE = {
+    "check_definitions": [Path(__file__).parent / "checks" / "fea.py"],
+    "sections": {
+        "Google Sans Custom Feature Support Checks": [
+            "com.google.fonts/check/googlesans/features/variableuprights",
+            # "com.google.fonts/check/googlesans/features/regression",  # TODO: For later
+        ]
+    },
+}
