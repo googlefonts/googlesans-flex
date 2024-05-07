@@ -85,11 +85,24 @@ jobs:
         cache: pip
     - name: Install diffenator2
       run: pip install --upgrade diffenator2
+
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@latest
+    - name: Setup Chrome Driver
+      uses: nanasess/setup-chromedriver@master
+    - name: Setup Firefox
+      uses: browser-actions/setup-firefox@latest
+    - name: Setup Firefox Driver
+      uses: browser-actions/setup-geckodriver@latest
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Run diffenator2
       run: |
         mkdir -p diffenator_report
+        chromedriver --url-base=/wd/hub &
         diffenator2 diff --fonts-before before/*.ttf --fonts-after after/*.ttf \
-          --out diffenator_report
+          --out diffenator_report --imgs
     - name: Upload diffenator report
       uses: actions/upload-artifact@v4
       with:
