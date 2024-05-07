@@ -59,7 +59,7 @@ jobs:
         if-no-files-found: error
   diffenate:
     runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 30
+    timeout-minutes: 90
     needs:
     - build-before
     - build-after
