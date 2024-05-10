@@ -49,9 +49,7 @@ filelock==3.13.1
 font-v==2.1.0
     # via fontbakery
 fontbakery[googlefonts]==0.10.9
-    # via
-    #   -r requirements-fb.in
-    #   fontbakery
+    # via -r requirements-fb.in
 fontfeatures==1.8.0
     # via babelfont
 fonttools[interpolatable,lxml,ufo,unicode]==4.48.1
@@ -97,7 +95,7 @@ glyphslib==6.6.3
     # via
     #   babelfont
     #   glyphsets
-idna==3.6
+idna==3.7
     # via requests
 kurbopy==0.10.40
     # via collidoscope
