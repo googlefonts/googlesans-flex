@@ -88,7 +88,7 @@ if __name__ == "__main__":
             # create_background_layers=options.create_background_layers,
             # generate_GDEF=options.generate_GDEF,
             # store_editor_state=not options.no_store_editor_state,
-            # write_skipexportglyphs=options.write_public_skip_export_glyphs,
+            write_skipexportglyphs=True,
             # expand_includes=options.expand_includes,
             # ufo_module=__import__(options.ufo_module),
             minimal=True,  # Motivation: avoids crash in background layer.

@@ -6,4 +6,6 @@ matplotlib
 font-v
 
 # Latest stable version, for importing from .glyphs/.glyphspackage sources
-glyphslib>=6.4.1
+# 6.7.1 has a bugfix that is mandatory to build GS Flex correctly:
+# https://github.com/googlefonts/glyphsLib/pull/985
+glyphslib>=6.7.1
