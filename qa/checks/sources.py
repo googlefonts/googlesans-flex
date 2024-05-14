@@ -199,7 +199,8 @@ def check_all_quadratics(config, ufo: Ufo) -> CheckStatus:
 
     offending_glyphs = [
         glyph.name
-        for glyph in ufo.ufo_font  # type: ignore
+        for layer in ufo.ufo_font.layers  # type: ignore
+        for glyph in layer
         if any(
             point.type == "curve"
             for contour in glyph.contours
