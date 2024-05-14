@@ -22,6 +22,7 @@ PROFILE = {
             "com.google.fonts/check/googlesansflex/sources/suspicious_kerning_values",
             "com.google.fonts/check/googlesansflex/sources/same_kerning_groups",
             "com.google.fonts/check/googlesansflex/sources/kerning_present",
+            "com.google.fonts/check/googlesansflex/sources/all_quadratics",
         ]
     },
 }

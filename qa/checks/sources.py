@@ -191,3 +191,33 @@ def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
                 WARN,
                 f"{source.filename}: Found no kerning pairs (not counting exceptions)",
             )
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/all_quadratics")
+def check_all_quadratics(config, ufo: Ufo) -> CheckStatus:
+    """Checks all curves in the font are quadratic"""
+
+    offending_glyphs = [
+        glyph.name
+        for glyph in ufo.ufo_font  # type: ignore
+        if any(
+            point.type == "curve"
+            for contour in glyph.contours
+            for point in contour.points
+        )
+    ]
+
+    if offending_glyphs:
+        yield (
+            FAIL,
+            Message(
+                "cubics-found",
+                f"{ufo.file_displayname} contains glyphs with cubic curves:\n\n"
+                f"{utils.bullet_list(config, offending_glyphs)}",
+            ),
+        )
+    else:
+        yield (
+            PASS,
+            "No cubic curves found",
+        )
