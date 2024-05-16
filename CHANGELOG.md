@@ -1,5 +1,10 @@
 # Google Sans Flex Changelog
 
+## Version 2.002 (2024-05-16)
+
+### Changed
+- added variable fonts with weight axis as a package to the release artifacts, font dedicated to Workspace only (#932)
+- fixed interpolation bug in cent and dollar (#936)
 
 ## Version 2.001 (2024-04-02)
 
