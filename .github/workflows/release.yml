@@ -1,4 +1,4 @@
-name: Release variable & statics
+name: Release variable & workspace fonts
 
 on:
   release:
@@ -50,17 +50,19 @@ jobs:
       run: |
         touch build.stamp # don't rebuild fonts
         . venv/bin/activate && make release
+        # Copy README_WORKSPACE.md into the target folder with the fonts
+        cp README_WORKSPACE.md fonts/workspace/
     - name: Generate archive name
       id: zip-name
       uses: alpha-tango-kilo/gha-artifact-name@v1
       with:
         repo-name: Google Sans Flex
-        overrides: "release: statics"
+        overrides: "release: workspace"
     - name: Upload archive
       uses: actions/upload-artifact@v4
       with:
         name: ${{ steps.zip-name.outputs.artifact-name }}
-        path: fonts/ttf
+        path: fonts/workspace
         compression-level: 9
         if-no-files-found: error
     outputs:
@@ -72,7 +74,7 @@ jobs:
     with:
       branch: ${{ github.ref_name }}
       artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
-  test-statics:
+  test-workspace:
     needs:
     - cut-instances
     runs-on: [linux, googlefonts-64cores-256GB]
@@ -87,13 +89,13 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
         cache: pip
-    - name: Download static fonts
+    - name: Download workspace fonts
       uses: actions/download-artifact@v4
       with:
         name: ${{ needs.cut-instances.outputs.artifact-name }}
-        path: fonts/ttf
+        path: fonts/workspace
     - name: Run Fontbakery
-      id: fontbakery-statics
+      id: fontbakery-workspace
       env:
         SKIP_SOURCES: 1
       run: scripts/fontbakery.sh
@@ -102,9 +104,9 @@ jobs:
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
-      if: ${{ !cancelled() && (steps.fontbakery-statics.conclusion == 'success' || steps.fontbakery-statics.conclusion == 'failure') }}
+      if: ${{ !cancelled() && (steps.fontbakery-workspace.conclusion == 'success' || steps.fontbakery-workspace.conclusion == 'failure') }}
       with:
-        name: Fontbakery statics reports
+        name: Fontbakery workspace reports
         path: out/fontbakery
         if-no-files-found: error
   upload-to-release:
@@ -112,7 +114,7 @@ jobs:
     - build-variable
     - cut-instances
     - test-variable
-    - test-statics
+    - test-workspace
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -121,7 +123,7 @@ jobs:
       with:
         name: ${{ needs.build-variable.outputs.artifact-name }}
         path: ${{ needs.build-variable.outputs.artifact-name }}
-    - name: Download static fonts
+    - name: Download workspace fonts
       uses: actions/download-artifact@v4
       with:
         name: ${{ needs.cut-instances.outputs.artifact-name }}
@@ -136,17 +138,17 @@ jobs:
         cd "$GITHUB_WORKSPACE/${{ needs.build-variable.outputs.artifact-name }}" \
           && zip -9 "../$variable_zip_name" *.ttf
 
-        statics_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace statics.zip"
-        echo "statics-zip-name=$statics_zip_name" >> "$GITHUB_OUTPUT"
+        workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
+        echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
         cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.artifact-name }}" \
-          && zip -9 "../$statics_zip_name" *.ttf
+          && zip -9 "../$workspace_zip_name" *.ttf *.md
     - name: Upload variable font archive to release
       uses: svenstaro/upload-release-action@v2
       with:
         file: ${{ steps.release-archives.outputs.variable-zip-name }}
         overwrite: true
         body: "Production ready fonts"
-    - name: Upload static fonts archive to release
+    - name: Upload workspace fonts archive to release
       uses: svenstaro/upload-release-action@v2
       with:
-        file: ${{ steps.release-archives.outputs.statics-zip-name }}
+        file: ${{ steps.release-archives.outputs.workspace-zip-name }}
