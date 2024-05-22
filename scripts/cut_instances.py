@@ -217,6 +217,7 @@ def cut_instance(
 
     add_fvar_instances(font, is_italic)
     add_STAT_ital(font, is_italic)
+    remove_STAT_useless_axes(font, is_italic)
 
     font.save(output_file)
 
@@ -323,7 +324,6 @@ def add_STAT_ital(font: TTFont, is_italic: bool) -> None:
     `com.google.fonts/check/italic_axis_in_stat`
     """
     stat = font["STAT"]
-    # breakpoint()
     for slntIndex, slnt in enumerate(stat.table.DesignAxisRecord.Axis):
         if slnt.AxisTag == "slnt":
             break
@@ -352,6 +352,36 @@ def add_STAT_ital(font: TTFont, is_italic: bool) -> None:
         else:
             raise RuntimeError("Cannot find -10 slant value")
 
+
+def remove_STAT_useless_axes(font: TTFont, is_italic: bool) -> None:
+    """Remove axes other than Weight and Italic, because they're not used
+    in this Workspace family.
+
+    See https://github.com/googlefonts/googlesans-flex/issues/949
+    """
+    stat = font["STAT"]
+    # Map from old index to new index or None (deleted)
+    new_axis_indices = {}
+    new_axes = []
+    for index, axis in enumerate(stat.table.DesignAxisRecord.Axis):
+        if axis.AxisTag in ("wght", "ital"):
+            new_axis_indices[index] = len(new_axes)
+            new_axes.append(axis)
+
+    # Code inspired from https://github.com/fonttools/fonttools/blob/main/Lib/fontTools/otlLib/builder.py#L2799
+    stat.table.DesignAxisRecord.Axis = new_axes
+    stat.table.DesignAxisCount = len(new_axes)
+
+    # Now filter the axis values to keep only those of kept axes, and remap indices
+    new_axis_values = []
+    for value in stat.table.AxisValueArray.AxisValue:
+        new_axis_index = new_axis_indices.get(value.AxisIndex)
+        if new_axis_index is not None:
+            value.AxisIndex = new_axis_index
+            new_axis_values.append(value)
+
+    stat.table.AxisValueArray.AxisValue = new_axis_values
+    stat.table.AxisValueCount = len(new_axis_values)
 
 def fontv_sha1(ttf_path: Path) -> None:
     fv = FontVersion(ttf_path)
