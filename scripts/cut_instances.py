@@ -383,6 +383,7 @@ def remove_STAT_useless_axes(font: TTFont, is_italic: bool) -> None:
     stat.table.AxisValueArray.AxisValue = new_axis_values
     stat.table.AxisValueCount = len(new_axis_values)
 
+
 def fontv_sha1(ttf_path: Path) -> None:
     fv = FontVersion(ttf_path)
     fv.set_state_git_commit_sha1()
