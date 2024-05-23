@@ -241,7 +241,7 @@ def com_google_fonts_check_googlesansflex_axis_names(font: Font, ttFont):
     elif SUFFIX_PARTIAL_VF in font_name:
         axis_names = AXIS_NAMES
     elif SUFFIX_WORKSPACE_WEIGHT_ONLY_VF in font_name:
-        axis_names = AXIS_DEFAULTS_WORKSPACE
+        axis_names = AXIS_NAMES_WORKSPACE
     else:
         raise Exception("Unknown variable font build")
 
