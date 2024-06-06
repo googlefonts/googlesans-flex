@@ -36,7 +36,8 @@ if [ -e "requirements-fb.txt" ]; then
     venv_bakery/bin/pip install -r requirements-fb.txt
 else
     echo "Not pinning fontbakery"
-    # fonttools[interpolatable] makes com.google.fonts/check/interpolation_issues around 5x faster
+    # fonttools[interpolatable] makes
+    # com.google.fonts/check/interpolation_issues around 5x faster
     venv_bakery/bin/pip install -U "fontbakery[googlefonts]" "fonttools[interpolatable]"
 fi
 [ -n "$GITHUB_RUN_ID" ] && echo "::endgroup::"
@@ -77,9 +78,13 @@ echo "$all_ttfs" \
     qa/check-fea.py {} \
     || failed+=("check-fea")
 
-# NOTE: The following checks can be activated after the sources are stable:
-# -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-charset-report.html \
-#	qa/check-charset.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+echo "$all_ttfs" \
+    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+    --html out/fontbakery/fontbakery-charset-report.html \
+	qa/check-charset.py {} \
+    || failed+=("check-charset")
+
+# NOTE: The following check can be activated after the sources are stable:
 # -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
 #	qa/check-shaping.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
