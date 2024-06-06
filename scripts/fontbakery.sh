@@ -84,9 +84,11 @@ echo "$all_ttfs" \
 	qa/check-charset.py {} \
     || failed+=("check-charset")
 
-# NOTE: The following check can be activated after the sources are stable:
-# -venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-shaping-report.html \
-#	qa/check-shaping.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+echo "$all_ttfs" \
+    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+    --html out/fontbakery/fontbakery-shaping-report.html \
+    qa/check-shaping.py {} \
+    || failed+=("check-shaping")
 
 if [[ ${#failed[@]} -gt 0 ]]; then
     # If on GitHub actions, make a posh GHA error
