@@ -58,6 +58,7 @@ jobs:
         path: ${{ steps.glyphspackage2ufo.outputs.directory }}/UFO sources.tar
         compression-level: 9
         if-no-files-found: error
+        retention-days: 1
     outputs:
       sources-artifact: ${{ steps.zip-name.outputs.artifact-name }}
   build:
