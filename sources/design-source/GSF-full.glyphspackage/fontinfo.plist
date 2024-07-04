@@ -1,5 +1,5 @@
 {
-.appVersion = "3310";
+.appVersion = "3311";
 .formatVersion = 3;
 axes = (
 {
@@ -887,11 +887,6 @@ code = "    sub zero by zerosubscript;
 tag = sinf;
 },
 {
-code = "    sub zero by zeroslash;
-    sub zero.tf by zeroslash.tf;";
-tag = zero;
-},
-{
 code = "    sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;";
@@ -901,6 +896,11 @@ tag = lnum;
 code = "    sub @FIGURES by @FIGURES_TAB;
     sub @SYMBOLS by @SYMBOLS_TAB;";
 tag = tnum;
+},
+{
+code = "    sub zero by zeroslash;
+    sub zero.tf by zeroslash.tf;";
+tag = zero;
 },
 {
 code = "	# f-ligs
@@ -988,12 +988,6 @@ code = "	sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;";
 tag = pnum;
-},
-{
-automatic = 1;
-code = "sub periodcentered.loclCAT by periodcentered.loclCAT.case;
-";
-tag = case;
 },
 {
 automatic = 1;
