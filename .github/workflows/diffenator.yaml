@@ -12,7 +12,7 @@ on:
 
 jobs:
   build-before:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     steps:
     - name: Checkout ${{ inputs.before }}
@@ -35,7 +35,7 @@ jobs:
         path: fonts/variable
         if-no-files-found: error
   build-after:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     steps:
     - name: Checkout ${{ inputs.after }}
@@ -58,7 +58,7 @@ jobs:
         path: fonts/variable
         if-no-files-found: error
   diffenate:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 30
     needs:
     - build-before

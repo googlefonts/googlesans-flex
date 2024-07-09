@@ -9,7 +9,7 @@ on:
 
 jobs:
   convert:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 20
     steps:
     - name: Checkout main
@@ -61,7 +61,7 @@ jobs:
     outputs:
       sources-artifact: ${{ steps.zip-name.outputs.artifact-name }}
   build:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     needs:
     - convert

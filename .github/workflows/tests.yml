@@ -17,7 +17,7 @@ on:
 
 jobs:
   tests:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 20
     steps:
     - name: Checkout ${{ inputs.branch }}
