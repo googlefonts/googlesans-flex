@@ -12,8 +12,8 @@ on:
 
 jobs:
   import-branch:
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - name: Log & validate inputs
         run: |
@@ -49,8 +49,8 @@ jobs:
     outputs:
       import-branch: ${{ steps.create-update-import.outputs.import-branch }}
   build-variable:
-    runs-on: [linux, googlefonts-64cores-256GB]
-    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     needs: import-branch
     steps:
       - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
