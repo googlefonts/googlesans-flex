@@ -21,7 +21,7 @@
 # git reset -q HEAD^ && git restore .github/workflows
 
 # Change runners to free ones
-sed -i 's|\[linux, googlefonts-64cores-256GB\]|ubuntu-latest|g' \
+sed -i 's|googlefonts-64cores-256GB|ubuntu-latest|g' \
     .github/workflows/*.{yml,yaml}
 
 # Change timeouts to 60 minutes across the board

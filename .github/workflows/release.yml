@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-variable:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     steps:
     - name: Checkout ${{ github.ref_name }}
@@ -27,7 +27,7 @@ jobs:
   cut-instances:
     needs:
     - build-variable
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 10
     steps:
     - name: Checkout ${{ github.ref_name }}
@@ -77,7 +77,7 @@ jobs:
   test-workspace:
     needs:
     - cut-instances
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 20
     steps:
     - name: Checkout ${{ github.ref_name }}
