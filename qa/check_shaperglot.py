@@ -27,11 +27,11 @@ TARGET_LANGS_PATH = Path(__file__).parent / "target_langs.txt"
 
 
 def get_worst_status(reporter: Reporter) -> Result:
-    ORDERING = (Result.PASS, Result.SKIP, Result.WARN, Result.FAIL)
+    ORDERING = (Result.SKIP, Result.PASS, Result.WARN, Result.FAIL)
     return max(
         (message.result for message in reporter.results),
         key=ORDERING.index,
-        default=Result.SKIP,
+        default=Result.WARN,
     )
 
 
@@ -55,13 +55,13 @@ def main(font_paths: list[Path]) -> int:
                 print(
                     f"  {worst.value} {target_lang_config['name']} (not supported by shaperglot)"
                 )
-            elif worst == Result.FAIL or worst == Result.WARN:
+            elif worst == Result.PASS:
+                print(f"  {worst.value} {target_lang_config['name']}")
+            else:
                 print(f"  {target_lang_config['name']}:")
                 exit_status = 1
                 for result in itertools.chain(report.fails, report.warns):
                     print(f"    {result}")
-            else:
-                print(f"  {worst.value} {target_lang_config['name']}")
         print()
     return exit_status
 
