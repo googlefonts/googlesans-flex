@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import itertools
 from argparse import ArgumentParser
 from pathlib import Path
 from sys import exit
@@ -27,10 +26,13 @@ TARGET_LANGS_PATH = Path(__file__).parent / "target_langs.txt"
 
 
 def get_worst_status(reporter: Reporter) -> Result:
+    # SKIP is lower than PASS because PASSes + SKIPs = pass overall (according
+    # to shaperglot's own logic)
     ORDERING = (Result.SKIP, Result.PASS, Result.WARN, Result.FAIL)
     return max(
         (message.result for message in reporter.results),
         key=ORDERING.index,
+        # Can't be PASS/FAIL, otherwise doesn't really matter
         default=Result.WARN,
     )
 
@@ -49,19 +51,30 @@ def main(font_paths: list[Path]) -> int:
         for target_lang_config in language_list:
             report = checker.check(target_lang_config)
             worst = get_worst_status(report)
-            if worst == Result.WARN and report.is_unknown:
-                # Override untestable to SKIP
-                worst = Result.SKIP
+            if report.is_unknown:
+                # Display unknown as SKIP
                 print(
-                    f"  {worst.value} {target_lang_config['name']} (not supported by shaperglot)"
+                    f"  {Result.SKIP.value} {target_lang_config['name']} "
+                    "(not supported by shaperglot)"
                 )
             elif worst == Result.PASS:
                 print(f"  {worst.value} {target_lang_config['name']}")
             else:
                 print(f"  {target_lang_config['name']}:")
                 exit_status = 1
-                for result in itertools.chain(report.fails, report.warns):
-                    print(f"    {result}")
+                # De-duplicate messages by their content as otherwise we get a
+                # lot of repeats (usually from SKIPs)
+                report_results = {
+                    message.message: message.result for message in report.results
+                }
+                for message, result in sorted(report_results.items()):
+                    if result == Result.PASS:
+                        continue
+                    elif result == Result.SKIP:
+                        # This seems more appropriate from having looked at when
+                        # shaperglot raises SKIPs
+                        result = Result.FAIL
+                    print(f"    {result.value}: {message}")
         print()
     return exit_status
 
