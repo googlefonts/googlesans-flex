@@ -107,7 +107,8 @@ shaperglot: venv build
 	venv/bin/pip install -U "shaperglot>=0.5"
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 	mkdir -p out
-# Report coverage of target languages
-	xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
 # Report coverage of all languages
 	venv/bin/shaperglot report --group fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	@echo "\nChecking against the target language list"
+# Report coverage of target languages (exit code reports fails/warns)
+	@venv/bin/python qa/check_shaperglot.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
