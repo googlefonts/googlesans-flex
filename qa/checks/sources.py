@@ -191,3 +191,74 @@ def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
                 WARN,
                 f"{source.filename}: Found no kerning pairs (not counting exceptions)",
             )
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/all_quadratics")
+def check_all_quadratics(config, ufo: Ufo) -> CheckStatus:
+    """Checks all curves in the font are quadratic"""
+
+    font = ufo.ufo_font  # type: ignore
+    assert isinstance(font, Font)
+
+    offending_glyphs = [
+        glyph.name
+        for layer in font.layers
+        for glyph in layer
+        if any(
+            point.type == "curve"
+            for contour in glyph.contours
+            for point in contour.points
+        )
+    ]
+
+    if offending_glyphs:
+        yield (
+            FAIL,
+            Message(
+                "cubics-found",
+                f"{ufo.file_displayname} contains glyphs with cubic curves:\n\n"
+                f"{utils.bullet_list(config, offending_glyphs)}\n",
+            ),
+        )
+    else:
+        yield (
+            PASS,
+            "No cubic curves found",
+        )
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/no_open_corners")
+def check_no_open_corners(config, ufo: Ufo) -> CheckStatus:
+    """Check the sources have no corners, as Google Sans Flex's design with ROND
+    is incompatible with this approach"""
+    from glyphsLib.filters.eraseOpenCorners import EraseOpenCornersPen
+    from fontTools.pens.basePen import NullPen
+
+    font = ufo.ufo_font  # type: ignore
+    assert isinstance(font, Font)
+
+    default_layer_name = font.layers.defaultLayer.name
+    for layer in font.layers:
+        offending_glyphs = []
+        for glyph in layer:
+            the_void = NullPen()
+            erase_open_corners = EraseOpenCornersPen(the_void)
+            for contour in glyph.contours:
+                contour.draw(erase_open_corners)
+            if erase_open_corners.affected:
+                offending_glyphs.append(glyph.name)
+
+        if offending_glyphs:
+            location_str = (
+                ufo.file_displayname
+                if layer.name == default_layer_name
+                else f"{ufo.file_displayname} (layer {layer.name})"
+            )
+            yield (
+                FAIL,
+                Message(
+                    "open-corners-found",
+                    f"{location_str} contains glyphs with open corners:\n\n"
+                    f"{utils.bullet_list(config, offending_glyphs)}\n",
+                ),
+            )

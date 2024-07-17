@@ -15,6 +15,7 @@
 """Convert sources from a Glyphs 3 .glyphs or .glyphspackage file into a
 designspace + UFO that can be used for building this font project."""
 
+from typing import Any
 import glyphsLib
 from glyphsLib import GSFont
 from pathlib import Path
@@ -110,6 +111,16 @@ if __name__ == "__main__":
     for ufo in ufos:
         already_skipped = set(ufo.lib.get("public.skipExportGlyphs", []))
         ufo.lib["public.skipExportGlyphs"] = sorted(already_skipped | INCOMPATIBLE)
+        # Remove the eraseOpenCorners filter as it's buggy, and we shouldn't
+        # need it anyway, as designing for ROND means we can't have open corners
+        # https://github.com/googlefonts/fontmake/issues/897
+        filters: list[dict[str, Any]] = ufo.lib.get(
+            "com.github.googlei18n.ufo2ft.filters", []
+        )
+        for index, filter in enumerate(filters):
+            if filter.get("name") == "eraseOpenCorners":
+                del filters[index]
+                break
 
     # Rename the default UFO's style name to "Regular"; this is necessary to
     # produce a correct name table, but otherwise inconvenient to have in
