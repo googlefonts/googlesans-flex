@@ -39,8 +39,8 @@
       <point x="595" y="614" type="qcurve" smooth="yes"/>
       <point x="792" y="565"/>
       <point x="925" y="492"/>
-      <point x="925" y="422" type="qcurve"/>
-      <point x="925" y="420" type="line"/>
+      <point x="925" y="422" type="qcurve" smooth="yes"/>
+      <point x="925" y="420" type="line" smooth="yes"/>
       <point x="925" y="360"/>
       <point x="815" y="287"/>
       <point x="691" y="287" type="qcurve" smooth="yes"/>
@@ -50,7 +50,7 @@
       <point x="330" y="452"/>
       <point x="229" y="457"/>
       <point x="141" y="393"/>
-      <point x="118" y="281" name="inserted"/>
+      <point x="118" y="281"/>
       <point x="184" y="163"/>
       <point x="329" y="66"/>
       <point x="549" y="-1"/>
@@ -58,22 +58,22 @@
     <contour>
       <point x="599" y="1206" type="line"/>
       <point x="806" y="1206" type="line"/>
-      <point x="806" y="1505" type="line"/>
-      <point x="806" y="1548" name="inserted"/>
-      <point x="745" y="1609" name="inserted"/>
-      <point x="702" y="1609" type="qcurve"/>
+      <point x="806" y="1505" type="line" smooth="yes"/>
+      <point x="806" y="1548"/>
+      <point x="745" y="1609"/>
+      <point x="702" y="1609" type="qcurve" smooth="yes"/>
       <point x="660" y="1609"/>
       <point x="599" y="1548"/>
-      <point x="599" y="1505" type="qcurve"/>
+      <point x="599" y="1505" type="qcurve" smooth="yes"/>
     </contour>
     <contour>
-      <point x="702" y="-177" type="qcurve"/>
-      <point x="745" y="-177" name="inserted"/>
-      <point x="806" y="-116" name="inserted"/>
-      <point x="806" y="-73" type="qcurve"/>
+      <point x="702" y="-177" type="qcurve" smooth="yes"/>
+      <point x="745" y="-177"/>
+      <point x="806" y="-116"/>
+      <point x="806" y="-73" type="qcurve" smooth="yes"/>
       <point x="806" y="211" type="line"/>
       <point x="599" y="211" type="line"/>
-      <point x="599" y="-73" type="line"/>
+      <point x="599" y="-73" type="line" smooth="yes"/>
       <point x="599" y="-116"/>
       <point x="660" y="-177"/>
     </contour>
