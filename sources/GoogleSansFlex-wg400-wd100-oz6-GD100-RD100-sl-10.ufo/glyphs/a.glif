@@ -2,7 +2,7 @@
 <glyph name="a" format="2">
   <advance width="1247"/>
   <unicode hex="0061"/>
-  <anchor x="452" y="0" name="bottom"/>
+  <anchor x="512" y="0" name="bottom"/>
   <anchor x="965" y="8" name="ogonek"/>
   <anchor x="693" y="1086" name="top"/>
   <outline>
@@ -12,13 +12,13 @@
       <point x="730" y="70"/>
       <point x="786" y="139" type="qcurve"/>
       <point x="793" y="139" type="line"/>
-      <point x="788" y="110" type="line"/>
+      <point x="788" y="110" type="line" smooth="yes"/>
       <point x="783" y="61"/>
       <point x="850" y="-13"/>
-      <point x="900" y="-13" type="qcurve"/>
-      <point x="943" y="-13" name="inserted"/>
-      <point x="1010" y="45" name="inserted"/>
-      <point x="1017" y="84" type="qcurve"/>
+      <point x="900" y="-13" type="qcurve" smooth="yes"/>
+      <point x="943" y="-13"/>
+      <point x="1010" y="45"/>
+      <point x="1017" y="84" type="qcurve" smooth="yes"/>
       <point x="1123" y="685" type="line" smooth="yes"/>
       <point x="1159" y="886"/>
       <point x="908" y="1122"/>
@@ -26,8 +26,8 @@
       <point x="604" y="1122"/>
       <point x="461" y="1090"/>
       <point x="319" y="1028"/>
-      <point x="243" y="979" name="inserted"/>
-      <point x="227" y="906" name="inserted"/>
+      <point x="243" y="979"/>
+      <point x="227" y="906"/>
       <point x="268" y="839"/>
       <point x="337" y="821"/>
       <point x="397" y="850"/>
@@ -60,7 +60,7 @@
       <point x="654" y="554"/>
       <point x="793" y="493"/>
       <point x="839" y="445" type="qcurve"/>
-      <point x="836" y="428" type="line"/>
+      <point x="836" y="428" type="line" smooth="yes"/>
       <point x="814" y="315"/>
       <point x="612" y="147"/>
     </contour>

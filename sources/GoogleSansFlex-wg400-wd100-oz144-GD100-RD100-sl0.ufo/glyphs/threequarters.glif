@@ -3,9 +3,9 @@
   <advance width="1509"/>
   <unicode hex="00BE"/>
   <outline>
-    <component base="three.numerator"/>
-    <component base="fraction" xOffset="616"/>
-    <component base="four.denominator" xOffset="850"/>
+    <component base="three.numerator" xOffset="-11"/>
+    <component base="fraction" xOffset="607"/>
+    <component base="four.denominator" xOffset="856"/>
   </outline>
   <lib>
     <dict>
@@ -13,7 +13,7 @@
       <array>
         <dict>
           <key>alignment</key>
-          <integer>1</integer>
+          <integer>-1</integer>
           <key>index</key>
           <integer>0</integer>
           <key>name</key>
@@ -21,7 +21,15 @@
         </dict>
         <dict>
           <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
           <integer>1</integer>
+          <key>name</key>
+          <string>fraction</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
           <key>index</key>
           <integer>2</integer>
           <key>name</key>

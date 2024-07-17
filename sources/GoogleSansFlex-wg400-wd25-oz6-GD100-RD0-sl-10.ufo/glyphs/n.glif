@@ -3,10 +3,12 @@
   <advance width="1022"/>
   <unicode hex="006E"/>
   <anchor x="419" y="0" name="bottom"/>
+  <anchor x="811" y="0" name="eng"/>
+  <anchor x="27" y="0" name="nhookleft"/>
   <anchor x="637" y="1086" name="top"/>
   <outline>
     <contour>
-      <point x="160" y="0" type="qcurve"/>
+      <point x="160" y="0" type="qcurve" smooth="yes"/>
       <point x="256" y="0"/>
       <point x="256" y="0"/>
       <point x="271" y="82" type="qcurve" smooth="yes"/>
@@ -32,7 +34,7 @@
       <point x="476" y="1025"/>
       <point x="418" y="946" type="qcurve"/>
       <point x="412" y="946" type="line"/>
-      <point x="418" y="985" type="line"/>
+      <point x="418" y="985" type="line" smooth="yes"/>
       <point x="436" y="1086"/>
       <point x="436" y="1086"/>
       <point x="311" y="1086" type="qcurve" smooth="yes"/>

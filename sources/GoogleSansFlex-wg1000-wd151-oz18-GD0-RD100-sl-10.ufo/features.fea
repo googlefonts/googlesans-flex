@@ -237,11 +237,6 @@ feature sinf {
     sub nine by ninesubscript;
 } sinf;
 
-feature zero {
-    sub zero by zeroslash;
-    sub zero.tf by zeroslash.tf;
-} zero;
-
 feature lnum {
     sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
@@ -252,6 +247,11 @@ feature tnum {
     sub @FIGURES by @FIGURES_TAB;
     sub @SYMBOLS by @SYMBOLS_TAB;
 } tnum;
+
+feature zero {
+    sub zero by zeroslash;
+    sub zero.tf by zeroslash.tf;
+} zero;
 
 feature liga {
 	# f-ligs
@@ -327,12 +327,6 @@ feature pnum {
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;
 } pnum;
-
-feature case {
-# automatic
-sub periodcentered.loclCAT by periodcentered.loclCAT.case;
-
-} case;
 
 feature dlig {
 # automatic

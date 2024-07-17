@@ -22,6 +22,29 @@
       <key>Icircumflex</key>
       <integer>210</integer>
     </dict>
+    <key>acircumflexacute</key>
+    <dict>
+      <key>public.kern2.Y_left</key>
+      <integer>-175</integer>
+    </dict>
+    <key>acircumflexgrave</key>
+    <dict>
+      <key>public.kern2.T_left</key>
+      <integer>-84</integer>
+      <key>public.kern2.V_left</key>
+      <integer>-121</integer>
+      <key>public.kern2.W_left</key>
+      <integer>-81</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-135</integer>
+    </dict>
+    <key>acircumflexhookabove</key>
+    <dict>
+      <key>public.kern2.T_left</key>
+      <integer>-124</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-155</integer>
+    </dict>
     <key>adieresis</key>
     <dict>
       <key>public.kern2.Y_left</key>
@@ -32,10 +55,56 @@
       <key>public.kern2.j_left</key>
       <integer>51</integer>
     </dict>
+    <key>ecircumflexacute</key>
+    <dict>
+      <key>public.kern2.T_left</key>
+      <integer>-57</integer>
+      <key>public.kern2.V_left</key>
+      <integer>-75</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-91</integer>
+      <key>public.kern2.i_left</key>
+      <integer>20</integer>
+    </dict>
+    <key>ecircumflexdotbelow</key>
+    <dict>
+      <key>public.kern2.Y_left</key>
+      <integer>-131</integer>
+    </dict>
+    <key>ecircumflexgrave</key>
+    <dict>
+      <key>public.kern2.V_left</key>
+      <integer>-75</integer>
+      <key>public.kern2.W_left</key>
+      <integer>-44</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-81</integer>
+    </dict>
+    <key>ecircumflexhookabove</key>
+    <dict>
+      <key>public.kern2.T_left</key>
+      <integer>-27</integer>
+      <key>public.kern2.V_left</key>
+      <integer>-55</integer>
+      <key>public.kern2.W_left</key>
+      <integer>-64</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-131</integer>
+    </dict>
+    <key>ecircumflextilde</key>
+    <dict>
+      <key>public.kern2.Y_left</key>
+      <integer>-141</integer>
+    </dict>
     <key>edieresis</key>
     <dict>
       <key>public.kern2.Y_left</key>
       <integer>-131</integer>
+    </dict>
+    <key>etilde</key>
+    <dict>
+      <key>public.kern2.V_left</key>
+      <integer>-75</integer>
     </dict>
     <key>fraction</key>
     <dict>
@@ -44,59 +113,38 @@
     </dict>
     <key>icircumflex</key>
     <dict>
-      <key>public.kern2.V_left</key>
-      <integer>40</integer>
-      <key>public.kern2.W_left</key>
-      <integer>40</integer>
-      <key>public.kern2.Y_left</key>
-      <integer>35</integer>
-      <key>public.kern2.i_left</key>
-      <integer>20</integer>
-      <key>public.kern2.j_left</key>
-      <integer>20</integer>
-      <key>public.kern2.l_left</key>
-      <integer>40</integer>
-    </dict>
-    <key>idieresis</key>
-    <dict>
-      <key>public.kern2.H_left</key>
-      <integer>20</integer>
       <key>public.kern2.T_left</key>
-      <integer>120</integer>
-      <key>public.kern2.V_left</key>
-      <integer>40</integer>
-      <key>public.kern2.W_left</key>
-      <integer>50</integer>
-      <key>public.kern2.Y_left</key>
-      <integer>52</integer>
-      <key>public.kern2.braceright_left</key>
-      <integer>80</integer>
-      <key>public.kern2.bracketright_left</key>
-      <integer>80</integer>
-      <key>public.kern2.i_left</key>
-      <integer>75</integer>
-      <key>public.kern2.j_left</key>
-      <integer>70</integer>
-      <key>public.kern2.l_left</key>
-      <integer>60</integer>
-      <key>public.kern2.quote_left</key>
-      <integer>100</integer>
-      <key>public.kern2.quoteright_left</key>
-      <integer>100</integer>
+      <integer>95</integer>
     </dict>
-    <key>imacron</key>
+    <key>idotbelow</key>
     <dict>
-      <key>public.kern2.T_left</key>
-      <integer>60</integer>
-      <key>public.kern2.W_left</key>
-      <integer>50</integer>
+      <key>public.kern2.j_left</key>
+      <integer>30</integer>
+    </dict>
+    <key>ocircumflexacute</key>
+    <dict>
       <key>public.kern2.Y_left</key>
-      <integer>75</integer>
+      <integer>-157</integer>
+    </dict>
+    <key>ocircumflexgrave</key>
+    <dict>
+      <key>public.kern2.Y_left</key>
+      <integer>-147</integer>
+    </dict>
+    <key>ocircumflexhookabove</key>
+    <dict>
+      <key>public.kern2.Y_left</key>
+      <integer>-157</integer>
     </dict>
     <key>odieresis</key>
     <dict>
       <key>public.kern2.Y_left</key>
       <integer>-157</integer>
+    </dict>
+    <key>ohungarumlaut</key>
+    <dict>
+      <key>public.kern2.T_left</key>
+      <integer>-100</integer>
     </dict>
     <key>public.kern1.A_right</key>
     <dict>
@@ -106,6 +154,8 @@
       <integer>-23</integer>
       <key>public.kern2.O_left</key>
       <integer>-56</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-60</integer>
       <key>public.kern2.TM_left</key>
       <integer>-140</integer>
       <key>public.kern2.T_left</key>
@@ -148,6 +198,8 @@
       <integer>-224</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-43</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>-70</integer>
       <key>public.kern2.j_left</key>
       <integer>-56</integer>
       <key>public.kern2.nine_left</key>
@@ -163,7 +215,7 @@
       <key>public.kern2.one_sup_left</key>
       <integer>-259</integer>
       <key>public.kern2.paragraph_left</key>
-      <integer>-57</integer>
+      <integer>-97</integer>
       <key>public.kern2.parenleft_left</key>
       <integer>-35</integer>
       <key>public.kern2.parenright_left</key>
@@ -296,6 +348,8 @@
       <integer>-29</integer>
       <key>public.kern2.four_sinf_left</key>
       <integer>-54</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>60</integer>
       <key>public.kern2.j_left</key>
       <integer>-50</integer>
       <key>public.kern2.nine_sup_left</key>
@@ -327,14 +381,14 @@
     </dict>
     <key>public.kern1.E_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>20</integer>
       <key>public.kern2.V_left</key>
       <integer>-20</integer>
       <key>public.kern2.f_left</key>
       <integer>-20</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>40</integer>
       <key>public.kern2.j_left</key>
       <integer>-27</integer>
       <key>public.kern2.parenleft_left</key>
@@ -356,11 +410,7 @@
     <key>public.kern1.F_right</key>
     <dict>
       <key>icircumflex</key>
-      <integer>70</integer>
-      <key>idieresis</key>
-      <integer>78</integer>
-      <key>imacron</key>
-      <integer>20</integer>
+      <integer>55</integer>
       <key>public.kern2.AE_left</key>
       <integer>-202</integer>
       <key>public.kern2.A_left</key>
@@ -403,6 +453,10 @@
       <integer>-40</integer>
       <key>public.kern2.guilsingl_r_left</key>
       <integer>-20</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>95</integer>
       <key>public.kern2.j_left</key>
       <integer>-63</integer>
       <key>public.kern2.n_left</key>
@@ -430,6 +484,8 @@
       <key>public.kern2.quoteright_left</key>
       <integer>55</integer>
       <key>public.kern2.s_left</key>
+      <integer>-50</integer>
+      <key>public.kern2.schwa_left</key>
       <integer>-50</integer>
       <key>public.kern2.seven_left</key>
       <integer>20</integer>
@@ -524,8 +580,8 @@
       <integer>0</integer>
       <key>Idieresis</key>
       <integer>0</integer>
-      <key>idieresis</key>
-      <integer>20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>15</integer>
       <key>public.kern2.j_left</key>
       <integer>-103</integer>
       <key>public.kern2.seven_sup_left</key>
@@ -537,11 +593,11 @@
       <integer>-23</integer>
       <key>public.kern2.J_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>70</integer>
     </dict>
     <key>public.kern1.J_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>20</integer>
       <key>public.kern2.AE_left</key>
       <integer>-70</integer>
       <key>public.kern2.A_left</key>
@@ -554,6 +610,8 @@
       <integer>-167</integer>
       <key>public.kern2.g_bi_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>30</integer>
       <key>public.kern2.period_left</key>
       <integer>-21</integer>
       <key>public.kern2.question_d_left</key>
@@ -573,14 +631,16 @@
     </dict>
     <key>public.kern1.K_right</key>
     <dict>
+      <key>icircumflex</key>
+      <integer>15</integer>
       <key>public.kern2.Dcroat_Left</key>
       <integer>-33</integer>
-      <key>public.kern2.J_left</key>
-      <integer>-49</integer>
       <key>public.kern2.O_left</key>
       <integer>-68</integer>
       <key>public.kern2.S_left</key>
       <integer>-20</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-60</integer>
       <key>public.kern2.TM_left</key>
       <integer>20</integer>
       <key>public.kern2.T_left</key>
@@ -611,6 +671,10 @@
       <integer>-20</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-64</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>-80</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>55</integer>
       <key>public.kern2.nine_left</key>
       <integer>-40</integer>
       <key>public.kern2.numbersign_left</key>
@@ -635,6 +699,8 @@
       <integer>-52</integer>
       <key>public.kern2.s_left</key>
       <integer>-21</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-75</integer>
       <key>public.kern2.six_left</key>
       <integer>-20</integer>
       <key>public.kern2.slash_left</key>
@@ -652,6 +718,61 @@
       <key>public.kern2.zero_left</key>
       <integer>-40</integer>
     </dict>
+    <key>public.kern1.Khook_right</key>
+    <dict>
+      <key>icircumflex</key>
+      <integer>80</integer>
+      <key>public.kern2.A_left</key>
+      <integer>-35</integer>
+      <key>public.kern2.J_left</key>
+      <integer>-30</integer>
+      <key>public.kern2.O_left</key>
+      <integer>-95</integer>
+      <key>public.kern2.S_left</key>
+      <integer>-55</integer>
+      <key>public.kern2.T_left</key>
+      <integer>-50</integer>
+      <key>public.kern2.V_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.W_left</key>
+      <integer>-50</integer>
+      <key>public.kern2.X_left</key>
+      <integer>-30</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.Z_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.a_left</key>
+      <integer>-35</integer>
+      <key>public.kern2.f_left</key>
+      <integer>-100</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>120</integer>
+      <key>public.kern2.j_left</key>
+      <integer>-35</integer>
+      <key>public.kern2.n_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.o_left</key>
+      <integer>-120</integer>
+      <key>public.kern2.p_left</key>
+      <integer>-35</integer>
+      <key>public.kern2.s_left</key>
+      <integer>-80</integer>
+      <key>public.kern2.t_left</key>
+      <integer>-90</integer>
+      <key>public.kern2.u_left</key>
+      <integer>-90</integer>
+      <key>public.kern2.v_left</key>
+      <integer>-125</integer>
+      <key>public.kern2.w_left</key>
+      <integer>-105</integer>
+      <key>public.kern2.x_left</key>
+      <integer>-60</integer>
+      <key>public.kern2.y_left</key>
+      <integer>-135</integer>
+      <key>public.kern2.z_left</key>
+      <integer>-65</integer>
+    </dict>
     <key>public.kern1.L_right</key>
     <dict>
       <key>public.kern2.Dcroat_Left</key>
@@ -662,6 +783,8 @@
       <integer>-27</integer>
       <key>public.kern2.O_left</key>
       <integer>-33</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-20</integer>
       <key>public.kern2.TM_left</key>
       <integer>-168</integer>
       <key>public.kern2.T_left</key>
@@ -700,6 +823,8 @@
       <integer>-263</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-20</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>-275</integer>
       <key>public.kern2.j_left</key>
       <integer>-34</integer>
       <key>public.kern2.nine_left</key>
@@ -878,6 +1003,31 @@
       <key>public.kern2.zero_sup_left</key>
       <integer>-39</integer>
     </dict>
+    <key>public.kern1.Ohorn_right</key>
+    <dict>
+      <key>icircumflex</key>
+      <integer>180</integer>
+      <key>public.kern2.A_left</key>
+      <integer>-60</integer>
+      <key>public.kern2.H_left</key>
+      <integer>30</integer>
+      <key>public.kern2.O_left</key>
+      <integer>20</integer>
+      <key>public.kern2.T_left</key>
+      <integer>95</integer>
+      <key>public.kern2.U_left</key>
+      <integer>40</integer>
+      <key>public.kern2.V_left</key>
+      <integer>60</integer>
+      <key>public.kern2.W_left</key>
+      <integer>60</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>50</integer>
+      <key>public.kern2.Z_left</key>
+      <integer>35</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>240</integer>
+    </dict>
     <key>public.kern1.P_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
@@ -918,6 +1068,8 @@
       <integer>-352</integer>
       <key>public.kern2.g_bi_left</key>
       <integer>-30</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>30</integer>
       <key>public.kern2.j_left</key>
       <integer>-30</integer>
       <key>public.kern2.nine_sinf_left</key>
@@ -982,7 +1134,7 @@
       <key>public.kern2.W_left</key>
       <integer>-56</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-101</integer>
+      <integer>-121</integer>
       <key>public.kern2.ampersand_left</key>
       <integer>-20</integer>
       <key>public.kern2.asterisk_left</key>
@@ -1005,6 +1157,8 @@
       <integer>-34</integer>
       <key>public.kern2.guilsingl_r_left</key>
       <integer>-20</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>-40</integer>
       <key>public.kern2.j_left</key>
       <integer>-45</integer>
       <key>public.kern2.nine_left</key>
@@ -1033,6 +1187,8 @@
       <integer>-34</integer>
       <key>public.kern2.s_left</key>
       <integer>-25</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-40</integer>
       <key>public.kern2.seven_sup_left</key>
       <integer>-80</integer>
       <key>public.kern2.six_left</key>
@@ -1068,6 +1224,8 @@
       <integer>-20</integer>
       <key>public.kern2.four_sinf_left</key>
       <integer>-114</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>30</integer>
       <key>public.kern2.one_sup_left</key>
       <integer>-43</integer>
       <key>public.kern2.s_left</key>
@@ -1117,11 +1275,7 @@
     <key>public.kern1.T_right</key>
     <dict>
       <key>icircumflex</key>
-      <integer>36</integer>
-      <key>idieresis</key>
-      <integer>120</integer>
-      <key>imacron</key>
-      <integer>60</integer>
+      <integer>95</integer>
       <key>jdotless</key>
       <integer>-142</integer>
       <key>public.kern2.AE_left</key>
@@ -1136,6 +1290,8 @@
       <integer>-26</integer>
       <key>public.kern2.S_left</key>
       <integer>-40</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-60</integer>
       <key>public.kern2.a_left</key>
       <integer>-103</integer>
       <key>public.kern2.ampersand_left</key>
@@ -1154,6 +1310,8 @@
       <integer>-189</integer>
       <key>public.kern2.dash_left</key>
       <integer>-76</integer>
+      <key>public.kern2.e_left</key>
+      <integer>-142</integer>
       <key>public.kern2.eight_sinf_left</key>
       <integer>-287</integer>
       <key>public.kern2.eth_left</key>
@@ -1176,6 +1334,8 @@
       <integer>-66</integer>
       <key>public.kern2.hyphen_left</key>
       <integer>-22</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>135</integer>
       <key>public.kern2.j_left</key>
       <integer>-107</integer>
       <key>public.kern2.n_left</key>
@@ -1206,6 +1366,8 @@
       <integer>20</integer>
       <key>public.kern2.s_left</key>
       <integer>-117</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-140</integer>
       <key>public.kern2.seven_left</key>
       <integer>20</integer>
       <key>public.kern2.seven_sinf_left</key>
@@ -1308,6 +1470,8 @@
       <integer>-160</integer>
       <key>public.kern2.g_bi_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>40</integer>
       <key>public.kern2.one_left</key>
       <integer>20</integer>
       <key>public.kern2.period_left</key>
@@ -1323,16 +1487,53 @@
       <key>public.kern2.x_left</key>
       <integer>-20</integer>
     </dict>
+    <key>public.kern1.Uhorn_right</key>
+    <dict>
+      <key>icircumflex</key>
+      <integer>275</integer>
+      <key>public.kern2.A_left</key>
+      <integer>-35</integer>
+      <key>public.kern2.H_left</key>
+      <integer>110</integer>
+      <key>public.kern2.J_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.S_left</key>
+      <integer>60</integer>
+      <key>public.kern2.T_left</key>
+      <integer>215</integer>
+      <key>public.kern2.U_left</key>
+      <integer>140</integer>
+      <key>public.kern2.V_left</key>
+      <integer>145</integer>
+      <key>public.kern2.W_left</key>
+      <integer>145</integer>
+      <key>public.kern2.X_left</key>
+      <integer>60</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>140</integer>
+      <key>public.kern2.Z_left</key>
+      <integer>110</integer>
+      <key>public.kern2.i_left</key>
+      <integer>100</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>355</integer>
+      <key>public.kern2.j_left</key>
+      <integer>100</integer>
+      <key>public.kern2.l_left</key>
+      <integer>60</integer>
+    </dict>
     <key>public.kern1.V_right</key>
     <dict>
+      <key>bhook</key>
+      <integer>-20</integer>
       <key>iacute</key>
       <integer>-26</integer>
       <key>icircumflex</key>
-      <integer>40</integer>
-      <key>idieresis</key>
-      <integer>40</integer>
+      <integer>75</integer>
       <key>jdotless</key>
       <integer>-163</integer>
+      <key>khook</key>
+      <integer>-20</integer>
       <key>public.kern2.AE_left</key>
       <integer>-208</integer>
       <key>public.kern2.A_left</key>
@@ -1349,6 +1550,8 @@
       <integer>-51</integer>
       <key>public.kern2.S_left</key>
       <integer>-53</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-65</integer>
       <key>public.kern2.Y_left</key>
       <integer>-27</integer>
       <key>public.kern2.a_left</key>
@@ -1369,6 +1572,8 @@
       <integer>-230</integer>
       <key>public.kern2.dash_left</key>
       <integer>-90</integer>
+      <key>public.kern2.e_left</key>
+      <integer>-150</integer>
       <key>public.kern2.eight_left</key>
       <integer>-20</integer>
       <key>public.kern2.eight_sinf_left</key>
@@ -1397,6 +1602,8 @@
       <integer>-38</integer>
       <key>public.kern2.i_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>125</integer>
       <key>public.kern2.j_left</key>
       <integer>-62</integer>
       <key>public.kern2.l_slash_left</key>
@@ -1427,6 +1634,8 @@
       <integer>-36</integer>
       <key>public.kern2.s_left</key>
       <integer>-128</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-135</integer>
       <key>public.kern2.section_left</key>
       <integer>-25</integer>
       <key>public.kern2.seven_sinf_left</key>
@@ -1464,12 +1673,8 @@
     </dict>
     <key>public.kern1.W_right</key>
     <dict>
-      <key>icircumflex</key>
-      <integer>40</integer>
-      <key>idieresis</key>
-      <integer>50</integer>
-      <key>imacron</key>
-      <integer>50</integer>
+      <key>bhook</key>
+      <integer>-20</integer>
       <key>jdotless</key>
       <integer>-151</integer>
       <key>public.kern2.AE_left</key>
@@ -1488,6 +1693,8 @@
       <integer>-35</integer>
       <key>public.kern2.S_left</key>
       <integer>-44</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-70</integer>
       <key>public.kern2.Y_left</key>
       <integer>-20</integer>
       <key>public.kern2.a_left</key>
@@ -1506,6 +1713,8 @@
       <integer>-127</integer>
       <key>public.kern2.dash_left</key>
       <integer>-46</integer>
+      <key>public.kern2.e_left</key>
+      <integer>-80</integer>
       <key>public.kern2.eight_sinf_left</key>
       <integer>-206</integer>
       <key>public.kern2.eth_left</key>
@@ -1528,6 +1737,8 @@
       <integer>-64</integer>
       <key>public.kern2.guilsingl_r_left</key>
       <integer>-30</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>125</integer>
       <key>public.kern2.j_left</key>
       <integer>-48</integer>
       <key>public.kern2.l_slash_left</key>
@@ -1556,6 +1767,8 @@
       <integer>-28</integer>
       <key>public.kern2.s_left</key>
       <integer>-83</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-90</integer>
       <key>public.kern2.section_left</key>
       <integer>-24</integer>
       <key>public.kern2.seven_sinf_left</key>
@@ -1603,6 +1816,8 @@
       <integer>-63</integer>
       <key>public.kern2.S_left</key>
       <integer>-36</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-60</integer>
       <key>public.kern2.TM_left</key>
       <integer>20</integer>
       <key>public.kern2.ampersand_left</key>
@@ -1627,6 +1842,10 @@
       <integer>-20</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-46</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>-80</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>50</integer>
       <key>public.kern2.nine_left</key>
       <integer>-20</integer>
       <key>public.kern2.numbersign_left</key>
@@ -1649,6 +1868,8 @@
       <integer>-36</integer>
       <key>public.kern2.s_left</key>
       <integer>-30</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-35</integer>
       <key>public.kern2.six_left</key>
       <integer>-20</integer>
       <key>public.kern2.slash_left</key>
@@ -1670,18 +1891,16 @@
     <dict>
       <key>adieresis</key>
       <integer>-148</integer>
+      <key>bhook</key>
+      <integer>-30</integer>
       <key>edieresis</key>
       <integer>-159</integer>
       <key>iacute</key>
       <integer>-60</integer>
-      <key>icircumflex</key>
-      <integer>35</integer>
-      <key>idieresis</key>
-      <integer>52</integer>
-      <key>imacron</key>
-      <integer>75</integer>
       <key>jdotless</key>
       <integer>-242</integer>
+      <key>khook</key>
+      <integer>-40</integer>
       <key>odieresis</key>
       <integer>-159</integer>
       <key>public.kern2.AE_left</key>
@@ -1700,6 +1919,8 @@
       <integer>-109</integer>
       <key>public.kern2.S_left</key>
       <integer>-90</integer>
+      <key>public.kern2.Schwa_left</key>
+      <integer>-140</integer>
       <key>public.kern2.U_left</key>
       <integer>-20</integer>
       <key>public.kern2.V_left</key>
@@ -1728,6 +1949,8 @@
       <integer>-238</integer>
       <key>public.kern2.dash_left</key>
       <integer>-136</integer>
+      <key>public.kern2.e_left</key>
+      <integer>-180</integer>
       <key>public.kern2.eight_left</key>
       <integer>-44</integer>
       <key>public.kern2.eight_sinf_left</key>
@@ -1752,10 +1975,14 @@
       <integer>-185</integer>
       <key>public.kern2.guilsingl_r_left</key>
       <integer>-139</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>-40</integer>
       <key>public.kern2.hyphen_left</key>
       <integer>-52</integer>
       <key>public.kern2.i_left</key>
       <integer>-38</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>100</integer>
       <key>public.kern2.j_left</key>
       <integer>-184</integer>
       <key>public.kern2.l_slash_left</key>
@@ -1792,6 +2019,8 @@
       <integer>-46</integer>
       <key>public.kern2.s_left</key>
       <integer>-222</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-205</integer>
       <key>public.kern2.section_left</key>
       <integer>-37</integer>
       <key>public.kern2.seven_sinf_left</key>
@@ -1831,6 +2060,73 @@
       <key>public.kern2.zero_sinf_left</key>
       <integer>-279</integer>
     </dict>
+    <key>public.kern1.Yhook_right</key>
+    <dict>
+      <key>acircumflex</key>
+      <integer>-170</integer>
+      <key>acircumflexdotbelow</key>
+      <integer>-170</integer>
+      <key>atilde</key>
+      <integer>-150</integer>
+      <key>ecircumflex</key>
+      <integer>-170</integer>
+      <key>ecircumflexdotbelow</key>
+      <integer>-170</integer>
+      <key>etilde</key>
+      <integer>-160</integer>
+      <key>iacute</key>
+      <integer>-60</integer>
+      <key>ocircumflex</key>
+      <integer>-180</integer>
+      <key>ocircumflexdotbelow</key>
+      <integer>-180</integer>
+      <key>otilde</key>
+      <integer>-160</integer>
+      <key>public.kern2.A_left</key>
+      <integer>-200</integer>
+      <key>public.kern2.J_left</key>
+      <integer>-340</integer>
+      <key>public.kern2.O_left</key>
+      <integer>-50</integer>
+      <key>public.kern2.T_left</key>
+      <integer>60</integer>
+      <key>public.kern2.V_left</key>
+      <integer>40</integer>
+      <key>public.kern2.W_left</key>
+      <integer>50</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>50</integer>
+      <key>public.kern2.a_left</key>
+      <integer>-220</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>190</integer>
+      <key>public.kern2.n_left</key>
+      <integer>-220</integer>
+      <key>public.kern2.o_left</key>
+      <integer>-280</integer>
+      <key>public.kern2.p_left</key>
+      <integer>-220</integer>
+      <key>public.kern2.s_left</key>
+      <integer>-260</integer>
+      <key>public.kern2.t_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.u_left</key>
+      <integer>-200</integer>
+      <key>public.kern2.v_left</key>
+      <integer>-120</integer>
+      <key>public.kern2.w_left</key>
+      <integer>-120</integer>
+      <key>public.kern2.x_left</key>
+      <integer>-100</integer>
+      <key>public.kern2.y_left</key>
+      <integer>-120</integer>
+      <key>public.kern2.z_left</key>
+      <integer>-160</integer>
+      <key>utilde</key>
+      <integer>-180</integer>
+      <key>ytilde</key>
+      <integer>-100</integer>
+    </dict>
     <key>public.kern1.Z_right</key>
     <dict>
       <key>public.kern2.J_left</key>
@@ -1857,6 +2153,8 @@
       <integer>-20</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-40</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>55</integer>
       <key>public.kern2.nine_left</key>
       <integer>-20</integer>
       <key>public.kern2.o_left</key>
@@ -1982,6 +2280,8 @@
       <integer>41</integer>
       <key>public.kern2.g_bi_left</key>
       <integer>-75</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>60</integer>
       <key>public.kern2.o_left</key>
       <integer>-32</integer>
       <key>public.kern2.one_left</key>
@@ -2026,7 +2326,7 @@
       <key>public.kern2.X_left</key>
       <integer>-61</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-78</integer>
+      <integer>-88</integer>
       <key>public.kern2.bracketright_left</key>
       <integer>-70</integer>
       <key>public.kern2.four_left</key>
@@ -2109,8 +2409,6 @@
     </dict>
     <key>public.kern1.braceleft_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>80</integer>
       <key>public.kern2.J_left</key>
       <integer>-21</integer>
       <key>public.kern2.S_left</key>
@@ -2125,6 +2423,8 @@
       <integer>-26</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>110</integer>
       <key>public.kern2.j_left</key>
       <integer>113</integer>
       <key>public.kern2.parenleft_left</key>
@@ -2183,8 +2483,6 @@
     </dict>
     <key>public.kern1.bracketleft_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>80</integer>
       <key>public.kern2.O_left</key>
       <integer>-20</integer>
       <key>public.kern2.S_left</key>
@@ -2201,6 +2499,8 @@
       <integer>-40</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>115</integer>
       <key>public.kern2.j_left</key>
       <integer>119</integer>
       <key>public.kern2.numbersign_left</key>
@@ -2223,6 +2523,11 @@
       <integer>-20</integer>
       <key>public.kern2.y_left</key>
       <integer>-24</integer>
+    </dict>
+    <key>public.kern1.bracketright_right</key>
+    <dict>
+      <key>public.kern2.iaccent_left</key>
+      <integer>5</integer>
     </dict>
     <key>public.kern1.bullet_right</key>
     <dict>
@@ -2388,6 +2693,8 @@
       <integer>40</integer>
       <key>public.kern2.W_left</key>
       <integer>27</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>110</integer>
       <key>public.kern2.round_u_left</key>
       <integer>33</integer>
     </dict>
@@ -2404,6 +2711,23 @@
       <key>public.kern2.slash_left</key>
       <integer>-45</integer>
     </dict>
+    <key>public.kern1.dhook_right</key>
+    <dict>
+      <key>icircumflex</key>
+      <integer>155</integer>
+      <key>public.kern2.T_left</key>
+      <integer>70</integer>
+      <key>public.kern2.V_left</key>
+      <integer>75</integer>
+      <key>public.kern2.W_left</key>
+      <integer>70</integer>
+      <key>public.kern2.X_left</key>
+      <integer>60</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>75</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>215</integer>
+    </dict>
     <key>public.kern1.e_right</key>
     <dict>
       <key>public.kern2.AE_left</key>
@@ -2413,7 +2737,7 @@
       <key>public.kern2.TM_left</key>
       <integer>-60</integer>
       <key>public.kern2.T_left</key>
-      <integer>-127</integer>
+      <integer>-87</integer>
       <key>public.kern2.V_left</key>
       <integer>-115</integer>
       <key>public.kern2.W_left</key>
@@ -2569,13 +2893,9 @@
     <key>public.kern1.f_right</key>
     <dict>
       <key>icircumflex</key>
-      <integer>140</integer>
-      <key>idieresis</key>
-      <integer>172</integer>
+      <integer>135</integer>
       <key>igrave</key>
       <integer>65</integer>
-      <key>imacron</key>
-      <integer>133</integer>
       <key>public.kern2.AE_left</key>
       <integer>-96</integer>
       <key>public.kern2.A_left</key>
@@ -2626,14 +2946,12 @@
       <integer>72</integer>
       <key>public.kern2.hyphen_left</key>
       <integer>29</integer>
-      <key>public.kern2.j_left</key>
-      <integer>-34</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>195</integer>
       <key>public.kern2.nine_sinf_left</key>
       <integer>-168</integer>
       <key>public.kern2.nine_sup_left</key>
       <integer>146</integer>
-      <key>public.kern2.o_left</key>
-      <integer>-20</integer>
       <key>public.kern2.one_left</key>
       <integer>87</integer>
       <key>public.kern2.one_sinf_left</key>
@@ -2829,9 +3147,9 @@
       <key>public.kern2.X_left</key>
       <integer>-40</integer>
       <key>public.kern2.Y_left</key>
-      <integer>-85</integer>
+      <integer>-125</integer>
       <key>public.kern2.a_left</key>
-      <integer>-41</integer>
+      <integer>-31</integer>
       <key>public.kern2.j_left</key>
       <integer>30</integer>
       <key>public.kern2.one_left</key>
@@ -2990,7 +3308,7 @@
       <key>public.kern2.hyphen_left</key>
       <integer>120</integer>
       <key>public.kern2.o_left</key>
-      <integer>30</integer>
+      <integer>45</integer>
       <key>public.kern2.seven_left</key>
       <integer>-20</integer>
       <key>public.kern2.t_left</key>
@@ -3002,12 +3320,55 @@
     </dict>
     <key>public.kern1.i_right</key>
     <dict>
-      <key>icircumflex</key>
-      <integer>20</integer>
-      <key>idieresis</key>
-      <integer>75</integer>
       <key>public.kern2.Y_left</key>
       <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>65</integer>
+    </dict>
+    <key>public.kern1.iaccent_right</key>
+    <dict>
+      <key>public.kern2.H_left</key>
+      <integer>10</integer>
+      <key>public.kern2.Hbar_left</key>
+      <integer>70</integer>
+      <key>public.kern2.T_left</key>
+      <integer>135</integer>
+      <key>public.kern2.U_left</key>
+      <integer>40</integer>
+      <key>public.kern2.V_left</key>
+      <integer>125</integer>
+      <key>public.kern2.W_left</key>
+      <integer>125</integer>
+      <key>public.kern2.X_left</key>
+      <integer>45</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>100</integer>
+      <key>public.kern2.Z_left</key>
+      <integer>65</integer>
+      <key>public.kern2.asterisk_left</key>
+      <integer>60</integer>
+      <key>public.kern2.braceright_left</key>
+      <integer>110</integer>
+      <key>public.kern2.bracketleft_left</key>
+      <integer>5</integer>
+      <key>public.kern2.bracketright_left</key>
+      <integer>115</integer>
+      <key>public.kern2.h_bar</key>
+      <integer>100</integer>
+      <key>public.kern2.hook_left</key>
+      <integer>15</integer>
+      <key>public.kern2.i_left</key>
+      <integer>65</integer>
+      <key>public.kern2.j_left</key>
+      <integer>75</integer>
+      <key>public.kern2.l_left</key>
+      <integer>30</integer>
+      <key>public.kern2.parenright_left</key>
+      <integer>55</integer>
+      <key>public.kern2.quote_left</key>
+      <integer>15</integer>
+      <key>public.kern2.quoteright_left</key>
+      <integer>75</integer>
     </dict>
     <key>public.kern1.k_right</key>
     <dict>
@@ -3061,6 +3422,8 @@
       <integer>37</integer>
       <key>public.kern2.question_left</key>
       <integer>-20</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-40</integer>
       <key>public.kern2.seven_sup_left</key>
       <integer>-40</integer>
       <key>public.kern2.slash_left</key>
@@ -3076,10 +3439,8 @@
     </dict>
     <key>public.kern1.l_right</key>
     <dict>
-      <key>icircumflex</key>
-      <integer>40</integer>
-      <key>idieresis</key>
-      <integer>60</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>30</integer>
       <key>public.kern2.unscore_left</key>
       <integer>-44</integer>
     </dict>
@@ -3244,8 +3605,6 @@
       <integer>-54</integer>
       <key>public.kern2.four_sup_left</key>
       <integer>-33</integer>
-      <key>public.kern2.j_left</key>
-      <integer>-75</integer>
       <key>public.kern2.nine_left</key>
       <integer>-20</integer>
       <key>public.kern2.nine_sup_left</key>
@@ -3389,7 +3748,7 @@
       <key>public.kern2.TM_left</key>
       <integer>-50</integer>
       <key>public.kern2.T_left</key>
-      <integer>-120</integer>
+      <integer>-140</integer>
       <key>public.kern2.V_left</key>
       <integer>-135</integer>
       <key>public.kern2.W_left</key>
@@ -3449,6 +3808,37 @@
       <key>public.kern2.zero_sup_left</key>
       <integer>-111</integer>
     </dict>
+    <key>public.kern1.ohorn_right</key>
+    <dict>
+      <key>public.kern2.A_left</key>
+      <integer>-100</integer>
+      <key>public.kern2.J_left</key>
+      <integer>-50</integer>
+      <key>public.kern2.S_left</key>
+      <integer>20</integer>
+      <key>public.kern2.T_left</key>
+      <integer>80</integer>
+      <key>public.kern2.V_left</key>
+      <integer>20</integer>
+      <key>public.kern2.W_left</key>
+      <integer>20</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>30</integer>
+      <key>public.kern2.f_left</key>
+      <integer>50</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>90</integer>
+      <key>public.kern2.o_left</key>
+      <integer>-75</integer>
+      <key>public.kern2.t_left</key>
+      <integer>60</integer>
+      <key>public.kern2.v_left</key>
+      <integer>20</integer>
+      <key>public.kern2.w_left</key>
+      <integer>15</integer>
+      <key>public.kern2.y_left</key>
+      <integer>10</integer>
+    </dict>
     <key>public.kern1.one_nu_right</key>
     <dict>
       <key>public.kern2.fraction_left</key>
@@ -3498,6 +3888,8 @@
       <integer>-43</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-30</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>55</integer>
       <key>public.kern2.j_left</key>
       <integer>52</integer>
       <key>public.kern2.numbersign_left</key>
@@ -3753,6 +4145,8 @@
       <integer>-26</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-35</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>15</integer>
       <key>public.kern2.j_left</key>
       <integer>-50</integer>
       <key>public.kern2.o_left</key>
@@ -3782,8 +4176,6 @@
     </dict>
     <key>public.kern1.quote_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>100</integer>
       <key>public.kern2.AE_left</key>
       <integer>-221</integer>
       <key>public.kern2.A_left</key>
@@ -3812,6 +4204,8 @@
       <integer>-29</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-29</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>15</integer>
       <key>public.kern2.j_left</key>
       <integer>-30</integer>
       <key>public.kern2.numbersign_left</key>
@@ -3835,8 +4229,6 @@
     </dict>
     <key>public.kern1.quoteleft_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>100</integer>
       <key>public.kern2.AE_left</key>
       <integer>-220</integer>
       <key>public.kern2.A_left</key>
@@ -3873,6 +4265,8 @@
       <integer>-26</integer>
       <key>public.kern2.guilsingl_l_left</key>
       <integer>-31</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>155</integer>
       <key>public.kern2.numbersign_left</key>
       <integer>-33</integer>
       <key>public.kern2.o_left</key>
@@ -3904,8 +4298,6 @@
     </dict>
     <key>public.kern1.quoteright_right</key>
     <dict>
-      <key>idieresis</key>
-      <integer>100</integer>
       <key>public.kern2.AE_left</key>
       <integer>-293</integer>
       <key>public.kern2.A_left</key>
@@ -3942,6 +4334,8 @@
       <integer>-50</integer>
       <key>public.kern2.guilsingl_r_left</key>
       <integer>-48</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>80</integer>
       <key>public.kern2.j_left</key>
       <integer>-33</integer>
       <key>public.kern2.n_left</key>
@@ -4036,7 +4430,7 @@
       <key>public.kern2.numbersign_left</key>
       <integer>-20</integer>
       <key>public.kern2.o_left</key>
-      <integer>-21</integer>
+      <integer>-31</integer>
       <key>public.kern2.one_left</key>
       <integer>80</integer>
       <key>public.kern2.one_sinf_left</key>
@@ -4143,8 +4537,6 @@
       <integer>-20</integer>
       <key>public.kern2.four_sinf_left</key>
       <integer>-46</integer>
-      <key>public.kern2.j_left</key>
-      <integer>-54</integer>
       <key>public.kern2.nine_sup_left</key>
       <integer>-130</integer>
       <key>public.kern2.one_sup_left</key>
@@ -4464,6 +4856,11 @@
       <key>public.kern2.zero_left</key>
       <integer>-27</integer>
     </dict>
+    <key>public.kern1.space_right</key>
+    <dict>
+      <key>public.kern2.H_left</key>
+      <integer>0</integer>
+    </dict>
     <key>public.kern1.sterling_right</key>
     <dict>
       <key>public.kern2.four_left</key>
@@ -4676,14 +5073,45 @@
       <integer>-159</integer>
       <key>public.kern2.b_slash_left</key>
       <integer>-69</integer>
-      <key>public.kern2.j_left</key>
-      <integer>-65</integer>
       <key>public.kern2.nine_sup_left</key>
       <integer>-108</integer>
       <key>public.kern2.one_sup_left</key>
       <integer>-37</integer>
       <key>public.kern2.seven_sup_left</key>
       <integer>-78</integer>
+    </dict>
+    <key>public.kern1.uhorn_right</key>
+    <dict>
+      <key>public.kern2.A_left</key>
+      <integer>-70</integer>
+      <key>public.kern2.J_left</key>
+      <integer>-100</integer>
+      <key>public.kern2.S_left</key>
+      <integer>20</integer>
+      <key>public.kern2.T_left</key>
+      <integer>65</integer>
+      <key>public.kern2.V_left</key>
+      <integer>20</integer>
+      <key>public.kern2.W_left</key>
+      <integer>40</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>20</integer>
+      <key>public.kern2.f_left</key>
+      <integer>10</integer>
+      <key>public.kern2.i_left</key>
+      <integer>-20</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>120</integer>
+      <key>public.kern2.j_left</key>
+      <integer>-10</integer>
+      <key>public.kern2.n_left</key>
+      <integer>-30</integer>
+      <key>public.kern2.o_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.s_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.t_left</key>
+      <integer>25</integer>
     </dict>
     <key>public.kern1.unscore_right</key>
     <dict>
@@ -4838,6 +5266,8 @@
       <integer>30</integer>
       <key>public.kern2.s_left</key>
       <integer>-50</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-40</integer>
       <key>public.kern2.seven_left</key>
       <integer>34</integer>
       <key>public.kern2.seven_sinf_left</key>
@@ -4931,6 +5361,8 @@
       <integer>20</integer>
       <key>public.kern2.s_left</key>
       <integer>-48</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-45</integer>
       <key>public.kern2.seven_sinf_left</key>
       <integer>-64</integer>
       <key>public.kern2.six_sinf_left</key>
@@ -5004,6 +5436,8 @@
       <integer>20</integer>
       <key>public.kern2.s_left</key>
       <integer>-25</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-75</integer>
       <key>public.kern2.seven_left</key>
       <integer>20</integer>
       <key>public.kern2.six_left</key>
@@ -5088,11 +5522,13 @@
       <key>public.kern2.quoteleft_left</key>
       <integer>27</integer>
       <key>public.kern2.quoteright_left</key>
-      <integer>20</integer>
+      <integer>60</integer>
       <key>public.kern2.round_u_left</key>
       <integer>20</integer>
       <key>public.kern2.s_left</key>
       <integer>-51</integer>
+      <key>public.kern2.schwa_left</key>
+      <integer>-50</integer>
       <key>public.kern2.seven_left</key>
       <integer>31</integer>
       <key>public.kern2.seven_sinf_left</key>
@@ -5124,6 +5560,39 @@
       <integer>-20</integer>
       <key>public.kern2.zero_left</key>
       <integer>-22</integer>
+    </dict>
+    <key>public.kern1.yhook_right</key>
+    <dict>
+      <key>public.kern2.A_left</key>
+      <integer>-140</integer>
+      <key>public.kern2.J_left</key>
+      <integer>-115</integer>
+      <key>public.kern2.O_left</key>
+      <integer>60</integer>
+      <key>public.kern2.V_left</key>
+      <integer>-40</integer>
+      <key>public.kern2.X_left</key>
+      <integer>-80</integer>
+      <key>public.kern2.Y_left</key>
+      <integer>-60</integer>
+      <key>public.kern2.Z_left</key>
+      <integer>-20</integer>
+      <key>public.kern2.f_left</key>
+      <integer>70</integer>
+      <key>public.kern2.iaccent_left</key>
+      <integer>10</integer>
+      <key>public.kern2.t_left</key>
+      <integer>80</integer>
+      <key>public.kern2.v_left</key>
+      <integer>60</integer>
+      <key>public.kern2.w_left</key>
+      <integer>60</integer>
+      <key>public.kern2.x_left</key>
+      <integer>40</integer>
+      <key>public.kern2.y_left</key>
+      <integer>50</integer>
+      <key>public.kern2.z_left</key>
+      <integer>25</integer>
     </dict>
     <key>public.kern1.z_right</key>
     <dict>
@@ -5206,6 +5675,11 @@
       <integer>-22</integer>
       <key>public.kern2.zero_sinf_left</key>
       <integer>-40</integer>
+    </dict>
+    <key>ydotbelow</key>
+    <dict>
+      <key>public.kern2.j_left</key>
+      <integer>108</integer>
     </dict>
   </dict>
 </plist>
