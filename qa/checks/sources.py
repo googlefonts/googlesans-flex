@@ -42,10 +42,15 @@ def ds(designspace: Designspace) -> DesignSpaceDocument:
 @check(id="com.google.fonts/check/googlesansflex/sources/same_tabular_width")
 def check_same_tabular_widths(ufo_font: Font, config) -> CheckStatus:
     """Confirms that tabular glyphs have the same width within the same master."""
+    EXCLUDED_TABULARS = {
+        # Intentionally has a different width:
+        # https://github.com/googlefonts/googlesans-flex/issues/937
+        "space.tf",
+    }
 
     warnings_by_layer = {}
     for layer in ufo_font.layers:
-        tabulars = {name for name in layer.keys() if ".tf" in name}
+        tabulars = {name for name in layer.keys() if ".tf" in name} - EXCLUDED_TABULARS
         if not tabulars:
             continue
 
