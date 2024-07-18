@@ -90,8 +90,15 @@ def check_same_tabular_widths(ufo_font: Font, config) -> CheckStatus:
                 Message(
                     "mismatching-tabular-widths",
                     f"layer '{layer_name}':\n\n"
-                    f"""{utils.bullet_list(config, [f"{name} ({width}) has different width than {ref_name} ({ref_width})"
-                     for (name, width, ref_name, ref_width) in warnings])}""",
+                    f"""{
+                        utils.bullet_list(
+                            config,
+                            [
+                                f"{name} ({width}) has different width than {ref_name} ({ref_width})"
+                                for (name, width, ref_name, ref_width) in warnings
+                            ],
+                        )
+                    }""",
                 ),
             )
 
@@ -139,13 +146,15 @@ def check_suspicious_kerning_values(ufo_font: Font, config) -> CheckStatus:
             Message(
                 "suspicious-kerning-values",
                 f"Kerning values outside the accepted range of [{threshold_low}, {threshold_high}]:\n\n"
-                f"""{utils.bullet_list(
-                    config,
-                    [
-                        f"Pair {pair} (e.g. {example}): {value}"
-                        for (pair, example, value) in suspicious_kerning
-                    ],
-                )}""",
+                f"""{
+                    utils.bullet_list(
+                        config,
+                        [
+                            f"Pair {pair} (e.g. {example}): {value}"
+                            for (pair, example, value) in suspicious_kerning
+                        ],
+                    )
+                }""",
             ),
         )
 
@@ -204,40 +213,6 @@ def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
                 WARN,
                 f"{source.filename}: Found no kerning pairs (not counting exceptions)",
             )
-
-
-@check(id="googlesansflex/sources/all_quadratics")
-def check_all_quadratics(config, ufo: Ufo) -> CheckStatus:
-    """Checks all curves in the font are quadratic"""
-
-    font = ufo.ufo_font  # type: ignore
-    assert isinstance(font, Font)
-
-    offending_glyphs = [
-        glyph.name
-        for layer in font.layers
-        for glyph in layer
-        if any(
-            point.type == "curve"
-            for contour in glyph.contours
-            for point in contour.points
-        )
-    ]
-
-    if offending_glyphs:
-        yield (
-            FAIL,
-            Message(
-                "cubics-found",
-                f"{ufo.file_displayname} contains glyphs with cubic curves:\n\n"
-                f"{utils.bullet_list(config, offending_glyphs)}\n",
-            ),
-        )
-    else:
-        yield (
-            PASS,
-            "No cubic curves found",
-        )
 
 
 @check(id="googlesansflex/sources/no_open_corners")

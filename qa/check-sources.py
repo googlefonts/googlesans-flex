@@ -22,11 +22,11 @@ PROFILE = {
             "googlesansflex/sources/suspicious_kerning_values",
             "googlesansflex/sources/same_kerning_groups",
             "googlesansflex/sources/kerning_present",
-            "googlesansflex/sources/all_quadratics",
             "googlesansflex/sources/no_open_corners",
             "googlesansflex/sources/decomposed_by_skip",
             "googlesansflex/sources/decomposed_by_mix",
             "googlesansflex/sources/decomposed_by_var_transform",
+            "ufo_consistent_curve_type",
         ]
     },
 }
