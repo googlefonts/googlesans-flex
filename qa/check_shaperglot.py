@@ -26,8 +26,8 @@ TARGET_LANGS_PATH = Path(__file__).parent / "target_langs.txt"
 
 
 def get_worst_status(reporter: Reporter) -> Result:
-    # SKIP is lower than PASS because PASSes + SKIPs = pass overall (according
-    # to shaperglot's own logic)
+    # SKIP means some checks were omitted because they weren't relevant to the
+    # font, which is less important than any other status
     ORDERING = (Result.SKIP, Result.PASS, Result.WARN, Result.FAIL)
     return max(
         (message.result for message in reporter.results),
@@ -62,19 +62,10 @@ def main(font_paths: list[Path]) -> int:
             else:
                 print(f"  {target_lang_config['name']}:")
                 exit_status = 1
-                # De-duplicate messages by their content as otherwise we get a
-                # lot of repeats (usually from SKIPs)
-                report_results = {
-                    message.message: message.result for message in report.results
-                }
-                for message, result in sorted(report_results.items()):
-                    if result == Result.PASS:
+                for message in report.results:
+                    if message.result == Result.PASS or message.result == Result.SKIP:
                         continue
-                    elif result == Result.SKIP:
-                        # This seems more appropriate from having looked at when
-                        # shaperglot raises SKIPs
-                        result = Result.FAIL
-                    print(f"    {result.value}: {message}")
+                    print(f"    {message}")
         print()
     return exit_status
 
