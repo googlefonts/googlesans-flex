@@ -26,8 +26,4 @@ PROFILE = {
             "com.google.fonts/check/googlesansflex/sources/no_open_corners",
         ]
     },
-    "exclude_checks": [
-        # https://github.com/googlefonts/googlesans-flex/issues/972
-        "com.google.fonts/check/gsub/smallcaps_before_ligatures",
-    ],
 }
