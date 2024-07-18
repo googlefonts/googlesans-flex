@@ -63,7 +63,7 @@ def main(font_paths: list[Path]) -> int:
                 print(f"  {target_lang_config['name']}:")
                 exit_status = 1
                 for message in report.results:
-                    if message.result == Result.PASS or message.result == Result.SKIP:
+                    if message.result == Result.SKIP:
                         continue
                     print(f"    {message}")
         print()
