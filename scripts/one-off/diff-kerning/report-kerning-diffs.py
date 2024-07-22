@@ -10,16 +10,15 @@ from tqdm import tqdm
 
 def main():
     print("Opening old font")
-    old = GSFont("./GSF-full-2.002.glyphspackage")
+    old = GSFont("./GSF-full-2.002.glyphs")
     print("Opening new font")
-    new = GSFont("./GSF-full-2.003.glyphspackage")
+    new = GSFont("./GSF-full-2.003.glyphs")
 
     master_names: dict[str, str] = {}
     for master in old.masters:
         master_names[master.id] = master.name
     for master in new.masters:
         master_names[master.id] = master.name
-
 
     old_pairs: dict[tuple[str, str], dict[str, int]] = defaultdict(dict)
     new_pairs: dict[tuple[str, str], dict[str, int]] = defaultdict(dict)
