@@ -39,7 +39,7 @@ def main():
         encoding="utf-8",
     ) as fp:
         writer = csv.writer(fp)
-        writer.writerow(["Left", "Right", "Master", "Old", "New"])
+        writer.writerow(["Left", "Right", "Master", "Master Name", "Old", "New"])
         for pair in tqdm(sorted(all_pairs), "report"):
             old_pair = old_pairs[pair]
             new_pair = new_pairs[pair]
