@@ -12,7 +12,7 @@ on:
 
 jobs:
   import-branch:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     steps:
       - name: Log & validate inputs
@@ -49,7 +49,7 @@ jobs:
     outputs:
       import-branch: ${{ steps.create-update-import.outputs.import-branch }}
   build-variable:
-    runs-on: [linux, googlefonts-64cores-256GB]
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     needs: import-branch
     steps:
