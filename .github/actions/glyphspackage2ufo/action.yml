@@ -30,8 +30,8 @@ runs:
       # Note: path to create worktree is relative to Git dir (main) not current dir
       git -C main worktree add --quiet --detach "$GITHUB_WORKSPACE/octavio" "origin/$GIT_REF"
 
-      if [[ ! -d "$GITHUB_WORKSPACE/octavio/sources-v2_0" ]]; then
-        echo "::error title=No glyphspackage sources::$GIT_REF doesn't have a sources-v2_0 folder"
+      if [[ ! -d "$GITHUB_WORKSPACE/octavio/sources/design-source" ]]; then
+        echo "::error title=No glyphspackage sources::$GIT_REF doesn't have a sources/design-source folder"
         exit 1
       fi
 
@@ -46,11 +46,15 @@ runs:
   - name: Run import script
     shell: bash
     run: |
+      # Run the glyphspackage to ds in the temporary directory
+      # glyphspackage2ufo-XXXX created above and passed through the GitHub
+      # output target=, because it's been prepared to NOT have leftover UFOs
+      # which is required to be able to emit a clean DS+UFOs
       cd "${{ steps.prepare-import.outputs.target }}"
       echo "::group::Setup venv"
       make venv
       echo "::endgroup::"
       echo "Running glyphs_to_ds.py"
       venv/bin/python scripts/glyphs_to_ds.py \
-        "$GITHUB_WORKSPACE/octavio/sources-v2_0/GSF-full.glyphspackage" \
+        "$GITHUB_WORKSPACE/octavio/sources/design-source/GSF-full.glyphspackage" \
         sources/GoogleSansFlex.designspace
