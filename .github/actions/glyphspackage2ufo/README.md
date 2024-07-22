@@ -9,8 +9,13 @@ Inputs:
 
 Steps:
 1. Check out `git-ref` in `$GITHUB_WORKSPACE/octavio`
-3. Create a copy of `main` in target dir
-4. Run import script
+2. Create a copy of `main` in target dir
+
+    This step prepares the copy of main to NOT have leftover UFOs, so that
+    when we run the glyphspackage to DS in the next step, the DS + UFOs is clean.
+
+3. Run import script
+
 
 Outputs:
 * `directory`: where the new UFO sources reside
