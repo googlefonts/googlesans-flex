@@ -123,7 +123,15 @@ for master_id, kerning in list(new_font.kerning.items()):
 
             new_font.removeKerningForPair(master_id, left_id, right_id)
 
-# Insert every pair from old GSFont, and keep track of which pairs existed before.
+# Re-apply groups from old GSFont.
+print("Re-applying old groups...")
+new_glyphs = {glyph.name: glyph for glyph in new_font.glyphs}
+for old_glyph in old_font.glyphs:
+    new_glyph = new_glyphs[old_glyph.name]
+    new_glyph.leftKerningGroup = old_glyph.leftKerningGroup
+    new_glyph.rightKerningGroup = old_glyph.rightKerningGroup
+
+# Insert every pair from old GSFont.
 print("Re-applying old kerning...")
 for master_id, kerning in old_font.kerning.items():
     for left_id, right_ids in kerning.items():
