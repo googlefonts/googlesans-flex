@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="f_t" format="2">
-  <advance width="1140"/>
+  <advance width="1160"/>
   <anchor x="580" y="0" name="caret_1"/>
   <outline>
-    <component base="flig6"/>
-    <component base="tlig2" xOffset="537"/>
+    <component base="flig6" xOffset="-4"/>
+    <component base="tlig2" xOffset="556"/>
   </outline>
   <lib>
     <dict>
@@ -12,11 +12,19 @@
       <array>
         <dict>
           <key>alignment</key>
-          <integer>1</integer>
+          <integer>-1</integer>
           <key>index</key>
           <integer>0</integer>
           <key>name</key>
           <string>flig6</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>tlig2</string>
         </dict>
       </array>
     </dict>
