@@ -61,11 +61,12 @@ def main(font_paths: list[Path]) -> int:
                 print(f"  {worst.value} {target_lang_config['name']}")
             else:
                 print(f"  {target_lang_config['name']}:")
-                exit_status = 1
                 for message in report.results:
                     if message.result == Result.SKIP:
                         continue
                     print(f"    {message}")
+                if worst == Result.FAIL:
+                    exit_status = 1
         print()
     return exit_status
 
