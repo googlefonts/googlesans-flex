@@ -70,7 +70,7 @@ for original_groups, split_groups, name_mapping, prefix in [
 
         # Separated glyphs (if there were any):
         if separate:
-            new_name = f"{original_name}.extension"
+            new_name = f"{original_name}_extension"
             name_mapping[f"{prefix}_{original_name}"] = f"{prefix}_{new_name}"
             split_groups[new_name] = separate
 
