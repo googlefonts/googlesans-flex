@@ -32,6 +32,11 @@ old_names = {glyph.name for glyph in old_font.glyphs}
 new_names = {glyph.name for glyph in new_font.glyphs}
 to_partition = new_names - old_names
 
+# NOTE: (Jany) after review of the set computed automatically above, it's exhaustive
+# An optimization later could be to use a reduced set. See this sheet:
+# https://docs.google.com/spreadsheets/d/1rWfuGv8KEkYPyA30wD2hJctMtMC5VRE1HSTlSkKN1B0/edit?gid=1037277274#gid=1037277274
+
+
 # See which glyphs are in which group.
 left_groups: dict[str, set[str]] = {}
 right_groups: dict[str, set[str]] = {}
