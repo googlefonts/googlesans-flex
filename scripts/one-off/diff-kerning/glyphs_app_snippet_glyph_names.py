@@ -85,3 +85,19 @@ for c in chars.splitlines():
 	code_point = ord(c[0])
 	print(code_point_to_name[code_point])
 	
+##############
+left = "commaturnedmod"  
+right = "imacron"
+left_g = Glyphs.font[left]
+right_g = Glyphs.font[right]
+
+master_values = []
+for master in list(Glyphs.font.masters):
+    master_values.append([master.id, Glyphs.font.kerningForPair(master.id, "@MMK_L_"+left_g.rightKerningGroup, "@MMK_R_"+right_g.leftKerningGroup) or "None"])
+print(Glyphs.font.filepath)
+print("\n".join(f"{m} {v}" for m,v in sorted(master_values)))
+
+
+#################
+for g in Glyphs.font.glyphs:
+	print(f"{g.name}\t{g.leftKerningGroup}\t{g.rightKerningGroup}")

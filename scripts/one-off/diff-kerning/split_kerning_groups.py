@@ -126,15 +126,28 @@ for master_id, kerning in list(new_font.kerning.items()):
             if left_id in new_glyph_ids or right_id in new_glyph_ids:
                 continue
 
+            # This pair concerns the group that was created in v2.003
+            # We need to keep that one, but only when it's against new glyphs
+            if (
+                left_id == "@MMK_L_iaccent_right"
+                and (right_id in new_right_groups or right_id in new_glyph_ids)
+            ) or (
+                right_id == "@MMK_R_iaccent_left"
+                and (left_id in new_left_groups or left_id in new_glyph_ids)
+            ):
+                continue
+
             new_font.removeKerningForPair(master_id, left_id, right_id)
 
-# Re-apply groups from old GSFont.
-print("Re-applying old groups...")
+# Check groups of existing glyphs match groups from old GSFont.
+print("Checking old groups...")
 new_glyphs = {glyph.name: glyph for glyph in new_font.glyphs}
 for old_glyph in old_font.glyphs:
     new_glyph = new_glyphs[old_glyph.name]
-    new_glyph.leftKerningGroup = old_glyph.leftKerningGroup
-    new_glyph.rightKerningGroup = old_glyph.rightKerningGroup
+    if new_glyph.name in ("icircumflex", "idieresis", "imacron"):
+        continue
+    assert new_glyph.leftKerningGroup == old_glyph.leftKerningGroup
+    assert new_glyph.rightKerningGroup == old_glyph.rightKerningGroup
 
 # Insert every pair from old GSFont.
 print("Re-applying old kerning...")
@@ -142,6 +155,18 @@ for master_id, kerning in old_font.kerning.items():
     for left_id, right_ids in kerning.items():
         for right_id, value in right_ids.items():
             new_font.setKerningForPair(master_id, left_id, right_id, value)
+            if left_id == "@MMK_L_i_right":
+                new_font.setKerningForPair(
+                    master_id, "@MMK_L_iaccent_right", right_id, value
+                )
+            if right_id == "@MMK_R_i_left":
+                new_font.setKerningForPair(
+                    master_id, left_id, "@MMK_R_iaccent_left", value
+                )
+            if left_id == "@MMK_L_i_right" and right_id == "@MMK_R_i_left":
+                new_font.setKerningForPair(
+                    master_id, "@MMK_L_iaccent_right", "@MMK_R_iaccent_left", value
+                )
 
 print("Saving results...")
 new_font.save()
