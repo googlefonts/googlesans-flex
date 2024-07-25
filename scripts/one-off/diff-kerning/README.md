@@ -30,22 +30,24 @@ This directory contains scripts for:
 3. Run `split_kerning_groups.py`
 
    1. `make venv`
-   1. Activate venv
+   1. Activate the new venv.
    1. `python scripts/one-off/diff-kerning/split_kerning_groups.py`
 
 4. _GSF-full-2.003.glyphs_ should now contain the desired kerning for release.
 
-   - The kerning from v2.002 will be used for pre-existing glyphs, while any new glyphs sharing kerning groups with pre-exsting glyphs will have been split into their own new groups to avoid losing v2.003 kerning additions.
+   - The kerning from v2.002 will be used for pre-existing glyphs, while any new glyphs sharing kerning groups with pre-existing glyphs will have been split into their own new groups to avoid losing v2.003 kerning additions.
 
 5. Each optional, as required:
-   - Analyse the new sources for redundant groups with `split_kerning_groups.py`
+   - Analyse the new sources for redundant groups with `prunable_extension_groups.py`.
    - Produce a test build of the new design sources:
-     1. Commit to the `sources/design-source` directory in a new branch
-     1. Run the _Build from Glyphs package_ workflow from `main` targeting the new branch as described in the project's root README
+     1. Convert the sources to the `.glyphspackage` format in Glyphs.
+     1. Commit to the `sources/design-source` directory in a new branch.
+     1. Run the _Build from Glyphs package_ workflow from `main` targeting the new branch as described in the project's root README.
    - Import the sources into `main` for release :
      1. Ensure that the sources used in the process contain **EVERY** change wanted for v2.003, in addition to the latest kerning.
-     1. Commit to the `sources/design-source` directory in a new branch
-     1. Run the _Update from sources_ workflow from `main` targeting the new branch as described in the project's root README
+     1. Convert the sources to the `.glyphspackage` format in Glyphs.
+     1. Commit to the `sources/design-source` directory in a new branch.
+     1. Run the _Update from sources_ workflow from `main` targeting the new branch as described in the project's root README.
      1. If we wish to avoid future releases from re-importing the changes to pre-existing glyphs' kerning, then use the new branch as a basis for future design work in Glyphs.
 
 ## Origin of sources
