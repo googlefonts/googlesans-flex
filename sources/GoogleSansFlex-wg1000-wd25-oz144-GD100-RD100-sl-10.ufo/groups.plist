@@ -7,30 +7,36 @@
       <string>A</string>
       <string>Aacute</string>
       <string>Abreve</string>
-      <string>Abreveacute</string>
-      <string>Abrevedotbelow</string>
-      <string>Abrevegrave</string>
-      <string>Abrevehookabove</string>
-      <string>Abrevetilde</string>
       <string>Acaron</string>
       <string>Acircumflex</string>
-      <string>Acircumflexacute</string>
-      <string>Acircumflexdotbelow</string>
-      <string>Acircumflexgrave</string>
-      <string>Acircumflexhookabove</string>
-      <string>Acircumflextilde</string>
       <string>Adieresis</string>
-      <string>Adotbelow</string>
       <string>Agrave</string>
-      <string>Ahookabove</string>
       <string>Amacron</string>
       <string>Aogonek</string>
       <string>Aring</string>
       <string>Atilde</string>
     </array>
+    <key>public.kern1.A_right_extension</key>
+    <array>
+      <string>Abreveacute</string>
+      <string>Abrevedotbelow</string>
+      <string>Abrevegrave</string>
+      <string>Abrevehookabove</string>
+      <string>Abrevetilde</string>
+      <string>Acircumflexacute</string>
+      <string>Acircumflexdotbelow</string>
+      <string>Acircumflexgrave</string>
+      <string>Acircumflexhookabove</string>
+      <string>Acircumflextilde</string>
+      <string>Adotbelow</string>
+      <string>Ahookabove</string>
+    </array>
     <key>public.kern1.B_right</key>
     <array>
       <string>B</string>
+    </array>
+    <key>public.kern1.B_right_extension</key>
+    <array>
       <string>Bhook</string>
     </array>
     <key>public.kern1.C_right</key>
@@ -48,20 +54,23 @@
       <string>Eacute</string>
       <string>Ecaron</string>
       <string>Ecircumflex</string>
+      <string>Edieresis</string>
+      <string>Edotaccent</string>
+      <string>Egrave</string>
+      <string>Emacron</string>
+      <string>Eogonek</string>
+      <string>OE</string>
+    </array>
+    <key>public.kern1.E_right_extension</key>
+    <array>
       <string>Ecircumflexacute</string>
       <string>Ecircumflexdotbelow</string>
       <string>Ecircumflexgrave</string>
       <string>Ecircumflexhookabove</string>
       <string>Ecircumflextilde</string>
-      <string>Edieresis</string>
-      <string>Edotaccent</string>
       <string>Edotbelow</string>
-      <string>Egrave</string>
       <string>Ehookabove</string>
-      <string>Emacron</string>
-      <string>Eogonek</string>
       <string>Etilde</string>
-      <string>OE</string>
     </array>
     <key>public.kern1.Euro_right</key>
     <array>
@@ -90,21 +99,24 @@
       <string>Icircumflex</string>
       <string>Idieresis</string>
       <string>Idotaccent</string>
-      <string>Idotbelow</string>
       <string>Igrave</string>
-      <string>Ihookabove</string>
       <string>Imacron</string>
       <string>Iogonek</string>
-      <string>Itilde</string>
       <string>M</string>
       <string>N</string>
       <string>Nacute</string>
       <string>Ncaron</string>
       <string>Ncommaaccent</string>
-      <string>Ndotaccent</string>
       <string>Ntilde</string>
       <string>one</string>
       <string>paragraph</string>
+    </array>
+    <key>public.kern1.H_right_extension</key>
+    <array>
+      <string>Idotbelow</string>
+      <string>Ihookabove</string>
+      <string>Itilde</string>
+      <string>Ndotaccent</string>
     </array>
     <key>public.kern1.Hbar_right</key>
     <array>
@@ -120,7 +132,7 @@
       <string>K</string>
       <string>Kcommaaccent</string>
     </array>
-    <key>public.kern1.Khook_right</key>
+    <key>public.kern1.Khook_right_extension</key>
     <array>
       <string>Khook</string>
     </array>
@@ -144,28 +156,31 @@
       <string>D</string>
       <string>Dcaron</string>
       <string>Dcroat</string>
-      <string>Dhook</string>
       <string>Eth</string>
-      <string>Schwa</string>
       <string>O</string>
       <string>Oacute</string>
       <string>Ocircumflex</string>
-      <string>Ocircumflexacute</string>
-      <string>Ocircumflexdotbelow</string>
-      <string>Ocircumflexgrave</string>
-      <string>Ocircumflexhookabove</string>
-      <string>Ocircumflextilde</string>
       <string>Odieresis</string>
-      <string>Odotbelow</string>
       <string>Ograve</string>
-      <string>Ohookabove</string>
       <string>Ohungarumlaut</string>
       <string>Omacron</string>
       <string>Oslash</string>
       <string>Otilde</string>
       <string>Q</string>
     </array>
-    <key>public.kern1.Ohorn_right</key>
+    <key>public.kern1.O_right_extension</key>
+    <array>
+      <string>Dhook</string>
+      <string>Schwa</string>
+      <string>Ocircumflexacute</string>
+      <string>Ocircumflexdotbelow</string>
+      <string>Ocircumflexgrave</string>
+      <string>Ocircumflexhookabove</string>
+      <string>Ocircumflextilde</string>
+      <string>Odotbelow</string>
+      <string>Ohookabove</string>
+    </array>
+    <key>public.kern1.Ohorn_right_extension</key>
     <array>
       <string>Ohorn</string>
       <string>Ohornacute</string>
@@ -192,6 +207,9 @@
       <string>Scaron</string>
       <string>Scedilla</string>
       <string>Scommaaccent</string>
+    </array>
+    <key>public.kern1.S_right_extension</key>
+    <array>
       <string>Sdotbelow</string>
     </array>
     <key>public.kern1.TM_right</key>
@@ -216,16 +234,19 @@
       <string>Ubreve</string>
       <string>Ucircumflex</string>
       <string>Udieresis</string>
-      <string>Udotbelow</string>
       <string>Ugrave</string>
-      <string>Uhookabove</string>
       <string>Uhungarumlaut</string>
       <string>Umacron</string>
       <string>Uogonek</string>
       <string>Uring</string>
+    </array>
+    <key>public.kern1.U_right_extension</key>
+    <array>
+      <string>Udotbelow</string>
+      <string>Uhookabove</string>
       <string>Utilde</string>
     </array>
-    <key>public.kern1.Uhorn_right</key>
+    <key>public.kern1.Uhorn_right_extension</key>
     <array>
       <string>Uhorn</string>
       <string>Uhornacute</string>
@@ -256,12 +277,15 @@
       <string>Yacute</string>
       <string>Ycircumflex</string>
       <string>Ydieresis</string>
-      <string>Ydotbelow</string>
       <string>Ygrave</string>
+    </array>
+    <key>public.kern1.Y_right_extension</key>
+    <array>
+      <string>Ydotbelow</string>
       <string>Yhookabove</string>
       <string>Ytilde</string>
     </array>
-    <key>public.kern1.Yhook_right</key>
+    <key>public.kern1.Yhook_right_extension</key>
     <array>
       <string>Yhook</string>
     </array>
@@ -277,26 +301,29 @@
       <string>a</string>
       <string>aacute</string>
       <string>abreve</string>
+      <string>acaron</string>
+      <string>acircumflex</string>
+      <string>adieresis</string>
+      <string>agrave</string>
+      <string>amacron</string>
+      <string>aogonek</string>
+      <string>aring</string>
+      <string>atilde</string>
+    </array>
+    <key>public.kern1.a_right_extension</key>
+    <array>
       <string>abreveacute</string>
       <string>abrevedotbelow</string>
       <string>abrevegrave</string>
       <string>abrevehookabove</string>
       <string>abrevetilde</string>
-      <string>acaron</string>
-      <string>acircumflex</string>
       <string>acircumflexacute</string>
       <string>acircumflexdotbelow</string>
       <string>acircumflexgrave</string>
       <string>acircumflexhookabove</string>
       <string>acircumflextilde</string>
-      <string>adieresis</string>
       <string>adotbelow</string>
-      <string>agrave</string>
       <string>ahookabove</string>
-      <string>amacron</string>
-      <string>aogonek</string>
-      <string>aring</string>
-      <string>atilde</string>
       <string>abreveacute.alt</string>
       <string>abrevedotbelow.alt</string>
       <string>abrevegrave.alt</string>
@@ -390,7 +417,7 @@
     <array>
       <string>degree</string>
     </array>
-    <key>public.kern1.dhook_right</key>
+    <key>public.kern1.dhook_right_extension</key>
     <array>
       <string>dhook</string>
     </array>
@@ -405,21 +432,24 @@
       <string>eacute</string>
       <string>ecaron</string>
       <string>ecircumflex</string>
+      <string>edieresis</string>
+      <string>edotaccent</string>
+      <string>egrave</string>
+      <string>emacron</string>
+      <string>eogonek</string>
+      <string>oe</string>
+      <string>ae.alt</string>
+    </array>
+    <key>public.kern1.e_right_extension</key>
+    <array>
       <string>ecircumflexacute</string>
       <string>ecircumflexdotbelow</string>
       <string>ecircumflexgrave</string>
       <string>ecircumflexhookabove</string>
       <string>ecircumflextilde</string>
-      <string>edieresis</string>
-      <string>edotaccent</string>
       <string>edotbelow</string>
-      <string>egrave</string>
       <string>ehookabove</string>
-      <string>emacron</string>
-      <string>eogonek</string>
       <string>etilde</string>
-      <string>oe</string>
-      <string>ae.alt</string>
     </array>
     <key>public.kern1.eight_de_right</key>
     <array>
@@ -564,9 +594,7 @@
     <array>
       <string>i</string>
       <string>iacute</string>
-      <string>idotbelow</string>
       <string>igrave</string>
-      <string>ihookabove</string>
       <string>iogonek</string>
       <string>ij</string>
       <string>j</string>
@@ -575,20 +603,31 @@
       <string>f_i</string>
       <string>f_j</string>
     </array>
+    <key>public.kern1.i_right_extension</key>
+    <array>
+      <string>idotbelow</string>
+      <string>ihookabove</string>
+    </array>
     <key>public.kern1.iaccent_right</key>
     <array>
       <string>icircumflex</string>
       <string>idieresis</string>
       <string>imacron</string>
+    </array>
+    <key>public.kern1.iaccent_right_extension</key>
+    <array>
       <string>itilde</string>
     </array>
     <key>public.kern1.k_right</key>
     <array>
       <string>k</string>
       <string>kcommaaccent</string>
-      <string>khook</string>
       <string>f_f_k</string>
       <string>f_k</string>
+    </array>
+    <key>public.kern1.k_right_extension</key>
+    <array>
+      <string>khook</string>
     </array>
     <key>public.kern1.l_right</key>
     <array>
@@ -634,10 +673,13 @@
       <string>nacute</string>
       <string>ncaron</string>
       <string>ncommaaccent</string>
-      <string>ndotaccent</string>
       <string>ntilde</string>
       <string>f_f_h</string>
       <string>f_h</string>
+    </array>
+    <key>public.kern1.n_right_extension</key>
+    <array>
+      <string>ndotaccent</string>
     </array>
     <key>public.kern1.nine_de_right</key>
     <array>
@@ -667,20 +709,11 @@
     <key>public.kern1.o_right</key>
     <array>
       <string>b</string>
-      <string>bhook</string>
-      <string>schwa</string>
       <string>o</string>
       <string>oacute</string>
       <string>ocircumflex</string>
-      <string>ocircumflexacute</string>
-      <string>ocircumflexdotbelow</string>
-      <string>ocircumflexgrave</string>
-      <string>ocircumflexhookabove</string>
-      <string>ocircumflextilde</string>
       <string>odieresis</string>
-      <string>odotbelow</string>
       <string>ograve</string>
-      <string>ohookabove</string>
       <string>ohungarumlaut</string>
       <string>omacron</string>
       <string>oslash</string>
@@ -690,7 +723,19 @@
       <string>f_b</string>
       <string>f_f_b</string>
     </array>
-    <key>public.kern1.ohorn_right</key>
+    <key>public.kern1.o_right_extension</key>
+    <array>
+      <string>bhook</string>
+      <string>schwa</string>
+      <string>ocircumflexacute</string>
+      <string>ocircumflexdotbelow</string>
+      <string>ocircumflexgrave</string>
+      <string>ocircumflexhookabove</string>
+      <string>ocircumflextilde</string>
+      <string>odotbelow</string>
+      <string>ohookabove</string>
+    </array>
+    <key>public.kern1.ohorn_right_extension</key>
     <array>
       <string>ohorn</string>
       <string>ohornacute</string>
@@ -699,7 +744,7 @@
       <string>ohornhookabove</string>
       <string>ohorntilde</string>
     </array>
-    <key>public.kern1.okina_right</key>
+    <key>public.kern1.okina_right_extension</key>
     <array>
       <string>commaturnedmod</string>
     </array>
@@ -805,6 +850,9 @@
       <string>scaron</string>
       <string>scedilla</string>
       <string>scommaaccent</string>
+    </array>
+    <key>public.kern1.s_right_extension</key>
+    <array>
       <string>sdotbelow</string>
     </array>
     <key>public.kern1.section_right</key>
@@ -933,14 +981,11 @@
       <string>ubreve</string>
       <string>ucircumflex</string>
       <string>udieresis</string>
-      <string>udotbelow</string>
       <string>ugrave</string>
-      <string>uhookabove</string>
       <string>uhungarumlaut</string>
       <string>umacron</string>
       <string>uogonek</string>
       <string>uring</string>
-      <string>utilde</string>
       <string>a.alt</string>
       <string>aacute.alt</string>
       <string>abreve.alt</string>
@@ -952,10 +997,16 @@
       <string>aogonek.alt</string>
       <string>aring.alt</string>
       <string>atilde.alt</string>
+    </array>
+    <key>public.kern1.u_right_extension</key>
+    <array>
+      <string>udotbelow</string>
+      <string>uhookabove</string>
+      <string>utilde</string>
       <string>eng.hook</string>
       <string>hook.left</string>
     </array>
-    <key>public.kern1.uhorn_right</key>
+    <key>public.kern1.uhorn_right_extension</key>
     <array>
       <string>uhorn</string>
       <string>uhornacute</string>
@@ -990,8 +1041,11 @@
       <string>yacute</string>
       <string>ycircumflex</string>
       <string>ydieresis</string>
-      <string>ydotbelow</string>
       <string>ygrave</string>
+    </array>
+    <key>public.kern1.y_right_extension</key>
+    <array>
+      <string>ydotbelow</string>
       <string>yhookabove</string>
       <string>ytilde</string>
     </array>
@@ -999,7 +1053,7 @@
     <array>
       <string>yen</string>
     </array>
-    <key>public.kern1.yhook_right</key>
+    <key>public.kern1.yhook_right_extension</key>
     <array>
       <string>yhook</string>
     </array>
@@ -1041,26 +1095,29 @@
       <string>A</string>
       <string>Aacute</string>
       <string>Abreve</string>
+      <string>Acaron</string>
+      <string>Acircumflex</string>
+      <string>Adieresis</string>
+      <string>Agrave</string>
+      <string>Amacron</string>
+      <string>Aogonek</string>
+      <string>Aring</string>
+      <string>Atilde</string>
+    </array>
+    <key>public.kern2.A_left_extension</key>
+    <array>
       <string>Abreveacute</string>
       <string>Abrevedotbelow</string>
       <string>Abrevegrave</string>
       <string>Abrevehookabove</string>
       <string>Abrevetilde</string>
-      <string>Acaron</string>
-      <string>Acircumflex</string>
       <string>Acircumflexacute</string>
       <string>Acircumflexdotbelow</string>
       <string>Acircumflexgrave</string>
       <string>Acircumflexhookabove</string>
       <string>Acircumflextilde</string>
-      <string>Adieresis</string>
       <string>Adotbelow</string>
-      <string>Agrave</string>
       <string>Ahookabove</string>
-      <string>Amacron</string>
-      <string>Aogonek</string>
-      <string>Aring</string>
-      <string>Atilde</string>
     </array>
     <key>public.kern2.Dcroat_Left</key>
     <array>
@@ -1084,19 +1141,11 @@
       <string>Eacute</string>
       <string>Ecaron</string>
       <string>Ecircumflex</string>
-      <string>Ecircumflexacute</string>
-      <string>Ecircumflexdotbelow</string>
-      <string>Ecircumflexgrave</string>
-      <string>Ecircumflexhookabove</string>
-      <string>Ecircumflextilde</string>
       <string>Edieresis</string>
       <string>Edotaccent</string>
-      <string>Edotbelow</string>
       <string>Egrave</string>
-      <string>Ehookabove</string>
       <string>Emacron</string>
       <string>Eogonek</string>
-      <string>Etilde</string>
       <string>F</string>
       <string>H</string>
       <string>I</string>
@@ -1105,15 +1154,11 @@
       <string>Icircumflex</string>
       <string>Idieresis</string>
       <string>Idotaccent</string>
-      <string>Idotbelow</string>
       <string>Igrave</string>
-      <string>Ihookabove</string>
       <string>Imacron</string>
       <string>Iogonek</string>
-      <string>Itilde</string>
       <string>K</string>
       <string>Kcommaaccent</string>
-      <string>Khook</string>
       <string>L</string>
       <string>Lacute</string>
       <string>Lcaron</string>
@@ -1124,7 +1169,6 @@
       <string>Nacute</string>
       <string>Ncaron</string>
       <string>Ncommaaccent</string>
-      <string>Ndotaccent</string>
       <string>Ntilde</string>
       <string>P</string>
       <string>Thorn</string>
@@ -1132,6 +1176,22 @@
       <string>Racute</string>
       <string>Rcaron</string>
       <string>Rcommaaccent</string>
+    </array>
+    <key>public.kern2.H_left_extension</key>
+    <array>
+      <string>Ecircumflexacute</string>
+      <string>Ecircumflexdotbelow</string>
+      <string>Ecircumflexgrave</string>
+      <string>Ecircumflexhookabove</string>
+      <string>Ecircumflextilde</string>
+      <string>Edotbelow</string>
+      <string>Ehookabove</string>
+      <string>Etilde</string>
+      <string>Idotbelow</string>
+      <string>Ihookabove</string>
+      <string>Itilde</string>
+      <string>Khook</string>
+      <string>Ndotaccent</string>
     </array>
     <key>public.kern2.Hbar_left</key>
     <array>
@@ -1159,14 +1219,23 @@
       <string>O</string>
       <string>Oacute</string>
       <string>Ocircumflex</string>
+      <string>Odieresis</string>
+      <string>Ograve</string>
+      <string>Ohungarumlaut</string>
+      <string>Omacron</string>
+      <string>Oslash</string>
+      <string>Otilde</string>
+      <string>OE</string>
+      <string>Q</string>
+    </array>
+    <key>public.kern2.O_left_extension</key>
+    <array>
       <string>Ocircumflexacute</string>
       <string>Ocircumflexdotbelow</string>
       <string>Ocircumflexgrave</string>
       <string>Ocircumflexhookabove</string>
       <string>Ocircumflextilde</string>
-      <string>Odieresis</string>
       <string>Odotbelow</string>
-      <string>Ograve</string>
       <string>Ohookabove</string>
       <string>Ohorn</string>
       <string>Ohornacute</string>
@@ -1174,12 +1243,6 @@
       <string>Ohorngrave</string>
       <string>Ohornhookabove</string>
       <string>Ohorntilde</string>
-      <string>Ohungarumlaut</string>
-      <string>Omacron</string>
-      <string>Oslash</string>
-      <string>Otilde</string>
-      <string>OE</string>
-      <string>Q</string>
     </array>
     <key>public.kern2.S_left</key>
     <array>
@@ -1188,9 +1251,12 @@
       <string>Scaron</string>
       <string>Scedilla</string>
       <string>Scommaaccent</string>
+    </array>
+    <key>public.kern2.S_left_extension</key>
+    <array>
       <string>Sdotbelow</string>
     </array>
-    <key>public.kern2.Schwa_left</key>
+    <key>public.kern2.Schwa_left_extension</key>
     <array>
       <string>Schwa</string>
     </array>
@@ -1212,8 +1278,15 @@
       <string>Ubreve</string>
       <string>Ucircumflex</string>
       <string>Udieresis</string>
-      <string>Udotbelow</string>
       <string>Ugrave</string>
+      <string>Uhungarumlaut</string>
+      <string>Umacron</string>
+      <string>Uogonek</string>
+      <string>Uring</string>
+    </array>
+    <key>public.kern2.U_left_extension</key>
+    <array>
+      <string>Udotbelow</string>
       <string>Uhookabove</string>
       <string>Uhorn</string>
       <string>Uhornacute</string>
@@ -1221,10 +1294,6 @@
       <string>Uhorngrave</string>
       <string>Uhornhookabove</string>
       <string>Uhorntilde</string>
-      <string>Uhungarumlaut</string>
-      <string>Umacron</string>
-      <string>Uogonek</string>
-      <string>Uring</string>
       <string>Utilde</string>
     </array>
     <key>public.kern2.V_left</key>
@@ -1249,8 +1318,11 @@
       <string>Yacute</string>
       <string>Ycircumflex</string>
       <string>Ydieresis</string>
-      <string>Ydotbelow</string>
       <string>Ygrave</string>
+    </array>
+    <key>public.kern2.Y_left_extension</key>
+    <array>
+      <string>Ydotbelow</string>
       <string>Yhook</string>
       <string>Yhookabove</string>
       <string>Ytilde</string>
@@ -1267,27 +1339,30 @@
       <string>a</string>
       <string>aacute</string>
       <string>abreve</string>
-      <string>abreveacute</string>
-      <string>abrevedotbelow</string>
-      <string>abrevegrave</string>
-      <string>abrevehookabove</string>
-      <string>abrevetilde</string>
       <string>acaron</string>
       <string>acircumflex</string>
-      <string>acircumflexacute</string>
-      <string>acircumflexdotbelow</string>
-      <string>acircumflexgrave</string>
-      <string>acircumflexhookabove</string>
-      <string>acircumflextilde</string>
       <string>adieresis</string>
-      <string>adotbelow</string>
       <string>agrave</string>
-      <string>ahookabove</string>
       <string>amacron</string>
       <string>aogonek</string>
       <string>aring</string>
       <string>atilde</string>
       <string>ae</string>
+    </array>
+    <key>public.kern2.a_left_extension</key>
+    <array>
+      <string>abreveacute</string>
+      <string>abrevedotbelow</string>
+      <string>abrevegrave</string>
+      <string>abrevehookabove</string>
+      <string>abrevetilde</string>
+      <string>acircumflexacute</string>
+      <string>acircumflexdotbelow</string>
+      <string>acircumflexgrave</string>
+      <string>acircumflexhookabove</string>
+      <string>acircumflextilde</string>
+      <string>adotbelow</string>
+      <string>ahookabove</string>
       <string>abreveacute.alt</string>
       <string>abrevedotbelow.alt</string>
       <string>abrevegrave.alt</string>
@@ -1519,7 +1594,7 @@
     <array>
       <string>hbar</string>
     </array>
-    <key>public.kern2.hook_left</key>
+    <key>public.kern2.hook_left_extension</key>
     <array>
       <string>Bhook</string>
       <string>Dhook</string>
@@ -1532,40 +1607,52 @@
     <array>
       <string>i</string>
       <string>iacute</string>
-      <string>idotbelow</string>
       <string>igrave</string>
-      <string>ihookabove</string>
       <string>iogonek</string>
       <string>ij</string>
+    </array>
+    <key>public.kern2.i_left_extension</key>
+    <array>
+      <string>idotbelow</string>
+      <string>ihookabove</string>
     </array>
     <key>public.kern2.iaccent_left</key>
     <array>
       <string>icircumflex</string>
       <string>idieresis</string>
       <string>imacron</string>
+    </array>
+    <key>public.kern2.iaccent_left_extension</key>
+    <array>
       <string>itilde</string>
     </array>
     <key>public.kern2.j_left</key>
     <array>
       <string>j</string>
       <string>jdotless</string>
+    </array>
+    <key>public.kern2.j_left_extension</key>
+    <array>
       <string>eng.hook</string>
       <string>hook.left</string>
     </array>
     <key>public.kern2.l_left</key>
     <array>
       <string>b</string>
-      <string>bhook</string>
       <string>h</string>
       <string>k</string>
       <string>kcommaaccent</string>
-      <string>khook</string>
       <string>l</string>
       <string>lacute</string>
       <string>lcaron</string>
       <string>lcommaaccent</string>
       <string>ldot</string>
       <string>thorn</string>
+    </array>
+    <key>public.kern2.l_left_extension</key>
+    <array>
+      <string>bhook</string>
+      <string>khook</string>
     </array>
     <key>public.kern2.l_slash_left</key>
     <array>
@@ -1591,7 +1678,6 @@
       <string>nacute</string>
       <string>ncaron</string>
       <string>ncommaaccent</string>
-      <string>ndotaccent</string>
       <string>ntilde</string>
       <string>r</string>
       <string>racute</string>
@@ -1599,6 +1685,10 @@
       <string>rcommaaccent</string>
       <string>mu</string>
       <string>micro</string>
+    </array>
+    <key>public.kern2.n_left_extension</key>
+    <array>
+      <string>ndotaccent</string>
     </array>
     <key>public.kern2.nine_de_left</key>
     <array>
@@ -1635,24 +1725,15 @@
       <string>d</string>
       <string>dcaron</string>
       <string>dcroat</string>
-      <string>dhook</string>
       <string>e</string>
       <string>eacute</string>
       <string>ecaron</string>
       <string>ecircumflex</string>
-      <string>ecircumflexacute</string>
-      <string>ecircumflexdotbelow</string>
-      <string>ecircumflexgrave</string>
-      <string>ecircumflexhookabove</string>
-      <string>ecircumflextilde</string>
       <string>edieresis</string>
       <string>edotaccent</string>
-      <string>edotbelow</string>
       <string>egrave</string>
-      <string>ehookabove</string>
       <string>emacron</string>
       <string>eogonek</string>
-      <string>etilde</string>
       <string>g</string>
       <string>gbreve</string>
       <string>gcommaaccent</string>
@@ -1660,21 +1741,8 @@
       <string>o</string>
       <string>oacute</string>
       <string>ocircumflex</string>
-      <string>ocircumflexacute</string>
-      <string>ocircumflexdotbelow</string>
-      <string>ocircumflexgrave</string>
-      <string>ocircumflexhookabove</string>
-      <string>ocircumflextilde</string>
       <string>odieresis</string>
-      <string>odotbelow</string>
       <string>ograve</string>
-      <string>ohookabove</string>
-      <string>ohorn</string>
-      <string>ohornacute</string>
-      <string>ohorndotbelow</string>
-      <string>ohorngrave</string>
-      <string>ohornhookabove</string>
-      <string>ohorntilde</string>
       <string>ohungarumlaut</string>
       <string>omacron</string>
       <string>oslash</string>
@@ -1694,7 +1762,32 @@
       <string>atilde.alt</string>
       <string>ae.alt</string>
     </array>
-    <key>public.kern2.okine_left</key>
+    <key>public.kern2.o_left_extension</key>
+    <array>
+      <string>dhook</string>
+      <string>ecircumflexacute</string>
+      <string>ecircumflexdotbelow</string>
+      <string>ecircumflexgrave</string>
+      <string>ecircumflexhookabove</string>
+      <string>ecircumflextilde</string>
+      <string>edotbelow</string>
+      <string>ehookabove</string>
+      <string>etilde</string>
+      <string>ocircumflexacute</string>
+      <string>ocircumflexdotbelow</string>
+      <string>ocircumflexgrave</string>
+      <string>ocircumflexhookabove</string>
+      <string>ocircumflextilde</string>
+      <string>odotbelow</string>
+      <string>ohookabove</string>
+      <string>ohorn</string>
+      <string>ohornacute</string>
+      <string>ohorndotbelow</string>
+      <string>ohorngrave</string>
+      <string>ohornhookabove</string>
+      <string>ohorntilde</string>
+    </array>
+    <key>public.kern2.okine_left_extension</key>
     <array>
       <string>commaturnedmod</string>
     </array>
@@ -1799,9 +1892,12 @@
       <string>scaron</string>
       <string>scedilla</string>
       <string>scommaaccent</string>
+    </array>
+    <key>public.kern2.s_left_extension</key>
+    <array>
       <string>sdotbelow</string>
     </array>
-    <key>public.kern2.schwa_left</key>
+    <key>public.kern2.schwa_left_extension</key>
     <array>
       <string>schwa</string>
     </array>
@@ -1925,8 +2021,15 @@
       <string>ubreve</string>
       <string>ucircumflex</string>
       <string>udieresis</string>
-      <string>udotbelow</string>
       <string>ugrave</string>
+      <string>uhungarumlaut</string>
+      <string>umacron</string>
+      <string>uogonek</string>
+      <string>uring</string>
+    </array>
+    <key>public.kern2.u_left_extension</key>
+    <array>
+      <string>udotbelow</string>
       <string>uhookabove</string>
       <string>uhorn</string>
       <string>uhornacute</string>
@@ -1934,10 +2037,6 @@
       <string>uhorngrave</string>
       <string>uhornhookabove</string>
       <string>uhorntilde</string>
-      <string>uhungarumlaut</string>
-      <string>umacron</string>
-      <string>uogonek</string>
-      <string>uring</string>
       <string>utilde</string>
     </array>
     <key>public.kern2.unscore_left</key>
@@ -1966,8 +2065,11 @@
       <string>yacute</string>
       <string>ycircumflex</string>
       <string>ydieresis</string>
-      <string>ydotbelow</string>
       <string>ygrave</string>
+    </array>
+    <key>public.kern2.y_left_extension</key>
+    <array>
+      <string>ydotbelow</string>
       <string>yhook</string>
       <string>yhookabove</string>
       <string>ytilde</string>
