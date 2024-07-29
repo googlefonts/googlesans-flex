@@ -870,12 +870,12 @@
       <integer>30</integer>
       <key>public.kern2.Z_left</key>
       <integer>-20</integer>
-      <key>public.kern2.a_left</key>
-      <integer>-50</integer>
       <key>public.kern2.a_left_extension</key>
       <integer>-50</integer>
       <key>public.kern2.f_left</key>
       <integer>-50</integer>
+      <key>public.kern2.hook_left_extension</key>
+      <integer>-20</integer>
       <key>public.kern2.iaccent_left</key>
       <integer>40</integer>
       <key>public.kern2.iaccent_left_extension</key>
@@ -885,7 +885,7 @@
       <key>public.kern2.j_left_extension</key>
       <integer>-50</integer>
       <key>public.kern2.n_left</key>
-      <integer>-70</integer>
+      <integer>-30</integer>
       <key>public.kern2.n_left_extension</key>
       <integer>-70</integer>
       <key>public.kern2.o_left</key>
@@ -2726,7 +2726,7 @@
       <key>public.kern2.iaccent_left</key>
       <integer>40</integer>
       <key>public.kern2.iaccent_left_extension</key>
-      <integer>40</integer>
+      <integer>80</integer>
       <key>public.kern2.n_left</key>
       <integer>-120</integer>
       <key>public.kern2.n_left_extension</key>
@@ -3471,6 +3471,8 @@
       <integer>30</integer>
       <key>public.kern2.i_left_extension</key>
       <integer>30</integer>
+      <key>public.kern2.iaccent_left_extension</key>
+      <integer>130</integer>
     </dict>
     <key>public.kern1.e_right</key>
     <dict>
@@ -3711,6 +3713,8 @@
     <dict>
       <key>idieresis</key>
       <integer>40</integer>
+      <key>imacron</key>
+      <integer>80</integer>
       <key>public.kern2.AE_left</key>
       <integer>-74</integer>
       <key>public.kern2.A_left</key>
@@ -4260,6 +4264,8 @@
       <integer>50</integer>
       <key>public.kern2.Y_left_extension</key>
       <integer>50</integer>
+      <key>public.kern2.iaccent_left_extension</key>
+      <integer>100</integer>
     </dict>
     <key>public.kern1.k_right</key>
     <dict>
@@ -7155,6 +7161,8 @@
     <dict>
       <key>public.kern2.f_left</key>
       <integer>70</integer>
+      <key>public.kern2.hook_left_extension</key>
+      <integer>100</integer>
       <key>public.kern2.t_left</key>
       <integer>70</integer>
       <key>public.kern2.v_left</key>
