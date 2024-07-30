@@ -6,20 +6,20 @@
 ### New
 - added Azerbaijani, Hausa, Hawaiian, Igbo, Vietnamese, and Yoruba  language support (#804, added 21 base glyphs and 100 composed glyphs) 
 
-- New Scripts:
+- new scripts:
 	- diff-kerning scripts (#992 #987)
 
 ### Changed
-- Reduced the width of the space.tf from full to half tabular width (#973)
+- reduced the width of the space.tf from full to half tabular width (#973)
 - changed point structure to address a rasterisation issue in ligatures with crossbars (#937)
-- Glyph updates: 
-	- Small outline and proportion refinements on selected Grade and Grade Rounded sources: 0 1 2 3 4 5 7 8 A a B b C c D d F G H h j L N M m R U u V k K Q X x S T p q y Z Æ æ œ Þ þ ? ¿ & Ø Ĳ ĳ ȷ ď Ħ … \ [ { ( · ‘ ® ™ © ≈ ≠ ÷ ≥ # ‹ § @ € £ ¤ ¥ µ * ¢ $ (#996)
+- glyph updates: 
+	- small outline and proportion refinements on selected Grade and Grade Rounded sources: 0 1 2 3 4 5 7 8 A a B b C c D d F G H h j L N M m R U u V k K Q X x S T p q y Z Æ æ œ Þ þ ? ¿ & Ø Ĳ ĳ ȷ ď Ħ … \ [ { ( · ‘ ® ™ © ≈ ≠ ÷ ≥ # ‹ § @ € £ ¤ ¥ µ * ¢ $ (#996)
 -  
-	- Bug fixes in GRAD sources: ģ ẞ ð Q ¦ ◌̃  ã ñ õ Ã  ◌́ ź í À ý ľ Ù à ỳ ń û ů ű ù ú ŭ ų u ū ü ļ l ĺ ł ̀ ŀ Ì Į Ď D Đ Ð Ħ ħ ď ľ   (#803  #871 #971)
-	- Glyphs with spacing improvements in GRAD sources: Ŵ Ẅ Ẁ Ẃ W N Ň Ñ Ń N Ņ « » “ ” "
-	- Addressed a bug in % - slanted in condensed italics (#870)
-	- Outline bug fix in 9 6 (#954) 
-	- Refined the consistency of the small numbers (#831)
+	- bug fixes in GRAD sources: ģ ẞ ð Q ¦ ◌̃  ã ñ õ Ã  ◌́ ź í À ý ľ Ù à ỳ ń û ů ű ù ú ŭ ų u ū ü ļ l ĺ ł ̀ ŀ Ì Į Ď D Đ Ð Ħ ħ ď ľ   (#803  #871 #971)
+	- glyphs with spacing improvements in GRAD sources: Ŵ Ẅ Ẁ Ẃ W N Ň Ñ Ń N Ņ « » “ ” "
+	- addressed a bug in % - slanted in condensed italics (#870)
+	- outline bug fix in 9 6 (#954) 
+	- refined the consistency of the small numbers (#831)
 
 
 ## Version 2.002 (2024-05-16)
