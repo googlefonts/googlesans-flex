@@ -9,6 +9,10 @@
 - new scripts:
 	- diff-kerning scripts (#992 #987)
 
+- new Font Bakery checks:
+	- all_quadratics
+	- no_open_corners
+
 ### Changed
 - reduced the width of the space.tf from full to half tabular width (#973)
 - changed point structure to address a rasterisation issue in ligatures with crossbars (#937)
@@ -20,6 +24,8 @@
 	- addressed a bug in % - slanted in condensed italics (#870)
 	- outline bug fix in 9 6 (#954) 
 	- refined the consistency of the small numbers (#831)
+
+	
 
 
 ## Version 2.002 (2024-05-16)
