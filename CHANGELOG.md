@@ -10,8 +10,9 @@
 	- diff-kerning scripts (#992 #987)
 
 - new Font Bakery checks:
-	- all_quadratics
-	- no_open_corners
+	- all quadratics check (#944)
+	- no open corners check (#944)
+	- excluded smallcaps before ligatures check (#977)
 
 ### Changed
 - reduced the width of the space.tf from full to half tabular width (#973)
@@ -25,7 +26,10 @@
 	- outline bug fix in 9 6 (#954) 
 	- refined the consistency of the small numbers (#831)
 
-	
+- modified Font Bakery checks:
+	- same tabular width check (#974)
+
+
 
 
 ## Version 2.002 (2024-05-16)
