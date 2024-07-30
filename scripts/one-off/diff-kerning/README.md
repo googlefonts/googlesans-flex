@@ -22,6 +22,8 @@ This directory contains scripts for:
      - Source from:
        - The latest Glyphs package imported to `main` in preparation for the v2.003 release
 
+    NOTE: these files are not committed here because they're around 100MB each.
+
 2. If either source is a `.glyphspackage` directory, convert it to a `.glyphs` file in Glyphs.
 
    - This is necessary for `glyphsLib` to be able to save the changes in the same format.
