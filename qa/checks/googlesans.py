@@ -25,6 +25,8 @@ from fontbakery.utils import (
     compute_unicoderange_bits,
     unicoderange_bit_name,
 )
+from fontTools.pens.boundsPen import BoundsPen
+from fontTools.ttLib import TTFont
 
 # Each VF we build will have one of these suffixes depending on whether it
 # includes the full designspace or is restricted to upright or italic only.
@@ -298,3 +300,86 @@ def com_google_fonts_check_googlesansflex_variable_fvar_default(font: Font, ttFo
             )
         else:
             yield PASS, f"Font contains the expected fvar {tag} default."
+
+
+@check(
+    id="com.google.fonts/check/googlesansflex/vf/win_extremes",
+    conditions=["is_variable_font"],
+    rationale="""
+    Checks that the OS/2.usWinAscent and OS/2.usWinDescent values do not vary
+    across the designspace, and that they are sufficient to cover the extremes
+    on the y-axis across every glyph at every named instance.
+
+    The former is an engineering decision for Google Sans Flex, in order to have
+    consistent Win vertical metrics at every position within the VF and in any
+    instanced sub-VFs.
+
+    The latter ensures that clipping does not occur at common non-default
+    positions in the designspace. Checking only against yMin and yMax is not
+    sufficient to ensure this, as yMin and yMax are defined only for the default
+    instance, while extreme vertical coordinates are more likely to occur at
+    axis extremes.
+    """,
+)
+def com_google_fonts_check_googlesansflex_vf_win_extremes(ttFont: TTFont):
+    """
+    Checks that the OS/2.usWinAscent and OS/2.usWinDescent values do not vary
+    across the designspace, and that they are sufficient to cover the extremes
+    on the y-axis across every glyph at every named instance.
+    """
+
+    # Get the OS/2.usWin{Ascent,Descent} metrics.
+    ascent: int = ttFont["OS/2"].usWinAscent  # type: ignore
+    descent: int = ttFont["OS/2"].usWinDescent  # type: ignore
+
+    # Assert that they do not vary across the designspace.
+    mvar = ttFont.get("MVAR")
+    if mvar is not None:
+        variated_tags = {
+            tag for record in mvar.table.ValueRecord for tag in record.ValueTag
+        }
+
+        if "hcla" in variated_tags:
+            yield FAIL, "TTF varies OS/2.usWinAscent across its designspace"
+        if "hcld" in variated_tags:
+            yield FAIL, "TTF varies OS/2.usWinDescent across its designspace"
+
+    # TODO: This is only named instances; we should include everywhere we have
+    # sources.
+    interesting_locations = [
+        named_instance.coordinates for named_instance in ttFont["fvar"].instances
+    ]
+
+    # Assert that the yMin/yMax of every glyph at every position does not exceed
+    # the metrics.
+    smallest_y_min = None
+    largest_y_max = None
+    for location in interesting_locations:
+        glyph_set = ttFont.getGlyphSet(
+            preferCFF=False, location=location, normalized=False
+        )
+        for glyph_name in ttFont.getGlyphOrder():
+            glyph = glyph_set[glyph_name]
+            bounds_pen = BoundsPen(glyph_set)
+            glyph.draw(bounds_pen)
+
+            bounds = bounds_pen.bounds
+            if bounds is None:
+                # Glyph was empty.
+                continue
+
+            (_, y_min, _, y_max) = bounds_pen.bounds
+
+            smallest_y_min = (
+                y_min if smallest_y_min is None else min(y_min, smallest_y_min)
+            )
+            largest_y_max = (
+                y_max if largest_y_max is None else max(y_max, largest_y_max)
+            )
+
+    # TODO: Round floats in some direction (but consider how this will interact with the +1).
+    if smallest_y_min is not None and -smallest_y_min >= descent:
+        yield FAIL, f"OS/2.usWinDescent must be at least {-smallest_y_min + 1} to extend further than the smallest y coordinate seen in outlines, but was only {descent}"
+
+    if largest_y_max is not None and largest_y_max >= ascent:
+        yield FAIL, f"OS/2.usWinAscent must be at least {largest_y_max + 1} to extend further than the largest y coordinate seen in outlines, but was only {ascent}"

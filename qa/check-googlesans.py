@@ -34,6 +34,7 @@ PROFILE = {
             "com.google.fonts/check/googlesansflex/vf/axis_names",
             "com.google.fonts/check/googlesansflex/vf/fvardefault",
             "com.google.fonts/check/googlesansflex/opentype/global_fu_attributes",
+            "com.google.fonts/check/googlesansflex/vf/win_extremes",
         ]
     },
     "exclude_checks": [
