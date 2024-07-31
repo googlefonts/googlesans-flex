@@ -12,11 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Output a TSV containing the largest yMax found in each source of the
-designspace.
+"""Output a TSV containing the most extreme yMin and yMax found in each source
+of the designspace.
 
-This is helpful for working out what to set the WinAscent value to; we typically
-set this to the yMax + 1."""
+This is helpful for working out what to set the WinAscent and WinDescent values
+to; we typically set these to 1 more than the most extreme value in each
+vertical direction."""
 
 from fontTools.designspaceLib import DesignSpaceDocument
 from ufoLib2 import Font
@@ -25,7 +26,7 @@ doc = DesignSpaceDocument.fromfile(r"sources/GoogleSansFlex.designspace")
 doc.loadSourceFonts(Font.open)
 
 
-source_to_ymax: dict[str, float] = {}
+source_to_extremes: dict[str, tuple[float, float]] = {}
 
 # Get the largest yMax seen across all glyph bounds in each designspace source.
 for source in doc.sources:
@@ -38,20 +39,20 @@ for source in doc.sources:
         else source.font.layers[source.layerName]
     )
 
-    # Get the largest yMax across all bounds, extending beyond control points.
-    y_max = float(
-        max(
-            bounds[3]
-            for glyph in layer
-            if ((bounds := glyph.getBounds(layer)) is not None)
-        )
-    )
+    bounds = [
+        bounds for glyph in layer if ((bounds := glyph.getBounds(layer)) is not None)
+    ]
 
-    # Store the result for this source.
+    # Get the vertical extremes across every glyph, extending beyond control
+    # points.
+    y_min = float(min(bounds.yMin for bounds in bounds))
+    y_max = float(max(bounds.yMax for bounds in bounds))
+
+    # Store the results for this source.
     assert source.name is not None
-    assert source.name not in source_to_ymax
-    source_to_ymax[source.name] = y_max
+    assert source.name not in source_to_extremes
+    source_to_extremes[source.name] = (y_min, y_max)
 
 # Output a .tsv file with the results.
-for source_name, ymax in sorted(source_to_ymax.items()):
-    print(source_name, ymax, sep="\t")
+for source_name, (y_min, y_max) in sorted(source_to_extremes.items()):
+    print(source_name, y_min, y_max, sep="\t")
