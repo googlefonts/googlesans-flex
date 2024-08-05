@@ -84,8 +84,8 @@ update-shaping-expectations: venv
 
 update: venv
 	. venv/bin/activate && \
-		pip install -U pip-tools && \
-		pip-compile --resolver=backtracking -U requirements.in
+		pip install --upgrade pip-tools && \
+		pip-compile --resolver=backtracking --upgrade --allow-unsafe requirements.in
 
 font-size: venv build
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install font-size"
