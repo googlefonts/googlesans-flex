@@ -39,34 +39,13 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
         cache: pip
-    - name: Download artifact files
-      uses: actions/download-artifact@v4
+    - name: Cut workspace fonts
+      id: cut-workspace-fonts
+      uses: ./.github/actions/cut-workspace-fonts
       with:
-        name: ${{ needs.build-variable.outputs.artifact-name }}
-        path: fonts/variable
-    - name: Set up venv
-      run: make venv
-    - name: Cut instances
-      run: |
-        touch build.stamp # don't rebuild fonts
-        . venv/bin/activate && make release
-        # Copy README_WORKSPACE.md into the target folder with the fonts
-        cp README_WORKSPACE.md fonts/workspace/
-    - name: Generate archive name
-      id: zip-name
-      uses: alpha-tango-kilo/gha-artifact-name@v1
-      with:
-        repo-name: Google Sans Flex
-        overrides: "release: workspace"
-    - name: Upload archive
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ steps.zip-name.outputs.artifact-name }}
-        path: fonts/workspace
-        compression-level: 9
-        if-no-files-found: error
+        vf-artifact: ${{ needs.build-variable.outputs.artifact-name }}
     outputs:
-      artifact-name: ${{ steps.zip-name.outputs.artifact-name }}
+      artifact-name: ${{ steps.cut-workspace-fonts.outputs.artifact-name }}
   test-variable:
     needs:
     - build-variable
