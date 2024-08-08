@@ -27,7 +27,7 @@ jobs:
   cut-instances:
     needs:
     - build-variable
-    runs-on: googlefonts-64cores-256GB
+    runs-on: googlefonts-16cores-64GB
     timeout-minutes: 10
     steps:
     - name: Checkout ${{ github.ref_name }}
