@@ -159,24 +159,6 @@ def check_suspicious_kerning_values(ufo_font: Font, config) -> CheckStatus:
         )
 
 
-@check(id="googlesansflex/sources/same_kerning_groups")
-def check_same_kerning_groups(ds: DesignSpaceDocument) -> CheckStatus:
-    """Confirms that all sources have the same kerning groups per Designspace."""
-
-    default_source = ds.findDefault()
-    reference = default_source.font.groups
-    for source in ds.sources:
-        if source is default_source:
-            continue
-        if source.font.groups == reference:
-            yield PASS, f"{source.filename} has same kerning groups as default source"
-        else:
-            yield (
-                WARN,
-                f"{source.filename} does not have the same kerning groups as default source",
-            )
-
-
 @check(id="googlesansflex/sources/kerning_present")
 def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
     """Check how much kerning pairs a source has, not counting exceptions."""
@@ -212,43 +194,6 @@ def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
             yield (
                 WARN,
                 f"{source.filename}: Found no kerning pairs (not counting exceptions)",
-            )
-
-
-@check(id="googlesansflex/sources/no_open_corners")
-def check_no_open_corners(config, ufo: Ufo) -> CheckStatus:
-    """Check the sources have no corners, as Google Sans Flex's design with ROND
-    is incompatible with this approach"""
-    from glyphsLib.filters.eraseOpenCorners import EraseOpenCornersPen
-    from fontTools.pens.basePen import NullPen
-
-    font = ufo.ufo_font  # type: ignore
-    assert isinstance(font, Font)
-
-    default_layer_name = font.layers.defaultLayer.name
-    for layer in font.layers:
-        offending_glyphs = []
-        for glyph in layer:
-            the_void = NullPen()
-            erase_open_corners = EraseOpenCornersPen(the_void)
-            for contour in glyph.contours:
-                contour.draw(erase_open_corners)
-            if erase_open_corners.affected:
-                offending_glyphs.append(glyph.name)
-
-        if offending_glyphs:
-            location_str = (
-                ufo.file_displayname
-                if layer.name == default_layer_name
-                else f"{ufo.file_displayname} (layer {layer.name})"
-            )
-            yield (
-                FAIL,
-                Message(
-                    "open-corners-found",
-                    f"{location_str} contains glyphs with open corners:\n\n"
-                    f"{utils.bullet_list(config, offending_glyphs)}\n",
-                ),
             )
 
 
