@@ -1,0 +1,60 @@
+# Copyright 2024 Google Sans Flex authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""
+Command line tool that outputs a sorted TSV giving each glyphs contribution in
+bytes to the 'gvar' table, for identifying where optimisation is possible.
+"""
+
+
+from fontTools.ttLib import TTFont
+from fontTools.ttLib.tables._g_v_a_r import GVAR_HEADER_SIZE, table__g_v_a_r as GVAR
+from argparse import ArgumentParser
+
+
+def get_gvar_contribs(ttf: TTFont) -> dict[str, int]:
+    """Get the contribution in bytes of each glyph to the 'gvar' table."""
+
+    # Decompile the 'gvar' table.
+    gvar = ttf["gvar"]
+    assert isinstance(gvar, GVAR)
+
+    # Get the raw bytes that make up the table.
+    assert ttf.reader is not None
+    data = ttf.reader["gvar"]
+
+    glyphs: list[str] = ttf.getGlyphOrder()  # type: ignore
+
+    # Use internal API to derive offsets.
+    # See: https://github.com/fonttools/fonttools/blob/a1a5af2f/Lib/fontTools/ttLib/tables/_g_v_a_r.py#L119-L134
+    offsets = gvar.decompileOffsets_(
+        data[GVAR_HEADER_SIZE:],
+        tableFormat=(gvar.flags & 1),  # type: ignore
+        glyphCount=len(glyphs),  # type: ignore
+    )
+    lengths = {name: offsets[gid + 1] - offsets[gid] for gid, name in enumerate(glyphs)}
+
+    return lengths
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("ttf", type=TTFont)
+    args = parser.parse_args()
+
+    # Get glyph contributions, and output sorted TSV to stdout.
+    contribs = get_gvar_contribs(args.ttf)
+    print("Bytes", "Name", sep="\t")
+    for size, glyph in sorted(((size, glyph) for glyph, size in contribs.items())):
+        print(size, glyph, sep="\t")
