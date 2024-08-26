@@ -18,9 +18,15 @@ bytes to the 'gvar' table, for identifying where optimisation is possible.
 """
 
 
-from fontTools.ttLib import TTFont
-from fontTools.ttLib.tables._g_v_a_r import GVAR_HEADER_SIZE, table__g_v_a_r as GVAR
+import math
 from argparse import ArgumentParser
+from pathlib import Path
+
+from fontTools.ttLib import TTFont
+from fontTools.ttLib.tables._g_v_a_r import GVAR_HEADER_SIZE
+from fontTools.ttLib.tables._g_v_a_r import table__g_v_a_r as GVAR
+from rich.console import Console
+from rich.table import Table
 
 
 def get_gvar_contribs(ttf: TTFont) -> dict[str, int]:
@@ -48,13 +54,59 @@ def get_gvar_contribs(ttf: TTFont) -> dict[str, int]:
     return lengths
 
 
+def output_csv_report(contribs: dict[str, int], path: Path) -> None:
+    """Output a tab-delimited report to the given path."""
+
+    with path.open("w") as output:
+        print("Bytes", "Name", sep="\t", file=output)
+        for size, glyph in sorted((size, glyph) for glyph, size in contribs.items()):
+            print(size, glyph, sep="\t", file=output)
+
+
+def output_rich_report(contribs: dict[str, int]) -> None:
+    """Output a formatted table to stdout with rich."""
+
+    table = Table(title="'gvar' size contribution by glyph")
+
+    table.add_column("Size (bytes)", justify="right")
+    table.add_column("Glyph", justify="left")
+
+    # For linear interpolation of row colour by size.
+    colours = [
+        "green",
+        "cyan",
+        "yellow",
+        "red",
+    ]
+    least = min(contribs.values())
+    most = max(contribs.values())
+
+    for size, glyph in sorted(
+        ((size, glyph) for glyph, size in contribs.items()), reverse=True
+    ):
+        goodness = colours[
+            min(
+                math.floor((size - least) / (most - least) * len(colours)),
+                len(colours) - 1,
+            )
+        ]
+        table.add_row(f"[bold {goodness}]{size:_}", glyph)
+
+    console = Console()
+    console.print(table)
+
+
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("ttf", type=TTFont)
+    parser.add_argument("--output", type=Path, required=False, metavar="CSV")
     args = parser.parse_args()
 
     # Get glyph contributions, and output sorted TSV to stdout.
     contribs = get_gvar_contribs(args.ttf)
-    print("Bytes", "Name", sep="\t")
-    for size, glyph in sorted(((size, glyph) for glyph, size in contribs.items())):
-        print(size, glyph, sep="\t")
+
+    output_rich_report(contribs)
+
+    # Optionally, write a tab-delimited CSV report too.
+    if args.output:
+        output_csv_report(contribs, args.output)
