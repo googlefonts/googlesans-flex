@@ -17,7 +17,8 @@ Rough script to detect similar contours across glyphs, to show where components
 may reduce file size.
 """
 
-from typing import Iterable
+from dataclasses import dataclass
+from typing import Iterable, NamedTuple
 from fontTools.designspaceLib import DesignSpaceDocument
 from ufoLib2 import Font
 from ufoLib2.objects import Layer, Point
@@ -25,6 +26,39 @@ from ufoLib2.objects import Layer, Point
 
 DEVIATION_THRESHOLD = (20.0, 20.0)
 THRESHOLD_X, THRESHOLD_Y = DEVIATION_THRESHOLD
+
+
+# FIXME: this needs to be a 2D co-ordinate not single float
+@dataclass(frozen=True)
+class RangedFloat(NamedTuple):
+    low: float
+    high: float
+
+    # FIXME doesn't check threshold
+    def could_fit(self, value: float) -> bool:
+        return value >= self.low and value <= self.high
+
+    def _remaining_space(self) -> float:
+        pass
+
+
+class ApproximateCounter:
+    _buckets: dict[
+        # the largest and smallest values contained in this bucket
+        RangedFloat,
+        # all the values within the bucket with their source information
+        list[tuple[float, str | None]],
+    ] = {}
+
+    def add(self, value: float, source: str | None = None) -> bool:
+        relevant_bucket_values = []
+        for bucket, bucket_values in self._buckets.items():
+            if value in bucket:
+                relevant_bucket_values = bucket_values
+                break
+        relevant_bucket_values.append((value, source))
+        
+        # TODO: finish
 
 
 def get_layers(doc: DesignSpaceDocument) -> list[Layer]:
@@ -54,6 +88,8 @@ def suspicious(deltas: Iterable[tuple[float, float]]) -> bool:
     for dx, dy in deltas:
         if dx > 0.0 or dy > 0.0:
             non_zero = True
+        # FIXME: this is fundamentally broken as there are always expected
+        #        outliers
         # if dx > threshold_x or dy > threshold_y:
         #     return False
     return non_zero
