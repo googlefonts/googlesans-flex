@@ -10,7 +10,12 @@ DEFAULT_TTF_PATH = (
 )
 
 
-def main(ttf_path: Path, threshold: float = 20.0, verbose: bool = False) -> None:
+def main(
+    ttf_path: Path,
+    threshold: float = 20.0,
+    strip: Path | None = None,
+    verbose: bool = False,
+) -> None:
     font = TTFont(ttf_path)
     gvar = font["gvar"]
 
@@ -35,9 +40,27 @@ def main(ttf_path: Path, threshold: float = 20.0, verbose: bool = False) -> None
                     }
                     print(f"{glyph_name} @ {pos}")
 
-    print(
-        f"{insignificant_tuple_variation_block_count}/{tuple_variation_block_count} insignificant"
+    percent = (
+        insignificant_tuple_variation_block_count / tuple_variation_block_count * 100
     )
+    print(
+        f"{insignificant_tuple_variation_block_count}/{tuple_variation_block_count} ({percent:.1f}%) insignificant"
+    )
+
+    if new_path := strip:
+        gvar.variations = {
+            glyph_name: [
+                tuple_variation
+                for tuple_variation in tuple_variations
+                if not all(
+                    abs(coord[0]) < threshold and abs(coord[1]) < threshold
+                    for coord in tuple_variation.coordinates
+                    if coord is not None
+                )
+            ]
+            for glyph_name, tuple_variations in gvar.variations.items()
+        }
+        font.save(new_path.with_suffix(".ttf"))
 
 
 if __name__ == "__main__":
@@ -54,6 +77,10 @@ if __name__ == "__main__":
         default=20.0,
     )
     parser.add_argument(
+        "--strip",
+        type=Path,
+    )
+    parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
@@ -63,5 +90,6 @@ if __name__ == "__main__":
     main(
         args.ttf_path if args.ttf_path is not None else DEFAULT_TTF_PATH,
         args.threshold,
+        args.strip,
         args.verbose,
     )
