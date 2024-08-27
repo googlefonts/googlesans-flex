@@ -105,7 +105,7 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path, required=False, metavar="CSV")
     args = parser.parse_args()
 
-    # Get glyph contributions, and output sorted TSV to stdout.
+    # Get glyph contributions, and output rich report to stdout.
     contribs = get_gvar_contribs(args.ttf)
 
     force_terminal = True if "GITHUB_ACTIONS" in os.environ else None
