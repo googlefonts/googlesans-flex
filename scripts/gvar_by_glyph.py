@@ -19,6 +19,7 @@ bytes to the 'gvar' table, for identifying where optimisation is possible.
 
 
 import math
+import os
 from argparse import ArgumentParser
 from pathlib import Path
 
@@ -63,7 +64,9 @@ def output_csv_report(contribs: dict[str, int], path: Path) -> None:
             print(size, glyph, sep="\t", file=output)
 
 
-def output_rich_report(contribs: dict[str, int]) -> None:
+def output_rich_report(
+    contribs: dict[str, int], force_terminal: bool | None = None
+) -> None:
     """Output a formatted table to stdout with rich."""
 
     table = Table(title="'gvar' size contribution by glyph")
@@ -92,7 +95,7 @@ def output_rich_report(contribs: dict[str, int]) -> None:
         ]
         table.add_row(f"[bold {goodness}]{size:_}", glyph)
 
-    console = Console()
+    console = Console(force_terminal=force_terminal)
     console.print(table)
 
 
@@ -105,7 +108,8 @@ if __name__ == "__main__":
     # Get glyph contributions, and output sorted TSV to stdout.
     contribs = get_gvar_contribs(args.ttf)
 
-    output_rich_report(contribs)
+    force_terminal = True if "GITHUB_ACTIONS" in os.environ else None
+    output_rich_report(contribs, force_terminal=force_terminal)
 
     # Optionally, write a tab-delimited CSV report too.
     if args.output:
