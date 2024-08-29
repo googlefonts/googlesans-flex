@@ -14,7 +14,7 @@
 
 from pathlib import Path
 
-from fontbakery.profiles.outline import PROFILE as OUTLINE_PROFILE
+from fontbakery.profiles.googlefonts import PROFILE as GOOGLEFONTS_PROFILE
 
 
 # Hack to have this be conditional but without appending later
@@ -37,7 +37,7 @@ PROFILE = {
         ]
     },
     "exclude_checks": [
-        *OUTLINE_PROFILE["sections"]["Outline Checks"],  # Separate.
+        *GOOGLEFONTS_PROFILE["sections"]["Outline Checks"],  # Separate.
         *FONTBAKERY_UP_TO_DATE,
         "com.google.fonts/check/ftxvalidator_is_available",
         "com.google.fonts/check/dsig",
