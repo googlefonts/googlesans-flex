@@ -63,7 +63,7 @@ fi
 echo "$all_ttfs" \
     | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-outlines-report.html \
-    fontbakery.profiles.outline {} \
+    qa/check-outlines.py {} \
     || failed+=("fontbakery.profiles.outline")
 
 echo "$all_ttfs" \

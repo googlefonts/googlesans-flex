@@ -76,9 +76,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "font_paths",
         help="TTF(s) to check",
-        nargs="+",
+        nargs="*",
         type=Path,
         metavar="ttf",
+        default=[
+            Path("fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf"),
+        ],
     )
     args = parser.parse_args()
 
