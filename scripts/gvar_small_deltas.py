@@ -48,6 +48,9 @@ def main(
     )
 
     if new_path := strip:
+        # TODO: experiment with being more intelligent about stripping - leave
+        # alone deltas affecting 'fine adjustment' axes like ROND, slnt, and
+        # GRAD
         gvar.variations = {
             glyph_name: [
                 tuple_variation
