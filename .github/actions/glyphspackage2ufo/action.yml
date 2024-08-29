@@ -57,4 +57,4 @@ runs:
       echo "Running glyphs_to_ds.py"
       venv/bin/python scripts/glyphs_to_ds.py \
         "$GITHUB_WORKSPACE/octavio/sources/design-source/GSF-full.glyphspackage" \
-        sources/GoogleSansFlex.designspace
+        --output sources/GoogleSansFlex.designspace
