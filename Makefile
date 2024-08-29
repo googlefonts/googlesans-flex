@@ -104,7 +104,7 @@ glyph-hunt: venv
 
 shaperglot: venv build
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install shaperglot"
-	venv/bin/pip install -U "shaperglot>=0.5"
+	venv/bin/pip install -U "shaperglot>=0.5.1"
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 	mkdir -p out
 # Report coverage of all languages
