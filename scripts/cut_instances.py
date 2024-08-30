@@ -51,7 +51,8 @@ class WorkspaceInstance(TypedDict):
     ROND: int
 
 
-# These are then produced at each weight instance defined in the Designspace
+# These are then produced in upright & italic flavours, retaining only the
+# weight variable axis
 TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
     "Google Sans Flex Normal": {
         "opsz": 144,

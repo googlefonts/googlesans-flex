@@ -1,19 +1,16 @@
-name: Release variable & workspace fonts
+name: Test workspace fonts
 
 on:
-  release:
-    # A release, pre-release, or draft of a release was published
-    types: [published]
+  workflow_dispatch:
 
+# Mostly copied & simplified from release.yml
 jobs:
   build-variable:
     runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     steps:
-    - name: Checkout ${{ github.ref_name }}
+    - name: Checkout main
       uses: actions/checkout@v4
-      with:
-        ref: ${{ github.ref_name }}
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -46,13 +43,6 @@ jobs:
         vf-artifact: ${{ needs.build-variable.outputs.artifact-name }}
     outputs:
       artifact-name: ${{ steps.cut-workspace-fonts.outputs.artifact-name }}
-  test-variable:
-    needs:
-    - build-variable
-    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
-    with:
-      branch: ${{ github.ref_name }}
-      artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
   test-workspace:
     needs:
     - cut-instances
@@ -88,46 +78,3 @@ jobs:
         name: Fontbakery workspace reports
         path: out/fontbakery
         if-no-files-found: error
-  upload-to-release:
-    needs:
-    - build-variable
-    - cut-instances
-    - test-variable
-    - test-workspace
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-    - name: Download variable fonts
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ needs.build-variable.outputs.artifact-name }}
-        path: ${{ needs.build-variable.outputs.artifact-name }}
-    - name: Download workspace fonts
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ needs.cut-instances.outputs.artifact-name }}
-        path: ${{ needs.cut-instances.outputs.artifact-name }}
-    - name: Create release archives
-      id: release-archives
-      run: |
-        # Note: unsupported characters (such as spaces) are changes for periods
-        #       when uploading to the release
-        variable_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
-        echo "variable-zip-name=$variable_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.build-variable.outputs.artifact-name }}" \
-          && zip -9 "../$variable_zip_name" *.ttf
-
-        workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
-        echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.artifact-name }}" \
-          && zip -9 "../$workspace_zip_name" *.ttf *.md
-    - name: Upload variable font archive to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        file: ${{ steps.release-archives.outputs.variable-zip-name }}
-        overwrite: true
-        body: "Production ready fonts"
-    - name: Upload workspace fonts archive to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        file: ${{ steps.release-archives.outputs.workspace-zip-name }}
