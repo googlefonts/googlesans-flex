@@ -15,27 +15,21 @@
 """Convert sources from a Glyphs 3 .glyphs or .glyphspackage file into a
 designspace + UFO that can be used for building this font project."""
 
-from typing import Any
-import glyphsLib
-from glyphsLib import GSFont
-from pathlib import Path
-from ufoLib2 import Font
-from fontTools.designspaceLib import DesignSpaceDocument
-from tempfile import TemporaryDirectory
 from argparse import ArgumentParser
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from typing import Any
+
+import glyphsLib
+from fontTools.designspaceLib import DesignSpaceDocument
+from glyphsLib import GSFont
+from ufoLib2 import Font
 
 # Incompatible glyphs, that should not be included in the final build.
 INCOMPATIBLE = set([])
 
-if __name__ == "__main__":
-    parser = ArgumentParser()
-    parser.add_argument("glyphs", type=Path)
-    parser.add_argument("designspace", type=Path)
-    args = parser.parse_args()
 
-    glyphs_source: Path = args.glyphs
-    designspace_target: Path = args.designspace
-
+def glyphs_to_designspace(glyphs_source: Path, designspace_target: Path) -> None:
     ##################
     ### Preprocess ###
     ##################
@@ -132,9 +126,26 @@ if __name__ == "__main__":
     assert isinstance(default_ufo, Font)
     default_ufo.info.styleName = "Regular"
     default_ufo.info.styleMapFamilyName = "Google Sans Flex"
-    # TODO: Apply this to the italic when it is added.
 
     # Save everything that we have tidied.
     doc.write(designspace_target)
     for ufo in ufos:
         ufo.save()
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument(
+        "glyphs",
+        type=Path,
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        metavar="designspace",
+        required=True,
+    )
+
+    args = parser.parse_args()
+    glyphs_to_designspace(args.glyphs, args.output)

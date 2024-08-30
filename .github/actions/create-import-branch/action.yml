@@ -47,12 +47,18 @@ runs:
           echo "The target branch '$TARGET_BRANCH' doesn't exist, creating."
           git -C main worktree add --quiet "$GITHUB_WORKSPACE/target" -b "$TARGET_BRANCH" origin/main
         fi
-    - name: Apply changes
+    - name: Apply changes to UFO sources
       shell: bash
       run: |
         shopt -s dotglob
         rm -r target/sources
         mv --no-clobber "${{ inputs.updated-sources }}"/sources target/
+    - name: Update the design sources
+      shell: bash
+      run: |
+        # sources/design-source was deleted by the rm in the previous step
+        cd target
+        git checkout "origin/${{ inputs.imported-branch }}" -- sources/design-source
     - name: Commit, rebase, and push changes
       id: commit-rebase-push
       shell: bash
