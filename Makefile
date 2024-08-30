@@ -91,7 +91,13 @@ font-size: venv build
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install font-size"
 	venv/bin/pip install -U font-size
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::TTF size report, by table"
 	find fonts -name '*.ttf' -type f | xargs venv/bin/font-size
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::'gvar' size report, by glyph"
+# This script uses the version of rich installed by font-size
+	venv/bin/python scripts/gvar_by_glyph.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 
 progress-chart: venv
 	. venv/bin/activate && python scripts/gs-progress-burndown.py
