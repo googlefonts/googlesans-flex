@@ -24,6 +24,9 @@ PROFILE = {
             "com.google.fonts/check/googlesansflex/sources/kerning_present",
             "com.google.fonts/check/googlesansflex/sources/all_quadratics",
             "com.google.fonts/check/googlesansflex/sources/no_open_corners",
+            "com.google.fonts/check/googlesansflex/sources/decomposed_by_skip",
+            "com.google.fonts/check/googlesansflex/sources/decomposed_by_mix",
+            "com.google.fonts/check/googlesansflex/sources/decomposed_by_var_transform",
         ]
     },
     "exclude_checks": [

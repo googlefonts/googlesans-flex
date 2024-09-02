@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from typing import Iterable, Tuple, Union
 
 from fontbakery import utils
@@ -267,3 +268,141 @@ def check_no_open_corners(config, ufo: Ufo) -> CheckStatus:
                     f"{utils.bullet_list(config, offending_glyphs)}\n",
                 ),
             )
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/decomposed_by_skip")
+def check_decomposed_by_skip(ds: DesignSpaceDocument, config):
+    """Check the sources for glyphs that use 'skipped' components, and so would
+    be decomposed"""
+
+    # Count how many times each component is used in each glyph, to identify
+    # components that are reused multiple times.
+    # dict[Component, dict[Parent, MaxUses]]
+    used_in: dict[str, dict[str, int]] = {}
+
+    for source in ds.sources:
+        assert isinstance(source.font, Font)
+
+        # Get layer from source definition.
+        layer = (
+            source.font.layers.defaultLayer
+            if source.layerName is None
+            else source.font.layers[source.layerName]
+        )
+
+        # Count components in each glyph.
+        for glyph in layer:
+            assert glyph.name is not None
+
+            components = Counter(comp.baseGlyph for comp in glyph.components)
+
+            for component, count in components.items():
+                counts = used_in.setdefault(component, {})
+                counts[glyph.name] = max(count, counts.get(glyph.name, 0))
+
+    skipped = set(ds.lib.get("public.skipExportGlyphs", []))
+
+    # Flag any component that is skipped and would be decomposed into its parent
+    # glyphs more than once.
+    for component, counts in sorted(used_in.items()):
+        total = sum(counts.values())
+
+        if component in skipped and total > 1:
+            yield (
+                FAIL,
+                f"Component `{component}` is referenced at least {total} times, but is on the skip list, so will decompose :\n\n"
+                f"{utils.bullet_list(config, sorted(counts.keys()), bullet='🧟')}",
+            )
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/decomposed_by_mix")
+def check_decomposed_by_mix(ds: DesignSpaceDocument, config):
+    """Check the sources for glyphs that use a mixture of contours and
+    components, and so would be decomposed"""
+
+    uses_contours: set[str] = set()
+    uses_components: set[str] = set()
+
+    # Check the entire designspace to see which glyphs use contours and
+    # components.
+    for source in ds.sources:
+        assert isinstance(source.font, Font)
+
+        layer = (
+            source.font.layers.defaultLayer
+            if source.layerName is None
+            else source.font.layers[source.layerName]
+        )
+
+        for glyph in layer:
+            assert glyph.name is not None
+
+            if glyph.contours:
+                uses_contours.add(glyph.name)
+            if glyph.components:
+                uses_components.add(glyph.name)
+
+    # Flag any glyphs that use both.
+    uses_mix = uses_contours & uses_components
+
+    if uses_mix:
+        yield (
+            FAIL,
+            f"Glyphs mix contours and components, so will be decomposed:\n\n"
+            f"{utils.bullet_list(config, sorted(uses_mix), bullet='🧟')}",
+        )
+
+
+@check(id="com.google.fonts/check/googlesansflex/sources/decomposed_by_var_transform")
+def check_decomposed_by_var_transform(ds: DesignSpaceDocument, config):
+    """Check the sources for glyphs that vary the transform of a component
+    across the designspace, and so would be decomposed"""
+
+    # See which glyphs have which components with which transforms in which
+    # sources.
+    # dict[Parent, dict[(BaseGlyph, Index), dict[Transform, Set[Sources]]]]
+    transforms: dict[str, dict[tuple[int, str], dict[tuple[float, ...], set[str]]]] = {}
+
+    for source in ds.sources:
+        assert isinstance(source.font, Font)
+
+        layer = (
+            source.font.layers.defaultLayer
+            if source.layerName is None
+            else source.font.layers[source.layerName]
+        )
+
+        for glyph in layer:
+            assert glyph.name is not None
+            glyph_transforms = transforms.setdefault(glyph.name, {})
+
+            # See which transform each component has and note where we saw it.
+            for index, component in enumerate(glyph.components):
+                component_key = (index, component.baseGlyph)
+                comp_transforms = glyph_transforms.setdefault(component_key, {})
+
+                # Exclude position, as it _can_ vary across a designspace.
+                excluding_pos = tuple(component.transformation)[:4]
+                seen_in = comp_transforms.setdefault(excluding_pos, set())
+
+                assert isinstance(source.name, str)
+                seen_in.add(source.name)
+
+    # Fail for any component that has different transforms in different areas of
+    # the designspace.
+    for glyph, glyph_transforms in transforms.items():
+        for (index, component), comp_transforms in glyph_transforms.items():
+            if len(comp_transforms) > 1:
+                yield (
+                    FAIL,
+                    f"🧟 Glyph `{glyph}` varies component `{component}` (index {index}), and so will be decomposed:\n\n"
+                    + utils.bullet_list(
+                        config,
+                        sorted(
+                            [
+                                f"{transform}: {', '.join(sorted(sources))}"
+                                for transform, sources in comp_transforms.items()
+                            ]
+                        ),
+                    ),
+                )
