@@ -8,6 +8,7 @@ DEFAULT_TTF_PATH = (
     Path(__file__).parent.parent
     / "fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf"
 )
+FINE_ADJUSTMENT_AXES = ("GRAD", "ROND", "slnt")
 
 
 def main(
@@ -22,7 +23,8 @@ def main(
     insignificant_tuple_variation_block_count = 0
     tuple_variation_block_count = 0
     for glyph_name, tuple_variations in gvar.variations.items():
-        for tuple_variation in tuple_variations:
+        to_remove = []
+        for tv_index, tuple_variation in enumerate(tuple_variations):
             assert isinstance(tuple_variation, TupleVariation)
 
             tuple_variation_block_count += 1
@@ -32,13 +34,22 @@ def main(
                 if coord is not None
             ):
                 insignificant_tuple_variation_block_count += 1
+                pos = {
+                    axis: value
+                    for axis, (_min, value, _max) in tuple_variation.axes.items()
+                    if value != 0
+                }
                 if verbose:
-                    pos = {
-                        axis: value
-                        for axis, (_min, value, _max) in tuple_variation.axes.items()
-                        if value != 0
-                    }
                     print(f"{glyph_name} @ {pos}")
+                # Remove insignificant delats, only if the delta isn't for a
+                # 'fine adjustment' axis
+                if strip is not None and all(
+                    axis not in pos for axis in FINE_ADJUSTMENT_AXES
+                ):
+                    to_remove.append(tv_index)
+
+        for tv_index in sorted(to_remove, reverse=True):
+            del tuple_variations[tv_index]
 
     percent = (
         insignificant_tuple_variation_block_count / tuple_variation_block_count * 100
@@ -48,21 +59,6 @@ def main(
     )
 
     if new_path := strip:
-        # TODO: experiment with being more intelligent about stripping - leave
-        # alone deltas affecting 'fine adjustment' axes like ROND, slnt, and
-        # GRAD
-        gvar.variations = {
-            glyph_name: [
-                tuple_variation
-                for tuple_variation in tuple_variations
-                if not all(
-                    abs(coord[0]) < threshold and abs(coord[1]) < threshold
-                    for coord in tuple_variation.coordinates
-                    if coord is not None
-                )
-            ]
-            for glyph_name, tuple_variations in gvar.variations.items()
-        }
         font.save(new_path.with_suffix(".ttf"))
 
 
@@ -77,7 +73,7 @@ if __name__ == "__main__":
         "-t",
         "--threshold",
         type=float,
-        default=20.0,
+        default=5.0,
     )
     parser.add_argument(
         "--strip",
