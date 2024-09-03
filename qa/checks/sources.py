@@ -394,7 +394,7 @@ def check_decomposed_by_var_transform(ds: DesignSpaceDocument, config):
         for (index, component), comp_transforms in glyph_transforms.items():
             if len(comp_transforms) > 1:
                 yield (
-                    FAIL,
+                    WARN,
                     f"🧟 Glyph `{glyph}` varies component `{component}` (index {index}), and so will be decomposed:\n\n"
                     + utils.bullet_list(
                         config,
