@@ -6,6 +6,10 @@ on:
       git-ref:
         description: The branch to build from
         required: true
+      run-tests:
+        description: Run tests on built fonts?
+        default: false
+        type: boolean
 
 jobs:
   convert:
@@ -90,6 +94,7 @@ jobs:
     needs:
     - convert
     - build
+    if: ${{ inputs.run-tests }}
     uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
     with:
       artifact-as-branch: ${{ needs.convert.outputs.sources-artifact }}.tar
