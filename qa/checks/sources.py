@@ -275,6 +275,8 @@ def check_decomposed_by_skip(ds: DesignSpaceDocument, config):
     """Check the sources for glyphs that use 'skipped' components, and so would
     be decomposed"""
 
+    skipped = set(ds.lib.get("public.skipExportGlyphs", []))
+
     # Count how many times each component is used in each glyph, to identify
     # components that are reused multiple times.
     # dict[Component, dict[Parent, MaxUses]]
@@ -294,13 +296,15 @@ def check_decomposed_by_skip(ds: DesignSpaceDocument, config):
         for glyph in layer:
             assert glyph.name is not None
 
+            # Do not count references from glyphs that are skipped.
+            if glyph.name in skipped:
+                continue
+
             components = Counter(comp.baseGlyph for comp in glyph.components)
 
             for component, count in components.items():
                 counts = used_in.setdefault(component, {})
                 counts[glyph.name] = max(count, counts.get(glyph.name, 0))
-
-    skipped = set(ds.lib.get("public.skipExportGlyphs", []))
 
     # Flag any component that is skipped and would be decomposed into its parent
     # glyphs more than once.
