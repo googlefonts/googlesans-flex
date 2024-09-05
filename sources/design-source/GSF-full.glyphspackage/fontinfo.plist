@@ -904,12 +904,16 @@ tag = zero;
 },
 {
 code = "	# f-ligs
-    sub f f b by f_f_b;
-    sub f f h by f_f_h;
+    sub f' f b by flig6; # new approach for size reduction
+	sub flig6 f' b by flig2; # new approach for size reduction
+    sub f' f h by flig6; # new approach for size reduction
+	sub flig6 f' h by flig2; # new approach for size reduction
     sub f f i by f_f_i;
     sub f f j by f_f_j;
-    sub f f k by f_f_k;
-    sub f f l by f_f_l;
+    sub f' f k by flig6; # new approach for size reduction
+	sub flig6 f' k by flig2; # new approach for size reduction
+    sub f' f l by flig6; # new approach for size reduction
+	sub flig6 f' l by flig2; # new approach for size reduction
     sub f f t by f_f_t;
     sub f' b by flig1; # new approach for size reduction
     sub f i by f_i;
@@ -992,10 +996,13 @@ tag = pnum;
 },
 {
 code = "lookupflag IgnoreMarks;
-sub f f b by f_f_b;
-sub f f h by f_f_h;
+sub f' f b by flig6; # new approach for size reduction
+sub flig6 f' b by flig2; # new approach for size reduction
+sub f' f h by flig6; # new approach for size reduction
+sub flig6 f' h by flig2; # new approach for size reduction
 sub f f j by f_f_j;
-sub f f k by f_f_k;
+sub f' f k by flig6; # new approach for size reduction
+sub flig6 f' k by flig2; # new approach for size reduction
 sub f f t by f_f_t;
 sub f' b by flig1; # new approach for size reduction
 sub f' h by flig1; # new approach for size reduction
