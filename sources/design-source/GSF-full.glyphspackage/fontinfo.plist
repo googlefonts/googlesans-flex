@@ -998,9 +998,9 @@ sub f f j by f_f_j;
 sub f f k by f_f_k;
 sub f f t by f_f_t;
 sub f' b by flig1; # new approach for size reduction
-sub f' h by f_h; # new approach for size reduction
+sub f' h by flig1; # new approach for size reduction
 sub f j by f_j;
-sub f' k by f_k; # new approach for size reduction
+sub f' k by flig1; # new approach for size reduction
 sub f t by f_t;
 sub t f by t_f;
 sub t t by t_t;
@@ -1163,7 +1163,6 @@ stemValues = (
 77,
 77
 );
-visible = 1;
 },
 {
 axesValues = (
