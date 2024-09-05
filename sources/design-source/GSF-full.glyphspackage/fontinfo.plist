@@ -911,18 +911,19 @@ code = "	# f-ligs
     sub f f k by f_f_k;
     sub f f l by f_f_l;
     sub f f t by f_f_t;
-    sub f b by f_b;
+    sub f' b by flig1; # new approach for size reduction
     sub f i by f_i;
     sub f f by f_f;
-    sub f h by f_h;
+    sub f' h by flig1;  # new approach for size reduction
     sub f j by f_j;
-    sub f k by f_k;
-    sub f l by f_l;
+    sub f' k by flig1; # new approach for size reduction
+    sub f l by f_l; 
     sub f t by f_t;
 
 	# t-ligs
     sub t f by t_f;
-    sub t t by t_t;";
+    sub t t by t_t;
+";
 tag = liga;
 },
 {
@@ -990,17 +991,16 @@ code = "	sub @FIGURES_TAB by @FIGURES;
 tag = pnum;
 },
 {
-automatic = 1;
 code = "lookupflag IgnoreMarks;
 sub f f b by f_f_b;
 sub f f h by f_f_h;
 sub f f j by f_f_j;
 sub f f k by f_f_k;
 sub f f t by f_f_t;
-sub f b by f_b;
-sub f h by f_h;
+sub f' b by flig1; # new approach for size reduction
+sub f' h by f_h; # new approach for size reduction
 sub f j by f_j;
-sub f k by f_k;
+sub f' k by f_k; # new approach for size reduction
 sub f t by f_t;
 sub t f by t_f;
 sub t t by t_t;
@@ -1163,6 +1163,7 @@ stemValues = (
 77,
 77
 );
+visible = 1;
 },
 {
 axesValues = (
@@ -16647,7 +16648,6 @@ axis = Width;
 interpolation = 145;
 };
 };
-visible = 1;
 },
 {
 axesValues = (
