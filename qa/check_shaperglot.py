@@ -67,6 +67,12 @@ def main(font_paths: list[Path]) -> int:
                     print(f"    {message}")
                 if worst == Result.FAIL:
                     exit_status = 1
+            for fail in report.fails:
+                for fix in fail.fixes:
+                    # Copied logic from shaperglot:
+                    # https://github.com/googlefonts/shaperglot/blob/c789b6d640b12183f4843d2eca0b5afbf464315d/Lib/shaperglot/cli/check.py#L64
+                    fix_type_human = fix["type"].replace("_", " ").capitalize()
+                    print(f"    FIX: {fix_type_human} {fix['thing']}")
         print()
     return exit_status
 
