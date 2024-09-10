@@ -63,11 +63,6 @@ jobs:
     - name: Analyze TTF file size
       shell: bash
       run: make font-size
-    - name: Run shaperglot
-      shell: bash
-      run: |
-        touch build.stamp
-        make shaperglot
     - name: Run Fontbakery
       id: fontbakery
       shell: bash
@@ -82,3 +77,10 @@ jobs:
         name: Fontbakery reports
         path: out/fontbakery
         if-no-files-found: error
+    - name: Run shaperglot
+      shell: bash
+      run: |
+        touch build.stamp
+        make shaperglot
+      # Always run shaperglot, even if Fontbakery did not pass
+      if: '!cancelled()'
