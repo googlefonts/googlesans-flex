@@ -151,6 +151,7 @@ def cut_instance(
             "--quiet",
             "--remove-overlaps",
             "--update-name-table",
+            "--no-optimize",
             "-o",
             str(output_file),
             str(variable_font),
