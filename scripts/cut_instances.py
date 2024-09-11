@@ -151,6 +151,9 @@ def cut_instance(
             "--quiet",
             "--remove-overlaps",
             "--update-name-table",
+            # NOTE: Temporarily disable IUP optimisation when subsetting until
+            # fonttools/fonttools#3634 is resolved.
+            # See googlefonts/googlesans-flex#1034
             "--no-optimize",
             "-o",
             str(output_file),
