@@ -114,7 +114,7 @@ GS_CREATION_DATE = datetime(
 # ================================================
 
 
-@check(id="com.google.fonts/check/googlesansflex/opentype/global_fu_attributes")
+@check(id="googlesansflex/opentype/global_fu_attributes")
 def com_google_fonts_check_googlesansflex_opentype_global_fu_attributes(
     font: Font, ttFont
 ):
@@ -148,7 +148,7 @@ def com_google_fonts_check_googlesansflex_opentype_global_fu_attributes(
 
 
 @check(
-    id="com.google.fonts/check/googlesansflex/opentype/os2/unicode_range_bits",
+    id="googlesansflex/opentype/os2/unicode_range_bits",
     rationale="""
         When the UnicodeRange bits on the OS/2 table are not properly set, some programs
         running on Windows may not recognize the font and use a system fallback font
@@ -198,7 +198,7 @@ def com_google_fonts_check_googlesansflex_unicode_range_bits(ttFont, unicoderang
 
 
 @check(
-    id="com.google.fonts/check/googlesansflex/opentype/head/created",
+    id="googlesansflex/opentype/head/created",
     rationale="""
         The `created` date in the OpenType `head` table should be maintained
         across releases.
@@ -232,7 +232,7 @@ def com_google_fonts_check_googlesansflex_head_created(ttFont):
 
 
 @check(
-    id="com.google.fonts/check/googlesansflex/vf/fvaraxes",
+    id="googlesansflex/vf/fvaraxes",
     conditions=["is_variable_font"],
     rationale="""
     Confirms that the variable font format builds include
@@ -266,7 +266,7 @@ def com_google_fonts_check_googlesansflex_variable_fvar_axes(font, ttFont):
 
 
 @check(
-    id="com.google.fonts/check/googlesansflex/vf/axis_names",
+    id="googlesansflex/vf/axis_names",
     conditions=["is_variable_font"],
 )
 def com_google_fonts_check_googlesansflex_axis_names(font: Font, ttFont):
@@ -299,7 +299,7 @@ def com_google_fonts_check_googlesansflex_axis_names(font: Font, ttFont):
 
 
 @check(
-    id="com.google.fonts/check/googlesansflex/vf/fvardefault",
+    id="googlesansflex/vf/fvardefault",
     conditions=["is_variable_font"],
     rationale="""
     Confirms that the variable font format builds include the expected fvar
@@ -335,8 +335,9 @@ def com_google_fonts_check_googlesansflex_variable_fvar_default(font: Font, ttFo
         else:
             yield PASS, f"Font contains the expected fvar {tag} default."
 
+
 @check(
-    id="com.google.fonts/check/googlesansflex/android_ymin_ymax",
+    id="googlesansflex/android_ymin_ymax",
     conditions=["is_variable_font"],
     rationale="""
     Confirms the Android-specific Flex build has the correct yMin/yMax
@@ -347,7 +348,7 @@ def com_google_fonts_check_android_ymin_ymax(font: Font, ttFont: TTFont):
     font_path = Path(font.file)
     if font_path.parent.name != "android":
         return SKIP, "Not Android flavour Flex"
-    
+
     head = ttFont["head"]
     if head.yMin != -605:
         yield FAIL, f"yMin was {head.yMin} instead of -605"

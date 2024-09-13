@@ -18,7 +18,7 @@ PROFILE = {
     "check_definitions": [Path(__file__).parent / "checks" / "shaping.py"],
     "sections": {
         "Google Sans Flex Shaping Regression Checks": [
-            "com.google.fonts/check/googlesans/features/regression",
+            "googlesans/features/regression",
         ]
     },
 }

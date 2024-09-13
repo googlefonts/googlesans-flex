@@ -16,8 +16,8 @@ from fontbakery.prelude import FAIL, PASS, check, condition
 from fontbakery.testable import Font
 
 GOOGLESANS_PROFILE_CHECKS = [
-    "com.google.fonts/check/googlesans/features/variableuprights",
-    # "com.google.fonts/check/googlesans/features/regression",  # TODO: For later.
+    "googlesans/features/variableuprights",
+    # "googlesans/features/regression",  # TODO: For later.
 ]
 
 # v1.100 feature set:
@@ -80,7 +80,7 @@ def is_variable_font(font: Font):
 
 
 @check(
-    id="com.google.fonts/check/googlesans/features/variableuprights",
+    id="googlesans/features/variableuprights",
     conditions=["is_not_italic", "is_variable_font"],
     rationale="""
     Confirms that the variable upright builds contain expected feature tags.

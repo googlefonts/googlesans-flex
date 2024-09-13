@@ -40,7 +40,7 @@ def ds(designspace: Designspace) -> DesignSpaceDocument:
     return d
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/same_tabular_width")
+@check(id="googlesansflex/sources/same_tabular_width")
 def check_same_tabular_widths(ufo_font: Font, config) -> CheckStatus:
     """Confirms that tabular glyphs have the same width within the same master."""
 
@@ -96,7 +96,7 @@ def check_same_tabular_widths(ufo_font: Font, config) -> CheckStatus:
             )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/suspicious_kerning_values")
+@check(id="googlesansflex/sources/suspicious_kerning_values")
 def check_suspicious_kerning_values(ufo_font: Font, config) -> CheckStatus:
     """Check for small and large kerning values outside a range and other
     things."""
@@ -150,7 +150,7 @@ def check_suspicious_kerning_values(ufo_font: Font, config) -> CheckStatus:
         )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/same_kerning_groups")
+@check(id="googlesansflex/sources/same_kerning_groups")
 def check_same_kerning_groups(ds: DesignSpaceDocument) -> CheckStatus:
     """Confirms that all sources have the same kerning groups per Designspace."""
 
@@ -168,7 +168,7 @@ def check_same_kerning_groups(ds: DesignSpaceDocument) -> CheckStatus:
             )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/kerning_present")
+@check(id="googlesansflex/sources/kerning_present")
 def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
     """Check how much kerning pairs a source has, not counting exceptions."""
 
@@ -206,7 +206,7 @@ def check_kerning_present(ds: DesignSpaceDocument) -> CheckStatus:
             )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/all_quadratics")
+@check(id="googlesansflex/sources/all_quadratics")
 def check_all_quadratics(config, ufo: Ufo) -> CheckStatus:
     """Checks all curves in the font are quadratic"""
 
@@ -240,7 +240,7 @@ def check_all_quadratics(config, ufo: Ufo) -> CheckStatus:
         )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/no_open_corners")
+@check(id="googlesansflex/sources/no_open_corners")
 def check_no_open_corners(config, ufo: Ufo) -> CheckStatus:
     """Check the sources have no corners, as Google Sans Flex's design with ROND
     is incompatible with this approach"""
@@ -277,7 +277,7 @@ def check_no_open_corners(config, ufo: Ufo) -> CheckStatus:
             )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/decomposed_by_skip")
+@check(id="googlesansflex/sources/decomposed_by_skip")
 def check_decomposed_by_skip(ds: DesignSpaceDocument, config):
     """Check the sources for glyphs that use 'skipped' components, and so would
     be decomposed"""
@@ -326,7 +326,7 @@ def check_decomposed_by_skip(ds: DesignSpaceDocument, config):
             )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/decomposed_by_mix")
+@check(id="googlesansflex/sources/decomposed_by_mix")
 def check_decomposed_by_mix(ds: DesignSpaceDocument, config):
     """Check the sources for glyphs that use a mixture of contours and
     components, and so would be decomposed"""
@@ -364,7 +364,7 @@ def check_decomposed_by_mix(ds: DesignSpaceDocument, config):
         )
 
 
-@check(id="com.google.fonts/check/googlesansflex/sources/decomposed_by_var_transform")
+@check(id="googlesansflex/sources/decomposed_by_var_transform")
 def check_decomposed_by_var_transform(ds: DesignSpaceDocument, config):
     """Check the sources for glyphs that vary the transform of a component
     across the designspace, and so would be decomposed"""

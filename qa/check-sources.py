@@ -18,15 +18,15 @@ PROFILE = {
     "check_definitions": [Path(__file__).parent / "checks" / "sources.py"],
     "sections": {
         "Google Sans Flex Source Checks": [
-            "com.google.fonts/check/googlesansflex/sources/same_tabular_width",
-            "com.google.fonts/check/googlesansflex/sources/suspicious_kerning_values",
-            "com.google.fonts/check/googlesansflex/sources/same_kerning_groups",
-            "com.google.fonts/check/googlesansflex/sources/kerning_present",
-            "com.google.fonts/check/googlesansflex/sources/all_quadratics",
-            "com.google.fonts/check/googlesansflex/sources/no_open_corners",
-            "com.google.fonts/check/googlesansflex/sources/decomposed_by_skip",
-            "com.google.fonts/check/googlesansflex/sources/decomposed_by_mix",
-            "com.google.fonts/check/googlesansflex/sources/decomposed_by_var_transform",
+            "googlesansflex/sources/same_tabular_width",
+            "googlesansflex/sources/suspicious_kerning_values",
+            "googlesansflex/sources/same_kerning_groups",
+            "googlesansflex/sources/kerning_present",
+            "googlesansflex/sources/all_quadratics",
+            "googlesansflex/sources/no_open_corners",
+            "googlesansflex/sources/decomposed_by_skip",
+            "googlesansflex/sources/decomposed_by_mix",
+            "googlesansflex/sources/decomposed_by_var_transform",
         ]
     },
 }

@@ -35,7 +35,7 @@ def hb_font(font: Font):
     return hb_face
 
 
-@check(id="com.google.fonts/check/googlesans/features/regression")
+@check(id="googlesans/features/regression")
 def com_google_fonts_check_googlesans_features_regression(font: Font, ttFont, hb_font):
     """But does it shape?"""
     filename = Path(font.file)
