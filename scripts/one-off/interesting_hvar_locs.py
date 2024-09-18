@@ -16,7 +16,10 @@
 
 from __future__ import annotations
 
+import json
+import re
 from argparse import ArgumentParser
+from pathlib import Path
 
 from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables.H_V_A_R_ import table_H_V_A_R_ as Hvar
@@ -57,17 +60,19 @@ def get_interesting_locs(ttf: TTFont, glyph: str) -> tuple[AxisToCoords, AxisToT
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("ttf", type=TTFont)
-    parser.add_argument("glyph", type=str)
+    parser.add_argument("ttf", type=Path)
     args = parser.parse_args()
 
-    locs, tups = get_interesting_locs(args.ttf, args.glyph)
+    assert isinstance(args.ttf, Path)
+    ttf = TTFont(args.ttf)
 
-    print("HVAR tuples:")
-    for tag, tups in tups.items():
-        print(tag, sorted(tups))
-    print()
+    for glyph in ttf.getGlyphOrder():
+        assert isinstance(glyph, str)
+        _, tuples = get_interesting_locs(ttf, glyph)
 
-    print("HVAR locations:")
-    for tag, locs in locs.items():
-        print(tag, sorted(locs))
+        case_insensitive = re.sub(r"([A-Z])", r"\1_", glyph)
+
+        to_dump = args.ttf.parent / "Glyphs" / f"{case_insensitive}.json"
+        to_dump.write_text(
+            json.dumps({tag: sorted(tups) for tag, tups in tuples.items()}, indent=2)
+        )
