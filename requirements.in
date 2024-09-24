@@ -9,3 +9,8 @@ font-v
 # 6.7.1 has a bugfix that is mandatory to build GS Flex correctly:
 # https://github.com/googlefonts/glyphsLib/pull/985
 glyphslib>=6.7.1
+
+# Includes a bugfix that is mandatory to build the workspace fonts correctly.
+# https://github.com/googlefonts/googlesans-flex/issues/1034
+# https://github.com/fonttools/fonttools/pull/3635
+fonttools>=4.54.0
