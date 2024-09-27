@@ -97,7 +97,7 @@ fontparts==0.12.2
     # via ufoprocessor
 fontpens==0.2.4
     # via defcon
-fonttools[lxml,ufo,unicode,woff]==4.54.0
+fonttools[lxml,ufo,unicode,woff]==4.54.1
     # via
     #   -r requirements.in
     #   afdko
@@ -125,6 +125,7 @@ fonttools[lxml,ufo,unicode,woff]==4.54.0
     #   statmake
     #   ufo2ft
     #   ufolib2
+    #   ufomerge
     #   ufoprocessor
     #   vfblib
     #   vharfbuzz
@@ -137,9 +138,9 @@ gflanguages==0.6.4
     # via
     #   gftools
     #   glyphsets
-gfsubsets==2024.5.9
+gfsubsets==2024.9.25
     # via gftools
-gftools==0.9.68
+gftools==0.9.70
     # via -r requirements.in
 gitdb==4.0.11
     # via gitpython
@@ -229,7 +230,7 @@ pyclipper==1.3.0.post5
     # via booleanoperations
 pycparser==2.22
     # via cffi
-pygit2==1.14.1
+pygit2==1.15.1
     # via gftools
 pygithub==2.4.0
     # via gftools
@@ -312,8 +313,11 @@ ufolib2[json]==0.16.0
     #   fontmake
     #   glyphslib
     #   nanoemoji
+    #   ufomerge
     #   vfblib
     #   vttlib
+ufomerge==1.8.2
+    # via gftools
 ufonormalizer==0.6.2
     # via
     #   afdko
