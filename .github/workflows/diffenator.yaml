@@ -105,3 +105,4 @@ jobs:
         name: Diffenator2 report (${{ inputs.before }} vs ${{ inputs.after }})
         path: diffenator_report
         if-no-files-found: error
+        compression-level: 9
