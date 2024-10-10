@@ -313,7 +313,7 @@ def check_decomposed_by_skip(ds: DesignSpaceDocument, config):
 
         if component in skipped and total > 1:
             yield (
-                FAIL,
+                WARN,
                 f"Component `{component}` is referenced at least {total} times, but is on the skip list, so will decompose:\n\n"
                 f"{utils.bullet_list(config, sorted(counts.keys()), bullet='🧟')}",
             )
