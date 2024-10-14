@@ -9,6 +9,9 @@ on:
       after:
         description: The 'after' git reference (tag, branch, or commit)
         required: true
+      all-masters:
+        description: Check all masters? (--styles masters)
+        type: boolean
 
 jobs:
   build-before:
@@ -59,7 +62,6 @@ jobs:
         if-no-files-found: error
   diffenate:
     runs-on: googlefonts-64cores-256GB
-    timeout-minutes: 30
     needs:
     - build-before
     - build-after
@@ -88,11 +90,19 @@ jobs:
     - name: Run diffenator2
       run: |
         mkdir -p diffenator_report
+        if [[ ${{ inputs.all-masters }} == "true" ]] ; then
+          echo "Checking all locations"
+          STYLES_ARG="--styles masters"
+        else
+          echo "Checking instances"
+          STYLES_ARG="--styles instances"
+        fi
         diffenator2 diff --fonts-before before/*.ttf --fonts-after after/*.ttf \
-          --out diffenator_report
+          $STYLES_ARG --out diffenator_report
     - name: Upload diffenator report
       uses: actions/upload-artifact@v4
       with:
         name: Diffenator2 report (${{ inputs.before }} vs ${{ inputs.after }})
         path: diffenator_report
         if-no-files-found: error
+        compression-level: 9
