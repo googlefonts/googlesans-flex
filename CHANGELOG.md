@@ -2,7 +2,7 @@
 
 ## Version 2.004 (2024-10-10)
 ### Changed
-- bug fix in the workspace font (#1034) 
+- bug fix in the workspace fonts (#1034) 
 
 
 ## Version 2.003 (2024-07-30)
