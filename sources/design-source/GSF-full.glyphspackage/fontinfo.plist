@@ -1,5 +1,5 @@
 {
-.appVersion = "3312";
+.appVersion = "3324";
 .formatVersion = 3;
 axes = (
 {
@@ -61,7 +61,8 @@ code = "zero.denominator one.denominator two.denominator three.denominator four.
 name = FIGURES_DEN;
 },
 {
-code = "period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal";
+code = "period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal
+";
 name = SYMBOLS;
 },
 {
@@ -894,7 +895,8 @@ tag = lnum;
 },
 {
 code = "    sub @FIGURES by @FIGURES_TAB;
-    sub @SYMBOLS by @SYMBOLS_TAB;";
+    sub @SYMBOLS by @SYMBOLS_TAB;
+	sub colon.time by colon.tf;";
 tag = tnum;
 },
 {
@@ -940,8 +942,7 @@ code = "	# Google logo ligatures
 	sub wiggle.medium asciitilde' by wiggle.medium;
 
 	# colon time
-	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time;
-	sub [@FIGURES_TAB zeroslash.tf] colon.tf' [@FIGURES_TAB zeroslash.tf] by colon.time;";
+	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time;";
 tag = calt;
 },
 {
