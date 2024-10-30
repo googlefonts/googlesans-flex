@@ -6,7 +6,7 @@ on:
 # Mostly copied & simplified from release.yml
 jobs:
   build-variable:
-    runs-on: googlefonts-64cores-256GB
+    runs-on: googlefonts-8cores-32GB
     timeout-minutes: 15
     steps:
     - name: Checkout main
@@ -46,7 +46,7 @@ jobs:
   test-workspace:
     needs:
     - cut-instances
-    runs-on: googlefonts-64cores-256GB
+    runs-on: googlefonts-8cores-32GB
     timeout-minutes: 20
     steps:
     - name: Checkout ${{ github.ref_name }}
