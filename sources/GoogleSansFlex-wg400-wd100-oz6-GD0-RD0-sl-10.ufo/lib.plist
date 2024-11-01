@@ -24,21 +24,19 @@
     <array>
       <dict>
         <key>class</key>
+        <string>CursFeatureWriter</string>
+      </dict>
+      <dict>
+        <key>class</key>
         <string>KernFeatureWriter</string>
       </dict>
       <dict>
         <key>class</key>
-        <string>ContextualMarkFeatureWriter</string>
-        <key>module</key>
-        <string>glyphsLib.featureWriters.markFeatureWriter</string>
+        <string>MarkFeatureWriter</string>
       </dict>
       <dict>
         <key>class</key>
         <string>GdefFeatureWriter</string>
-      </dict>
-      <dict>
-        <key>class</key>
-        <string>CursFeatureWriter</string>
       </dict>
     </array>
     <key>com.github.googlei18n.ufo2ft.filters</key>
@@ -630,6 +628,8 @@
       <string>sevensubscript</string>
       <string>eightsubscript</string>
       <string>ninesubscript</string>
+      <string>radical</string>
+      <string>u1D6E1</string>
       <string>flig2</string>
       <string>flig1</string>
       <string>tlig</string>
@@ -790,8 +790,6 @@
       <string>gbreve.ss03</string>
       <string>gcommaaccent.ss03</string>
       <string>gdotaccent.ss03</string>
-      <string>zero.dnom.percent</string>
-      <string>zero.numr.percent</string>
       <string>uni00A0</string>
       <string>periodcentered.loclCAT</string>
       <string>periodcentered.loclCAT.case</string>
@@ -822,6 +820,8 @@
       <string>hookabovecomb.viet.case</string>
       <string>apostrophemod</string>
       <string>commaturnedmod</string>
+      <string>zero.dnom.percent</string>
+      <string>zero.numr.percent</string>
       <string>_copyright-circle</string>
       <string>_dots-divide</string>
       <string>flig5</string>
