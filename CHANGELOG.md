@@ -1,5 +1,16 @@
 # Google Sans Flex Changelog
 
+## Version 2.005 (2024-11-1)
+
+### New
+- added `radical` and `pi`. `Pi` is encoded under the `u+1D6E1` as the Mathematical Bold Pi Symbol (#1020)
+
+### Changed
+- changed the spacing of tabular punctuation from full tabular width to half tabular width. (#1046)
+- updated feature code to better support the tabular colon. (#1046)
+- addressed an interpolation bug in the `dollar` sign. Few intermediate masters changed. (#997)
+
+
 ## Version 2.004 (2024-10-10)
 ### Changed
 - bug fix in the workspace fonts (#1034) 
