@@ -904,7 +904,8 @@ tag = lnum;
 {
 code = "    sub @FIGURES by @FIGURES_TAB;
     sub @SYMBOLS by @SYMBOLS_TAB;
-sub zeroslash by zeroslash.tf;";
+sub zeroslash by zeroslash.tf;
+sub colon.time by colon.tf;";
 tag = tnum;
 },
 {
@@ -945,8 +946,7 @@ code = "	# Google logo ligatures
 	sub wiggle.medium asciitilde' by wiggle.medium;
 
 	# colon time
-	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time;
-	sub [@FIGURES_TAB zeroslash.tf] colon.tf' [@FIGURES_TAB zeroslash.tf] by colon.time;";
+	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time;";
 tag = calt;
 },
 {
