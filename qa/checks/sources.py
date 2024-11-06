@@ -43,36 +43,43 @@ def ds(designspace: Designspace) -> DesignSpaceDocument:
 @check(id="com.google.fonts/check/googlesansflex/sources/same_tabular_width")
 def check_same_tabular_widths(ufo_font: Font, config) -> CheckStatus:
     """Confirms that tabular glyphs have the same width within the same master."""
-    EXCLUDED_TABULARS = {
-        # Intentionally has a different width:
+
+    # Glyphs that intentionally have a half tabular width:
+    HALF_WIDTH = {
         # https://github.com/googlefonts/googlesans-flex/issues/937
         "space.tf",
+        # https://github.com/googlefonts/googlesans-flex/issues/1077#issuecomment-2457455141
+        "colon.tf",
+        "comma.tf",
+        "period.tf",
+        "semicolon.tf",
     }
 
-    warnings_by_layer = {}
+    warnings_by_layer: dict[str, list[tuple[str, float, str, float]]] = {}
     for layer in ufo_font.layers:
-        tabulars = {name for name in layer.keys() if ".tf" in name} - EXCLUDED_TABULARS
-        if not tabulars:
-            continue
+        tabulars = {name for name in layer.keys() if ".tf" in name}
+        full, half = tabulars - HALF_WIDTH, tabulars & HALF_WIDTH
 
-        if "zero.tf" in tabulars:
-            width_glyph = "zero.tf"
-        else:
-            width_glyph = next(iter(tabulars))
-        width = layer[width_glyph].width
-        if width is None:
-            yield (
-                FAIL,
-                f"layer {layer.name}: {width_glyph} has no width, stopping check",
-            )
-            return
+        for group in (full, half):
+            if not group:
+                continue
 
-        for name in tabulars:
-            glyph = layer[name]
-            if glyph.width != width:
-                warnings_by_layer.setdefault(layer.name, []).append(
-                    (name, glyph.width, width_glyph, width)
+            reference, *rest = sorted(group)
+            width = layer[reference].width
+
+            if width is None:
+                yield (
+                    FAIL,
+                    f"layer {layer.name}: {reference} has no width, stopping check",
                 )
+                return
+
+            for name in rest:
+                glyph = layer[name]
+                if glyph.width != width:
+                    warnings_by_layer.setdefault(layer.name, []).append(
+                        (name, glyph.width, reference, width)
+                    )
 
     if not warnings_by_layer:
         yield PASS, "Tabular glyphs, if they exist, have the same width"
