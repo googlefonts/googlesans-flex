@@ -246,6 +246,8 @@ feature lnum {
 feature tnum {
     sub @FIGURES by @FIGURES_TAB;
     sub @SYMBOLS by @SYMBOLS_TAB;
+sub colon.time by colon.tf;
+
 } tnum;
 
 feature zero {
@@ -292,7 +294,6 @@ feature calt {
 
 	# colon time
 	sub [@FIGURES zeroslash] colon' [@FIGURES zeroslash] by colon.time;
-	sub [@FIGURES_TAB zeroslash.tf] colon.tf' [@FIGURES_TAB zeroslash.tf] by colon.time;
 } calt;
 
 feature ss01 {
