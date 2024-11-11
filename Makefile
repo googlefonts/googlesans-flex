@@ -40,11 +40,21 @@ venv/touchfile: requirements.txt
 test: build.stamp
 	@scripts/fontbakery.sh
 
-release: build.stamp
+android: build.stamp
+	mkdir -p fonts/android
+	-@rm fonts/android/*.ttf
+	venv/bin/python scripts/set_ymin_ymax.py \
+		--ymin -605 --ymax 2007 \
+		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
+		--output fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+
+workspace: build.stamp
 	-@rm fonts/workspace/*.ttf
 	. venv/bin/activate && python scripts/cut_instances.py \
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
 		fonts/workspace
+
+release: android workspace
 
 run-collidoscope: build.stamp
 # Install latest version of fontbakery on every run, isolated from build dependencies
@@ -118,3 +128,5 @@ shaperglot: venv build
 	@echo "\nChecking against the target language list"
 # Report coverage of target languages (exit code reports fails/warns)
 	@venv/bin/python qa/check_shaperglot.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+
+.PHONY: release
