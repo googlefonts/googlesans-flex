@@ -15,10 +15,11 @@
 
 from pathlib import Path
 
+from fontTools.ttLib import TTFont
 from fontbakery.callable import check
 from fontbakery.constants import UNICODERANGE_DATA
 from fontbakery.message import Message
-from fontbakery.status import FAIL, PASS, WARN
+from fontbakery.status import FAIL, PASS, SKIP, WARN
 from fontbakery.testable import Font
 from fontbakery.utils import (
     chars_in_range,
@@ -298,3 +299,22 @@ def com_google_fonts_check_googlesansflex_variable_fvar_default(font: Font, ttFo
             )
         else:
             yield PASS, f"Font contains the expected fvar {tag} default."
+
+@check(
+    id="com.google.fonts/check/googlesansflex/android_ymin_ymax",
+    conditions=["is_variable_font"],
+    rationale="""
+    Confirms the Android-specific Flex build has the correct yMin/yMax
+    """,
+)
+def com_google_fonts_check_android_ymin_ymax(font: Font, ttFont: TTFont):
+    """Confirms the Android-specific Flex build has the correct yMin/yMax"""
+    font_path = Path(font.file)
+    if font_path.parent.name != "android":
+        return SKIP, "Not Android flavour Flex"
+    
+    head = ttFont["head"]
+    if head.yMin != -605:
+        yield FAIL, f"yMin was {head.yMin} instead of -605"
+    if head.yMax != 2007:
+        yield FAIL, f"yMax was {head.yMax} instead of 2007"
