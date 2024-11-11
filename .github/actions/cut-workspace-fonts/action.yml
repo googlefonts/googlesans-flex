@@ -30,7 +30,7 @@ runs:
     run: |
       # Prevent font re-building
       touch build.stamp
-      make release
+      make workspace
   - name: Generate archive name
     id: artifact-name
     uses: alpha-tango-kilo/gha-artifact-name@v1

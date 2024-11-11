@@ -44,8 +44,23 @@ jobs:
       uses: ./.github/actions/cut-workspace-fonts
       with:
         vf-artifact: ${{ needs.build-variable.outputs.artifact-name }}
+    - name: Create Android flavour GS Flex
+      run: make android
+    - name: Generate Android archive name
+      id: android-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@v1
+      with:
+        repo-name: Google Sans Flex Android
+    - name: Upload workspace fonts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ steps.android-artifact-name.outputs.artifact-name }}
+        path: fonts/android
+        compression-level: 9
+        if-no-files-found: error
     outputs:
-      artifact-name: ${{ steps.cut-workspace-fonts.outputs.artifact-name }}
+      android-artifact-name: ${{ steps.android-artifact-name.outputs.artifact-name }}
+      workspace-artifact-name: ${{ steps.cut-workspace-fonts.outputs.artifact-name }}
   test-variable:
     needs:
     - build-variable
@@ -53,7 +68,7 @@ jobs:
     with:
       branch: ${{ github.ref_name }}
       artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
-  test-workspace:
+  test-workspace-android:
     needs:
     - cut-instances
     runs-on: googlefonts-64cores-256GB
@@ -71,8 +86,13 @@ jobs:
     - name: Download workspace fonts
       uses: actions/download-artifact@v4
       with:
-        name: ${{ needs.cut-instances.outputs.artifact-name }}
+        name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
         path: fonts/workspace
+    - name: Download Android font
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ needs.cut-instances.outputs.android-artifact-name }}
+        path: fonts/android
     - name: Run Fontbakery
       id: fontbakery-workspace
       env:
@@ -85,7 +105,7 @@ jobs:
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
       if: ${{ !cancelled() && (steps.fontbakery-workspace.conclusion == 'success' || steps.fontbakery-workspace.conclusion == 'failure') }}
       with:
-        name: Fontbakery workspace reports
+        name: Fontbakery workspace & Android reports
         path: out/fontbakery
         if-no-files-found: error
   upload-to-release:
@@ -93,7 +113,7 @@ jobs:
     - build-variable
     - cut-instances
     - test-variable
-    - test-workspace
+    - test-workspace-android
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -105,8 +125,13 @@ jobs:
     - name: Download workspace fonts
       uses: actions/download-artifact@v4
       with:
-        name: ${{ needs.cut-instances.outputs.artifact-name }}
-        path: ${{ needs.cut-instances.outputs.artifact-name }}
+        name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+        path: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+    - name: Download Android font
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ needs.cut-instances.outputs.android-artifact-name }}
+        path: ${{ needs.cut-instances.outputs.android-artifact-name }}
     - name: Create release archives
       id: release-archives
       run: |
@@ -119,8 +144,13 @@ jobs:
 
         workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
         echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.artifact-name }}" \
+        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}" \
           && zip -9 "../$workspace_zip_name" *.ttf *.md
+        
+        android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
+        echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
+        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.android-artifact-name }}" \
+          && zip -9 "../$android_zip_name" *.ttf *.md
     - name: Upload variable font archive to release
       uses: svenstaro/upload-release-action@v2
       with:
@@ -131,3 +161,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ${{ steps.release-archives.outputs.workspace-zip-name }}
+    - name: Upload Android font archive to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: ${{ steps.release-archives.outputs.android-zip-name }}
