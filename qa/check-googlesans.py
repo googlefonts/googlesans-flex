@@ -58,6 +58,7 @@ PROFILE = {
         "com.google.fonts/check/family/single_directory",  # conflicts with gftools' folder structure
         "com.adobe.fonts/check/family/consistent_family_name",  # intended with our statics
         "com.google.fonts/check/name/family_and_style_max_length",  # we know our statics exceed this limit and it's okay
+        "com.google.fonts/check/varfont/family_axis_ranges",  # our workspace fonts intentionally change axes ranges
     ],
     "overrides": {
         "com.google.fonts/check/varfont/consistent_axes": [
