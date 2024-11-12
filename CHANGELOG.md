@@ -1,5 +1,11 @@
 # Google Sans Flex Changelog
 
+## Version 2.006 (2024-11-12)
+
+### New
+- added Android fonts with fixed yMin + yMax (#1051)
+
+
 ## Version 2.005 (2024-11-1)
 
 ### New
