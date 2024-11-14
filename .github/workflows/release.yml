@@ -149,8 +149,10 @@ jobs:
         
         android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.android-artifact-name }}" \
-          && zip -9 "../$android_zip_name" *.ttf *.md
+        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.android-artifact-name }}"
+        # Rename file to match what Android's already using (regardless as to how representative the name is)
+        mv GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf GoogleSansFlex-Regular.ttf
+        zip -9 "../$android_zip_name" *.ttf *.md
     - name: Upload variable font archive to release
       uses: svenstaro/upload-release-action@v2
       with:
