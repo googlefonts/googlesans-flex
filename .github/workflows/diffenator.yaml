@@ -10,7 +10,7 @@ on:
         description: The 'after' git reference (tag, branch, or commit)
         required: true
       all-masters:
-        description: Check all masters? (--styles masters)
+        description: Check all masters? (--masters)
         type: boolean
 
 jobs:
@@ -62,14 +62,11 @@ jobs:
         if-no-files-found: error
   diffenate:
     runs-on: googlefonts-64cores-256GB
+    timeout-minutes: 30
     needs:
     - build-before
     - build-after
     steps:
-    - name: Checkout python-version.txt from main
-      uses: actions/checkout@v4
-      with:
-        sparse-checkout: .github/workflows/python-version.txt
     - name: Download before fonts
       uses: actions/download-artifact@v4
       with:
@@ -80,29 +77,24 @@ jobs:
       with:
         name: After VFs (${{ inputs.after }})
         path: after
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version-file: .github/workflows/python-version.txt
-        cache: pip
-    - name: Install diffenator2
-      run: pip install --upgrade diffenator2
-    - name: Run diffenator2
+    - name: Install diffenator3
+      uses: notofonts/install-diffenator3-action@f11137e5df21a0396dda8e276fbaffbe1df87617
+    - name: Run diffenator3
       run: |
         mkdir -p diffenator_report
         if [[ ${{ inputs.all-masters }} == "true" ]] ; then
-          echo "Checking all locations"
-          STYLES_ARG="--styles masters"
+          echo "Checking masters"
+          LOCATIONS_ARG="--masters"
         else
           echo "Checking instances"
-          STYLES_ARG="--styles instances"
+          LOCATIONS_ARG=""
         fi
-        diffenator2 diff --fonts-before before/*.ttf --fonts-after after/*.ttf \
-          $STYLES_ARG --out diffenator_report
+        diffenator3 before/*.ttf after/*.ttf \
+          $LOCATIONS_ARG --html --output diffenator_report
     - name: Upload diffenator report
       uses: actions/upload-artifact@v4
       with:
-        name: Diffenator2 report (${{ inputs.before }} vs ${{ inputs.after }})
+        name: Diffenator3 report (${{ inputs.before }} vs ${{ inputs.after }})
         path: diffenator_report
         if-no-files-found: error
         compression-level: 9
