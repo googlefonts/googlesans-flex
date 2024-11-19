@@ -13,6 +13,7 @@
 # limitations under the License.
 
 
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
@@ -95,6 +96,11 @@ GS_FONTUNIT_ATTRIBUTES_ITALIC = {
     "OS/2.ySubscriptXOffset": -13,
     "OS/2.ySuperscriptXOffset": 62,
 }
+
+# Taken from 2.003 release TTF
+GS_CREATION_DATE = datetime(
+    year=2017, month=7, day=6, hour=9, minute=41, second=44, tzinfo=UTC
+)
 
 # ================================================
 #
@@ -189,6 +195,35 @@ def com_google_fonts_check_googlesansflex_unicode_range_bits(ttFont, unicoderang
                             f"in this range.",
                         ),
                     )
+
+
+@check(
+    id="com.google.fonts/check/googlesansflex/opentype/head/created",
+    rationale="""
+        The `created` date in the OpenType `head` table should be maintained
+        across releases.
+    """,
+)
+def com_google_fonts_check_googlesansflex_head_created(ttFont):
+    """
+    The `created` date in the OpenType `head` table should be maintained across
+    releases.
+    """
+
+    # Serialised creation date is the number of seconds since this epoch
+    # See: https://learn.microsoft.com/en-us/typography/opentype/spec/head
+    opentype_epoch = datetime(
+        year=1904, month=1, day=1, hour=0, minute=0, second=0, tzinfo=UTC
+    )
+    actual = opentype_epoch + timedelta(seconds=ttFont["head"].created)
+
+    if actual == GS_CREATION_DATE:
+        yield PASS, "Creation date in `head` is unchanged since initial release."
+    else:
+        yield (
+            FAIL,
+            f"Creation date in `head` has been modified since initial release: expected '{GS_CREATION_DATE}' but saw '{actual}'.",
+        )
 
 
 # ================================================

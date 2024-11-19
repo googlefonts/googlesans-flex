@@ -30,6 +30,7 @@ PROFILE = {
     "sections": {
         "Google Sans Flex Custom Checks": [
             "com.google.fonts/check/googlesansflex/opentype/os2/unicode_range_bits",
+            "com.google.fonts/check/googlesansflex/opentype/head/created",
             "com.google.fonts/check/googlesansflex/vf/fvaraxes",
             "com.google.fonts/check/googlesansflex/vf/axis_names",
             "com.google.fonts/check/googlesansflex/vf/fvardefault",
