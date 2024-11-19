@@ -733,12 +733,6 @@ tag = ccmp;
 {
 code = "  script latn;
 
-	  language CAT exclude_dflt;
-	    lookup LDOT {
-   		  sub l' periodcentered' l by ldot;
-		  sub L' periodcentered' L by Ldot;
-	    } LDOT;
-
 	  language LTH exclude_dflt;
 	  	lookup LTH_1 {
 			sub idotless' @CombiningTopAccents by i;
@@ -766,7 +760,8 @@ code = "  script latn;
 	      sub Tcedilla by Tcommaaccent;
 	      sub scedilla by scommaaccent;
 	      sub tcedilla by tcommaaccent;
-	   } SUB_1424;";
+	   } SUB_1424;
+";
 tag = locl;
 },
 {
