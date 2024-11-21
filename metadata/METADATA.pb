@@ -11,10 +11,18 @@ fonts {
   full_name: "Google Sans Flex Regular"
   copyright: "Copyright 2015 Google LLC. All Rights Reserved."
 }
+subsets: "canadian-aboriginal"
+subsets: "cherokee"
 subsets: "latin"
 subsets: "latin-ext"
+subsets: "math"
 subsets: "menu"
+subsets: "nushu"
+subsets: "symbols"
+subsets: "syriac"
+subsets: "tifinagh"
 subsets: "vietnamese"
+experiments: "layout_features=dlig,dnom,frac,liga,lnum,numr,ordn,pnum,sinf,ss01,ss02,subs,sups,tnum,zero"
 axes {
   tag: "GRAD"
   min_value: 0.0
