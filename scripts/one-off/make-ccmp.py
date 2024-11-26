@@ -273,8 +273,11 @@ def main():
     errors = []
     for glyph, decomposed in sorted(precomposed):
         try:
+            comment = glyph in font.lib.get("public.skipExportGlyphs", [])
+            if comment:
+                ccmp.append(f"  # {glyph} isn't currently exported")
             ccmp.append(
-                f"  sub {glyph}' @CombiningTopAccents by {' '.join(cmap[ord(part_code_point)] for part_code_point in decomposed)};"
+                f" {' #' if comment else ''} sub {glyph}' @CombiningTopAccents by {' '.join(cmap[ord(part_code_point)] for part_code_point in decomposed)};"
             )
         except KeyError:
             errors.append(f"# Error: No ccmp for {glyph}")
