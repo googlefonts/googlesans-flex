@@ -789,7 +789,8 @@ lookup ccmp_top_accents {
   sub Lacute' @CombiningTopAccents by L acutecomb;
   sub Lcaron' @CombiningTopAccents by L caroncomb;
   sub Lcommaaccent' @CombiningTopAccents by L cedillacomb;
-  sub Macute' @CombiningTopAccents by M acutecomb;
+  # Macute isn't currently exported
+  # sub Macute' @CombiningTopAccents by M acutecomb;
   sub Nacute' @CombiningTopAccents by N acutecomb;
   sub Ncaron' @CombiningTopAccents by N caroncomb;
   sub Ncommaaccent' @CombiningTopAccents by N cedillacomb;
@@ -917,7 +918,8 @@ lookup ccmp_top_accents {
   sub lacute' @CombiningTopAccents by l acutecomb;
   sub lcaron' @CombiningTopAccents by l caroncomb;
   sub lcommaaccent' @CombiningTopAccents by l cedillacomb;
-  sub macute' @CombiningTopAccents by m acutecomb;
+  # macute isn't currently exported
+  # sub macute' @CombiningTopAccents by m acutecomb;
   sub nacute' @CombiningTopAccents by n acutecomb;
   sub ncaron' @CombiningTopAccents by n caroncomb;
   sub ncommaaccent' @CombiningTopAccents by n cedillacomb;
