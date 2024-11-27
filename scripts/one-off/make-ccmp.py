@@ -41,32 +41,94 @@ def main():
     font = Font.open(ufo_path)
     cmap = {}
     precomposed = []
+    test_chars = []
     for glyph in font:
         for code_point in glyph.unicodes:
             cmap[code_point] = glyph.name
-            nfd = normalize("NFD", chr(code_point))
+            nfd = [*normalize("NFD", chr(code_point))]
             if len(nfd) >= 2:
-                precomposed.append((glyph.name, nfd))
+                test_chars.append(chr(code_point))
+                component_names = [c.baseGlyph for c in glyph.components]
+                precomposed.append((glyph.name, nfd, component_names))
 
     ccmp = [
         "lookup ccmp_top_accents {",
         "  lookupflag UseMarkFilteringSet @CombiningTopAccents;",
     ]
     errors = []
-    for glyph, decomposed in sorted(precomposed):
+    for glyph, decomposed, component_names in sorted(precomposed):
         try:
+            # Base glyph
+            base_glyph = cmap[ord(decomposed[0])]
+
+            # Special cases for oOuU-horn and variants: must use the first letter + horn as a base
+            if chr(0x31B) in decomposed:
+                base_glyph += "horn"
+                decomposed.remove(chr(0x31B))
+
+            # Special case for hookabove: no anchors to attach more on top +
+            # hookabovecomb.viet.case in particular is not exported
+            if chr(0x309) in decomposed:
+                raise KeyError('hookabove detected: no point because no top mkmk anchor')
+
+            decomposed_glyphs = [base_glyph]
+
+            for accent_code_point in decomposed[1:]:
+                # Get default glyph for that Unicode accent, e.g. acutecomb
+                unicode_accent_glyph = cmap[ord(accent_code_point)]
+
+                # Special case: cedillacomb in Unicode can represent various
+                # glyphs in the font
+                if unicode_accent_glyph == "cedillacomb":
+                    unicode_accent_glyph = (
+                        "cedillacomb",
+                        "commaaccentcomb",
+                        "commaturnedabovecomb",
+                    )
+
+                # Check if there's a better accent to use (e.g. .case or .viet)
+                # than the default one, based on components used in the glyph
+                matching_names = list(
+                    set(
+                        component_name
+                        for component_name in component_names
+                        if component_name.startswith(unicode_accent_glyph)
+                    )
+                )
+
+                if not matching_names:
+                    raise KeyError(
+                        f"no matching component name for accent "
+                        f"{unicode_accent_glyph}, available: "
+                        f"{', '.join(component_names)}"
+                    )
+                elif len(matching_names) >= 2:
+                    raise KeyError(
+                        f"too many matching component names for accent "
+                        f"{unicode_accent_glyph}, available: "
+                        f"{', '.join(component_names)}"
+                    )
+                else:
+                    decomposed_glyphs.append(matching_names[0])
             comment = glyph in font.lib.get("public.skipExportGlyphs", [])
             if comment:
                 ccmp.append(f"  # {glyph} isn't currently exported")
             ccmp.append(
-                f" {' #' if comment else ''} sub {glyph}' @CombiningTopAccents by {' '.join(cmap[ord(part_code_point)] for part_code_point in decomposed)};"
+                f" {' #' if comment else ''} sub {glyph}' @CombiningTopAccents"
+                f" by {' '.join(decomposed_glyphs)};"
             )
-        except KeyError:
-            errors.append(f"# Error: No ccmp for {glyph}")
+        except Exception as e:
+            errors.append(f"# Error: No ccmp for {glyph}: {e}")
     ccmp.append("} ccmp_top_accents;")
 
     print("\n".join(ccmp))
     print("\n".join(errors))
+
+    print(f"Test string: {''.join(test_chars)}")
+    print(
+        f"Test string with acutecombs: "
+        f"{''.join(c + chr(0x301) for c in test_chars)}"
+    )
 
     print("Insert the above by hand into the Glyphs.app source file, then test")
     print("Generated based on", ufo_path)
