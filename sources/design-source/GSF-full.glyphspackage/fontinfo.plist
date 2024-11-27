@@ -696,38 +696,7 @@ languagesystem latn LTH;
 name = Languagesystems;
 },
 {
-code = "lookup ccmp_soft_dotted {
-    lookupflag UseMarkFilteringSet @CombiningTopAccents;
-    sub @LAT_dotted' @CombiningTopAccents by @LAT_dotless;
-	sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
-} ccmp_soft_dotted;";
-name = Prefix;
-}
-);
-features = (
-{
-code = "feature locl;
-feature dnom;
-feature numr;
-feature sups;
-feature subs;
-feature sinf;
-feature zero;
-feature lnum;
-feature tnum;
-feature calt;
-feature ss01;
-feature ss02;
-feature ordn;
-feature pnum;
-feature case;
-";
-tag = aalt;
-},
-{
-code = "lookup ccmp_soft_dotted;
-
-lookup ccmp_top_accents {
+code = "lookup ccmp_top_accents {
   lookupflag UseMarkFilteringSet @CombiningTopAccents;
   sub Aacute' @CombiningTopAccents by A acutecomb;
   sub Abreve' @CombiningTopAccents by A brevecomb;
@@ -989,7 +958,39 @@ lookup ccmp_top_accents {
   sub zcaron' @CombiningTopAccents by z caroncomb;
   sub zdotaccent' @CombiningTopAccents by z dotaccentcomb;
 } ccmp_top_accents;
+
+lookup ccmp_soft_dotted {
+    lookupflag UseMarkFilteringSet @CombiningTopAccents;
+    sub @LAT_dotted' @CombiningTopAccents by @LAT_dotless;
+	sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
+} ccmp_soft_dotted;
 ";
+name = Prefix;
+}
+);
+features = (
+{
+code = "feature locl;
+feature dnom;
+feature numr;
+feature sups;
+feature subs;
+feature sinf;
+feature zero;
+feature lnum;
+feature tnum;
+feature calt;
+feature ss01;
+feature ss02;
+feature ordn;
+feature pnum;
+feature case;
+";
+tag = aalt;
+},
+{
+code = "lookup ccmp_top_accents;
+lookup ccmp_soft_dotted;";
 tag = ccmp;
 },
 {
