@@ -1,7 +1,9 @@
-@a_ALT_OFF = [ a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron 
+@a_ALT_OFF = [ a agrave aacute acircumflex atilde adieresis aring ae aogonek abreve amacron acaron adotbelow
+
 ];
 
-@a_ALT_ON = [ a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt 
+@a_ALT_ON = [ a.alt agrave.alt aacute.alt acircumflex.alt atilde.alt adieresis.alt aring.alt ae.alt aogonek.alt abreve.alt amacron.alt acaron.alt adotbelow.alt 
+
 ];
 
 @g_ALT_OFF = [  g gcommaaccent gbreve gdotaccent 
@@ -80,12 +82,6 @@ feature ccmp {
 feature locl {
   script latn;
 
-	  language CAT exclude_dflt;
-	    lookup LDOT {
-   		  sub l' periodcentered' l by ldot;
-		  sub L' periodcentered' L by Ldot;
-	    } LDOT;
-
 	  language LTH exclude_dflt;
 	  	lookup LTH_1 {
 			sub idotless' @CombiningTopAccents by i;
@@ -114,6 +110,7 @@ feature locl {
 	      sub scedilla by scommaaccent;
 	      sub tcedilla by tcommaaccent;
 	   } SUB_1424;
+
 } locl;
 
 feature frac {
@@ -237,6 +234,11 @@ feature sinf {
     sub nine by ninesubscript;
 } sinf;
 
+feature zero {
+    sub zero by zeroslash;
+    sub zero.tf by zeroslash.tf;
+} zero;
+
 feature lnum {
     sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
@@ -246,14 +248,10 @@ feature lnum {
 feature tnum {
     sub @FIGURES by @FIGURES_TAB;
     sub @SYMBOLS by @SYMBOLS_TAB;
-sub colon.time by colon.tf;
+	sub zeroslash by zeroslash.tf;
+	sub colon.time by colon.tf;
 
 } tnum;
-
-feature zero {
-    sub zero by zeroslash;
-    sub zero.tf by zeroslash.tf;
-} zero;
 
 feature liga {
 	# f-ligs
@@ -328,6 +326,12 @@ feature pnum {
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;
 } pnum;
+
+feature case {
+# automatic
+sub periodcentered.loclCAT by periodcentered.loclCAT.case;
+
+} case;
 
 feature dlig {
 # automatic

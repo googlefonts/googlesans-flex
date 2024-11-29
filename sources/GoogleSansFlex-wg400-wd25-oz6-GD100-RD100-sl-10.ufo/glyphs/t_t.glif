@@ -3,8 +3,11 @@
   <advance width="1206"/>
   <anchor x="603" y="0" name="caret_1"/>
   <outline>
-    <component base="tlig"/>
-    <component base="tlig2" xOffset="603"/>
+    <component base="stem_t"/>
+    <component base="stem_t" xOffset="603"/>
+    <component base="crossbar_L" xOffset="-6"/>
+    <component base="crossbar_R" xOffset="603"/>
+    <component base="crossbar_C4"/>
   </outline>
   <lib>
     <dict>
@@ -16,7 +19,7 @@
           <key>index</key>
           <integer>0</integer>
           <key>name</key>
-          <string>tlig</string>
+          <string>stem_t</string>
         </dict>
         <dict>
           <key>alignment</key>
@@ -24,7 +27,15 @@
           <key>index</key>
           <integer>1</integer>
           <key>name</key>
-          <string>tlig2</string>
+          <string>stem_t</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>2</integer>
+          <key>name</key>
+          <string>crossbar_L</string>
         </dict>
       </array>
     </dict>

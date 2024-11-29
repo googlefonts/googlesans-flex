@@ -4,10 +4,12 @@
   <anchor x="238" y="0" name="caret_1"/>
   <anchor x="560" y="0" name="caret_2"/>
   <outline>
-    <component base="flig6" xOffset="1"/>
-    <component base="flig3" xOffset="313"/>
-    <component base="jlig" xOffset="627"/>
+    <component base="stem_f" xOffset="1"/>
+    <component base="stem_f" xOffset="310"/>
+    <component base="jdotless" xOffset="631"/>
     <component base="dotaccentcomb" xOffset="760"/>
+    <component base="crossbar_L" xOffset="1" yOffset="4"/>
+    <component base="crossbar_C3b" xOffset="-4"/>
   </outline>
   <lib>
     <dict>
@@ -19,7 +21,7 @@
           <key>index</key>
           <integer>0</integer>
           <key>name</key>
-          <string>flig6</string>
+          <string>stem_f</string>
         </dict>
         <dict>
           <key>alignment</key>
@@ -27,7 +29,7 @@
           <key>index</key>
           <integer>1</integer>
           <key>name</key>
-          <string>flig3</string>
+          <string>stem_f</string>
         </dict>
         <dict>
           <key>alignment</key>
@@ -35,7 +37,7 @@
           <key>index</key>
           <integer>2</integer>
           <key>name</key>
-          <string>jlig</string>
+          <string>jdotless</string>
         </dict>
         <dict>
           <key>alignment</key>
@@ -44,6 +46,22 @@
           <integer>3</integer>
           <key>name</key>
           <string>dotaccentcomb</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>4</integer>
+          <key>name</key>
+          <string>crossbar_L</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>5</integer>
+          <key>name</key>
+          <string>crossbar_C3b</string>
         </dict>
       </array>
     </dict>
