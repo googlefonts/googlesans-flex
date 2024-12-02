@@ -736,8 +736,8 @@ code = "  script latn;
 	script latn;
 	  language CAT;
 		lookup LDOT {
-			sub l periodcentered' l by periodcentered.loclCAT;
-			sub L periodcentered' L by periodcentered.loclCAT.case;
+			sub l' periodcentered' l by ldot;
+			sub L' periodcentered' L by Ldot;
 		} LDOT;
 
 	  language LTH exclude_dflt;
