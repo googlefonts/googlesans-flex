@@ -733,6 +733,13 @@ tag = ccmp;
 {
 code = "  script latn;
 
+	script latn;
+	  language CAT;
+		lookup LDOT {
+			sub l periodcentered' l by periodcentered.loclCAT;
+			sub L periodcentered' L by periodcentered.loclCAT.case;
+		} LDOT;
+
 	  language LTH exclude_dflt;
 	  	lookup LTH_1 {
 			sub idotless' @CombiningTopAccents by i;
@@ -989,12 +996,6 @@ code = "	sub @FIGURES_TAB by @FIGURES;
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;";
 tag = pnum;
-},
-{
-automatic = 1;
-code = "sub periodcentered.loclCAT by periodcentered.loclCAT.case;
-";
-tag = case;
 },
 {
 automatic = 1;
