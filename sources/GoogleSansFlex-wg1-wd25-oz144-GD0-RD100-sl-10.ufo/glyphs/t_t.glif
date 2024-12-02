@@ -3,7 +3,41 @@
   <advance width="456"/>
   <anchor x="228" y="0" name="caret_1"/>
   <outline>
-    <component base="tlig"/>
-    <component base="tlig2" xOffset="223"/>
+    <component base="stem_t" xOffset="4"/>
+    <component base="stem_t" xOffset="223"/>
+    <component base="crossbar_L" xOffset="4"/>
+    <component base="crossbar_R" xOffset="209"/>
+    <component base="crossbar_C4"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ComponentInfo</key>
+      <array>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>stem_t</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>1</integer>
+          <key>name</key>
+          <string>stem_t</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>2</integer>
+          <key>name</key>
+          <string>crossbar_L</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

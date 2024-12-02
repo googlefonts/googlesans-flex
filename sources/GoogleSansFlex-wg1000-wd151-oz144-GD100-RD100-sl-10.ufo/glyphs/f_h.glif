@@ -3,7 +3,9 @@
   <advance width="3740"/>
   <anchor x="1539" y="0" name="caret_1"/>
   <outline>
-    <component base="flig1"/>
+    <component base="stem_f2" xOffset="-17"/>
+    <component base="crossbar_L" xOffset="-3" yOffset="-20"/>
+    <component base="crossbar_R" xOffset="-63" yOffset="-20"/>
     <component base="h" xOffset="1635"/>
   </outline>
   <lib>
@@ -14,7 +16,31 @@
           <key>alignment</key>
           <integer>-1</integer>
           <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>stem_f2</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
           <integer>1</integer>
+          <key>name</key>
+          <string>crossbar_L</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>2</integer>
+          <key>name</key>
+          <string>crossbar_R</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>3</integer>
           <key>name</key>
           <string>h</string>
         </dict>

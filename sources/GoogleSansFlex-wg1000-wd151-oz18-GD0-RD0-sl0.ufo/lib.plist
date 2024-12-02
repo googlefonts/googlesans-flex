@@ -689,10 +689,6 @@
       <string>Yhook</string>
       <string>Yhookabove</string>
       <string>Ytilde</string>
-      <string>Eopen</string>
-      <string>Macute</string>
-      <string>Nhookleft</string>
-      <string>Oopen</string>
       <string>abreveacute</string>
       <string>abrevedotbelow</string>
       <string>abrevegrave</string>
@@ -760,25 +756,27 @@
       <string>acircumflextilde.alt</string>
       <string>adotbelow.alt</string>
       <string>ahookabove.alt</string>
-      <string>eopen</string>
-      <string>macute</string>
-      <string>nhookleft</string>
-      <string>eng</string>
-      <string>oopen</string>
-      <string>eng.hook</string>
       <string>g.ss03</string>
       <string>gbreve.ss03</string>
       <string>gcommaaccent.ss03</string>
       <string>gdotaccent.ss03</string>
+      <string>dcroat_comp</string>
+      <string>hbar_comp</string>
       <string>uni00A0</string>
+      <string>narrownbspace</string>
       <string>periodcentered.loclCAT</string>
       <string>periodcentered.loclCAT.case</string>
-      <string>hook.left</string>
       <string>yen.tf</string>
       <string>uni25CC</string>
       <string>hookabovecomb</string>
       <string>horncomb</string>
       <string>dotbelowcomb</string>
+      <string>strokeshortcomb</string>
+      <string>slashshortcomb</string>
+      <string>horncomb.case</string>
+      <string>strokeshortcomb.case</string>
+      <string>strokelongcomb.case</string>
+      <string>slashshortcomb.case</string>
       <string>gravecomb.viet</string>
       <string>acutecomb.viet</string>
       <string>circumflexcomb.viet</string>
@@ -790,32 +788,27 @@
       <string>circumflexcomb.viet.case</string>
       <string>brevecomb.viet.case</string>
       <string>tildecomb.viet.case</string>
-      <string>strokeshortcomb</string>
-      <string>slashshortcomb</string>
-      <string>horncomb.case</string>
-      <string>strokeshortcomb.case</string>
-      <string>strokelongcomb.case</string>
-      <string>slashshortcomb.case</string>
-      <string>slashlongcomb.case</string>
       <string>hookabovecomb.viet.case</string>
       <string>apostrophemod</string>
-      <string>commaturnedmod</string>
+      <string>uni02BB</string>
       <string>zero.dnom.percent</string>
       <string>zero.numr.percent</string>
       <string>_copyright-circle</string>
       <string>_dots-divide</string>
-      <string>flig5</string>
-      <string>hook-builder</string>
-      <string>NuevoGlifo.007</string>
       <string>_copyright-C</string>
       <string>_registered-R</string>
-      <string>flig3</string>
-      <string>flig4</string>
-      <string>flig6</string>
-      <string>flig7</string>
-      <string>ilig</string>
-      <string>jlig</string>
-      <string>tlig2</string>
+      <string>comp_eth</string>
+      <string>comp_eth_bar</string>
+      <string>crossbar_C1b</string>
+      <string>crossbar_C2</string>
+      <string>crossbar_C3b</string>
+      <string>crossbar_C4</string>
+      <string>crossbar_L</string>
+      <string>crossbar_R</string>
+      <string>hook-builder</string>
+      <string>stem_f</string>
+      <string>stem_f2</string>
+      <string>stem_t</string>
       <string>_tail.Q</string>
       <string>hornO.comb</string>
       <string>horno.comb</string>
@@ -939,7 +932,11 @@
       <string>mark</string>
       <key>commaturnedabovecomb</key>
       <string>mark</string>
+      <key>comp_eth</key>
+      <string>ligature</string>
       <key>d</key>
+      <string>base</string>
+      <key>dcroat_comp</key>
       <string>base</string>
       <key>dhook</key>
       <string>base</string>
@@ -987,12 +984,6 @@
       <string>ligature</string>
       <key>f_t</key>
       <string>ligature</string>
-      <key>flig5</key>
-      <string>base</string>
-      <key>flig6</key>
-      <string>base</string>
-      <key>flig7</key>
-      <string>base</string>
       <key>g</key>
       <string>base</string>
       <key>g.alt</key>
@@ -1008,6 +999,8 @@
       <key>gravecomb.viet.case</key>
       <string>mark</string>
       <key>h</key>
+      <string>base</string>
+      <key>hbar_comp</key>
       <string>base</string>
       <key>hookabovecomb</key>
       <string>mark</string>
@@ -1029,11 +1022,7 @@
       <string>base</string>
       <key>idotless</key>
       <string>base</string>
-      <key>ilig</key>
-      <string>base</string>
       <key>jdotless</key>
-      <string>base</string>
-      <key>jlig</key>
       <string>base</string>
       <key>k</key>
       <string>base</string>
@@ -1071,8 +1060,6 @@
       <string>base</string>
       <key>schwa</key>
       <string>base</string>
-      <key>slashlongcomb.case</key>
-      <string>mark</string>
       <key>slashshortcomb</key>
       <string>mark</string>
       <key>slashshortcomb.case</key>
@@ -1097,8 +1084,6 @@
       <string>mark</string>
       <key>tildecomb.viet.case</key>
       <string>mark</string>
-      <key>tlig2</key>
-      <string>base</string>
       <key>u</key>
       <string>base</string>
       <key>udotbelow</key>
@@ -1166,8 +1151,6 @@
       <string>uni1EB8</string>
       <key>Ehookabove</key>
       <string>uni1EBA</string>
-      <key>Eopen</key>
-      <string>uni0190</string>
       <key>Etilde</key>
       <string>uni1EBC</string>
       <key>Gcommaaccent</key>
@@ -1184,14 +1167,10 @@
       <string>uni0198</string>
       <key>Lcommaaccent</key>
       <string>uni013B</string>
-      <key>Macute</key>
-      <string>uni1E3E</string>
       <key>Ncommaaccent</key>
       <string>uni0145</string>
       <key>Ndotaccent</key>
       <string>uni1E44</string>
-      <key>Nhookleft</key>
-      <string>uni019D</string>
       <key>Ocircumflexacute</key>
       <string>uni1ED0</string>
       <key>Ocircumflexdotbelow</key>
@@ -1216,8 +1195,6 @@
       <string>uni1EDE</string>
       <key>Ohorntilde</key>
       <string>uni1EE0</string>
-      <key>Oopen</key>
-      <string>uni0186</string>
       <key>Rcommaaccent</key>
       <string>uni0156</string>
       <key>Schwa</key>
@@ -1338,8 +1315,6 @@
       <string>uni0326</string>
       <key>commaturnedabovecomb</key>
       <string>uni0312</string>
-      <key>commaturnedmod</key>
-      <string>uni02BB</string>
       <key>dhook</key>
       <string>uni0257</string>
       <key>dieresiscomb</key>
@@ -1364,8 +1339,6 @@
       <string>uni2003</string>
       <key>enspace</key>
       <string>uni2002</string>
-      <key>eopen</key>
-      <string>uni025B</string>
       <key>etilde</key>
       <string>uni1EBD</string>
       <key>fourperemspace</key>
@@ -1388,8 +1361,6 @@
       <string>uni200A</string>
       <key>hook-builder</key>
       <string>hookbuilder</string>
-      <key>hook.left</key>
-      <string>u1FA9D.left</string>
       <key>horncomb</key>
       <string>uni031B</string>
       <key>horncomb.case</key>
@@ -1412,18 +1383,16 @@
       <string>uni013C</string>
       <key>macroncomb</key>
       <string>uni0304</string>
-      <key>macute</key>
-      <string>uni1E3F</string>
       <key>micro</key>
       <string>uni00B5</string>
       <key>mu</key>
       <string>uni03BC</string>
+      <key>narrownbspace</key>
+      <string>uni202F</string>
       <key>ncommaaccent</key>
       <string>uni0146</string>
       <key>ndotaccent</key>
       <string>uni1E45</string>
-      <key>nhookleft</key>
-      <string>uni0272</string>
       <key>notequal-slash</key>
       <string>notequalslash</string>
       <key>ocircumflexacute</key>
@@ -1454,8 +1423,6 @@
       <string>uni1EE1</string>
       <key>onesuperior</key>
       <string>uni00B9</string>
-      <key>oopen</key>
-      <string>uni0254</string>
       <key>rcommaaccent</key>
       <string>uni0157</string>
       <key>ringcomb</key>
@@ -1468,8 +1435,6 @@
       <string>uni1E63</string>
       <key>sixperemspace</key>
       <string>uni2006</string>
-      <key>slashlongcomb.case</key>
-      <string>uni0338.case</string>
       <key>slashshortcomb</key>
       <string>uni0337</string>
       <key>slashshortcomb.case</key>
@@ -1521,59 +1486,20 @@
     </dict>
     <key>public.skipExportGlyphs</key>
     <array>
-      <string>Eopen</string>
-      <string>Macute</string>
-      <string>Nhookleft</string>
-      <string>Oopen</string>
-      <string>_copyright-C</string>
-      <string>_copyright-circle</string>
-      <string>_dots-divide</string>
-      <string>_registered-R</string>
-      <string>_tail.Q</string>
       <string>eight.sinf</string>
-      <string>eng</string>
-      <string>eng.hook</string>
-      <string>eopen</string>
       <string>five.sinf</string>
-      <string>flig1</string>
-      <string>flig2</string>
-      <string>flig3</string>
-      <string>flig4</string>
-      <string>flig6</string>
-      <string>flig7</string>
       <string>four.sinf</string>
       <string>g.ss03</string>
       <string>gbreve.ss03</string>
       <string>gcommaaccent.ss03</string>
       <string>gdotaccent.ss03</string>
-      <string>greaterequal-stroke</string>
-      <string>hookabovecomb.viet.case</string>
-      <string>hornO.comb</string>
-      <string>horncomb.case</string>
-      <string>horno.comb</string>
-      <string>ilig</string>
-      <string>jlig</string>
-      <string>macute</string>
-      <string>nhookleft</string>
       <string>nine.sinf</string>
-      <string>notequal-slash</string>
       <string>one.sinf</string>
-      <string>oopen</string>
-      <string>percentbar.tab</string>
       <string>seven.sinf</string>
       <string>six.sinf</string>
-      <string>slashlongcomb.case</string>
-      <string>slashshortcomb</string>
-      <string>slashshortcomb.case</string>
-      <string>strokelongcomb.case</string>
-      <string>strokeshortcomb</string>
-      <string>strokeshortcomb.case</string>
       <string>three.sinf</string>
-      <string>tlig</string>
-      <string>tlig2</string>
       <string>two.sinf</string>
       <string>zero.sinf</string>
-      <string>zero.slash</string>
     </array>
     <key>reinterpolator</key>
     <dict>
