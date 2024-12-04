@@ -698,11 +698,18 @@ languagesystem latn LTH;
 name = Languagesystems;
 },
 {
-code = "lookup ccmp_soft_dotted {
+code = "lookup ccmp_top_accents {
+  lookupflag UseMarkFilteringSet @CombiningTopAccents;
+  sub Aring' @CombiningTopAccents by A ringcomb;
+  sub aring' @CombiningTopAccents by a ringcomb;
+} ccmp_top_accents;
+
+lookup ccmp_soft_dotted {
     lookupflag UseMarkFilteringSet @CombiningTopAccents;
     sub @LAT_dotted' @CombiningTopAccents by @LAT_dotless;
 	sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
-} ccmp_soft_dotted;";
+} ccmp_soft_dotted;
+";
 name = Prefix;
 }
 );
@@ -727,7 +734,8 @@ feature case;
 tag = aalt;
 },
 {
-code = "	lookup ccmp_soft_dotted;";
+code = "lookup ccmp_top_accents;
+lookup ccmp_soft_dotted;";
 tag = ccmp;
 },
 {

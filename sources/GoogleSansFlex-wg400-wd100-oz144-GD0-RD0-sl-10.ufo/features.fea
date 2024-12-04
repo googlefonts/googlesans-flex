@@ -50,11 +50,18 @@ languagesystem latn LTH;
 
 
 # Prefix: Prefix
+lookup ccmp_top_accents {
+  lookupflag UseMarkFilteringSet @CombiningTopAccents;
+  sub Aring' @CombiningTopAccents by A ringcomb;
+  sub aring' @CombiningTopAccents by a ringcomb;
+} ccmp_top_accents;
+
 lookup ccmp_soft_dotted {
     lookupflag UseMarkFilteringSet @CombiningTopAccents;
     sub @LAT_dotted' @CombiningTopAccents by @LAT_dotless;
 	sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
 } ccmp_soft_dotted;
+
 
 feature aalt {
 feature locl;
@@ -76,7 +83,8 @@ feature case;
 } aalt;
 
 feature ccmp {
-	lookup ccmp_soft_dotted;
+lookup ccmp_top_accents;
+lookup ccmp_soft_dotted;
 } ccmp;
 
 feature locl {
