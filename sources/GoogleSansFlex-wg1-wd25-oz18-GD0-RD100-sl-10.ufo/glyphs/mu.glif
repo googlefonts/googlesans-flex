@@ -5,6 +5,7 @@
   <outline>
     <contour>
       <point x="-34" y="-434" type="qcurve" smooth="yes"/>
+      <point x="-34" y="-434" type="line"/>
       <point x="-28" y="-434"/>
       <point x="-21" y="-427"/>
       <point x="-20" y="-422" type="qcurve" smooth="yes"/>
@@ -23,10 +24,12 @@
       <point x="492" y="-16"/>
       <point x="519" y="-9"/>
       <point x="531" y="-2"/>
-      <point x="536" y="8"/>
-      <point x="538" y="19"/>
-      <point x="534" y="26"/>
-      <point x="522" y="19"/>
+      <point x="537" y="6"/>
+      <point x="537" y="11" type="qcurve"/>
+      <point x="537" y="11" type="line"/>
+      <point x="537" y="17"/>
+      <point x="527" y="21"/>
+      <point x="517" y="17"/>
       <point x="496" y="10"/>
       <point x="479" y="10" type="qcurve" smooth="yes"/>
       <point x="441" y="10"/>
@@ -36,6 +39,7 @@
       <point x="574" y="989"/>
       <point x="568" y="1000"/>
       <point x="560" y="1000" type="qcurve" smooth="yes"/>
+      <point x="560" y="1000" type="line"/>
       <point x="555" y="1000"/>
       <point x="547" y="993"/>
       <point x="546" y="988" type="qcurve" smooth="yes"/>
@@ -50,6 +54,7 @@
       <point x="228" y="989"/>
       <point x="222" y="1000"/>
       <point x="214" y="1000" type="qcurve" smooth="yes"/>
+      <point x="214" y="1000" type="line"/>
       <point x="209" y="1000"/>
       <point x="201" y="993"/>
       <point x="200" y="988" type="qcurve" smooth="yes"/>
@@ -58,30 +63,4 @@
       <point x="-42" y="-434"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.schriftgestaltung.hints</key>
-      <array>
-        <dict>
-          <key>horizontal</key>
-          <true/>
-          <key>name</key>
-          <string></string>
-          <key>options</key>
-          <integer>0</integer>
-          <key>place</key>
-          <array>
-            <integer>-432</integer>
-            <integer>21</integer>
-          </array>
-          <key>stem</key>
-          <integer>-2</integer>
-          <key>target</key>
-          <string>up</string>
-          <key>type</key>
-          <string>BottomGhost</string>
-        </dict>
-      </array>
-    </dict>
-  </lib>
 </glyph>

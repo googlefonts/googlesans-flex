@@ -4,9 +4,11 @@
   <unicode hex="FB01"/>
   <anchor x="881" y="0" name="caret_1"/>
   <outline>
-    <component base="flig4"/>
-    <component base="ilig" xOffset="1230"/>
-    <component base="dotaccent" xOffset="743"/>
+    <component base="stem_f"/>
+    <component base="dotaccentcomb" xOffset="1470"/>
+    <component base="crossbar_L" xOffset="3" yOffset="13"/>
+    <component base="crossbar_C1b"/>
+    <component base="idotless" xOffset="1164"/>
   </outline>
   <lib>
     <dict>
@@ -16,9 +18,25 @@
           <key>alignment</key>
           <integer>-1</integer>
           <key>index</key>
+          <integer>0</integer>
+          <key>name</key>
+          <string>stem_f</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
           <integer>1</integer>
           <key>name</key>
-          <string>ilig</string>
+          <string>dotaccentcomb</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
+          <integer>2</integer>
+          <key>name</key>
+          <string>crossbar_L</string>
         </dict>
       </array>
     </dict>

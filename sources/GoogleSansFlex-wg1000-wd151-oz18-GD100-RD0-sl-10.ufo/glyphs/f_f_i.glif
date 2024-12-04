@@ -2,13 +2,15 @@
 <glyph name="f_f_i" format="2">
   <advance width="3114"/>
   <unicode hex="FB03"/>
-  <anchor x="1174" y="0" name="caret_1"/>
-  <anchor x="2212" y="0" name="caret_2"/>
+  <anchor x="1149" y="0" name="caret_1"/>
+  <anchor x="2133" y="0" name="caret_2"/>
   <outline>
-    <component base="flig6"/>
-    <component base="flig3" xOffset="1094"/>
-    <component base="ilig" xOffset="2335"/>
+    <component base="stem_f"/>
+    <component base="stem_f" xOffset="1092"/>
     <component base="dotaccent" xOffset="2012"/>
+    <component base="crossbar_L"/>
+    <component base="crossbar_C3b"/>
+    <component base="idotless" xOffset="2334"/>
   </outline>
   <lib>
     <dict>
@@ -20,7 +22,7 @@
           <key>index</key>
           <integer>0</integer>
           <key>name</key>
-          <string>flig6</string>
+          <string>stem_f</string>
         </dict>
         <dict>
           <key>alignment</key>
@@ -28,7 +30,7 @@
           <key>index</key>
           <integer>1</integer>
           <key>name</key>
-          <string>flig3</string>
+          <string>stem_f</string>
         </dict>
         <dict>
           <key>alignment</key>
@@ -36,7 +38,7 @@
           <key>index</key>
           <integer>2</integer>
           <key>name</key>
-          <string>ilig</string>
+          <string>dotaccent</string>
         </dict>
         <dict>
           <key>alignment</key>
@@ -44,7 +46,7 @@
           <key>index</key>
           <integer>3</integer>
           <key>name</key>
-          <string>dotaccent</string>
+          <string>crossbar_L</string>
         </dict>
       </array>
     </dict>
