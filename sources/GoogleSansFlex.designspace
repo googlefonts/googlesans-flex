@@ -5,7 +5,11 @@
     <axis tag="wdth" name="Width" minimum="25" maximum="151" default="100"/>
     <axis tag="wght" name="Weight" minimum="1" maximum="1000" default="400"/>
     <axis tag="GRAD" name="Grade" minimum="0" maximum="100" default="0"/>
-    <axis tag="ROND" name="Roundness" minimum="0" maximum="100" default="0"/>
+    <axis tag="ROND" name="Roundness" minimum="0" maximum="100" default="0">
+      <map input="0" output="0"/>
+      <map input="70" output="75"/>
+      <map input="100" output="100"/>
+    </axis>
     <axis tag="slnt" name="Slant" minimum="-10" maximum="0" default="0"/>
   </axes>
   <sources>
