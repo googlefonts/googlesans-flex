@@ -50,7 +50,7 @@ def glyphs_to_designspace(glyphs_source: Path, designspace_target: Path) -> None
         "wdth": {"25": 25, "151": 151},
         "wght": {"1": 1, "1000": 1000},
         "slnt": {"0": 0, "-10": -10},
-        "ROND": {"0": 0, "100": 100},
+        "ROND": {"0": 0, "70": 75, "100": 100},
         "GRAD": {"0": 0, "100": 100},
     }
 
