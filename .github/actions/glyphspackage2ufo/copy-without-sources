@@ -45,6 +45,8 @@ for src_path in args.source.glob("*"):
         for sources_path in src_path.glob("*"):
             if sources_path.suffix in SOURCES_EXCLUDED_EXTENSIONS:
                 print(f"Skipped {sources_path}")
+            elif sources_path.name == "design-source":
+                print("Skipping design sources")
             else:
                 dest_path = args.target / os.sep.join(sources_path.parts[1:])
                 dest_path.parent.mkdir(parents=False, exist_ok=True)
