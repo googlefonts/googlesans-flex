@@ -1,5 +1,33 @@
 # Google Sans Flex Changelog
 
+
+## Version 3.000 (2024-12-17)
+### New
+- added Add narrow non-breaking space, U+202F (#1083)
+
+### Changed
+- edited rounding style (#905, #1093, #1071)
+- filesize optimisation (#1055 #1018, partly #968)
+- small design improvements (#1091, #1049 #1050 #1053 #1063 #1108)
+- fixed anchor positioning in Ų (#1001)
+- fixed bug in Oslash  (#1039)
+- improved the height of the accents in uppercase across the designspace (#967)
+- update terminal of mu in opsz144 (#1049)
+- adjustments 6 & 9 (#1052) 
+- correction interpolation diagonal Q (#1075)
+- correction in the open type feature: ss01 single-storey /a variant for /adotbelow (#1061) 
+- correction in the open type feature: zeroslash.tf (#1076) 
+
+### Production
+- add automatic checks for automatic decomposition (#1019)
+- added METADATA.pb file (#1095)
+- added Font Bakery check to ensure that creation date in head does not change between releases (#1070)
+- improved Shaperglot output (#805)
+- improved the workflow (#890 #894 #797 #1012 #1031)
+- new build workflow with fonts for Android (#1051 #1090 #1085 )
+- remove dead code case feature (#958)
+
+
 ## Version 2.006 (2024-11-12)
 
 ### New
