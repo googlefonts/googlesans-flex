@@ -10,7 +10,7 @@
 - filesize optimisation (#1055 #1018, partly #968)
 - small design improvements (#1091, #1049 #1050 #1053 #1063 #1108)
 - fixed anchor positioning in Ų (#1001)
-- fixed bug in Oslash  (#1039)
+- fixed bug in Oslash (#1039)
 - improved the height of the accents in uppercase across the designspace (#967)
 - update terminal of mu in opsz144 (#1049)
 - adjustments 6 & 9 (#1052) 
