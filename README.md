@@ -1,5 +1,22 @@
 # Google Sans Flex
 
+Google Sans Flex is a geometric sans-serif typeface for use as the Google's corporate branding typeface. Originally based off of Google Sans, the Google Sans Flex design has been extended adding a broader design space of optical sizes and a wide range of styles.
+
+The typeface currently supports weight, width, slant, optical size, grade, and roundness design axes.
+
+
+## Google Sans Flex Source
+
+The Google Sans Flex project is developed in a six axis design space with one '.glyphspackage` source.
+
+- `wght`: range 1 to 1000; default=400
+- `wdth`: range 25 to 151; default=100
+- `slnt`: range -10 to 0; default=0. 
+- `opsz`: range 6 to 144; default=18. 
+- `GRAD`: range 0 to 100; default=0
+- `ROND`: range 0 to 100; default=0
+
+
 ## Building
 
 ### On GitHub
@@ -151,3 +168,7 @@ The "Use workflow from" field determines *which version of the script to use, **
 The branch that is analysed to produce the burndown chart is configured within the script itself (see `git_rev_since` and `git_rev_current`).
 To temporarily produce a burndown chart for a different branch on your local machine, simply update these two values to valid Git references (i.e. branch names or 7 character hashes), and run `make progress-chart`.
 Updating the workflow's configuration will require a PR changing the script.
+
+## License
+
+Google offers many fonts on open source terms. Google Sans Flex is **not** one of them. Please see google.com/fonts for alternatives.
