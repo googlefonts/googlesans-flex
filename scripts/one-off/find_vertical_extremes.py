@@ -19,6 +19,7 @@ This is helpful for working out what to set the WinAscent and WinDescent values
 to; we typically set these to 1 more than the most extreme value in each
 vertical direction."""
 
+from typing import Any
 from fontTools.designspaceLib import DesignSpaceDocument
 from ufoLib2 import Font
 
@@ -26,7 +27,7 @@ doc = DesignSpaceDocument.fromfile(r"sources/GoogleSansFlex.designspace")
 doc.loadSourceFonts(Font.open)
 
 
-source_to_extremes: dict[str, tuple[float, float]] = {}
+source_to_extremes: dict[str, tuple[tuple[Any, str], tuple[Any, str]]] = {}
 
 # Get the largest yMax seen across all glyph bounds in each designspace source.
 for source in doc.sources:
@@ -40,13 +41,15 @@ for source in doc.sources:
     )
 
     bounds = [
-        bounds for glyph in layer if ((bounds := glyph.getBounds(layer)) is not None)
+        (bounds, glyph.name or "no name")
+        for glyph in layer
+        if ((bounds := glyph.getBounds(layer)) is not None)
     ]
 
     # Get the vertical extremes across every glyph, extending beyond control
     # points.
-    y_min = float(min(bounds.yMin for bounds in bounds))
-    y_max = float(max(bounds.yMax for bounds in bounds))
+    y_min = min(bounds, key=lambda bounds_glyph: bounds_glyph[0].yMin)
+    y_max = max(bounds, key=lambda bounds_glyph: bounds_glyph[0].yMax)
 
     # Store the results for this source.
     assert source.name is not None
@@ -54,5 +57,14 @@ for source in doc.sources:
     source_to_extremes[source.name] = (y_min, y_max)
 
 # Output a .tsv file with the results.
-for source_name, (y_min, y_max) in sorted(source_to_extremes.items()):
-    print(source_name, y_min, y_max, sep="\t")
+for source_name, ((y_min_bounds, min_glyph), (y_max_bounds, max_glyph)) in sorted(
+    source_to_extremes.items()
+):
+    print(
+        source_name,
+        min_glyph,
+        y_min_bounds.yMin,
+        max_glyph,
+        y_max_bounds.yMax,
+        sep="\t",
+    )
