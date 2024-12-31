@@ -45,7 +45,7 @@ def main(font: TTFont, missing_codepoints: bool) -> None:
         res.add(best_name)
 
     for subset in sorted(res):
-        print(f"subset: {subset}")
+        print(subset)
 
     if missing_codepoints and len(universe) > 0:
         print(f"codepoints not covered: {len(universe)}", file=sys.stderr)

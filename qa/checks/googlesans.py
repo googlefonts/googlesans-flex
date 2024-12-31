@@ -13,6 +13,7 @@
 # limitations under the License.
 
 
+import subprocess
 from datetime import UTC, datetime, timedelta
 from difflib import unified_diff
 from pathlib import Path
@@ -376,30 +377,6 @@ def com_google_fonts_check_metadata_subsets(font: Font, ttFont: TTFont):
     """Confirms the METADATA.pb's subsets match what is currently supported by
     the font, based on scripts/google_fonts_metadata_subsets.py"""
 
-    # Copied from scripts/google_fonts_metadata_subsets.py with minimal changes
-    def google_fonts_metadata_subsets(font: TTFont):
-        from gfsubsets import CodepointsInSubset, ListSubsets
-
-        universe = set(font.getBestCmap().keys())
-        known_subsets = ListSubsets()
-        subsets = []
-        for subset in known_subsets:
-            cps = CodepointsInSubset(subset, unique_glyphs=True)
-            subsets.append((subset, set(cps)))
-
-        res: set[str] = set()
-        while universe:
-            best = set()
-            best_name = ""
-            for subset, cps in subsets:
-                if len(universe & cps) > len(best):
-                    best_name, best = subset, cps
-            if len(best) == 0:
-                break
-            universe -= best
-            res.add(best_name)
-        return res
-
     METADATA_PATH = Path("metadata/METADATA.pb")
 
     metadata_pb = text_format.Parse(
@@ -410,7 +387,16 @@ def com_google_fonts_check_metadata_subsets(font: Font, ttFont: TTFont):
         allow_unknown_field=True,
     )
 
-    expected = google_fonts_metadata_subsets(ttFont)
+    expected_raw = subprocess.check_output(
+        (
+            "venv_bakery/bin/python",
+            "scripts/google_fonts_metadata_subsets.py",
+            font.file,
+        ),
+        stderr=subprocess.DEVNULL,
+        text=True,
+    )
+    expected = set(expected_raw.strip().splitlines())
     actual = set(metadata_pb.subsets)
 
     if expected != actual:
