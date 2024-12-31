@@ -47,9 +47,7 @@ if [ -e "requirements-fb.txt" ]; then
     venv_bakery/bin/pip install -r requirements-fb.txt
 else
     echo "Not pinning fontbakery"
-    # fonttools[interpolatable] makes
-    # 'interpolation_issues' check around 5x faster
-    venv_bakery/bin/pip install -U "fontbakery[googlefonts]" "fonttools[interpolatable]"
+    venv_bakery/bin/pip install -Ur requirements-fb.in
 fi
 [ -n "$GITHUB_RUN_ID" ] && echo "::endgroup::"
 mkdir -p out/fontbakery
