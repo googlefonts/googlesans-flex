@@ -415,3 +415,5 @@ def com_google_fonts_check_metadata_subsets(font: Font, ttFont: TTFont):
                 ),
             ),
         )
+    else:
+        yield PASS, "subsets available in font and specified in METADATA.pb match"
