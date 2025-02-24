@@ -18,14 +18,13 @@ PROFILE = {
     "check_definitions": [Path(__file__).parent / "checks" / "charset.py"],
     "sections": {
         "Google Sans Custom Character Set Checks": [
-            "com.google.fonts/check/googlesans/glyphs/glyphset-contents",
-            # "com.google.fonts/check/googlesans/features/regression",  # TODO: For later
+            "googlesans/glyphs/glyphset-contents",
+            # "googlesans/features/regression",  # TODO: For later
         ]
     },
     "exclude_checks": [
-        "com.google.fonts/check/ftxvalidator_is_available",
-        "com.google.fonts/check/dsig",
-        "com.google.fonts/check/family/win_ascent_and_descent",  # replaced by custom checks
-        "com.google.fonts/check/varfont/regular_opsz_coord",  # we want our opsz definition
+        "dsig",
+        "family/win_ascent_and_descent",  # replaced by custom checks
+        "opentype/varfont/regular_opsz_coord",  # we want our opsz definition
     ]
 }

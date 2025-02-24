@@ -18,8 +18,8 @@ PROFILE = {
     "check_definitions": [Path(__file__).parent / "checks" / "fea.py"],
     "sections": {
         "Google Sans Custom Feature Support Checks": [
-            "com.google.fonts/check/googlesans/features/variableuprights",
-            # "com.google.fonts/check/googlesans/features/regression",  # TODO: For later
+            "googlesans/features/variableuprights",
+            # "googlesans/features/regression",  # TODO: For later
         ]
     },
 }
