@@ -1,5 +1,8 @@
 # Google Sans Flex Changelog
 
+## Version 3.001 (2024-12-28)
+### Changed
+- kerning triples 7.1; 7.4; 7.9 reviewed and updated to address #1124
 
 ## Version 3.000 (2024-12-17)
 ### New
