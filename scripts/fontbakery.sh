@@ -26,6 +26,15 @@ all_ttfs="$(find fonts/ -name '*.ttf')"
 # Switch to repo path by going to the parent folder of where this script is
 cd "$(dirname "${BASH_SOURCE[0]}" | xargs dirname)"
 
+# Check if we're on Ubuntu and cairo isn't installed
+. /etc/os-release
+if [[ "$ID" == "ubuntu" ]] && ! dpkg --list | grep --quiet "^ii libcairo2-dev "; then
+    [ -n "$GITHUB_RUN_ID" ] && echo "::group::Installing cairo"
+    sudo apt-get update --quiet --quiet
+    sudo apt-get install --yes --no-install-recommends --quiet libcairo2-dev
+    [ -n "$GITHUB_RUN_ID" ] && echo "::endgroup::"
+fi
+
 # Setup venv with dependencies
 [ -n "$GITHUB_RUN_ID" ] && echo "::group::Set up venv"
 test -d venv_bakery || python3 -m venv venv_bakery
