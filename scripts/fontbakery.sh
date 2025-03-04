@@ -27,12 +27,14 @@ all_ttfs="$(find fonts/ -name '*.ttf')"
 cd "$(dirname "${BASH_SOURCE[0]}" | xargs dirname)"
 
 # Check if we're on Ubuntu and cairo isn't installed
-. /etc/os-release
-if [[ "$ID" == "ubuntu" ]] && ! dpkg --list | grep --quiet "^ii libcairo2-dev "; then
-    [ -n "$GITHUB_RUN_ID" ] && echo "::group::Installing cairo"
-    sudo apt-get update --quiet --quiet
-    sudo apt-get install --yes --no-install-recommends --quiet libcairo2-dev
-    [ -n "$GITHUB_RUN_ID" ] && echo "::endgroup::"
+if [[ -f /etc/os-release ]]; then
+    . /etc/os-release
+    if [[ "$ID" == "ubuntu" ]] && ! dpkg --list | grep --quiet "^ii libcairo2-dev "; then
+        [ -n "$GITHUB_RUN_ID" ] && echo "::group::Installing cairo"
+        sudo apt-get update --quiet --quiet
+        sudo apt-get install --yes --no-install-recommends --quiet libcairo2-dev
+        [ -n "$GITHUB_RUN_ID" ] && echo "::endgroup::"
+    fi
 fi
 
 # Setup venv with dependencies
