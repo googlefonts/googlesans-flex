@@ -79,7 +79,6 @@ TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
         "wdth": 100,
         "ROND": 40,
     },
-    },
 }
 
 # Global Google Sans attributes, in 1000 upM font units.
