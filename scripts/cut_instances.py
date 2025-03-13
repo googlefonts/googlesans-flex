@@ -54,16 +54,6 @@ class WorkspaceInstance(TypedDict):
 # These are then produced in upright & italic flavours, retaining only the
 # weight variable axis
 TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
-    "Google Sans": {
-        "opsz": 18,
-        "wdth": 100,
-        "ROND": 0,
-    },
-    "Google Sans Text": {
-        "opsz": 14,
-        "wdth": 100,
-        "ROND": 0,
-    },
     "Google Sans Flex": {
         "opsz": 18,
         "wdth": 100,
