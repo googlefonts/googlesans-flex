@@ -9,6 +9,7 @@ help:
 	@echo "###"
 	@echo
 	@echo "  make build:  Builds the fonts and places them in the fonts/ directory"
+	@echo "  make release:  Builds the fonts above, along with Android and Workspace-specific variants"
 	@echo "  make test:   Tests the fonts with fontbakery"
 	@echo "  make images: Creates PNG specimen images in the documentation/ directory"
 	@echo
