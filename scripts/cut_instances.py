@@ -21,11 +21,13 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from tempfile import TemporaryDirectory
 from typing import Any, TypedDict
 
 import fontTools.otlLib.optimize.gpos
 import ufoLib2
 from fontTools.ttLib import TTFont
+from fontTools.ttLib.tables import otTables as ot
 from fontTools.ttLib.tables.O_S_2f_2 import Panose
 from fontv.libfv import FontVersion
 from prune_font_binary import main as prune_font_binary_main
@@ -54,35 +56,20 @@ class WorkspaceInstance(TypedDict):
 # These are then produced in upright & italic flavours, retaining only the
 # weight variable axis
 TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
-    "Google Sans Flex Normal": {
-        "opsz": 144,
+    "Google Sans Flex": {
+        "opsz": 18,
         "wdth": 100,
-        "ROND": 0,
-    },
-    "Google Sans Flex UltraCondensed": {
-        "opsz": 144,
-        "wdth": 50,
-        "ROND": 0,
-    },
-    "Google Sans Flex SuperCondensed": {
-        "opsz": 144,
-        "wdth": 25,
         "ROND": 0,
     },
     "Google Sans Flex Rounded": {
-        "opsz": 144,
+        "opsz": 18,
         "wdth": 100,
         "ROND": 100,
     },
-    "Google Sans Flex Text": {
-        "opsz": 12,
+    "Google Sans Flex SemiRounded": {
+        "opsz": 18,
         "wdth": 100,
-        "ROND": 0,
-    },
-    "Google Sans Flex ExtraExpanded": {
-        "opsz": 144,
-        "wdth": 150,
-        "ROND": 0,
+        "ROND": 40,
     },
 }
 
@@ -144,20 +131,44 @@ def cut_instance(
 ) -> None:
     user_location_args = [f"{k}={v}" for k, v in user_location.items()]
 
-    # https://github.com/fonttools/fonttools/blob/main/Lib/fontTools/varLib/instancer/__init__.py
-    subprocess.check_call(
-        [
-            "fonttools",
-            "varLib.instancer",
-            "--quiet",
-            "--remove-overlaps",
-            "--update-name-table",
-            "-o",
-            str(output_file),
-            str(variable_font),
-            *user_location_args,
-        ]
-    )
+    with TemporaryDirectory() as tmpdir:
+        # HACK: for the SemiRounded, add a STAT entry for that name before slicing
+        if user_location["ROND"] == 40:
+            vf = TTFont(variable_font)
+            stat = vf["STAT"]
+            for rondIndex, rond in enumerate(stat.table.DesignAxisRecord.Axis):
+                if rond.AxisTag == "ROND":
+                    break
+            else:
+                raise RuntimeError("Cannot find axis ROND")
+
+            axisValRec = ot.AxisValue()
+            axisValRec.AxisIndex = rondIndex
+            axisValRec.Flags = 0
+            axisValRec.ValueNameID = vf["name"].addName("SemiRounded")
+            axisValRec.Value = 40
+            axisValRec.Format = 1
+            stat.table.AxisValueArray.AxisValue.append(axisValRec)
+
+            # Save to a temp file and use that as input for the next step
+            tmpfile = Path(tmpdir) / variable_font.name
+            vf.save(tmpfile)
+            variable_font = tmpfile
+
+        # https://github.com/fonttools/fonttools/blob/main/Lib/fontTools/varLib/instancer/__init__.py
+        subprocess.check_call(
+            [
+                "fonttools",
+                "varLib.instancer",
+                "--quiet",
+                "--remove-overlaps",
+                "--update-name-table",
+                "-o",
+                str(output_file),
+                str(variable_font),
+                *user_location_args,
+            ]
+        )
 
     font = TTFont(output_file)
 

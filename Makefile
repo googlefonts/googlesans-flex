@@ -9,6 +9,7 @@ help:
 	@echo "###"
 	@echo
 	@echo "  make build:  Builds the fonts and places them in the fonts/ directory"
+	@echo "  make release:  Builds the fonts above, along with Android and Workspace-specific variants"
 	@echo "  make test:   Tests the fonts with fontbakery"
 	@echo "  make images: Creates PNG specimen images in the documentation/ directory"
 	@echo
@@ -126,7 +127,7 @@ shaperglot: venv build
 # Report coverage of all languages
 	venv/bin/shaperglot report --group fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	@echo "\nChecking against the target language list"
-# Report coverage of target languages (exit code reports fails/warns)
-	@venv/bin/python qa/check_shaperglot.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+# Report coverage of target languages
+	@xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
 
 .PHONY: release
