@@ -20,18 +20,12 @@ from fontTools.ttLib import TTFont
 # The main VF must be first
 FONT_PATHS = (
     Path("fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexExtraExpanded-Italic[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexExtraExpanded[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexNormal-Italic[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexNormal[wght].ttf"),
+    Path("fonts/workspace/GoogleSansFlex-Italic[wght].ttf"),
+    Path("fonts/workspace/GoogleSansFlex[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexRounded-Italic[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexRounded[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexSuperCondensed-Italic[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexSuperCondensed[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexText-Italic[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexText[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexUltraCondensed-Italic[wght].ttf"),
-    Path("fonts/workspace/GoogleSansFlexUltraCondensed[wght].ttf"),
+    Path("fonts/workspace/GoogleSansFlexSemiRounded-Italic[wght].ttf"),
+    Path("fonts/workspace/GoogleSansFlexSemiRounded[wght].ttf"),
 )
 
 
