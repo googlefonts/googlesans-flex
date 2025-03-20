@@ -3,14 +3,14 @@
 ## Version 3.002 (2025-03-20)
 ### Changed
 - updated workspace fonts
-  - - added
+  - added
     Google Sans Flex SemiRounded (18opsz, 100wdth, 40ROND)
 
-  - - changed optical size from 144 to 18:
+  - changed optical size from 144 to 18:
     Google Sans Flex (18opsz, 100wdth, 0ROND)
     Google Sans Flex Rounded (18opsz, 100wdth,  100ROND)
 
-  - - removed:
+  - removed:
     Google Sans Flex Normal (18opsz, 100wdth, 00ROND)
     Google Sans Flex UltraCondensed (18opsz, 50wdth, 0ROND)
     Google Sans Flex SuperCondensed (18opsz, 25wdth, 0ROND)
