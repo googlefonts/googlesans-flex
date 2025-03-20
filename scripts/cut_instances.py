@@ -55,23 +55,35 @@ class WorkspaceInstance(TypedDict):
 
 # These are then produced in upright & italic flavours, retaining only the
 # weight variable axis
-TARGET_INSTANCES: dict[str, WorkspaceInstance] = {
-    "Google Sans Flex": {
-        "opsz": 18,
-        "wdth": 100,
-        "ROND": 0,
-    },
-    "Google Sans Flex Rounded": {
-        "opsz": 18,
-        "wdth": 100,
-        "ROND": 100,
-    },
-    "Google Sans Flex SemiRounded": {
-        "opsz": 18,
-        "wdth": 100,
-        "ROND": 40,
-    },
-}
+TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
+    (
+        "Google Sans Flex",
+        {
+            "opsz": 18,
+            "wdth": 100,
+            "ROND": 0,
+        },
+        {"should_add_fvar_instances": False},
+    ),
+    (
+        "Google Sans Flex Rounded",
+        {
+            "opsz": 18,
+            "wdth": 100,
+            "ROND": 100,
+        },
+        {"should_add_fvar_instances": True},
+    ),
+    (
+        "Google Sans Flex SemiRounded",
+        {
+            "opsz": 18,
+            "wdth": 100,
+            "ROND": 40,
+        },
+        {"should_add_fvar_instances": True},
+    ),
+]
 
 # Global Google Sans attributes, in 1000 upM font units.
 # These need to be kept in sync with qa/check-googlesans.py to avoid FB fails
@@ -128,6 +140,7 @@ def cut_instance(
     family_name: str | None,
     style_name: str | None,
     output_file: Path,
+    should_add_fvar_instances: bool,
 ) -> None:
     user_location_args = [f"{k}={v}" for k, v in user_location.items()]
 
@@ -227,7 +240,8 @@ def cut_instance(
     #     if before_val != after_val:
     #         print(f"{attr}: {before_val} -> {after_val}")
 
-    add_fvar_instances(font, is_italic)
+    if should_add_fvar_instances:
+        add_fvar_instances(font, is_italic)
     add_STAT_ital(font, is_italic)
     remove_STAT_useless_axes(font, is_italic)
 
@@ -406,11 +420,13 @@ def otlib_optimise_gpos(ttf_path: Path) -> None:
     fontTools.otlLib.optimize.gpos.compact(ttf, 5)
 
 
-def cut_then_post_process(cut_instance_args: list[Any]) -> None:
+def cut_then_post_process(
+    cut_instance_args: list[Any], cut_instance_kwargs: dict[Any, Any]
+) -> None:
     ttf_path: Path = cut_instance_args[-1]
 
     print(f"Cutting {ttf_path.name}")
-    cut_instance(*cut_instance_args)
+    cut_instance(*cut_instance_args, **cut_instance_kwargs)
 
     print(f"Pruning {ttf_path.name}")
     prune_font_binary_main([str(ttf_path)])
@@ -437,8 +453,8 @@ def main(args: list[str] | None = None) -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     with multiprocessing.Pool() as pool:
-        for (family_name, workspace_instance), italic in itertools.product(
-            TARGET_INSTANCES.items(), (False, True)
+        for (family_name, workspace_instance, kwargs), italic in itertools.product(
+            TARGET_INSTANCES, (False, True)
         ):
             coordinates: GoogleSansFlexInstance = {
                 # Restrict weight axis to between 100 & 900, default to 400
@@ -466,6 +482,7 @@ def main(args: list[str] | None = None) -> int:
                         "Italic" if italic else None,  # style_name: str | None
                         ttf_path,  # output_file: Path
                     ],
+                    kwargs,
                 ),
                 error_callback=lambda err: print(f"cut_then_post_process error: {err}"),
             )
