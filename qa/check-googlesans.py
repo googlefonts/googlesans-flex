@@ -35,6 +35,7 @@ PROFILE = {
             "googlesansflex/vf/axis_names",
             "googlesansflex/vf/fvardefault",
             "googlesansflex/opentype/global_fu_attributes",
+            "googlesansflex/android_ymin_ymax",
         ]
     },
     "exclude_checks": [
