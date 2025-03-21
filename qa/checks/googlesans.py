@@ -349,7 +349,13 @@ def com_google_fonts_check_android_ymin_ymax(font: Font, ttFont: TTFont):
     if font_path.parent.name != "android":
         return SKIP, "Not Android flavour Flex"
 
-    head = ttFont["head"]
+    # Reopen the font fresh because the ttFont we get as argument seems to have
+    # had its head yMin and yMax recomputed to the values from the font,
+    # instead of the hardcoded ones for Android.
+
+    ttFont2 = TTFont(font_path)
+
+    head = ttFont2["head"]
     if head.yMin != -605:
         yield FAIL, f"yMin was {head.yMin} instead of -605"
     if head.yMax != 2007:
