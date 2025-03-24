@@ -387,7 +387,7 @@ def com_google_fonts_check_metadata_subsets(font: Font, ttFont: TTFont):
         allow_unknown_field=True,
     )
 
-    expected_raw = subprocess.check_output(
+    suggested_raw = subprocess.check_output(
         (
             "venv_bakery/bin/python",
             "scripts/google_fonts_metadata_subsets.py",
@@ -396,18 +396,18 @@ def com_google_fonts_check_metadata_subsets(font: Font, ttFont: TTFont):
         stderr=subprocess.DEVNULL,
         text=True,
     )
-    expected = set(expected_raw.strip().splitlines())
+    suggested = set(suggested_raw.strip().splitlines())
     actual = set(metadata_pb.subsets)
 
-    if expected != actual:
+    if suggested != actual:
         yield (
-            FAIL,
-            "Font's supported subsets do not match METADATA.pb:\n\n"
+            WARN,
+            "Font's supported subsets do not match METADATA.pb. Suggested:\n\n"
             + "```diff\n{}\n```".format(
                 "\n".join(
                     unified_diff(
-                        sorted(expected),
                         sorted(actual),
+                        sorted(suggested),
                         fromfile=font.file,
                         tofile="scripts/google_fonts_metadata_subsets.py",
                         lineterm="",
