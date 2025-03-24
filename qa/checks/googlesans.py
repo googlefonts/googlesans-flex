@@ -14,11 +14,12 @@
 
 
 from datetime import UTC, datetime, timedelta
+from difflib import unified_diff
 from pathlib import Path
 
-from fontTools.ttLib import TTFont
 from fontbakery.callable import check
 from fontbakery.constants import UNICODERANGE_DATA
+from fontbakery.fonts_public_pb2 import FamilyProto
 from fontbakery.message import Message
 from fontbakery.status import FAIL, PASS, SKIP, WARN
 from fontbakery.testable import Font
@@ -27,6 +28,8 @@ from fontbakery.utils import (
     compute_unicoderange_bits,
     unicoderange_bit_name,
 )
+from fontTools.ttLib import TTFont
+from google.protobuf import text_format
 
 # Each VF we build will have one of these suffixes depending on whether it
 # includes the full designspace or is restricted to upright or italic only.
@@ -356,7 +359,73 @@ def com_google_fonts_check_android_ymin_ymax(font: Font, ttFont: TTFont):
     ttFont2 = TTFont(font_path)
 
     head = ttFont2["head"]
-    if head.yMin != -605:
-        yield FAIL, f"yMin was {head.yMin} instead of -605"
-    if head.yMax != 2007:
-        yield FAIL, f"yMax was {head.yMax} instead of 2007"
+    if head.yMin != -605:  # type: ignore
+        yield FAIL, f"yMin was {head.yMin} instead of -605"  # type: ignore
+    if head.yMax != 2007:  # type: ignore
+        yield FAIL, f"yMax was {head.yMax} instead of 2007"  # type: ignore
+
+
+@check(
+    id="googlesansflex/metadata_subsets",
+    rationale="""
+    Confirms the METADATA.pb's subsets match what is currently supported by the
+    font, based on scripts/google_fonts_metadata_subsets.py
+    """,
+)
+def com_google_fonts_check_metadata_subsets(font: Font, ttFont: TTFont):
+    """Confirms the METADATA.pb's subsets match what is currently supported by
+    the font, based on scripts/google_fonts_metadata_subsets.py"""
+
+    # Copied from scripts/google_fonts_metadata_subsets.py with minimal changes
+    def google_fonts_metadata_subsets(font: TTFont):
+        from gfsubsets import CodepointsInSubset, ListSubsets
+
+        universe = set(font.getBestCmap().keys())
+        known_subsets = ListSubsets()
+        subsets = []
+        for subset in known_subsets:
+            cps = CodepointsInSubset(subset, unique_glyphs=True)
+            subsets.append((subset, set(cps)))
+
+        res: set[str] = set()
+        while universe:
+            best = set()
+            best_name = ""
+            for subset, cps in subsets:
+                if len(universe & cps) > len(best):
+                    best_name, best = subset, cps
+            if len(best) == 0:
+                break
+            universe -= best
+            res.add(best_name)
+        return res
+
+    METADATA_PATH = Path("metadata/METADATA.pb")
+
+    metadata_pb = text_format.Parse(
+        METADATA_PATH.read_bytes(),
+        FamilyProto(),
+        # Can't use library code to load METADATA.pb as the experiments field
+        # isn't recognised, so we need to allow unknown fields
+        allow_unknown_field=True,
+    )
+
+    expected = google_fonts_metadata_subsets(ttFont)
+    actual = set(metadata_pb.subsets)
+
+    if expected != actual:
+        yield (
+            FAIL,
+            "Font's supported subsets do not match METADATA.pb:\n\n"
+            + "```diff\n{}\n```".format(
+                "\n".join(
+                    unified_diff(
+                        sorted(expected),
+                        sorted(actual),
+                        fromfile=font.file,
+                        tofile="scripts/google_fonts_metadata_subsets.py",
+                        lineterm="",
+                    )
+                ),
+            ),
+        )

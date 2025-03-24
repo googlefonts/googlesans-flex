@@ -36,6 +36,7 @@ PROFILE = {
             "googlesansflex/vf/fvardefault",
             "googlesansflex/opentype/global_fu_attributes",
             "googlesansflex/android_ymin_ymax",
+            "googlesansflex/metadata_subsets",
         ]
     },
     "exclude_checks": [
