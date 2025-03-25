@@ -30,6 +30,7 @@ from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables import otTables as ot
 from fontTools.ttLib.tables.O_S_2f_2 import Panose
 from fontv.libfv import FontVersion
+from gftools.fix import fix_fvar_instances
 from prune_font_binary import main as prune_font_binary_main
 from ufo2ft.fontInfoData import (
     getAttrWithFallback,
@@ -55,7 +56,7 @@ class WorkspaceInstance(TypedDict):
 
 # These are then produced in upright & italic flavours, retaining only the
 # weight variable axis
-TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
+TARGET_INSTANCES: list[tuple[str, WorkspaceInstance]] = [
     (
         "Google Sans Flex Normal",
         {
@@ -63,7 +64,6 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 100,
             "ROND": 0,
         },
-        {"should_add_fvar_instances": False},
     ),
     (
         "Google Sans Flex Text",
@@ -72,8 +72,7 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 100,
             "ROND": 0,
         },
-        {"should_add_fvar_instances": True},   
-    ), 
+    ),
     (
         "Google Sans Flex Rounded",
         {
@@ -81,7 +80,6 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 100,
             "ROND": 100,
         },
-        {"should_add_fvar_instances": True},
     ),
     (
         "Google Sans Flex SemiRounded",
@@ -90,7 +88,6 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 100,
             "ROND": 40,
         },
-        {"should_add_fvar_instances": True},   
     ),
     (
         "Google Sans Flex UltraCondensed",
@@ -99,7 +96,6 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 50,
             "ROND": 0,
         },
-        {"should_add_fvar_instances": True},   
     ),
     (
         "Google Sans Flex SuperCondensed",
@@ -108,8 +104,7 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 25,
             "ROND": 0,
         },
-        {"should_add_fvar_instances": True},   
-    ),    
+    ),
     (
         "Google Sans Flex ExtraExpanded",
         {
@@ -117,11 +112,8 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 150,
             "ROND": 0,
         },
-        {"should_add_fvar_instances": True},   
     ),
 ]
-
-
 
 
 # Global Google Sans attributes, in 1000 upM font units.
@@ -148,30 +140,6 @@ GS_OS2_ATTRIBUTES_ITALIC = {
     "ySuperscriptXOffset": 62,
 }
 
-# From https://github.com/googlefonts/axisregistry/blob/main/Lib/axisregistry/__init__.py#L32
-GF_STATIC_STYLES_UPRIGHT = [
-    ("Thin", 100),
-    ("ExtraLight", 200),
-    ("Light", 300),
-    ("Regular", 400),
-    ("Medium", 500),
-    ("SemiBold", 600),
-    ("Bold", 700),
-    ("ExtraBold", 800),
-    ("Black", 900),
-]
-GF_STATIC_STYLES_ITALIC = [
-    ("Thin Italic", 100),
-    ("ExtraLight Italic", 200),
-    ("Light Italic", 300),
-    ("Italic", 400),
-    ("Medium Italic", 500),
-    ("SemiBold Italic", 600),
-    ("Bold Italic", 700),
-    ("ExtraBold Italic", 800),
-    ("Black Italic", 900),
-]
-
 
 def cut_instance(
     variable_font: Path,
@@ -179,7 +147,6 @@ def cut_instance(
     family_name: str | None,
     style_name: str | None,
     output_file: Path,
-    should_add_fvar_instances: bool,
 ) -> None:
     user_location_args = [f"{k}={v}" for k, v in user_location.items()]
 
@@ -279,8 +246,9 @@ def cut_instance(
     #     if before_val != after_val:
     #         print(f"{attr}: {before_val} -> {after_val}")
 
-    if should_add_fvar_instances:
-        add_fvar_instances(font, is_italic)
+    # Restore weight instances if they were pruned in slicing.
+    fix_fvar_instances(font)
+
     add_STAT_ital(font, is_italic)
     remove_STAT_useless_axes(font, is_italic)
 
@@ -365,21 +333,6 @@ def generate_panose_entries(location: GoogleSansFlexInstance) -> Panose:
     return panose
 
 
-def add_fvar_instances(font: TTFont, is_italic: bool) -> None:
-    """Add instances from 100 to 900 along the Weight axis."""
-    from fontTools.ttLib.tables._f_v_a_r import NamedInstance
-
-    fvar = font["fvar"]
-    name = font["name"]
-    for style, weight in (
-        GF_STATIC_STYLES_ITALIC if is_italic else GF_STATIC_STYLES_UPRIGHT
-    ):
-        inst = NamedInstance()
-        inst.subfamilyNameID = name.addName(style)
-        inst.coordinates = {"wght": weight}  # No avar mapping in this font
-        fvar.instances.append(inst)
-
-
 def add_STAT_ital(font: TTFont, is_italic: bool) -> None:
     """Add an ital axis to STAT to link the separate files for uprights and italics.
 
@@ -459,13 +412,11 @@ def otlib_optimise_gpos(ttf_path: Path) -> None:
     fontTools.otlLib.optimize.gpos.compact(ttf, 5)
 
 
-def cut_then_post_process(
-    cut_instance_args: list[Any], cut_instance_kwargs: dict[Any, Any]
-) -> None:
+def cut_then_post_process(cut_instance_args: list[Any]) -> None:
     ttf_path: Path = cut_instance_args[-1]
 
     print(f"Cutting {ttf_path.name}")
-    cut_instance(*cut_instance_args, **cut_instance_kwargs)
+    cut_instance(*cut_instance_args)
 
     print(f"Pruning {ttf_path.name}")
     prune_font_binary_main([str(ttf_path)])
@@ -492,7 +443,7 @@ def main(args: list[str] | None = None) -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     with multiprocessing.Pool() as pool:
-        for (family_name, workspace_instance, kwargs), italic in itertools.product(
+        for (family_name, workspace_instance), italic in itertools.product(
             TARGET_INSTANCES, (False, True)
         ):
             coordinates: GoogleSansFlexInstance = {
@@ -521,7 +472,6 @@ def main(args: list[str] | None = None) -> int:
                         "Italic" if italic else None,  # style_name: str | None
                         ttf_path,  # output_file: Path
                     ],
-                    kwargs,
                 ),
                 error_callback=lambda err: print(f"cut_then_post_process error: {err}"),
             )
