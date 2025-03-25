@@ -39,6 +39,19 @@ other STAT axes removed (anything else than Weight and Italic).
 4. Run `font-v` to write the Git commit SHA into the name table
 5. Run the GPOS compaction to reduce the file size
 
+### Update QA after changing families
+
+1. Build workspace fonts locally with `make workspace`
+2. Regenerate shaping tests:
+    1. Run `./qa/update_all_shaping.sh`
+    2. Review output
+    3. Commit
+3. Regenerate glyphset tests:
+    1. Update list of workspace files in `scripts/gs-update-glyphset-qa-files.py`
+    2. Run `python scripts/gs-update-glyphset-qa-files.py`
+    3. Review output
+    4. Commit
+
 ## Links
 
 - Issue from Dave Crossland: [Release v2.1 as wght axis fonts instead of static fonts, and rename the default width family #932](https://github.com/googlefonts/googlesans-flex/issues/932)
