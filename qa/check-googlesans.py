@@ -60,7 +60,6 @@ PROFILE = {
         "opentype/family/consistent_family_name",  # intended with our statics
         "name/family_and_style_max_length",  # we know our statics exceed this limit and it's okay
         "opentype/varfont/family_axis_ranges",  # our workspace fonts intentionally change axes ranges
-        "opentype/STAT/ital_axis",  # The check matches up wrongly the Android VF with a Workspace VF and gives a false report
     ],
     "overrides": {
         "varfont/consistent_axes": [

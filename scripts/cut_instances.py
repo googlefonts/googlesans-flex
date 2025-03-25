@@ -57,14 +57,23 @@ class WorkspaceInstance(TypedDict):
 # weight variable axis
 TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
     (
-        "Google Sans Flex",
+        "Google Sans Flex Normal",
         {
             "opsz": 18,
             "wdth": 100,
             "ROND": 0,
         },
-        {"should_add_fvar_instances": False},
+        {"should_add_fvar_instances": True},
     ),
+    (
+        "Google Sans Flex Text",
+        {
+            "opsz": 12,
+            "wdth": 100,
+            "ROND": 0,
+        },
+        {"should_add_fvar_instances": True},   
+    ), 
     (
         "Google Sans Flex Rounded",
         {
@@ -81,9 +90,39 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 100,
             "ROND": 40,
         },
-        {"should_add_fvar_instances": True},
+        {"should_add_fvar_instances": True},   
+    ),
+    (
+        "Google Sans Flex UltraCondensed",
+        {
+            "opsz": 18,
+            "wdth": 50,
+            "ROND": 0,
+        },
+        {"should_add_fvar_instances": True},   
+    ),
+    (
+        "Google Sans Flex SuperCondensed",
+        {
+            "opsz": 18,
+            "wdth": 25,
+            "ROND": 0,
+        },
+        {"should_add_fvar_instances": True},   
+    ),    
+    (
+        "Google Sans Flex ExtraExpanded",
+        {
+            "opsz": 18,
+            "wdth": 150,
+            "ROND": 0,
+        },
+        {"should_add_fvar_instances": True},   
     ),
 ]
+
+
+
 
 # Global Google Sans attributes, in 1000 upM font units.
 # These need to be kept in sync with qa/check-googlesans.py to avoid FB fails

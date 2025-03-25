@@ -1,8 +1,25 @@
 # Google Sans Flex Changelog
 
+## Version 3.003 (2025-03-25)
+### Changed
+- updated workspace font families (upright + italic):
+  - added back and changed opsz from 144 to 18:
+    Google Sans Flex Normal (18opsz, 100wdth, 00ROND)
+    Google Sans Flex Text (12opsz, 100wdth, 0ROND)
+    Google Sans Flex UltraCondensed (18opsz, 50wdth, 0ROND)
+    Google Sans Flex SuperCondensed (18opsz, 25wdth, 0ROND)
+    Google Sans Flex ExtraExpanded (18opsz, 150wdth, 0ROND)
+
+  - removed:
+    Google Sans Flex (18opsz, 100wdth, 0ROND)
+
+- changed workflow:
+  - migrated private Fontbakery checks to open-sourced equivalents ([#983](https://github.com/googlefonts/googlesans-flex/pull/983)) 
+  
+
 ## Version 3.002 (2025-03-20)
 ### Changed
-- updated workspace fonts
+- updated workspace families (upright + italic):
   - added
     Google Sans Flex SemiRounded (18opsz, 100wdth, 40ROND)
 
@@ -12,10 +29,11 @@
 
   - removed:
     Google Sans Flex Normal (18opsz, 100wdth, 00ROND)
-    Google Sans Flex UltraCondensed (18opsz, 50wdth, 0ROND)
-    Google Sans Flex SuperCondensed (18opsz, 25wdth, 0ROND)
-    Google Sans Flex ExtraExpanded (18opsz, 150wdth, 0ROND)
-    Google Sans Flex Text (18opsz, 100wdth, 0ROND)
+    Google Sans Flex Text (12opsz, 100wdth, 0ROND)
+    Google Sans Flex UltraCondensed (144opsz, 50wdth, 0ROND)
+    Google Sans Flex SuperCondensed (144opsz, 25wdth, 0ROND)
+    Google Sans Flex ExtraExpanded (144opsz, 150wdth, 0ROND)
+
 
 
 ## Version 3.001 (2024-12-28)
