@@ -63,7 +63,7 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance, dict[Any, Any]]] = [
             "wdth": 100,
             "ROND": 0,
         },
-        {"should_add_fvar_instances": True},
+        {"should_add_fvar_instances": False},
     ),
     (
         "Google Sans Flex Text",
