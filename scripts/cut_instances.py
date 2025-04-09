@@ -68,7 +68,7 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance]] = [
     (
         "Google Sans Flex Text",
         {
-            "opsz": 12,
+            "opsz": 14,
             "wdth": 100,
             "ROND": 0,
         },

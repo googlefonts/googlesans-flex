@@ -1,5 +1,12 @@
 # Google Sans Flex Changelog
 
+## Version 3.004 (2025-04-9)
+### Changed
+- updated workspace font families (upright + italic):
+  - added back and changed opsz from 12 to 14:
+    Google Sans Flex Text (14opsz, 100wdth, 0ROND)
+
+
 ## Version 3.003 (2025-03-25)
 ### Changed
 - updated workspace font families (upright + italic):
