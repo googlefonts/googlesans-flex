@@ -1309,65 +1309,6 @@ background = {
 anchors = (
 {
 name = _top;
-pos = (450,1050);
-},
-{
-name = top;
-pos = (450,1435);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(577,1170,o),
-(730,1295,o),
-(730,1398,qs),
-(730,1439,o),
-(730,1439,o),
-(666,1439,q),
-(603,1439,o),
-(603,1439,o,{
-name = inserted;
-}),
-(603,1415,qs),
-(603,1353,o),
-(519,1278,o),
-(450,1278,qs),
-(381,1278,o),
-(297,1353,o),
-(297,1414,qs),
-(297,1439,o,{
-name = inserted;
-}),
-(297,1439,o,{
-name = inserted;
-}),
-(234,1439,q),
-(170,1439,o),
-(170,1439,o),
-(170,1399,qs),
-(170,1295,o),
-(323,1170,o),
-(450,1170,qs)
-);
-}
-);
-};
-layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
-shapes = (
-{
-pos = (450,0);
-ref = brevecomb;
-}
-);
-width = 900;
-},
-{
-background = {
-anchors = (
-{
-name = _top;
 pos = (423,1060);
 },
 {
@@ -2891,65 +2832,6 @@ name = inserted;
 );
 };
 layerId = "C8F8B257-49A3-46CF-8326-EA594855E40C";
-shapes = (
-{
-pos = (450,0);
-ref = brevecomb;
-}
-);
-width = 900;
-},
-{
-background = {
-anchors = (
-{
-name = _top;
-pos = (450,1050);
-},
-{
-name = top;
-pos = (450,1435);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(577,1170,o),
-(730,1295,o),
-(730,1382,qs),
-(730,1408,o),
-(692,1446,o),
-(666,1446,q),
-(640,1446,o),
-(604,1413,o,{
-name = inserted;
-}),
-(599,1383,qs),
-(591,1337,o),
-(515,1278,o),
-(450,1278,qs),
-(385,1278,o),
-(310,1340,o),
-(301,1387,qs),
-(295,1416,o,{
-name = inserted;
-}),
-(260,1446,o,{
-name = inserted;
-}),
-(234,1446,q),
-(208,1446,o),
-(170,1408,o),
-(170,1382,qs),
-(170,1295,o),
-(323,1170,o),
-(450,1170,qs)
-);
-}
-);
-};
-layerId = "EF439F48-BA17-4C34-9F5F-1FC4BA53F2EC";
 shapes = (
 {
 pos = (450,0);
@@ -7558,6 +7440,28 @@ ref = brevecomb;
 }
 );
 width = 1360;
+},
+{
+layerId = "16AD4072-B8B1-4BDE-842A-86931E2AA447";
+shapes = (
+{
+alignment = -1;
+pos = (438,0);
+ref = brevecomb;
+}
+);
+width = 852;
+},
+{
+layerId = "D6E1E77A-D23D-4B03-B992-03DF524B9619";
+shapes = (
+{
+alignment = -1;
+pos = (438,0);
+ref = brevecomb;
+}
+);
+width = 852;
 }
 );
 metricWidth = "=space*2";

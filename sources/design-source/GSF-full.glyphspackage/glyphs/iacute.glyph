@@ -1810,82 +1810,6 @@ background = {
 anchors = (
 {
 name = bottom;
-pos = (228,0);
-},
-{
-name = ogonek;
-pos = (299,0);
-},
-{
-name = top;
-pos = (228,1438);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(299,0,o),
-(299,0,o),
-(299,64,q),
-(299,986,l),
-(299,1050,o),
-(299,1050,o),
-(228,1050,q),
-(157,1050,o),
-(157,1050,o),
-(157,986,q),
-(157,64,l),
-(157,0,o),
-(157,0,o),
-(228,0,q)
-);
-},
-{
-closed = 1;
-nodes = (
-(287,1174,o),
-(287,1174,o,{
-name = inserted;
-}),
-(301,1193,qs),
-(409,1342,ls),
-(480,1439,o),
-(480,1439,o),
-(357,1439,q),
-(318,1439,o),
-(318,1439,o,{
-name = inserted;
-}),
-(302,1414,qs),
-(205,1258,ls),
-(153,1174,o),
-(153,1174,o),
-(254,1174,q)
-);
-}
-);
-};
-layerId = "67F07427-87DC-4334-BF93-D84D1ECDAAB8";
-shapes = (
-{
-ref = idotless;
-},
-{
-pos = (296,0);
-ref = acutecomb;
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.widthMetricsKey = idotless;
-};
-width = 456;
-},
-{
-background = {
-anchors = (
-{
-name = bottom;
 pos = (337,0);
 },
 {
@@ -4024,86 +3948,6 @@ userData = {
 com.schriftgestaltung.Glyphs.glyph.widthMetricsKey = idotless;
 };
 width = 272;
-},
-{
-background = {
-anchors = (
-{
-name = bottom;
-pos = (228,0);
-},
-{
-name = ogonek;
-pos = (260,2);
-},
-{
-name = top;
-pos = (228,1438);
-}
-);
-shapes = (
-{
-closed = 1;
-nodes = (
-(259,-8,o),
-(299,33,o),
-(299,64,q),
-(299,986,l),
-(299,1016,o),
-(257,1058,o),
-(228,1058,q),
-(199,1058,o),
-(157,1016,o),
-(157,986,q),
-(157,64,l),
-(157,33,o),
-(197,-8,o),
-(228,-8,q)
-);
-},
-{
-closed = 1;
-nodes = (
-(257,1154,o,{
-name = inserted;
-}),
-(284,1168,o,{
-name = inserted;
-}),
-(292,1179,qs),
-(416,1356,ls),
-(443,1394,o),
-(408,1460,o),
-(367,1460,q),
-(349,1460,o,{
-name = inserted;
-}),
-(317,1441,o,{
-name = inserted;
-}),
-(309,1428,qs),
-(196,1244,ls),
-(174,1209,o),
-(207,1154,o),
-(242,1154,q)
-);
-}
-);
-};
-layerId = "EF439F48-BA17-4C34-9F5F-1FC4BA53F2EC";
-shapes = (
-{
-ref = idotless;
-},
-{
-pos = (296,0);
-ref = acutecomb;
-}
-);
-userData = {
-com.schriftgestaltung.Glyphs.glyph.widthMetricsKey = idotless;
-};
-width = 456;
 },
 {
 background = {
@@ -10282,6 +10126,32 @@ ref = acutecomb;
 }
 );
 width = 928;
+},
+{
+layerId = "16AD4072-B8B1-4BDE-842A-86931E2AA447";
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (281,0);
+ref = acutecomb;
+}
+);
+width = 399;
+},
+{
+layerId = "D6E1E77A-D23D-4B03-B992-03DF524B9619";
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (278,0);
+ref = acutecomb;
+}
+);
+width = 399;
 }
 );
 unicode = 237;
