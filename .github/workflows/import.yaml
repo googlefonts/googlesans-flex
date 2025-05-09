@@ -12,7 +12,7 @@ on:
 
 jobs:
   import-branch:
-    runs-on: googlefonts-8cores-32GB
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Log & validate inputs
@@ -49,7 +49,7 @@ jobs:
     outputs:
       import-branch: ${{ steps.create-update-import.outputs.import-branch }}
   build-variable:
-    runs-on: googlefonts-8cores-32GB
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: import-branch
     steps:
@@ -71,7 +71,7 @@ jobs:
     needs:
     - import-branch
     - build-variable
-    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
+    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
     with:
       branch: ${{ needs.import-branch.outputs.import-branch }}
       artifact-name: ${{ needs.build-variable.outputs.variable-artifact }}

@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-variable:
-    runs-on: googlefonts-8cores-32GB
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
     - name: Checkout ${{ github.ref_name }}
@@ -64,14 +64,14 @@ jobs:
   test-variable:
     needs:
     - build-variable
-    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
+    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
     with:
       branch: ${{ github.ref_name }}
       artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
   test-workspace-android:
     needs:
     - cut-instances
-    runs-on: googlefonts-8cores-32GB
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
     - name: Checkout ${{ github.ref_name }}
