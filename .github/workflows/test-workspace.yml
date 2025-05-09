@@ -7,7 +7,7 @@ on:
 jobs:
   build-variable:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
     steps:
     - name: Checkout main
       uses: actions/checkout@v4
@@ -24,8 +24,8 @@ jobs:
   cut-instances:
     needs:
     - build-variable
-    runs-on: googlefonts-16cores-64GB
-    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
     needs:
     - cut-instances
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4

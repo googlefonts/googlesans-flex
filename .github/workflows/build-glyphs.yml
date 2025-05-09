@@ -14,7 +14,7 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
     steps:
     - name: Checkout main
       uses: actions/checkout@v4
@@ -67,7 +67,7 @@ jobs:
       sources-artifact: ${{ steps.zip-name.outputs.artifact-name }}
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
     needs:
     - convert
     steps:

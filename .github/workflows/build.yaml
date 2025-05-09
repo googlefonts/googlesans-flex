@@ -17,7 +17,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
     steps:
     # on: pull_request uses head_ref for branch name, on: push uses ref_name
     - name: Checkout ${{ inputs.git-ref || github.head_ref || github.ref_name }}
