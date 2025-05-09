@@ -88,11 +88,19 @@ jobs:
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
         path: fonts/workspace
+    - name: Check workspace fonts with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@v3
+      with:
+        path: fonts/workspace/*.ttf
     - name: Download Android font
       uses: actions/download-artifact@v4
       with:
         name: ${{ needs.cut-instances.outputs.android-artifact-name }}
         path: fonts/android
+    - name: Check Android font with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@v3
+      with:
+        path: fonts/android/*.ttf
     - name: Run Fontbakery
       id: fontbakery-workspace
       env:
