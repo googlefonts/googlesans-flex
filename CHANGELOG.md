@@ -195,10 +195,6 @@
 - Scripts:
   - updated set-overlap-bits.py
 
-## Version 1.000 (2023-01-18)
-- initial release
-
-
 ## Version 1.002 (2023-06-28)
 
 ### New
@@ -257,6 +253,7 @@ prune_font_binary.py
 ## Version 1.000 (2023-01-18)
 - initial release
 
+* * * 
 
 ## Template
 
