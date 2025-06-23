@@ -17,14 +17,13 @@ Command line tool that outputs a sorted TSV giving each glyphs contribution in
 bytes to the 'gvar' table, for identifying where optimisation is possible.
 """
 
-
 import math
 import os
 from argparse import ArgumentParser
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
-from fontTools.ttLib.tables._g_v_a_r import GVAR_HEADER_SIZE
+from fontTools.ttLib.tables._g_v_a_r import GVAR_HEADER_SIZE_HEAD, GVAR_HEADER_SIZE_TAIL
 from fontTools.ttLib.tables._g_v_a_r import table__g_v_a_r as GVAR
 from rich.console import Console
 from rich.table import Table
@@ -44,9 +43,10 @@ def get_gvar_contribs(ttf: TTFont) -> dict[str, int]:
     glyphs: list[str] = ttf.getGlyphOrder()  # type: ignore
 
     # Use internal API to derive offsets.
-    # See: https://github.com/fonttools/fonttools/blob/a1a5af2f/Lib/fontTools/ttLib/tables/_g_v_a_r.py#L119-L134
+    # See: https://github.com/fonttools/fonttools/blob/f7ee2503/Lib/fontTools/ttLib/tables/_g_v_a_r.py#L132-L167
+    header_size = GVAR_HEADER_SIZE_HEAD + gvar.gid_size + GVAR_HEADER_SIZE_TAIL
     offsets = gvar.decompileOffsets_(
-        data[GVAR_HEADER_SIZE:],
+        data[header_size:],
         tableFormat=(gvar.flags & 1),  # type: ignore
         glyphCount=len(glyphs),  # type: ignore
     )
