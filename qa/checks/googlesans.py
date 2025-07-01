@@ -338,7 +338,6 @@ def com_google_fonts_check_googlesansflex_variable_fvar_default(font: Font, ttFo
 
 @check(
     id="googlesansflex/android_ymin_ymax",
-    conditions=["is_variable_font"],
     rationale="""
     Confirms the Android-specific Flex build has the correct yMin/yMax
     """,
@@ -347,7 +346,8 @@ def com_google_fonts_check_android_ymin_ymax(font: Font, ttFont: TTFont):
     """Confirms the Android-specific Flex build has the correct yMin/yMax"""
     font_path = Path(font.file)
     if font_path.parent.name != "android":
-        return SKIP, "Not Android flavour Flex"
+        yield SKIP, "Not Android flavour Flex"
+        return
 
     # Reopen the font fresh because the ttFont we get as argument seems to have
     # had its head yMin and yMax recomputed to the values from the font,
