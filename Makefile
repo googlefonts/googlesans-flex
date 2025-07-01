@@ -48,6 +48,8 @@ android: build.stamp
 		--ymin -605 --ymax 2007 \
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
 		--output fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	venv/bin/python scripts/prune_hvar.py \
+		fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
 workspace: build.stamp
 	-@rm fonts/workspace/*.ttf
