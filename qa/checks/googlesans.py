@@ -360,3 +360,23 @@ def com_google_fonts_check_android_ymin_ymax(font: Font, ttFont: TTFont):
         yield FAIL, f"yMin was {head.yMin} instead of -605"
     if head.yMax != 2007:
         yield FAIL, f"yMax was {head.yMax} instead of 2007"
+
+
+@check(
+    id="googlesansflex/android_hvar",
+    rationale="""
+    Confirms the Android-specific Flex build has no `HVAR` table.
+
+    See: https://github.com/googlefonts/googlesans-flex/issues/1154
+    """,
+)
+def com_google_fonts_check_android_hvar(font: Font, ttFont: TTFont):
+    """Confirms the Android-specific Flex build has no `HVAR` table"""
+
+    font_path = Path(font.file)
+    if font_path.parent.name != "android":
+        yield SKIP, "Not Android flavour Flex"
+        return
+
+    if "HVAR" in ttFont:
+        yield FAIL, f"{font_path} contains an `HVAR` table, but should not"
