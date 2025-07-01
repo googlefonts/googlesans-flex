@@ -28,7 +28,7 @@ if __name__ == "__main__":
     parser.add_argument("ttf", type=Path)
     args = parser.parse_args()
 
-    ttf = TTFont(args.ttf)
+    ttf = TTFont(args.ttf, recalcBBoxes=False)
     del ttf["HVAR"]
     ttf.save(args.ttf)
     # That's it!
