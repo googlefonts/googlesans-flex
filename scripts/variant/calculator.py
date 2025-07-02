@@ -87,19 +87,22 @@ def subset(ttf: TTFont, codepoints: set[int]) -> None:
 
     options = SubsetOptions()
 
+    # Validate our subsets.
     options.ignore_missing_glyphs = False
     options.ignore_missing_unicodes = False
 
+    # Keep notdef.
     options.notdef_outline = True
 
+    # Do not prune more than our subset requires.
     options.layout_features = ["*"]
-
     options.name_IDs = ["*"]  # type: ignore # (not just ints)
     options.name_languages = ["*"]  # type: ignore # (not just ints)
 
     # Leave yMax alone.
     options.recalc_bounds = False
 
+    # This is better than selecting too few.
     options.prune_unicode_ranges = False
     options.prune_codepage_ranges = False
     options.glyph_names = True
