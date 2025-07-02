@@ -20,32 +20,66 @@
 # ///
 
 """
-Consumes a TTF, and produces a derived TTF that has the codepoints for Greek and
-mathematical Pi swapped, and that is pruned to fewer codepoints.
+Accepts a TTF, and produces a derived TTF that is subset and has codepoints
+reassigned as appropriate for calculator usage.
+
+(Configured with the globals below.)
+
+Usage (automatically install dependencies):
+    `$ uv run --script calculator.py in.ttf --out out.ttf`
+
+Usage (manually install dependencies):
+    1. Install Python (only tested with 3.13)
+    2. Install `fonttools`
+    3. `$ python calculator.py in.ttf --out out.ttf`
 """
 
 from fontTools.ttLib import TTFont
 from fontTools.fontBuilder import FontBuilder
 from fontTools.subset import Subsetter, Options as SubsetOptions
 
+#####################
+### Configuration ###
+#####################
 
-def swap_mapping(ttf: TTFont, first: int, second: int) -> None:
-    """Swap the glyphs mapped for two codepoints."""
+# The 'key' codepoint will be remapped to the glyph of the 'value' codepoint.
+# TODO: Tinker with and configure as required.
+NEW_TO_OLD = {
+    # Map 'Greek Small Letter Pi' to the glyph at 'Mathematical Bold Pi Symbol'
+    ord("π"): ord("𝛡")
+}
 
-    mapping = ttf.getBestCmap()
-    new = {
-        codepoint: (
-            mapping[second]
-            if codepoint == first
-            else mapping[first]
-            if codepoint == second
-            else glyph
-        )
-        for codepoint, glyph in mapping.items()
-    }
+# Only the following codepoints and their descendent glyphs will be kept.
+# TODO: Tinker with and configure as required.
+SUBSET = {
+    ord("0"),
+    ord("1"),
+    ord("2"),
+    ord("3"),
+    ord("4"),
+    ord("5"),
+    ord("6"),
+    ord("7"),
+    ord("8"),
+    ord("9"),
+    ord("π"),
+}
+
+############
+### Code ###
+############
+
+
+def remap_codepoints(ttf: TTFont, new_to_old: dict[int, int]) -> None:
+    """Redirect codepoints to glyphs at other existing codepoints."""
+
+    existing = ttf.getBestCmap()
+    overrides = {new: existing[old] for new, old in new_to_old.items()}
+
+    combined = {**existing, **overrides}
 
     builder = FontBuilder(font=ttf)
-    builder.setupCharacterMap(new)
+    builder.setupCharacterMap(combined)
 
 
 def subset(ttf: TTFont, codepoints: set[int]) -> None:
@@ -69,7 +103,7 @@ def subset(ttf: TTFont, codepoints: set[int]) -> None:
     options.glyph_names = True
 
     subsetter = Subsetter(options=options)
-    subsetter.populate(unicodes=codepoints)
+    subsetter.populate(unicodes=list(codepoints))
     subsetter.subset(ttf)
 
 
@@ -79,19 +113,19 @@ def main():
 
     parser = ArgumentParser()
     parser.description = """
-        Consumes a TTF, and produces a derived TTF that has the codepoints for
-        Greek and mathematical Pi swapped, and that is pruned to fewer
-        codepoints.
+        Accepts a TTF, and produces a derived TTF that is subset and has
+        codepoints reassigned as appropriate for calculator usage.
+
+        (Configured with the globals at the top of the file.)
     """
     parser.add_argument("ttf", type=TTFont)
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
 
-    # TODO: Fill final codepoints to swap, and codepoints to keep.
     ttf = args.ttf
 
-    swap_mapping(ttf, ord("A"), ord("B"))
-    subset(ttf, {ord("A"), ord("B")})
+    remap_codepoints(ttf, NEW_TO_OLD)
+    subset(ttf, SUBSET)
 
     ttf.save(args.out)
 
