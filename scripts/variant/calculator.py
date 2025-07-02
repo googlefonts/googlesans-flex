@@ -100,6 +100,7 @@ def subset(ttf: TTFont, codepoints: set[int]) -> None:
     options.recalc_bounds = True
 
     options.prune_unicode_ranges = False
+    options.prune_codepage_ranges = False
     options.glyph_names = True
 
     subsetter = Subsetter(options=options)
