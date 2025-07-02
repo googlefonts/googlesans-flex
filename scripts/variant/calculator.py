@@ -97,7 +97,8 @@ def subset(ttf: TTFont, codepoints: set[int]) -> None:
     options.name_IDs = ["*"]  # type: ignore # (not just ints)
     options.name_languages = ["*"]  # type: ignore # (not just ints)
 
-    options.recalc_bounds = True
+    # Leave yMax alone.
+    options.recalc_bounds = False
 
     options.prune_unicode_ranges = False
     options.prune_codepage_ranges = False
@@ -119,11 +120,11 @@ def main():
 
         (Configured with the globals at the top of the file.)
     """
-    parser.add_argument("ttf", type=TTFont)
+    parser.add_argument("ttf", type=Path)
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
 
-    ttf = args.ttf
+    ttf = TTFont(args.ttf, recalcBBoxes=False)  # leave yMax alone
 
     remap_codepoints(ttf, NEW_TO_OLD)
     subset(ttf, SUBSET)
