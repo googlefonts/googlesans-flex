@@ -1,5 +1,12 @@
 # Google Sans Flex Changelog
 
+## Version 3.005 (planned 2028-08)
+### Changed
+- added currency signs: ₹ ₩ ฿ (#1164)
+- added U+207B and U+02E3 (#1165)
+
+
+
 ## Version 3.004 (2025-04-9)
 ### Changed
 - updated workspace font families (upright + italic):
@@ -195,8 +202,6 @@
 - Scripts:
   - updated set-overlap-bits.py
 
-## Version 1.000 (2023-01-18)
-- initial release
 
 
 ## Version 1.002 (2023-06-28)
