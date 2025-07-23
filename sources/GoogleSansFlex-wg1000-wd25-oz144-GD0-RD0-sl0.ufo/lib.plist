@@ -2,6 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>GSReScaler</key>
+    <dict>
+      <key>ScaleX</key>
+      <real>0.6</real>
+      <key>ScaleY</key>
+      <real>0.6</real>
+      <key>ShiftY</key>
+      <integer>955</integer>
+      <key>Tracking</key>
+      <integer>20</integer>
+      <key>WeightX</key>
+      <integer>110</integer>
+      <key>WeightY</key>
+      <integer>60</integer>
+      <key>name</key>
+      <string>wg1000-wd25-oz144-GD0-RD0-sl0</string>
+    </dict>
     <key>com.github.googlei18n.ufo2ft.featureWriters</key>
     <array>
       <dict>
@@ -760,11 +777,15 @@
       <string>gdotaccent.ss03</string>
       <string>dcroat_comp</string>
       <string>hbar_comp</string>
+      <string>zero.dnom.percent</string>
+      <string>zero.numr.percent</string>
       <string>uni00A0</string>
       <string>narrownbspace</string>
       <string>periodcentered.loclCAT</string>
       <string>periodcentered.loclCAT.case</string>
       <string>yen.tf</string>
+      <string>minussuperior</string>
+      <string>multiplysuperior</string>
       <string>uni25CC</string>
       <string>hookabovecomb</string>
       <string>horncomb</string>
@@ -789,8 +810,6 @@
       <string>hookabovecomb.viet.case</string>
       <string>apostrophemod</string>
       <string>uni02BB</string>
-      <string>zero.dnom.percent</string>
-      <string>zero.numr.percent</string>
       <string>_copyright-circle</string>
       <string>_dots-divide</string>
       <string>_copyright-C</string>
@@ -1383,6 +1402,8 @@
       <string>uni0304</string>
       <key>micro</key>
       <string>uni00B5</string>
+      <key>minussuperior</key>
+      <string>uni207B</string>
       <key>mu</key>
       <string>uni03BC</string>
       <key>narrownbspace</key>
