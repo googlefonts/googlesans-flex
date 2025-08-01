@@ -296,6 +296,8 @@ SUBSET_BY_NAME = {
     "zero.dnom.percent",
     "_dotsdivide",
     "percentbar.tab",
+    "uni207B",
+    "multiplysuperior",
 }
 
 ############
