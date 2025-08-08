@@ -1,5 +1,5 @@
 {
-.appVersion = "3419";
+.appVersion = "3422";
 .formatVersion = 3;
 axes = (
 {
@@ -1629,6 +1629,7 @@ stemValues = (
 168
 );
 userData = {
+GSCornerRadius = 15;
 reinterpolator = {
 interpolation = 699;
 };
@@ -5167,10 +5168,6 @@ pos = (67,132);
 {
 pos = (14,258);
 showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (994,0);
 }
 );
 id = "3AA5206E-0C5B-4811-AC66-5F4770CFF1AA";
@@ -6364,10 +6361,6 @@ locked = 1;
 pos = (-32,1062);
 },
 {
-pos = (-13,503);
-showMeasurement = 1;
-},
-{
 locked = 1;
 pos = (14,-474);
 },
@@ -7248,9 +7241,6 @@ pos = (47,716);
 {
 name = "MATH ";
 pos = (39,620);
-},
-{
-pos = (50,1079);
 }
 );
 id = "353C7FA6-CB1F-4A3C-B477-37BDD6BB0677";
@@ -9677,7 +9667,7 @@ pos = (151,1247);
 },
 {
 name = "superiors-b";
-pos = (495,1020);
+pos = (495,1021);
 },
 {
 name = "superiors-overshoot";
@@ -10323,10 +10313,6 @@ name = "superiors-b";
 pos = (495,1020);
 },
 {
-name = "superiors-overshoot";
-pos = (495,1005);
-},
-{
 locked = 1;
 name = "superior-overshoot";
 pos = (289,1829);
@@ -10335,36 +10321,6 @@ pos = (289,1829);
 locked = 1;
 name = "superior-b";
 pos = (289,1814);
-},
-{
-name = "sinf-overshoot";
-pos = (264,432);
-},
-{
-name = "sinf-b";
-pos = (27,-373);
-},
-{
-name = "sinf-b";
-pos = (284,421);
-},
-{
-name = "sinf-overshoot";
-pos = (27,-388);
-},
-{
-pos = (489,1621);
-},
-{
-pos = (468,-129);
-},
-{
-name = "MATH tf";
-pos = (491,753);
-},
-{
-name = "MATH tf";
-pos = (491,753);
 }
 );
 id = "7375F3B4-6260-47CB-87A2-00A24266E0AF";
@@ -10778,7 +10734,7 @@ name = "sinf-overshoot";
 pos = (27,-428);
 },
 {
-pos = (8,990);
+pos = (18,990);
 }
 );
 id = "10478940-D0BE-441F-9786-BA9AB95F2E75";
@@ -15091,7 +15047,7 @@ pos = (1003,0);
 },
 {
 angle = 259.8753;
-pos = (1009,757);
+pos = (982,757);
 },
 {
 pos = (104,859);
@@ -15110,6 +15066,14 @@ pos = (70,0);
 {
 angle = 80;
 pos = (240,0);
+},
+{
+angle = 259.8753;
+pos = (1009,757);
+},
+{
+angle = 259.8753;
+pos = (810,755);
 }
 );
 id = "9B92563B-7A7E-4FBF-A2FB-063C9E3140A7";
@@ -16175,9 +16139,6 @@ pos = (14,-432);
 },
 {
 pos = (16,-25);
-},
-{
-pos = (50,736);
 },
 {
 angle = 90;
@@ -19159,7 +19120,7 @@ name = "MATH TF";
 pos = (635,716);
 },
 {
-pos = (800,640);
+pos = (804,612);
 }
 );
 id = "4F916874-D865-4217-AC6B-8AA620D9F61C";
@@ -40787,6 +40748,10 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.75188;
+m001 = 0.24812;
+};
 name = Thin;
 weightClass = 100;
 },
@@ -40799,6 +40764,10 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.50125;
+m001 = 0.49875;
+};
 name = ExtraLight;
 weightClass = 200;
 },
@@ -40811,6 +40780,10 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.25063;
+m001 = 0.74937;
+};
 name = Light;
 weightClass = 300;
 },
@@ -40823,6 +40796,9 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+m001 = 1;
+};
 name = Regular;
 },
 {
@@ -40834,6 +40810,11 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.45787;
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.43791;
+m001 = 0.10422;
+};
 name = Medium;
 weightClass = 500;
 },
@@ -40846,6 +40827,10 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.5996;
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.4004;
+};
 name = SemiBold;
 weightClass = 600;
 },
@@ -40858,6 +40843,10 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.6997;
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.3003;
+};
 name = Bold;
 weightClass = 700;
 },
@@ -40870,6 +40859,10 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.7998;
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.2002;
+};
 name = ExtraBold;
 weightClass = 800;
 },
@@ -40882,6 +40875,10 @@ axesValues = (
 0,
 0
 );
+instanceInterpolations = {
+"879AA4C1-268E-45F5-A479-E8A4233029E2" = 0.8999;
+"8C857106-A80A-4FB6-B2EF-2467F0D4A0D5" = 0.1001;
+};
 name = Black;
 weightClass = 900;
 },
@@ -40894,6 +40891,10 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.75188;
+"9B92563B-7A7E-4FBF-A2FB-063C9E3140A7" = 0.24812;
+};
 name = "Thin Italic";
 weightClass = 100;
 },
@@ -40906,6 +40907,10 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.50125;
+"9B92563B-7A7E-4FBF-A2FB-063C9E3140A7" = 0.49875;
+};
 name = "ExtraLight Italic";
 weightClass = 200;
 },
@@ -40918,6 +40923,10 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.25063;
+"9B92563B-7A7E-4FBF-A2FB-063C9E3140A7" = 0.74937;
+};
 name = "Light Italic";
 weightClass = 300;
 },
@@ -40930,6 +40939,9 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"9B92563B-7A7E-4FBF-A2FB-063C9E3140A7" = 1;
+};
 name = Italic;
 },
 {
@@ -40941,6 +40953,11 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"2CADC26F-F17A-4223-9B98-219CAF3172D9" = 0.44955;
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.42539;
+"9B92563B-7A7E-4FBF-A2FB-063C9E3140A7" = 0.12506;
+};
 name = "Medium Italic";
 weightClass = 500;
 },
@@ -40953,6 +40970,10 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"2CADC26F-F17A-4223-9B98-219CAF3172D9" = 0.5996;
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.4004;
+};
 name = "SemiBold Italic";
 weightClass = 600;
 },
@@ -40965,6 +40986,10 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"2CADC26F-F17A-4223-9B98-219CAF3172D9" = 0.6997;
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.3003;
+};
 name = "Bold Italic";
 weightClass = 700;
 },
@@ -40977,6 +41002,10 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"2CADC26F-F17A-4223-9B98-219CAF3172D9" = 0.7998;
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.2002;
+};
 name = "ExtraBold Italic";
 weightClass = 800;
 },
@@ -40989,6 +41018,10 @@ axesValues = (
 0,
 -10
 );
+instanceInterpolations = {
+"2CADC26F-F17A-4223-9B98-219CAF3172D9" = 0.8999;
+"31627D72-9CF8-4D8A-8B30-4AEF5FFC11CB" = 0.1001;
+};
 name = "Black Italic";
 weightClass = 900;
 },
@@ -41002,6 +41035,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"0E427199-3761-4D16-8F3B-7327BA7E7A1E" = 1;
+};
 name = "wg1-wd25-oz6-GD0-RD100-sl0";
 },
 {
@@ -41014,6 +41050,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"910B0CEC-A3DB-421F-A568-ECC2FB9F260B" = 1;
+};
 name = "wg400-wd25-oz6-GD0-RD100-sl0";
 },
 {
@@ -41026,6 +41065,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"86E2D5CA-CF61-4061-850A-2565A04AA398" = 1;
+};
 name = "wg1000-wd25-oz6-GD0-RD100-sl0";
 },
 {
@@ -41038,6 +41080,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"B032EA3A-E153-4C18-9D81-C226C7DC7AF7" = 1;
+};
 name = "wg1-wd100-oz6-GD0-RD100-sl0";
 },
 {
@@ -41050,6 +41095,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"3496D11C-5B0A-4935-862F-9D9095789F8D" = 1;
+};
 name = "wg400-wd100-oz6-GD0-RD100-sl0";
 },
 {
@@ -41062,6 +41110,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"067395CE-198B-4F3C-A557-1A962932305C" = 1;
+};
 name = "wg1000-wd100-oz6-GD0-RD100-sl0";
 },
 {
@@ -41074,6 +41125,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"73205661-1CB1-47FE-897D-D77D44983E84" = 1;
+};
 name = "wg1-wd151-oz6-GD0-RD100-sl0";
 },
 {
@@ -41086,6 +41140,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"8D6518F7-12BA-4A74-9FDB-C960DB029490" = 1;
+};
 name = "wg400-wd151-oz6-GD0-RD100-sl0";
 },
 {
@@ -41098,6 +41155,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"8F2E0D1A-83F5-47D1-8539-AD3780EFCB6A" = 1;
+};
 name = "wg1000-wd151-oz6-GD0-RD100-sl0";
 },
 {
@@ -41110,6 +41170,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"EF590923-D134-4C53-B63B-98736C2A962C" = 1;
+};
 name = "wg1-wd25-oz18-GD0-RD100-sl0";
 },
 {
@@ -41122,6 +41185,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"F2F3E81A-8823-4109-A355-B5C4C09923E2" = 1;
+};
 name = "wg400-wd25-oz18-GD0-RD100-sl0";
 },
 {
@@ -41134,6 +41200,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"3DD4F746-4268-48C6-87C6-7403BEAF4275" = 1;
+};
 name = "wg1000-wd25-oz18-GD0-RD100-sl0";
 },
 {
@@ -41146,6 +41215,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"3AA5206E-0C5B-4811-AC66-5F4770CFF1AA" = 1;
+};
 name = "wg1-wd100-oz18-GD0-RD100-sl0";
 },
 {
@@ -41158,6 +41230,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"C8DF7DC7-E4A0-4C6D-97AA-C4629ECAB3F8" = 1;
+};
 name = "wg400-wd100-oz18-GD0-RD100-sl0";
 },
 {
@@ -41170,6 +41245,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"1579C575-CC9A-4C56-A304-4E4DD03EF0AF" = 1;
+};
 name = "wg1000-wd100-oz18-GD0-RD100-sl0";
 },
 {
@@ -41182,6 +41260,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"C05FA1DC-BFA7-465B-AA03-6BF73A6A6A10" = 1;
+};
 name = "wg1-wd151-oz18-GD0-RD100-sl0";
 },
 {
@@ -41194,6 +41275,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"01B7472A-D273-4887-9EAC-E6A15102225C" = 1;
+};
 name = "wg400-wd151-oz18-GD0-RD100-sl0";
 },
 {
@@ -41206,6 +41290,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"89ABD677-D09A-458D-80A2-7F5B68CA15B8" = 1;
+};
 name = "wg1000-wd151-oz18-GD0-RD100-sl0";
 },
 {
@@ -41218,6 +41305,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"7EEEA5E0-76CC-4F0A-A765-6E3C19B8B704" = 1;
+};
 name = "wg1-wd25-oz144-GD0-RD100-sl0";
 },
 {
@@ -41230,6 +41320,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"BF180843-99D6-4C65-B8E4-10B904A58698" = 1;
+};
 name = "wg400-wd25-oz144-GD0-RD100-sl0";
 },
 {
@@ -41242,6 +41335,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"C09FB21D-6B75-4928-B5AD-7420F8AAB406" = 1;
+};
 name = "wg1000-wd25-oz144-GD0-RD100-sl0";
 },
 {
@@ -41254,6 +41350,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"C8F8B257-49A3-46CF-8326-EA594855E40C" = 1;
+};
 name = "wg1-wd100-oz144-GD0-RD100-sl0";
 },
 {
@@ -41266,6 +41365,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"EF439F48-BA17-4C34-9F5F-1FC4BA53F2EC" = 1;
+};
 name = "wg400-wd100-oz144-GD0-RD100-sl0";
 },
 {
@@ -41278,6 +41380,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"4242967F-419F-414F-9DAB-572DEE9205F9" = 1;
+};
 name = "wg1000-wd100-oz144-GD0-RD100-sl0";
 },
 {
@@ -41290,6 +41395,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"B9E8A319-7B42-4C5E-94DF-02946C7DF308" = 1;
+};
 name = "wg1-wd151-oz144-GD0-RD100-sl0";
 },
 {
@@ -41302,6 +41410,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"7375F3B4-6260-47CB-87A2-00A24266E0AF" = 1;
+};
 name = "wg400-wd151-oz144-GD0-RD100-sl0";
 },
 {
@@ -41314,6 +41425,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"10478940-D0BE-441F-9786-BA9AB95F2E75" = 1;
+};
 name = "wg1000-wd151-oz144-GD0-RD100-sl0";
 },
 {
@@ -41326,6 +41440,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"9783FD78-D1DA-4A2F-9939-C716E4B6354F" = 1;
+};
 name = "Display Hairline";
 weightClass = 100;
 widthClass = 4;
@@ -41340,6 +41457,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"733112D2-2833-4B86-B7ED-934B97F7C918" = 1;
+};
 name = "Display Heavy";
 weightClass = 900;
 widthClass = 4;
@@ -41354,6 +41474,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"353C7FA6-CB1F-4A3C-B477-37BDD6BB0677" = 1;
+};
 name = "Display Compressed Hairline";
 weightClass = 100;
 widthClass = 1;
@@ -41368,6 +41491,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"8F69D9BF-EE35-44AA-BD6F-D41841F9764C" = 1;
+};
 name = "Display Compressed Heavy";
 weightClass = 900;
 widthClass = 1;
@@ -41382,6 +41508,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"C6E6A82E-5529-473D-BA0B-E088A1B2D63E" = 1;
+};
 name = "Text Regular";
 widthClass = 6;
 },
@@ -41395,6 +41524,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+m001 = 1;
+};
 name = "Deck Regular";
 },
 {
@@ -41407,6 +41539,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"91251A45-EED6-44E6-BC9D-709435BB03FD" = 1;
+};
 name = "Deck Compressed Regular";
 widthClass = 3;
 },
@@ -41420,6 +41555,9 @@ axesValues = (
 0
 );
 exports = 0;
+instanceInterpolations = {
+"D4025A93-B215-454F-9D60-B6448166D546" = 1;
+};
 name = "Display Extended";
 widthClass = 9;
 }
@@ -264163,7 +264301,6 @@ value = GOOG;
 );
 settings = {
 disablesNiceNames = 1;
-fontType = variable;
 previewRemoveOverlap = 0;
 snapToObjects = 0;
 };
