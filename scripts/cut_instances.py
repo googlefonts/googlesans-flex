@@ -54,6 +54,29 @@ class WorkspaceInstance(TypedDict):
     ROND: int
 
 
+class GoogleTVInstance(TypedDict):
+    wght: float | str
+    opsz: int
+    wdth: int
+    ROND: int
+
+# This slice is then produced in upright & italic flavours, retaining only the
+# weight variable axis in values 400-700 with 400 at default
+TARGET_INSTANCES: list[tuple[str, GoogleTVInstance]] = [
+    (
+        "Google Sans Flex TV",
+        {
+            "wght": "400:400:700",
+            "opsz": 18,
+            "wdth": 100,
+            "ROND": 100,
+        },
+    ),
+]
+#TO DO: limit features to: "tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga"
+#TO DO: limit character set to --unicodes="U+D-25CC,U+FB00-1D61E" but retain outlined of the .notdef
+#TO DO: output file name: GoogleSansFlexTVSubset.ttf 
+
 # These are then produced in upright & italic flavours, retaining only the
 # weight variable axis
 TARGET_INSTANCES: list[tuple[str, WorkspaceInstance]] = [
