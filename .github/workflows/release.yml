@@ -83,15 +83,19 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
         cache: pip
-    - name: Download workspace fonts
+    - name: Download workspace and tv fonts
       uses: actions/download-artifact@v4
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
-        path: fonts/workspace
+        path: fonts/
     - name: Check workspace fonts with OT Sanitizer
       uses: f-actions/opentype-sanitizer@v3
       with:
         path: fonts/workspace/*.ttf
+    - name: Check tv fonts with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@v3
+      with:
+        path: fonts/tv/*.ttf
     - name: Download Android font
       uses: actions/download-artifact@v4
       with:
@@ -132,7 +136,7 @@ jobs:
       with:
         name: ${{ needs.build-variable.outputs.artifact-name }}
         path: ${{ needs.build-variable.outputs.artifact-name }}
-    - name: Download workspace fonts
+    - name: Download workspace and tv fonts
       uses: actions/download-artifact@v4
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
@@ -154,8 +158,13 @@ jobs:
 
         workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
         echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}" \
+        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}/workspace" \
           && zip -9 "../$workspace_zip_name" *.ttf *.md
+
+        tv_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} tv.zip"
+        echo "tv-zip-name=$tv_zip_name" >> "$GITHUB_OUTPUT"
+        cd "$GITHUB_tv/${{ needs.cut-instances.outputs.workspace-artifact-name }}/tv" \
+          && zip -9 "../$tv_zip_name" *.ttf *.md
         
         android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
