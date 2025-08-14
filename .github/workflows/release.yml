@@ -186,3 +186,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ${{ steps.release-archives.outputs.android-zip-name }}
+    - name: Upload tv font archive to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: ${{ steps.release-archives.outputs.tv-zip-name }}
