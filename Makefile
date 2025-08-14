@@ -56,7 +56,7 @@ workspace: build.stamp
 	. venv/bin/activate && python scripts/cut_instances.py \
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
 		fonts/workspace
-	. venv/bin/activate && pyftsubset fonts/workspace/GoogleSansFlexTV[wght].ttf --output-file=fonts/workspace/GoogleSansFlexTV[wght].ttf --unicodes="U+D-25CC,U+FB00-1D61E" --layout-features="tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga" --recalc-average-width --notdef-outline
+	. venv/bin/activate && pyftsubset fonts/workspace/GoogleSansFlexTV[wght].ttf --output-file=fonts/workspace/GoogleSansFlexTV[wght].ttf --unicodes="U+D-25CC,U+FB00-1D61E" --layout-features="tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga" --recalc-average-width --notdef-outline --recalc-max-context --recalc-bounds
 
 release: android workspace
 
