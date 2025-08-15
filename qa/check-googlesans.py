@@ -37,6 +37,7 @@ PROFILE = {
             "googlesansflex/opentype/global_fu_attributes",
             "googlesansflex/android_ymin_ymax",
             "googlesansflex/android_hvar",
+            "googlesansflex/varfont/has_HVAR",
         ]
     },
     "exclude_checks": [
@@ -61,6 +62,7 @@ PROFILE = {
         "opentype/family/consistent_family_name",  # intended with our statics
         "name/family_and_style_max_length",  # we know our statics exceed this limit and it's okay
         "opentype/varfont/family_axis_ranges",  # our workspace fonts intentionally change axes ranges
+        "googlefonts/varfont/has_HVAR",  # The Android font has no HVAR, so we had to modify this check into `googlesansflex/varfont/has_HVAR`
     ],
     "overrides": {
         "varfont/consistent_axes": [
