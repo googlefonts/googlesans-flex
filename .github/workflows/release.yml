@@ -159,12 +159,12 @@ jobs:
         workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
         echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
         cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}/workspace" \
-          && zip -9 "../$workspace_zip_name" *.ttf *.md
+          && zip -9 "../../$workspace_zip_name" *.ttf *.md
 
         tv_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} tv.zip"
         echo "tv-zip-name=$tv_zip_name" >> "$GITHUB_OUTPUT"
         cd "$GITHUB_tv/${{ needs.cut-instances.outputs.workspace-artifact-name }}/tv" \
-          && zip -9 "../$tv_zip_name" *.ttf *.md
+          && zip -9 "../../$tv_zip_name" *.ttf *.md
         
         android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
