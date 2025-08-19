@@ -1,10 +1,14 @@
 # Google Sans Flex Changelog
 
-## Version 3.005 (planned 2028-08)
+## Version 3.006 (planned 2028-08)
 ### Changed
 - added currency signs: ₹ ₩ ฿ (#1164)
-- added U+207B and U+02E3 (#1165)
 
+
+## Version 3.005 (2028-08-19)
+### Changed
+- added GSF TV font slice (#1176)
+- added U+207B and U+02E3 (#1165)
 
 
 ## Version 3.004 (2025-04-9)
