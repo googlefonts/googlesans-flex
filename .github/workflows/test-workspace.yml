@@ -58,11 +58,11 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
         cache: pip
-    - name: Download workspace fonts
+    - name: Download workspace and tv fonts
       uses: actions/download-artifact@v4
       with:
         name: ${{ needs.cut-instances.outputs.artifact-name }}
-        path: fonts/workspace
+        path: fonts/
     - name: Run Fontbakery
       id: fontbakery-workspace
       env:

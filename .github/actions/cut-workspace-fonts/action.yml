@@ -36,10 +36,12 @@ runs:
     uses: alpha-tango-kilo/gha-artifact-name@v1
     with:
       repo-name: Google Sans Flex workspace
-  - name: Upload workspace fonts
+  - name: Upload workspace and tv fonts
     uses: actions/upload-artifact@v4
     with:
       name: ${{ steps.artifact-name.outputs.artifact-name }}
-      path: fonts/workspace
+      path: |
+        fonts/workspace
+        fonts/tv
       compression-level: 9
       if-no-files-found: error

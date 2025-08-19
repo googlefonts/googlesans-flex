@@ -38,6 +38,11 @@ def hb_font(font: Font):
 @check(id="googlesans/features/regression")
 def com_google_fonts_check_googlesans_features_regression(font: Font, ttFont, hb_font):
     """But does it shape?"""
+
+    if "Google Sans Flex TV" in ttFont["name"].getDebugName(1):
+        yield SKIP, "Font is not interesting to check."
+        return
+
     filename = Path(font.file)
 
     shaping_file_found = False

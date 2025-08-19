@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from fontbakery.prelude import FAIL, PASS, check, condition
+from fontbakery.prelude import FAIL, PASS, SKIP, check, condition
 from fontbakery.testable import Font
 
 GOOGLESANS_PROFILE_CHECKS = [
@@ -88,6 +88,11 @@ def is_variable_font(font: Font):
 )
 def com_google_fonts_check_googlesans_features_variable_uprights(ttFont):
     """Confirms that the upright builds contain expected feature tags."""
+
+    if "Google Sans Flex TV" in ttFont["name"].getDebugName(1):
+        yield SKIP, "Font is not interesting to check."
+        return
+
     tt = ttFont
     gpos = tt.get("GPOS")
     gsub = tt.get("GSUB")

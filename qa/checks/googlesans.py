@@ -362,6 +362,46 @@ def com_google_fonts_check_android_ymin_ymax(font: Font, ttFont: TTFont):
         yield FAIL, f"yMax was {head.yMax} instead of 2007"
 
 
+# Copy of the check from fontbakery 1.0.1 to ignore our Android font without a
+# HVAR table.
+@check(
+    id="googlesansflex/varfont/has_HVAR",
+    rationale="""
+        Not having a HVAR table can lead to costly text-layout operations on some
+        platforms, which we want to avoid.
+
+        So, all variable fonts on the Google Fonts collection should have an HVAR
+        with valid values.
+
+        More info on the HVAR table can be found at:
+        https://docs.microsoft.com/en-us/typography/opentype/spec/otvaroverview#variation-data-tables-and-miscellaneous-requirements
+    """,
+    # FIX-ME: We should clarify which are these platforms in which there can be issues
+    #         with costly text-layout operations when an HVAR table is missing!
+    conditions=["is_variable_font"],
+    proposal="https://github.com/fonttools/fontbakery/issues/2119",
+)
+def check_varfont_has_HVAR(ttFont):
+    """Check that variable fonts have an HVAR table."""
+
+    font_path = Path(ttFont.reader.file.name)
+    if font_path.parent.name == "android":
+        yield SKIP, "Android flavour Flex has no HVAR"
+        return
+
+    if "HVAR" not in ttFont.keys():
+        yield (
+            FAIL,
+            Message(
+                "lacks-HVAR",
+                "All variable fonts on the Google Fonts collection"
+                " must have a properly set HVAR table in order"
+                " to avoid costly text-layout operations on"
+                " certain platforms.",
+            ),
+        )
+
+
 @check(
     id="googlesansflex/android_hvar",
     rationale="""

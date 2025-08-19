@@ -17,6 +17,9 @@ buildStatic: false
 reverseOutlineDirection: true
 removeOutlineOverlaps: false
 
+# Work around https://github.com/fonttools/fonttools/issues/3905.
+extraVariableFontmakeArgs: "--no-auto-use-my-metrics"
+
 stat:
   "GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf":
     - name: Optical Size
