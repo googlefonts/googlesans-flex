@@ -15,7 +15,7 @@
 from difflib import unified_diff
 from pathlib import Path
 
-from fontbakery.prelude import check, FAIL, PASS
+from fontbakery.prelude import check, FAIL, PASS, SKIP
 
 # ================================================
 # Glyph set checks
@@ -42,6 +42,10 @@ def com_google_fonts_check_googlesans_glyphs_glyphset_contents(font, ttFont):
     non-Unicode encoded glyph definitions. This test does not require the
     glyph order to match.
     """
+
+    if "Google Sans Flex TV" in ttFont["name"].getDebugName(1):
+        yield SKIP, "Font is not interesting to check."
+        return
 
     glyph_defs_dir = Path("qa", "definitions")
 

@@ -14,6 +14,9 @@ jobs:
   import-branch:
     runs-on: googlefonts-8cores-32GB
     timeout-minutes: 15
+    permissions:
+      # Explicit permission is required to push the import commit.
+      contents: write
     steps:
       - name: Log & validate inputs
         run: |

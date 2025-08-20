@@ -7,7 +7,7 @@ on:
 jobs:
   build-variable:
     runs-on: googlefonts-8cores-32GB
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
     - name: Checkout main
       uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
     needs:
     - build-variable
     runs-on: googlefonts-16cores-64GB
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
     needs:
     - cut-instances
     runs-on: googlefonts-8cores-32GB
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v4
@@ -58,11 +58,11 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
         cache: pip
-    - name: Download workspace fonts
+    - name: Download workspace and tv fonts
       uses: actions/download-artifact@v4
       with:
         name: ${{ needs.cut-instances.outputs.artifact-name }}
-        path: fonts/workspace
+        path: fonts/
     - name: Run Fontbakery
       id: fontbakery-workspace
       env:

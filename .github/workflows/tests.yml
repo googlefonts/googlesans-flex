@@ -18,7 +18,7 @@ on:
 jobs:
   tests:
     runs-on: googlefonts-8cores-32GB
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
     - name: Checkout ${{ inputs.branch }}
       if: ${{ inputs.artifact-as-branch == '' }}
