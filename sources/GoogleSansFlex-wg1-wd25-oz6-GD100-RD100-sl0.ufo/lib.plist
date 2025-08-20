@@ -68,6 +68,14 @@
         <integer>1000</integer>
       </dict>
     </dict>
+    <key>com.schriftgestaltung.customParameter.GSFont.DisplayStrings</key>
+    <array>
+      <string>H฿H₹H₩HBH
+0฿0₹0₩0
+H฿/baht.tf H/rupeeIndian.tf H/won.tf H
+/zero.tf/baht.tf/zero.tf/rupeeIndian.tf/zero.tf/won.tf/zero.tf 
+</string>
+    </array>
     <key>com.schriftgestaltung.customParameter.GSFont.EditView Line Height</key>
     <integer>2344</integer>
     <key>com.schriftgestaltung.customParameter.GSFont.Variable Font Origin</key>
@@ -774,9 +782,15 @@
       <string>narrownbspace</string>
       <string>periodcentered.loclCAT</string>
       <string>periodcentered.loclCAT.case</string>
+      <string>baht</string>
+      <string>baht.tf</string>
+      <string>baht.tf.001</string>
+      <string>rupeeIndian</string>
+      <string>won</string>
+      <string>rupeeIndian.tf</string>
+      <string>won.tf</string>
       <string>yen.tf</string>
-      <string>minussuperior</string>
-      <string>multiplysuperior</string>
+      <string>rupeeIndian.tf.001</string>
       <string>uni25CC</string>
       <string>hookabovecomb</string>
       <string>horncomb</string>
@@ -1299,6 +1313,12 @@
       <string>uni1EA3.alt</string>
       <key>apostrophemod</key>
       <string>uni02BC</string>
+      <key>baht</key>
+      <string>uni0E3F</string>
+      <key>baht.tf</key>
+      <string>uni0E3F.tf</string>
+      <key>baht.tf.001</key>
+      <string>uni0E3F.tf.001</string>
       <key>bhook</key>
       <string>uni0253</string>
       <key>brevecomb</key>
@@ -1393,8 +1413,6 @@
       <string>uni0304</string>
       <key>micro</key>
       <string>uni00B5</string>
-      <key>minussuperior</key>
-      <string>uni207B</string>
       <key>mu</key>
       <string>uni03BC</string>
       <key>narrownbspace</key>
@@ -1437,6 +1455,12 @@
       <string>uni0157</string>
       <key>ringcomb</key>
       <string>uni030A</string>
+      <key>rupeeIndian</key>
+      <string>uni20B9</string>
+      <key>rupeeIndian.tf</key>
+      <string>uni20B9.tf</string>
+      <key>rupeeIndian.tf.001</key>
+      <string>uni20B9.tf.001</string>
       <key>schwa</key>
       <string>uni0259</string>
       <key>scommaaccent</key>
@@ -1483,6 +1507,10 @@
       <string>uni1EED</string>
       <key>uhorntilde</key>
       <string>uni1EEF</string>
+      <key>won</key>
+      <string>uni20A9</string>
+      <key>won.tf</key>
+      <string>uni20A9.tf</string>
       <key>ydotbelow</key>
       <string>uni1EF5</string>
       <key>yhook</key>
@@ -1496,6 +1524,7 @@
     </dict>
     <key>public.skipExportGlyphs</key>
     <array>
+      <string>baht.tf.001</string>
       <string>eight.sinf</string>
       <string>five.sinf</string>
       <string>four.sinf</string>
@@ -1505,6 +1534,7 @@
       <string>gdotaccent.ss03</string>
       <string>nine.sinf</string>
       <string>one.sinf</string>
+      <string>rupeeIndian.tf.001</string>
       <string>seven.sinf</string>
       <string>six.sinf</string>
       <string>three.sinf</string>
