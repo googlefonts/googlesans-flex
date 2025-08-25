@@ -1,8 +1,9 @@
 # Google Sans Flex Changelog
 
-## Version 3.006 (planned 2028-08)
+## Version 3.006 (2028-08=25)
 ### Changed
 - added currency signs: ₹ ₩ ฿ (#1164)
+- added script to find where glyphs accidentally vary width across duplex axes ([#1180](https://github.com/googlefonts/googlesans-flex/pull/1180))
 
 
 ## Version 3.005 (2028-08-19)
