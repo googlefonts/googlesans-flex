@@ -25,13 +25,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: ${{ inputs.branch }}
-    - name: Set up uv and enable caching
-      uses: astral-sh/setup-uv@v6
-      with:
-        enable-cache: true
-        cache-dependency-glob: |
-          requirements*.txt
-          requirements*.in
     - name: Download sources from artifact
       if: ${{ inputs.artifact-as-branch != '' }}
       uses: actions/download-artifact@v4
@@ -45,7 +38,13 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version-file: .github/workflows/python-version.txt
-        cache: pip
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@v6
+      with:
+        enable-cache: true
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
     - name: Download built fonts
       uses: actions/download-artifact@v4
       with:
@@ -54,8 +53,6 @@ jobs:
     - name: Avoid re-building fonts
       shell: bash
       run: |
-        python -m venv venv
-        touch venv/touchfile
         if [ -d "fonts/variable" ]; then
           # Trick make into not re-building the fonts
           touch build.stamp
