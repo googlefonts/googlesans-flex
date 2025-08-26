@@ -297,7 +297,7 @@ SUBSET_BY_NAME = {
     "_dotsdivide",
     "percentbar.tab",
     "uni207B",
-    "multiplysuperior",
+    "uni02E3",
 }
 
 ############
