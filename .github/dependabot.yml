@@ -1,0 +1,12 @@
+version: 2
+updates:
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directories:
+      - "/"
+      # Also check composite actions; we must manually give this directory until
+      # https://github.com/dependabot/dependabot-core/issues/6704 is implemented
+      - "/.github/actions/*/"
+    schedule:
+      interval: "daily"
+      time: "00:00"
