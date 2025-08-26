@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Get the location tuples that contribute to a glyph's HVAR."""
+"""Get the location tuples that contribute to a glyph's HVAR.
+
+(Not heavily tested, review for your use-case before using)"""
 
 from __future__ import annotations
 
