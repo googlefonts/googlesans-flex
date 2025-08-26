@@ -27,8 +27,13 @@ jobs:
       with:
         python-version-file: .github/workflows/python-version.txt
         cache: pip
-    - name: Setup venv
-      run: make venv
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@v6
+      with:
+        enable-cache: true
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
     - name: Build fonts
       run: make build
     - name: Upload artifact
@@ -50,8 +55,13 @@ jobs:
       with:
         python-version-file: .github/workflows/python-version.txt
         cache: pip
-    - name: Setup venv
-      run: make venv
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@v6
+      with:
+        enable-cache: true
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
     - name: Build fonts
       run: make build
     - name: Upload artifact

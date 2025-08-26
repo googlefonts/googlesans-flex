@@ -15,12 +15,13 @@ outputs:
 runs:
   using: composite
   steps:
-  - name: Set up venv
-    shell: bash
-    run: |
-      echo "::group::Set up venv"
-      make --directory ${{ inputs.repo-path }} venv
-      echo "::endgroup::"
+  - name: Set up uv and enable caching
+    uses: astral-sh/setup-uv@v6
+    with:
+      enable-cache: true
+      cache-dependency-glob: |
+        requirements*.txt
+        requirements*.in
   - name: Bump sources version to release tag version
     if: github.event_name == 'release'
     shell: bash

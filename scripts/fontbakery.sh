@@ -37,21 +37,17 @@ if [ -n "$GITHUB_RUN_ID" ] && [[ -f /etc/os-release ]]; then
     fi
 fi
 
-# Setup venv with dependencies
-[ -n "$GITHUB_RUN_ID" ] && echo "::group::Set up venv"
-test -d venv_bakery || python3 -m venv venv_bakery
-venv_bakery/bin/pip install -U setuptools wheel pip
 # Install fontbakery on every run, isolated from build dependencies
 if [ -e "requirements-fb.txt" ]; then
     echo "Using requirements-fb.txt"
-    venv_bakery/bin/pip install -r requirements-fb.txt
+    FONTBAKERY="uvx --with-requirements requirements-fb.txt fontbakery"
 else
     echo "Not pinning fontbakery"
     # fonttools[interpolatable] makes
     # 'interpolation_issues' check around 5x faster
-    venv_bakery/bin/pip install -U "fontbakery[googlefonts]" "fonttools[interpolatable]"
+    FONTBAKERY="uvx --with fontbakery[googlefonts] --with fonttools[interpolatable] fontbakery"
 fi
-[ -n "$GITHUB_RUN_ID" ] && echo "::endgroup::"
+
 mkdir -p out/fontbakery
 
 # All checks invocations are chained into `|| failed+=("test name")` so that:
@@ -62,7 +58,7 @@ failed=()
 
 # Source checks
 if [ -z "$SKIP_SOURCES" ]; then
-    find sources/ -name "*.ufo" -print0 | xargs -0 venv_bakery/bin/fontbakery \
+    find sources/ -name "*.ufo" -print0 | xargs -0 $FONTBAKERY \
         check-profile -l WARN --auto-jobs --succinct --no-progress \
         --html out/fontbakery/fontbakery-sources-report.html \
         qa/check-sources.py \
@@ -72,31 +68,31 @@ fi
 
 # Compiled font tests
 echo "$all_ttfs" \
-    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-outlines-report.html \
     qa/check-outlines.py {} \
     || failed+=("fontbakery.profiles.outline")
 
 echo "$all_ttfs" \
-    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-googlesans-report.html \
     qa/check-googlesans.py {} \
     || failed+=("check-googlesans")
 
 echo "$all_ttfs" \
-    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-fea-report.html \
     qa/check-fea.py {} \
     || failed+=("check-fea")
 
 echo "$all_ttfs" \
-    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-charset-report.html \
 	qa/check-charset.py {} \
     || failed+=("check-charset")
 
 echo "$all_ttfs" \
-    | xargs venv_bakery/bin/fontbakery check-profile -l WARN --auto-jobs --succinct --no-progress \
+    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-shaping-report.html \
     qa/check-shaping.py {} \
     || failed+=("check-shaping")

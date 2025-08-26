@@ -25,6 +25,13 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: ${{ inputs.branch }}
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@v6
+      with:
+        enable-cache: true
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
     - name: Download sources from artifact
       if: ${{ inputs.artifact-as-branch != '' }}
       uses: actions/download-artifact@v4

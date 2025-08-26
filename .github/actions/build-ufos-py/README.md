@@ -7,7 +7,7 @@ Inputs:
 1. `repo-path` - the location of the repository to build (default `.`, i.e. `$GITHUB_WORKSPACE`)
 
 Steps:
-1. Set up venv
+1. Set up uv
 2. Run `make bump-to-tag` if release
 3. Build
 4. Upload zip artifact
