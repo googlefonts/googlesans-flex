@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: Checkout main
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 15
     steps:
     - name: Checkout ${{ github.ref_name }}
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         ref: ${{ github.ref_name }}
     - name: Set up Python
@@ -50,7 +50,7 @@ jobs:
     timeout-minutes: 25
     steps:
     - name: Checkout ${{ github.ref_name }}
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         ref: ${{ github.ref_name }}
     - name: Set up Python
