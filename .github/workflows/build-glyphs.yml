@@ -42,7 +42,6 @@ jobs:
       shell: bash
       run: |
         cd "${{ steps.glyphspackage2ufo.outputs.directory }}"
-        rm -r venv
         shopt -s dotglob
         tar --create --exclude-vcs --file "UFO sources.tar" *
     - name: Generate sources artifact name
