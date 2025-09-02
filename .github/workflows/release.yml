@@ -95,7 +95,7 @@ jobs:
           requirements*.txt
           requirements*.in
     - name: Download workspace and tv fonts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
         path: fonts/
@@ -108,7 +108,7 @@ jobs:
       with:
         path: fonts/tv/*.ttf
     - name: Download Android font
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: ${{ needs.cut-instances.outputs.android-artifact-name }}
         path: fonts/android
@@ -143,17 +143,17 @@ jobs:
       contents: write
     steps:
     - name: Download variable fonts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: ${{ needs.build-variable.outputs.artifact-name }}
         path: ${{ needs.build-variable.outputs.artifact-name }}
     - name: Download workspace and tv fonts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
         path: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
     - name: Download Android font
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: ${{ needs.cut-instances.outputs.android-artifact-name }}
         path: ${{ needs.cut-instances.outputs.android-artifact-name }}

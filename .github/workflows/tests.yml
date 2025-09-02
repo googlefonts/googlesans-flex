@@ -27,7 +27,7 @@ jobs:
         ref: ${{ inputs.branch }}
     - name: Download sources from artifact
       if: ${{ inputs.artifact-as-branch != '' }}
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: ${{ inputs.artifact-as-branch }}
     - name: Extract sources from tarball
@@ -46,7 +46,7 @@ jobs:
           requirements*.txt
           requirements*.in
     - name: Download built fonts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: ${{ inputs.artifact-name }}
         path: fonts/variable
