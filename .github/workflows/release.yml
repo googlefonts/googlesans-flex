@@ -18,7 +18,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version-file: ./.github/workflows/python-version.txt
-        cache: pip
     - name: Build font
       id: build-ufos
       uses: ./.github/actions/build-ufos-py
@@ -38,7 +37,13 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version-file: ./.github/workflows/python-version.txt
-        cache: pip
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@v6
+      with:
+        enable-cache: true
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
     - name: Cut workspace fonts
       id: cut-workspace-fonts
       uses: ./.github/actions/cut-workspace-fonts
@@ -82,7 +87,13 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version-file: ./.github/workflows/python-version.txt
-        cache: pip
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@v6
+      with:
+        enable-cache: true
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
     - name: Download workspace and tv fonts
       uses: actions/download-artifact@v4
       with:

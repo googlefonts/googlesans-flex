@@ -1,3 +1,6 @@
+export UV_PYTHON=$(shell cat .github/workflows/python-version.txt)
+UV_RUN=uv run --with-requirements requirements.txt
+
 SOURCES=$(shell python3 scripts/read-config.py --sources )
 FAMILY=$(shell python3 scripts/read-config.py --family )
 DRAWBOT_SCRIPTS=$(shell ls documentation/*.py)
@@ -16,27 +19,15 @@ help:
 
 build: build.stamp
 
-venv: venv/touchfile
-
-build.stamp: venv sources/config.yaml $(SOURCES)
+build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 	rm -rf fonts/
-	. venv/bin/activate \
-		&& gftools builder sources/config.yaml
+	$(UV_RUN) gftools builder sources/config.yaml
 # Font-v cannot deal with worktrees, which we use for imports. See
 # https://github.com/source-foundry/font-v/issues/169. Just skip it.
-	if [ -z "${SKIP_FONTV}" ]; then venv/bin/font-v write --sha1 fonts/variable/*.ttf; fi
-	venv/bin/python scripts/prune_font_binary.py fonts/variable/*.ttf
-	venv/bin/python scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	if [ -z "${SKIP_FONTV}" ]; then $(UV_RUN) font-v write --sha1 fonts/variable/*.ttf; fi
+	$(UV_RUN) scripts/prune_font_binary.py fonts/variable/*.ttf
+	$(UV_RUN) scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	touch build.stamp
-
-venv/touchfile: requirements.txt
-	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Set up venv"
-	test -d venv || python3 -m venv venv
-	. venv/bin/activate \
-		&& pip install -U wheel pip \
-		&& pip install --no-deps -r requirements.txt
-	touch venv/touchfile
-	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 
 test: build.stamp
 	@scripts/fontbakery.sh
@@ -44,96 +35,85 @@ test: build.stamp
 android: build.stamp
 	mkdir -p fonts/android
 	-@rm fonts/android/*.ttf
-	venv/bin/python scripts/set_ymin_ymax.py \
+	$(UV_RUN) scripts/set_ymin_ymax.py \
 		--ymin -605 --ymax 2007 \
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
 		--output fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
-	venv/bin/python scripts/prune_hvar.py \
+	$(UV_RUN) scripts/prune_hvar.py \
 		fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
 workspace: build.stamp
 	-@rm fonts/workspace/*.ttf
 	-@rm fonts/tv/*.ttf
-	. venv/bin/activate && python scripts/cut_instances.py \
+	$(UV_RUN) scripts/cut_instances.py \
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
 		fonts/workspace
 	mkdir -p fonts/tv
 	mv fonts/workspace/GoogleSansFlexTV[wght].ttf fonts/tv
-	. venv/bin/activate && pyftsubset fonts/tv/GoogleSansFlexTV[wght].ttf --output-file=fonts/tv/GoogleSansFlexTV[wght].ttf --unicodes="U+D-25CC,U+FB00-1D61E" --layout-features="tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga" --recalc-average-width --recalc-max-context --recalc-bounds --notdef-outline
+	$(UV_RUN) pyftsubset fonts/tv/GoogleSansFlexTV[wght].ttf --output-file=fonts/tv/GoogleSansFlexTV[wght].ttf --unicodes="U+D-25CC,U+FB00-1D61E" --layout-features="tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga" --recalc-average-width --recalc-max-context --recalc-bounds --notdef-outline
 
 release: android workspace
 
+COLLIDOSCOPE_OPTS = fontbakery \
+	check-googlefonts -l WARN --auto-jobs --succinct \
+	--html out/fontbakery/fontbakery-collidoscope-report.html \
+	--configuration qa/fontbakery.config \
+	-c shaping/collides \
+	fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+
 run-collidoscope: build.stamp
-# Install latest version of fontbakery on every run, isolated from build dependencies
-	test -d venv_bakery || python3 -m venv venv_bakery
-	venv_bakery/bin/pip install -U setuptools wheel pip
-	if [ -e "requirements-fb.txt" ]; then \
-		venv_bakery/bin/pip install -r requirements-fb.txt; \
+	mkdir -p out/fontbakery
+	if [ -e requirements-fb.txt ]; then \
+		uvx --with-requirements requirements-fb.txt $(COLLIDOSCOPE_OPTS); \
 	else \
-		venv_bakery/bin/pip install -U fontbakery[googlefonts] fonttools[interpolatable]; \
+		uvx --with fontbakery[googlefonts] --with fonttools[interpolatable] $(COLLIDOSCOPE_OPTS); \
 	fi
 
-# Run collidoscope tests
-	mkdir -p out/fontbakery
-	-venv_bakery/bin/fontbakery check-shaping -l WARN --auto-jobs --succinct --html out/fontbakery/fontbakery-collidoscope-report.html \
-		--configuration qa/fontbakery.config \
-		-c collides \
-		 fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
-
-images: venv build.stamp $(DRAWBOT_OUTPUT)
+images: build.stamp $(DRAWBOT_OUTPUT)
 	git add documentation/*.png && git commit -m "Rebuild images" documentation/*.png
 
 %.png: %.py build.stamp
-	python3 $< --output $@
+	$(UV_RUN) python $< --output $@
 
 clean:
-	rm -rf venv
+	rm -rf .venv
 	find . -name "*.pyc" | xargs rm delete
 
 update-project-template:
 	npx update-template https://github.com/googlefonts/googlefonts-project-template/
 
-update-glyphset-expectations: venv
-	. venv/bin/activate && python scripts/gs-update-glyphset-qa-files.py
+update-glyphset-expectations:
+	$(UV_RUN) scripts/gs-update-glyphset-qa-files.py
 
-update-shaping-expectations: venv
-	. venv/bin/activate && bash -c "cd qa && bash update_all_shaping.sh"
+update-shaping-expectations:
+	$(UV_RUN) bash -c "cd qa && bash update_all_shaping.sh"
 
-update: venv
-	. venv/bin/activate && \
-		pip install --upgrade pip-tools && \
-		pip-compile --resolver=backtracking --upgrade --allow-unsafe requirements.in
+update:
+	uv pip compile --universal requirements.in > requirements.txt
 
-font-size: venv build
-	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install font-size"
-	venv/bin/pip install -U font-size
-	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
+font-size: build
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::TTF size report, by table"
-	find fonts -name '*.ttf' -type f | xargs venv/bin/font-size
+	find fonts -name '*.ttf' -type f | xargs uvx font-size
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::'gvar' size report, by glyph"
-# This script uses the version of rich installed by font-size
-	venv/bin/python scripts/gvar_by_glyph.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	uv run --with fonttools --with rich scripts/gvar_by_glyph.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 
-progress-chart: venv
-	. venv/bin/activate && python scripts/gs-progress-burndown.py
+progress-chart:
+	$(UV_RUN) scripts/gs-progress-burndown.py
 
-bump-to-tag: venv
-	. venv/bin/activate && python3 scripts/bump-to-tag.py
+bump-to-tag:
+	$(UV_RUN) scripts/bump-to-tag.py
 
-glyph-hunt: venv
-	. venv/bin/activate && python scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
+glyph-hunt:
+	$(UV_RUN) scripts/glyph-hunt.py --glyph-list .github/actions/import/glyph-list.txt --ds sources/regular/GoogleSansFlex.designspace
 
-shaperglot: venv build
-	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::Install shaperglot"
-	venv/bin/pip install -U "shaperglot>=0.5.1"
-	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
+shaperglot: build
 	mkdir -p out
 # Report coverage of all languages
-	venv/bin/shaperglot report --group fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	uvx shaperglot report --group fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	@echo "\nChecking against the target language list"
 # Report coverage of target languages
-	@xargs venv/bin/shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
+	@xargs uvx shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
 
 .PHONY: release

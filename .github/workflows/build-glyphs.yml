@@ -33,7 +33,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version-file: ./main/.github/workflows/python-version.txt
-        cache: pip
     - name: Convert Glyphs package sources to UFO
       id: glyphspackage2ufo
       uses: ./main/.github/actions/glyphspackage2ufo
@@ -43,7 +42,6 @@ jobs:
       shell: bash
       run: |
         cd "${{ steps.glyphspackage2ufo.outputs.directory }}"
-        rm -r venv
         shopt -s dotglob
         tar --create --exclude-vcs --file "UFO sources.tar" *
     - name: Generate sources artifact name
@@ -82,7 +80,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version-file: ./.github/workflows/python-version.txt
-        cache: pip
     - name: Build fonts
       id: build-ufos
       uses: ./.github/actions/build-ufos-py
