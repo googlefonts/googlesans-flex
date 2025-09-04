@@ -10,8 +10,10 @@ exclude_checks = [
     "googlefonts/font_names",                          # We have our own naming ideas
     "googlefonts/glyph_coverage",                      # We have our own target
     "googlefonts/glyphsets/shape_languages",           # we do our own shaperglot check
+    "googlefonts/name/family_name_compliance",         # Irrelevant for us, but see https://github.com/fonttools/fontspector/issues/414.
     "googlefonts/STAT",                                # https://github.com/googlefonts/googlesans-flex/issues/835#issuecomment-1930057206
     "googlefonts/STAT/axisregistry",                   # https://github.com/fonttools/fontbakery/discussions/4214
+    "googlefonts/varfont/generate_static",             # We cut our instances from the VF and will know if that fails
     "googlefonts/varfont/has_HVAR",                    # The Android font has no HVAR, so we had to modify this check into `googlesansflex/varfont/has_HVAR`
     "name/family_and_style_max_length",                # we know our statics exceed this limit and it's okay
     "opentype/family/bold_italic_unique_for_nameid1",  # Expected and desired
@@ -27,5 +29,4 @@ exclude_checks = [
     "outline_short_segments",                          # Separate.
     "STAT_strings",                                    # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "unwanted_tables",
-    "googlefonts/name/family_name_compliance",         # Irrelevant for us, but see https://github.com/fonttools/fontspector/issues/414.
 ]
