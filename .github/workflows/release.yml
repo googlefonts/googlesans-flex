@@ -116,6 +116,10 @@ jobs:
       uses: f-actions/opentype-sanitizer@v3
       with:
         path: fonts/android/*.ttf
+    - name: Install cargo-binstall
+      uses: cargo-bins/cargo-binstall@v1.15.3
+    - name: Use cargo-binstall to grab precompiled fontspector
+      run: cargo binstall fontspector@1.3.0
     - name: Run Fontbakery
       id: fontbakery-workspace
       env:
@@ -176,7 +180,7 @@ jobs:
         echo "tv-zip-name=$tv_zip_name" >> "$GITHUB_OUTPUT"
         cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}/tv" \
           && zip -9 "../../$tv_zip_name" *.ttf *.md
-        
+
         android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
         cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.android-artifact-name }}"

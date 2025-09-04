@@ -12,10 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import json
+import subprocess
+import tomllib
 from pathlib import Path
 
 from fontbakery.profiles.googlefonts import PROFILE as GOOGLEFONTS_PROFILE
 
+# Try and exclude all checks that are covered by fontspector.
+try:
+    data_json = subprocess.check_output(
+        ["fontspector", "--profile", "googlefonts", "--list-checks-json"]
+    )
+    data = json.loads(data_json)
+    fontspector_checks = [check["id"] for _, checks in data.items() for check in checks]
+    print("INFO: Skipping checks covered by fontspector.")
+except Exception:
+    fontspector_checks = []
+    print(
+        "INFO: fontspector not found or something else happened; running checks covered by fontspector."
+    )
+
+# NOTE: Consider the fontspector configuration the source of truth. We want to
+# phase out the use of fontbakery.
+CHECKS_TO_IGNORE_TOML = Path(__file__).parent / "check-googlesans.toml"
+CHECKS_TO_IGNORE = tomllib.loads(CHECKS_TO_IGNORE_TOML.read_text())["exclude_checks"]
 
 # Hack to have this be conditional but without appending later
 FONTBAKERY_UP_TO_DATE = (
@@ -43,26 +64,8 @@ PROFILE = {
     "exclude_checks": [
         *GOOGLEFONTS_PROFILE["sections"]["Outline Checks"],  # Separate.
         *FONTBAKERY_UP_TO_DATE,
-        "dsig",
-        "unwanted_tables",
-        "contour_count",  # design rather than QA problem
-        "opentype/varfont/valid_default_instance_nameids",  # Bogus
-        "family/vertical_metrics",  # GS is our reference.
-        "opentype/varfont/regular_opsz_coord",  # No, opsz=18
-        "googlefonts/glyph_coverage",  # We have our own target
-        "file_size",  # We're going bigger
-        "googlefonts/font_names",  # We have our own naming ideas
-        "opentype/family/bold_italic_unique_for_nameid1",  # Expected and desired
-        "googlefonts/STAT/axisregistry",  # https://github.com/fonttools/fontbakery/discussions/4214
-        "fontdata_namecheck",  # online resource unavailable https://github.com/fonttools/fontbakery/issues/2719
-        "STAT_strings",  # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
-        "googlefonts/STAT",  # https://github.com/googlefonts/googlesans-flex/issues/835#issuecomment-1930057206
-        "googlefonts/glyphsets/shape_languages",  # we do our own shaperglot check
-        "family/single_directory",  # conflicts with gftools' folder structure
-        "opentype/family/consistent_family_name",  # intended with our statics
-        "name/family_and_style_max_length",  # we know our statics exceed this limit and it's okay
-        "opentype/varfont/family_axis_ranges",  # our workspace fonts intentionally change axes ranges
-        "googlefonts/varfont/has_HVAR",  # The Android font has no HVAR, so we had to modify this check into `googlesansflex/varfont/has_HVAR`
+        *CHECKS_TO_IGNORE,
+        *fontspector_checks,
     ],
     "overrides": {
         "varfont/consistent_axes": [
