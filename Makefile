@@ -50,7 +50,7 @@ workspace: build.stamp
 		fonts/workspace
 	mkdir -p fonts/tv
 	mv fonts/workspace/GoogleSansFlexTV[wght].ttf fonts/tv
-	$(UV_RUN) pyftsubset fonts/tv/GoogleSansFlexTV[wght].ttf --output-file=fonts/tv/GoogleSansFlexTV[wght].ttf --unicodes="U+D-25CC,U+FB00-1D61E" --layout-features="tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga" --recalc-average-width --recalc-max-context --recalc-bounds --notdef-outline
+	$(UV_RUN) pyftsubset fonts/tv/GoogleSansFlexTV[wght].ttf --output-file=fonts/tv/GoogleSansFlexTV[wght].ttf --unicodes="U+D-25CC,U+FB00-1D61E" --layout-features="tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga" --name-IDs="*" --recalc-average-width --recalc-max-context --recalc-bounds --notdef-outline
 
 release: android workspace
 
