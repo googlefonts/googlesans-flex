@@ -87,6 +87,7 @@ echo "$all_ttfs" \
     qa/check-googlesans.py {} \
     || failed+=("check-googlesans-fontbakery")
 
+
 echo "$all_ttfs" \
     | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-fea-report.html \
