@@ -30,7 +30,7 @@ jobs:
           exit 1
         fi
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version-file: ./main/.github/workflows/python-version.txt
     - name: Convert Glyphs package sources to UFO
@@ -77,7 +77,7 @@ jobs:
       shell: bash
       run: tar --extract --file "UFO sources.tar"
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version-file: ./.github/workflows/python-version.txt
     - name: Build fonts

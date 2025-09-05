@@ -23,7 +23,7 @@ jobs:
       with:
         ref: ${{ inputs.before }}
     - name: Setup Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version-file: .github/workflows/python-version.txt
         cache: pip
@@ -51,7 +51,7 @@ jobs:
       with:
         ref: ${{ inputs.after }}
     - name: Setup Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version-file: .github/workflows/python-version.txt
     - name: Set up uv and enable caching

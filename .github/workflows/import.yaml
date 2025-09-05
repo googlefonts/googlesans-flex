@@ -33,7 +33,7 @@ jobs:
           ref: main
           path: main
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version-file: ./main/.github/workflows/python-version.txt
       - name: Convert Glyphs package sources to UFO
@@ -60,7 +60,7 @@ jobs:
         with:
           ref: ${{ needs.import-branch.outputs.import-branch }}
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version-file: ./.github/workflows/python-version.txt
       - name: Build fonts
