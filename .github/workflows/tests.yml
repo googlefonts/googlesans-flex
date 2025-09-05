@@ -67,10 +67,10 @@ jobs:
     - name: Analyze TTF file size
       shell: bash
       run: make font-size
-    - name: Install cargo-binstall
-      uses: cargo-bins/cargo-binstall@v1.15.3
-    - name: Use cargo-binstall to grab precompiled fontspector
-      run: cargo binstall fontspector@1.3.0
+    - name: Setup fontspector
+      uses: fonttools/setup-fontspector@main
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Fontbakery
       id: fontbakery
       shell: bash

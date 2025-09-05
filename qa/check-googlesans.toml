@@ -21,12 +21,12 @@ exclude_checks = [
     "opentype/varfont/family_axis_ranges",             # our workspace fonts intentionally change axes ranges
     "opentype/varfont/regular_opsz_coord",             # No, opsz=18
     "opentype/varfont/valid_default_instance_nameids", # Bogus
-    "outline_alignment_miss",                          # Separate.
-    "outline_colinear_vectors",                        # Separate.
-    "outline_direction",                               # Separate.
-    "outline_jaggy_segments",                          # Separate.
-    "outline_semi_vertical",                           # Separate.
-    "outline_short_segments",                          # Separate.
+    "outline_alignment_miss",                          # Separate, covered by neighbouring check-outlines profile.
+    "outline_colinear_vectors",                        # Separate, covered by neighbouring check-outlines profile.
+    "outline_direction",                               # Separate, covered by neighbouring check-outlines profile.
+    "outline_jaggy_segments",                          # Separate, covered by neighbouring check-outlines profile.
+    "outline_semi_vertical",                           # Separate, covered by neighbouring check-outlines profile.
+    "outline_short_segments",                          # Separate, covered by neighbouring check-outlines profile.
     "STAT_strings",                                    # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "unwanted_tables",
 ]
