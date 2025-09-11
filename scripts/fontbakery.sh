@@ -68,16 +68,24 @@ fi
 
 # Compiled font tests
 echo "$all_ttfs" \
-    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
-    --html out/fontbakery/fontbakery-outlines-report.html \
-    qa/check-outlines.py {} \
-    || failed+=("fontbakery.profiles.outline")
+    | xargs fontspector --profile googlefonts --configuration qa/check-outlines.toml \
+    --loglevel warn --succinct \
+    --html out/fontbakery/fontspector-outlines-report.html \
+    {} \
+    || failed+=("check-outline")
+
+echo "$all_ttfs" \
+    | xargs fontspector --profile googlefonts --configuration qa/check-googlesans.toml \
+    --loglevel warn --succinct \
+    --html out/fontbakery/fontspector-googlesans-report.html \
+    {} \
+    || failed+=("check-googlesans-fontspector")
 
 echo "$all_ttfs" \
     | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
     --html out/fontbakery/fontbakery-googlesans-report.html \
     qa/check-googlesans.py {} \
-    || failed+=("check-googlesans")
+    || failed+=("check-googlesans-fontbakery")
 
 echo "$all_ttfs" \
     | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \

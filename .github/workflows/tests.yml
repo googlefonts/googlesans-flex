@@ -67,6 +67,10 @@ jobs:
     - name: Analyze TTF file size
       shell: bash
       run: make font-size
+    - name: Setup fontspector
+      uses: fonttools/setup-fontspector@main
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Fontbakery
       id: fontbakery
       shell: bash

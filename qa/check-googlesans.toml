@@ -1,0 +1,32 @@
+# Configuration for fontspector's googlefonts profile, copied from the Python profile code.
+
+exclude_checks = [
+    "contour_count",                                   # design rather than QA problem
+    "dsig",
+    "family/single_directory",                         # conflicts with gftools' folder structure
+    "family/vertical_metrics",                         # GS is our reference.
+    "file_size",                                       # We're going bigger
+    "fontdata_namecheck",                              # online resource unavailable https://github.com/fonttools/fontbakery/issues/2719
+    "googlefonts/font_names",                          # We have our own naming ideas
+    "googlefonts/glyph_coverage",                      # We have our own target
+    "googlefonts/glyphsets/shape_languages",           # we do our own shaperglot check
+    "googlefonts/name/family_name_compliance",         # Irrelevant for us, but see https://github.com/fonttools/fontspector/issues/414.
+    "googlefonts/STAT",                                # https://github.com/googlefonts/googlesans-flex/issues/835#issuecomment-1930057206
+    "googlefonts/STAT/axisregistry",                   # https://github.com/fonttools/fontbakery/discussions/4214
+    "googlefonts/varfont/generate_static",             # We cut our instances from the VF and will know if that fails
+    "googlefonts/varfont/has_HVAR",                    # The Android font has no HVAR, so we had to modify this check into `googlesansflex/varfont/has_HVAR`
+    "name/family_and_style_max_length",                # we know our statics exceed this limit and it's okay
+    "opentype/family/bold_italic_unique_for_nameid1",  # Expected and desired
+    "opentype/family/consistent_family_name",          # intended with our statics
+    "opentype/varfont/family_axis_ranges",             # our workspace fonts intentionally change axes ranges
+    "opentype/varfont/regular_opsz_coord",             # No, opsz=18
+    "opentype/varfont/valid_default_instance_nameids", # Bogus
+    "outline_alignment_miss",                          # Separate, covered by neighbouring check-outlines profile.
+    "outline_colinear_vectors",                        # Separate, covered by neighbouring check-outlines profile.
+    "outline_direction",                               # Separate, covered by neighbouring check-outlines profile.
+    "outline_jaggy_segments",                          # Separate, covered by neighbouring check-outlines profile.
+    "outline_semi_vertical",                           # Separate, covered by neighbouring check-outlines profile.
+    "outline_short_segments",                          # Separate, covered by neighbouring check-outlines profile.
+    "STAT_strings",                                    # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
+    "unwanted_tables",
+]

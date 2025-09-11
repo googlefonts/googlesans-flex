@@ -67,6 +67,10 @@ jobs:
       with:
         name: ${{ needs.cut-instances.outputs.artifact-name }}
         path: fonts/
+    - name: Setup fontspector
+      uses: fonttools/setup-fontspector@main
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Fontbakery
       id: fontbakery-workspace
       env:

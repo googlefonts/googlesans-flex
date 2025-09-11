@@ -27,6 +27,13 @@ PROFILE = {
             "ufo_consistent_curve_type",
             "designspace_has_consistent_groups",
             "ufo_no_open_corners",
-        ]
+        ],
+        "Fontbakery Checks": [
+            "designspace_has_consistent_codepoints",
+            "designspace_has_consistent_glyphset",
+            "designspace_has_consistent_groups",
+            "designspace_has_default_master",
+            "designspace_has_sources",
+        ],
     },
 }
