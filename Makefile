@@ -116,4 +116,8 @@ shaperglot: build
 # Report coverage of target languages
 	@xargs uvx shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
 
-.PHONY: release
+autobase: build
+	cargo binstall --no-confirm autobase-cli || cargo install --locked autobase-cli
+	autobase --min-max --config sources/autobase.toml --words 1000000 --fea fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+
+.PHONY: release autobase

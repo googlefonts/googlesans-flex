@@ -49,6 +49,8 @@ def main(args: Optional[List[str]] = None):
             "--no-prune-unicode-ranges",
             "--recalc-bounds",
             "--recalc-average-width",
+            "--drop-tables-=BASE",
+            "--no-subset-tables+=BASE",
             f"--output-file={local_filepath_subset}",
         ]
 
