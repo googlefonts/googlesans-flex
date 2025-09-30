@@ -420,3 +420,12 @@ def com_google_fonts_check_android_hvar(font: Font, ttFont: TTFont):
 
     if "HVAR" in ttFont:
         yield FAIL, f"{font_path} contains an `HVAR` table, but should not"
+
+
+@check(id="googlesansflex/opentype/BASE", rationale="Checks that the font has a BASE table")
+def com_google_fonts_check_googlesansflex_has_base_table(ttFont: TTFont):
+    """BASE table is present as expected."""
+    if "BASE" in ttFont:
+        yield PASS, "BASE table present in font"
+    else:
+        yield FAIL, "Missing BASE table"
