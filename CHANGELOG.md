@@ -1,18 +1,22 @@
 # Google Sans Flex Changelog
 
-## Version 3.006 (2028-08=25)
+## Version 2.007 (2025-09-30)
+## Changed
+- removed HVAR table by hotfixing the Android v2.006 TTF 
+
+## Version 3.006 (2025-08-25)
 ### Changed
 - added currency signs: ₹ ₩ ฿ (#1164)
 - added script to find where glyphs accidentally vary width across duplex axes ([#1180](https://github.com/googlefonts/googlesans-flex/pull/1180))
 
 
-## Version 3.005 (2028-08-19)
+## Version 3.005 (2025-08-19)
 ### Changed
 - added GSF TV font slice (#1176)
 - added U+207B and U+02E3 (#1165)
 - removed HVAR table from Android release
 
-## Version 3.004 (2025-04-9)
+## Version 3.004 (2025-04-09)
 ### Changed
 - updated workspace font families (upright + italic):
   - added back and changed opsz from 12 to 14:
