@@ -10,7 +10,7 @@
 ### Changed
 - added GSF TV font slice (#1176)
 - added U+207B and U+02E3 (#1165)
-
+- removed HVAR table from Android release
 
 ## Version 3.004 (2025-04-9)
 ### Changed
