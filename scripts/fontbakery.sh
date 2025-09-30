@@ -43,9 +43,7 @@ if [ -e "requirements-fb.txt" ]; then
     FONTBAKERY="uvx --with-requirements requirements-fb.txt fontbakery"
 else
     echo "Not pinning fontbakery"
-    # fonttools[interpolatable] makes
-    # 'interpolation_issues' check around 5x faster
-    FONTBAKERY="uvx --with fontbakery[googlefonts] --with fonttools[interpolatable] fontbakery"
+    FONTBAKERY="uvx --with-requirements requirements-fb.in fontbakery"
 fi
 
 mkdir -p out/fontbakery
