@@ -21,7 +21,7 @@ build: build.stamp
 
 build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 	rm -rf fonts/
-	$(UV_RUN) gftools builder sources/config.yaml
+	$(UV_RUN) gftools builder --experimental-fontc $(shell uv run --with-requirements requirements.txt which fontc) sources/config.yaml
 # Font-v cannot deal with worktrees, which we use for imports. See
 # https://github.com/source-foundry/font-v/issues/169. Just skip it.
 	if [ -z "${SKIP_FONTV}" ]; then $(UV_RUN) font-v write --sha1 fonts/variable/*.ttf; fi
