@@ -65,6 +65,18 @@ lookup ccmp_soft_dotted {
 } ccmp_soft_dotted;
 
 
+# Prefix: BASE
+table BASE {
+    HorizAxis.BaseTagList romn;
+    HorizAxis.BaseScriptList
+        grek romn 0,
+        latn romn 0;
+    HorizAxis.MinMax grek dflt -466, 1110;
+    HorizAxis.MinMax latn dflt -778, 2699;
+    HorizAxis.MinMax latn VIT  -618, 2391;
+} BASE;
+
+
 feature aalt {
 feature locl;
 feature dnom;
@@ -364,13 +376,3 @@ sub t f by t_f;
 sub t t by t_t;
 
 } dlig;
-
-table BASE {
-    HorizAxis.BaseTagList romn;
-    HorizAxis.BaseScriptList
-        grek romn 0,
-        latn romn 0;
-    HorizAxis.MinMax grek dflt -466, 1110;
-    HorizAxis.MinMax latn dflt -778, 2699;
-    HorizAxis.MinMax latn VIT  -618, 2391;
-} BASE;
