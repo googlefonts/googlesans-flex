@@ -35,7 +35,7 @@ jobs:
       shell: bash
       run: tar --extract --file "UFO sources.tar"
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version-file: .github/workflows/python-version.txt
     - name: Set up uv and enable caching
