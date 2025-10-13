@@ -28,7 +28,7 @@ jobs:
             exit 1
           fi
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
           path: main
@@ -56,7 +56,7 @@ jobs:
     needs: import-branch
     steps:
       - name: Checkout ${{ needs.import-branch.outputs.import-branch }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ needs.import-branch.outputs.import-branch }}
       - name: Set up Python
