@@ -44,7 +44,7 @@ runs:
       echo "glyphspackage2ufo.outputs.directory: $normalized_target"
       echo "target=$normalized_target" >> "$GITHUB_OUTPUT"
   - name: Set up uv and enable caching
-    uses: astral-sh/setup-uv@v6
+    uses: astral-sh/setup-uv@v7
     with:
       enable-cache: true
       cache-dependency-glob: |
