@@ -30,3 +30,8 @@ exclude_checks = [
     "STAT_strings",                                    # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "unwanted_tables",
 ]
+
+[[overrides]]
+code = "unreachable-subsetting"
+status = "FAIL"
+reason = "https://github.com/googlefonts/googlesans-flex/issues/1092"
