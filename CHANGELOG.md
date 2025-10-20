@@ -1,6 +1,12 @@
 # Google Sans Flex Changelog
 
-## Version 3.006 (2028-08=25)
+## Version 2.007 (2025-09-13)
+### Changed
+Production ready fonts, for Android only. 
+- removed HVAR table to improve VF rendering performance on Android
+- updated USE_MY_METRICS settings. (When the USE_MY_METRICS flag is set on a component, it instructs the font renderer to use the advance width and side bearings of that specific component as the metrics for the entire composite glyph, instead of calculating the metrics based on the composite glyph's own outline data, or by summing the metrics of all components.)
+
+## Version 3.006 (2025-08-25)
 ### Changed
 - added currency signs: ₹ ₩ ฿ (#1164)
 - added script to find where glyphs accidentally vary width across duplex axes ([#1180](https://github.com/googlefonts/googlesans-flex/pull/1180))
