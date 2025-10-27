@@ -77,12 +77,12 @@ jobs:
     - build-after
     steps:
     - name: Download before fonts
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v6
       with:
         name: Before VFs (${{ inputs.before }})
         path: before
     - name: Download after fonts
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v6
       with:
         name: After VFs (${{ inputs.after }})
         path: after
