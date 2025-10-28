@@ -59,12 +59,12 @@ code = "zero.denominator one.denominator two.denominator three.denominator four.
 name = FIGURES_DEN;
 },
 {
-code = "period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal baht rupeeIndian won
+code = "period comma colon semicolon numbersign space cent currency dollar sterling plus multiply divide equal greater less plusminus logicalnot percent section Euro minus notequal greaterequal lessequal approxequal rupeeIndian won
 ";
 name = SYMBOLS;
 },
 {
-code = "period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf currency.tf dollar.tf sterling.tf plus.tf multiply.tf divide.tf equal.tf greater.tf less.tf plusminus.tf logicalnot.tf percent.tf section.tf Euro.tf minus.tf notequal.tf greaterequal.tf lessequal.tf approxequal.tf baht.tf rupeeIndian.tf won.tf
+code = "period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf currency.tf dollar.tf sterling.tf plus.tf multiply.tf divide.tf equal.tf greater.tf less.tf plusminus.tf logicalnot.tf percent.tf section.tf Euro.tf minus.tf notequal.tf greaterequal.tf lessequal.tf approxequal.tf rupeeIndian.tf won.tf
 ";
 name = SYMBOLS_TAB;
 },
@@ -679,10 +679,14 @@ value = (
 {
 name = "EditView Line Height";
 value = 2344;
+},
+{
+name = "Use Extension Kerning";
+value = 1;
 }
 );
 date = "2017-07-06 09:41:44 +0000";
-familyName = "Google Sans Flex";
+familyName = "Google Sans Flex e bar";
 featurePrefixes = (
 {
 code = "languagesystem DFLT dflt;
