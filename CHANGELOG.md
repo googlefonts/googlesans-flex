@@ -1,5 +1,16 @@
 # Google Sans Flex Changelog
 
+## Version 3.007 (2025-11-7)
+### Changed
+- added updated the licence to OFL, CODE_OF_CONDUCT.md, CONTRIBUTING.md, CONTRIBUTORS.txt, added TRADEMARKS.md, added AUTHORS.txt
+
+### Production
+- moved to fontc compiler #1194
+- moved partially to fontspector #1191 
+- uv for for venv management #1184
+- updated and reduced dependencies (#1198 and multiple other PRs)
+- Added dependabot configuration for GH Actions version update monitoring #1150 
+
 ## Version 2.007 (2025-09-13)
 ### Changed
 Production ready fonts, for Android only. 
