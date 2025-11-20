@@ -2420,11 +2420,11 @@ width = 0;
 anchors = (
 {
 name = _top.viet;
-pos = (103,1050);
+pos = (83,1050);
 },
 {
 name = top;
-pos = (115,1388);
+pos = (83,1388);
 }
 );
 background = {
@@ -2499,11 +2499,11 @@ width = 0;
 anchors = (
 {
 name = _top.viet;
-pos = (103,1050);
+pos = (83,1050);
 },
 {
 name = top;
-pos = (103,1388);
+pos = (83,1388);
 }
 );
 background = {
@@ -5678,11 +5678,11 @@ width = 0;
 anchors = (
 {
 name = _top.viet;
-pos = (213,1050);
+pos = (194,1050);
 },
 {
 name = top;
-pos = (273,1388);
+pos = (254,1388);
 }
 );
 layerId = "22530A20-0046-4E4D-8599-AC305296A8E0";
@@ -5695,7 +5695,9 @@ nodes = (
 (228,1119,o,{
 name = inserted;
 }),
-(228,1119,q),
+(228,1119,q,{
+name = inserted;
+}),
 (34,1362,l),
 (34,1362,o),
 (34,1362,o),
@@ -5705,7 +5707,9 @@ name = inserted;
 (29,1362,o,{
 name = inserted;
 }),
-(29,1362,q),
+(29,1362,q,{
+name = inserted;
+}),
 (223,1119,l),
 (223,1119,o),
 (223,1119,o),
@@ -5719,11 +5723,11 @@ width = 0;
 anchors = (
 {
 name = _top.viet;
-pos = (214,1050);
+pos = (194,1050);
 },
 {
 name = top;
-pos = (274,1388);
+pos = (254,1388);
 }
 );
 layerId = "466428C3-6075-40C8-B911-E496E35C7694";
