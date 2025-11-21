@@ -19,10 +19,13 @@ assignees: ''
 **To Reproduce**
 [DELETE THIS LINE: Steps to reproduce the behaviour.]
 
-***Affected Glyphs***
+***Affected Glyphs [mandatory]***
+
+[DELETE THIS LINE: Add a string with the affected glyphs, names of the affected glyph and/or name of the script, and, if possible, also include the unicode. Example: `a`, Latin lowercase a,(U+0061)]
 
 ***Design Space location [mandatory]***
 
+[DELETE THIS LINE: Example: wght 400, wdth 100, opsz 18, slnt 0, ROND 0, GRAD 0, [wght=weight axis, wdth=width axis, opsz=optical size axis, slnt=slant axis, ROND=roundness axis, GRAD=grade axis]
 
 **Expected behaviour**
 
