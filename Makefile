@@ -118,6 +118,6 @@ shaperglot: build
 
 autobase: build
 	cargo binstall --no-confirm autobase-cli || cargo install --locked autobase-cli
-	autobase --min-max --config sources/autobase.toml --words 1000000 --fea fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	autobase --min-max --config sources/autobase.toml --words 1000000 fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
 .PHONY: release autobase
