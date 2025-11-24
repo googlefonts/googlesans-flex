@@ -15,6 +15,7 @@ exclude_checks = [
     "googlefonts/STAT/axisregistry",                   # https://github.com/fonttools/fontbakery/discussions/4214
     "googlefonts/varfont/generate_static",             # We cut our instances from the VF and will know if that fails
     "googlefonts/varfont/has_HVAR",                    # The Android font has no HVAR, so we had to modify this check into `googlesansflex/varfont/has_HVAR`
+    "googlefonts/version_bump",                        # The version bump gets handled by the pipeline
     "name/family_and_style_max_length",                # we know our statics exceed this limit and it's okay
     "opentype/family/bold_italic_unique_for_nameid1",  # Expected and desired
     "opentype/family/consistent_family_name",          # intended with our statics
