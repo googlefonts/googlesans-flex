@@ -17,6 +17,12 @@ The Google Sans Flex project is developed in a six axis design space with one '.
 - `ROND`: range 0 to 100; default=0
 
 
+The source are a bit unusual because:
+1. Drawing is done with quadratic outlines.
+2. The file format is .glyphspackage, drawn with GlyphsApp v3. The UFO files are generated and used only to compile the fonts, soon we will remove them.
+3. They are compiled with fontc instead of fontmake.
+4. The GSF repo uses an import-based workflow. This means you don’t need to open a PR when your work is complete, we wouldn’t merge it anyway. Instead, we need a signal that the work is ready (ideally a comment on the relevant open issue). Once we get that, we run the import process and open the PR. One important note: you need to stay tightly in sync across other development branches. The import doesn’t just add new work; it also removes anything that no longer exists in the source. If we’re not aligned, we could unintentionally delete each other’s changes. Let’s be careful to coordinate before finalizing work.
+
 ## Building
 
 ### On GitHub
@@ -171,4 +177,4 @@ Updating the workflow's configuration will require a PR changing the script.
 
 ## License
 
-Google offers many fonts on open source terms. Google Sans Flex is **not** one of them. Please see google.com/fonts for alternatives.
+SIL Open Font License, without Reserved Font Names. 
