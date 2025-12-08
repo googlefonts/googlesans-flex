@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="f_t" format="2">
-  <advance width="1137"/>
-  <anchor x="568" y="0" name="caret_1"/>
+  <advance width="1127"/>
+  <anchor x="508" y="0" name="caret_1"/>
   <outline>
-    <component base="stem_f" xOffset="2"/>
-    <component base="stem_t" xOffset="552"/>
-    <component base="crossbar_L"/>
-    <component base="crossbar_R" xOffset="548"/>
-    <component base="crossbar_C2"/>
+    <component base="stem_f" xOffset="-40"/>
+    <component base="stem_t" xOffset="545"/>
+    <component base="crossbar_L" xOffset="-40"/>
+    <component base="crossbar_R" xOffset="545"/>
+    <component base="crossbar_C2" xOffset="-40" yOffset="3"/>
   </outline>
   <lib>
     <dict>
@@ -44,14 +44,6 @@
           <integer>3</integer>
           <key>name</key>
           <string>crossbar_R</string>
-        </dict>
-        <dict>
-          <key>alignment</key>
-          <integer>-1</integer>
-          <key>index</key>
-          <integer>4</integer>
-          <key>name</key>
-          <string>crossbar_C2</string>
         </dict>
       </array>
     </dict>

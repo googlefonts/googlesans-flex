@@ -2,6 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>GSReScaler</key>
+    <dict>
+      <key>ScaleX</key>
+      <real>0.6</real>
+      <key>ScaleY</key>
+      <real>0.6</real>
+      <key>ShiftY</key>
+      <integer>1005</integer>
+      <key>Tracking</key>
+      <integer>20</integer>
+      <key>WeightX</key>
+      <integer>110</integer>
+      <key>WeightY</key>
+      <integer>60</integer>
+      <key>name</key>
+      <string>wg1000-wd25-oz144-GD0-RD0-sl0</string>
+    </dict>
     <key>com.github.googlei18n.ufo2ft.featureWriters</key>
     <array>
       <dict>
@@ -70,11 +87,7 @@
     </dict>
     <key>com.schriftgestaltung.customParameter.GSFont.DisplayStrings</key>
     <array>
-      <string>H฿H₹H₩HBH
-0฿0₹0₩0
-H฿/baht.tf H/rupeeIndian.tf H/won.tf H
-/zero.tf/baht.tf/zero.tf/rupeeIndian.tf/zero.tf/won.tf/zero.tf 
-</string>
+      <string>C G</string>
     </array>
     <key>com.schriftgestaltung.customParameter.GSFont.EditView Line Height</key>
     <integer>2344</integer>
@@ -486,6 +499,7 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>gbreve.alt</string>
       <string>gcommaaccent.alt</string>
       <string>gdotaccent.alt</string>
+      <string>e.alt</string>
       <string>g.ss03</string>
       <string>gbreve.ss03</string>
       <string>gcommaaccent.ss03</string>
@@ -605,29 +619,6 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>.notdef</string>
       <string>uni000D</string>
       <string>space.tf</string>
-      <string>hyphen</string>
-      <string>softhyphen</string>
-      <string>endash</string>
-      <string>emdash</string>
-      <string>underscore</string>
-      <string>parenleft</string>
-      <string>parenright</string>
-      <string>braceleft</string>
-      <string>braceright</string>
-      <string>bracketleft</string>
-      <string>bracketright</string>
-      <string>quotesinglbase</string>
-      <string>quotedblbase</string>
-      <string>quotedblleft</string>
-      <string>quotedblright</string>
-      <string>quoteleft</string>
-      <string>quoteright</string>
-      <string>guillemetleft</string>
-      <string>guillemetright</string>
-      <string>guilsinglleft</string>
-      <string>guilsinglright</string>
-      <string>quotedbl</string>
-      <string>quotesingle</string>
       <string>period</string>
       <string>comma</string>
       <string>colon</string>
@@ -651,9 +642,42 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>numbersign.tf</string>
       <string>colon.time</string>
       <string>periodcentered.loclCAT.case</string>
+      <string>hyphen</string>
+      <string>softhyphen</string>
+      <string>endash</string>
+      <string>emdash</string>
+      <string>underscore</string>
+      <string>parenleft</string>
+      <string>parenright</string>
+      <string>braceleft</string>
+      <string>braceright</string>
+      <string>bracketleft</string>
+      <string>bracketright</string>
+      <string>quotesinglbase</string>
+      <string>quotedblbase</string>
+      <string>quotedblleft</string>
+      <string>quotedblright</string>
+      <string>quoteleft</string>
+      <string>quoteright</string>
+      <string>guillemetleft</string>
+      <string>guillemetright</string>
+      <string>guilsinglleft</string>
+      <string>guilsinglright</string>
+      <string>quotedbl</string>
+      <string>quotesingle</string>
       <string>baht</string>
       <string>baht.tf</string>
-      <string>baht.tf.001</string>
+      <string>at</string>
+      <string>ampersand</string>
+      <string>paragraph</string>
+      <string>section</string>
+      <string>copyright</string>
+      <string>registered</string>
+      <string>trademark</string>
+      <string>degree</string>
+      <string>bar</string>
+      <string>brokenbar</string>
+      <string>section.tf</string>
       <string>Euro</string>
       <string>cent</string>
       <string>currency</string>
@@ -670,7 +694,6 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>sterling.tf</string>
       <string>won.tf</string>
       <string>yen.tf</string>
-      <string>rupeeIndian.tf.001</string>
       <string>minussuperior</string>
       <string>plus</string>
       <string>minus</string>
@@ -706,17 +729,6 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>percent.tf</string>
       <string>multiplysuperior</string>
       <string>uni25CC</string>
-      <string>at</string>
-      <string>ampersand</string>
-      <string>paragraph</string>
-      <string>section</string>
-      <string>copyright</string>
-      <string>registered</string>
-      <string>trademark</string>
-      <string>degree</string>
-      <string>bar</string>
-      <string>brokenbar</string>
-      <string>section.tf</string>
       <string>dieresiscomb</string>
       <string>dotaccentcomb</string>
       <string>gravecomb</string>
@@ -767,6 +779,7 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>macron</string>
       <string>cedilla</string>
       <string>ogonek</string>
+      <string>caron.alt</string>
       <string>apostrophemod</string>
       <string>uni02BB</string>
       <string>G.logo</string>
@@ -908,6 +921,8 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>mark</string>
       <key>c</key>
       <string>base</string>
+      <key>caron.alt</key>
+      <string>base</string>
       <key>caroncomb</key>
       <string>mark</string>
       <key>caroncomb.alt</key>
@@ -939,6 +954,8 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <key>dotbelowcomb</key>
       <string>mark</string>
       <key>e</key>
+      <string>base</string>
+      <key>e.alt</key>
       <string>base</string>
       <key>edotbelow</key>
       <string>base</string>
@@ -1287,8 +1304,6 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>uni0E3F</string>
       <key>baht.tf</key>
       <string>uni0E3F.tf</string>
-      <key>baht.tf.001</key>
-      <string>uni0E3F.tf.001</string>
       <key>bhook</key>
       <string>uni0253</string>
       <key>brevecomb</key>
@@ -1447,8 +1462,6 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>uni20B9</string>
       <key>rupeeIndian.tf</key>
       <string>uni20B9.tf</string>
-      <key>rupeeIndian.tf.001</key>
-      <string>uni20B9.tf.001</string>
       <key>schwa</key>
       <string>uni0259</string>
       <key>scommaaccent</key>
@@ -1530,7 +1543,7 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
     </dict>
     <key>public.skipExportGlyphs</key>
     <array>
-      <string>baht.tf.001</string>
+      <string>e.alt</string>
       <string>eight.sinf</string>
       <string>five.sinf</string>
       <string>four.sinf</string>
@@ -1541,7 +1554,6 @@ H฿/baht.tf H/rupeeIndian.tf H/won.tf H
       <string>multiplysuperior</string>
       <string>nine.sinf</string>
       <string>one.sinf</string>
-      <string>rupeeIndian.tf.001</string>
       <string>seven.sinf</string>
       <string>six.sinf</string>
       <string>three.sinf</string>
