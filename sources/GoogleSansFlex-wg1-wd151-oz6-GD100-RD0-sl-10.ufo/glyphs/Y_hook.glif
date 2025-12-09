@@ -13,15 +13,17 @@
       <point x="1626" y="1360"/>
       <point x="1716" y="1360" type="qcurve" smooth="yes"/>
       <point x="1754" y="1360"/>
-      <point x="1816" y="1333"/>
+      <point x="1823" y="1330"/>
+      <point x="1863" y="1294" type="qcurve" smooth="yes"/>
       <point x="1863" y="1294"/>
       <point x="1863" y="1294"/>
       <point x="1863" y="1294" type="qcurve"/>
-      <point x="1938" y="1383" type="line"/>
-      <point x="1938" y="1383"/>
-      <point x="1938" y="1383"/>
-      <point x="1871" y="1437"/>
-      <point x="1776" y="1472"/>
+      <point x="1938" y="1385" type="line"/>
+      <point x="1938" y="1385"/>
+      <point x="1937" y="1385"/>
+      <point x="1938" y="1385" type="qcurve" smooth="yes"/>
+      <point x="1891" y="1426"/>
+      <point x="1781" y="1472"/>
       <point x="1718" y="1472" type="qcurve" smooth="yes"/>
       <point x="1592" y="1472"/>
       <point x="1364" y="1303"/>
@@ -52,4 +54,28 @@
       <point x="656" y="0" name="inserted"/>
     </contour>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.hints</key>
+      <array>
+        <dict>
+          <key>horizontal</key>
+          <true/>
+          <key>name</key>
+          <string></string>
+          <key>options</key>
+          <integer>0</integer>
+          <key>place</key>
+          <array>
+            <integer>0</integer>
+            <integer>0</integer>
+          </array>
+          <key>stem</key>
+          <integer>-2</integer>
+          <key>type</key>
+          <string>Stem</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>

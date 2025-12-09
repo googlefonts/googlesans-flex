@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+set -e
+
 for file in shaping_input/*.toml; do
     if [ -f "$file" ]; then
         python3 update_shaping_test_data.py "$file" ../fonts/{variable,workspace}/*.ttf
