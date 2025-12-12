@@ -6,7 +6,7 @@ labels: bug
 assignees: ''
 ---
 
-[DELETE THIS PARAGARPH: Specify the font issue in the issue title now, then add a short description of the bug here.]
+[DELETE THIS LINE: Specify the font issue in the issue title now.]
 
 **Describe the bug**
 
