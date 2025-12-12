@@ -1,12 +1,12 @@
 ---
 name: Design / Interpolation issue
-about: Choose this issue if you want to report an issue you noticed with the design
-  or interpolation.
+about: Choose this issue if you want to report an issue you noticed with the design or interpolation.
 title: ''
 labels: outline bug
 assignees: ''
-
 ---
+
+[DELETE THIS LINE: Set the issue title now.]
 
 **Describe the bug**
 
@@ -17,6 +17,7 @@ assignees: ''
 [DELETE THIS LINE: If possible, please add screenshots to help explain your problem.]
 
 **To Reproduce**
+
 [DELETE THIS LINE: Steps to reproduce the behaviour.]
 
 ***Affected Glyphs [mandatory]***
@@ -30,7 +31,6 @@ assignees: ''
 **Expected behaviour**
 
 [DELETE THIS LINE: A clear and concise description of what you expected to happen.]
-
 
 **Additional context**
 
