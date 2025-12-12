@@ -1,12 +1,12 @@
 ---
-name: Request Feature
+name: Feature Request
 about: Choose this issue if you want to request a new feature, glyphs, scripts, or another enchancemnt of the font.
 title: ''
 labels: enhancement
 assignees: ''
 ---
 
-[DELETE THIS PARAGARPH: Specify the feature request in the issue title now, then add a short description of the it here.]
+[DELETE THIS LINE: Specify the feature request in the issue title now.]
 
 **Describe the request**
 
