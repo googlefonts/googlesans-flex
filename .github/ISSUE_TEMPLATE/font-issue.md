@@ -4,9 +4,9 @@ about: Choose this issue if you want to report an issue you noticed with the way
 title: ''
 labels: bug
 assignees: ''
-
 ---
-[DELETE THIS PARAGARPH: Specify the font issue in the issue title now, then add a short description of the bug here.
+
+[DELETE THIS PARAGARPH: Specify the font issue in the issue title now, then add a short description of the bug here.]
 
 **Describe the bug**
 
