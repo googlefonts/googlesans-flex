@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: googlefonts-8cores-32GB
+    runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     steps:
     # on: pull_request uses head_ref for branch name, on: push uses ref_name

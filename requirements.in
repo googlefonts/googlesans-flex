@@ -10,9 +10,10 @@ font-v
 # https://github.com/googlefonts/glyphsLib/pull/985
 glyphslib>=6.7.1
 
-# Includes a bugfix that is mandatory to build the workspace fonts correctly.
+# v4.54.0 includes a bugfix that is mandatory to build the workspace fonts correctly.
 # https://github.com/googlefonts/googlesans-flex/issues/1034
 # https://github.com/fonttools/fonttools/pull/3635
-fonttools>=4.54.0
+# v4.57.0 adds support for BASE table feature code
+fonttools>=4.57.0
 
-fontc>=0.3.2
+fontc>=0.5.0

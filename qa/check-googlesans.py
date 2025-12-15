@@ -28,6 +28,7 @@ PROFILE = {
             "googlesansflex/android_ymin_ymax",
             "googlesansflex/android_hvar",
             "googlesansflex/varfont/has_HVAR",
+            "googlesansflex/opentype/BASE",
         ],
         "Fontbakery checks": [
             "ots",
