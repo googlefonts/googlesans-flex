@@ -1,5 +1,17 @@
 # Google Sans Flex Changelog
 
+## Version 4.000 (2025-12-22)
+### New
+- added Saudi Riyal symbol (U+20C1) ([#1230](https://github.com/googlefonts/googlesans-flex/issues/1230))
+- added BASE table ([#1170](https://github.com/googlefonts/googlesans-flex/issues/1170))
+
+
+### Changed
+- updated optical size 144 pt design (letter proportions, spacing, kerning) ([#1167](https://github.com/googlefonts/googlesans-flex/issues/1167))
+- revised tapering of the semi-round curved stems in characters involving terminals occurring along a curve (eg. C, G, J, S, c, e, f, g, j, q, r, s, t, etc.)
+- updated logo ligatures
+- fixed ([#1160]https://github.com/googlefonts/googlesans-flex/issues/1160)
+
 ## Version 3.007 (2025-11-7)
 ### Changed
 - added updated the licence to OFL, CODE_OF_CONDUCT.md, CONTRIBUTING.md, CONTRIBUTORS.txt, added TRADEMARKS.md, added AUTHORS.txt
