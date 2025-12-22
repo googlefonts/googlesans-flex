@@ -57,7 +57,7 @@ jobs:
       with:
         repo-name: Google Sans Flex Android
     - name: Upload workspace fonts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: ${{ steps.android-artifact-name.outputs.artifact-name }}
         path: fonts/android
@@ -126,7 +126,7 @@ jobs:
         SKIP_SOURCES: 1
       run: scripts/fontbakery.sh
     - name: Upload Fontbakery reports
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context

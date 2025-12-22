@@ -32,7 +32,7 @@ jobs:
           PROGRESS_BURNDOWN_CACHING: 1
         run: make progress-chart
       - name: Upload chart
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: gs-flex-progress
           path: gs-flex-progress.png
