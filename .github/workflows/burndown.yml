@@ -7,7 +7,7 @@ jobs:
   burndown:
     runs-on: googlefonts-64cores-256GB
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Fetch all so we get access to all tags, etc.
       - name: Set up Python 3.x
