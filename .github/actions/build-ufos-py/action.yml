@@ -42,7 +42,7 @@ runs:
       overrides: |
         build-glyphs: glyphs
   - name: Upload archive
-    uses: actions/upload-artifact@v5
+    uses: actions/upload-artifact@v6
     with:
       name: ${{ steps.zip-name.outputs.artifact-name }}
       path: ${{ inputs.repo-path }}/fonts/variable
