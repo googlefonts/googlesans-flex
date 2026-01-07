@@ -41,7 +41,7 @@ runs:
     with:
       repo-name: Google Sans Flex workspace
   - name: Upload workspace and tv fonts
-    uses: actions/upload-artifact@v5
+    uses: actions/upload-artifact@v6
     with:
       name: ${{ steps.artifact-name.outputs.artifact-name }}
       path: |
