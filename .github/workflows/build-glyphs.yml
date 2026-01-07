@@ -70,7 +70,7 @@ jobs:
     - convert
     steps:
     - name: Download sources tarball
-      uses: actions/download-artifact@v6
+      uses: actions/download-artifact@v7
       with:
         name: ${{ needs.convert.outputs.sources-artifact }}.tar
     - name: Extract sources from tarball

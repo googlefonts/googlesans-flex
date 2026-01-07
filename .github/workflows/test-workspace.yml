@@ -63,7 +63,7 @@ jobs:
           requirements*.txt
           requirements*.in
     - name: Download workspace and tv fonts
-      uses: actions/download-artifact@v6
+      uses: actions/download-artifact@v7
       with:
         name: ${{ needs.cut-instances.outputs.artifact-name }}
         path: fonts/
