@@ -1,10 +1,20 @@
 # Google Sans Flex Changelog
 
+## Version 5.000 (2026-01-14)
+
+### New
+- added circled figures ([#1170](https://github.com/googlefonts/googlesans-flex/issues/1170))
+- updated default copyright symbol and moved old one to the feature 
+
+### Changed
+- updated Saudi Riyal symbol (U+20C1) ([#1237](https://github.com/googlefonts/googlesans-flex/issues/1237))
+- updated default copyright symbol and moved old one to the feature 
+
+
 ## Version 4.000 (2025-12-22)
 ### New
 - added Saudi Riyal symbol (U+20C1) ([#1230](https://github.com/googlefonts/googlesans-flex/issues/1230))
 - added BASE table ([#1170](https://github.com/googlefonts/googlesans-flex/issues/1170))
-
 
 ### Changed
 - updated optical size 144 pt design (letter proportions, spacing, kerning) ([#1167](https://github.com/googlefonts/googlesans-flex/issues/1167))
