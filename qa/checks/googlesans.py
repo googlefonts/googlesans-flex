@@ -425,6 +425,11 @@ def com_google_fonts_check_android_hvar(font: Font, ttFont: TTFont):
 @check(id="googlesansflex/opentype/BASE", rationale="Checks that the font has a BASE table")
 def com_google_fonts_check_googlesansflex_has_base_table(ttFont: TTFont):
     """BASE table is present as expected."""
+
+    if "GoogleSansFlexTV" in ttFont.reader.file.name:
+        yield SKIP, "The TV font does not need a BASE table"
+        return
+
     if "BASE" in ttFont:
         yield PASS, "BASE table present in font"
     else:
