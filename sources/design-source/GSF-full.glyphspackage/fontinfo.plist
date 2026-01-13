@@ -1019,6 +1019,21 @@ value = "tilted e";
 tag = ss03;
 },
 {
+code = "	featureNames {
+        name \"Alternate Symbols\";
+        name 1 \"Alternate Symbols\";
+    };
+sub copyright by copyright.alt;
+";
+labels = (
+{
+language = dflt;
+value = "";
+}
+);
+tag = ss09;
+},
+{
 code = "	sub [@FIGURES zeroslash] a' by ordfeminine;
 	sub [@FIGURES zeroslash] o' by ordmasculine;
 	sub [@FIGURES zeroslash] period a' by ordfeminine;
@@ -1037,6 +1052,21 @@ tag = pnum;
 },
 {
 automatic = 1;
+code = "sub periodcentered.loclCAT by periodcentered.loclCAT.case;
+sub horncomb by horncomb.case;
+sub strokeshortcomb by strokeshortcomb.case;
+sub slashshortcomb by slashshortcomb.case;
+sub gravecomb.viet by gravecomb.viet.case;
+sub acutecomb.viet by acutecomb.viet.case;
+sub circumflexcomb.viet by circumflexcomb.viet.case;
+sub brevecomb.viet by brevecomb.viet.case;
+sub tildecomb.viet by tildecomb.viet.case;
+sub hookabovecomb.viet by hookabovecomb.viet.case;
+";
+tag = case;
+},
+{
+automatic = 1;
 code = "lookupflag IgnoreMarks;
 sub f f b by f_f_b;
 sub f f h by f_f_h;
@@ -1052,16 +1082,6 @@ sub t f by t_f;
 sub t t by t_t;
 ";
 tag = dlig;
-},
-{
-code = "";
-labels = (
-{
-language = dflt;
-value = "";
-}
-);
-tag = ss09;
 }
 );
 fontMaster = (
@@ -21182,10 +21202,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "0E427199-3761-4D16-8F3B-7327BA7E7A1E";
 }
 );
 guides = (
@@ -21493,10 +21509,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "910B0CEC-A3DB-421F-A568-ECC2FB9F260B";
 }
 );
 id = "B6BCD6A9-0C62-44B7-BA55-F874EE96F6B0";
@@ -21804,7 +21816,7 @@ value = 1279;
 },
 {
 name = "Link Metrics With Master";
-value = "86E2D5CA-CF61-4061-850A-2565A04AA398";
+value = "2D1C241B-E6AD-41FB-985B-55D4E5F84943";
 }
 );
 id = "94713509-6EC6-4EA6-A0EF-924C1CA2E4D7";
@@ -22129,10 +22141,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "B032EA3A-E153-4C18-9D81-C226C7DC7AF7";
 }
 );
 guides = (
@@ -22445,10 +22453,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "3496D11C-5B0A-4935-862F-9D9095789F8D";
 }
 );
 guides = (
@@ -22732,7 +22736,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = "067395CE-198B-4F3C-A557-1A962932305C";
+value = "4296CD9C-54F3-4369-8782-4D8C9C978D13";
 },
 {
 name = subscriptXOffset;
@@ -23074,10 +23078,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "73205661-1CB1-47FE-897D-D77D44983E84";
 }
 );
 id = "7F0B8F2A-6897-4032-AB19-09AC38C3B4F3";
@@ -23395,10 +23395,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "8D6518F7-12BA-4A74-9FDB-C960DB029490";
 }
 );
 guides = (
@@ -23695,7 +23691,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = "8F2E0D1A-83F5-47D1-8539-AD3780EFCB6A";
+value = "C039F33B-FD0A-4FB6-BD1B-15CEA12E972E";
 },
 {
 name = subscriptXOffset;
@@ -24043,10 +24039,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = "EF590923-D134-4C53-B63B-98736C2A962C";
 }
 );
 guides = (
@@ -24422,10 +24414,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = "F2F3E81A-8823-4109-A355-B5C4C09923E2";
 }
 );
 id = "E03191A2-7B47-4106-B8B1-BC76A6CCD2BF";
@@ -24745,7 +24733,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = "3DD4F746-4268-48C6-87C6-7403BEAF4275";
+value = "769463EF-2EF4-41A9-85A9-285641285009";
 },
 {
 name = subscriptXOffset;
@@ -25152,10 +25140,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = "3AA5206E-0C5B-4811-AC66-5F4770CFF1AA";
 }
 );
 guides = (
@@ -25539,10 +25523,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = "C8DF7DC7-E4A0-4C6D-97AA-C4629ECAB3F8";
 }
 );
 id = "180CE566-9681-4C51-B218-987879EAA094";
@@ -25884,7 +25864,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = "1579C575-CC9A-4C56-A304-4E4DD03EF0AF";
+value = "879AA4C1-268E-45F5-A479-E8A4233029E2";
 },
 {
 name = subscriptXOffset;
@@ -26250,10 +26230,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = "C05FA1DC-BFA7-465B-AA03-6BF73A6A6A10";
 }
 );
 id = "ACE0E044-3C97-4F86-A940-FA3A49584296";
@@ -26628,10 +26604,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = "01B7472A-D273-4887-9EAC-E6A15102225C";
 }
 );
 guides = (
@@ -27012,7 +26984,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = "89ABD677-D09A-458D-80A2-7F5B68CA15B8";
+value = "82FC06D3-8581-4B8E-8DAE-0B01F3360F1A";
 },
 {
 name = subscriptXOffset;
@@ -27422,10 +27394,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "7EEEA5E0-76CC-4F0A-A765-6E3C19B8B704";
 }
 );
 guides = (
@@ -27868,10 +27836,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "BF180843-99D6-4C65-B8E4-10B904A58698";
 }
 );
 guides = (
@@ -28284,7 +28248,7 @@ value = 12;
 },
 {
 name = "Link Metrics With Master";
-value = "C09FB21D-6B75-4928-B5AD-7420F8AAB406";
+value = "8F69D9BF-EE35-44AA-BD6F-D41841F9764C";
 },
 {
 name = subscriptXOffset;
@@ -28719,10 +28683,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "C8F8B257-49A3-46CF-8326-EA594855E40C";
 }
 );
 guides = (
@@ -29116,10 +29076,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "EF439F48-BA17-4C34-9F5F-1FC4BA53F2EC";
 }
 );
 guides = (
@@ -29538,14 +29494,8 @@ name = superscriptYSize;
 value = 1109;
 },
 {
-disabled = 1;
 name = "Link Metrics With Master";
-value = "4242967F-419F-414F-9DAB-572DEE9205F9";
-},
-{
-disabled = 1;
-name = "Link Metrics With Master";
-value = "49027230-33EA-482F-8EA8-1CA6AC05C9C9";
+value = "733112D2-2833-4B86-B7ED-934B97F7C918";
 }
 );
 guides = (
@@ -29967,10 +29917,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "B9E8A319-7B42-4C5E-94DF-02946C7DF308";
 }
 );
 guides = (
@@ -30402,10 +30348,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "7375F3B4-6260-47CB-87A2-00A24266E0AF";
 }
 );
 guides = (
@@ -30819,7 +30761,7 @@ value = 1109;
 },
 {
 name = "Link Metrics With Master";
-value = "10478940-D0BE-441F-9786-BA9AB95F2E75";
+value = "44A1DA6F-705F-4F7B-9B33-7FF35FBB8E31";
 }
 );
 guides = (
@@ -31196,10 +31138,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "8A567CC5-1BB6-4C13-8809-BB615807A379";
 }
 );
 id = "F0EBA853-D144-4086-9DEF-03C074719747";
@@ -31516,10 +31454,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "A7038DF1-262A-44B2-858C-4A4382F2B814";
 }
 );
 id = "E78A5D28-52D0-4E49-855E-9C3F426AB90E";
@@ -31803,7 +31737,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = "747FA230-BA4A-4573-91CE-9EA765F8CAFC";
+value = "4E78DCDC-E44D-44EC-BB47-1574327ABDA7";
 },
 {
 name = subscriptXOffset;
@@ -32156,10 +32090,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = m006;
 }
 );
 id = "7AEB537B-6E6D-477F-B81D-8E6173A669CC";
@@ -32476,10 +32406,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = m007;
 }
 );
 id = "F85DD309-2AE9-4DDE-9FA4-103A30487ABB";
@@ -32765,7 +32691,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = m008;
+value = "50A2B166-3BC4-460E-868C-2DF7A2DE78B5";
 },
 {
 name = subscriptXOffset;
@@ -33120,10 +33046,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "F5654B4A-8D59-4698-9EBB-D34D34E59503";
 }
 );
 id = "202650AC-C1EC-416F-AD0E-4C3345396857";
@@ -33442,10 +33364,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1279;
-},
-{
-name = "Link Metrics With Master";
-value = "817D9D54-6193-428F-A11C-23A6AEA52FD7";
 }
 );
 id = "FB78658E-73F3-431C-85DA-3847F8E49B10";
@@ -33735,7 +33653,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = "FB5E7BE1-8CC3-462B-B5F4-83247D9A07F8";
+value = "D21A6E02-1592-4CAE-B92D-63CB66041C90";
 },
 {
 name = subscriptXOffset;
@@ -34088,10 +34006,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = m017;
 }
 );
 id = "3540C6A6-F5CC-40E7-9F71-741513055F39";
@@ -34414,10 +34328,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = m018;
 }
 );
 id = "34E74F45-BE2A-4C85-AC89-DFACBF25D7A7";
@@ -34725,7 +34635,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = m019;
+value = "FEDFE2D2-C256-4431-8C8E-E2FE575CF785";
 },
 {
 name = subscriptXOffset;
@@ -35104,10 +35014,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = m002;
 }
 );
 id = "771FAF9B-4EA4-4DC1-A54D-8200B0B34D50";
@@ -35456,10 +35362,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = m022;
 }
 );
 guides = (
@@ -35805,7 +35707,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = m023;
+value = "2CADC26F-F17A-4223-9B98-219CAF3172D9";
 },
 {
 name = subscriptXOffset;
@@ -36188,10 +36090,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = m024;
 }
 );
 id = "DC99CBB8-E7A7-421A-87E7-840A162ADCD3";
@@ -36586,10 +36484,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1200;
-},
-{
-name = "Link Metrics With Master";
-value = m025;
 }
 );
 guides = (
@@ -36947,7 +36841,7 @@ value = 0;
 },
 {
 name = "Link Metrics With Master";
-value = m026;
+value = "39BB56E0-17BD-4C23-94C9-8820B69E5B38";
 },
 {
 name = subscriptXOffset;
@@ -37384,10 +37278,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "113E061F-FAB3-4DDA-8D5E-A68BFF1446A4";
 }
 );
 guides = (
@@ -37839,10 +37729,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "591F6EEE-B4D0-4DCB-A31C-C9DC0210C057";
 }
 );
 guides = (
@@ -38280,7 +38166,7 @@ value = 12;
 },
 {
 name = "Link Metrics With Master";
-value = "662D8A49-64FB-4A8F-AA26-E44ADB350143";
+value = "47804706-7AC2-47E8-A4D8-D60362A1B181";
 },
 {
 name = subscriptXOffset;
@@ -38708,10 +38594,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "466428C3-6075-40C8-B911-E496E35C7694";
 }
 );
 guides = (
@@ -39133,10 +39015,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "39BB63E8-1D15-4863-B52A-EF7437DA3FD0";
 }
 );
 guides = (
@@ -39540,7 +39418,7 @@ value = 11;
 },
 {
 name = "Link Metrics With Master";
-value = "83C1FFDA-EAEF-42A7-87EB-F18EF329018E";
+value = "4F916874-D865-4217-AC6B-8AA620D9F61C";
 },
 {
 name = subscriptXOffset;
@@ -40022,10 +39900,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "584AAA11-5C4F-487C-B653-A8C558F2CE52";
 }
 );
 guides = (
@@ -40451,10 +40325,6 @@ value = 954;
 {
 name = superscriptYSize;
 value = 1109;
-},
-{
-name = "Link Metrics With Master";
-value = "B15BE7B3-9BA1-4448-8BBB-3A3DDDB2727A";
 }
 );
 guides = (
@@ -40844,7 +40714,7 @@ value = 9;
 },
 {
 name = "Link Metrics With Master";
-value = "30915ACD-135D-4F98-9FE0-11D49F00F6EA";
+value = "81E3A8CD-082C-49FF-9AE0-BD52C6181D0C";
 },
 {
 name = subscriptXOffset;
