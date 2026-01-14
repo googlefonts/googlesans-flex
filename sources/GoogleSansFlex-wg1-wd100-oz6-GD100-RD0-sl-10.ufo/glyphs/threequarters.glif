@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="threequarters" format="2">
-  <advance width="2057"/>
+  <advance width="2096"/>
   <unicode hex="00BE"/>
   <outline>
     <component base="three.numerator"/>
     <component base="fraction" xOffset="893"/>
-    <component base="four.denominator" xOffset="1201"/>
+    <component base="four.denominator" xOffset="1240"/>
   </outline>
   <lib>
     <dict>
@@ -13,7 +13,7 @@
       <array>
         <dict>
           <key>alignment</key>
-          <integer>1</integer>
+          <integer>-1</integer>
           <key>index</key>
           <integer>0</integer>
           <key>name</key>
@@ -21,7 +21,15 @@
         </dict>
         <dict>
           <key>alignment</key>
+          <integer>-1</integer>
+          <key>index</key>
           <integer>1</integer>
+          <key>name</key>
+          <string>fraction</string>
+        </dict>
+        <dict>
+          <key>alignment</key>
+          <integer>-1</integer>
           <key>index</key>
           <integer>2</integer>
           <key>name</key>

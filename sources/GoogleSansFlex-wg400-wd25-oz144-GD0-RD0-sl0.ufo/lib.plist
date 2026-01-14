@@ -89,7 +89,13 @@
     </dict>
     <key>com.schriftgestaltung.customParameter.GSFont.DisplayStrings</key>
     <array>
-      <string>C G</string>
+      <string>/_CapHeightBlackCircle ➍</string>
+      <string>④➍</string>
+      <string>/_CapHeightCircle ➃</string>
+      <string>➀➁➂➃➄➅/_CapHeightCircle ➆➇➈➊➋➌➍➎➏➐➑➒</string>
+      <string>④</string>
+      <string>➃➍</string>
+      <string>Copyright ©</string>
     </array>
     <key>com.schriftgestaltung.customParameter.GSFont.EditView Line Height</key>
     <integer>2344</integer>
@@ -567,6 +573,25 @@
       <string>seven.tf</string>
       <string>eight.tf</string>
       <string>nine.tf</string>
+      <string>one.sansSerifCircled</string>
+      <string>two.sansSerifCircled</string>
+      <string>three.sansSerifCircled</string>
+      <string>four.sansSerifCircled</string>
+      <string>five.sansSerifCircled</string>
+      <string>six.sansSerifCircled</string>
+      <string>seven.sansSerifCircled</string>
+      <string>eight.sansSerifCircled</string>
+      <string>nine.sansSerifCircled</string>
+      <string>one.sansSerifBlackCircled</string>
+      <string>two.sansSerifBlackCircled</string>
+      <string>three.sansSerifBlackCircled</string>
+      <string>four.sansSerifBlackCircled</string>
+      <string>five.sansSerifBlackCircled</string>
+      <string>six.sansSerifBlackCircled</string>
+      <string>seven.sansSerifBlackCircled</string>
+      <string>eight.sansSerifBlackCircled</string>
+      <string>nine.sansSerifBlackCircled</string>
+      <string>four.circled</string>
       <string>fraction</string>
       <string>onehalf</string>
       <string>onequarter</string>
@@ -675,6 +700,7 @@
       <string>degree</string>
       <string>bar</string>
       <string>brokenbar</string>
+      <string>copyright.alt</string>
       <string>section.tf</string>
       <string>Euro</string>
       <string>cent</string>
@@ -791,6 +817,9 @@
       <string>Google.logo</string>
       <string>_copyright-circle</string>
       <string>_dots-divide</string>
+      <string>_CapHeightBlackCircle</string>
+      <string>_CapHeightCircle</string>
+      <string>_CopyrightAlt-C</string>
       <string>_copyright-C</string>
       <string>_registered-R</string>
       <string>comp_eth</string>
@@ -892,6 +921,10 @@
       <key>Yhook</key>
       <string>base</string>
       <key>Z</key>
+      <string>base</string>
+      <key>_CapHeightBlackCircle</key>
+      <string>base</string>
+      <key>_CapHeightCircle</key>
       <string>base</string>
       <key>_copyright-circle</key>
       <string>base</string>
@@ -1238,6 +1271,8 @@
       <string>uni1EF6</string>
       <key>Ytilde</key>
       <string>uni1EF8</string>
+      <key>_CopyrightAlt-C</key>
+      <string>_CopyrightAltC</string>
       <key>_copyright-C</key>
       <string>_copyrightC</string>
       <key>_copyright-circle</key>
@@ -1348,6 +1383,10 @@
       <string>uni1EB9</string>
       <key>ehookabove</key>
       <string>uni1EBB</string>
+      <key>eight.sansSerifBlackCircled</key>
+      <string>uni2791</string>
+      <key>eight.sansSerifCircled</key>
+      <string>uni2787</string>
       <key>eightsubscript</key>
       <string>uni2088</string>
       <key>eightsuperscript</key>
@@ -1358,10 +1397,20 @@
       <string>uni2002</string>
       <key>etilde</key>
       <string>uni1EBD</string>
+      <key>five.sansSerifBlackCircled</key>
+      <string>uni278E</string>
+      <key>five.sansSerifCircled</key>
+      <string>uni2784</string>
       <key>fivesubscript</key>
       <string>uni2085</string>
       <key>fivesuperscript</key>
       <string>uni2075</string>
+      <key>four.circled</key>
+      <string>uni2463</string>
+      <key>four.sansSerifBlackCircled</key>
+      <string>uni278D</string>
+      <key>four.sansSerifCircled</key>
+      <string>uni2783</string>
       <key>fourperemspace</key>
       <string>uni2005</string>
       <key>foursubscript</key>
@@ -1418,6 +1467,10 @@
       <string>uni0146</string>
       <key>ndotaccent</key>
       <string>uni1E45</string>
+      <key>nine.sansSerifBlackCircled</key>
+      <string>uni2792</string>
+      <key>nine.sansSerifCircled</key>
+      <string>uni2788</string>
       <key>ninesubscript</key>
       <string>uni2089</string>
       <key>ninesuperscript</key>
@@ -1450,6 +1503,10 @@
       <string>uni1EDF</string>
       <key>ohorntilde</key>
       <string>uni1EE1</string>
+      <key>one.sansSerifBlackCircled</key>
+      <string>uni278A</string>
+      <key>one.sansSerifCircled</key>
+      <string>uni2780</string>
       <key>onesubscript</key>
       <string>uni2081</string>
       <key>onesuperior</key>
@@ -1458,10 +1515,6 @@
       <string>uni0157</string>
       <key>ringcomb</key>
       <string>uni030A</string>
-      <key>riyalSaudi</key>
-      <string>uni20C1</string>
-      <key>riyalSaudi.tf</key>
-      <string>uni20C1.tf</string>
       <key>rupeeIndian</key>
       <string>uni20B9</string>
       <key>rupeeIndian.tf</key>
@@ -1472,10 +1525,18 @@
       <string>uni0219</string>
       <key>sdotbelow</key>
       <string>uni1E63</string>
+      <key>seven.sansSerifBlackCircled</key>
+      <string>uni2790</string>
+      <key>seven.sansSerifCircled</key>
+      <string>uni2786</string>
       <key>sevensubscript</key>
       <string>uni2087</string>
       <key>sevensuperscript</key>
       <string>uni2077</string>
+      <key>six.sansSerifBlackCircled</key>
+      <string>uni278F</string>
+      <key>six.sansSerifCircled</key>
+      <string>uni2785</string>
       <key>sixperemspace</key>
       <string>uni2006</string>
       <key>sixsubscript</key>
@@ -1500,12 +1561,20 @@
       <string>uni021B</string>
       <key>thinspace</key>
       <string>uni2009</string>
+      <key>three.sansSerifBlackCircled</key>
+      <string>uni278C</string>
+      <key>three.sansSerifCircled</key>
+      <string>uni2782</string>
       <key>threeperemspace</key>
       <string>uni2004</string>
       <key>threesubscript</key>
       <string>uni2083</string>
       <key>threesuperior</key>
       <string>uni00B3</string>
+      <key>two.sansSerifBlackCircled</key>
+      <string>uni278B</string>
+      <key>two.sansSerifCircled</key>
+      <string>uni2781</string>
       <key>twosubscript</key>
       <string>uni2082</string>
       <key>twosuperior</key>
@@ -1550,6 +1619,7 @@
       <string>e.alt</string>
       <string>eight.sinf</string>
       <string>five.sinf</string>
+      <string>four.circled</string>
       <string>four.sinf</string>
       <string>g.ss03</string>
       <string>gbreve.ss03</string>
