@@ -341,6 +341,15 @@ feature ss02 {
 	sub @g_ALT_OFF by @g_ALT_ON;
 } ss02;
 
+feature ss09 {
+	featureNames {
+        name "Alternate Symbols";
+        name 1 "Alternate Symbols";
+    };
+sub copyright by copyright.alt;
+
+} ss09;
+
 feature ordn {
 	sub [@FIGURES zeroslash] a' by ordfeminine;
 	sub [@FIGURES zeroslash] o' by ordmasculine;
@@ -357,6 +366,21 @@ feature pnum {
     sub @SYMBOLS_TAB by @SYMBOLS;
 	sub zeroslash.tf by zeroslash;
 } pnum;
+
+feature case {
+# automatic
+sub periodcentered.loclCAT by periodcentered.loclCAT.case;
+sub horncomb by horncomb.case;
+sub strokeshortcomb by strokeshortcomb.case;
+sub slashshortcomb by slashshortcomb.case;
+sub gravecomb.viet by gravecomb.viet.case;
+sub acutecomb.viet by acutecomb.viet.case;
+sub circumflexcomb.viet by circumflexcomb.viet.case;
+sub brevecomb.viet by brevecomb.viet.case;
+sub tildecomb.viet by tildecomb.viet.case;
+sub hookabovecomb.viet by hookabovecomb.viet.case;
+
+} case;
 
 feature dlig {
 # automatic
