@@ -4,7 +4,8 @@
 
 ### New
 - added circled figures ([#1170](https://github.com/googlefonts/googlesans-flex/issues/1170))
-- updated default copyright symbol and moved old one to the feature 
+- updated default copyright symbol and moved old one to the ss09 feature ([#1224](https://github.com/googlefonts/googlesans-flex/issues/1224))
+- added scripts: find_non_duplex_kerning.py ([#1253](https://github.com/googlefonts/googlesans-flex/issues/1253)) 
 
 ### Changed
 - updated Saudi Riyal symbol (U+20C1) ([#1237](https://github.com/googlefonts/googlesans-flex/issues/1237))
