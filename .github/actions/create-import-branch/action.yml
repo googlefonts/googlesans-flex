@@ -77,7 +77,7 @@ runs:
         
         $SOURCE_BRANCH at $(git rev-parse --short "origin/$SOURCE_BRANCH")
         
-        This commit was creating automatically using the GitHub workflow" || true
+        This commit was created automatically using the GitHub workflow" || true
         
         # Rebase to get non-source changes from main
         if ! git rebase origin/main; then
