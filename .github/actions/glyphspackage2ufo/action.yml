@@ -59,7 +59,7 @@ runs:
       # which is required to be able to emit a clean DS+UFOs
       cd "${{ steps.prepare-import.outputs.target }}"
       echo "Running glyphs_to_ds.py"
-      uv run --python $(cat .github/workflows/python-version.txt) \
+      uv run --quiet --python $(cat .github/workflows/python-version.txt) \
         --with-requirements requirements.txt \
         scripts/glyphs_to_ds.py \
         "$GITHUB_WORKSPACE/octavio/sources/design-source/GSF-full.glyphspackage" \
