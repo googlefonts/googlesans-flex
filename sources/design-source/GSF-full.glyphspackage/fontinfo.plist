@@ -1052,21 +1052,6 @@ tag = pnum;
 },
 {
 automatic = 1;
-code = "sub periodcentered.loclCAT by periodcentered.loclCAT.case;
-sub horncomb by horncomb.case;
-sub strokeshortcomb by strokeshortcomb.case;
-sub slashshortcomb by slashshortcomb.case;
-sub gravecomb.viet by gravecomb.viet.case;
-sub acutecomb.viet by acutecomb.viet.case;
-sub circumflexcomb.viet by circumflexcomb.viet.case;
-sub brevecomb.viet by brevecomb.viet.case;
-sub tildecomb.viet by tildecomb.viet.case;
-sub hookabovecomb.viet by hookabovecomb.viet.case;
-";
-tag = case;
-},
-{
-automatic = 1;
 code = "lookupflag IgnoreMarks;
 sub f f b by f_f_b;
 sub f f h by f_f_h;
