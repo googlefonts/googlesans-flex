@@ -429,6 +429,9 @@ def com_google_fonts_check_googlesansflex_has_base_table(ttFont: TTFont):
     if "GoogleSansFlexTV" in ttFont.reader.file.name:
         yield SKIP, "The TV font does not need a BASE table"
         return
+    if "/android/" in ttFont.reader.file.name:
+        yield SKIP, "The Android font should not have a BASE table until something elsewhere is fixed. See https://github.com/googlefonts/googlesans-flex/issues/1262"
+        return
 
     if "BASE" in ttFont:
         yield PASS, "BASE table present in font"
