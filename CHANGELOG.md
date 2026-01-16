@@ -1,5 +1,11 @@
 # Google Sans Flex Changelog
 
+## Version 4.002 (2026-01-15)
+
+### Changed
+- removed `BASE` table from Android builds. ([#1262](https://github.com/googlefonts/googlesans-flex/issues/1262))
+
+
 ## Version 4.001 (2026-01-14)
 ### New
 - added circled figures ([#1170](https://github.com/googlefonts/googlesans-flex/issues/1170))
