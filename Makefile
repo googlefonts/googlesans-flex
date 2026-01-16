@@ -41,6 +41,8 @@ android: build.stamp
 		--output fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	$(UV_RUN) scripts/prune_hvar.py \
 		fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	$(UV_RUN) scripts/prune_BASE.py \
+		fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
 workspace: build.stamp
 	-@rm fonts/workspace/*.ttf
