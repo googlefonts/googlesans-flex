@@ -39,12 +39,6 @@
 - updated and reduced dependencies (#1198 and multiple other PRs)
 - Added dependabot configuration for GH Actions version update monitoring #1150 
 
-## Version 2.007 (2025-09-13)
-### Changed
-Production ready fonts, for Android only. 
-- removed HVAR table to improve VF rendering performance on Android
-- updated USE_MY_METRICS settings. (When the USE_MY_METRICS flag is set on a component, it instructs the font renderer to use the advance width and side bearings of that specific component as the metrics for the entire composite glyph, instead of calculating the metrics based on the composite glyph's own outline data, or by summing the metrics of all components.)
-
 ## Version 3.006 (2025-08-25)
 ### Changed
 - added currency signs: ₹ ₩ ฿ (#1164)
@@ -98,8 +92,6 @@ Production ready fonts, for Android only.
     Google Sans Flex SuperCondensed (144opsz, 25wdth, 0ROND)
     Google Sans Flex ExtraExpanded (144opsz, 150wdth, 0ROND)
 
-
-
 ## Version 3.001 (2024-12-28)
 ### Changed
 - kerning triples 7.1; 7.4; 7.9 reviewed and updated to address #1124
@@ -130,6 +122,11 @@ Production ready fonts, for Android only.
 - new build workflow with fonts for Android (#1051 #1090 #1085 )
 - remove dead code case feature (#958)
 
+## Version 2.007 (2025-09-13)
+### Changed
+Production ready fonts, for Android only. 
+- removed HVAR table to improve VF rendering performance on Android
+- updated USE_MY_METRICS settings. (When the USE_MY_METRICS flag is set on a component, it instructs the font renderer to use the advance width and side bearings of that specific component as the metrics for the entire composite glyph, instead of calculating the metrics based on the composite glyph's own outline data, or by summing the metrics of all components.)
 
 ## Version 2.006 (2024-11-12)
 
