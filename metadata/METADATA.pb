@@ -9,7 +9,7 @@ fonts {
   filename: "GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf"
   post_script_name: "GoogleSansFlex-Regular"
   full_name: "Google Sans Flex Regular"
-  copyright: "Copyright 2015 Google LLC. All Rights Reserved."
+  copyright: "Copyright 2025 The Google Sans Flex Project Authors (https://github.com/googlefonts/googlesans-flex)"
 }
 subsets: "canadian-aboriginal"
 subsets: "cherokee"
