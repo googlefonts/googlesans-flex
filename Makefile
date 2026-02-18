@@ -12,7 +12,7 @@ help:
 	@echo "###"
 	@echo
 	@echo "  make build:  Builds the fonts and places them in the fonts/ directory"
-	@echo "  make release:  Builds the fonts above, along with Android and Workspace-specific variants"
+	@echo "  make release:  Builds the fonts above, along with Android, Figma, and Workspace-specific variants"
 	@echo "  make test:   Tests the fonts with fontbakery"
 	@echo "  make images: Creates PNG specimen images in the documentation/ directory"
 	@echo
@@ -44,6 +44,15 @@ android: build.stamp
 	$(UV_RUN) scripts/prune_BASE.py \
 		fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
+figma: build.stamp
+	mkdir -p fonts/figma
+	-@rm fonts/figma/*.ttf
+	$(UV_RUN) gftools-rename-font \
+		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
+		--suffix \
+		" Variable" \
+		-o fonts/figma/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+
 workspace: build.stamp
 	-@rm fonts/workspace/*.ttf
 	-@rm fonts/tv/*.ttf
@@ -54,7 +63,7 @@ workspace: build.stamp
 	mv fonts/workspace/GoogleSansFlexTV[wght].ttf fonts/tv
 	$(UV_RUN) pyftsubset fonts/tv/GoogleSansFlexTV[wght].ttf --output-file=fonts/tv/GoogleSansFlexTV[wght].ttf --unicodes="U+D-25CC,U+FB00-1D61E" --layout-features="tnum,numr,subs,sups,frac,ordn,dnom,zero,kern,locl,mark,mkmk,ccmp,liga" --name-IDs="*" --recalc-average-width --recalc-max-context --recalc-bounds --notdef-outline
 
-release: android workspace
+release: android figma workspace
 
 COLLIDOSCOPE_OPTS = fontbakery \
 	check-googlefonts -l WARN --auto-jobs --succinct \
