@@ -63,11 +63,18 @@ jobs:
       uses: alpha-tango-kilo/gha-artifact-name@v1
       with:
         repo-name: Google Sans Flex Figma
-    - name: Upload workspace fonts
+    - name: Upload Android fonts
       uses: actions/upload-artifact@v6
       with:
         name: ${{ steps.android-artifact-name.outputs.artifact-name }}
         path: fonts/android
+        compression-level: 9
+        if-no-files-found: error
+    - name: Upload Figma font
+      uses: actions/upload-artifact@v6
+      with:
+        name: ${{ steps.figma-artifact-name.outputs.artifact-name }}
+        path: fonts/figma
         compression-level: 9
         if-no-files-found: error
     outputs:
@@ -102,7 +109,7 @@ jobs:
         cache-dependency-glob: |
           requirements*.txt
           requirements*.in
-    - name: Download workspace and tv fonts
+    - name: Download workspace and TV fonts
       uses: actions/download-artifact@v7
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
