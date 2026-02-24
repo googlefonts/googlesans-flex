@@ -212,8 +212,8 @@ jobs:
 
         figma_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} figma.zip"
         echo "figma-zip-name=$figma_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.figma-artifact-name }}/figma" \
-          && zip -9 "../../$figma_zip_name" *.ttf *.md
+        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.figma-artifact-name }}" \
+          && zip -9 "../$figma_zip_name" *.ttf *.md
 
         android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
