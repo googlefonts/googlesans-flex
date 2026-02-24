@@ -51,7 +51,7 @@ figma: build.stamp
 		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
 		--suffix \
 		" Variable" \
-		-o fonts/figma/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+		-o fonts/figma/GoogleSansFlexVariable[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 
 workspace: build.stamp
 	-@rm fonts/workspace/*.ttf
