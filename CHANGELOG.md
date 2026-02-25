@@ -1,5 +1,11 @@
 # Google Sans Flex Changelog
 
+## Version 4.003 (2026-02-25)
+
+### Changed
+- adding Figma-specific VF builds ([#1271](https://github.com/googlefonts/googlesans-flex/pull/1271))
+
+
 ## Version 4.002 (2026-01-15)
 
 ### Changed
