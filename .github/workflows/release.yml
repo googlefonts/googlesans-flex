@@ -56,15 +56,30 @@ jobs:
       uses: alpha-tango-kilo/gha-artifact-name@v1
       with:
         repo-name: Google Sans Flex Android
-    - name: Upload workspace fonts
+    - name: Create Figma flavour GS Flex
+      run: make figma
+    - name: Generate Figma archive name
+      id: figma-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@v1
+      with:
+        repo-name: Google Sans Flex Figma
+    - name: Upload Android fonts
       uses: actions/upload-artifact@v6
       with:
         name: ${{ steps.android-artifact-name.outputs.artifact-name }}
         path: fonts/android
         compression-level: 9
         if-no-files-found: error
+    - name: Upload Figma font
+      uses: actions/upload-artifact@v6
+      with:
+        name: ${{ steps.figma-artifact-name.outputs.artifact-name }}
+        path: fonts/figma
+        compression-level: 9
+        if-no-files-found: error
     outputs:
       android-artifact-name: ${{ steps.android-artifact-name.outputs.artifact-name }}
+      figma-artifact-name: ${{ steps.figma-artifact-name.outputs.artifact-name }}
       workspace-artifact-name: ${{ steps.cut-workspace-fonts.outputs.artifact-name }}
   test-variable:
     needs:
@@ -73,7 +88,7 @@ jobs:
     with:
       branch: ${{ github.ref_name }}
       artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
-  test-workspace-android:
+  test-workspace-figma-android:
     needs:
     - cut-instances
     runs-on: googlefonts-8cores-32GB
@@ -94,7 +109,7 @@ jobs:
         cache-dependency-glob: |
           requirements*.txt
           requirements*.in
-    - name: Download workspace and tv fonts
+    - name: Download workspace and TV fonts
       uses: actions/download-artifact@v7
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
@@ -107,6 +122,15 @@ jobs:
       uses: f-actions/opentype-sanitizer@v3
       with:
         path: fonts/tv/*.ttf
+    - name: Download Figma font
+      uses: actions/download-artifact@v7
+      with:
+        name: ${{ needs.cut-instances.outputs.figma-artifact-name }}
+        path: fonts/figma
+    - name: Check Figma font with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@v3
+      with:
+        path: fonts/figma/*.ttf
     - name: Download Android font
       uses: actions/download-artifact@v7
       with:
@@ -140,7 +164,7 @@ jobs:
     - build-variable
     - cut-instances
     - test-variable
-    - test-workspace-android
+    - test-workspace-figma-android
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -156,6 +180,11 @@ jobs:
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
         path: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+    - name: Download Figma font
+      uses: actions/download-artifact@v7
+      with:
+        name: ${{ needs.cut-instances.outputs.figma-artifact-name }}
+        path: ${{ needs.cut-instances.outputs.figma-artifact-name }}
     - name: Download Android font
       uses: actions/download-artifact@v7
       with:
@@ -181,6 +210,11 @@ jobs:
         cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}/tv" \
           && zip -9 "../../$tv_zip_name" *.ttf *.md
 
+        figma_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} figma.zip"
+        echo "figma-zip-name=$figma_zip_name" >> "$GITHUB_OUTPUT"
+        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.figma-artifact-name }}" \
+          && zip -9 "../$figma_zip_name" *.ttf *.md
+
         android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
         cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.android-artifact-name }}"
@@ -197,6 +231,10 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ${{ steps.release-archives.outputs.workspace-zip-name }}
+    - name: Upload Figma fonts archive to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: ${{ steps.release-archives.outputs.figma-zip-name }}
     - name: Upload Android font archive to release
       uses: svenstaro/upload-release-action@v2
       with:
