@@ -18,7 +18,7 @@ runs:
     shell: bash
     run: 'echo "vf-artifact: ${{ inputs.vf-artifact }}"'
   - name: Download main VF
-    uses: actions/download-artifact@v7
+    uses: actions/download-artifact@v8
     with:
       name: ${{ inputs.vf-artifact }}
       path: fonts/variable
