@@ -76,7 +76,7 @@ jobs:
       shell: bash
       run: scripts/fontbakery.sh
     - name: Upload Fontbakery reports
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
