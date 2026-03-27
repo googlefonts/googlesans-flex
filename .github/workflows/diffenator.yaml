@@ -91,7 +91,7 @@ jobs:
     - name: Run diffenator3
       run: |
         mkdir -p diffenator_report
-        if [[ ${{ inputs.all-masters }} == "true" ]] ; then
+        if [[ "${INPUT_ALL_MASTERS}" == "true" ]] ; then
           echo "Checking masters"
           LOCATIONS_ARG="--masters"
         else
@@ -100,6 +100,8 @@ jobs:
         fi
         diffenator3 before/*.ttf after/*.ttf \
           $LOCATIONS_ARG --html --output diffenator_report
+      env:
+        INPUT_ALL_MASTERS: ${{ inputs.all-masters }}
     - name: Upload diffenator report
       uses: actions/upload-artifact@v6
       with:

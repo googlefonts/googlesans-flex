@@ -23,12 +23,15 @@ jobs:
         path: main
     - name: Log & validate inputs
       run: |
-        echo "git-ref: ${{ github.event.inputs.git-ref }}"
+        echo "git-ref: ${INPUT_GIT_REF}"
         echo "python-version-file: $(head -n 1 -z ./main/.github/workflows/python-version.txt)"
-        if [[ "${{ github.ref_name }}" != "main" ]]; then
+        if [[ "${GITHUB_REF_NAME}" != "main" ]]; then
           echo "::error title=Pipeline not run on main::Build from Glyphs workflow should always be run from main"
           exit 1
         fi
+      env:
+        INPUT_GIT_REF: ${{ github.event.inputs.git-ref }}
+        GITHUB_REF_NAME: ${{ github.ref_name }}
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
@@ -41,9 +44,11 @@ jobs:
     - name: Create sources tarball
       shell: bash
       run: |
-        cd "${{ steps.glyphspackage2ufo.outputs.directory }}"
+        cd "${SOURCES_DIR}"
         shopt -s dotglob
         tar --create --exclude-vcs --file "UFO sources.tar" *
+      env:
+        SOURCES_DIR: ${{ steps.glyphspackage2ufo.outputs.directory }}
     - name: Generate sources artifact name
       id: zip-name
       uses: alpha-tango-kilo/gha-artifact-name@v1

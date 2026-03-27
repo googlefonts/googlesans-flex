@@ -197,30 +197,35 @@ jobs:
         #       when uploading to the release
         variable_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
         echo "variable-zip-name=$variable_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.build-variable.outputs.artifact-name }}" \
+        cd "$GITHUB_WORKSPACE/${VARIABLE_ARTIFACT}" \
           && zip -9 "../$variable_zip_name" *.ttf
 
         workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
         echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}/workspace" \
+        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/workspace" \
           && zip -9 "../../$workspace_zip_name" *.ttf *.md
 
         tv_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} tv.zip"
         echo "tv-zip-name=$tv_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.workspace-artifact-name }}/tv" \
+        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/tv" \
           && zip -9 "../../$tv_zip_name" *.ttf *.md
 
         figma_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} figma.zip"
         echo "figma-zip-name=$figma_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.figma-artifact-name }}" \
+        cd "$GITHUB_WORKSPACE/${FIGMA_ARTIFACT}" \
           && zip -9 "../$figma_zip_name" *.ttf *.md
 
         android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${{ needs.cut-instances.outputs.android-artifact-name }}"
+        cd "$GITHUB_WORKSPACE/${ANDROID_ARTIFACT}"
         # Rename file to match what Android's already using (regardless as to how representative the name is)
         mv GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf GoogleSansFlex-Regular.ttf
         zip -9 "../$android_zip_name" *.ttf *.md
+      env:
+        VARIABLE_ARTIFACT: ${{ needs.build-variable.outputs.artifact-name }}
+        WORKSPACE_ARTIFACT: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+        FIGMA_ARTIFACT: ${{ needs.cut-instances.outputs.figma-artifact-name }}
+        ANDROID_ARTIFACT: ${{ needs.cut-instances.outputs.android-artifact-name }}
     - name: Upload variable font archive to release
       uses: svenstaro/upload-release-action@v2
       with:

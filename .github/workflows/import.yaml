@@ -25,13 +25,17 @@ jobs:
           path: main
       - name: Log & validate inputs
         run: |
-          echo "git-ref: ${{ github.event.inputs.git-ref }}"
-          echo "git-email: ${{ github.event.inputs.email }}"
+          echo "git-ref: ${INPUT_GIT_REF}"
+          echo "git-email: ${INPUT_EMAIL}"
           echo "python-version-file: $(head -n 1 -z ./main/.github/workflows/python-version.txt)"
-          if [[ "${{ github.ref_name }}" != "main" ]]; then
+          if [[ "${GITHUB_REF_NAME}" != "main" ]]; then
             echo "::error title=Pipeline not run on main::Import workflow should always be run from main"
             exit 1
           fi
+        env:
+          INPUT_GIT_REF: ${{ github.event.inputs.git-ref }}
+          INPUT_EMAIL: ${{ github.event.inputs.email }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
       - name: Convert Glyphs package sources to UFO
         id: glyphspackage2ufo
         uses: ./main/.github/actions/glyphspackage2ufo
