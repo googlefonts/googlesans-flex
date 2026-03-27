@@ -1,5 +1,11 @@
 # Google Sans Flex Changelog
 
+## Version 4.004 (2026-03-26)
+
+### Changed
+- reverted logo glyphs to their design from v3.007
+
+
 ## Version 4.003 (2026-02-25)
 
 ### Changed
