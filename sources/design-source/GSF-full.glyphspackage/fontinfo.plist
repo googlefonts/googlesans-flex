@@ -1,5 +1,5 @@
 {
-.appVersion = "3520";
+.appVersion = "3522";
 .formatVersion = 3;
 axes = (
 {
@@ -4066,7 +4066,7 @@ value = 1200;
 );
 guides = (
 {
-pos = (134,900);
+pos = (131,896);
 },
 {
 pos = (134,1439);
@@ -4482,7 +4482,8 @@ stemValues = (
 138
 );
 userData = {
-GSOffsetHorizontal = 3;
+GSOffsetHorizontal = 4;
+GSOffsetProportional = 1;
 GSOffsetVertical = 0;
 GSReScaler = {
 ScaleX = 0.6;
@@ -24213,6 +24214,11 @@ stemValues = (
 28,
 27
 );
+userData = {
+reinterpolator = {
+interpolation = 40;
+};
+};
 },
 {
 axesValues = (
@@ -27418,6 +27424,12 @@ stemValues = (
 4,
 4
 );
+userData = {
+reinterpolator = {
+axis = Width;
+interpolation = 24;
+};
+};
 },
 {
 axesValues = (
