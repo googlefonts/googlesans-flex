@@ -54,7 +54,7 @@ jobs:
           build-glyphs: glyphs
     - name: Upload sources tarball
       id: upload-sources
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.zip-name.outputs.artifact-name }}.tar
         path: ${{ steps.glyphspackage2ufo.outputs.directory }}/UFO sources.tar

@@ -64,14 +64,14 @@ jobs:
       with:
         repo-name: Google Sans Flex Figma
     - name: Upload Android fonts
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.android-artifact-name.outputs.artifact-name }}
         path: fonts/android
         compression-level: 9
         if-no-files-found: error
     - name: Upload Figma font
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ steps.figma-artifact-name.outputs.artifact-name }}
         path: fonts/figma
@@ -150,7 +150,7 @@ jobs:
         SKIP_SOURCES: 1
       run: scripts/fontbakery.sh
     - name: Upload Fontbakery reports
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
