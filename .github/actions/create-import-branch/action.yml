@@ -23,9 +23,13 @@ runs:
     - name: Log inputs
       shell: bash
       run: |
-        echo "updated-sources: ${{ inputs.updated-sources }}"
-        echo "imported-branch: ${{ inputs.imported-branch }}"
-        echo "git-email: ${{ inputs.git-email }}"
+        echo "updated-sources: ${INPUTS_UPDATED_SOURCES}"
+        echo "imported-branch: ${INPUTS_IMPORTED_BRANCH}"
+        echo "git-email: ${INPUTS_GIT_EMAIL}"
+      env:
+        INPUTS_UPDATED_SOURCES: ${{ inputs.updated-sources }}
+        INPUTS_IMPORTED_BRANCH: ${{ inputs.imported-branch }}
+        INPUTS_GIT_EMAIL: ${{ inputs.git-email }}
     - name: Create/Checkout branch
       shell: bash
       env:
@@ -52,23 +56,28 @@ runs:
       run: |
         shopt -s dotglob
         rm -r target/sources
-        mv --no-clobber "${{ inputs.updated-sources }}"/sources target/
+        mv --no-clobber "${INPUTS_UPDATED_SOURCES}"/sources target/
+      env:
+        INPUTS_UPDATED_SOURCES: ${{ inputs.updated-sources }}
     - name: Update the design sources
       shell: bash
       run: |
         # sources/design-source was deleted by the rm in the previous step
         cd target
-        git checkout "origin/${{ inputs.imported-branch }}" -- sources/design-source
+        git checkout "origin/${INPUTS_IMPORTED_BRANCH}" -- sources/design-source
+      env:
+        INPUTS_IMPORTED_BRANCH: ${{ inputs.imported-branch }}
     - name: Commit, rebase, and push changes
       id: commit-rebase-push
       shell: bash
       env:
         SOURCE_BRANCH: ${{ inputs.imported-branch }}
         TARGET_BRANCH: ${{ format('import-{0}', inputs.imported-branch) }}
+        INPUTS_GIT_EMAIL: ${{ inputs.git-email }}
       run: |
         cd target
         git config user.name "Import Script"
-        git config user.email ${{ inputs.git-email }}
+        git config user.email ${INPUTS_GIT_EMAIL}
         git add sources
         # git commit returns non-zero if there's nothing to commit, and GitHub
         # runs scripts with exit on error, so we need to suppress this with
