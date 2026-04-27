@@ -57,10 +57,12 @@ runs:
       # glyphspackage2ufo-XXXX created above and passed through the GitHub
       # output target=, because it's been prepared to NOT have leftover UFOs
       # which is required to be able to emit a clean DS+UFOs
-      cd "${{ steps.prepare-import.outputs.target }}"
+      cd "${STEPS_PREPARE_IMPORT_OUTPUTS_TARGET}"
       echo "Running glyphs_to_ds.py"
       uv run --quiet --python $(cat .github/workflows/python-version.txt) \
         --with-requirements requirements.txt \
         scripts/glyphs_to_ds.py \
         "$GITHUB_WORKSPACE/octavio/sources/design-source/GSF-full.glyphspackage" \
         --output sources/GoogleSansFlex.designspace
+    env:
+      STEPS_PREPARE_IMPORT_OUTPUTS_TARGET: ${{ steps.prepare-import.outputs.target }}

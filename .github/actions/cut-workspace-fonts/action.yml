@@ -16,7 +16,9 @@ runs:
   steps:
   - name: Log inputs
     shell: bash
-    run: 'echo "vf-artifact: ${{ inputs.vf-artifact }}"'
+    run: 'echo "vf-artifact: ${INPUTS_VF_ARTIFACT}"'
+    env:
+      INPUTS_VF_ARTIFACT: ${{ inputs.vf-artifact }}
   - name: Download main VF
     uses: actions/download-artifact@v8
     with:
