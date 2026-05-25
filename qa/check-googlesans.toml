@@ -1,4 +1,10 @@
-# Configuration for fontspector's googlefonts profile, copied from the Python profile code.
+include_profiles = [
+    "googlefonts",
+    # "gs-custom",  # TODO
+    "gs-charset",
+    "gs-fea",
+    # "gs-shaping",  # TODO
+]
 
 exclude_checks = [
     "contour_count",                                   # design rather than QA problem
