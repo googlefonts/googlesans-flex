@@ -68,7 +68,7 @@ fi
 echo "$all_ttfs" \
     | xargs fontspector --loglevel warn --succinct \
     --profile qa/check-googlesans.toml \
-    --plugin qa/check-charset.py,qa/check-fea.py \
+    --plugin qa/check-charset.py,qa/check-fea.py,qa/check-shaping.py \
     --html out/fontbakery/fontspector-googlesans-report.html \
     {} \
     || failed+=("check-googlesans-fontspector")
@@ -85,12 +85,6 @@ echo "$all_ttfs" \
     --html out/fontbakery/fontbakery-googlesans-report.html \
     qa/check-googlesans.py {} \
     || failed+=("check-googlesans-fontbakery")
-
-echo "$all_ttfs" \
-    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
-    --html out/fontbakery/fontbakery-shaping-report.html \
-    qa/check-shaping.py {} \
-    || failed+=("check-shaping")
 
 if [[ ${#failed[@]} -gt 0 ]]; then
     # If on GitHub actions, make a posh GHA error
