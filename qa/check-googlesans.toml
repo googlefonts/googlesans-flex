@@ -48,3 +48,21 @@ exclude_checks = [
     "outline_semi_vertical",
     "outline_short_segments",
 ]
+
+[field_values]
+# Values are taken from Google Sans at 1000 UPM. Flex is 2000 UPM, so values are
+# doubled. Original values left as comments.
+# Note: all keys must be quoted as Fontspector requires flat keys here, whereas
+#       TOML interprets . as a subtable
+"hhea.ascender" = 1932  # 966
+"hhea.descender" = -572  # -286
+"hhea.lineGap" = 0
+"OS/2.sTypoAscender" = 1932  # Matching hhea
+"OS/2.sTypoDescender" = -572  # Matching hhea
+"OS/2.sTypoLineGap" = 0
+"OS/2.yStrikeoutPosition" = 612  # 306
+"OS/2.yStrikeoutSize" = 168  # 84
+"OS/2.ySubscriptYSize" = 1200  # 600
+"OS/2.ySuperscriptYSize" = 1200  # 600
+"post.underlinePosition" = -320  # -160
+"post.underlineThickness" = 168  # 84
