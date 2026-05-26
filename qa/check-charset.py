@@ -32,7 +32,7 @@ GLYPH_DEFS_DIR = Path("qa", "definitions")
 
 
 @check(
-    id="googlesans/glyphs/glyphset-contents",
+    id="charset/glyphset-contents",
     title="Check charset matches list",
     rationale="""
     Confirms that the fonts include all expected Unicode encoded and non-Unicode
