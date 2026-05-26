@@ -68,27 +68,17 @@ AXIS_NAMES_WORKSPACE = {
     "wght": "Weight",
 }
 
-# Global Google Sans attributes, in 1000 upM font units.
+# Global Google Sans attributes, in 1000 upM font units. Most values are now in
+# check-googlesans.toml. The ones remaining here vary between fonts, and its
+# simpler to keep them here then duplicate them for every TTF name.
 GS_FONTUNIT_ATTRIBUTES_UPRIGHT = {
-    "hhea.ascender": 966,
-    "hhea.descender": -286,
-    "hhea.lineGap": 0,
-    "OS/2.sTypoAscender": 966,  # set to match hhea metrics values
-    "OS/2.sTypoDescender": -286,
-    "OS/2.sTypoLineGap": 0,
-    "OS/2.yStrikeoutPosition": 306,
-    "OS/2.yStrikeoutSize": 84,
     "OS/2.ySubscriptXOffset": 0,
     # Commented out values have been intentionally changed
     # "OS/2.ySubscriptXSize": 650,
     # "OS/2.ySubscriptYOffset": 75,
-    "OS/2.ySubscriptYSize": 600,
     "OS/2.ySuperscriptXOffset": 0,
     # "OS/2.ySuperscriptXSize": 650,
     # "OS/2.ySuperscriptYOffset": 350,
-    "OS/2.ySuperscriptYSize": 600,
-    "post.underlinePosition": -160,
-    "post.underlineThickness": 84,
 }
 
 GS_FONTUNIT_ATTRIBUTES_ITALIC = {
