@@ -39,6 +39,7 @@ GLYPH_DEFS_DIR = Path("qa", "definitions")
     encoded glyph definitions. This test does not require the glyph order to
     match.
     """,
+    runs_on_collection=True,
 )
 def glyphset_contents(font_paths: list[Path]) -> CheckStatuses:
     for font_path in font_paths:
