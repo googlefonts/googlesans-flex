@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 
 # Copyright 2020 Google Sans Authors
 
@@ -14,6 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# /// script
+# dependencies = [
+#     "fontspectorapi",
+#     "fontTools",
+# ]
+# ///
 
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
