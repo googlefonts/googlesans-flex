@@ -14,10 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# /// script
 # dependencies = [
 #     "fontspectorapi",
 #     "fontTools",
 #     "uharfbuzz",
+#     "toml",  # used by update_shaping_test_data.py
 # ]
 # ///
 
