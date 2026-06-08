@@ -30,7 +30,18 @@ exclude_checks = [
     "STAT_strings",                                    # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "unwanted_tables",
     "family/uniqueness_first_31_characters",           # flags on Android fonts and not a concern of ours https://chat.google.com/room/AAAAgistbQI/wlaUyu_h9PQ/QoPtBiX27sY?cls=10
+    "opentype/fvar/regular_coords_correct",
+    "interpolation_issues",
+    "mandatory_avar_table",
+    "math_signs_width",
+    "soft_hyphen",
+    "googlefonts/metadata/unreachable_subsetting",
+    "googlefonts/separator_glyphs",
+    "googlefonts/meta/script_lang_tags",
+    "googlefonts/STAT/compulsory_axis_values",
+    "googlefonts/varfont/slnt_needs_italic",
     "googlefonts/family_name_compliance",
+    "overlapping_path_segments",
 ]
 
 [sections]
@@ -60,3 +71,8 @@ exclude_checks = [
 "OS/2.ySuperscriptYSize" = 1200  # 600
 "post.underlinePosition" = -320  # -160
 "post.underlineThickness" = 168  # 84
+
+[[overrides."googlefonts/family_name_compliance"]]
+code = "camelcase"
+status = "WARN"
+reason = "We are publishing to Google Fonts, but we are a unique case."
