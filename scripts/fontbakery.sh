@@ -67,7 +67,7 @@ fi
 # Compiled font tests
 echo "$all_ttfs" \
     | xargs fontspector --loglevel warn --succinct \
-    --profile qa/check-googlesans.toml \
+    --profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
     --plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py \
     --html out/fontbakery/fontspector-googlesans-report.html \
     || failed+=("check-googlesans-fontspector")
