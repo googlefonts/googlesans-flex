@@ -432,7 +432,7 @@ def has_base_table(font_path: Path) -> CheckStatuses:
     if "GoogleSansFlexTV" in font_path.stem:
         yield SKIP, "The TV font does not need a BASE table"
         return
-    if font_path.parent == "android":
+    if font_path.parent.name == "android":
         yield (
             INFO,
             "The Android font should not have a BASE table until something elsewhere is fixed. See https://github.com/googlefonts/googlesans-flex/issues/1262",
