@@ -42,6 +42,11 @@ exclude_checks = [
     "googlefonts/varfont/slnt_needs_italic",
     "googlefonts/family_name_compliance",
     "overlapping_path_segments",
+    "googlefonts/STAT/opsz_not_elided",
+    # Buggy on fonts with slnt until Fontspector uses a version of
+    # google-fonts-axisregistry with this merged:
+    # https://github.com/googlefonts/axisregistry/pull/216
+    "googlefonts/fvar_instances",
 ]
 
 [sections]
