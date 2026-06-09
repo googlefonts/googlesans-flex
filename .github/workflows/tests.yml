@@ -67,23 +67,25 @@ jobs:
     - name: Analyze TTF file size
       shell: bash
       run: make font-size
-    - name: Setup fontspector
+    - name: Setup Fontspector
       uses: fonttools/setup-fontspector@main
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Run Fontbakery
+    - name: Run Fontbakery/Fontspector
       id: fontbakery
       shell: bash
       run: scripts/fontbakery.sh
-    - name: Upload Fontbakery reports
+    - name: Upload Fontbakery/Fontspector reports
       uses: actions/upload-artifact@v7
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
       if: ${{ !cancelled() && (steps.fontbakery.conclusion == 'success' || steps.fontbakery.conclusion == 'failure') }}
       with:
-        name: Fontbakery reports
-        path: out/fontbakery
+        name: Fontbakery & Fontspector reports
+        path: |
+          out/fontbakery
+          out/fontspector
         if-no-files-found: error
     - name: Run shaperglot
       shell: bash

@@ -46,7 +46,7 @@ else
     FONTBAKERY="uvx --with-requirements requirements-fb.in fontbakery"
 fi
 
-mkdir -p out/fontbakery
+mkdir -p out/fontbakery out/fontspector
 
 # All checks invocations are chained into `|| failed+=("test name")` so that:
 # 1. we know if any of the tests failed
@@ -69,7 +69,7 @@ echo "$all_ttfs" \
     | xargs fontspector --loglevel warn --succinct --full-lists \
     --profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
     --plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py \
-    --html out/fontbakery/fontspector-googlesans-report.html \
+    --html out/fontspector/fontspector-googlesans-report.html \
     {} \
     || failed+=("check-googlesans-fontspector")
 

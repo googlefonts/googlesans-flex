@@ -67,22 +67,22 @@ jobs:
       with:
         name: ${{ needs.cut-instances.outputs.artifact-name }}
         path: fonts/
-    - name: Setup fontspector
+    - name: Setup Fontspector
       uses: fonttools/setup-fontspector@main
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Run Fontbakery
+    - name: Run Fontspector
       id: fontbakery-workspace
       env:
         SKIP_SOURCES: 1
       run: scripts/fontbakery.sh
-    - name: Upload Fontbakery reports
+    - name: Upload Fontspector report
       uses: actions/upload-artifact@v7
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
       if: ${{ !cancelled() && (steps.fontbakery-workspace.conclusion == 'success' || steps.fontbakery-workspace.conclusion == 'failure') }}
       with:
-        name: Fontbakery workspace reports
-        path: out/fontbakery
+        name: Fontspector report
+        path: out/fontspector
         if-no-files-found: error
