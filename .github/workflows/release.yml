@@ -7,8 +7,8 @@ on:
 
 jobs:
   build-variable:
-    runs-on: googlefonts-8cores-32GB
-    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v6
@@ -26,8 +26,8 @@ jobs:
   cut-instances:
     needs:
     - build-variable
-    runs-on: googlefonts-16cores-64GB
-    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v6
@@ -84,15 +84,15 @@ jobs:
   test-variable:
     needs:
     - build-variable
-    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
+    uses: daltonmaag/googlesans-flex-playground/.github/workflows/tests.yml@main
     with:
       branch: ${{ github.ref_name }}
       artifact-name: ${{ needs.build-variable.outputs.artifact-name }}
   test-workspace-figma-android:
     needs:
     - cut-instances
-    runs-on: googlefonts-8cores-32GB
-    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout ${{ github.ref_name }}
       uses: actions/checkout@v6
@@ -166,7 +166,7 @@ jobs:
     - test-variable
     - test-workspace-figma-android
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 60
     permissions:
       contents: write
     steps:
