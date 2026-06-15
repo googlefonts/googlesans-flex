@@ -113,7 +113,7 @@ The important part of the import workflow, which you can run by hand, is this:
 
 ```
 rm -r sources/*.{ufo,fea,designspace}
-python scripts/glyphs_to_ds.py sources/design-source/GSF-full.glyphspackage sources/GoogleSansFlex.designspace
+python scripts/glyphs_to_ds.py sources/design-source/GoogleSansFlex.glyphspackage sources/GoogleSansFlex.designspace
 ```
 
 ## Testing builds from Glyphs sources

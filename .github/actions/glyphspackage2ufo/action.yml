@@ -62,7 +62,7 @@ runs:
       uv run --quiet --python $(cat .github/workflows/python-version.txt) \
         --with-requirements requirements.txt \
         scripts/glyphs_to_ds.py \
-        "$GITHUB_WORKSPACE/octavio/sources/design-source/GSF-full.glyphspackage" \
+        "$GITHUB_WORKSPACE/octavio/sources/design-source/GoogleSansFlex.glyphspackage" \
         --output sources/GoogleSansFlex.designspace
     env:
       STEPS_PREPARE_IMPORT_OUTPUTS_TARGET: ${{ steps.prepare-import.outputs.target }}
