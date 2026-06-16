@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ldot;
 kernLeft = l_left;
 kernRight = period_c_right;
@@ -11749,11 +11750,11 @@ ref = l;
 },
 {
 alignment = 1;
-pos = (531,0);
+pos = (527,0);
 ref = periodcentered.loclCAT;
 }
 );
-width = 950;
+width = 946;
 },
 {
 layerId = m222;
@@ -11763,14 +11764,28 @@ ref = l;
 },
 {
 alignment = 1;
-pos = (531,0);
+pos = (527,0);
 ref = periodcentered.loclCAT;
 }
 );
-width = 950;
+width = 946;
 },
 {
 layerId = m223;
+shapes = (
+{
+ref = l;
+},
+{
+alignment = 1;
+pos = (717,0);
+ref = periodcentered.loclCAT;
+}
+);
+width = 1265;
+},
+{
+layerId = m224;
 shapes = (
 {
 ref = l;
@@ -11782,20 +11797,6 @@ ref = periodcentered.loclCAT;
 }
 );
 width = 1267;
-},
-{
-layerId = m224;
-shapes = (
-{
-ref = l;
-},
-{
-alignment = 1;
-pos = (721,0);
-ref = periodcentered.loclCAT;
-}
-);
-width = 1269;
 }
 );
 unicode = 320;
