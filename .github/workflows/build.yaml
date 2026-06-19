@@ -21,7 +21,7 @@ jobs:
     steps:
     # on: pull_request uses head_ref for branch name, on: push uses ref_name
     - name: Checkout ${{ inputs.git-ref || github.head_ref || github.ref_name }}
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         ref: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
     - name: Set up Python
