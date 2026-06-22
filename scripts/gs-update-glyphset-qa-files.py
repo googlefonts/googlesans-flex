@@ -32,6 +32,8 @@ FONT_PATHS = (
     Path("fonts/workspace/GoogleSansFlexSuperCondensed[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexText-Italic[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexText[wght].ttf"),
+    Path("fonts/workspace/GoogleSansFlexTextFine-Italic[wght].ttf"),
+    Path("fonts/workspace/GoogleSansFlexTextFine[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexUltraCondensed-Italic[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexUltraCondensed[wght].ttf"),
     Path("fonts/figma/GoogleSansFlexVariable[GRAD,ROND,opsz,slnt,wdth,wght].ttf"),
