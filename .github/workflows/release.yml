@@ -115,11 +115,11 @@ jobs:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
         path: fonts/
     - name: Check workspace fonts with OT Sanitizer
-      uses: f-actions/opentype-sanitizer@v3
+      uses: f-actions/opentype-sanitizer@v4.0.0
       with:
         path: fonts/workspace/*.ttf
     - name: Check tv fonts with OT Sanitizer
-      uses: f-actions/opentype-sanitizer@v3
+      uses: f-actions/opentype-sanitizer@v4.0.0
       with:
         path: fonts/tv/*.ttf
     - name: Download Figma font
@@ -128,7 +128,7 @@ jobs:
         name: ${{ needs.cut-instances.outputs.figma-artifact-name }}
         path: fonts/figma
     - name: Check Figma font with OT Sanitizer
-      uses: f-actions/opentype-sanitizer@v3
+      uses: f-actions/opentype-sanitizer@v4.0.0
       with:
         path: fonts/figma/*.ttf
     - name: Download Android font
@@ -137,7 +137,7 @@ jobs:
         name: ${{ needs.cut-instances.outputs.android-artifact-name }}
         path: fonts/android
     - name: Check Android font with OT Sanitizer
-      uses: f-actions/opentype-sanitizer@v3
+      uses: f-actions/opentype-sanitizer@v4.0.0
       with:
         path: fonts/android/*.ttf
     - name: Setup fontspector
