@@ -61,7 +61,7 @@ jobs:
           exit 1
         fi
     - name: Check with OT Sanitizer
-      uses: f-actions/opentype-sanitizer@v3
+      uses: f-actions/opentype-sanitizer@v4.0.0
       with:
         path: fonts/variable/*.ttf
     - name: Analyze TTF file size
