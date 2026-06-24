@@ -85,6 +85,14 @@ TARGET_INSTANCES: list[tuple[str, WorkspaceInstance | GoogleTVInstance]] = [
         },
     ),
     (
+        "Google Sans Flex Text Fine",
+        {
+            "opsz": 11,
+            "wdth": 100,
+            "ROND": 0,
+        },
+    ),
+    (
         "Google Sans Flex Rounded",
         {
             "opsz": 18,
