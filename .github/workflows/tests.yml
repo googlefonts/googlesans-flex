@@ -22,7 +22,7 @@ jobs:
     steps:
     - name: Checkout ${{ inputs.branch }}
       if: ${{ inputs.artifact-as-branch == '' }}
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         ref: ${{ inputs.branch }}
     - name: Download sources from artifact
