@@ -110,9 +110,6 @@ font-size: build
 	uv run --with fonttools --with rich scripts/gvar_by_glyph.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 
-progress-chart:
-	$(UV_RUN) scripts/gs-progress-burndown.py
-
 bump-to-tag:
 	$(UV_RUN) scripts/bump-to-tag.py
 
