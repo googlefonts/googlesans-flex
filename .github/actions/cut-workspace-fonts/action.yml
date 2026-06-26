@@ -24,13 +24,6 @@ runs:
     with:
       name: ${{ inputs.vf-artifact }}
       path: fonts/variable
-  - name: Set up uv and enable caching
-    uses: astral-sh/setup-uv@v7
-    with:
-      enable-cache: true
-      cache-dependency-glob: |
-        requirements*.txt
-        requirements*.in
   - name: Slice workspace fonts
     shell: bash
     run: |
