@@ -1,12 +1,18 @@
 # Google Sans Flex Changelog
 
+## Version 4.006 (2026-06-26)
+
+### New
+Adding workspace build for opsz 11 ([#1287](https://github.com/googlefonts/googlesans-flex/pull/1287)) 
+
+### Changed
+- updated logo glyphs
+- updated dependencies (actions/cache from 5 to 6, f-actions/opentype-sanitizer from 3 to 4, actions/checkout from 6 to 7)
 
 ## Version 4.005 (2026-04-10)
 
 ### Changed
 - updated logo glyphs
-
-
 
 ## Version 4.004 (2026-03-26)
 
