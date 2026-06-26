@@ -1,12 +1,3 @@
-# build-glyphs.yml
-
-This is probably the most convoluted of all the build/import workflows
-
-The sources have to be put into a tarball before being uploaded as an artifact otherwise it'll error on the number of files (and who can blame it?)
-
-This is also then annoying when when tests.yml usually works by doing a Git checkout, when obviously we can't in this case.
-Instead, we set `artifact-as-branch` to the name of the tarball artifact, which triggers the edge case in tests.yml
-
 # tests.yml
 
 Pre-requisites:
