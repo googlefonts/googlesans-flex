@@ -6,7 +6,6 @@ Pre-requisites:
 Inputs:
 1. `branch` - the branch to check out (defaults to main)
 2. `artifact-name` - the name of the artifact with the built fonts
-3. `artifact-as-branch` (optional) - if set, uses the artifact name provided as a tarball checkout instead of using git (for build-glyphs)
 
 Steps:
 1. Checkout `branch`
