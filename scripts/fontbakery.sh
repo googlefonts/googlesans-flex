@@ -69,14 +69,12 @@ echo "$all_ttfs" \
     | xargs fontspector --profile googlefonts --configuration qa/check-outlines.toml \
     --loglevel warn --succinct \
     --html out/fontbakery/fontspector-outlines-report.html \
-    {} \
     || failed+=("check-outline")
 
 echo "$all_ttfs" \
     | xargs fontspector --profile googlefonts --configuration qa/check-googlesans.toml \
     --loglevel warn --succinct \
     --html out/fontbakery/fontspector-googlesans-report.html \
-    {} \
     || failed+=("check-googlesans-fontspector")
 
 echo "$all_ttfs" \
