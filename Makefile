@@ -26,7 +26,7 @@ build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 # https://github.com/source-foundry/font-v/issues/169. Just skip it.
 	if [ -z "${SKIP_FONTV}" ]; then $(UV_RUN) font-v write --sha1 fonts/variable/*.ttf; fi
 	$(UV_RUN) scripts/prune_font_binary.py fonts/variable/*.ttf
-	$(UV_RUN) scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt sources/GoogleSansFlex.designspace fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	$(UV_RUN) scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
 	touch build.stamp
 
 test: build.stamp
