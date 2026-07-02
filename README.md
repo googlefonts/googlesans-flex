@@ -16,12 +16,7 @@ The Google Sans Flex project is developed in a six axis design space with one '.
 - `GRAD`: range 0 to 100; default=0
 - `ROND`: range 0 to 100; default=0
 
-
-The source are a bit unusual because:
-1. Drawing is done with quadratic outlines.
-2. The file format is .glyphspackage, drawn with GlyphsApp v3. The UFO files are generated and used only to compile the fonts, soon we will remove them.
-3. They are compiled with fontc instead of fontmake.
-4. The GSF repo uses an import-based workflow. This means you don’t need to open a PR when your work is complete, we wouldn’t merge it anyway. Instead, we need a signal that the work is ready (ideally a comment on the relevant open issue). Once we get that, we run the import process and open the PR. One important note: you need to stay tightly in sync across other development branches. The import doesn’t just add new work; it also removes anything that no longer exists in the source. If we’re not aligned, we could unintentionally delete each other’s changes. Let’s be careful to coordinate before finalizing work.
+The sources are drawn with quadratic outlines despite living in a .glyphspackage, and are compiled with `fontc`.
 
 ## Building
 
@@ -32,7 +27,7 @@ Commits to the `main` branch are built & tested automatically.
 To build from other branches, workflows can be manually run from the [Actions tab](https://github.com/googlefonts/googlesans-flex/actions) of the repository.
 
 1. Go to the [Actions tab](https://github.com/googlefonts/googlesans-flex/actions)
-2. Click [Build from UFOs](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml) or [Build from Glyphs package](https://github.com/googlefonts/googlesans-flex/actions/workflows/build-glyphs.yml)
+2. Click [Build from Glyphs](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml)
 3. Click the grey "Run workflow" dropdown button
 4. Enter the name of the branch or commit you want to build in the text box
 5. Press the green "Run workflow" button
@@ -42,13 +37,11 @@ To build from other branches, workflows can be manually run from the [Actions ta
 1. Create/Activate venv*
 2. Install requirements.txt*
 3. (if release) [`bumpfontversion`](https://github.com/simoncozens/bumpfontversion) sets the font version in the sources based on the tag name
-4. Call gftools builder*
+4. Call gftools builder, which invokes fontc and does post-compilation fixups
 5. [font-v](https://github.com/source-foundry/font-v) sets TTF version strings
 6. [`scripts/prune_font_binary.py`](./scripts/prune_font_binary.py) removes unused/unencoded glyphs from TTFs
 7. [`scripts/set-overlap-bits.py`](./scripts/set-overlap-bits.py) adjusts overlap flags in the GLYF table
 8. TTFs are archived for download
-
-(*This is the part of the process [`fontc`](https://github.com/googlefonts/fontc) would speed-up/replace)
 
 ### On your computer
 
@@ -71,7 +64,7 @@ version number in either the design or UFO sources, as `bumpfontversion` will
 take care of that.
 
 A GitHub workflow will kick off in the background which will compile the font and attach a .zip file to the GitHub release once complete.
-You can track its progress [here](https://github.com/googlefonts/googlesans-flex/actions/workflows/build.yaml).
+You can track its progress [here](https://github.com/googlefonts/googlesans-flex/actions/workflows/release.yaml).
 
 ### Release contents: Workspace fonts
 
@@ -82,45 +75,13 @@ release zip.
 
 ## Updating dependencies
 
-Please run `make update` to update dependencies. This uses [pip-tools](https://github.com/jazzband/pip-tools) to resolve them and write them into the requirements.txt file. The requirements are then installed by the build scripting without further dependency resolution.
-
-## Importing new sources
-
-### From another branch on this repository
-
-There it a GitHub workflow that covers this from start to finish, no local work required.
-You can access it from [Actions > Update from sources > Run workflow](https://github.com/googlefonts/googlesans-flex/actions/workflows/import.yaml).
-
-The "Use workflow from" determines which version of the import script will be used.
-This should always be `main`.
-
-"The branch import from" is where the updated sources will be taken from, e.g. 
-`it-ad-wip-v2.0`. 
-
-If all goes according to plan, the workflow will create or update an import branch,
-and you will have to open a PR for it (we can't do it automatically because of the CLA bot).
-The name of the import branch will be derived from the imported branch by prepending `import-`, e.g. `import-it-ad-wip-v2.0`.
-The target branch will be created if it does not exist, or updated with a new commit otherwise.
-
-The import workflow also builds the font and runs tests on it, no need to request that separately.
-
-Otherwise, check the CI log for the run (accessible at the link above) to investigate why it failed.
-Some errors may show without needing to read the log, in the "Annotations" section of the workflow run summary page.
-
-### Manually convert glyphspackage design sources to UFO production sources
-
-The important part of the import workflow, which you can run by hand, is this:
-
-```
-rm -r sources/*.{ufo,fea,designspace}
-python scripts/glyphs_to_ds.py sources/design-source/GoogleSansFlex.glyphspackage sources/GoogleSansFlex.designspace
-```
+Please run `make update` to update dependencies. This uses [uv](https://github.com/astral-sh/uv) to resolve them and write them into the requirements.txt file. The requirements are then installed by the build scripting without further dependency resolution.
 
 ## Testing builds from Glyphs sources
 
-There's a GitHub workflow for this too! It's called "Build from Glyphs package" ([here](https://github.com/googlefonts/googlesans-flex/actions/workflows/build-glyphs.yml)).
+Open a pull request for your changes, and it will be built and tested automatically.
 
-All you need to do is specify the name of the branch that has .glyphspackage sources, and it'll be built & tested, with TTFs being produced for download.
+Alternatively, you can test locally with `make build` and `make test`.
 
 ## Scripts
 
@@ -136,44 +97,6 @@ A script used to find angles (between the incoming and outgoing handles or point
 5. The script will create a CSV file where it lists glyph points and their locations where the angle of the incoming and outgoing handle or on-curve deviates from other masters. It gives you a link to click, which brings you to the glyph in Fontra and marks the offending point for you. Wiggle the location sliders to see if there is a problem or not.
 
 You can also inspect variable TTFs. Note that the locations might be slightly off then.
-
-### gs-ufo2glyphs.py, gs-glyphs2ufo.py, gs-merge-designspace.py
-
-These work the same as in Google Sans.
-
-This will produce a GoogleSansFlex.glyphs file next to the Designspace:
-
-```sh
-python3 scripts/gs-ufo2glyphs.py sources/regular/GoogleSansFlex.designspace
-```
-
-Going back should be done in a separate directory, because we have an extra merge step, to avoid polluting the sources with leftovers and accidents.
-
-```sh
-python3 scripts/gs-glyphs2ufo.py sources/regular/staging/GoogleSansFlex.glyphs
-```
-
-Merge the two with the following command. You need to have a import_glyphs.txt file describing which glyphs to import:
-
-```sh
-python3 scripts/gs-merge-designspace.py --source source/GoogleSans/staging/GoogleSansSomeScript.designspace --target sources/regular/GoogleSansFlex.designspace --import-glyphs-file sources/regular/staging/import_glyphs.txt
-```
-
-### gs-progress-burndown.py
-
-This script generates a burndown chart to show the font's development progress based on color marks left in the sources by font developers.
-The script is configured entirely within the code (see the `GSFLEX_CONFIG` object in the file `scripts/gs-progress-burndown.py`).
-For more information about the configuration of the script, please refer to the document `scripts/gs-progress-burndown-README.md`.
-
-The script can be run locally by running `make progress-chart`
-
-The GitHub workflow to run the script is called "Progress chart", and can be found [here](https://github.com/googlefonts/googlesans-flex/actions/workflows/burndown.yml).
-The "Use workflow from" field determines *which version of the script to use, **not** the branch to generate the burndown chart for*. Currently, you should select `main` because the `main` branch has the latest version of the workflow.
-
-
-The branch that is analysed to produce the burndown chart is configured within the script itself (see `git_rev_since` and `git_rev_current`).
-To temporarily produce a burndown chart for a different branch on your local machine, simply update these two values to valid Git references (i.e. branch names or 7 character hashes), and run `make progress-chart`.
-Updating the workflow's configuration will require a PR changing the script.
 
 ## License
 
