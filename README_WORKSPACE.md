@@ -14,6 +14,7 @@ These families are:
 | Google Sans Flex Rounded        | 144pt | 100  | 100  | 0    |
 | Google Sans Flex SuperCondensed | 144pt | 25   | 0    | 0    |
 | Google Sans Flex Text           | 12pt  | 100  | 0    | 0    |
+| Google Sans Flex Text Fine      | 11pt  | 100  | 0    | 0    | 
 | Google Sans Flex UltraCondensed | 144pt | 50   | 0    | 0    |
 
 - Each family has 2 VFs, one upright and one italic.
