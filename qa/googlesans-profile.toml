@@ -1,4 +1,9 @@
-# Configuration for fontspector's googlefonts profile, copied from the Python profile code.
+include_profiles = [
+    "googlefonts",
+    "gs-custom",
+    "gs-charset",
+    "gs-fea",
+]
 
 exclude_checks = [
     "contour_count",                                   # design rather than QA problem
@@ -22,14 +27,39 @@ exclude_checks = [
     "opentype/varfont/family_axis_ranges",             # our workspace fonts intentionally change axes ranges
     "opentype/varfont/regular_opsz_coord",             # No, opsz=18
     "opentype/varfont/valid_default_instance_nameids", # Bogus
-    "outline_alignment_miss",                          # Separate, covered by neighbouring check-outlines profile.
-    "outline_colinear_vectors",                        # Separate, covered by neighbouring check-outlines profile.
-    "outline_direction",                               # Separate, covered by neighbouring check-outlines profile.
-    "outline_jaggy_segments",                          # Separate, covered by neighbouring check-outlines profile.
-    "outline_semi_vertical",                           # Separate, covered by neighbouring check-outlines profile.
-    "outline_short_segments",                          # Separate, covered by neighbouring check-outlines profile.
     "STAT_strings",                                    # we're intentionally calling slant italic https://github.com/googlefonts/googlesans-flex/issues/774#issuecomment-1921326716
     "unwanted_tables",
     "family/uniqueness_first_31_characters",           # flags on Android fonts and not a concern of ours https://chat.google.com/room/AAAAgistbQI/wlaUyu_h9PQ/QoPtBiX27sY?cls=10
+    "opentype/fvar/regular_coords_correct",
+    "interpolation_issues",
+    "mandatory_avar_table",
+    "math_signs_width",
+    "soft_hyphen",
+    "googlefonts/metadata/unreachable_subsetting",
+    "googlefonts/separator_glyphs",
+    "googlefonts/meta/script_lang_tags",
+    "googlefonts/STAT/compulsory_axis_values",
+    "googlefonts/varfont/slnt_needs_italic",
     "googlefonts/family_name_compliance",
+    "overlapping_path_segments",
+    "googlefonts/STAT/opsz_not_elided",
+    # Buggy on fonts with slnt until Fontspector uses a version of
+    # google-fonts-axisregistry with this merged:
+    # https://github.com/googlefonts/axisregistry/pull/216
+    "googlefonts/fvar_instances",
 ]
+
+[sections]
+"Google Sans Outline Checks" = [
+    "outline_alignment_miss",
+    "outline_colinear_vectors",
+    "outline_direction",
+    "outline_jaggy_segments",
+    "outline_semi_vertical",
+    "outline_short_segments",
+]
+
+[[overrides."googlefonts/family_name_compliance"]]
+code = "camelcase"
+status = "WARN"
+reason = "We are publishing to Google Fonts, but we are a unique case."

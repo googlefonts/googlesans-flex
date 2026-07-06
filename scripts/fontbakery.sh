@@ -46,7 +46,7 @@ else
     FONTBAKERY="uvx --with-requirements requirements-fb.in fontbakery"
 fi
 
-mkdir -p out/fontbakery
+mkdir -p out/fontbakery out/fontspector
 
 # All checks invocations are chained into `|| failed+=("test name")` so that:
 # 1. we know if any of the tests failed
@@ -66,40 +66,11 @@ fi
 
 # Compiled font tests
 echo "$all_ttfs" \
-    | xargs fontspector --profile googlefonts --configuration qa/check-outlines.toml \
-    --loglevel warn --succinct \
-    --html out/fontbakery/fontspector-outlines-report.html \
-    || failed+=("check-outline")
-
-echo "$all_ttfs" \
-    | xargs fontspector --profile googlefonts --configuration qa/check-googlesans.toml \
-    --loglevel warn --succinct \
-    --html out/fontbakery/fontspector-googlesans-report.html \
+    | xargs fontspector --loglevel warn --succinct --full-lists \
+    --profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
+    --plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py \
+    --html out/fontspector/fontspector-googlesans-report.html \
     || failed+=("check-googlesans-fontspector")
-
-echo "$all_ttfs" \
-    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
-    --html out/fontbakery/fontbakery-googlesans-report.html \
-    qa/check-googlesans.py {} \
-    || failed+=("check-googlesans-fontbakery")
-
-echo "$all_ttfs" \
-    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
-    --html out/fontbakery/fontbakery-fea-report.html \
-    qa/check-fea.py {} \
-    || failed+=("check-fea")
-
-echo "$all_ttfs" \
-    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
-    --html out/fontbakery/fontbakery-charset-report.html \
-	qa/check-charset.py {} \
-    || failed+=("check-charset")
-
-echo "$all_ttfs" \
-    | xargs $FONTBAKERY check-profile -l WARN --auto-jobs --succinct --no-progress \
-    --html out/fontbakery/fontbakery-shaping-report.html \
-    qa/check-shaping.py {} \
-    || failed+=("check-shaping")
 
 if [[ ${#failed[@]} -gt 0 ]]; then
     # If on GitHub actions, make a posh GHA error
