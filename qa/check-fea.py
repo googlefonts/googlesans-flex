@@ -122,10 +122,10 @@ def included_features_variable_uprights(font_path: Path) -> CheckStatuses:
     rationale="But does it still shape the same?",
 )
 def features_regression(font_path: Path) -> CheckStatuses:
-    ttFont = TTFont(font_path)
+    ttf = TTFont(font_path)
     hb_font = uharfbuzz.Face(font_path.read_bytes())  # type: ignore
 
-    if "Google Sans Flex TV" in ttFont["name"].getDebugName(1):  # type: ignore
+    if "Google Sans Flex TV" in ttf["name"].getDebugName(1):  # type: ignore
         yield SKIP, "Font is not interesting to check."
         return
 
@@ -164,7 +164,7 @@ def features_regression(font_path: Path) -> CheckStatuses:
             return
 
         shaped_texts = shape_texts(
-            ttFont,
+            ttf,
             hb_font,
             shaping_texts,
             shaping_script,

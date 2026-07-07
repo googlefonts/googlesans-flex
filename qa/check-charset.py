@@ -76,7 +76,7 @@ def glyphset_contents(font_paths: list[Path]) -> CheckStatuses:
                             expected_glyphs,
                             actual_glyphs,
                             fromfile="glyphsetdef",
-                            tofile="ttFont.getGlyphOrder()",
+                            tofile="ttf.getGlyphOrder()",
                             lineterm="",
                         )
                     ),
