@@ -2181,7 +2181,8 @@ stemValues = (
 );
 userData = {
 GSCornerRadius = 45;
-GSOffsetHorizontal = -7;
+GSOffsetHorizontal = 40;
+GSOffsetMakeStroke = 1;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -3137,7 +3138,8 @@ stemValues = (
 84
 );
 userData = {
-GSOffsetHorizontal = -49;
+GSOffsetHorizontal = 45;
+GSOffsetMakeStroke = 1;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -4114,7 +4116,8 @@ stemValues = (
 27
 );
 userData = {
-GSOffsetHorizontal = 1;
+GSOffsetHorizontal = 13;
+GSOffsetMakeStroke = 1;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -4387,36 +4390,6 @@ value = 1200;
 );
 guides = (
 {
-pos = (550,1623);
-},
-{
-pos = (30,0);
-},
-{
-pos = (30,-20);
-},
-{
-pos = (2,-229);
-showMeasurement = 1;
-},
-{
-pos = (50,967);
-showMeasurement = 1;
-},
-{
-angle = 180;
-pos = (305,105);
-},
-{
-pos = (30,-12);
-},
-{
-pos = (5,859);
-},
-{
-pos = (3,871);
-},
-{
 filter = "category == \"Mark\"";
 pos = (-186,1440);
 },
@@ -4427,23 +4400,6 @@ pos = (-189,1160);
 {
 filter = "category == \"Symbol\" AND subCategory == \"Math\"";
 pos = (129,620);
-},
-{
-pos = (21,1452);
-},
-{
-pos = (23,1432);
-},
-{
-angle = 90;
-pos = (583,-85);
-},
-{
-pos = (21,1445);
-},
-{
-angle = 180;
-pos = (285,235);
 }
 );
 id = "91251A45-EED6-44E6-BC9D-709435BB03FD";
@@ -4785,28 +4741,8 @@ locked = 1;
 pos = (0,875);
 },
 {
-pos = (8,1170);
-showMeasurement = 1;
-},
-{
-angle = -0.3086;
-pos = (-65,1546);
-},
-{
 filter = "category == \"Symbol\" AND subCategory == \"Math\"";
 pos = (16,631);
-},
-{
-pos = (34,174);
-},
-{
-pos = (111,262);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (1021,-146);
-showMeasurement = 1;
 }
 );
 id = "769463EF-2EF4-41A9-85A9-285641285009";
@@ -5232,7 +5168,8 @@ stemValues = (
 30
 );
 userData = {
-GSOffsetHorizontal = -51;
+GSOffsetHorizontal = 16;
+GSOffsetMakeStroke = 1;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -6301,6 +6238,10 @@ stemValues = (
 30
 );
 userData = {
+GSOffsetHorizontal = 16;
+GSOffsetMakeStroke = 1;
+GSOffsetProportional = 1;
+GSOffsetVertical = 10;
 GSReScaler = {
 ScaleX = 0.6;
 ScaleY = 0.6;
@@ -7588,7 +7529,8 @@ stemValues = (
 4
 );
 userData = {
-GSOffsetHorizontal = -5;
+GSOffsetHorizontal = 2;
+GSOffsetMakeStroke = 1;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -8869,7 +8811,8 @@ stemValues = (
 4
 );
 userData = {
-GSOffsetHorizontal = -13;
+GSOffsetHorizontal = 2;
+GSOffsetMakeStroke = 1;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -10106,7 +10049,8 @@ stemValues = (
 10
 );
 userData = {
-GSOffsetHorizontal = 3;
+GSOffsetHorizontal = 5;
+GSOffsetMakeStroke = 1;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -10510,6 +10454,70 @@ pos = (491,673);
 {
 name = "MATH tf";
 pos = (491,716);
+},
+{
+pos = (16,-25);
+},
+{
+pos = (50,884);
+},
+{
+pos = (49,859);
+},
+{
+pos = (34,146);
+},
+{
+pos = (21,1474);
+},
+{
+pos = (-16,1254);
+},
+{
+pos = (470,267);
+showMeasurement = 1;
+},
+{
+angle = 90;
+pos = (1646,-42);
+showMeasurement = 1;
+},
+{
+angle = 90;
+pos = (1535,295);
+showMeasurement = 1;
+},
+{
+pos = (16,-25);
+},
+{
+pos = (50,884);
+},
+{
+pos = (49,859);
+},
+{
+pos = (34,146);
+},
+{
+pos = (21,1474);
+},
+{
+pos = (-16,1254);
+},
+{
+pos = (470,267);
+showMeasurement = 1;
+},
+{
+angle = 90;
+pos = (1646,-42);
+showMeasurement = 1;
+},
+{
+angle = 90;
+pos = (1535,295);
+showMeasurement = 1;
 }
 );
 id = "D4025A93-B215-454F-9D60-B6448166D546";
