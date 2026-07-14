@@ -1180,9 +1180,6 @@ pos = (699,-20);
 {
 locked = 1;
 pos = (825,-480);
-},
-{
-pos = (21,940);
 }
 );
 id = "4EAE7F17-0A08-4443-B85C-52E72D924BBD";
@@ -1393,7 +1390,7 @@ stemValues = (
 77
 );
 userData = {
-GSCornerRadius = 77;
+GSCornerRadius = 75;
 };
 },
 {
@@ -1538,6 +1535,7 @@ stemValues = (
 168
 );
 userData = {
+GSCornerRadius = 143;
 GSOffsetHorizontal = -3;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
@@ -1701,7 +1699,7 @@ stemValues = (
 168
 );
 userData = {
-GSCornerRadius = 15;
+GSCornerRadius = 135;
 reinterpolator = {
 interpolation = 699;
 };
@@ -2009,6 +2007,7 @@ stemValues = (
 298
 );
 userData = {
+GSCornerRadius = 192;
 GSSlanterCursivy = -10;
 GSSlanterCursivyContrastFactor = 0.5;
 GSSlanterCursivyDoContrast = 1;
@@ -2355,6 +2354,9 @@ stemValues = (
 86,
 81
 );
+userData = {
+GSCornerRadius = 75;
+};
 },
 {
 axesValues = (
@@ -2504,6 +2506,7 @@ stemValues = (
 186
 );
 userData = {
+GSCornerRadius = 15;
 GSOffsetHorizontal = 4;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
@@ -4284,6 +4287,9 @@ stemValues = (
 28,
 27
 );
+userData = {
+GSCornerRadius = 26;
+};
 },
 {
 axesValues = (
@@ -4613,6 +4619,7 @@ stemValues = (
 138
 );
 userData = {
+GSCornerRadius = 102;
 reinterpolator = {
 interpolation = 699;
 };
@@ -4987,6 +4994,9 @@ stemValues = (
 400,
 302
 );
+userData = {
+GSCornerRadius = 148;
+};
 },
 {
 axesValues = (
@@ -5886,7 +5896,7 @@ stemValues = (
 317
 );
 userData = {
-GSOffsetHorizontal = 55;
+GSOffsetHorizontal = 18;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -6528,15 +6538,6 @@ locked = 1;
 pos = (14,-432);
 },
 {
-pos = (16,-25);
-},
-{
-pos = (50,884);
-},
-{
-pos = (49,859);
-},
-{
 filter = "category == \"Mark\"";
 pos = (-176,1480);
 },
@@ -6547,29 +6548,6 @@ pos = (-179,1200);
 {
 filter = "category == \"Symbol\" AND subCategory == \"Math\"";
 pos = (63,761);
-},
-{
-pos = (34,146);
-},
-{
-pos = (21,1474);
-},
-{
-pos = (-16,1254);
-},
-{
-pos = (470,267);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (1646,-42);
-showMeasurement = 1;
-},
-{
-angle = 90;
-pos = (1535,295);
-showMeasurement = 1;
 }
 );
 id = "854B8A49-0698-4FEC-AD72-BCF838C96101";
@@ -7747,6 +7725,9 @@ stemValues = (
 4,
 4
 );
+userData = {
+GSCornerRadius = 4;
+};
 },
 {
 axesValues = (
@@ -8172,6 +8153,7 @@ stemValues = (
 133
 );
 userData = {
+GSCornerRadius = 95;
 HTLSManagerMasterRules = {
 };
 reinterpolator = {
@@ -8296,10 +8278,6 @@ pos = (49,1454);
 {
 name = "diacritics-t";
 pos = (61,1481);
-},
-{
-name = "diacritics-b";
-pos = (182,1117);
 },
 {
 name = "numerators-overshoot";
@@ -8623,7 +8601,7 @@ stemValues = (
 340
 );
 userData = {
-GSCornerRadius = 31;
+GSCornerRadius = 171;
 };
 },
 {
@@ -9618,7 +9596,7 @@ stemValues = (
 414
 );
 userData = {
-GSOffsetHorizontal = 10;
+GSOffsetHorizontal = 9;
 GSOffsetProportional = 1;
 GSOffsetVertical = 10;
 GSReScaler = {
@@ -10284,6 +10262,9 @@ stemValues = (
 9,
 10
 );
+userData = {
+GSCornerRadius = 8;
+};
 },
 {
 axesValues = (
@@ -19967,6 +19948,44 @@ pos = (468,-166);
 locked = 1;
 name = "math tf";
 pos = (1918,716);
+},
+{
+name = "diacritics-b";
+pos = (1505,177);
+},
+{
+name = "numerators-ost";
+pos = (1533,1362);
+},
+{
+name = "diacritics-t";
+pos = (73,1532);
+},
+{
+name = "diacritics-b";
+pos = (151,1247);
+},
+{
+name = "superiors-b";
+pos = (495,1021);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1006);
+},
+{
+name = "superiors-b";
+pos = (495,1815);
+},
+{
+name = "superiors-overshoot";
+pos = (495,1829);
+},
+{
+pos = (489,1598);
+},
+{
+pos = (468,-166);
 }
 );
 id = "48D192DE-088F-4E76-8F75-A155DEEA4155";
