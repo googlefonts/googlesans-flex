@@ -7,9 +7,6 @@ on:
         description: The branch to checkout
         default: main
         type: string
-      artifact-as-branch:
-        description: If set, download this artifact and use it as a checkout of the repo
-        type: string
       artifact-name:
         description: The name of the artifact to download with the built fonts
         required: true
@@ -21,19 +18,9 @@ jobs:
     timeout-minutes: 40
     steps:
     - name: Checkout ${{ inputs.branch }}
-      if: ${{ inputs.artifact-as-branch == '' }}
       uses: actions/checkout@v7
       with:
         ref: ${{ inputs.branch }}
-    - name: Download sources from artifact
-      if: ${{ inputs.artifact-as-branch != '' }}
-      uses: actions/download-artifact@v8
-      with:
-        name: ${{ inputs.artifact-as-branch }}
-    - name: Extract sources from tarball
-      if: ${{ inputs.artifact-as-branch != '' }}
-      shell: bash
-      run: tar --extract --file "UFO sources.tar"
     - name: Set up Python
       uses: actions/setup-python@v6
       with:

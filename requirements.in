@@ -16,4 +16,6 @@ glyphslib>=6.7.1
 # v4.57.0 adds support for BASE table feature code
 fonttools>=4.57.0
 
-fontc>=0.5.0
+# v0.6.0 is needed for metrics linking support, necessary for correctly
+# compiling directly from .glyphspackage
+fontc>=0.6.0

@@ -56,12 +56,13 @@ failed=()
 
 # Source checks
 if [ -z "$SKIP_SOURCES" ]; then
-    find sources/ -name "*.ufo" -print0 | xargs -0 $FONTBAKERY \
-        check-profile -l WARN --auto-jobs --succinct --no-progress \
-        --html out/fontbakery/fontbakery-sources-report.html \
-        qa/check-sources.py \
-        sources/GoogleSansFlex.designspace \
-        || failed+=("check-sources")
+    echo "WARNING: source checks haven't yet been ported to Glyphspackage"
+    # find sources/ -name "*.ufo" -print0 | xargs -0 $FONTBAKERY \
+    #     check-profile -l WARN --auto-jobs --succinct --no-progress \
+    #     --html out/fontbakery/fontbakery-sources-report.html \
+    #     qa/check-sources.py \
+    #     sources/GoogleSansFlex.designspace \
+    #     || failed+=("check-sources")
 fi
 
 # Compiled font tests

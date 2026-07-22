@@ -1,7 +1,7 @@
 # cut-workspace-fonts
 
 Pre-requisites:
-1. Expects Python to have been set up
+1. Expects Python & uv to have been set up
 2. Expects the working branch to be checked out in the current working directory
 
 Inputs:
