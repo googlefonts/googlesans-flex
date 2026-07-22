@@ -46,8 +46,8 @@
       <point x="363" y="166"/>
     </contour>
     <contour>
-      <point x="492" y="1079" type="line"/>
-      <point x="664" y="1079" type="line"/>
+      <point x="492" y="691" type="line"/>
+      <point x="664" y="691" type="line"/>
       <point x="664" y="1291" type="line" smooth="yes"/>
       <point x="664" y="1327"/>
       <point x="613" y="1377"/>
@@ -63,11 +63,35 @@
       <point x="613" y="-9"/>
       <point x="664" y="41"/>
       <point x="664" y="77" type="qcurve" smooth="yes"/>
-      <point x="664" y="303" type="line"/>
-      <point x="492" y="303" type="line"/>
+      <point x="664" y="691" type="line"/>
+      <point x="492" y="691" type="line"/>
       <point x="492" y="77" type="line" smooth="yes"/>
       <point x="492" y="41"/>
       <point x="543" y="-9"/>
     </contour>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.hints</key>
+      <array>
+        <dict>
+          <key>horizontal</key>
+          <true/>
+          <key>name</key>
+          <string></string>
+          <key>options</key>
+          <integer>0</integer>
+          <key>place</key>
+          <array>
+            <integer>0</integer>
+            <integer>0</integer>
+          </array>
+          <key>stem</key>
+          <integer>-2</integer>
+          <key>type</key>
+          <string>Stem</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
 </glyph>
