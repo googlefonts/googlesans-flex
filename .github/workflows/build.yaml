@@ -25,7 +25,7 @@ jobs:
       with:
         ref: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
     - name: Set up Python
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@v7
       with:
         python-version-file: ./.github/workflows/python-version.txt
     - name: Build font
