@@ -24,8 +24,7 @@ other STAT axes removed (anything else than Weight and Italic).
 
 ### Process for slicing VFs
 
-1. Slice Workspace VF from `GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf`
-  using `fonttools varLib.instancer`
+1. Slice Workspace VFs from the main all-axes one using `fonttools varLib.instancer`
 2. Fixup a few tables:
     - `OS/2` average char width, and various measurements that get changed
       inadvertently by the instancer. FontBakery checks that in the end we have
