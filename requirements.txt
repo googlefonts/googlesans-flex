@@ -5,47 +5,30 @@ absl-py==2.3.1
     #   gftools
     #   nanoemoji
     #   picosvg
-afdko==4.0.2
-    # via gftools
 attrs==25.3.0
     # via
     #   cattrs
-    #   statmake
     #   ufolib2
-axisregistry==0.4.16
-    # via gftools
-babelfont==3.1.3
+axisregistry==0.4.19
     # via gftools
 beautifulsoup4==4.13.5
     # via gftools
 blackrenderer==0.6.0
     # via drawbot-skia
 booleanoperations==0.9.0
-    # via
-    #   afdko
-    #   fontparts
-    #   ufo2ft
+    # via ufo2ft
 brotli==1.1.0
-    # via
-    #   fonttools
-    #   gftools
-brotlicffi==1.1.0.0 ; platform_python_implementation != 'CPython'
-    # via fonttools
+    # via gftools
 bump2version==1.0.1
     # via bumpfontversion
 bumpfontversion==0.4.1
-    # via
-    #   -r requirements.in
-    #   gftools
+    # via -r requirements.in
 cattrs==25.2.0
-    # via
-    #   statmake
-    #   ufolib2
+    # via ufolib2
 certifi==2025.8.3
     # via requests
 cffi==1.17.1
     # via
-    #   brotlicffi
     #   cryptography
     #   pygit2
     #   pynacl
@@ -53,8 +36,6 @@ cffsubr==0.3.0
     # via ufo2ft
 charset-normalizer==3.4.3
     # via requests
-colorama==0.4.6 ; sys_platform == 'win32'
-    # via tqdm
 compreffor==0.5.6
     # via ufo2ft
 contourpy==1.3.3
@@ -64,22 +45,17 @@ cryptography==45.0.7
 cycler==0.12.1
     # via matplotlib
 defcon==0.12.2
-    # via
-    #   afdko
-    #   fontparts
-    #   glyphsets
-    #   mutatormath
-    #   ufoprocessor
+    # via glyphsets
 drawbot-skia==0.5.1
     # via -r requirements.in
 ffmpeg-python==0.2.0
     # via gftools
-filelock==3.19.1
-    # via youseedee
-font-v==2.1.0
+filelock==3.32.0
     # via
-    #   -r requirements.in
     #   gftools
+    #   youseedee
+font-v==2.1.0
+    # via -r requirements.in
 fontc==0.6.0
     # via -r requirements.in
 fontfeatures==1.9.0
@@ -88,22 +64,12 @@ fontmake==3.11.0
     # via gftools
 fontmath==0.9.4
     # via
-    #   afdko
     #   fontmake
-    #   fontparts
-    #   mutatormath
     #   ufo2ft
-    #   ufoprocessor
-fontparts==0.13.3
-    # via ufoprocessor
-fontpens==0.2.4
-    # via defcon
-fonttools==4.59.2
+fonttools==4.63.0
     # via
     #   -r requirements.in
-    #   afdko
     #   axisregistry
-    #   babelfont
     #   blackrenderer
     #   booleanoperations
     #   bumpfontversion
@@ -115,30 +81,30 @@ fonttools==4.59.2
     #   fontfeatures
     #   fontmake
     #   fontmath
-    #   fontparts
-    #   fontpens
     #   gftools
     #   glyphsets
     #   glyphslib
     #   matplotlib
-    #   mutatormath
     #   nanoemoji
-    #   statmake
     #   ufo2ft
     #   ufolib2
     #   ufomerge
-    #   ufoprocessor
     #   vharfbuzz
     #   vttlib
 future==1.0.0
     # via ffmpeg-python
-gflanguages==0.7.6
+gflanguages==0.7.9
     # via
     #   gftools
     #   glyphsets
+gfmetadata==0.2.5
+    # via
+    #   axisregistry
+    #   gflanguages
+    #   gftools
 gfsubsets==2024.9.25
     # via gftools
-gftools==0.9.88
+gftools==0.9.997
     # via -r requirements.in
 gitdb==4.0.12
     # via gitpython
@@ -163,7 +129,6 @@ kiwisolver==1.4.9
     # via matplotlib
 lxml==6.0.1
     # via
-    #   afdko
     #   fontfeatures
     #   fonttools
     #   nanoemoji
@@ -176,8 +141,6 @@ matplotlib==3.10.6
     # via -r requirements.in
 mdurl==0.1.2
     # via markdown-it-py
-mutatormath==3.0.1
-    # via ufoprocessor
 nanoemoji==0.15.8
     # via gftools
 networkx==3.5
@@ -194,15 +157,12 @@ numpy==2.3.2
     #   skia-python
 openstep-plist==0.5.0
     # via
-    #   babelfont
     #   bumpfontversion
     #   glyphslib
 opentype-sanitizer==9.2.0
     # via gftools
-orjson==3.11.3
-    # via
-    #   babelfont
-    #   ufolib2
+orjson==3.11.3 ; platform_python_implementation != 'PyPy'
+    # via ufolib2
 packaging==25.0
     # via
     #   gftools
@@ -218,10 +178,9 @@ platformdirs==4.4.0
     # via youseedee
 pngquant-cli==3.0.3
     # via nanoemoji
-protobuf==3.20.3
+protobuf==7.35.1
     # via
-    #   axisregistry
-    #   gflanguages
+    #   gfmetadata
     #   gftools
 pybind11==3.0.1
     # via skia-python
@@ -229,9 +188,7 @@ pyclipper==1.3.0.post6
     # via booleanoperations
 pycparser==2.22
     # via cffi
-pygit2==1.15.0 ; python_full_version < '3.13'
-    # via gftools
-pygit2==1.16.0 ; python_full_version >= '3.13'
+pygit2==1.16.0
     # via gftools
 pygithub==2.8.1
     # via gftools
@@ -272,9 +229,7 @@ ruamel-yaml==0.18.15
 ruamel-yaml-clib==0.2.12 ; python_full_version < '3.14' and platform_python_implementation == 'CPython'
     # via ruamel-yaml
 setuptools==80.9.0
-    # via
-    #   gftools
-    #   glyphsets
+    # via glyphsets
 sh==2.2.2
     # via -r requirements.in
 six==1.17.0
@@ -282,17 +237,13 @@ six==1.17.0
     #   python-bidi
     #   python-dateutil
 skia-pathops==0.8.0.post2
-    # via
-    #   gftools
-    #   picosvg
+    # via picosvg
 skia-python==138.0
     # via drawbot-skia
 smmap==5.0.2
     # via gitdb
 soupsieve==2.8
     # via beautifulsoup4
-statmake==1.1.0
-    # via gftools
 strictyaml==1.7.3
     # via gftools
 tabulate==0.9.0
@@ -301,8 +252,6 @@ tabulate==0.9.0
     #   glyphsets
 toml==0.10.2
     # via nanoemoji
-tqdm==4.67.1
-    # via afdko
 ttfautohint-py==0.6.0
     # via gftools
 typing-extensions==4.15.0
@@ -316,7 +265,6 @@ ufo2ft==3.6.2
     #   nanoemoji
 ufolib2==0.18.1
     # via
-    #   babelfont
     #   bumpfontversion
     #   fontmake
     #   glyphslib
@@ -324,19 +272,13 @@ ufolib2==0.18.1
     #   ufomerge
     #   vttlib
 ufomerge==1.9.6
-    # via
-    #   babelfont
-    #   gftools
-ufonormalizer==0.6.2
-    # via afdko
-ufoprocessor==1.14.0
-    # via afdko
+    # via gftools
 uharfbuzz==0.51.4
     # via
     #   blackrenderer
     #   drawbot-skia
     #   vharfbuzz
-unicodedata2==16.0.0
+unicodedata2==17.0.1
     # via
     #   drawbot-skia
     #   fonttools
@@ -354,6 +296,4 @@ vttlib==0.12.0
 youseedee==0.7.0
     # via glyphsets
 zopfli==0.2.3.post1
-    # via
-    #   fonttools
-    #   nanoemoji
+    # via nanoemoji
