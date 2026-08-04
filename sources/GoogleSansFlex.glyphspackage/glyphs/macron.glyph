@@ -6925,6 +6925,55 @@ ref = macroncomb;
 }
 );
 width = 1576;
+},
+{
+background = {
+anchors = (
+{
+name = _top;
+pos = (449,1020);
+},
+{
+name = top;
+pos = (449,1480);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(667,1261,l),
+(727,1261,o),
+(727,1261,o),
+(727,1328,q),
+(727,1395,o),
+(727,1395,o,{
+name = inserted;
+}),
+(667,1395,q),
+(233,1395,l),
+(173,1395,o,{
+name = inserted;
+}),
+(173,1395,o,{
+name = inserted;
+}),
+(173,1328,q),
+(173,1261,o),
+(173,1261,o),
+(233,1261,q)
+);
+}
+);
+};
+layerId = "F57C5465-B769-4419-8374-2D3A50A2CA87";
+shapes = (
+{
+pos = (450,0);
+ref = macroncomb;
+}
+);
+width = 1100;
 }
 );
 metricWidth = "=space*2";

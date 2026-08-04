@@ -7477,6 +7477,66 @@ ref = gravecomb;
 }
 );
 width = 1576;
+},
+{
+background = {
+anchors = (
+{
+name = _top;
+pos = (522,1020);
+},
+{
+name = top;
+pos = (510,1480);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(605,1200,o),
+(605,1200,o),
+(564,1291,qs),
+(495,1442,ls),
+(478,1480,o,{
+name = inserted;
+}),
+(478,1480,o,{
+name = inserted;
+}),
+(425,1480,q),
+(295,1480,o),
+(295,1480,o),
+(359,1371,qs),
+(442,1228,ls),
+(458,1200,o,{
+name = inserted;
+}),
+(458,1200,o,{
+name = inserted;
+}),
+(501,1200,q)
+);
+}
+);
+};
+guides = (
+{
+angle = 90;
+pos = (550,0);
+userData = {
+UFO.identifier = d1xzznPHrI;
+};
+}
+);
+layerId = "F57C5465-B769-4419-8374-2D3A50A2CA87";
+shapes = (
+{
+pos = (450,0);
+ref = gravecomb;
+}
+);
+width = 1100;
 }
 );
 metricWidth = "=space*2";

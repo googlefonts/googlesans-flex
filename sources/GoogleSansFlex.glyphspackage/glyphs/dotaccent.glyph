@@ -6205,6 +6205,47 @@ ref = dotaccentcomb;
 }
 );
 width = 1576;
+},
+{
+background = {
+anchors = (
+{
+name = _top;
+pos = (451,1020);
+},
+{
+name = top;
+pos = (451,1480);
+}
+);
+shapes = (
+{
+closed = 1;
+nodes = (
+(500,1232,o),
+(564,1300,o),
+(564,1347,q),
+(564,1396,o),
+(500,1460,o),
+(451,1460,q),
+(404,1460,o),
+(336,1396,o),
+(336,1347,q),
+(336,1300,o),
+(404,1232,o),
+(451,1232,q)
+);
+}
+);
+};
+layerId = "F57C5465-B769-4419-8374-2D3A50A2CA87";
+shapes = (
+{
+pos = (450,0);
+ref = dotaccentcomb;
+}
+);
+width = 1100;
 }
 );
 metricWidth = "=space*2";
