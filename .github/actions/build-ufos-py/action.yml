@@ -16,7 +16,7 @@ runs:
   using: composite
   steps:
   - name: Set up uv and enable caching
-    uses: astral-sh/setup-uv@v7
+    uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
     with:
       enable-cache: true
       cache-dependency-glob: |
@@ -35,14 +35,14 @@ runs:
       make --directory ${{ inputs.repo-path }} build
   - name: Generate archive name
     id: zip-name
-    uses: alpha-tango-kilo/gha-artifact-name@v1
+    uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
     with:
       repo-name: Google Sans Flex
       repo-root: ${{ inputs.repo-path }}
       overrides: |
         build-glyphs: glyphs
   - name: Upload archive
-    uses: actions/upload-artifact@v7
+    uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
     with:
       name: ${{ steps.zip-name.outputs.artifact-name }}
       path: ${{ inputs.repo-path }}/fonts/variable

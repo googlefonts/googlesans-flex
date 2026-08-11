@@ -18,22 +18,22 @@ jobs:
     timeout-minutes: 40
     steps:
     - name: Checkout ${{ inputs.branch }}
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
       with:
         ref: ${{ inputs.branch }}
     - name: Set up Python
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
       with:
         python-version-file: .github/workflows/python-version.txt
     - name: Set up uv and enable caching
-      uses: astral-sh/setup-uv@v7
+      uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
       with:
         enable-cache: true
         cache-dependency-glob: |
           requirements*.txt
           requirements*.in
     - name: Download built fonts
-      uses: actions/download-artifact@v8
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
         name: ${{ inputs.artifact-name }}
         path: fonts/variable
@@ -48,14 +48,14 @@ jobs:
           exit 1
         fi
     - name: Check with OT Sanitizer
-      uses: f-actions/opentype-sanitizer@v4.0.0
+      uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
       with:
         path: fonts/variable/*.ttf
     - name: Analyze TTF file size
       shell: bash
       run: make font-size
     - name: Setup Fontspector
-      uses: fonttools/setup-fontspector@main
+      uses: fonttools/setup-fontspector@d53404291dc78a5a41cf76ea48e1d13a731fb812  # main
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Fontbakery/Fontspector
@@ -63,7 +63,7 @@ jobs:
       shell: bash
       run: scripts/fontbakery.sh
     - name: Upload Fontbakery/Fontspector reports
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
       # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
