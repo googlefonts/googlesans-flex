@@ -97,7 +97,9 @@ update-project-template:
 	npx update-template https://github.com/googlefonts/googlefonts-project-template/
 
 update-glyphset-expectations:
-	$(UV_RUN) scripts/gs-update-glyphset-qa-files.py
+	$(UV_RUN) scripts/gs-update-glyphset-qa-files.py \
+		--vf-path $(VF_PATH) \
+		--figma-path fonts/figma/GoogleSansFlexVariable$(ALL_AXES).ttf
 
 update-shaping-expectations:
 	$(UV_RUN) bash -c "cd qa && bash update_all_shaping.sh"
