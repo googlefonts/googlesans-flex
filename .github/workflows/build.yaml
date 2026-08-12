@@ -35,11 +35,31 @@ jobs:
       uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
       with:
         python-version-file: ./.github/workflows/python-version.txt
-    - name: Build font
-      id: build-ufos
-      uses: ./.github/actions/build-ufos-py
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
+      with:
+        enable-cache: true
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
+    - name: Bump sources version to release tag version
+      if: github.event_name == 'release'
+      run: make bump-to-tag
+    - name: Build the font
+      run: make build
+    - name: Generate archive name
+      id: vf-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
+      with:
+        repo-name: Google Sans Flex
+    - name: Upload archive
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: ${{ steps.vf-artifact-name.outputs.artifact-name }}
+        path: fonts/variable
+        if-no-files-found: error
     outputs:
-      artifact-name: ${{ steps.build-ufos.outputs.artifact-name }}
+      artifact-name: ${{ steps.vf-artifact-name.outputs.artifact-name }}
   cut-instances:
     if: ${{ github.event_name == 'release' || inputs.cut-instances }}
     needs:
