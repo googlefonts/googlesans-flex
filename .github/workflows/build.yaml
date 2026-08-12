@@ -348,7 +348,8 @@ jobs:
         zip -9 "../$ANDROID_ZIP_NAME" *.ttf *.md
     
         cd "$GITHUB_WORKSPACE"
-        gh release upload $GITHUB_REF_NAME \
+        # Repo must be explicitly stated as we don't have the repo checked out
+        gh release upload --repo $GITHUB_REPOSITORY $GITHUB_REF_NAME \
           "$VARIABLE_ZIP_NAME" \
           "$WORKSPACE_ZIP_NAME" \
           "$TV_ZIP_NAME" \
