@@ -6,6 +6,10 @@ FAMILY=$(shell python3 scripts/read-config.py --family )
 DRAWBOT_SCRIPTS=$(shell ls documentation/*.py)
 DRAWBOT_OUTPUT=$(shell ls documentation/*.py | sed 's/\.py/.png/g')
 
+# Note: if the font's file name is changing for any reason, also check to make
+# sure sources/config.yaml is up-to-date!
+# ALL_AXES: all the axes the font has, in order, comma separated, within [square
+# brackets]
 ALL_AXES=[ROND,opsz,slnt,wdth,wght]
 VF_NAME=GoogleSansFlex$(ALL_AXES).ttf
 VF_PATH=fonts/variable/$(VF_NAME)
