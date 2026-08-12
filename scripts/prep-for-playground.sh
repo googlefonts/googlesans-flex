@@ -32,4 +32,8 @@ sed -i -E 's|timeout-minutes: [0-9]+|timeout-minutes: 60|g' \
 sed -i 's|uses: googlefonts/googlesans-flex|uses: daltonmaag/googlesans-flex-playground|g' \
     .github/workflows/*.{yml,yaml}
 
-git commit -m "Patchie" .github/workflows
+if command -v jj >/dev/null 2>&1 && [ -d .jj ]; then
+    jj commit -m "Patchie" .github/workflows
+else
+    git commit -m "Patchie" .github/workflows
+fi
