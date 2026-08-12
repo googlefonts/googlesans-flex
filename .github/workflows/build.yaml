@@ -62,25 +62,45 @@ jobs:
         cache-dependency-glob: |
           requirements*.txt
           requirements*.in
-    - name: Cut workspace fonts
-      id: cut-workspace-fonts
-      uses: ./.github/actions/cut-workspace-fonts
+    - name: Download main VF
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
-        vf-artifact: ${{ needs.build-variable.outputs.artifact-name }}
+        name: ${{ needs.build-variable.outputs.artifact-name }}
+        path: fonts/variable
+    - name: Slice workspace fonts
+      shell: bash
+      run: |
+        # Prevent font re-building
+        touch build.stamp
+        make workspace
     - name: Create Android flavour GS Flex
       run: make android
+    - name: Create Figma flavour GS Flex
+      run: make figma
+    - name: Generate workspace archive name
+      id: workspace-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
+      with:
+        repo-name: Google Sans Flex workspace
     - name: Generate Android archive name
       id: android-artifact-name
       uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
       with:
         repo-name: Google Sans Flex Android
-    - name: Create Figma flavour GS Flex
-      run: make figma
     - name: Generate Figma archive name
       id: figma-artifact-name
       uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
       with:
         repo-name: Google Sans Flex Figma
+    - name: Upload workspace and TV fonts
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: ${{ steps.workspace-artifact-name.outputs.artifact-name }}
+        path: |
+          fonts/workspace
+          fonts/tv
+        compression-level: 9
+        if-no-files-found: error
     - name: Upload Android fonts
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
       with:
@@ -96,9 +116,9 @@ jobs:
         compression-level: 9
         if-no-files-found: error
     outputs:
+      workspace-artifact-name: ${{ steps.workspace-artifact-name.outputs.artifact-name }}
       android-artifact-name: ${{ steps.android-artifact-name.outputs.artifact-name }}
       figma-artifact-name: ${{ steps.figma-artifact-name.outputs.artifact-name }}
-      workspace-artifact-name: ${{ steps.cut-workspace-fonts.outputs.artifact-name }}
   test-variable:
     needs:
     - build-variable
