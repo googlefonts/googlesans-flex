@@ -12,3 +12,6 @@ updates:
     schedule:
       interval: "daily"
       time: "00:00"
+    # Recommended by zizmor: https://docs.zizmor.sh/audits/#dependabot-cooldown
+    cooldown:
+      default-days: 7
