@@ -6,6 +6,10 @@ on:
       git-ref:
         description: The branch to build from
         required: true
+      cut-instances:
+        description: Build instance fonts? (Workspace, Figma, Android, TV)
+        required: false
+        type: boolean
   push:
     branches:
     - main
@@ -37,7 +41,7 @@ jobs:
     outputs:
       artifact-name: ${{ steps.build-ufos.outputs.artifact-name }}
   cut-instances:
-    if: ${{ github.event_name == 'release' }}
+    if: ${{ github.event_name == 'release' || inputs.cut-instances }}
     needs:
     - build-variable
     runs-on: googlefonts-16cores-64GB
@@ -164,7 +168,7 @@ jobs:
           out/fontspector
         if-no-files-found: error
   test-instances:
-    if: ${{ github.event_name == 'release' }}
+    if: ${{ github.event_name == 'release' || inputs.cut-instances }}
     needs:
     - cut-instances
     runs-on: googlefonts-8cores-32GB
