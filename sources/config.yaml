@@ -4,6 +4,9 @@ sources:
 familyName: Google Sans Flex
 
 recipe:
+  # If you're updating this, please also update the variables at the top of the
+  # Makefile! Look for ALL_AXES, VF_NAME, and VF_PATH and make sure they match
+  # this (without the leading ../).
   ../fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf:
     - source: GoogleSansFlex.glyphspackage
     - operation: buildVariable
