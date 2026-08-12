@@ -311,61 +311,43 @@ jobs:
       with:
         name: ${{ needs.cut-instances.outputs.android-artifact-name }}
         path: ${{ needs.cut-instances.outputs.android-artifact-name }}
-    - name: Create release archives
-      id: release-archives
-      run: |
-        # Note: unsupported characters (such as spaces) are changes for periods
-        #       when uploading to the release
-        variable_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
-        echo "variable-zip-name=$variable_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${VARIABLE_ARTIFACT}" \
-          && zip -9 "../$variable_zip_name" *.ttf
-
-        workspace_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
-        echo "workspace-zip-name=$workspace_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/workspace" \
-          && zip -9 "../../$workspace_zip_name" *.ttf *.md
-
-        tv_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} tv.zip"
-        echo "tv-zip-name=$tv_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/tv" \
-          && zip -9 "../../$tv_zip_name" *.ttf *.md
-
-        figma_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} figma.zip"
-        echo "figma-zip-name=$figma_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${FIGMA_ARTIFACT}" \
-          && zip -9 "../$figma_zip_name" *.ttf *.md
-
-        android_zip_name="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
-        echo "android-zip-name=$android_zip_name" >> "$GITHUB_OUTPUT"
-        cd "$GITHUB_WORKSPACE/${ANDROID_ARTIFACT}"
-        # Rename file to match what Android's already using (regardless as to how representative the name is)
-        mv GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf GoogleSansFlex-Regular.ttf
-        zip -9 "../$android_zip_name" *.ttf *.md
+    - name: Upload release artifacts
       env:
         VARIABLE_ARTIFACT: ${{ needs.build-variable.outputs.artifact-name }}
         WORKSPACE_ARTIFACT: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
         FIGMA_ARTIFACT: ${{ needs.cut-instances.outputs.figma-artifact-name }}
         ANDROID_ARTIFACT: ${{ needs.cut-instances.outputs.android-artifact-name }}
-    - name: Upload variable font archive to release
-      uses: svenstaro/upload-release-action@29e53e917877a24fad85510ded594ab3c9ca12de  # v2.11.5
-      with:
-        file: ${{ steps.release-archives.outputs.variable-zip-name }}
-        overwrite: true
-        body: "Production ready fonts"
-    - name: Upload workspace fonts archive to release
-      uses: svenstaro/upload-release-action@29e53e917877a24fad85510ded594ab3c9ca12de  # v2.11.5
-      with:
-        file: ${{ steps.release-archives.outputs.workspace-zip-name }}
-    - name: Upload Figma fonts archive to release
-      uses: svenstaro/upload-release-action@29e53e917877a24fad85510ded594ab3c9ca12de  # v2.11.5
-      with:
-        file: ${{ steps.release-archives.outputs.figma-zip-name }}
-    - name: Upload Android font archive to release
-      uses: svenstaro/upload-release-action@29e53e917877a24fad85510ded594ab3c9ca12de  # v2.11.5
-      with:
-        file: ${{ steps.release-archives.outputs.android-zip-name }}
-    - name: Upload tv font archive to release
-      uses: svenstaro/upload-release-action@29e53e917877a24fad85510ded594ab3c9ca12de  # v2.11.5
-      with:
-        file: ${{ steps.release-archives.outputs.tv-zip-name }}
+        # For GitHub CLI
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        # Note: unsupported characters (such as spaces) are changes for periods
+        #       when uploading to the release
+        VARIABLE_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
+        cd "$GITHUB_WORKSPACE/${VARIABLE_ARTIFACT}" \
+          && zip -9 "../$VARIABLE_ZIP_NAME" *.ttf
+
+        WORKSPACE_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
+        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/workspace" \
+          && zip -9 "../../$WORKSPACE_ZIP_NAME" *.ttf *.md
+
+        TV_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} tv.zip"
+        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/tv" \
+          && zip -9 "../../$TV_ZIP_NAME" *.ttf *.md
+
+        FIGMA_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} figma.zip"
+        cd "$GITHUB_WORKSPACE/${FIGMA_ARTIFACT}" \
+          && zip -9 "../$FIGMA_ZIP_NAME" *.ttf *.md
+
+        ANDROID_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
+        cd "$GITHUB_WORKSPACE/${ANDROID_ARTIFACT}"
+        # Rename file to match what Android's already using (regardless as to how representative the name is)
+        mv GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf GoogleSansFlex-Regular.ttf
+        zip -9 "../$ANDROID_ZIP_NAME" *.ttf *.md
+    
+        cd "$GITHUB_WORKSPACE"
+        gh release upload $GITHUB_REF_NAME \
+          "$VARIABLE_ZIP_NAME" \
+          "$WORKSPACE_ZIP_NAME" \
+          "$TV_ZIP_NAME" \
+          "$FIGMA_ZIP_NAME" \
+          "$ANDROID_ZIP_NAME"
