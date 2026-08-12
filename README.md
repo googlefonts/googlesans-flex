@@ -77,12 +77,6 @@ release zip.
 
 Please run `make update` to update dependencies. This uses [uv](https://github.com/astral-sh/uv) to resolve them and write them into the requirements.txt file. The requirements are then installed by the build scripting without further dependency resolution.
 
-## Testing builds from Glyphs sources
-
-Open a pull request for your changes, and it will be built and tested automatically.
-
-Alternatively, you can test locally with `make build` and `make test`.
-
 ## Scripts
 
 ### find-problems.py

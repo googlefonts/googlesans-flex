@@ -22,14 +22,18 @@
 
 # Change runners to free ones
 sed -i -E 's|googlefonts-[0-9]+cores-[0-9]+GB|ubuntu-latest|g' \
-    .github/workflows/*.{yml,yaml}
+    .github/workflows/*.yaml
 
 # Change timeouts to 60 minutes across the board
 sed -i -E 's|timeout-minutes: [0-9]+|timeout-minutes: 60|g' \
-    .github/workflows/*.{yml,yaml}
+    .github/workflows/*.yaml
 
 # Change callable workflow repository
 sed -i 's|uses: googlefonts/googlesans-flex|uses: daltonmaag/googlesans-flex-playground|g' \
-    .github/workflows/*.{yml,yaml}
+    .github/workflows/*.yaml
 
-git commit -m "Patchie" .github/workflows
+if command -v jj >/dev/null 2>&1 && [ -d .jj ]; then
+    jj commit -m "Patchie" .github/workflows
+else
+    git commit -m "Patchie" .github/workflows
+fi

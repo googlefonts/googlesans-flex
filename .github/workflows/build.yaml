@@ -6,6 +6,10 @@ on:
       git-ref:
         description: The branch to build from
         required: true
+      cut-instances:
+        description: Build instance fonts? (Workspace, Figma, Android, TV)
+        required: false
+        type: boolean
   push:
     branches:
     - main
@@ -13,30 +17,349 @@ on:
     types: [opened, synchronize, reopened]
     branches:
     - main
+  release:
+    # A release, pre-release, or draft of a release was published
+    types: [published]
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  build-variable:
     runs-on: googlefonts-64cores-256GB
     timeout-minutes: 15
     steps:
     # on: pull_request uses head_ref for branch name, on: push uses ref_name
     - name: Checkout ${{ inputs.git-ref || github.head_ref || github.ref_name }}
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
       with:
         ref: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
+        persist-credentials: false
     - name: Set up Python
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
       with:
         python-version-file: ./.github/workflows/python-version.txt
-    - name: Build font
-      id: build-ufos
-      uses: ./.github/actions/build-ufos-py
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
+      with:
+        # https://docs.zizmor.sh/audits/#cache-poisoning
+        enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
+    - name: Bump sources version to release tag version
+      if: github.event_name == 'release'
+      run: make bump-to-tag
+    - name: Build the font
+      run: make build
+    - name: Generate archive name
+      id: vf-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
+      with:
+        repo-name: Google Sans Flex
+    - name: Upload archive
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: ${{ steps.vf-artifact-name.outputs.artifact-name }}
+        path: fonts/variable
+        if-no-files-found: error
     outputs:
-      artifact-name: ${{ steps.build-ufos.outputs.artifact-name }}
-  test:
+      artifact-name: ${{ steps.vf-artifact-name.outputs.artifact-name }}
+  cut-instances:
+    if: ${{ github.event_name == 'release' || inputs.cut-instances }}
     needs:
-    - build
-    uses: googlefonts/googlesans-flex/.github/workflows/tests.yml@main
-    with:
-      branch: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
-      artifact-name: ${{ needs.build.outputs.artifact-name }}
+    - build-variable
+    runs-on: googlefonts-16cores-64GB
+    timeout-minutes: 10
+    steps:
+    - name: Checkout ${{ github.ref_name }}
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      with:
+        ref: ${{ github.ref_name }}
+        persist-credentials: false
+    - name: Set up Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+      with:
+        python-version-file: ./.github/workflows/python-version.txt
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
+      with:
+        # https://docs.zizmor.sh/audits/#cache-poisoning
+        enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
+    - name: Download main VF
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.build-variable.outputs.artifact-name }}
+        path: fonts/variable
+    - name: Slice workspace fonts
+      shell: bash
+      run: |
+        # Prevent font re-building
+        touch build.stamp
+        make workspace
+    - name: Create Android flavour GS Flex
+      run: make android
+    - name: Create Figma flavour GS Flex
+      run: make figma
+    - name: Generate workspace archive name
+      id: workspace-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
+      with:
+        repo-name: Google Sans Flex workspace
+    - name: Generate Android archive name
+      id: android-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
+      with:
+        repo-name: Google Sans Flex Android
+    - name: Generate Figma archive name
+      id: figma-artifact-name
+      uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
+      with:
+        repo-name: Google Sans Flex Figma
+    - name: Upload workspace and TV fonts
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: ${{ steps.workspace-artifact-name.outputs.artifact-name }}
+        path: |
+          fonts/workspace
+          fonts/tv
+        compression-level: 9
+        if-no-files-found: error
+    - name: Upload Android fonts
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: ${{ steps.android-artifact-name.outputs.artifact-name }}
+        path: fonts/android
+        compression-level: 9
+        if-no-files-found: error
+    - name: Upload Figma font
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      with:
+        name: ${{ steps.figma-artifact-name.outputs.artifact-name }}
+        path: fonts/figma
+        compression-level: 9
+        if-no-files-found: error
+    outputs:
+      workspace-artifact-name: ${{ steps.workspace-artifact-name.outputs.artifact-name }}
+      android-artifact-name: ${{ steps.android-artifact-name.outputs.artifact-name }}
+      figma-artifact-name: ${{ steps.figma-artifact-name.outputs.artifact-name }}
+  test-variable:
+    needs:
+    - build-variable
+    runs-on: googlefonts-8cores-32GB
+    timeout-minutes: 40
+    steps:
+    - name: Checkout ${{ inputs.git-ref || github.head_ref || github.ref_name }}
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      with:
+        ref: ${{ inputs.git-ref || github.head_ref || github.ref_name }}
+        persist-credentials: false
+    - name: Set up Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+      with:
+        python-version-file: .github/workflows/python-version.txt
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
+      with:
+        # https://docs.zizmor.sh/audits/#cache-poisoning
+        enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
+    - name: Download built fonts
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.build.outputs.artifact-name }}
+        path: fonts/variable
+    - name: Avoid re-building fonts
+      shell: bash
+      run: |
+        if [ -d "fonts/variable" ]; then
+          # Trick make into not re-building the fonts
+          touch build.stamp
+        else
+          echo "::error title=Built fonts not found::No built fonts in ./fonts/variable"
+          exit 1
+        fi
+    - name: Check with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
+      with:
+        path: fonts/variable/*.ttf
+    - name: Analyze TTF file size
+      shell: bash
+      run: make font-size
+    - name: Run shaperglot
+      shell: bash
+      run: |
+        touch build.stamp
+        make shaperglot
+    - name: Setup Fontspector
+      uses: fonttools/setup-fontspector@d53404291dc78a5a41cf76ea48e1d13a731fb812  # main
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run Fontspector
+      id: fontspector
+      shell: bash
+      run: scripts/fontbakery.sh
+    - name: Upload Fontspector report
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      # Always upload reports (even during a pipeline fail), so long as Fontspector completed
+      # https://docs.github.com/en/actions/learn-github-actions/expressions#always
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+      if: ${{ !cancelled() && (steps.fontspector.conclusion == 'success' || steps.fontspector.conclusion == 'failure') }}
+      with:
+        name: Fontspector report
+        path: |
+          out/fontspector
+          out/fontspector
+        if-no-files-found: error
+  test-instances:
+    if: ${{ github.event_name == 'release' || inputs.cut-instances }}
+    needs:
+    - cut-instances
+    runs-on: googlefonts-8cores-32GB
+    timeout-minutes: 30
+    steps:
+    - name: Checkout ${{ github.ref_name }}
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      with:
+        ref: ${{ github.ref_name }}
+        persist-credentials: false
+    - name: Set up Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+      with:
+        python-version-file: ./.github/workflows/python-version.txt
+    - name: Set up uv and enable caching
+      uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9  # v9.0.0
+      with:
+        # https://docs.zizmor.sh/audits/#cache-poisoning
+        enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        cache-dependency-glob: |
+          requirements*.txt
+          requirements*.in
+    - name: Download workspace and TV fonts
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+        path: fonts/
+    - name: Check workspace fonts with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
+      with:
+        path: fonts/workspace/*.ttf
+    - name: Check tv fonts with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
+      with:
+        path: fonts/tv/*.ttf
+    - name: Download Figma font
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.cut-instances.outputs.figma-artifact-name }}
+        path: fonts/figma
+    - name: Check Figma font with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
+      with:
+        path: fonts/figma/*.ttf
+    - name: Download Android font
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.cut-instances.outputs.android-artifact-name }}
+        path: fonts/android
+    - name: Check Android font with OT Sanitizer
+      uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
+      with:
+        path: fonts/android/*.ttf
+    - name: Setup Fontspector
+      uses: fonttools/setup-fontspector@d53404291dc78a5a41cf76ea48e1d13a731fb812  # main
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run Fontspector
+      id: fontspector-workspace
+      env:
+        SKIP_SOURCES: 1
+      run: scripts/fontbakery.sh
+    - name: Upload Fontspector report
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      # Always upload reports (even during a pipeline fail), so long as Fontspector completed
+      # https://docs.github.com/en/actions/learn-github-actions/expressions#always
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+      if: ${{ !cancelled() && (steps.fontspector-workspace.conclusion == 'success' || steps.fontspector-workspace.conclusion == 'failure') }}
+      with:
+        name: Instances Fontspector report
+        path: out/fontspector
+        if-no-files-found: error
+  upload-to-release:
+    if: github.event_name == 'release'
+    needs:
+    - build-variable
+    - cut-instances
+    - test-variable
+    - test-instances
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+    - name: Download variable fonts
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.build-variable.outputs.artifact-name }}
+        path: ${{ needs.build-variable.outputs.artifact-name }}
+    - name: Download workspace and tv fonts
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+        path: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+    - name: Download Figma font
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.cut-instances.outputs.figma-artifact-name }}
+        path: ${{ needs.cut-instances.outputs.figma-artifact-name }}
+    - name: Download Android font
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: ${{ needs.cut-instances.outputs.android-artifact-name }}
+        path: ${{ needs.cut-instances.outputs.android-artifact-name }}
+    - name: Upload release artifacts
+      env:
+        VARIABLE_ARTIFACT: ${{ needs.build-variable.outputs.artifact-name }}
+        WORKSPACE_ARTIFACT: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
+        FIGMA_ARTIFACT: ${{ needs.cut-instances.outputs.figma-artifact-name }}
+        ANDROID_ARTIFACT: ${{ needs.cut-instances.outputs.android-artifact-name }}
+        # For GitHub CLI
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        # Note: unsupported characters (such as spaces) are changes for periods
+        #       when uploading to the release
+        VARIABLE_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/}.zip"
+        cd "$GITHUB_WORKSPACE/${VARIABLE_ARTIFACT}" \
+          && zip -9 "../$VARIABLE_ZIP_NAME" *.ttf
+
+        WORKSPACE_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} workspace.zip"
+        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/workspace" \
+          && zip -9 "../../$WORKSPACE_ZIP_NAME" *.ttf *.md
+
+        TV_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} tv.zip"
+        cd "$GITHUB_WORKSPACE/${WORKSPACE_ARTIFACT}/tv" \
+          && zip -9 "../../$TV_ZIP_NAME" *.ttf *.md
+
+        FIGMA_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} figma.zip"
+        cd "$GITHUB_WORKSPACE/${FIGMA_ARTIFACT}" \
+          && zip -9 "../$FIGMA_ZIP_NAME" *.ttf *.md
+
+        ANDROID_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
+        cd "$GITHUB_WORKSPACE/${ANDROID_ARTIFACT}"
+        # Rename file to match what Android's already using (regardless as to how representative the name is)
+        mv GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf GoogleSansFlex-Regular.ttf
+        zip -9 "../$ANDROID_ZIP_NAME" *.ttf *.md
+    
+        cd "$GITHUB_WORKSPACE"
+        # Repo must be explicitly stated as we don't have the repo checked out
+        gh release upload --repo $GITHUB_REPOSITORY $GITHUB_REF_NAME \
+          "$VARIABLE_ZIP_NAME" \
+          "$WORKSPACE_ZIP_NAME" \
+          "$TV_ZIP_NAME" \
+          "$FIGMA_ZIP_NAME" \
+          "$ANDROID_ZIP_NAME"
