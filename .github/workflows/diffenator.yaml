@@ -13,6 +13,9 @@ on:
         description: Check all masters? (--masters)
         type: boolean
 
+permissions:
+  contents: read
+
 jobs:
   build-before:
     runs-on: googlefonts-64cores-256GB
