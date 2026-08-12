@@ -48,7 +48,7 @@ other STAT axes removed (anything else than Weight and Italic).
     3. Commit
 3. Regenerate glyphset tests:
     1. Update list of workspace files in `scripts/gs-update-glyphset-qa-files.py`
-    2. Run `python scripts/gs-update-glyphset-qa-files.py`
+    2. Run `make update-glyphset-expectations`
     3. Review output
     4. Commit
 
