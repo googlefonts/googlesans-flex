@@ -191,20 +191,20 @@ jobs:
       uses: fonttools/setup-fontspector@d53404291dc78a5a41cf76ea48e1d13a731fb812  # main
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Run Fontbakery/Fontspector
-      id: fontbakery
+    - name: Run Fontspector
+      id: fontspector
       shell: bash
       run: scripts/fontbakery.sh
-    - name: Upload Fontbakery/Fontspector reports
+    - name: Upload Fontspector report
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
-      # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
+      # Always upload reports (even during a pipeline fail), so long as Fontspector completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
-      if: ${{ !cancelled() && (steps.fontbakery.conclusion == 'success' || steps.fontbakery.conclusion == 'failure') }}
+      if: ${{ !cancelled() && (steps.fontspector.conclusion == 'success' || steps.fontspector.conclusion == 'failure') }}
       with:
-        name: Fontbakery & Fontspector reports
+        name: Fontspector report
         path: |
-          out/fontbakery
+          out/fontspector
           out/fontspector
         if-no-files-found: error
   test-instances:
@@ -265,16 +265,16 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Fontspector
-      id: fontbakery-workspace
+      id: fontspector-workspace
       env:
         SKIP_SOURCES: 1
       run: scripts/fontbakery.sh
     - name: Upload Fontspector report
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
-      # Always upload reports (even during a pipeline fail), so long as Fontbakery completed
+      # Always upload reports (even during a pipeline fail), so long as Fontspector completed
       # https://docs.github.com/en/actions/learn-github-actions/expressions#always
       # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
-      if: ${{ !cancelled() && (steps.fontbakery-workspace.conclusion == 'success' || steps.fontbakery-workspace.conclusion == 'failure') }}
+      if: ${{ !cancelled() && (steps.fontspector-workspace.conclusion == 'success' || steps.fontspector-workspace.conclusion == 'failure') }}
       with:
         name: Instances Fontspector report
         path: out/fontspector
