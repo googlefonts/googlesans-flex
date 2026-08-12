@@ -133,4 +133,7 @@ autobase: build
 	cargo binstall --no-confirm autobase-cli || cargo install --locked autobase-cli
 	autobase --min-max --config sources/autobase.toml --words 1000000 $(VF_PATH)
 
-.PHONY: release autobase
+print-vf-path:
+	@echo $(VF_PATH)
+
+.PHONY: release autobase print-vf-path
