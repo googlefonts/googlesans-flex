@@ -176,14 +176,7 @@ jobs:
         path: fonts/variable
     - name: Avoid re-building fonts
       shell: bash
-      run: |
-        if [ -d "fonts/variable" ]; then
-          # Trick make into not re-building the fonts
-          touch build.stamp
-        else
-          echo "::error title=Built fonts not found::No built fonts in ./fonts/variable"
-          exit 1
-        fi
+      run: touch build.stamp
     - name: Check with OT Sanitizer
       uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
       with:
@@ -193,9 +186,7 @@ jobs:
       run: make font-size
     - name: Run shaperglot
       shell: bash
-      run: |
-        touch build.stamp
-        make shaperglot
+      run: make shaperglot
     - name: Setup Fontspector
       uses: fonttools/setup-fontspector@d53404291dc78a5a41cf76ea48e1d13a731fb812  # main
       env:
