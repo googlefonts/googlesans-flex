@@ -104,7 +104,7 @@ jobs:
       run: make android
     - name: Create Figma flavour GS Flex
       run: make figma
-    - name: Generate workspace archive name
+    - name: Generate workspace & TV archive name
       id: workspace-artifact-name
       uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
       with:
@@ -307,7 +307,7 @@ jobs:
       with:
         name: ${{ needs.build-variable.outputs.artifact-name }}
         path: ${{ needs.build-variable.outputs.artifact-name }}
-    - name: Download workspace and tv fonts
+    - name: Download workspace and TV fonts
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
