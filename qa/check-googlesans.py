@@ -51,6 +51,7 @@ AXIS_DEFAULTS = {
     "wdth": 100,
     "wght": 400,
     "ROND": 0,
+    "SPAC": 0,
     "GRAD": 0,
     "slnt": 0,
 }
@@ -58,6 +59,7 @@ AXIS_DEFAULTS = {
 AXIS_NAMES = {
     "opsz": "Optical Size",
     "ROND": "Roundness",
+    "SPAC": "Spacing",
     "wdth": "Width",
     "wght": "Weight",
     "GRAD": "Grade",
