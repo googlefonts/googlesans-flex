@@ -104,7 +104,7 @@ jobs:
       run: make android
     - name: Create Figma flavour GS Flex
       run: make figma
-    - name: Generate workspace archive name
+    - name: Generate workspace & TV archive name
       id: workspace-artifact-name
       uses: alpha-tango-kilo/gha-artifact-name@49459760611c4a5cedffa13dfb36ca29ab1fdcfc  # v1.3.0
       with:
@@ -176,14 +176,7 @@ jobs:
         path: fonts/variable
     - name: Avoid re-building fonts
       shell: bash
-      run: |
-        if [ -d "fonts/variable" ]; then
-          # Trick make into not re-building the fonts
-          touch build.stamp
-        else
-          echo "::error title=Built fonts not found::No built fonts in ./fonts/variable"
-          exit 1
-        fi
+      run: touch build.stamp
     - name: Check with OT Sanitizer
       uses: f-actions/opentype-sanitizer@d5603373a9adccd136dd48b037b9b5178b485bea  # v4.0.0
       with:
@@ -193,9 +186,7 @@ jobs:
       run: make font-size
     - name: Run shaperglot
       shell: bash
-      run: |
-        touch build.stamp
-        make shaperglot
+      run: make shaperglot
     - name: Setup Fontspector
       uses: fonttools/setup-fontspector@d53404291dc78a5a41cf76ea48e1d13a731fb812  # main
       env:
@@ -307,7 +298,7 @@ jobs:
       with:
         name: ${{ needs.build-variable.outputs.artifact-name }}
         path: ${{ needs.build-variable.outputs.artifact-name }}
-    - name: Download workspace and tv fonts
+    - name: Download workspace and TV fonts
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
       with:
         name: ${{ needs.cut-instances.outputs.workspace-artifact-name }}
@@ -357,7 +348,7 @@ jobs:
     
         cd "$GITHUB_WORKSPACE"
         # Repo must be explicitly stated as we don't have the repo checked out
-        gh release upload --repo $GITHUB_REPOSITORY $GITHUB_REF_NAME \
+        gh release upload --repo "$GITHUB_REPOSITORY" "$GITHUB_REF_NAME" \
           "$VARIABLE_ZIP_NAME" \
           "$WORKSPACE_ZIP_NAME" \
           "$TV_ZIP_NAME" \
