@@ -1,5 +1,20 @@
 # Google Sans Flex Changelog
 
+## Version 4.007 (2026-08-21)
+
+### New
+- Addition of white arrows and "point of interest" ([#1281](https://github.com/googlefonts/googlesans-flex/pull/1281))
+- Expand Yoruba language support: add ◌̩ (U+0329) ([#1128](https://github.com/googlefonts/googlesans-flex/pull/1128))
+
+### Changed
+- Update superscript and subscript number design to follow standard figure designs ([#1265](https://github.com/googlefonts/googlesans-flex/pull/1265))
+- Shorten arm of one.tf ([#1286](https://github.com/googlefonts/googlesans-flex/pull/1286))
+- Tight spacing in /L/A ([#1272](https://github.com/googlefonts/googlesans-flex/pull/1272))
+- Fix spacing in ij ([#1269](https://github.com/googlefonts/googlesans-flex/pull/1269))
+- RSB / kerning on e.logo appears too large  ([#1266](https://github.com/googlefonts/googlesans-flex/pull/1266))
+- Changed condition for swapping $ from 699 to 700 wght ([#1267](https://github.com/googlefonts/googlesans-flex/pull/1267))
+
+
 ## Version 4.006 (2026-06-26)
 
 ### New
