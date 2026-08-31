@@ -75,7 +75,7 @@ code = "period.tf comma.tf colon.tf semicolon.tf numbersign.tf space.tf cent.tf 
 name = SYMBOLS_TAB;
 },
 {
-code = "gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotaccentcomb dieresiscomb ringcomb hungarumlautcomb caroncomb commaturnedabovecomb ";
+code = "gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotaccentcomb dieresiscomb ringcomb hungarumlautcomb caroncomb commaturnedabovecomb hookabovecomb";
 name = CombiningTopAccents;
 },
 {
@@ -716,6 +716,7 @@ lookup ccmp_soft_dotted {
     lookupflag UseMarkFilteringSet @CombiningTopAccents;
     sub @LAT_dotted' @CombiningTopAccents by @LAT_dotless;
 	sub iogonek' @CombiningTopAccents by idotless ogonekcomb;
+	sub idotbelow' @CombiningTopAccents by idotless dotbelowcomb;
 } ccmp_soft_dotted;
 ";
 name = Prefix;
