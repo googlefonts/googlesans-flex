@@ -13,13 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from argparse import ArgumentParser
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
 
-# The main VF must be first
-FONT_PATHS = (
-    Path("fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf"),
+WORKSPACE_PATHS = (
     Path("fonts/workspace/GoogleSansFlexRounded-Italic[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexRounded[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexSemiRounded-Italic[wght].ttf"),
@@ -36,7 +35,6 @@ FONT_PATHS = (
     Path("fonts/workspace/GoogleSansFlexTextFine[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexUltraCondensed-Italic[wght].ttf"),
     Path("fonts/workspace/GoogleSansFlexUltraCondensed[wght].ttf"),
-    Path("fonts/figma/GoogleSansFlexVariable[GRAD,ROND,opsz,slnt,wdth,wght].ttf"),
 )
 
 
@@ -48,21 +46,30 @@ def main() -> None:
     """Expect all glyphsets to be the same, so just write the one for the VF and
     create symlinks for the others"""
 
+    parser = ArgumentParser(description="Run using make update-glyphset-expectations")
+    parser.add_argument("--vf-path", type=Path, required=True)
+    parser.add_argument("--figma-path", type=Path)
+
+    args = parser.parse_args()
+
+    # Main VF must be first
+    font_paths = [args.vf_path, *WORKSPACE_PATHS, args.figma_path]
+
     glyph_set_definitions = [
-        TTFont(font_path).getGlyphOrder() for font_path in FONT_PATHS
+        TTFont(font_path).getGlyphOrder() for font_path in font_paths
     ]
-    assert all(
-        current == glyph_set_definitions[0] for current in glyph_set_definitions[1:]
-    ), "fonts had differing character sets"
     glyphsetdef = glyph_set_definitions[0]
+    assert all(
+        current == glyphsetdef for current in glyph_set_definitions[1:]
+    ), "fonts had differing character sets"
 
     # Write main definition for VF
-    main_vf_glyphsetdef_path = glyphsetdef_path_for(FONT_PATHS[0])
+    main_vf_glyphsetdef_path = glyphsetdef_path_for(args.vf_path)
     main_vf_glyphsetdef_path.write_text("\n".join(glyphsetdef) + "\n")
     print(f"Updated {main_vf_glyphsetdef_path}")
 
     # Create symlinks for the rest
-    for font_path in FONT_PATHS[1:]:
+    for font_path in font_paths[1:]:
         glyphsetdef_path = glyphsetdef_path_for(font_path)
         glyphsetdef_path.unlink(missing_ok=True)
         glyphsetdef_path.symlink_to(main_vf_glyphsetdef_path.name)

@@ -41,9 +41,9 @@ from ufo2ft.fontInfoData import (
 
 class GoogleSansFlexInstance(TypedDict):
     wght: float | str
-    wdth: int | str
+    # Has to be int for generate_panose_entries.WIDTH_PROPORTION
+    wdth: int
     opsz: int | str
-    GRAD: int | str
     ROND: int | str
     slnt: int | str
 
@@ -483,9 +483,8 @@ def main(args: list[str] | None = None) -> int:
                 # Restrict weight axis to between 100 & 900, default to 400
                 "wght": "100:400:900",
                 "slnt": -10 if italic else 0,
-                "GRAD": 0,
                 **workspace_instance,
-            }
+            }  # type: ignore
 
             ttf_name = (
                 family_name.replace(" ", "")
