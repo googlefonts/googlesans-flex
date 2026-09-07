@@ -7,7 +7,7 @@ recipe:
   # If you're updating this, please also update the variables at the top of the
   # Makefile! Look for ALL_AXES, VF_NAME, and VF_PATH and make sure they match
   # this (without the leading ../).
-  ../fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf:
+  ../fonts/variable/GoogleSansFlex[ROND,SPAC,opsz,slnt,wdth,wght].ttf:
     - source: GoogleSansFlex.glyphspackage
     - operation: buildVariable
       args: >-
@@ -16,6 +16,12 @@ recipe:
         --filter DecomposeTransformedComponentsFilter
     - operation: subspace
       axes: GRAD=drop
+    # The current undocumented addSpacingAxis operation only works as a
+    # postprocess step, but having multiple postprocess steps doesn't work. So
+    # we'll use exec
+    - operation: exec
+      exe: gftools-gen-spac
+      args: $in -20 40 --out $out
     - operation: fix
     # Must be done as a post-processing step if stat is defined per-font,
     # otherwise can be either an operation or postprocess
