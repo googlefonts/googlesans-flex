@@ -6,6 +6,14 @@ FAMILY=$(shell python3 scripts/read-config.py --family )
 DRAWBOT_SCRIPTS=$(shell ls documentation/*.py)
 DRAWBOT_OUTPUT=$(shell ls documentation/*.py | sed 's/\.py/.png/g')
 
+# Note: if the font's file name is changing for any reason, also check to make
+# sure sources/config.yaml is up-to-date!
+# ALL_AXES: all the axes the font has, in order, comma separated, within [square
+# brackets]
+ALL_AXES=[ROND,opsz,slnt,wdth,wght]
+VF_NAME=GoogleSansFlex$(ALL_AXES).ttf
+VF_PATH=fonts/variable/$(VF_NAME)
+
 help:
 	@echo "###"
 	@echo "# Build targets for $(FAMILY)"
@@ -26,7 +34,7 @@ build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 # https://github.com/source-foundry/font-v/issues/169. Just skip it.
 	if [ -z "${SKIP_FONTV}" ]; then $(UV_RUN) font-v write --sha1 fonts/variable/*.ttf; fi
 	$(UV_RUN) scripts/prune_font_binary.py fonts/variable/*.ttf
-	$(UV_RUN) scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	$(UV_RUN) scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt $(VF_PATH)
 	touch build.stamp
 
 test: build.stamp
@@ -35,29 +43,28 @@ test: build.stamp
 android: build.stamp
 	mkdir -p fonts/android
 	-@rm fonts/android/*.ttf
-	$(UV_RUN) scripts/set_ymin_ymax.py \
+	$(UV_RUN) scripts/set_ymin_ymax.py $(VF_PATH) \
 		--ymin -605 --ymax 2007 \
-		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
-		--output fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+		--output fonts/android/$(VF_NAME)
 	$(UV_RUN) scripts/prune_hvar.py \
-		fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+		fonts/android/$(VF_NAME)
 	$(UV_RUN) scripts/prune_BASE.py \
-		fonts/android/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+		fonts/android/$(VF_NAME)
 
 figma: build.stamp
 	mkdir -p fonts/figma
 	-@rm fonts/figma/*.ttf
 	$(UV_RUN) gftools-rename-font \
-		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
+		fonts/variable/$(VF_NAME) \
 		--suffix \
 		" Variable" \
-		-o fonts/figma/GoogleSansFlexVariable[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+		-o fonts/figma/GoogleSansFlexVariable$(ALL_AXES).ttf
 
 workspace: build.stamp
 	-@rm fonts/workspace/*.ttf
 	-@rm fonts/tv/*.ttf
 	$(UV_RUN) scripts/cut_instances.py \
-		fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf \
+		fonts/variable/$(VF_NAME) \
 		fonts/workspace
 	mkdir -p fonts/tv
 	mv fonts/workspace/GoogleSansFlexTV[wght].ttf fonts/tv
@@ -70,7 +77,7 @@ COLLIDOSCOPE_OPTS = fontbakery \
 	--html out/fontbakery/fontbakery-collidoscope-report.html \
 	--configuration qa/fontbakery.config \
 	-c shaping/collides \
-	fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	fonts/variable/$(VF_NAME)
 
 run-collidoscope: build.stamp
 	mkdir -p out/fontbakery
@@ -94,7 +101,9 @@ update-project-template:
 	npx update-template https://github.com/googlefonts/googlefonts-project-template/
 
 update-glyphset-expectations:
-	$(UV_RUN) scripts/gs-update-glyphset-qa-files.py
+	$(UV_RUN) scripts/gs-update-glyphset-qa-files.py \
+		--vf-path $(VF_PATH) \
+		--figma-path fonts/figma/GoogleSansFlexVariable$(ALL_AXES).ttf
 
 update-shaping-expectations:
 	$(UV_RUN) bash -c "cd qa && bash update_all_shaping.sh"
@@ -107,7 +116,7 @@ font-size: build
 	find fonts -name '*.ttf' -type f | xargs uvx font-size
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::group::'gvar' size report, by glyph"
-	uv run --with fonttools --with rich scripts/gvar_by_glyph.py fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	uv run --with fonttools --with rich scripts/gvar_by_glyph.py $(VF_PATH)
 	-@[ -n "${GITHUB_RUN_ID}" ] && echo "::endgroup::"
 
 bump-to-tag:
@@ -119,13 +128,16 @@ glyph-hunt:
 shaperglot: build
 	mkdir -p out
 # Report coverage of all languages
-	uvx shaperglot report --group fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	uvx shaperglot report --group $(VF_PATH)
 	@echo "\nChecking against the target language list"
 # Report coverage of target languages
-	@xargs uvx shaperglot check fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf < qa/target_langs.txt
+	@xargs uvx shaperglot check $(VF_PATH) < qa/target_langs.txt
 
 autobase: build
 	cargo binstall --no-confirm autobase-cli || cargo install --locked autobase-cli
-	autobase --min-max --config sources/autobase.toml --words 1000000 fonts/variable/GoogleSansFlex[GRAD,ROND,opsz,slnt,wdth,wght].ttf
+	autobase --min-max --config sources/autobase.toml --words 1000000 $(VF_PATH)
 
-.PHONY: release autobase
+print-vf-path:
+	@echo $(VF_PATH)
+
+.PHONY: release autobase print-vf-path
