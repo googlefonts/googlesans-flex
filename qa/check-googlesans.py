@@ -21,6 +21,7 @@
 # ]
 # ///
 
+import re
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
@@ -45,18 +46,13 @@ from fontspectorapi.utils import (
 )
 from fontTools.ttLib import TTFont
 
-# Each VF we build will have one of these suffixes depending on whether it
-# includes the full designspace or is restricted to upright or italic only.
-SUFFIX_FULL_VF = "[GRAD,ROND,opsz,slnt,wdth,wght]"
-SUFFIX_PARTIAL_VF = "[GRAD,ROND,opsz,wdth,wght]"
-SUFFIX_WORKSPACE_WEIGHT_ONLY_VF = "[wght]"
-
 AXIS_DEFAULTS = {
     "opsz": 18,
     "wdth": 100,
     "wght": 400,
     "ROND": 0,
     "GRAD": 0,
+    "slnt": 0,
 }
 
 AXIS_NAMES = {
@@ -65,24 +61,7 @@ AXIS_NAMES = {
     "wdth": "Width",
     "wght": "Weight",
     "GRAD": "Grade",
-}
-
-AXIS_DEFAULTS_FULL_VF = {
-    **AXIS_DEFAULTS,
-    "slnt": 0,
-}
-
-AXIS_NAMES_FULL_VF = {
-    **AXIS_NAMES,
     "slnt": "Slant",
-}
-
-AXIS_DEFAULTS_WORKSPACE = {
-    "wght": 400,
-}
-
-AXIS_NAMES_WORKSPACE = {
-    "wght": "Weight",
 }
 
 # Global Google Sans attributes, in 1000 upM font units. Most values are now in
@@ -108,6 +87,8 @@ GS_FONTUNIT_ATTRIBUTES_ITALIC = {
 GS_CREATION_DATE = datetime(
     year=2017, month=7, day=6, hour=9, minute=41, second=44, tzinfo=UTC
 )
+
+AXES_RE = re.compile(r".*\[(?P<axes>.+)\]")
 
 # ================================================
 #
@@ -246,8 +227,8 @@ def head_created(font_path: Path) -> CheckStatuses:
     id="vf/fvaraxes",
     title="Ensure all expected axes are present",
     rationale="""
-    Confirms that the variable font format builds include
-    all expected axis tags
+    Confirms that variable fonts contain the axes their file name suggests they
+    do.
     """,
 )
 def variable_fvar_axes(font_path: Path) -> CheckStatuses:
@@ -257,24 +238,21 @@ def variable_fvar_axes(font_path: Path) -> CheckStatuses:
         yield SKIP, "Not a VF"
         return
 
-    font_name = font_path.name
-    if SUFFIX_FULL_VF in font_name:
-        expected_fvar_axes = AXIS_DEFAULTS_FULL_VF.keys()
-    elif SUFFIX_PARTIAL_VF in font_name:
-        expected_fvar_axes = AXIS_DEFAULTS.keys()
-    elif SUFFIX_WORKSPACE_WEIGHT_ONLY_VF in font_name:
-        expected_fvar_axes = AXIS_DEFAULTS_WORKSPACE.keys()
-    else:
-        raise ValueError("Unknown variable font build")
-    observed_axis_list = {axis.axisTag for axis in fvar.axes}
+    re_match = AXES_RE.fullmatch(font_path.stem)
+    if re_match is None:
+        yield FAIL, "axes tags are not included in the file name"
+        return
 
-    if observed_axis_list != expected_fvar_axes:
+    file_name_axis_tags = set(re_match.group("axes").split(","))
+    fvar_axis_tags = {axis.axisTag for axis in fvar.axes}
+
+    if file_name_axis_tags != fvar_axis_tags:
         yield (
             FAIL,
             (
                 f"Font does not include the correct axis tags. \n"
-                f"Observed: {observed_axis_list}\n"
-                f"Expected: {expected_fvar_axes}"
+                f"File name: {sorted(file_name_axis_tags)}\n"
+                f"fvar: {sorted(fvar_axis_tags)}"
             ),
         )
     else:
@@ -288,34 +266,24 @@ def variable_fvar_axes(font_path: Path) -> CheckStatuses:
 )
 def axis_names(font_path: Path) -> CheckStatuses:
     ttf = TTFont(font_path)
-    font_name = font_path.name
 
     names = ttf["name"]
     if (fvar := ttf.get("fvar")) is None:
         yield SKIP, "Not a VF"
         return
 
-    if SUFFIX_FULL_VF in font_name:
-        axis_names = AXIS_NAMES_FULL_VF
-    elif SUFFIX_PARTIAL_VF in font_name:
-        axis_names = AXIS_NAMES
-    elif SUFFIX_WORKSPACE_WEIGHT_ONLY_VF in font_name:
-        axis_names = AXIS_NAMES_WORKSPACE
-    else:
-        raise Exception("Unknown variable font build")
-
     for axis in fvar.axes:
-        name = names.getDebugName(axis.axisNameID)
-        expected = axis_names.get(axis.axisTag)
-        if expected is None:
-            yield FAIL, f"Font has unexpected axis tagged {axis.axisTag}"
-        elif name == expected:
-            yield PASS, f"Axis tagged {axis.axisTag} has expected name {expected}"
-        else:
+        actual_name = names.getDebugName(axis.axisNameID)
+        expected_name = AXIS_NAMES.get(axis.axisTag)
+        if expected_name is None:
+            yield FAIL, f"Font has unexpected axis: {actual_name} ({axis.axisTag})"
+        elif actual_name != expected_name:
             yield (
                 FAIL,
-                f"Axis tagged {axis.axisTag} has name {name} but should be named {expected}",
+                f"Axis tagged {axis.axisTag} has name {actual_name} but should be named {expected_name}",
             )
+        else:
+            yield PASS, f"Axis tagged {axis.axisTag} has expected name {expected_name}"
 
 
 @check(
@@ -333,32 +301,25 @@ def fvar_default(font_path: Path) -> CheckStatuses:
         yield SKIP, "Not a VF"
         return
 
-    font_name = font_path.name
-    if SUFFIX_FULL_VF in font_name:
-        expected_fvar_axes = AXIS_DEFAULTS_FULL_VF
-    elif SUFFIX_PARTIAL_VF in font_name:
-        expected_fvar_axes = AXIS_DEFAULTS
-    elif SUFFIX_WORKSPACE_WEIGHT_ONLY_VF in font_name:
-        expected_fvar_axes = AXIS_DEFAULTS_WORKSPACE
-    else:
-        raise Exception("Unknown variable font build")
-
     for axis in fvar.axes:
-        tag = axis.axisTag
-        expected = expected_fvar_axes.get(tag)
+        actual = axis.defaultValue
+        expected = AXIS_DEFAULTS.get(axis.axisTag)
         if expected is None:
-            yield FAIL, f"Font has unexpected axis tagged {tag}"
-        elif axis.defaultValue != expected:
+            yield FAIL, f"Font has unexpected axis {axis.axisTag}"
+        elif actual != expected:
             yield (
                 FAIL,
                 (
-                    f"Font does not include the correct "
-                    f"fvar {tag} axis default.\n"
-                    f"Found: `{axis.defaultValue}` and expected `{expected}`"
+                    "Font does not include the correct "
+                    f"fvar {axis.axisTag} axis default.\n"
+                    f"Found: `{actual}` and expected `{expected}`"
                 ),
             )
         else:
-            yield PASS, f"Font contains the expected fvar {tag} default."
+            yield (
+                PASS,
+                f"Font contains the expected fvar {axis.axisTag} default ({actual}).",
+            )
 
 
 @check(

@@ -47,6 +47,8 @@ exclude_checks = [
     # google-fonts-axisregistry with this merged:
     # https://github.com/googlefonts/axisregistry/pull/216
     "googlefonts/fvar_instances",
+    # The instances we cut give this check a lot of ammunition
+    "typographic_family_name",
 ]
 
 [sections]

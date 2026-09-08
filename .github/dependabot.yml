@@ -1,6 +1,8 @@
 version: 2
 updates:
   # GitHub Actions dependencies
+  # https://docs.github.com/en/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories#github-actions
+  # https://docs.github.com/en/actions/reference/security/secure-use#keeping-the-actions-in-your-workflows-secure-and-up-to-date
   - package-ecosystem: "github-actions"
     directories:
       - "/"
@@ -10,3 +12,6 @@ updates:
     schedule:
       interval: "daily"
       time: "00:00"
+    # Recommended by zizmor: https://docs.zizmor.sh/audits/#dependabot-cooldown
+    cooldown:
+      default-days: 7

@@ -176,7 +176,7 @@ if __name__ == "__main__":
         shaping_input_doc["output"] = {}
 
     font: TTFont
-    for font in parsed_args.fonts:
+    for font in sorted(parsed_args.fonts, key=lambda ttf: ttf.reader.file.name):
         filename = Path(font.reader.file.name)
         with open(filename, "rb") as fontfile:
             hb_face = hb.Face(fontfile.read())
