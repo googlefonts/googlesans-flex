@@ -38,7 +38,15 @@ build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 	touch build.stamp
 
 test: build.stamp
-	@scripts/fontbakery.sh
+	which fontspector || \
+		(echo "fontspector not found. Please install it with 'cargo install fontspector'." && exit 1)
+	@mkdir -p out/fontspector
+	$(UV_RUN) fontspector \
+		--loglevel warn --succinct --full-lists \
+		--html out/fontspector/fontspector-googlesans-report.html \
+		--plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py,qa/check-sources.py \
+		--profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
+		fonts/**/*.ttf sources/GoogleSansFlex.glyphspackage
 
 android: build.stamp
 	mkdir -p fonts/android

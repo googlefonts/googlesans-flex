@@ -47,9 +47,13 @@ GLYPH_DEFS_DIR = Path("qa", "definitions")
     match.
     """,
     runs_on_collection=True,
+    applies_to="TTF",
 )
 def glyphset_contents(font_paths: list[Path]) -> CheckStatuses:
     for font_path in font_paths:
+        if font_path.suffix != ".ttf":
+            yield SKIP, "Not a font."
+            continue
         ttf = TTFont(font_path)
 
         if "Google Sans Flex TV" in ttf["name"].getDebugName(1):  # type: ignore
