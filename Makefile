@@ -29,12 +29,6 @@ build: build.stamp
 
 build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 	rm -rf fonts/
-	$(UV_RUN) fontspector \
-		--loglevel warn --succinct --full-lists \
-		--html out/fontspector/source-checks-report.html \
-		--plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py,qa/check-sources.py \
-		--profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
-		sources/GoogleSansFlex.glyphspackage
 	$(UV_RUN) gftools builder --experimental-fontc $(shell uv run --with-requirements requirements.txt which fontc) sources/config.yaml
 # Font-v cannot deal with worktrees, which we use for imports. See
 # https://github.com/source-foundry/font-v/issues/169. Just skip it.
@@ -42,6 +36,17 @@ build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 	$(UV_RUN) scripts/prune_font_binary.py fonts/variable/*.ttf
 	$(UV_RUN) scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt $(VF_PATH)
 	touch build.stamp
+
+test-sources:
+	which fontspector || \
+		(echo "fontspector not found. Please install it with 'cargo install fontspector'." && exit 1)
+	@mkdir -p out/fontspector
+	$(UV_RUN) fontspector \
+		--loglevel warn --succinct --full-lists \
+		--html out/fontspector/source-checks-report.html \
+		--plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py,qa/check-sources.py \
+		--profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
+		sources/GoogleSansFlex.glyphspackage
 
 test: build.stamp
 	which fontspector || \
@@ -154,4 +159,4 @@ autobase: build
 print-vf-path:
 	@echo $(VF_PATH)
 
-.PHONY: release autobase print-vf-path
+.PHONY: release autobase print-vf-path test-sources
