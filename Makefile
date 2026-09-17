@@ -29,6 +29,12 @@ build: build.stamp
 
 build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 	rm -rf fonts/
+	$(UV_RUN) fontspector \
+		--loglevel warn --succinct --full-lists \
+		--html out/fontspector/source-checks-report.html \
+		--plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py,qa/check-sources.py \
+		--profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
+		sources/GoogleSansFlex.glyphspackage
 	$(UV_RUN) gftools builder --experimental-fontc $(shell uv run --with-requirements requirements.txt which fontc) sources/config.yaml
 # Font-v cannot deal with worktrees, which we use for imports. See
 # https://github.com/source-foundry/font-v/issues/169. Just skip it.
@@ -45,8 +51,8 @@ test: build.stamp
 		--loglevel warn --succinct --full-lists \
 		--html out/fontspector/fontspector-googlesans-report.html \
 		--plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py,qa/check-sources.py \
-		--profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
-		fonts/**/*.ttf sources/GoogleSansFlex.glyphspackage
+		--profile qa/googlesans-profile.toml \
+		fonts/**/*.ttf
 
 android: build.stamp
 	mkdir -p fonts/android
