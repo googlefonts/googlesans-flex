@@ -37,8 +37,27 @@ build.stamp: requirements.txt sources/config.yaml $(SOURCES)
 	$(UV_RUN) scripts/set-overlap-bits.py sources/glyphs-with-overlap.txt $(VF_PATH)
 	touch build.stamp
 
+test-sources:
+	which fontspector || \
+		(echo "fontspector not found. Please install it with 'cargo install fontspector'." && exit 1)
+	@mkdir -p out/fontspector
+	$(UV_RUN) fontspector \
+		--loglevel warn --succinct --full-lists \
+		--html out/fontspector/source-checks-report.html \
+		--plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py,qa/check-sources.py \
+		--profile qa/googlesans-profile.toml --configuration qa/googlesans-config.toml \
+		sources/GoogleSansFlex.glyphspackage
+
 test: build.stamp
-	@scripts/fontbakery.sh
+	which fontspector || \
+		(echo "fontspector not found. Please install it with 'cargo install fontspector'." && exit 1)
+	@mkdir -p out/fontspector
+	$(UV_RUN) fontspector \
+		--loglevel warn --succinct --full-lists \
+		--html out/fontspector/fontspector-googlesans-report.html \
+		--plugin qa/check-charset.py,qa/check-fea.py,qa/check-googlesans.py,qa/check-sources.py \
+		--profile qa/googlesans-profile.toml \
+		fonts/**/*.ttf
 
 android: build.stamp
 	mkdir -p fonts/android
@@ -140,4 +159,4 @@ autobase: build
 print-vf-path:
 	@echo $(VF_PATH)
 
-.PHONY: release autobase print-vf-path
+.PHONY: release autobase print-vf-path test-sources
