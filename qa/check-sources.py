@@ -1,4 +1,4 @@
-#!/usr/bin/env -S uv run --script
+#!/usr/bin/env python
 #
 # Copyright 2026 Google Sans Authors
 #
@@ -13,15 +13,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-# /// script
-# requires-python = ">=3.11"
-# dependencies = [
-#     "fontspectorapi",
-#     "glyphsLib",
-# ]
-# ///
-
 
 from __future__ import annotations
 
