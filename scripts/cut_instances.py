@@ -45,6 +45,7 @@ class GoogleSansFlexInstance(TypedDict):
     wdth: int
     opsz: int | str
     ROND: int | str
+    SPAC: int | str
     slnt: int | str
 
 
@@ -483,6 +484,7 @@ def main(args: list[str] | None = None) -> int:
                 # Restrict weight axis to between 100 & 900, default to 400
                 "wght": "100:400:900",
                 "slnt": -10 if italic else 0,
+                "SPAC": 0,
                 **workspace_instance,
             }  # type: ignore
 
