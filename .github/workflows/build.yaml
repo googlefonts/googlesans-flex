@@ -40,13 +40,31 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
     - name: Set up uv and enable caching
-      uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
+      uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7  # v10.2.0
       with:
         # https://docs.zizmor.sh/audits/#cache-poisoning
         enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
         cache-dependency-glob: |
           requirements*.txt
           requirements*.in
+    - name: Setup Fontspector
+      uses: fonttools/setup-fontspector@d53404291dc78a5a41cf76ea48e1d13a731fb812  # main
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Test the font sources
+      id: fontspector-sources
+      run: make test-sources
+    - name: Upload Fontspector report
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+      # Always upload reports (even during a pipeline fail), so long as Fontspector completed
+      # https://docs.github.com/en/actions/learn-github-actions/expressions#always
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+      if: ${{ !cancelled() && (steps.fontspector-sources.conclusion == 'success' || steps.fontspector-sources.conclusion == 'failure') }}
+      with:
+        name: Fontspector source report
+        path: |
+          out/fontspector
+        if-no-files-found: error
     - name: Bump sources version to release tag version
       if: github.event_name == 'release'
       run: make bump-to-tag
@@ -82,7 +100,7 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
     - name: Set up uv and enable caching
-      uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
+      uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7  # v10.2.0
       with:
         # https://docs.zizmor.sh/audits/#cache-poisoning
         enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
@@ -162,7 +180,7 @@ jobs:
       with:
         python-version-file: .github/workflows/python-version.txt
     - name: Set up uv and enable caching
-      uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
+      uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7  # v10.2.0
       with:
         # https://docs.zizmor.sh/audits/#cache-poisoning
         enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
@@ -194,7 +212,7 @@ jobs:
     - name: Run Fontspector
       id: fontspector
       shell: bash
-      run: scripts/fontbakery.sh
+      run: make test
     - name: Upload Fontspector report
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
       # Always upload reports (even during a pipeline fail), so long as Fontspector completed
@@ -204,7 +222,6 @@ jobs:
       with:
         name: Fontspector report
         path: |
-          out/fontspector
           out/fontspector
         if-no-files-found: error
   test-instances:
@@ -224,7 +241,7 @@ jobs:
       with:
         python-version-file: ./.github/workflows/python-version.txt
     - name: Set up uv and enable caching
-      uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
+      uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7  # v10.2.0
       with:
         # https://docs.zizmor.sh/audits/#cache-poisoning
         enable-cache: ${{ !startsWith(github.ref, 'refs/tags/') }}
@@ -268,9 +285,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Fontspector
       id: fontspector-workspace
-      env:
-        SKIP_SOURCES: 1
-      run: scripts/fontbakery.sh
+      run: make test
     - name: Upload Fontspector report
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
       # Always upload reports (even during a pipeline fail), so long as Fontspector completed
