@@ -1,5 +1,33 @@
 # Google Sans Flex Changelog
 
+## Version 5.000 (2026-10-09)
+
+### New
+
+- New Optical Size axis area at Optical Size 1-6,  
+- New sources added at Optical Size = 9 (design matches closely the design of previous version)
+
+### Changed
+
+- Removal of grade axis (kept in the sources)
+- Removed all sources at Optical Size 6, design there updated via interpolation
+- Improved design at small optical size
+- Minor design changes to 6, 9, six small figure and nine small figure
+- Minor kerning fixes, might cause very slight reflow at Optical Size 9
+- Minor changes to the tail in Q
+- Minor path fixes in several glyphs: Schwa, schwa, x, Tcedilla, G,
+- Minor fixes in vertical bars of ¢ ฿ and $
+- Change of structure of eth glyph to reduce the amount of brace layers
+- Minor fixes in rounding design of f in some masters
+- Minor position correction of inferior figures at Optical Size 9-18,
+- Addition of anchors in *.horn glyphs to enforce accent alignment
+- Fixed issue of mixed curves in Riyal and Riyal.tf
+
+### Production
+
+- Handle soft-dotting for the idotbelow #1318 
+
+
 ## Version 4.007 (2026-08-21)
 
 ### New
