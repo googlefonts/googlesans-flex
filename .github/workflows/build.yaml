@@ -364,7 +364,7 @@ jobs:
         ANDROID_ZIP_NAME="GoogleSansFlex-${GITHUB_REF#refs/*/} Android.zip"
         cd "$GITHUB_WORKSPACE/${ANDROID_ARTIFACT}"
         # Rename file to match what Android's already using (regardless as to how representative the name is)
-        mv "$(make print-vf-name)" GoogleSansFlex-Regular.ttf
+        mv "$(make print-vf-path)" GoogleSansFlex-Regular.ttf
         zip -9 "../$ANDROID_ZIP_NAME" *.ttf *.md
     
         cd "$GITHUB_WORKSPACE"
