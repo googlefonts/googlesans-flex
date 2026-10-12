@@ -12,7 +12,7 @@ The Google Sans Flex project is developed in a six axis design space with one '.
 - `wght`: range 1 to 1000; default=400
 - `wdth`: range 25 to 151; default=100
 - `slnt`: range -10 to 0; default=0. 
-- `opsz`: range 6 to 144; default=18. 
+- `opsz`: range 1 to 144; default=18. 
 - `GRAD`: range 0 to 100; default=0
 - `ROND`: range 0 to 100; default=0
 

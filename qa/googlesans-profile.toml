@@ -66,3 +66,8 @@ exclude_checks = [
 code = "camelcase"
 status = "WARN"
 reason = "We are publishing to Google Fonts, but we are a unique case."
+
+[[overrides."googlefonts/axisregistry/fvar_axis_ranges"]]
+code = "min-out-of-range"
+status = "WARN"
+reason = "We are intentionally covering the Optical Size axis down to 1. All other axes and values should be compliant."
