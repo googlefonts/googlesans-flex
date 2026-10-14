@@ -66,6 +66,8 @@ fontmath==0.9.4
     # via
     #   fontmake
     #   ufo2ft
+fontspectorapi==1.7.0
+    # via -r requirements.in
 fonttools==4.63.0
     # via
     #   -r requirements.in
@@ -81,6 +83,7 @@ fonttools==4.63.0
     #   fontfeatures
     #   fontmake
     #   fontmath
+    #   fontspectorapi
     #   gftools
     #   glyphsets
     #   glyphslib
@@ -91,7 +94,6 @@ fonttools==4.63.0
     #   ufomerge
     #   vharfbuzz
     #   vttlib
-fontspectorapi==1.7.0
 future==1.0.0
     # via ffmpeg-python
 gflanguages==0.7.9
@@ -105,12 +107,14 @@ gfmetadata==0.2.5
     #   gftools
 gfsubsets==2024.9.25
     # via gftools
-gftools==0.9.997
+gftools==0.10.3
     # via -r requirements.in
 gitdb==4.0.12
     # via gitpython
 gitpython==3.1.45
-    # via font-v
+    # via
+    #   font-v
+    #   gftools
 glyphsets==1.1.0
     # via gftools
 glyphslib==6.11.6
