@@ -17,7 +17,7 @@ blackrenderer==0.6.0
     # via drawbot-skia
 booleanoperations==0.9.0
     # via ufo2ft
-brotli==1.1.0
+brotli==1.2.1
     # via gftools
 bump2version==1.0.1
     # via bumpfontversion
@@ -25,7 +25,7 @@ bumpfontversion==0.4.1
     # via -r requirements.in
 cattrs==25.2.0
     # via ufolib2
-certifi==2025.8.3
+certifi==2026.10.23
     # via requests
 cffi==1.17.1
     # via
@@ -66,6 +66,8 @@ fontmath==0.9.4
     # via
     #   fontmake
     #   ufo2ft
+fontspectorapi==1.7.0
+    # via -r requirements.in
 fonttools==4.63.0
     # via
     #   -r requirements.in
@@ -81,6 +83,7 @@ fonttools==4.63.0
     #   fontfeatures
     #   fontmake
     #   fontmath
+    #   fontspectorapi
     #   gftools
     #   glyphsets
     #   glyphslib
@@ -91,7 +94,6 @@ fonttools==4.63.0
     #   ufomerge
     #   vharfbuzz
     #   vttlib
-fontspectorapi==1.7.0
 future==1.0.0
     # via ffmpeg-python
 gflanguages==0.7.9
@@ -109,7 +111,7 @@ gftools==0.9.997
     # via -r requirements.in
 gitdb==4.0.12
     # via gitpython
-gitpython==3.1.45
+gitpython==3.2.1
     # via font-v
 glyphsets==1.1.0
     # via gftools
@@ -170,7 +172,7 @@ packaging==25.0
     #   matplotlib
 picosvg==0.22.3
     # via nanoemoji
-pillow==11.3.0
+pillow==13.0.0
     # via
     #   gftools
     #   matplotlib
@@ -195,7 +197,7 @@ pygithub==2.8.1
     # via gftools
 pygments==2.19.2
     # via rich
-pyjwt==2.10.1
+pyjwt==2.15.1
     # via pygithub
 pynacl==1.5.0
     # via pygithub
