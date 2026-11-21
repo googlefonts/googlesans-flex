@@ -7,7 +7,7 @@ recipe:
   # If you're updating this, please also update the variables at the top of the
   # Makefile! Look for ALL_AXES, VF_NAME, and VF_PATH and make sure they match
   # this (without the leading ../).
-  ../fonts/variable/GoogleSansFlex[ROND,opsz,slnt,wdth,wght].ttf:
+  ../fonts/variable/GoogleSansFlex[ROND,SPAC,opsz,slnt,wdth,wght].ttf:
     - source: GoogleSansFlex.glyphspackage
     - operation: buildVariable
       args: >-
@@ -17,7 +17,10 @@ recipe:
     - operation: subspace
       axes: GRAD=drop
     - operation: fix
-    # Must be done as a post-processing step if stat is defined per-font,
+    # Must be done as a post-processing step if STAT is defined per-font,
     # otherwise can be either an operation or postprocess
-    - postprocess: buildStat
+    - operation: buildStat
       args: --src STAT.yaml
+    - postprocess: addSpacingAxis
+      max: 230
+      userMax: 100
